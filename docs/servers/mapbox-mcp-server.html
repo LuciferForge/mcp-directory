@@ -678,6 +678,46 @@ a.value-prop { color: inherit; }
 
 .related-servers { margin-bottom: 60px; }
 
+/* CTA banner */
+.cta-banner {
+    text-align: center;
+    padding: 56px 24px;
+    margin: 40px 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+}
+.cta-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.cta-banner h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+.cta-banner p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 480px;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
 /* Popular search chips */
 .search-chips {
     display: flex;
@@ -956,7 +996,7 @@ footer {
         <span class="meta-item">★ 315 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</span>
         <span class="meta-item">🧠 Memory/Knowledge</span>
-        <span class="meta-item">Updated 6d ago</span>
+        <span class="meta-item">Updated 7d ago</span>
     </div>
 
     <div class="detail-desc">Mapbox Model Context Protocol (MCP) server</div>

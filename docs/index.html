@@ -678,6 +678,46 @@ a.value-prop { color: inherit; }
 
 .related-servers { margin-bottom: 60px; }
 
+/* CTA banner */
+.cta-banner {
+    text-align: center;
+    padding: 56px 24px;
+    margin: 40px 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+}
+.cta-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.cta-banner h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+.cta-banner p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 480px;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
 /* Popular search chips */
 .search-chips {
     display: flex;
@@ -1260,6 +1300,17 @@ footer {
             <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
         </div>
     </a>
+    </div>
+</section>
+
+<section class="container">
+    <div class="cta-banner">
+        <h2>Can't find what you're looking for?</h2>
+        <p>Tell us what MCP server you need. We'll help you find it — or flag it as a gap the community can fill.</p>
+        <div class="cta-buttons">
+            <a href="https://github.com/LuciferForge/mcp-directory/discussions/new?category=ideas&title=Looking+for:+&body=I'm+looking+for+an+MCP+server+that..." target="_blank" rel="noopener" class="btn">Request a Server</a>
+            <a href="/submit.html" class="btn btn-outline">Submit Your Server</a>
+        </div>
     </div>
 </section>
 
