@@ -109,11 +109,15 @@ header .container {
 }
 .logo-tagline {
     font-size: 0.6rem;
-    color: var(--text-dim);
+    color: var(--text-muted);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     font-weight: 600;
     margin-top: 2px;
+    background: linear-gradient(90deg, var(--text-muted), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 nav { display: flex; gap: 8px; align-items: center; }
 nav a {

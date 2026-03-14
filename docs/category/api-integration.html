@@ -109,11 +109,15 @@ header .container {
 }
 .logo-tagline {
     font-size: 0.6rem;
-    color: var(--text-dim);
+    color: var(--text-muted);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     font-weight: 600;
     margin-top: 2px;
+    background: linear-gradient(90deg, var(--text-muted), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 nav { display: flex; gap: 8px; align-items: center; }
 nav a {
@@ -1499,7 +1503,7 @@ footer {
         <td class="desc-cell">MCP server for Shopify api, usable on mcp hosts such as Claude and Cursor</td>
         <td class="stars-cell">★ 147</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">63</td>
