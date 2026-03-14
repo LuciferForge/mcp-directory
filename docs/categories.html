@@ -81,27 +81,40 @@ header .container {
     justify-content: space-between;
 }
 .logo {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo:hover { text-decoration: none; }
+.logo-icon { flex-shrink: 0; }
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+.logo-name {
+    font-size: 1.2rem;
+    font-weight: 900;
     letter-spacing: -0.5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    color: var(--text);
+    text-transform: lowercase;
 }
-.logo-icon {
-    width: 28px;
-    height: 28px;
-    background: linear-gradient(135deg, var(--accent), #EC4899);
-    border-radius: 7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: #fff;
+.logo-name .lo-proto {
+    color: var(--text);
+    font-weight: 400;
 }
-.logo span { color: var(--accent); }
-.logo:hover { text-decoration: none; color: var(--text); }
+.logo-name .lo-dex {
+    color: var(--accent);
+    font-weight: 900;
+}
+.logo-tagline {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 2px;
+}
 nav { display: flex; gap: 8px; align-items: center; }
 nav a {
     color: var(--text-muted);
@@ -961,8 +974,11 @@ footer {
 <header>
     <div class="container">
         <a href="/" class="logo">
-            <div class="logo-icon">P</div>
-            <span>Proto</span>dex
+            <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#8B5CF6"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs></svg>
+            <div class="logo-text">
+                <span class="logo-name"><span class="lo-proto">proto</span><span class="lo-dex">dex</span></span>
+                <span class="logo-tagline">MCP Server Index</span>
+            </div>
         </a>
         <nav>
             <a href="/">Explore</a>
@@ -1055,7 +1071,7 @@ footer {
         <div class="footer-inner">
             <div class="footer-brand">
                 <a href="/" class="logo">
-                    <div class="logo-icon">P</div>
+                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#8B5CF6"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs></svg>
                     <span>Proto</span>dex
                 </a>
                 <p>The largest index of MCP servers. Helping developers find the right tools for AI-powered workflows.</p>
