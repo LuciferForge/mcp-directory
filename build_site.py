@@ -12,7 +12,7 @@ from datetime import datetime
 from html import escape
 from urllib.parse import quote
 
-SITE_DIR = os.path.join(os.path.dirname(__file__), "site")
+SITE_DIR = os.path.join(os.path.dirname(__file__), "docs")
 DATA_FILE = os.path.join(os.path.dirname(__file__), "mcp_directory.json")
 DOMAIN = "protodex.io"
 SITE_URL = f"https://{DOMAIN}"
