@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Integration MCP Servers — 102 Model Context Protocol Servers | Protodex</title>
+    <meta name="description" content="MCP servers that connect to third-party APIs, webhooks, and external services.">
+    <meta property="og:title" content="API Integration MCP Servers — 102 Model Context Protocol Servers | Protodex">
+    <meta property="og:description" content="MCP servers that connect to third-party APIs, webhooks, and external services.">
+    <meta property="og:url" content="https://protodex.io/category/api-integration.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Protodex">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="API Integration MCP Servers — 102 Model Context Protocol Servers | Protodex">
+    <meta name="twitter:description" content="MCP servers that connect to third-party APIs, webhooks, and external services.">
+    <link rel="canonical" href="https://protodex.io/category/api-integration.html">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #09090b;
+    --bg-card: #131316;
+    --bg-card-hover: #1a1a1f;
+    --bg-hover: #18181b;
+    --border: #27272a;
+    --border-hover: #3f3f46;
+    --text: #fafafa;
+    --text-muted: #a1a1aa;
+    --text-dim: #71717a;
+    --accent: #8B5CF6;
+    --accent-hover: #7C3AED;
+    --accent-glow: rgba(139, 92, 246, 0.15);
+    --accent-soft: rgba(139, 92, 246, 0.08);
+    --green: #22C55E;
+    --yellow: #FACC15;
+    --blue: #60A5FA;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    --radius: 10px;
+    --radius-lg: 16px;
+    --max-w: 1200px;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
+a:hover { color: var(--accent-hover); }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+header {
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    z-index: 100;
+}
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.logo-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--accent), #EC4899);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #fff;
+}
+.logo span { color: var(--accent); }
+.logo:hover { text-decoration: none; color: var(--text); }
+nav { display: flex; gap: 8px; align-items: center; }
+nav a {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.15s;
+}
+nav a:hover { color: var(--text); background: var(--bg-hover); text-decoration: none; }
+nav a.nav-cta {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+}
+nav a.nav-cta:hover { background: var(--accent-hover); }
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 100px 0 48px;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.12) 0%, rgba(139, 92, 246, 0.04) 40%, transparent 70%);
+    pointer-events: none;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(rgba(139, 92, 246, 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+}
+.hero-badge .pulse {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+    50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+}
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    line-height: 1.05;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero h1 .gradient {
+    background: linear-gradient(135deg, var(--accent) 0%, #EC4899 50%, var(--accent) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 6s ease-in-out infinite;
+}
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+}
+.hero-sub {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.hero-sub span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Search */
+.search-wrap {
+    max-width: 580px;
+    margin: 0 auto;
+    position: relative;
+}
+.search-wrap input {
+    width: 100%;
+    padding: 16px 20px 16px 48px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm), 0 0 0 0 var(--accent-glow);
+}
+.search-wrap input:focus {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md), 0 0 0 4px var(--accent-glow);
+}
+.search-wrap input::placeholder { color: var(--text-dim); font-weight: 400; }
+.search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+    font-size: 1rem;
+    pointer-events: none;
+}
+.search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    max-height: 420px;
+    overflow-y: auto;
+    display: none;
+    z-index: 200;
+    box-shadow: var(--shadow-lg);
+}
+.search-results.active { display: block; }
+.search-result-item {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.1s;
+}
+.search-result-item:hover { background: var(--bg-card-hover); text-decoration: none; }
+.search-result-item:first-child { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.search-result-item:last-child { border-bottom: none; border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+.search-result-name { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+.search-result-desc { color: var(--text-dim); font-size: 0.8rem; margin-top: 3px; }
+.search-result-meta { color: var(--text-dim); font-size: 0.8rem; white-space: nowrap; margin-left: 16px; }
+
+/* Stats bar */
+.stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 72px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+.stat {
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 32px;
+    min-width: 150px;
+    transition: all 0.2s;
+}
+.stat:hover { border-color: var(--border-hover); transform: translateY(-1px); }
+.stat-num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* Value props */
+.value-props {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 72px;
+}
+.value-prop {
+    text-align: center;
+    padding: 32px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    transition: all 0.2s;
+}
+.value-prop:hover { border-color: var(--border-hover); text-decoration: none; transform: translateY(-2px); box-shadow: var(--shadow-md); }
+a.value-prop { color: inherit; }
+.value-prop-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+.value-prop h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.value-prop p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Section titles */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+}
+
+/* Category grid */
+.cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 72px;
+}
+.cat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+.cat-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-radius: 3px 0 0 3px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.cat-card:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.cat-card:hover::before { opacity: 1; }
+.cat-icon { font-size: 1.5rem; }
+.cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
+.cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
+
+/* Server cards (grid) */
+.server-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
+    margin-bottom: 60px;
+}
+.server-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.server-card:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.server-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+.server-card-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text);
+    word-break: break-word;
+}
+.server-card-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--yellow);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    font-weight: 600;
+}
+.server-card-desc {
+    color: var(--text-muted);
+    font-size: 0.84rem;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.server-card-footer {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    letter-spacing: 0.01em;
+}
+.tag-lang {
+    background: rgba(96, 165, 250, 0.08);
+    color: var(--blue);
+    border-color: rgba(96, 165, 250, 0.15);
+}
+.lang-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Server table (category pages) */
+.server-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+.server-table th {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+}
+.server-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+.server-table tr { transition: background 0.1s; }
+.server-table tr:hover { background: var(--bg-hover); }
+.server-table .name-cell a { font-weight: 600; }
+.server-table .desc-cell {
+    color: var(--text-muted);
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.85rem;
+}
+.server-table .stars-cell {
+    color: var(--yellow);
+    white-space: nowrap;
+    font-weight: 600;
+}
+.server-table .lang-cell { white-space: nowrap; }
+
+/* Server detail page */
+.server-detail { padding: 48px 0; }
+.breadcrumb {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+    font-weight: 500;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.detail-header { margin-bottom: 8px; }
+.detail-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    margin-bottom: 8px;
+    word-break: break-word;
+}
+.detail-repo {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-weight: 500;
+}
+.detail-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 24px 0 32px;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.detail-desc {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 700px;
+}
+.detail-section {
+    margin-bottom: 32px;
+}
+.detail-section h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+}
+.detail-readme {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.detail-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.tool-tag {
+    padding: 6px 14px;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.15);
+    color: var(--green);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: var(--mono);
+    font-weight: 500;
+}
+.detail-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+.sidebar-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+}
+.sidebar-card-label {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.sidebar-card-value {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.25);
+}
+.btn:hover {
+    background: var(--accent-hover);
+    text-decoration: none;
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35);
+}
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    box-shadow: none;
+}
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: none;
+    background: var(--accent-soft);
+}
+
+.related-servers { margin-bottom: 60px; }
+
+/* Popular search chips */
+.search-chips {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+.search-chips span.chips-label {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.chip {
+    padding: 5px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+    text-decoration: none;
+}
+
+/* Use case cards */
+.use-cases {
+    margin-bottom: 72px;
+}
+.use-case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+.use-case {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    transition: all 0.2s;
+    display: block;
+}
+.use-case:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+}
+.use-case-scenario {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+}
+.use-case-query {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--text);
+    font-weight: 500;
+}
+.use-case-query svg { color: var(--text-dim); flex-shrink: 0; }
+.use-case-result {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+.use-case-result strong { color: var(--accent); font-weight: 600; }
+.use-case-arrow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+/* Language pills row */
+.lang-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 72px;
+}
+.lang-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: all 0.15s;
+}
+.lang-pill:hover {
+    border-color: var(--border-hover);
+    color: var(--text);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+.lang-pill .lang-dot { width: 10px; height: 10px; }
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 0;
+    margin-top: 40px;
+}
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.footer-brand {
+    max-width: 300px;
+}
+.footer-brand .logo { margin-bottom: 12px; }
+.footer-brand p { color: var(--text-dim); font-size: 0.85rem; line-height: 1.6; }
+.footer-links { display: flex; gap: 48px; }
+.footer-col h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+.footer-col a {
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    padding: 3px 0;
+    transition: color 0.15s;
+}
+.footer-col a:hover { color: var(--text); text-decoration: none; }
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+    padding-top: 24px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero { padding: 60px 0 36px; }
+    .hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
+    .hero p { font-size: 1rem; }
+    .stats-bar { gap: 8px; }
+    .stat { padding: 16px 20px; min-width: 120px; }
+    .stat-num { font-size: 1.4rem; }
+    .value-props { grid-template-columns: 1fr; gap: 12px; }
+    .server-grid { grid-template-columns: 1fr; }
+    .cat-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .detail-sidebar { grid-template-columns: 1fr; }
+    .detail-title { font-size: 1.6rem; }
+    nav { gap: 4px; }
+    nav a { padding: 6px 10px; font-size: 0.8rem; }
+    .server-table { font-size: 0.8rem; }
+    .server-table .desc-cell { max-width: 200px; }
+    .footer-links { gap: 32px; }
+    .footer-inner { flex-direction: column; }
+    .hero-sub { gap: 12px; }
+}
+
+/* Page header (category/other pages) */
+.page-header {
+    padding: 56px 0 36px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+    position: relative;
+}
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, transparent 100%);
+    pointer-events: none;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    position: relative;
+}
+.page-header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 600px;
+    position: relative;
+}
+
+/* Submit page */
+.submit-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 0 80px;
+}
+.submit-content h2 { margin-bottom: 16px; font-weight: 700; }
+.submit-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.submit-content ol {
+    color: var(--text-muted);
+    padding-left: 24px;
+    margin-bottom: 32px;
+}
+.submit-content li { margin-bottom: 10px; line-height: 1.6; }
+</style>
+    
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="/" class="logo">
+            <div class="logo-icon">P</div>
+            <span>Proto</span>dex
+        </a>
+        <nav>
+            <a href="/">Explore</a>
+            <a href="/categories.html">Categories</a>
+            <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
+            <a href="/submit.html" class="nav-cta">Submit Server</a>
+        </nav>
+    </div>
+</header>
+
+<div class="page-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / <a href="/categories.html">Categories</a> / API Integration</div>
+        <h1>🔌 API Integration MCP Servers</h1>
+        <p>MCP servers that connect to third-party APIs, webhooks, and external services.</p>
+    </div>
+</div>
+<section class="container">
+    <p style="color:var(--text-dim);margin-bottom:24px">102 servers · sorted by GitHub stars</p>
+    <div style="overflow-x:auto">
+    <table class="server-table">
+        <thead>
+            <tr><th>#</th><th>Server</th><th>Description</th><th>Stars</th><th>Language</th><th>Updated</th></tr>
+        </thead>
+        <tbody>
+            
+    <tr>
+        <td style="color:var(--text-dim)">1</td>
+        <td class="name-cell"><a href="/servers/n8n-io-n8n.html">n8n</a></td>
+        <td class="desc-cell">Fair-code workflow automation platform with native AI capabilities. Combine...</td>
+        <td class="stars-cell">★ 179.1K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">2</td>
+        <td class="name-cell"><a href="/servers/kreuzberg-dev-kreuzberg.html">kreuzberg</a></td>
+        <td class="desc-cell">A polyglot document intelligence framework with a Rust core. Extract text,...</td>
+        <td class="stars-cell">★ 6.7K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">3</td>
+        <td class="name-cell"><a href="/servers/sooperset-mcp-atlassian.html">mcp-atlassian</a></td>
+        <td class="desc-cell">MCP server for Atlassian tools (Confluence, Jira)</td>
+        <td class="stars-cell">★ 4.6K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">4</td>
+        <td class="name-cell"><a href="/servers/open-webui-mcpo.html">mcpo</a></td>
+        <td class="desc-cell">A simple, secure MCP-to-OpenAPI proxy server</td>
+        <td class="stars-cell">★ 4.1K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">5</td>
+        <td class="name-cell"><a href="/servers/markuspfundstein-mcp-obsidian.html">mcp-obsidian</a></td>
+        <td class="desc-cell">MCP server that interacts with Obsidian via the Obsidian rest API community...</td>
+        <td class="stars-cell">★ 3.0K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">6</td>
+        <td class="name-cell"><a href="/servers/steipete-mcporter.html">mcporter</a></td>
+        <td class="desc-cell">Call MCPs via TypeScript, masquerading as simple TypeScript API. Or package...</td>
+        <td class="stars-cell">★ 2.8K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">7</td>
+        <td class="name-cell"><a href="/servers/microsoft-mcp.html">mcp</a></td>
+        <td class="desc-cell">Catalog of official Microsoft MCP (Model Context Protocol) server...</td>
+        <td class="stars-cell">★ 2.8K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">8</td>
+        <td class="name-cell"><a href="/servers/samanhappy-mcphub.html">mcphub</a></td>
+        <td class="desc-cell">A unified hub for centrally managing and dynamically orchestrating multiple...</td>
+        <td class="stars-cell">★ 1.9K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">9</td>
+        <td class="name-cell"><a href="/servers/minimax-ai-minimax-mcp.html">MiniMax-MCP</a></td>
+        <td class="desc-cell">Official MiniMax Model Context Protocol (MCP) server that enables...</td>
+        <td class="stars-cell">★ 1.3K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">10</td>
+        <td class="name-cell"><a href="/servers/hashicorp-terraform-mcp-server.html">terraform-mcp-server</a></td>
+        <td class="desc-cell">The Terraform MCP Server provides seamless integration with Terraform...</td>
+        <td class="stars-cell">★ 1.3K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">11</td>
+        <td class="name-cell"><a href="/servers/elevenlabs-elevenlabs-mcp.html">elevenlabs-mcp</a></td>
+        <td class="desc-cell">The official ElevenLabs MCP server</td>
+        <td class="stars-cell">★ 1.3K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">12</td>
+        <td class="name-cell"><a href="/servers/jgravelle-jcodemunch-mcp.html">jcodemunch-mcp</a></td>
+        <td class="desc-cell">Token-efficient MCP server for GitHub source code exploration via...</td>
+        <td class="stars-cell">★ 1.1K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">13</td>
+        <td class="name-cell"><a href="/servers/gyoridavid-short-video-maker.html">short-video-maker</a></td>
+        <td class="desc-cell">Creates short videos for TikTok, Instagram Reels, and YouTube Shorts using...</td>
+        <td class="stars-cell">★ 1.0K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">14</td>
+        <td class="name-cell"><a href="/servers/southleft-figma-console-mcp.html">figma-console-mcp</a></td>
+        <td class="desc-cell">Your design system as an API. Connect AI to Figma for extraction, creation,...</td>
+        <td class="stars-cell">★ 1.0K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">15</td>
+        <td class="name-cell"><a href="/servers/janwilmake-openapi-mcp-server.html">openapi-mcp-server</a></td>
+        <td class="desc-cell">Allow AI to wade through complex OpenAPIs using Simple Language</td>
+        <td class="stars-cell">★ 885</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">16</td>
+        <td class="name-cell"><a href="/servers/open-webui-openapi-servers.html">openapi-servers</a></td>
+        <td class="desc-cell">OpenAPI Tool Servers</td>
+        <td class="stars-cell">★ 878</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">17</td>
+        <td class="name-cell"><a href="/servers/alexander-zuev-supabase-mcp-server.html">supabase-mcp-server</a></td>
+        <td class="desc-cell">Query MCP enables end-to-end management of Supabase via chat interface: read...</td>
+        <td class="stars-cell">★ 815</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">2d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">18</td>
+        <td class="name-cell"><a href="/servers/erwinkramer-bank-api.html">bank-api</a></td>
+        <td class="desc-cell">The Bank API is a design reference project suitable to bootstrap development...</td>
+        <td class="stars-cell">★ 801</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">19</td>
+        <td class="name-cell"><a href="/servers/ant4g0nist-lisapy.html">lisa.py</a></td>
+        <td class="desc-cell">LLDB MCP Integration + other helpful commands</td>
+        <td class="stars-cell">★ 742</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">20</td>
+        <td class="name-cell"><a href="/servers/laravel-mcp.html">mcp</a></td>
+        <td class="desc-cell">Rapidly build MCP servers for your Laravel applications.</td>
+        <td class="stars-cell">★ 704</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#4F5D95"></span> PHP</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">21</td>
+        <td class="name-cell"><a href="/servers/cuga-project-cuga-agent.html">cuga-agent</a></td>
+        <td class="desc-cell">CUGA is an open-source generalist agent for the enterprise, supporting...</td>
+        <td class="stars-cell">★ 692</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">22</td>
+        <td class="name-cell"><a href="/servers/wordpress-mcp-adapter.html">mcp-adapter</a></td>
+        <td class="desc-cell">An MCP adapter that bridges the Abilities API to the Model Context Protocol,...</td>
+        <td class="stars-cell">★ 661</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#4F5D95"></span> PHP</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">23</td>
+        <td class="name-cell"><a href="/servers/samuelgursky-davinci-resolve-mcp.html">davinci-resolve-mcp</a></td>
+        <td class="desc-cell">MCP server integration for DaVinci Resolve</td>
+        <td class="stars-cell">★ 638</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">24</td>
+        <td class="name-cell"><a href="/servers/alpacahq-alpaca-mcp-server.html">alpaca-mcp-server</a></td>
+        <td class="desc-cell">Alpaca’s official MCP Server lets you trade stocks, ETFs, crypto, and...</td>
+        <td class="stars-cell">★ 553</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">25</td>
+        <td class="name-cell"><a href="/servers/harsha-iiiv-openapi-mcp-generator.html">openapi-mcp-generator</a></td>
+        <td class="desc-cell">A tool that converts OpenAPI specifications to MCP server</td>
+        <td class="stars-cell">★ 539</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">26</td>
+        <td class="name-cell"><a href="/servers/freestylefly-mcp-server-weread.html">mcp-server-weread</a></td>
+        <td class="desc-cell">微信读书MCP</td>
+        <td class="stars-cell">★ 529</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">27</td>
+        <td class="name-cell"><a href="/servers/muthuishere-mcp-server-bash-sdk.html">mcp-server-bash-sdk</a></td>
+        <td class="desc-cell">Yes Mcp server in bash</td>
+        <td class="stars-cell">★ 502</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#89E051"></span> Shell</td>
+        <td style="color:var(--text-dim)">21d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">28</td>
+        <td class="name-cell"><a href="/servers/anaisbetts-mcp-youtube.html">mcp-youtube</a></td>
+        <td class="desc-cell">A Model-Context Protocol Server for YouTube</td>
+        <td class="stars-cell">★ 502</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">2d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">29</td>
+        <td class="name-cell"><a href="/servers/kimtaeyoon83-mcp-server-youtube-transcript.html">mcp-server-youtube-transcript</a></td>
+        <td class="desc-cell">This is an MCP server that allows you to directly download transcripts of...</td>
+        <td class="stars-cell">★ 494</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">30</td>
+        <td class="name-cell"><a href="/servers/zubeidhendricks-youtube-mcp-server.html">youtube-mcp-server</a></td>
+        <td class="desc-cell">MCP Server for YouTube API, enabling video management, Shorts creation, and...</td>
+        <td class="stars-cell">★ 459</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">31</td>
+        <td class="name-cell"><a href="/servers/ridafkih-keepersh.html">keeper.sh</a></td>
+        <td class="desc-cell">Open-source calendar sync tool. Aggregate events from Google, Outlook,...</td>
+        <td class="stars-cell">★ 452</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">32</td>
+        <td class="name-cell"><a href="/servers/figma-mcp-server-guide.html">mcp-server-guide</a></td>
+        <td class="desc-cell">A guide on how to use the Figma MCP server</td>
+        <td class="stars-cell">★ 405</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">33</td>
+        <td class="name-cell"><a href="/servers/abhiz123-todoist-mcp-server.html">todoist-mcp-server</a></td>
+        <td class="desc-cell">MCP server for Todoist integration enabling natural language task management...</td>
+        <td class="stars-cell">★ 381</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">34</td>
+        <td class="name-cell"><a href="/servers/r-huijts-xcode-mcp-server.html">xcode-mcp-server</a></td>
+        <td class="desc-cell">MCP Server implementation for Xcode integration</td>
+        <td class="stars-cell">★ 363</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">4d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">35</td>
+        <td class="name-cell"><a href="/servers/jkawamoto-mcp-youtube-transcript.html">mcp-youtube-transcript</a></td>
+        <td class="desc-cell">MCP server retrieving transcripts of YouTube videos</td>
+        <td class="stars-cell">★ 340</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">36</td>
+        <td class="name-cell"><a href="/servers/freee-freee-mcp.html">freee-mcp</a></td>
+        <td class="desc-cell">Model Context Protocol (MCP) server for freee API integration</td>
+        <td class="stars-cell">★ 325</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">37</td>
+        <td class="name-cell"><a href="/servers/salesforcecli-mcp.html">mcp</a></td>
+        <td class="desc-cell">MCP Server for interacting with Salesforce instances</td>
+        <td class="stars-cell">★ 312</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">38</td>
+        <td class="name-cell"><a href="/servers/minthcm-minthcm.html">minthcm</a></td>
+        <td class="desc-cell">First AI‑enabled open-source Human Capital Management system that you can...</td>
+        <td class="stars-cell">★ 308</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#4F5D95"></span> PHP</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">39</td>
+        <td class="name-cell"><a href="/servers/getdatanaut-openmcp.html">openmcp</a></td>
+        <td class="desc-cell">Turn any openapi file into an mcp server, with just the tools you need.</td>
+        <td class="stars-cell">★ 304</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">11d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">40</td>
+        <td class="name-cell"><a href="/servers/arindam200-reddit-mcp.html">reddit-mcp</a></td>
+        <td class="desc-cell">Model Context Protocol server implementation for Reddit</td>
+        <td class="stars-cell">★ 271</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">3d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">41</td>
+        <td class="name-cell"><a href="/servers/jacepark12-ticktick-mcp.html">ticktick-mcp</a></td>
+        <td class="desc-cell">MCP server that interacts with TickTick (Dida 365) via the TickTick Open API</td>
+        <td class="stars-cell">★ 268</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">42</td>
+        <td class="name-cell"><a href="/servers/delorenj-mcp-server-trello.html">mcp-server-trello</a></td>
+        <td class="desc-cell">A Model Context Protocol (MCP) server that provides tools for interacting...</td>
+        <td class="stars-cell">★ 260</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">43</td>
+        <td class="name-cell"><a href="/servers/api-200-api200.html">api200</a></td>
+        <td class="desc-cell">API 200 is an open source API gateway to simplify 3rd-party integrations....</td>
+        <td class="stars-cell">★ 258</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">44</td>
+        <td class="name-cell"><a href="/servers/marcelmarais-spotify-mcp-server.html">spotify-mcp-server</a></td>
+        <td class="desc-cell">Lightweight MCP server for Spotify</td>
+        <td class="stars-cell">★ 255</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">45</td>
+        <td class="name-cell"><a href="/servers/agoda-com-api-agent.html">api-agent</a></td>
+        <td class="desc-cell">Universal MCP server for GraphQL/REST APIs</td>
+        <td class="stars-cell">★ 248</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">46</td>
+        <td class="name-cell"><a href="/servers/ivo-toby-mcp-openapi-server.html">mcp-openapi-server</a></td>
+        <td class="desc-cell">MCP Server (Model Context Protocol) for turning OpenAPI specifications into...</td>
+        <td class="stars-cell">★ 237</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">47</td>
+        <td class="name-cell"><a href="/servers/koomook-data-go-mcp-servers.html">data-go-mcp-servers</a></td>
+        <td class="desc-cell">Korea public data portal (data.go.kr) API MCP servers</td>
+        <td class="stars-cell">★ 227</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">48</td>
+        <td class="name-cell"><a href="/servers/montevive-penpot-mcp.html">penpot-mcp</a></td>
+        <td class="desc-cell">Penpot MCP server</td>
+        <td class="stars-cell">★ 223</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">3d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">49</td>
+        <td class="name-cell"><a href="/servers/joenorton-comfyui-mcp-server.html">comfyui-mcp-server</a></td>
+        <td class="desc-cell">lightweight Python-based MCP (Model Context Protocol) server for local ComfyUI</td>
+        <td class="stars-cell">★ 222</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">50</td>
+        <td class="name-cell"><a href="/servers/namename333-idapromcp_333.html">idapromcp_333</a></td>
+        <td class="desc-cell">本项目基于 [mrexodia/ida-pro-mcp](https://github.com/mrexodia/ida-pro-mcp)...</td>
+        <td class="stars-cell">★ 217</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">51</td>
+        <td class="name-cell"><a href="/servers/doriandarko-sora-mcp.html">sora-mcp</a></td>
+        <td class="desc-cell">An MCP server to use Sora video generation APIs</td>
+        <td class="stars-cell">★ 210</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">15d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">52</td>
+        <td class="name-cell"><a href="/servers/comet-ml-opik-mcp.html">opik-mcp</a></td>
+        <td class="desc-cell">Model Context Protocol (MCP) implementation for Opik enabling seamless IDE...</td>
+        <td class="stars-cell">★ 199</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">53</td>
+        <td class="name-cell"><a href="/servers/cablate-mcp-google-map.html">mcp-google-map</a></td>
+        <td class="desc-cell">A powerful Model Context Protocol (MCP) server providing comprehensive...</td>
+        <td class="stars-cell">★ 193</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">54</td>
+        <td class="name-cell"><a href="/servers/talknerdytome-labs-facebook-ads-library-mcp.html">facebook-ads-library-mcp</a></td>
+        <td class="desc-cell">MCP Server for Facebook ADs Library - Get instant answers from FB&#x27;s ad library</td>
+        <td class="stars-cell">★ 192</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">55</td>
+        <td class="name-cell"><a href="/servers/brizzai-auto-mcp.html">auto-mcp</a></td>
+        <td class="desc-cell">Transform any OpenAPI/Swagger definition into a fully-featured Model Context...</td>
+        <td class="stars-cell">★ 189</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">17d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">56</td>
+        <td class="name-cell"><a href="/servers/huccihuang-bilibili-mcp-server.html">bilibili-mcp-server</a></td>
+        <td class="desc-cell">MCP Server for the Bilibili API, supporting various operations.</td>
+        <td class="stars-cell">★ 181</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">57</td>
+        <td class="name-cell"><a href="/servers/wxhzhwxhzh-drissionpagemcp.html">DrissionPageMCP</a></td>
+        <td class="desc-cell">基于DrissionPage和FastMCP的浏览器自动化MCP服务器，提供丰富的浏览器操作API供AI调用</td>
+        <td class="stars-cell">★ 180</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">58</td>
+        <td class="name-cell"><a href="/servers/dataforseo-mcp-server-typescript.html">mcp-server-typescript</a></td>
+        <td class="desc-cell">DataForSEO API modelcontextprotocol server </td>
+        <td class="stars-cell">★ 156</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">59</td>
+        <td class="name-cell"><a href="/servers/hawstein-mcp-server-reddit.html">mcp-server-reddit</a></td>
+        <td class="desc-cell">A Model Context Protocol (MCP) server that provides tools for fetching...</td>
+        <td class="stars-cell">★ 149</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">60</td>
+        <td class="name-cell"><a href="/servers/timholden-figma-mcp-server.html">figma-mcp-server</a></td>
+        <td class="desc-cell">Model Context Protocol server implementation for Figma API</td>
+        <td class="stars-cell">★ 147</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">61</td>
+        <td class="name-cell"><a href="/servers/runekaagaard-mcp-redmine.html">mcp-redmine</a></td>
+        <td class="desc-cell">A redmine MCP server covering close to 100% of redmines API</td>
+        <td class="stars-cell">★ 147</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">62</td>
+        <td class="name-cell"><a href="/servers/geli2001-shopify-mcp.html">shopify-mcp</a></td>
+        <td class="desc-cell">MCP server for Shopify api, usable on mcp hosts such as Claude and Cursor</td>
+        <td class="stars-cell">★ 147</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">63</td>
+        <td class="name-cell"><a href="/servers/ktr0731-go-mcp.html">go-mcp</a></td>
+        <td class="desc-cell">deprecated: use the official MCP sdk!...</td>
+        <td class="stars-cell">★ 143</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">26d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">64</td>
+        <td class="name-cell"><a href="/servers/seym0n-tiktok-mcp.html">tiktok-mcp</a></td>
+        <td class="desc-cell">Model Context Protocol (MCP) with TikTok integration</td>
+        <td class="stars-cell">★ 137</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">3d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">65</td>
+        <td class="name-cell"><a href="/servers/kujenga-zotero-mcp.html">zotero-mcp</a></td>
+        <td class="desc-cell">Model Context Protocol (MCP) server for the Zotero API, in Python</td>
+        <td class="stars-cell">★ 136</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">5d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">66</td>
+        <td class="name-cell"><a href="/servers/diivi-aseprite-mcp.html">aseprite-mcp</a></td>
+        <td class="desc-cell">MCP server for interacting with the Aseprite API</td>
+        <td class="stars-cell">★ 133</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">67</td>
+        <td class="name-cell"><a href="/servers/acehoss-mcp-gateway.html">mcp-gateway</a></td>
+        <td class="desc-cell">A flexible gateway server that bridges Model Context Protocol (MCP) STDIO...</td>
+        <td class="stars-cell">★ 131</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">68</td>
+        <td class="name-cell"><a href="/servers/doggybee-mcp-server-ccxt.html">mcp-server-ccxt</a></td>
+        <td class="desc-cell">High-performance CCXT MCP server for cryptocurrency exchange integration</td>
+        <td class="stars-cell">★ 130</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">5d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">69</td>
+        <td class="name-cell"><a href="/servers/adeze-raindrop-mcp.html">raindrop-mcp</a></td>
+        <td class="desc-cell">Raindrop MCP Server</td>
+        <td class="stars-cell">★ 130</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">3d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">70</td>
+        <td class="name-cell"><a href="/servers/roychri-mcp-server-asana.html">mcp-server-asana</a></td>
+        <td class="desc-cell"></td>
+        <td class="stars-cell">★ 129</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">71</td>
+        <td class="name-cell"><a href="/servers/cline-linear-mcp.html">linear-mcp</a></td>
+        <td class="desc-cell">a private MCP server for accessing Linear</td>
+        <td class="stars-cell">★ 128</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">2d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">72</td>
+        <td class="name-cell"><a href="/servers/antonytm-figma-mcp-server.html">figma-mcp-server</a></td>
+        <td class="desc-cell"></td>
+        <td class="stars-cell">★ 124</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">73</td>
+        <td class="name-cell"><a href="/servers/nuxt-modules-mcp-toolkit.html">mcp-toolkit</a></td>
+        <td class="desc-cell">Create MCP servers directly in your Nuxt application. Define tools,...</td>
+        <td class="stars-cell">★ 117</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">74</td>
+        <td class="name-cell"><a href="/servers/lemaiwo-btp-sap-odata-to-mcp-server.html">btp-sap-odata-to-mcp-server</a></td>
+        <td class="desc-cell">BTP CloudFoundry Node.js MCP server for SAP OData services integration</td>
+        <td class="stars-cell">★ 114</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">4d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">75</td>
+        <td class="name-cell"><a href="/servers/dev-mirzabicer-ticktick-sdk.html">ticktick-sdk</a></td>
+        <td class="desc-cell">A comprehensive async Python library for TickTick with MCP support.</td>
+        <td class="stars-cell">★ 111</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">76</td>
+        <td class="name-cell"><a href="/servers/ubie-oss-slack-mcp-server.html">slack-mcp-server</a></td>
+        <td class="desc-cell">A Slack MCP server</td>
+        <td class="stars-cell">★ 108</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">10d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">77</td>
+        <td class="name-cell"><a href="/servers/webflow-mcp-server.html">mcp-server</a></td>
+        <td class="desc-cell">Model Context Protocol (MCP) server for the Webflow Data API.</td>
+        <td class="stars-cell">★ 107</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">78</td>
+        <td class="name-cell"><a href="/servers/rcontesti-ib_mcp.html">IB_MCP</a></td>
+        <td class="desc-cell">This project provides an Interactive Brokers (IB) API interface using the...</td>
+        <td class="stars-cell">★ 100</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">79</td>
+        <td class="name-cell"><a href="/servers/nguyenvanduocit-all-in-one-model-context-protocol.html">all-in-one-model-context-protocol</a></td>
+        <td class="desc-cell">🚀 All-in-one MCP server with AI search, RAG, and multi-service integrations...</td>
+        <td class="stars-cell">★ 98</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">28d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">80</td>
+        <td class="name-cell"><a href="/servers/king-of-the-grackles-reddit-research-mcp.html">reddit-research-mcp</a></td>
+        <td class="desc-cell">Turn Reddit&#x27;s chaos into structured insights with full citations. MCP server...</td>
+        <td class="stars-cell">★ 91</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">81</td>
+        <td class="name-cell"><a href="/servers/oxylabs-oxylabs-mcp.html">oxylabs-mcp</a></td>
+        <td class="desc-cell">Official Oxylabs MCP integration</td>
+        <td class="stars-cell">★ 88</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">82</td>
+        <td class="name-cell"><a href="/servers/dmontgomery40-mcp-canvas-lms.html">mcp-canvas-lms</a></td>
+        <td class="desc-cell">Version 2.2 - 54 tools available - an MCP server for interacting with the...</td>
+        <td class="stars-cell">★ 87</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">83</td>
+        <td class="name-cell"><a href="/servers/asyncfuncai-github-chat-mcp.html">github-chat-mcp</a></td>
+        <td class="desc-cell">A Model Context Protocol (MCP) for analyzing and querying GitHub...</td>
+        <td class="stars-cell">★ 85</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">84</td>
+        <td class="name-cell"><a href="/servers/spences10-mcp-n8n-builder.html">mcp-n8n-builder</a></td>
+        <td class="desc-cell">🪄 MCP server for programmatic creation and management of n8n workflows....</td>
+        <td class="stars-cell">★ 83</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">10d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">85</td>
+        <td class="name-cell"><a href="/servers/georgeantonopoulos-basecamp-mcp-server.html">Basecamp-MCP-Server</a></td>
+        <td class="desc-cell">An MCP Server that interacts with the Basecamp 3+ API</td>
+        <td class="stars-cell">★ 81</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">3d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">86</td>
+        <td class="name-cell"><a href="/servers/modelcontextprotocol-github.html">.github</a></td>
+        <td class="desc-cell">Discussions and README for Model Context Protocol</td>
+        <td class="stars-cell">★ 69</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">14d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">87</td>
+        <td class="name-cell"><a href="/servers/erikmaday-unusual-whales-mcp.html">unusual-whales-mcp</a></td>
+        <td class="desc-cell">MCP server for Unusual Whales API - access options flow, dark pool, congress...</td>
+        <td class="stars-cell">★ 42</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">88</td>
+        <td class="name-cell"><a href="/servers/dynamics365ninja-d365fo-mcp-server.html">d365fo-mcp-server</a></td>
+        <td class="desc-cell">🚀 MCP server for Dynamics 365 Finance &amp; Operations with standard and custom...</td>
+        <td class="stars-cell">★ 21</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">89</td>
+        <td class="name-cell"><a href="/servers/omkarjamadar-mcp-server-client-computer-use-ai-sdk.html">MCP-server-client-computer-use-ai-sdk</a></td>
+        <td class="desc-cell">🖥️ Control your computer effortlessly with our AI SDK, enabling seamless...</td>
+        <td class="stars-cell">★ 2</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">90</td>
+        <td class="name-cell"><a href="/servers/ravenqueen03-btp-sap-odata-to-mcp-server.html">btp-sap-odata-to-mcp-server</a></td>
+        <td class="desc-cell">🌐 Expose SAP OData services as dynamic MCP tools, enabling natural language...</td>
+        <td class="stars-cell">★ 2</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">91</td>
+        <td class="name-cell"><a href="/servers/ninjacazul-hono-mcp-server.html">hono-mcp-server</a></td>
+        <td class="desc-cell">🔧 Expose Hono API endpoints as MCP tools, simplifying integration and...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">92</td>
+        <td class="name-cell"><a href="/servers/franklynchimobi-locusts_mcp.html">locusts_mcp</a></td>
+        <td class="desc-cell">🚀 Launch dynamic Locust performance tests easily with this template-driven...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#89E051"></span> Shell</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">93</td>
+        <td class="name-cell"><a href="/servers/luis13-source-jira-simple-mcp.html">jira-simple-mcp</a></td>
+        <td class="desc-cell">🚀 Access and manage Jira issues effortlessly with this simple MCP server,...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">94</td>
+        <td class="name-cell"><a href="/servers/eslaim-ai-diagram-prototype-generator-mcp-server.html">AI-Diagram-Prototype-Generator-MCP-Server-</a></td>
+        <td class="desc-cell">🤖 Generate AI-driven diagrams and prototypes in draw.io and HTML formats,...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">95</td>
+        <td class="name-cell"><a href="/servers/mrlm-net-simconnect-mcp.html">simconnect-mcp</a></td>
+        <td class="desc-cell">Simple SimConnect API MCP server written in Go.</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">96</td>
+        <td class="name-cell"><a href="/servers/mindtrust-x-api-mcp-server.html">x-api-mcp-server</a></td>
+        <td class="desc-cell"></td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">97</td>
+        <td class="name-cell"><a href="/servers/vani2130-mcp_ctl.html">mcp_ctl</a></td>
+        <td class="desc-cell">A package manager to manage all your mcp servers across platforms</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">98</td>
+        <td class="name-cell"><a href="/servers/electrification-bus-homie5-mcp-server.html">homie5-mcp-server</a></td>
+        <td class="desc-cell">[mirror] https://github.com/Tieske/homie5-mcp-server</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">99</td>
+        <td class="name-cell"><a href="/servers/szdabrowski-dicomviewer.html">DicomViewer</a></td>
+        <td class="desc-cell">DICOM image viewer built with .NET 8, Avalonia UI, and fo-dicom. Features...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">100</td>
+        <td class="name-cell"><a href="/servers/sangajula-youtube-mcp-server-local.html">youtube-mcp-server-local</a></td>
+        <td class="desc-cell">Local YouTube MCP server bundle</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">101</td>
+        <td class="name-cell"><a href="/servers/sojotype-bridge-mcp-figma.html">bridge-mcp-figma</a></td>
+        <td class="desc-cell">MCP server and bridge plugin for Figma: allows you to work with Figma...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">102</td>
+        <td class="name-cell"><a href="/servers/andre1231231-laravel-kick.html">laravel-kick</a></td>
+        <td class="desc-cell">🔗 Connect and manage your Laravel app effortlessly with an MCP server and...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#4F5D95"></span> PHP</td>
+        <td style="color:var(--text-dim)">today</td>
+    </tr>
+        </tbody>
+    </table>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <div class="logo-icon">P</div>
+                    <span>Proto</span>dex
+                </a>
+                <p>The largest index of MCP servers. Helping developers find the right tools for AI-powered workflows.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Directory</h4>
+                    <a href="/">Explore Servers</a>
+                    <a href="/categories.html">Categories</a>
+                    <a href="/submit.html">Submit a Server</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Project</h4>
+                    <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://github.com/LuciferForge" target="_blank" rel="noopener">LuciferForge</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Protodex. Open source. Updated weekly from GitHub.
+        </div>
+    </div>
+</footer>
+</body>
+</html>
