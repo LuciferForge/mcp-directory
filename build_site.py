@@ -399,18 +399,19 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     line-height: 1.7;
 }
 .hero-sub {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    margin-top: 16px;
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 24px;
     flex-wrap: wrap;
+    font-weight: 600;
 }
 .hero-sub span {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
 }
 
 /* Search */
