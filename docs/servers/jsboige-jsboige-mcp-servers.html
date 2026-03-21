@@ -503,6 +503,40 @@ a.value-prop { color: inherit; }
     color: var(--blue);
     border-color: rgba(96, 165, 250, 0.15);
 }
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+.sec-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.sec-yellow {
+    background: rgba(250, 204, 21, 0.1);
+    color: #EAB308;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.sec-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+/* Security page */
+.security-content { max-width: 700px; margin: 0 auto; padding: 40px 0 80px; }
+.security-content h2 { margin-bottom: 16px; font-weight: 700; }
+.security-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.band-explain { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+.band-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.band-row .sec-badge { font-size: 0.8rem; padding: 5px 12px; }
+.band-desc { color: var(--text-muted); font-size: 0.9rem; }
 .lang-dot {
     width: 8px;
     height: 8px;
@@ -996,6 +1030,7 @@ footer {
         <nav>
             <a href="/">Explore</a>
             <a href="/categories.html">Categories</a>
+            <a href="/security.html">Security</a>
             <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
             <a href="/submit.html" class="nav-cta">Submit Server</a>
         </nav>
@@ -1016,7 +1051,8 @@ footer {
         <span class="meta-item">★ 1 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</span>
         <span class="meta-item">📦 Other</span>
-        <span class="meta-item">Updated today</span>
+        <span class="meta-item">Updated 6d ago</span>
+        <span class="meta-item"></span>
     </div>
 
     <div class="detail-desc">An MCP server.</div>
@@ -1038,7 +1074,7 @@ footer {
     <a href="/servers/xpzouying-xiaohongshu-mcp.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">xiaohongshu-mcp</span>
-            <span class="server-card-stars">★ 11.6K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 12.0K</span></span>
         </div>
         <div class="server-card-desc">MCP for xiaohongshu.com</div>
         <div class="server-card-footer">
@@ -1049,7 +1085,7 @@ footer {
     <a href="/servers/xinnan-tech-xiaozhi-esp32-server.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">xiaozhi-esp32-server</span>
-            <span class="server-card-stars">★ 8.9K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 8.9K</span></span>
         </div>
         <div class="server-card-desc">本项目为xiaozhi-esp32提供后端服务，帮助您快速搭建ESP32设备控制服务器。Backend service for xiaozhi-esp32, helps you quickly build an ESP32...</div>
         <div class="server-card-footer">
@@ -1060,7 +1096,7 @@ footer {
     <a href="/servers/lauriewired-ghidramcp.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">GhidraMCP</span>
-            <span class="server-card-stars">★ 7.9K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 8.0K</span></span>
         </div>
         <div class="server-card-desc">MCP Server for Ghidra</div>
         <div class="server-card-footer">
@@ -1071,7 +1107,7 @@ footer {
     <a href="/servers/cursortouch-windows-mcp.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">Windows-MCP</span>
-            <span class="server-card-stars">★ 4.7K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 4.8K</span></span>
         </div>
         <div class="server-card-desc">MCP Server for Computer Use in Windows</div>
         <div class="server-card-footer">
@@ -1097,6 +1133,7 @@ footer {
                     <h4>Directory</h4>
                     <a href="/">Explore Servers</a>
                     <a href="/categories.html">Categories</a>
+                    <a href="/security.html">Security Scores</a>
                     <a href="/submit.html">Submit a Server</a>
                 </div>
                 <div class="footer-col">

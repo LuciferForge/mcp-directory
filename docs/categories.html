@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCP Server Categories — Protodex</title>
-    <meta name="description" content="Browse 13 categories of MCP servers. Find servers for databases, AI, security, DevOps, and more.">
+    <meta name="description" content="Browse 15 categories of MCP servers. Find servers for databases, AI, security, DevOps, and more.">
     <meta property="og:title" content="MCP Server Categories — Protodex">
-    <meta property="og:description" content="Browse 13 categories of MCP servers. Find servers for databases, AI, security, DevOps, and more.">
+    <meta property="og:description" content="Browse 15 categories of MCP servers. Find servers for databases, AI, security, DevOps, and more.">
     <meta property="og:url" content="https://protodex.io/categories.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="MCP Server Categories — Protodex">
-    <meta name="twitter:description" content="Browse 13 categories of MCP servers. Find servers for databases, AI, security, DevOps, and more.">
+    <meta name="twitter:description" content="Browse 15 categories of MCP servers. Find servers for databases, AI, security, DevOps, and more.">
     <link rel="canonical" href="https://protodex.io/categories.html">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -503,6 +503,40 @@ a.value-prop { color: inherit; }
     color: var(--blue);
     border-color: rgba(96, 165, 250, 0.15);
 }
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+.sec-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.sec-yellow {
+    background: rgba(250, 204, 21, 0.1);
+    color: #EAB308;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.sec-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+/* Security page */
+.security-content { max-width: 700px; margin: 0 auto; padding: 40px 0 80px; }
+.security-content h2 { margin-bottom: 16px; font-weight: 700; }
+.security-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.band-explain { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+.band-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.band-row .sec-badge { font-size: 0.8rem; padding: 5px 12px; }
+.band-desc { color: var(--text-muted); font-size: 0.9rem; }
 .lang-dot {
     width: 8px;
     height: 8px;
@@ -987,6 +1021,7 @@ footer {
         <nav>
             <a href="/">Explore</a>
             <a href="/categories.html">Categories</a>
+            <a href="/security.html">Security</a>
             <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
             <a href="/submit.html" class="nav-cta">Submit Server</a>
         </nav>
@@ -1002,70 +1037,80 @@ footer {
 <section class="container">
     <div class="cat-grid" style="margin-top:20px">
         
+        <a href="/category/other.html" class="cat-card">
+            <span class="cat-icon">📦</span>
+            <span class="cat-name">Other</span>
+            <span class="cat-count">1761 servers</span>
+        </a>
         <a href="/category/ai-llm.html" class="cat-card">
             <span class="cat-icon">🤖</span>
             <span class="cat-name">AI/LLM</span>
-            <span class="cat-count">779 servers</span>
+            <span class="cat-count">1573 servers</span>
         </a>
         <a href="/category/code-dev-tools.html" class="cat-card">
             <span class="cat-icon">💻</span>
             <span class="cat-name">Code/Dev Tools</span>
-            <span class="cat-count">180 servers</span>
-        </a>
-        <a href="/category/other.html" class="cat-card">
-            <span class="cat-icon">📦</span>
-            <span class="cat-name">Other</span>
-            <span class="cat-count">158 servers</span>
-        </a>
-        <a href="/category/api-integration.html" class="cat-card">
-            <span class="cat-icon">🔌</span>
-            <span class="cat-name">API Integration</span>
-            <span class="cat-count">102 servers</span>
+            <span class="cat-count">601 servers</span>
         </a>
         <a href="/category/memory-knowledge.html" class="cat-card">
             <span class="cat-icon">🧠</span>
             <span class="cat-name">Memory/Knowledge</span>
-            <span class="cat-count">97 servers</span>
+            <span class="cat-count">390 servers</span>
+        </a>
+        <a href="/category/api-integration.html" class="cat-card">
+            <span class="cat-icon">🔌</span>
+            <span class="cat-name">API Integration</span>
+            <span class="cat-count">375 servers</span>
         </a>
         <a href="/category/database.html" class="cat-card">
             <span class="cat-icon">🗄️</span>
             <span class="cat-name">Database</span>
-            <span class="cat-count">75 servers</span>
-        </a>
-        <a href="/category/browser-web.html" class="cat-card">
-            <span class="cat-icon">🌐</span>
-            <span class="cat-name">Browser/Web</span>
-            <span class="cat-count">46 servers</span>
+            <span class="cat-count">183 servers</span>
         </a>
         <a href="/category/security.html" class="cat-card">
             <span class="cat-icon">🔒</span>
             <span class="cat-name">Security</span>
-            <span class="cat-count">44 servers</span>
-        </a>
-        <a href="/category/search.html" class="cat-card">
-            <span class="cat-icon">🔍</span>
-            <span class="cat-name">Search</span>
-            <span class="cat-count">43 servers</span>
+            <span class="cat-count">160 servers</span>
         </a>
         <a href="/category/devops.html" class="cat-card">
             <span class="cat-icon">⚙️</span>
             <span class="cat-name">DevOps</span>
-            <span class="cat-count">41 servers</span>
+            <span class="cat-count">115 servers</span>
+        </a>
+        <a href="/category/search.html" class="cat-card">
+            <span class="cat-icon">🔍</span>
+            <span class="cat-name">Search</span>
+            <span class="cat-count">106 servers</span>
+        </a>
+        <a href="/category/browser-web.html" class="cat-card">
+            <span class="cat-icon">🌐</span>
+            <span class="cat-name">Browser/Web</span>
+            <span class="cat-count">87 servers</span>
         </a>
         <a href="/category/data-analytics.html" class="cat-card">
             <span class="cat-icon">📊</span>
             <span class="cat-name">Data/Analytics</span>
-            <span class="cat-count">27 servers</span>
+            <span class="cat-count">87 servers</span>
         </a>
         <a href="/category/communication.html" class="cat-card">
             <span class="cat-icon">💬</span>
             <span class="cat-name">Communication</span>
-            <span class="cat-count">22 servers</span>
+            <span class="cat-count">73 servers</span>
         </a>
         <a href="/category/file-system.html" class="cat-card">
             <span class="cat-icon">📁</span>
             <span class="cat-name">File System</span>
-            <span class="cat-count">15 servers</span>
+            <span class="cat-count">44 servers</span>
+        </a>
+        <a href="/category/finance.html" class="cat-card">
+            <span class="cat-icon">💰</span>
+            <span class="cat-name">Finance</span>
+            <span class="cat-count">40 servers</span>
+        </a>
+        <a href="/category/media.html" class="cat-card">
+            <span class="cat-icon">🎬</span>
+            <span class="cat-name">Media</span>
+            <span class="cat-count">23 servers</span>
         </a>
     </div>
 </section>
@@ -1085,6 +1130,7 @@ footer {
                     <h4>Directory</h4>
                     <a href="/">Explore Servers</a>
                     <a href="/categories.html">Categories</a>
+                    <a href="/security.html">Security Scores</a>
                     <a href="/submit.html">Submit a Server</a>
                 </div>
                 <div class="footer-col">

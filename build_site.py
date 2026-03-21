@@ -18,7 +18,7 @@ DOMAIN = "protodex.io"
 SITE_URL = f"https://{DOMAIN}"
 SITE_NAME = "Protodex"
 SITE_TAGLINE = "The MCP Server Index"
-SITE_DESCRIPTION = "Discover {total} Model Context Protocol (MCP) servers. Search, browse by category, and find the right MCP server for Claude, Cursor, and AI agents."
+SITE_DESCRIPTION = "Discover {total} Model Context Protocol (MCP) servers with security scores. Search, browse by category, and find the right MCP server for Claude, Cursor, and AI agents."
 
 # Category metadata for SEO intros
 CATEGORY_META = {
@@ -93,6 +93,18 @@ CATEGORY_META = {
         "icon": "📊",
         "description": "MCP servers for data processing, analytics, visualization, and business intelligence.",
         "color": "#EC4899"
+    },
+    "Finance": {
+        "slug": "finance",
+        "icon": "💰",
+        "description": "MCP servers for financial data, trading, payments, and fintech integrations.",
+        "color": "#16A34A"
+    },
+    "Media": {
+        "slug": "media",
+        "icon": "🎬",
+        "description": "MCP servers for image, video, audio processing, and media management.",
+        "color": "#E11D48"
     },
     "Other": {
         "slug": "other",
@@ -696,6 +708,40 @@ a.value-prop { color: inherit; }
     color: var(--blue);
     border-color: rgba(96, 165, 250, 0.15);
 }
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+.sec-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.sec-yellow {
+    background: rgba(250, 204, 21, 0.1);
+    color: #EAB308;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.sec-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+/* Security page */
+.security-content { max-width: 700px; margin: 0 auto; padding: 40px 0 80px; }
+.security-content h2 { margin-bottom: 16px; font-weight: 700; }
+.security-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.band-explain { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+.band-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.band-row .sec-badge { font-size: 0.8rem; padding: 5px 12px; }
+.band-desc { color: var(--text-muted); font-size: 0.9rem; }
 .lang-dot {
     width: 8px;
     height: 8px;
@@ -1214,6 +1260,7 @@ def html_header(current=""):
         <nav>
             <a href="/">Explore</a>
             <a href="/categories.html">Categories</a>
+            <a href="/security.html">Security</a>
             <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
             <a href="/submit.html" class="nav-cta">Submit Server</a>
         </nav>
@@ -1240,6 +1287,7 @@ def html_footer():
                     <h4>Directory</h4>
                     <a href="/">Explore Servers</a>
                     <a href="/categories.html">Categories</a>
+                    <a href="/security.html">Security Scores</a>
                     <a href="/submit.html">Submit a Server</a>
                 </div>
                 <div class="footer-col">
@@ -1259,6 +1307,18 @@ def html_footer():
 """
 
 
+def security_badge_html(server):
+    """Return HTML for security badge, or empty string if no score."""
+    band = server.get("security_band", "")
+    if band == "green":
+        return '<span class="sec-badge sec-green">&#10003; Secure</span>'
+    elif band == "yellow":
+        return '<span class="sec-badge sec-yellow">&#9888; Review</span>'
+    elif band == "red":
+        return '<span class="sec-badge sec-red">&#10007; Risk</span>'
+    return ""
+
+
 def server_card_html(server):
     slug = slugify(server["repo"].replace("/", "-"))
     desc = escape(truncate(clean_github_emojis(server.get("description") or "No description"), 120))
@@ -1266,6 +1326,7 @@ def server_card_html(server):
     lang = server.get("language", "")
     cat = server.get("category", "Other")
     cat_meta = CATEGORY_META.get(cat, CATEGORY_META["Other"])
+    sec_badge = security_badge_html(server)
 
     lang_html = ""
     if lang:
@@ -1276,7 +1337,7 @@ def server_card_html(server):
     <a href="/servers/{slug}.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">{escape(server["name"])}</span>
-            <span class="server-card-stars">★ {stars}</span>
+            <span style="display:flex;align-items:center;gap:8px">{sec_badge}<span class="server-card-stars">★ {stars}</span></span>
         </div>
         <div class="server-card-desc">{desc}</div>
         <div class="server-card-footer">
@@ -1293,6 +1354,7 @@ def server_row_html(server, rank=None):
     stars = format_stars(server.get("stars", 0))
     lang = server.get("language", "")
     updated = time_ago(server.get("last_updated"))
+    sec_badge = security_badge_html(server)
 
     lang_html = ""
     if lang:
@@ -1304,7 +1366,7 @@ def server_row_html(server, rank=None):
     return f"""
     <tr>
         {rank_html}
-        <td class="name-cell"><a href="/servers/{slug}.html">{name}</a></td>
+        <td class="name-cell"><a href="/servers/{slug}.html">{name}</a> {sec_badge}</td>
         <td class="desc-cell">{desc}</td>
         <td class="stars-cell">★ {stars}</td>
         <td class="lang-cell">{lang_html}</td>
@@ -1408,7 +1470,7 @@ document.addEventListener('click', function(e) {
     <div class="container hero-content">
         <div class="hero-badge"><span class="pulse"></span> Updated weekly &middot; {total:,} servers indexed</div>
         <h1>Find the right <span class="gradient">MCP server</span> in seconds</h1>
-        <p>Stop scrolling through GitHub. Search {total:,}+ Model Context Protocol servers, organized by category, language, and popularity.</p>
+        <p>Stop scrolling through GitHub. Search {total:,}+ Model Context Protocol servers with security scores, organized by category, language, and popularity.</p>
         <div class="search-wrap">
             <span class="search-icon">&#128269;</span>
             <input type="text" id="search-input" placeholder="Search servers... e.g. postgres, slack, stripe, browser" autocomplete="off">
@@ -1428,7 +1490,7 @@ document.addEventListener('click', function(e) {
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> {format_stars(total_stars)} total stars</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> {langs} languages</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> {len(categories)} categories</span>
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Open source</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Security scored</span>
         </div>
     </div>
 </section>
@@ -1713,6 +1775,7 @@ def build_server_page(server, related):
         <span class="meta-item">{lang_html or 'Unknown language'}</span>
         <span class="meta-item">{cat_meta['icon']} {escape(cat)}</span>
         <span class="meta-item">Updated {updated}</span>
+        <span class="meta-item">{security_badge_html(server)}</span>
     </div>
 
     <div class="detail-desc">{escape(desc)}</div>
@@ -1772,10 +1835,73 @@ def build_submit_page():
     return html
 
 
+def build_security_page(servers):
+    total = len(servers)
+    scored = sum(1 for s in servers if s.get("security_band"))
+    green = sum(1 for s in servers if s.get("security_band") == "green")
+    yellow = sum(1 for s in servers if s.get("security_band") == "yellow")
+    red = sum(1 for s in servers if s.get("security_band") == "red")
+
+    title = f"Security Scores — {SITE_NAME}"
+    desc = f"Every MCP server on Protodex is scanned for security issues. See how {scored:,} servers scored."
+
+    html = html_head(title, desc, "/security.html")
+    html += html_header("security")
+    html += f"""
+<div class="page-header">
+    <div class="container">
+        <h1>Security Scores</h1>
+        <p>We scan every MCP server for security issues so you don't have to.</p>
+    </div>
+</div>
+<div class="container security-content">
+    <h2>How It Works</h2>
+    <p>Every server indexed on Protodex is automatically scanned and assigned a security band based on repository health signals: maintenance activity, license, dependency hygiene, and known vulnerability patterns.</p>
+
+    <div class="band-explain">
+        <div class="band-row">
+            <span class="sec-badge sec-green" style="font-size:0.85rem;padding:6px 14px">&#10003; Secure</span>
+            <span class="band-desc"><strong>{green:,} servers</strong> — No known vulnerabilities. Actively maintained. Safe to use.</span>
+        </div>
+        <div class="band-row">
+            <span class="sec-badge sec-yellow" style="font-size:0.85rem;padding:6px 14px">&#9888; Review</span>
+            <span class="band-desc"><strong>{yellow:,} servers</strong> — Needs review. May have stale dependencies, missing license, or limited maintenance history.</span>
+        </div>
+        <div class="band-row">
+            <span class="sec-badge sec-red" style="font-size:0.85rem;padding:6px 14px">&#10007; Risk</span>
+            <span class="band-desc"><strong>{red:,} servers</strong> — Known issues or unmaintained. Use with caution.</span>
+        </div>
+    </div>
+
+    <div style="margin-top:40px">
+        <h2>Coverage</h2>
+        <p><strong>{scored:,}</strong> of {total:,} servers have been scanned ({scored*100//total}% coverage). Scores are updated weekly alongside the directory.</p>
+    </div>
+
+    <div style="margin-top:40px">
+        <h2>Methodology</h2>
+        <p>Security scores are calculated from public repository signals:</p>
+        <ul style="color:var(--text-muted);padding-left:24px;margin-bottom:24px;line-height:2">
+            <li>Last commit date (is it actively maintained?)</li>
+            <li>License presence and type</li>
+            <li>Star count and community adoption</li>
+            <li>Dependency freshness</li>
+            <li>Known vulnerability database cross-reference</li>
+            <li>Repository configuration (branch protection, etc.)</li>
+        </ul>
+        <p>Scores range from 0-100. Green = 70+, Yellow = 40-69, Red = below 40.</p>
+    </div>
+</div>
+"""
+    html += html_footer()
+    return html
+
+
 def build_sitemap(servers, categories):
     urls = [f"{SITE_URL}/"]
     urls.append(f"{SITE_URL}/categories.html")
     urls.append(f"{SITE_URL}/submit.html")
+    urls.append(f"{SITE_URL}/security.html")
 
     for cat_name in categories:
         meta = CATEGORY_META.get(cat_name, CATEGORY_META["Other"])
@@ -1878,6 +2004,10 @@ def main():
     # Build submit page
     print("Building submit page...")
     write(os.path.join(SITE_DIR, "submit.html"), build_submit_page())
+
+    # Build security page
+    print("Building security page...")
+    write(os.path.join(SITE_DIR, "security.html"), build_security_page(servers))
 
     # Build SEO assets
     print("Building SEO assets...")

@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tavily-mcp — Search MCP Server | Protodex</title>
-    <meta name="description" content="Production ready MCP server with real-time search, extract, map &amp; crawl. — 1,383 stars on GitHub. Browse on Protodex.">
+    <meta name="description" content="Production ready MCP server with real-time search, extract, map &amp; crawl. — 1,427 stars on GitHub. Browse on Protodex.">
     <meta property="og:title" content="tavily-mcp — Search MCP Server | Protodex">
-    <meta property="og:description" content="Production ready MCP server with real-time search, extract, map &amp; crawl. — 1,383 stars on GitHub. Browse on Protodex.">
+    <meta property="og:description" content="Production ready MCP server with real-time search, extract, map &amp; crawl. — 1,427 stars on GitHub. Browse on Protodex.">
     <meta property="og:url" content="https://protodex.io/servers/tavily-ai-tavily-mcp.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="tavily-mcp — Search MCP Server | Protodex">
-    <meta name="twitter:description" content="Production ready MCP server with real-time search, extract, map &amp; crawl. — 1,383 stars on GitHub. Browse on Protodex.">
+    <meta name="twitter:description" content="Production ready MCP server with real-time search, extract, map &amp; crawl. — 1,427 stars on GitHub. Browse on Protodex.">
     <link rel="canonical" href="https://protodex.io/servers/tavily-ai-tavily-mcp.html">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -503,6 +503,40 @@ a.value-prop { color: inherit; }
     color: var(--blue);
     border-color: rgba(96, 165, 250, 0.15);
 }
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+.sec-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.sec-yellow {
+    background: rgba(250, 204, 21, 0.1);
+    color: #EAB308;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.sec-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+/* Security page */
+.security-content { max-width: 700px; margin: 0 auto; padding: 40px 0 80px; }
+.security-content h2 { margin-bottom: 16px; font-weight: 700; }
+.security-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.band-explain { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+.band-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.band-row .sec-badge { font-size: 0.8rem; padding: 5px 12px; }
+.band-desc { color: var(--text-muted); font-size: 0.9rem; }
 .lang-dot {
     width: 8px;
     height: 8px;
@@ -996,6 +1030,7 @@ footer {
         <nav>
             <a href="/">Explore</a>
             <a href="/categories.html">Categories</a>
+            <a href="/security.html">Security</a>
             <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
             <a href="/submit.html" class="nav-cta">Submit Server</a>
         </nav>
@@ -1013,10 +1048,11 @@ footer {
     </div>
 
     <div class="detail-meta">
-        <span class="meta-item">★ 1,383 stars</span>
+        <span class="meta-item">★ 1,427 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</span>
         <span class="meta-item">🔍 Search</span>
-        <span class="meta-item">Updated today</span>
+        <span class="meta-item">Updated 6d ago</span>
+        <span class="meta-item"><span class="sec-badge sec-yellow">&#9888; Review</span></span>
     </div>
 
     <div class="detail-desc">Production ready MCP server with real-time search, extract, map &amp; crawl.</div>
@@ -1038,7 +1074,7 @@ footer {
     <a href="/servers/exa-labs-exa-mcp-server.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">exa-mcp-server</span>
-            <span class="server-card-stars">★ 4.0K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 4.1K</span></span>
         </div>
         <div class="server-card-desc">Exa MCP for web search and web crawling!</div>
         <div class="server-card-footer">
@@ -1049,7 +1085,7 @@ footer {
     <a href="/servers/deedy5-ddgs.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">ddgs</span>
-            <span class="server-card-stars">★ 2.3K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 2.3K</span></span>
         </div>
         <div class="server-card-desc">A metasearch library that aggregates results from diverse web search services</div>
         <div class="server-card-footer">
@@ -1060,7 +1096,7 @@ footer {
     <a href="/servers/apify-apify-mcp-server.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">apify-mcp-server</span>
-            <span class="server-card-stars">★ 900</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 929</span></span>
         </div>
         <div class="server-card-desc">The Apify MCP server enables your AI agents to extract data from social media, search engines, maps, e-commerce...</div>
         <div class="server-card-footer">
@@ -1071,7 +1107,7 @@ footer {
     <a href="/servers/nickclyde-duckduckgo-mcp-server.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">duckduckgo-mcp-server</span>
-            <span class="server-card-stars">★ 885</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 908</span></span>
         </div>
         <div class="server-card-desc">A Model Context Protocol (MCP) server that provides web search capabilities through DuckDuckGo, with additional...</div>
         <div class="server-card-footer">
@@ -1097,6 +1133,7 @@ footer {
                     <h4>Directory</h4>
                     <a href="/">Explore Servers</a>
                     <a href="/categories.html">Categories</a>
+                    <a href="/security.html">Security Scores</a>
                     <a href="/submit.html">Submit a Server</a>
                 </div>
                 <div class="footer-col">

@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protodex — Discover 1629+ MCP Servers for AI Agents</title>
-    <meta name="description" content="Discover 1629 Model Context Protocol (MCP) servers. Search, browse by category, and find the right MCP server for Claude, Cursor, and AI agents.">
-    <meta property="og:title" content="Protodex — Discover 1629+ MCP Servers for AI Agents">
-    <meta property="og:description" content="Discover 1629 Model Context Protocol (MCP) servers. Search, browse by category, and find the right MCP server for Claude, Cursor, and AI agents.">
+    <title>Protodex — Discover 5618+ MCP Servers for AI Agents</title>
+    <meta name="description" content="Discover 5618 Model Context Protocol (MCP) servers with security scores. Search, browse by category, and find the right MCP server for Claude, Cursor,...">
+    <meta property="og:title" content="Protodex — Discover 5618+ MCP Servers for AI Agents">
+    <meta property="og:description" content="Discover 5618 Model Context Protocol (MCP) servers with security scores. Search, browse by category, and find the right MCP server for Claude, Cursor,...">
     <meta property="og:url" content="https://protodex.io/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Protodex — Discover 1629+ MCP Servers for AI Agents">
-    <meta name="twitter:description" content="Discover 1629 Model Context Protocol (MCP) servers. Search, browse by category, and find the right MCP server for Claude, Cursor, and AI agents.">
+    <meta name="twitter:title" content="Protodex — Discover 5618+ MCP Servers for AI Agents">
+    <meta name="twitter:description" content="Discover 5618 Model Context Protocol (MCP) servers with security scores. Search, browse by category, and find the right MCP server for Claude, Cursor,...">
     <link rel="canonical" href="https://protodex.io/">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -503,6 +503,40 @@ a.value-prop { color: inherit; }
     color: var(--blue);
     border-color: rgba(96, 165, 250, 0.15);
 }
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+.sec-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.sec-yellow {
+    background: rgba(250, 204, 21, 0.1);
+    color: #EAB308;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.sec-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+/* Security page */
+.security-content { max-width: 700px; margin: 0 auto; padding: 40px 0 80px; }
+.security-content h2 { margin-bottom: 16px; font-weight: 700; }
+.security-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.band-explain { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+.band-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.band-row .sec-badge { font-size: 0.8rem; padding: 5px 12px; }
+.band-desc { color: var(--text-muted); font-size: 0.9rem; }
 .lang-dot {
     width: 8px;
     height: 8px;
@@ -987,6 +1021,7 @@ footer {
         <nav>
             <a href="/">Explore</a>
             <a href="/categories.html">Categories</a>
+            <a href="/security.html">Security</a>
             <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
             <a href="/submit.html" class="nav-cta">Submit Server</a>
         </nav>
@@ -995,9 +1030,9 @@ footer {
 
 <section class="hero">
     <div class="container hero-content">
-        <div class="hero-badge"><span class="pulse"></span> Updated weekly &middot; 1,629 servers indexed</div>
+        <div class="hero-badge"><span class="pulse"></span> Updated weekly &middot; 5,618 servers indexed</div>
         <h1>Find the right <span class="gradient">MCP server</span> in seconds</h1>
-        <p>Stop scrolling through GitHub. Search 1,629+ Model Context Protocol servers, organized by category, language, and popularity.</p>
+        <p>Stop scrolling through GitHub. Search 5,618+ Model Context Protocol servers with security scores, organized by category, language, and popularity.</p>
         <div class="search-wrap">
             <span class="search-icon">&#128269;</span>
             <input type="text" id="search-input" placeholder="Search servers... e.g. postgres, slack, stripe, browser" autocomplete="off">
@@ -1014,10 +1049,10 @@ footer {
             <a class="chip" onclick="document.getElementById('search-input').value='filesystem';document.getElementById('search-input').dispatchEvent(new Event('input'));return false;" href="#">filesystem</a>
         </div>
         <div class="hero-sub">
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 2097.8K total stars</span>
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> 31 languages</span>
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> 13 categories</span>
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Open source</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 2247.7K total stars</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> 50 languages</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> 15 categories</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Security scored</span>
         </div>
     </div>
 </section>
@@ -1025,19 +1060,19 @@ footer {
 <section class="container">
     <div class="stats-bar">
         <div class="stat">
-            <div class="stat-num">1,629</div>
+            <div class="stat-num">5,618</div>
             <div class="stat-label">Servers</div>
         </div>
         <div class="stat">
-            <div class="stat-num">13</div>
+            <div class="stat-num">15</div>
             <div class="stat-label">Categories</div>
         </div>
         <div class="stat">
-            <div class="stat-num">31</div>
+            <div class="stat-num">50</div>
             <div class="stat-label">Languages</div>
         </div>
         <div class="stat">
-            <div class="stat-num">2097.8K</div>
+            <div class="stat-num">2247.7K</div>
             <div class="stat-label">Total Stars</div>
         </div>
     </div>
@@ -1045,86 +1080,98 @@ footer {
 
 <section class="container">
     <h2 class="section-title">Browse by Category</h2>
-    <p class="section-subtitle">13 categories covering every use case from databases to AI agents</p>
+    <p class="section-subtitle">15 categories covering every use case from databases to AI agents</p>
     <div class="cat-grid">
         
+        <a href="/category/other.html" class="cat-card" style="--cat-color:#6B7280">
+            <style>.cat-card[style*="#6B7280"]::before { background: #6B7280; }</style>
+            <span class="cat-icon">📦</span>
+            <span class="cat-name">Other</span>
+            <span class="cat-count">1761 servers</span>
+        </a>
         <a href="/category/ai-llm.html" class="cat-card" style="--cat-color:#8B5CF6">
             <style>.cat-card[style*="#8B5CF6"]::before { background: #8B5CF6; }</style>
             <span class="cat-icon">🤖</span>
             <span class="cat-name">AI/LLM</span>
-            <span class="cat-count">779 servers</span>
+            <span class="cat-count">1573 servers</span>
         </a>
         <a href="/category/code-dev-tools.html" class="cat-card" style="--cat-color:#3B82F6">
             <style>.cat-card[style*="#3B82F6"]::before { background: #3B82F6; }</style>
             <span class="cat-icon">💻</span>
             <span class="cat-name">Code/Dev Tools</span>
-            <span class="cat-count">180 servers</span>
-        </a>
-        <a href="/category/other.html" class="cat-card" style="--cat-color:#6B7280">
-            <style>.cat-card[style*="#6B7280"]::before { background: #6B7280; }</style>
-            <span class="cat-icon">📦</span>
-            <span class="cat-name">Other</span>
-            <span class="cat-count">158 servers</span>
-        </a>
-        <a href="/category/api-integration.html" class="cat-card" style="--cat-color:#10B981">
-            <style>.cat-card[style*="#10B981"]::before { background: #10B981; }</style>
-            <span class="cat-icon">🔌</span>
-            <span class="cat-name">API Integration</span>
-            <span class="cat-count">102 servers</span>
+            <span class="cat-count">601 servers</span>
         </a>
         <a href="/category/memory-knowledge.html" class="cat-card" style="--cat-color:#F59E0B">
             <style>.cat-card[style*="#F59E0B"]::before { background: #F59E0B; }</style>
             <span class="cat-icon">🧠</span>
             <span class="cat-name">Memory/Knowledge</span>
-            <span class="cat-count">97 servers</span>
+            <span class="cat-count">390 servers</span>
+        </a>
+        <a href="/category/api-integration.html" class="cat-card" style="--cat-color:#10B981">
+            <style>.cat-card[style*="#10B981"]::before { background: #10B981; }</style>
+            <span class="cat-icon">🔌</span>
+            <span class="cat-name">API Integration</span>
+            <span class="cat-count">375 servers</span>
         </a>
         <a href="/category/database.html" class="cat-card" style="--cat-color:#EF4444">
             <style>.cat-card[style*="#EF4444"]::before { background: #EF4444; }</style>
             <span class="cat-icon">🗄️</span>
             <span class="cat-name">Database</span>
-            <span class="cat-count">75 servers</span>
-        </a>
-        <a href="/category/browser-web.html" class="cat-card" style="--cat-color:#06B6D4">
-            <style>.cat-card[style*="#06B6D4"]::before { background: #06B6D4; }</style>
-            <span class="cat-icon">🌐</span>
-            <span class="cat-name">Browser/Web</span>
-            <span class="cat-count">46 servers</span>
+            <span class="cat-count">183 servers</span>
         </a>
         <a href="/category/security.html" class="cat-card" style="--cat-color:#DC2626">
             <style>.cat-card[style*="#DC2626"]::before { background: #DC2626; }</style>
             <span class="cat-icon">🔒</span>
             <span class="cat-name">Security</span>
-            <span class="cat-count">44 servers</span>
-        </a>
-        <a href="/category/search.html" class="cat-card" style="--cat-color:#7C3AED">
-            <style>.cat-card[style*="#7C3AED"]::before { background: #7C3AED; }</style>
-            <span class="cat-icon">🔍</span>
-            <span class="cat-name">Search</span>
-            <span class="cat-count">43 servers</span>
+            <span class="cat-count">160 servers</span>
         </a>
         <a href="/category/devops.html" class="cat-card" style="--cat-color:#059669">
             <style>.cat-card[style*="#059669"]::before { background: #059669; }</style>
             <span class="cat-icon">⚙️</span>
             <span class="cat-name">DevOps</span>
-            <span class="cat-count">41 servers</span>
+            <span class="cat-count">115 servers</span>
+        </a>
+        <a href="/category/search.html" class="cat-card" style="--cat-color:#7C3AED">
+            <style>.cat-card[style*="#7C3AED"]::before { background: #7C3AED; }</style>
+            <span class="cat-icon">🔍</span>
+            <span class="cat-name">Search</span>
+            <span class="cat-count">106 servers</span>
+        </a>
+        <a href="/category/browser-web.html" class="cat-card" style="--cat-color:#06B6D4">
+            <style>.cat-card[style*="#06B6D4"]::before { background: #06B6D4; }</style>
+            <span class="cat-icon">🌐</span>
+            <span class="cat-name">Browser/Web</span>
+            <span class="cat-count">87 servers</span>
         </a>
         <a href="/category/data-analytics.html" class="cat-card" style="--cat-color:#EC4899">
             <style>.cat-card[style*="#EC4899"]::before { background: #EC4899; }</style>
             <span class="cat-icon">📊</span>
             <span class="cat-name">Data/Analytics</span>
-            <span class="cat-count">27 servers</span>
+            <span class="cat-count">87 servers</span>
         </a>
         <a href="/category/communication.html" class="cat-card" style="--cat-color:#2563EB">
             <style>.cat-card[style*="#2563EB"]::before { background: #2563EB; }</style>
             <span class="cat-icon">💬</span>
             <span class="cat-name">Communication</span>
-            <span class="cat-count">22 servers</span>
+            <span class="cat-count">73 servers</span>
         </a>
         <a href="/category/file-system.html" class="cat-card" style="--cat-color:#D97706">
             <style>.cat-card[style*="#D97706"]::before { background: #D97706; }</style>
             <span class="cat-icon">📁</span>
             <span class="cat-name">File System</span>
-            <span class="cat-count">15 servers</span>
+            <span class="cat-count">44 servers</span>
+        </a>
+        <a href="/category/finance.html" class="cat-card" style="--cat-color:#16A34A">
+            <style>.cat-card[style*="#16A34A"]::before { background: #16A34A; }</style>
+            <span class="cat-icon">💰</span>
+            <span class="cat-name">Finance</span>
+            <span class="cat-count">40 servers</span>
+        </a>
+        <a href="/category/media.html" class="cat-card" style="--cat-color:#E11D48">
+            <style>.cat-card[style*="#E11D48"]::before { background: #E11D48; }</style>
+            <span class="cat-icon">🎬</span>
+            <span class="cat-name">Media</span>
+            <span class="cat-count">23 servers</span>
         </a>
     </div>
 </section>
@@ -1191,7 +1238,7 @@ footer {
     <a href="/servers/n8n-io-n8n.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">n8n</span>
-            <span class="server-card-stars">★ 179.1K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 180.2K</span></span>
         </div>
         <div class="server-card-desc">Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code,...</div>
         <div class="server-card-footer">
@@ -1202,7 +1249,7 @@ footer {
     <a href="/servers/google-gemini-gemini-cli.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">gemini-cli</span>
-            <span class="server-card-stars">★ 97.7K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 98.5K</span></span>
         </div>
         <div class="server-card-desc">An open-source AI agent that brings the power of Gemini directly into your terminal.</div>
         <div class="server-card-footer">
@@ -1213,7 +1260,7 @@ footer {
     <a href="/servers/punkpeye-awesome-mcp-servers.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">awesome-mcp-servers</span>
-            <span class="server-card-stars">★ 83.0K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 83.7K</span></span>
         </div>
         <div class="server-card-desc">A collection of MCP servers.</div>
         <div class="server-card-footer">
@@ -1224,7 +1271,7 @@ footer {
     <a href="/servers/modelcontextprotocol-servers.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">servers</span>
-            <span class="server-card-stars">★ 81.0K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 81.6K</span></span>
         </div>
         <div class="server-card-desc">Model Context Protocol Servers</div>
         <div class="server-card-footer">
@@ -1235,7 +1282,7 @@ footer {
     <a href="/servers/upstash-context7.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">context7</span>
-            <span class="server-card-stars">★ 49.0K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 49.9K</span></span>
         </div>
         <div class="server-card-desc">Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors</div>
         <div class="server-card-footer">
@@ -1246,7 +1293,7 @@ footer {
     <a href="/servers/sansan0-trendradar.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">TrendRadar</span>
-            <span class="server-card-stars">★ 48.9K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 49.4K</span></span>
         </div>
         <div class="server-card-desc">⭐AI-driven public opinion &amp; trend monitor with multi-platform aggregation, RSS, and smart alerts.🎯 告别信息过载，你的 AI...</div>
         <div class="server-card-footer">
@@ -1257,7 +1304,7 @@ footer {
     <a href="/servers/mudler-localai.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">LocalAI</span>
-            <span class="server-card-stars">★ 43.6K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 43.6K</span></span>
         </div>
         <div class="server-card-desc"> The free, Open Source alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement, ...</div>
         <div class="server-card-footer">
@@ -1268,7 +1315,7 @@ footer {
     <a href="/servers/danny-avila-librechat.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">LibreChat</span>
-            <span class="server-card-stars">★ 34.6K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 34.6K</span></span>
         </div>
         <div class="server-card-desc">Enhanced ChatGPT Clone: Features Agents, MCP, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1,...</div>
         <div class="server-card-footer">
@@ -1279,7 +1326,7 @@ footer {
     <a href="/servers/pdfmathtranslate-pdfmathtranslate.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">PDFMathTranslate</span>
-            <span class="server-card-stars">★ 32.2K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 32.2K</span></span>
         </div>
         <div class="server-card-desc">[EMNLP 2025 Demo] PDF scientific paper translation with preserved formats - 基于 AI 完整保留排版的 PDF 文档全文双语翻译，支持...</div>
         <div class="server-card-footer">
@@ -1290,7 +1337,7 @@ footer {
     <a href="/servers/d4vinci-scrapling.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">Scrapling</span>
-            <span class="server-card-stars">★ 29.4K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 31.4K</span></span>
         </div>
         <div class="server-card-desc">🕷️ An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl!</div>
         <div class="server-card-footer">
@@ -1301,7 +1348,7 @@ footer {
     <a href="/servers/chromedevtools-chrome-devtools-mcp.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">chrome-devtools-mcp</span>
-            <span class="server-card-stars">★ 28.9K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 30.5K</span></span>
         </div>
         <div class="server-card-desc">Chrome DevTools for coding agents</div>
         <div class="server-card-footer">
@@ -1312,7 +1359,7 @@ footer {
     <a href="/servers/microsoft-playwright-mcp.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">playwright-mcp</span>
-            <span class="server-card-stars">★ 28.9K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 29.3K</span></span>
         </div>
         <div class="server-card-desc">Playwright MCP server</div>
         <div class="server-card-footer">
@@ -1349,6 +1396,7 @@ footer {
                     <h4>Directory</h4>
                     <a href="/">Explore Servers</a>
                     <a href="/categories.html">Categories</a>
+                    <a href="/security.html">Security Scores</a>
                     <a href="/submit.html">Submit a Server</a>
                 </div>
                 <div class="footer-col">

@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Communication MCP Servers — 22 Model Context Protocol Servers | Protodex</title>
+    <title>Communication MCP Servers — 73 Model Context Protocol Servers | Protodex</title>
     <meta name="description" content="MCP servers for Slack, email, Discord, and other messaging platforms.">
-    <meta property="og:title" content="Communication MCP Servers — 22 Model Context Protocol Servers | Protodex">
+    <meta property="og:title" content="Communication MCP Servers — 73 Model Context Protocol Servers | Protodex">
     <meta property="og:description" content="MCP servers for Slack, email, Discord, and other messaging platforms.">
     <meta property="og:url" content="https://protodex.io/category/communication.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Communication MCP Servers — 22 Model Context Protocol Servers | Protodex">
+    <meta name="twitter:title" content="Communication MCP Servers — 73 Model Context Protocol Servers | Protodex">
     <meta name="twitter:description" content="MCP servers for Slack, email, Discord, and other messaging platforms.">
     <link rel="canonical" href="https://protodex.io/category/communication.html">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
@@ -503,6 +503,40 @@ a.value-prop { color: inherit; }
     color: var(--blue);
     border-color: rgba(96, 165, 250, 0.15);
 }
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+.sec-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.sec-yellow {
+    background: rgba(250, 204, 21, 0.1);
+    color: #EAB308;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.sec-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+/* Security page */
+.security-content { max-width: 700px; margin: 0 auto; padding: 40px 0 80px; }
+.security-content h2 { margin-bottom: 16px; font-weight: 700; }
+.security-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.band-explain { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+.band-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.band-row .sec-badge { font-size: 0.8rem; padding: 5px 12px; }
+.band-desc { color: var(--text-muted); font-size: 0.9rem; }
 .lang-dot {
     width: 8px;
     height: 8px;
@@ -987,6 +1021,7 @@ footer {
         <nav>
             <a href="/">Explore</a>
             <a href="/categories.html">Categories</a>
+            <a href="/security.html">Security</a>
             <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
             <a href="/submit.html" class="nav-cta">Submit Server</a>
         </nav>
@@ -1001,7 +1036,7 @@ footer {
     </div>
 </div>
 <section class="container">
-    <p style="color:var(--text-dim);margin-bottom:24px">22 servers · sorted by GitHub stars</p>
+    <p style="color:var(--text-dim);margin-bottom:24px">73 servers · sorted by GitHub stars</p>
     <div style="overflow-x:auto">
     <table class="server-table">
         <thead>
@@ -1011,179 +1046,587 @@ footer {
             
     <tr>
         <td style="color:var(--text-dim)">1</td>
-        <td class="name-cell"><a href="/servers/sansan0-trendradar.html">TrendRadar</a></td>
+        <td class="name-cell"><a href="/servers/sansan0-trendradar.html">TrendRadar</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
         <td class="desc-cell">⭐AI-driven public opinion &amp; trend monitor with multi-platform aggregation,...</td>
-        <td class="stars-cell">★ 48.9K</td>
+        <td class="stars-cell">★ 49.4K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2</td>
-        <td class="name-cell"><a href="/servers/78-xiaozhi-esp32.html">xiaozhi-esp32</a></td>
+        <td class="name-cell"><a href="/servers/78-xiaozhi-esp32.html">xiaozhi-esp32</a> </td>
         <td class="desc-cell">An MCP-based chatbot | 一个基于MCP的聊天机器人</td>
         <td class="stars-cell">★ 24.7K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F34B7D"></span> C++</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">3</td>
-        <td class="name-cell"><a href="/servers/lharries-whatsapp-mcp.html">whatsapp-mcp</a></td>
+        <td class="name-cell"><a href="/servers/lharries-whatsapp-mcp.html">whatsapp-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">WhatsApp MCP server</td>
         <td class="stars-cell">★ 5.4K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">4</td>
-        <td class="name-cell"><a href="/servers/svnscha-mcp-windbg.html">mcp-windbg</a></td>
+        <td class="name-cell"><a href="/servers/svnscha-mcp-windbg.html">mcp-windbg</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
         <td class="desc-cell">Model Context Protocol for WinDBG</td>
         <td class="stars-cell">★ 1.1K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">5</td>
-        <td class="name-cell"><a href="/servers/chigwell-telegram-mcp.html">telegram-mcp</a></td>
+        <td class="name-cell"><a href="/servers/chigwell-telegram-mcp.html">telegram-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Telegram MCP server powered by Telethon to let MCP clients read chats,...</td>
-        <td class="stars-cell">★ 790</td>
+        <td class="stars-cell">★ 817</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">6</td>
-        <td class="name-cell"><a href="/servers/samuraigpt-awesome-openclaw.html">awesome-openclaw</a></td>
+        <td class="name-cell"><a href="/servers/samuraigpt-awesome-openclaw.html">awesome-openclaw</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">A curated list of OpenClaw resources, tools, skills, tutorials &amp; articles....</td>
-        <td class="stars-cell">★ 787</td>
+        <td class="stars-cell">★ 809</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">7</td>
-        <td class="name-cell"><a href="/servers/obot-platform-obot.html">obot</a></td>
+        <td class="name-cell"><a href="/servers/obot-platform-obot.html">obot</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Complete MCP Platform -- Hosting, Registry, Gateway, and Chat Client</td>
-        <td class="stars-cell">★ 643</td>
+        <td class="stars-cell">★ 653</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">8</td>
-        <td class="name-cell"><a href="/servers/resend-resend-mcp.html">resend-mcp</a></td>
+        <td class="name-cell"><a href="/servers/resend-resend-mcp.html">resend-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">The official MCP server to send emails and interact with Resend</td>
-        <td class="stars-cell">★ 469</td>
+        <td class="stars-cell">★ 474</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">9</td>
-        <td class="name-cell"><a href="/servers/inditextech-mcp-teams-server.html">mcp-teams-server</a></td>
+        <td class="name-cell"><a href="/servers/inditextech-mcp-teams-server.html">mcp-teams-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">An MCP (Model Context Protocol) server implementation for Microsoft Teams...</td>
-        <td class="stars-cell">★ 358</td>
+        <td class="stars-cell">★ 361</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">8d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">10</td>
-        <td class="name-cell"><a href="/servers/drhelius-gearsystem.html">Gearsystem</a></td>
+        <td class="name-cell"><a href="/servers/drhelius-gearsystem.html">Gearsystem</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Sega Master System / Game Gear / SG-1000 emulator, debugger and embedded MCP...</td>
-        <td class="stars-cell">★ 331</td>
+        <td class="stars-cell">★ 335</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F34B7D"></span> C++</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">8d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">11</td>
-        <td class="name-cell"><a href="/servers/chatmcp-mcprouter.html">mcprouter</a></td>
+        <td class="name-cell"><a href="/servers/chatmcp-mcprouter.html">mcprouter</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">api router for MCP Servers</td>
         <td class="stars-cell">★ 306</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">10d ago</td>
+        <td style="color:var(--text-dim)">17d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">12</td>
-        <td class="name-cell"><a href="/servers/dmontgomery40-deepseek-mcp-server.html">deepseek-mcp-server</a></td>
+        <td class="name-cell"><a href="/servers/dmontgomery40-deepseek-mcp-server.html">deepseek-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Model Context Protocol server for DeepSeek&#x27;s advanced language models</td>
-        <td class="stars-cell">★ 304</td>
+        <td class="stars-cell">★ 306</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">13</td>
-        <td class="name-cell"><a href="/servers/chaindead-telegram-mcp.html">telegram-mcp</a></td>
+        <td class="name-cell"><a href="/servers/chaindead-telegram-mcp.html">telegram-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Telegram MCP for managing dialogs, messages, drafts, read statuses, and more.</td>
-        <td class="stars-cell">★ 299</td>
+        <td class="stars-cell">★ 301</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">14</td>
-        <td class="name-cell"><a href="/servers/3choff-mcp-chatbot.html">mcp-chatbot</a></td>
+        <td class="name-cell"><a href="/servers/3choff-mcp-chatbot.html">mcp-chatbot</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">A simple CLI chatbot that demonstrates the integration of the Model Context...</td>
         <td class="stars-cell">★ 248</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">2d ago</td>
+        <td style="color:var(--text-dim)">8d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">15</td>
-        <td class="name-cell"><a href="/servers/ai-zerolab-mcp-email-server.html">mcp-email-server</a></td>
-        <td class="desc-cell">IMAP and SMTP via MCP Server</td>
-        <td class="stars-cell">★ 192</td>
+        <td class="name-cell"><a href="/servers/keli-wen-mcp_chatbot.html">mcp_chatbot</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A chatbot implementation compatible with MCP (terminal / streamlit supported)</td>
+        <td class="stars-cell">★ 239</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">16</td>
-        <td class="name-cell"><a href="/servers/lillard01-chatexcel-mcp.html">chatExcel-mcp</a></td>
-        <td class="desc-cell">chatExcel -...</td>
-        <td class="stars-cell">★ 183</td>
+        <td class="name-cell"><a href="/servers/ai-zerolab-mcp-email-server.html">mcp-email-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">IMAP and SMTP via MCP Server</td>
+        <td class="stars-cell">★ 198</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">17</td>
-        <td class="name-cell"><a href="/servers/hanweg-mcp-discord.html">mcp-discord</a></td>
-        <td class="desc-cell">MCP server for discord bot</td>
-        <td class="stars-cell">★ 148</td>
+        <td class="name-cell"><a href="/servers/lillard01-chatexcel-mcp.html">chatExcel-mcp</a> </td>
+        <td class="desc-cell">chatExcel -...</td>
+        <td class="stars-cell">★ 183</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
         <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">18</td>
-        <td class="name-cell"><a href="/servers/loonghao-wecom-bot-mcp-server.html">wecom-bot-mcp-server</a></td>
-        <td class="desc-cell">A Python server implementation for WeCom (WeChat Work) bot that follows the...</td>
-        <td class="stars-cell">★ 80</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td class="name-cell"><a href="/servers/tercumantanumut-selene.html">selene</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Selene is a desktop app that runs AI agents on your machine. Connect them to...</td>
+        <td class="stars-cell">★ 151</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
         <td style="color:var(--text-dim)">2d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">19</td>
-        <td class="name-cell"><a href="/servers/agenticmail-agenticmail.html">agenticmail</a></td>
+        <td class="name-cell"><a href="/servers/hanweg-mcp-discord.html">mcp-discord</a> </td>
+        <td class="desc-cell">MCP server for discord bot</td>
+        <td class="stars-cell">★ 148</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">13d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">20</td>
+        <td class="name-cell"><a href="/servers/ksylvan-fabric-mcp.html">fabric-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Fabric MCP Server: Seamlessly integrate Fabric AI capabilities into...</td>
+        <td class="stars-cell">★ 85</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">21</td>
+        <td class="name-cell"><a href="/servers/panxingfeng-mcp_server_wechat.html">mcp_server_wechat</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">基于MCP技术，操作微信发送消息和获取历史记录</td>
+        <td class="stars-cell">★ 84</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">22</td>
+        <td class="name-cell"><a href="/servers/loonghao-wecom-bot-mcp-server.html">wecom-bot-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A Python server implementation for WeCom (WeChat Work) bot that follows the...</td>
+        <td class="stars-cell">★ 82</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">8d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">23</td>
+        <td class="name-cell"><a href="/servers/yfmeii-weapp-dev-mcp.html">weapp-dev-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">FastMCP server for automating WeChat Mini Program developer tooling</td>
+        <td class="stars-cell">★ 80</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">24</td>
+        <td class="name-cell"><a href="/servers/barryyip0625-mcp-discord.html">mcp-discord</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Implement Discord MCP server enabling AI assistants to interact with the...</td>
+        <td class="stars-cell">★ 75</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">3d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">25</td>
+        <td class="name-cell"><a href="/servers/agenticmail-agenticmail.html">agenticmail</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Email &amp; SMS infrastructure for AI agents — send and receive real email and...</td>
-        <td class="stars-cell">★ 68</td>
+        <td class="stars-cell">★ 72</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">8d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">26</td>
+        <td class="name-cell"><a href="/servers/secretiveshell-mcp-wolfram-alpha.html">MCP-wolfram-alpha</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Connect your chat repl to wolfram alpha computational intelligence</td>
+        <td class="stars-cell">★ 72</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">27</td>
+        <td class="name-cell"><a href="/servers/shy2593666979-mcp-server-email.html">mcp-server-email</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">一个基于 MCP (Model Context Protocol) 的邮件服务，支持 LLM 发送带附件的电子邮件及在指定目录中搜索文件。提供安全的...</td>
+        <td class="stars-cell">★ 72</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">10mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">28</td>
+        <td class="name-cell"><a href="/servers/plagueho-github-copilot-assets-library.html">github-copilot-assets-library</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A list of GitHub Copilot assets, such as prompt files, chat modes, MCP...</td>
+        <td class="stars-cell">★ 72</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">29</td>
+        <td class="name-cell"><a href="/servers/lexus2016-claude-code-studio.html">claude-code-studio</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A fully functional web workspace for Claude Code CLI—chat, Kanban task...</td>
+        <td class="stars-cell">★ 72</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> HTML</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">30</td>
+        <td class="name-cell"><a href="/servers/ruvnet-sublinear-time-solver.html">sublinear-time-solver</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Rust + WASM sublinear-time solver for asymmetric diagonally dominant...</td>
+        <td class="stars-cell">★ 63</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
+        <td style="color:var(--text-dim)">8d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">31</td>
+        <td class="name-cell"><a href="/servers/zencoderai-slack-mcp-server.html">slack-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell"></td>
+        <td class="stars-cell">★ 62</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">32</td>
+        <td class="name-cell"><a href="/servers/felipeadeildo-whatsapp-mcp.html">whatsapp-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">WhatsApp Unofficial MCP Server</td>
+        <td class="stars-cell">★ 56</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">33</td>
+        <td class="name-cell"><a href="/servers/cactusinhand-mcp_server_notify.html">mcp_server_notify</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Send system notification when Agent task is done.</td>
+        <td class="stars-cell">★ 50</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">34</td>
+        <td class="name-cell"><a href="/servers/shuakami-mcp-mail.html">mcp-mail</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">📧 MCP Mail Tool - AI-powered email management tool | 基于 MCP 的智能邮件管理工具</td>
+        <td class="stars-cell">★ 47</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">35</td>
+        <td class="name-cell"><a href="/servers/pnizer-wweb-mcp.html">wweb-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">WhatsApp Web MCP Server</td>
+        <td class="stars-cell">★ 42</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">36</td>
+        <td class="name-cell"><a href="/servers/activecampaign-postmark-mcp.html">postmark-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Experimental MCP server for Postmark, built by Postmark Labs. Designed for...</td>
+        <td class="stars-cell">★ 37</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">5d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">37</td>
+        <td class="name-cell"><a href="/servers/mjknowles-matrix-mcp-server.html">matrix-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP Server for a Matrix home server integration; chat, manage rooms, etc.</td>
+        <td class="stars-cell">★ 36</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">38</td>
+        <td class="name-cell"><a href="/servers/priyankark-phonepi-mcp.html">phonepi-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">PhonePi MCP enables seamless integration between desktop AI tools and your...</td>
+        <td class="stars-cell">★ 33</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">11mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">39</td>
+        <td class="name-cell"><a href="/servers/mikechao-balldontlie-mcp.html">balldontlie-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">An MCP Server implementation that integrates the Balldontlie API, to provide...</td>
+        <td class="stars-cell">★ 23</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">40</td>
+        <td class="name-cell"><a href="/servers/codefuturist-email-mcp.html">email-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Email MCP server with full IMAP + SMTP support — read, search, send, manage,...</td>
+        <td class="stars-cell">★ 21</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">5d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">41</td>
+        <td class="name-cell"><a href="/servers/gamalan-mcp-email-client.html">mcp-email-client</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Email Client as MCP Server. Feature: multiple configuration, more than just...</td>
+        <td class="stars-cell">★ 17</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">11mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">42</td>
+        <td class="name-cell"><a href="/servers/vscarpenter-gsd-task-manager.html">gsd-task-manager</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Stop juggling, start finishing. GSD Task Manager makes it easy to sort your...</td>
+        <td class="stars-cell">★ 15</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
         <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">20</td>
-        <td class="name-cell"><a href="/servers/ruvnet-sublinear-time-solver.html">sublinear-time-solver</a></td>
-        <td class="desc-cell">Rust + WASM sublinear-time solver for asymmetric diagonally dominant...</td>
-        <td class="stars-cell">★ 62</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
+        <td style="color:var(--text-dim)">43</td>
+        <td class="name-cell"><a href="/servers/cyanheads-ntfy-mcp-server.html">ntfy-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">An MCP (Model Context Protocol) server designed to interact with the ntfy...</td>
+        <td class="stars-cell">★ 14</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">44</td>
+        <td class="name-cell"><a href="/servers/dend-guildbridge.html">guildbridge</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🏰 Remotely hosted MCP server for Discord</td>
+        <td class="stars-cell">★ 14</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
         <td style="color:var(--text-dim)">2d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">21</td>
-        <td class="name-cell"><a href="/servers/alphasecio-mcp-client-server.html">mcp-client-server</a></td>
+        <td style="color:var(--text-dim)">45</td>
+        <td class="name-cell"><a href="/servers/nkapila6-mcp-meme-sticky.html">mcp-meme-sticky</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Create AI generated memes using MCP Meme Sticky. Can converted generated...</td>
+        <td class="stars-cell">★ 13</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">46</td>
+        <td class="name-cell"><a href="/servers/maitreyam-gmail-mcp-server.html">Gmail-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A resilient MCP server built with fastMCP for sending emails through Gmail&#x27;s...</td>
+        <td class="stars-cell">★ 10</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">47</td>
+        <td class="name-cell"><a href="/servers/yutakobayashidev-ava.html">ava</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Automatically share development progress to Slack through AI. MCP-powered...</td>
+        <td class="stars-cell">★ 9</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">48</td>
+        <td class="name-cell"><a href="/servers/akougkas-zulipchat-mcp.html">zulipchat-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">ZulipChat MCP Server - A Model Context Protocol server that bridges AI...</td>
+        <td class="stars-cell">★ 6</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">18d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">49</td>
+        <td class="name-cell"><a href="/servers/alexifeng-mcp_chat_logger.html">MCP_Chat_Logger</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">📝 A FastMCP tool that automatically saves AI chat conversations to...</td>
+        <td class="stars-cell">★ 5</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">11mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">50</td>
+        <td class="name-cell"><a href="/servers/abhinavkale-dev-telegram-mcp-server.html">telegram-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Simple Telegram MCP server</td>
+        <td class="stars-cell">★ 3</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">11mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">51</td>
+        <td class="name-cell"><a href="/servers/rayenmalouche-java-mcp-server-for-smtp-mailing.html">Java-MCP-Server-For-SMTP-Mailing</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A Model Context Protocol (MCP) server (using java sdk 0.11.0) that provides...</td>
+        <td class="stars-cell">★ 2</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#B07219"></span> Java</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">52</td>
+        <td class="name-cell"><a href="/servers/sandraschi-blender-mcp.html">blender-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Fastmcp 2.14.3 Server to Create Blender 3D Scenes with Chat,</td>
+        <td class="stars-cell">★ 2</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">53</td>
+        <td class="name-cell"><a href="/servers/alicenjr-whatsapp-mcp-server.html">WhatsApp-MCP-Server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Lightweight WhatsApp MCP bridge combining Node.js (Express +...</td>
+        <td class="stars-cell">★ 2</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> JSON</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">54</td>
+        <td class="name-cell"><a href="/servers/rajtilak-2020-whatsaap-mcp-server.html">whatsaap-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A lightweight agent-ready messaging server built with FastMCP and Twilio to...</td>
+        <td class="stars-cell">★ 2</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">55</td>
+        <td class="name-cell"><a href="/servers/alphasecio-mcp-client-server.html">mcp-client-server</a> </td>
         <td class="desc-cell">A collection of MCP servers and a Streamlit-based MCP chatbot.</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">22</td>
-        <td class="name-cell"><a href="/servers/dearop-zk-lens.html">zk-lens</a></td>
+        <td style="color:var(--text-dim)">56</td>
+        <td class="name-cell"><a href="/servers/elasticemail-elasticemail-mcp-server.html">elasticemail-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Elastic Email MCP Server delivers full-scale email capabilities to the next...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">57</td>
+        <td class="name-cell"><a href="/servers/jezweb-fastmcp-imap.html">fastmcp-imap</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">FastMCP server for IMAP email operations with dynamic credential handling</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">58</td>
+        <td class="name-cell"><a href="/servers/harshith051104-fastmcp_instantlyai.html">fastmcp_instantlyai</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">An autonomous agent and FastMCP server for managing Instantly.ai email...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">59</td>
+        <td class="name-cell"><a href="/servers/mr-jay-wei-fastmcpserver_mcp_client_chatbot.html">fastmcpserver_mcp_client_chatbot</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">fastmcp搭建server，mcp搭建的client，加入一个对话chatbot</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">60</td>
+        <td class="name-cell"><a href="/servers/hyunol7-slack-mcp.html">slack-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">FastMCP v2를 사용하여 Slack API와 연동되는 MCP(Model Context Protocol) 서버를 구축하는 프로젝트</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">61</td>
+        <td class="name-cell"><a href="/servers/sandraschi-unity3d-mcp.html">unity3d-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">FastMCP 2.14.3  Unity 3D automation server  with VRM avatar pipeline and...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">62</td>
+        <td class="name-cell"><a href="/servers/ponchotitlan-ciscou-2385-radkit-mcp.html">ciscou-2385-radkit-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Source code of the session CISCOU-2385: Chatting With My Network via Cisco...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">63</td>
+        <td class="name-cell"><a href="/servers/abuzar-ansarii-email-sender-mcp-server.html">Email-Sender-MCP-Server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🚀 A Model Context Protocol (MCP) server that enables AI assistants to send...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">64</td>
+        <td class="name-cell"><a href="/servers/dearop-zk-lens.html">zk-lens</a> </td>
         <td class="desc-cell">MCP server (zk-lens) that lowers Circom and Noir circuits into a shared...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">65</td>
+        <td class="name-cell"><a href="/servers/habib255-ntfy.html">ntfy</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Send push notifications to your phone or desktop with ntfy. Easily use...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">66</td>
+        <td class="name-cell"><a href="/servers/chasekolozsy-ankichat.html">AnkiChat</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">This is a work in progress and very simple in its current form. It does not...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">67</td>
+        <td class="name-cell"><a href="/servers/ilyaev-mcp-chat-ui.html">mcp-chat-ui</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP Server with Chat UI</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">68</td>
+        <td class="name-cell"><a href="/servers/pepicrft-gestalt.html">gestalt</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A framework for building a personal agent that you can interface with via...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">69</td>
+        <td class="name-cell"><a href="/servers/lee197-ai-brain.html">AI-Brain</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">AI Brain is an intelligent workplace assistant that integrates with...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">70</td>
+        <td class="name-cell"><a href="/servers/siavashdelkhosh81-telegram-bot-mcp-server.html">telegram-bot-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Telegram bot mcp server</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">71</td>
+        <td class="name-cell"><a href="/servers/hamachi-multi-windows-notification-server.html">windows-notification-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell"></td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">72</td>
+        <td class="name-cell"><a href="/servers/mikesellitto-boing.html">boing</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Modern, modular push notification service</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">73</td>
+        <td class="name-cell"><a href="/servers/gabigabogabu-email-mcp-server.html">email-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Model Context Protocol Server with IMAP and SMTP connectivity</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
     </tr>
         </tbody>
     </table>
@@ -1205,6 +1648,7 @@ footer {
                     <h4>Directory</h4>
                     <a href="/">Explore Servers</a>
                     <a href="/categories.html">Categories</a>
+                    <a href="/security.html">Security Scores</a>
                     <a href="/submit.html">Submit a Server</a>
                 </div>
                 <div class="footer-col">

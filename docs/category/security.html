@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security MCP Servers — 44 Model Context Protocol Servers | Protodex</title>
+    <title>Security MCP Servers — 160 Model Context Protocol Servers | Protodex</title>
     <meta name="description" content="MCP servers for security scanning, vulnerability detection, and safety guardrails.">
-    <meta property="og:title" content="Security MCP Servers — 44 Model Context Protocol Servers | Protodex">
+    <meta property="og:title" content="Security MCP Servers — 160 Model Context Protocol Servers | Protodex">
     <meta property="og:description" content="MCP servers for security scanning, vulnerability detection, and safety guardrails.">
     <meta property="og:url" content="https://protodex.io/category/security.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Security MCP Servers — 44 Model Context Protocol Servers | Protodex">
+    <meta name="twitter:title" content="Security MCP Servers — 160 Model Context Protocol Servers | Protodex">
     <meta name="twitter:description" content="MCP servers for security scanning, vulnerability detection, and safety guardrails.">
     <link rel="canonical" href="https://protodex.io/category/security.html">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
@@ -503,6 +503,40 @@ a.value-prop { color: inherit; }
     color: var(--blue);
     border-color: rgba(96, 165, 250, 0.15);
 }
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+.sec-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.sec-yellow {
+    background: rgba(250, 204, 21, 0.1);
+    color: #EAB308;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.sec-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+/* Security page */
+.security-content { max-width: 700px; margin: 0 auto; padding: 40px 0 80px; }
+.security-content h2 { margin-bottom: 16px; font-weight: 700; }
+.security-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.band-explain { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+.band-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.band-row .sec-badge { font-size: 0.8rem; padding: 5px 12px; }
+.band-desc { color: var(--text-muted); font-size: 0.9rem; }
 .lang-dot {
     width: 8px;
     height: 8px;
@@ -987,6 +1021,7 @@ footer {
         <nav>
             <a href="/">Explore</a>
             <a href="/categories.html">Categories</a>
+            <a href="/security.html">Security</a>
             <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
             <a href="/submit.html" class="nav-cta">Submit Server</a>
         </nav>
@@ -1001,7 +1036,7 @@ footer {
     </div>
 </div>
 <section class="container">
-    <p style="color:var(--text-dim);margin-bottom:24px">44 servers · sorted by GitHub stars</p>
+    <p style="color:var(--text-dim);margin-bottom:24px">160 servers · sorted by GitHub stars</p>
     <div style="overflow-x:auto">
     <table class="server-table">
         <thead>
@@ -1011,355 +1046,1283 @@ footer {
             
     <tr>
         <td style="color:var(--text-dim)">1</td>
-        <td class="name-cell"><a href="/servers/firerpa-lamda.html">lamda</a></td>
-        <td class="desc-cell"> The most powerful Android RPA agent framework, next generation of mobile...</td>
-        <td class="stars-cell">★ 7.7K</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td class="name-cell"><a href="/servers/casdoor-casdoor.html">casdoor</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
+        <td class="desc-cell">An open-source AI-first Identity and Access Management (IAM) /AI MCP gateway...</td>
+        <td class="stars-cell">★ 13.2K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
         <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2</td>
-        <td class="name-cell"><a href="/servers/wgpsec-enscan_go.html">ENScan_GO</a></td>
-        <td class="desc-cell">一款基于各大企业信息API的工具，解决在遇到的各种针对国内企业信息收集难题。一键收集控股公司ICP备案、APP、小程序、微信公众号等信息聚合导出。支持MCP接入</td>
-        <td class="stars-cell">★ 4.2K</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td class="name-cell"><a href="/servers/firerpa-lamda.html">lamda</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
+        <td class="desc-cell"> The most powerful Android RPA agent framework, next generation of mobile...</td>
+        <td class="stars-cell">★ 7.7K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">3</td>
-        <td class="name-cell"><a href="/servers/martin-ger-esp32_nat_router.html">esp32_nat_router</a></td>
-        <td class="desc-cell">An AI-enabled NAT Router/Firewall for the ESP32</td>
-        <td class="stars-cell">★ 1.8K</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> C</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td class="name-cell"><a href="/servers/wgpsec-enscan_go.html">ENScan_GO</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
+        <td class="desc-cell">一款基于各大企业信息API的工具，解决在遇到的各种针对国内企业信息收集难题。一键收集控股公司ICP备案、APP、小程序、微信公众号等信息聚合导出。支持MCP接入</td>
+        <td class="stars-cell">★ 4.3K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">4</td>
-        <td class="name-cell"><a href="/servers/korotovsky-slack-mcp-server.html">slack-mcp-server</a></td>
-        <td class="desc-cell">The most powerful MCP Slack Server with no permission requirements, Apps...</td>
-        <td class="stars-cell">★ 1.4K</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td class="name-cell"><a href="/servers/martin-ger-esp32_nat_router.html">esp32_nat_router</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">An AI-enabled NAT Router/Firewall for the ESP32</td>
+        <td class="stars-cell">★ 1.8K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> C</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">5</td>
-        <td class="name-cell"><a href="/servers/iannuttall-mcp-boilerplate.html">mcp-boilerplate</a></td>
-        <td class="desc-cell">A remote Cloudflare MCP server boilerplate with user authentication and...</td>
-        <td class="stars-cell">★ 1.0K</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">13d ago</td>
+        <td class="name-cell"><a href="/servers/korotovsky-slack-mcp-server.html">slack-mcp-server</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
+        <td class="desc-cell">The most powerful MCP Slack Server with no permission requirements, Apps...</td>
+        <td class="stars-cell">★ 1.5K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">6</td>
-        <td class="name-cell"><a href="/servers/microsoft-wassette.html">wassette</a></td>
-        <td class="desc-cell">Wassette: A security-oriented runtime that runs WebAssembly Components via MCP</td>
-        <td class="stars-cell">★ 858</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td class="name-cell"><a href="/servers/iannuttall-mcp-boilerplate.html">mcp-boilerplate</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A remote Cloudflare MCP server boilerplate with user authentication and...</td>
+        <td class="stars-cell">★ 1.0K</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">7</td>
-        <td class="name-cell"><a href="/servers/cisco-ai-defense-mcp-scanner.html">mcp-scanner</a></td>
-        <td class="desc-cell">Scan MCP servers for potential threats &amp; security findings.</td>
-        <td class="stars-cell">★ 843</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td class="name-cell"><a href="/servers/microsoft-wassette.html">wassette</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Wassette: A security-oriented runtime that runs WebAssembly Components via MCP</td>
+        <td class="stars-cell">★ 862</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">8</td>
-        <td class="name-cell"><a href="/servers/six2dez-burp-ai-agent.html">burp-ai-agent</a></td>
-        <td class="desc-cell">Burp Suite extension that adds built-in MCP tooling, AI-assisted analysis,...</td>
-        <td class="stars-cell">★ 777</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#A97BFF"></span> Kotlin</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td class="name-cell"><a href="/servers/cisco-ai-defense-mcp-scanner.html">mcp-scanner</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Scan MCP servers for potential threats &amp; security findings.</td>
+        <td class="stars-cell">★ 854</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">8d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">9</td>
-        <td class="name-cell"><a href="/servers/puliczek-awesome-mcp-security.html">awesome-mcp-security</a></td>
-        <td class="desc-cell">🔥🔒 Awesome MCP (Model Context Protocol) Security 🖥️</td>
-        <td class="stars-cell">★ 666</td>
-        <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">today</td>
+        <td class="name-cell"><a href="/servers/six2dez-burp-ai-agent.html">burp-ai-agent</a> </td>
+        <td class="desc-cell">Burp Suite extension that adds built-in MCP tooling, AI-assisted analysis,...</td>
+        <td class="stars-cell">★ 777</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#A97BFF"></span> Kotlin</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">10</td>
-        <td class="name-cell"><a href="/servers/semgrep-mcp.html">mcp</a></td>
-        <td class="desc-cell">A MCP server for using Semgrep to scan code for security vulnerabilities.</td>
-        <td class="stars-cell">★ 639</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">5d ago</td>
+        <td class="name-cell"><a href="/servers/puliczek-awesome-mcp-security.html">awesome-mcp-security</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🔥🔒 Awesome MCP (Model Context Protocol) Security 🖥️</td>
+        <td class="stars-cell">★ 668</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">11</td>
-        <td class="name-cell"><a href="/servers/wgpsec-cloudsword.html">cloudsword</a></td>
-        <td class="desc-cell">一款帮助云租户发现和测试云上风险、增强云上防护能力的综合性开源工具</td>
-        <td class="stars-cell">★ 596</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td class="name-cell"><a href="/servers/semgrep-mcp.html">mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A MCP server for using Semgrep to scan code for security vulnerabilities.</td>
+        <td class="stars-cell">★ 641</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">11d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">12</td>
-        <td class="name-cell"><a href="/servers/cyproxio-mcp-for-security.html">mcp-for-security</a></td>
-        <td class="desc-cell">MCP for Security: A collection of Model Context Protocol servers for popular...</td>
-        <td class="stars-cell">★ 560</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">2d ago</td>
+        <td class="name-cell"><a href="/servers/wgpsec-cloudsword.html">cloudsword</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">一款帮助云租户发现和测试云上风险、增强云上防护能力的综合性开源工具</td>
+        <td class="stars-cell">★ 599</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">13</td>
-        <td class="name-cell"><a href="/servers/riseandignite-mcp-shield.html">mcp-shield</a></td>
-        <td class="desc-cell">Security scanner for MCP servers</td>
-        <td class="stars-cell">★ 547</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">2d ago</td>
-    </tr>
-    <tr>
-        <td style="color:var(--text-dim)">14</td>
-        <td class="name-cell"><a href="/servers/softeria-ms-365-mcp-server.html">ms-365-mcp-server</a></td>
-        <td class="desc-cell">A Model Context Protocol (MCP) server for interacting with Microsoft 365 and...</td>
-        <td class="stars-cell">★ 530</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
-    </tr>
-    <tr>
-        <td style="color:var(--text-dim)">15</td>
-        <td class="name-cell"><a href="/servers/fuzzinglabs-mcp-security-hub.html">mcp-security-hub</a></td>
-        <td class="desc-cell">A growing collection of MCP servers bringing offensive security tools to AI...</td>
-        <td class="stars-cell">★ 470</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
-    </tr>
-    <tr>
-        <td style="color:var(--text-dim)">16</td>
-        <td class="name-cell"><a href="/servers/atlassian-atlassian-mcp-server.html">atlassian-mcp-server</a></td>
-        <td class="desc-cell">Remote MCP Server that securely connects Jira and Confluence with your LLM,...</td>
-        <td class="stars-cell">★ 436</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">today</td>
-    </tr>
-    <tr>
-        <td style="color:var(--text-dim)">17</td>
-        <td class="name-cell"><a href="/servers/miscusi-peek-cheatengine-mcp-bridge.html">cheatengine-mcp-bridge</a></td>
-        <td class="desc-cell">Connect Cursor, Copilot &amp; Claude directly to Cheat Engine via MCP. Automate...</td>
-        <td class="stars-cell">★ 373</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> Lua</td>
-        <td style="color:var(--text-dim)">today</td>
-    </tr>
-    <tr>
-        <td style="color:var(--text-dim)">18</td>
-        <td class="name-cell"><a href="/servers/coleam00-remote-mcp-server-with-auth.html">remote-mcp-server-with-auth</a></td>
-        <td class="desc-cell">Template for a remote MCP server with GitHub OAuth - following best...</td>
-        <td class="stars-cell">★ 289</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">1d ago</td>
-    </tr>
-    <tr>
-        <td style="color:var(--text-dim)">19</td>
-        <td class="name-cell"><a href="/servers/hyprmcp-jetski.html">jetski</a></td>
-        <td class="desc-cell">Authentication, analytics, and prompt visibility for MCP servers with zero...</td>
-        <td class="stars-cell">★ 209</td>
+        <td class="name-cell"><a href="/servers/cyproxio-mcp-for-security.html">mcp-for-security</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP for Security: A collection of Model Context Protocol servers for popular...</td>
+        <td class="stars-cell">★ 569</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
         <td style="color:var(--text-dim)">8d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">20</td>
-        <td class="name-cell"><a href="/servers/supermemoryai-install-mcp.html">install-mcp</a></td>
-        <td class="desc-cell">A simple CLI to install MCP servers into any client - auth included!</td>
-        <td class="stars-cell">★ 179</td>
+        <td style="color:var(--text-dim)">14</td>
+        <td class="name-cell"><a href="/servers/riseandignite-mcp-shield.html">mcp-shield</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Security scanner for MCP servers</td>
+        <td class="stars-cell">★ 548</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">9d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">15</td>
+        <td class="name-cell"><a href="/servers/softeria-ms-365-mcp-server.html">ms-365-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A Model Context Protocol (MCP) server for interacting with Microsoft 365 and...</td>
+        <td class="stars-cell">★ 530</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">16</td>
+        <td class="name-cell"><a href="/servers/tailscale-tsidp.html">tsidp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A simple OIDC / OAuth Identity Provider (IdP) server for your tailnet.</td>
+        <td class="stars-cell">★ 527</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">22d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">17</td>
+        <td class="name-cell"><a href="/servers/fuzzinglabs-mcp-security-hub.html">mcp-security-hub</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A growing collection of MCP servers bringing offensive security tools to AI...</td>
+        <td class="stars-cell">★ 482</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">18</td>
+        <td class="name-cell"><a href="/servers/atlassian-atlassian-mcp-server.html">atlassian-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Remote MCP Server that securely connects Jira and Confluence with your LLM,...</td>
+        <td class="stars-cell">★ 467</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">19</td>
+        <td class="name-cell"><a href="/servers/miscusi-peek-cheatengine-mcp-bridge.html">cheatengine-mcp-bridge</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Connect Cursor, Copilot &amp; Claude directly to Cheat Engine via MCP. Automate...</td>
+        <td class="stars-cell">★ 396</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> Lua</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">20</td>
+        <td class="name-cell"><a href="/servers/coleam00-remote-mcp-server-with-auth.html">remote-mcp-server-with-auth</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Template for a remote MCP server with GitHub OAuth - following best...</td>
+        <td class="stars-cell">★ 290</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">8d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">21</td>
-        <td class="name-cell"><a href="/servers/pantheon-security-medusa.html">medusa</a></td>
+        <td class="name-cell"><a href="/servers/hyprmcp-jetski.html">jetski</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Authentication, analytics, and prompt visibility for MCP servers with zero...</td>
+        <td class="stars-cell">★ 209</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">14d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">22</td>
+        <td class="name-cell"><a href="/servers/patrikfehrenbach-h1-brain.html">h1-brain</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server that connects AI assistants to HackerOne for bug bounty hunting</td>
+        <td class="stars-cell">★ 204</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">10d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">23</td>
+        <td class="name-cell"><a href="/servers/supermemoryai-install-mcp.html">install-mcp</a> </td>
+        <td class="desc-cell">A simple CLI to install MCP servers into any client - auth included!</td>
+        <td class="stars-cell">★ 179</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">24</td>
+        <td class="name-cell"><a href="/servers/pantheon-security-medusa.html">medusa</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">AI-first security scanner with 76 analyzers, 7,300+ detection rules, and...</td>
-        <td class="stars-cell">★ 174</td>
+        <td class="stars-cell">★ 176</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">25</td>
+        <td class="name-cell"><a href="/servers/toolsdk-ai-toolsdk-mcp-registry.html">toolsdk-mcp-registry</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCPSDK.dev(ToolSDK.ai)&#x27;s Awesome MCP Servers and Packages Registry and...</td>
+        <td class="stars-cell">★ 169</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">8d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">26</td>
+        <td class="name-cell"><a href="/servers/mcp-shark-mcp-shark.html">mcp-shark</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Wireshark-like forensic analysis for Model Context Protocol communications ...</td>
+        <td class="stars-cell">★ 158</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">28d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">27</td>
+        <td class="name-cell"><a href="/servers/aws-solutions-library-samples-guidance-for-deploying-model-context-protocol-servers-on-aws.html">guidance-for-deploying-model-context-protocol-servers-on-aws</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">This Guidance demonstrates how to securely run Model Context Protocol (MCP)...</td>
+        <td class="stars-cell">★ 146</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">10d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">28</td>
+        <td class="name-cell"><a href="/servers/apisec-inc-mcp-audit.html">mcp-audit</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">See what your AI agents can access. Scan MCP configs for exposed secrets,...</td>
+        <td class="stars-cell">★ 144</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">10d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">29</td>
+        <td class="name-cell"><a href="/servers/agentseal-agentseal.html">agentseal</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Security toolkit for AI agents. Scan your machine for dangerous skills and...</td>
+        <td class="stars-cell">★ 141</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">30</td>
+        <td class="name-cell"><a href="/servers/makalin-securemcp.html">SecureMCP</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">SecureMCP is a security auditing tool designed to detect vulnerabilities and...</td>
+        <td class="stars-cell">★ 139</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">10d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">31</td>
+        <td class="name-cell"><a href="/servers/aaronsb-google-workspace-mcp.html">google-workspace-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A Model Context Protocol (MCP) server that provides authenticated access to...</td>
+        <td class="stars-cell">★ 130</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">32</td>
+        <td class="name-cell"><a href="/servers/postrv-narsil-mcp.html">narsil-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Rust MCP server for comprehensive code intelligence - 90 tools, 32...</td>
+        <td class="stars-cell">★ 129</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
+        <td style="color:var(--text-dim)">24d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">33</td>
+        <td class="name-cell"><a href="/servers/dmontgomery40-pentest-mcp.html">pentest-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">NOT for educational purposes: An MCP server for professional penetration...</td>
+        <td class="stars-cell">★ 127</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">8d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">34</td>
+        <td class="name-cell"><a href="/servers/crowdstrike-falcon-mcp.html">falcon-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Connect AI agents to CrowdStrike Falcon for automated security analysis and...</td>
+        <td class="stars-cell">★ 120</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
         <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">22</td>
-        <td class="name-cell"><a href="/servers/toolsdk-ai-toolsdk-mcp-registry.html">toolsdk-mcp-registry</a></td>
-        <td class="desc-cell">MCPSDK.dev(ToolSDK.ai)&#x27;s Awesome MCP Servers and Packages Registry and...</td>
-        <td class="stars-cell">★ 169</td>
+        <td style="color:var(--text-dim)">35</td>
+        <td class="name-cell"><a href="/servers/burtthecoder-mcp-virustotal.html">mcp-virustotal</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server for VirusTotal API — analyze URLs, files, IPs, and domains with...</td>
+        <td class="stars-cell">★ 113</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">9d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">23</td>
-        <td class="name-cell"><a href="/servers/mcp-shark-mcp-shark.html">mcp-shark</a></td>
-        <td class="desc-cell">Wireshark-like forensic analysis for Model Context Protocol communications ...</td>
-        <td class="stars-cell">★ 157</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">21d ago</td>
+        <td style="color:var(--text-dim)">36</td>
+        <td class="name-cell"><a href="/servers/aira-security-mcp-checkpoint.html">mcp-checkpoint</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP Checkpoint continuously secures and monitors Model Context Protocol...</td>
+        <td class="stars-cell">★ 111</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">24</td>
-        <td class="name-cell"><a href="/servers/aws-solutions-library-samples-guidance-for-deploying-model-context-protocol-servers-on-aws.html">guidance-for-deploying-model-context-protocol-servers-on-aws</a></td>
-        <td class="desc-cell">This Guidance demonstrates how to securely run Model Context Protocol (MCP)...</td>
-        <td class="stars-cell">★ 145</td>
+        <td style="color:var(--text-dim)">37</td>
+        <td class="name-cell"><a href="/servers/napthaai-http-oauth-mcp-server.html">http-oauth-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Remote MCP server (SEE + Streamable HTTP) implementing the MCP spec&#x27;s...</td>
+        <td class="stars-cell">★ 104</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">10mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">38</td>
+        <td class="name-cell"><a href="/servers/jinzcdev-leetcode-mcp-server.html">leetcode-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">An MCP server enabling automated access to LeetCode&#x27;s problems, solutions,...</td>
+        <td class="stars-cell">★ 101</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
         <td style="color:var(--text-dim)">3d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">25</td>
-        <td class="name-cell"><a href="/servers/apisec-inc-mcp-audit.html">mcp-audit</a></td>
-        <td class="desc-cell">See what your AI agents can access. Scan MCP configs for exposed secrets,...</td>
-        <td class="stars-cell">★ 143</td>
+        <td style="color:var(--text-dim)">39</td>
+        <td class="name-cell"><a href="/servers/systempromptio-systemprompt-mcp-server.html">systemprompt-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A complete, production-ready implementation of a Model Context Protocol...</td>
+        <td class="stars-cell">★ 99</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">40</td>
+        <td class="name-cell"><a href="/servers/always-further-agentup.html">AgentUp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Portable , scalable , secure AI Agents</td>
+        <td class="stars-cell">★ 98</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">41</td>
+        <td class="name-cell"><a href="/servers/freema-openclaw-mcp.html">openclaw-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🦞 MCP server for OpenClaw - secure bridge between Claude.ai and your...</td>
+        <td class="stars-cell">★ 98</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">42</td>
+        <td class="name-cell"><a href="/servers/iceener-streamable-mcp-server-template.html">streamable-mcp-server-template</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Production-ready MCP server template with Streamable HTTP transport....</td>
+        <td class="stars-cell">★ 97</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">9d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">43</td>
+        <td class="name-cell"><a href="/servers/auth0-auth0-mcp-server.html">auth0-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell"></td>
+        <td class="stars-cell">★ 97</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">2d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">44</td>
+        <td class="name-cell"><a href="/servers/hyprmcp-mcp-gateway.html">mcp-gateway</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP OAuth Proxy incl. dynamic client registration (DCR), MCP prompt...</td>
+        <td class="stars-cell">★ 88</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">10d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">45</td>
+        <td class="name-cell"><a href="/servers/achetronic-mcp-forge.html">mcp-forge</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A complete MCP server template that include vitamins (oauth authentication...</td>
+        <td class="stars-cell">★ 87</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">46</td>
+        <td class="name-cell"><a href="/servers/eliasbiondo-reddit-mcp-server.html">reddit-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🔗 A zero-config Model Context Protocol (MCP) server for Reddit — search...</td>
+        <td class="stars-cell">★ 85</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">10d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">47</td>
+        <td class="name-cell"><a href="/servers/trailofbits-slither-mcp.html">slither-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server for Slither static analysis of Solidity smart contracts</td>
+        <td class="stars-cell">★ 81</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">48</td>
+        <td class="name-cell"><a href="/servers/sigbit-mcp-auth-proxy.html">mcp-auth-proxy</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP Auth Proxy is a secure OAuth 2.1 authentication proxy for Model Context...</td>
+        <td class="stars-cell">★ 78</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">3d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">49</td>
+        <td class="name-cell"><a href="/servers/atom2ueki-mcp-server-synology.html">mcp-server-synology</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">💾 Model Context Protocol (MCP) server for Synology NAS - Enables AI...</td>
+        <td class="stars-cell">★ 73</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">22d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">50</td>
+        <td class="name-cell"><a href="/servers/sentinel-one-purple-mcp.html">purple-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Access SentinelOne&#x27;s Purple AI and security services through the Model...</td>
+        <td class="stars-cell">★ 68</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">11d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">51</td>
+        <td class="name-cell"><a href="/servers/modelcontextprotocol-ext-auth.html">ext-auth</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Extensions to authorization</td>
+        <td class="stars-cell">★ 65</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> MDX</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">52</td>
+        <td class="name-cell"><a href="/servers/pulsemcp-mcp-servers.html">mcp-servers</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP (Model Context Protocol) Servers authored and maintained by the PulseMCP...</td>
+        <td class="stars-cell">★ 62</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">2d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">53</td>
+        <td class="name-cell"><a href="/servers/empires-security-mcp-oauth2-aws-cognito.html">mcp-oauth2-aws-cognito</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP Server Authorization Example with AWS Cognito</td>
+        <td class="stars-cell">★ 60</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">54</td>
+        <td class="name-cell"><a href="/servers/mcp-auth-python.html">python</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🔐 Plug-and-play auth for Python MCP servers.</td>
+        <td class="stars-cell">★ 55</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">55</td>
+        <td class="name-cell"><a href="/servers/acuvity-minibridge.html">minibridge</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Make your MCP servers secure and production ready</td>
+        <td class="stars-cell">★ 54</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">22d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">56</td>
+        <td class="name-cell"><a href="/servers/qianniuspace-mcp-security-audit.html">mcp-security-audit</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A powerful MCP (Model Context Protocol) Server that audits npm package...</td>
+        <td class="stars-cell">★ 52</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">57</td>
+        <td class="name-cell"><a href="/servers/ramkansal-pentestmcp.html">pentestMCP</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">pentestMCP: AI-Powered Penetration Testing via MCP, an MCP designed for...</td>
+        <td class="stars-cell">★ 51</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">9d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">58</td>
+        <td class="name-cell"><a href="/servers/aikts-yandex-tracker-mcp.html">yandex-tracker-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Yandex Tracker MCP Server with OAuth2 support</td>
+        <td class="stars-cell">★ 51</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">59</td>
+        <td class="name-cell"><a href="/servers/sjkim1127-reversecore_mcp.html">Reversecore_MCP</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A security-first MCP server empowering AI agents to orchestrate Ghidra,...</td>
+        <td class="stars-cell">★ 50</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">8d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">60</td>
+        <td class="name-cell"><a href="/servers/1xn-labs-1xn-vmcp.html">1xn-vmcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">vMCP - Virtual Model Context Protocol</td>
+        <td class="stars-cell">★ 50</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">61</td>
+        <td class="name-cell"><a href="/servers/atrawog-mcp-oauth-gateway.html">mcp-oauth-gateway</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">An OAuth 2.1 Authorization Server that adds authentication to any MCP (Model...</td>
+        <td class="stars-cell">★ 50</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">62</td>
+        <td class="name-cell"><a href="/servers/enkryptai-secure-mcp-gateway.html">secure-mcp-gateway</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Secure MCP Gateway - Setup Admin level gateway functionality for MCP servers...</td>
+        <td class="stars-cell">★ 50</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">5d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">63</td>
+        <td class="name-cell"><a href="/servers/danielsogl-lighthouse-mcp-server.html">lighthouse-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server that enables AI agents to perform comprehensive web audits using...</td>
+        <td class="stars-cell">★ 49</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">5d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">64</td>
+        <td class="name-cell"><a href="/servers/redhat-data-and-ai-template-mcp-server.html">template-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Production-ready Python template for building MCP servers with FastMCP,...</td>
+        <td class="stars-cell">★ 49</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">65</td>
+        <td class="name-cell"><a href="/servers/burtthecoder-mcp-dnstwist.html">mcp-dnstwist</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server for dnstwist, a powerful DNS fuzzing tool that helps detect...</td>
+        <td class="stars-cell">★ 47</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">1y ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">66</td>
+        <td class="name-cell"><a href="/servers/mcp-auth-js.html">js</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🔐 Plug-and-play auth for Node.js MCP servers.</td>
+        <td class="stars-cell">★ 45</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">67</td>
+        <td class="name-cell"><a href="/servers/deeptrail-deepsecure.html">deepsecure</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Effortlessly secure your AI agents and AI-powered workflows — from prototype...</td>
+        <td class="stars-cell">★ 44</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">68</td>
+        <td class="name-cell"><a href="/servers/justasmonkev-mcp-accessibility-scanner.html">mcp-accessibility-scanner</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">An MCP (Model Context Protocol) server for performing accessibility audits...</td>
+        <td class="stars-cell">★ 43</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">69</td>
+        <td class="name-cell"><a href="/servers/panther-labs-mcp-panther.html">mcp-panther</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Write detections, investigate alerts, and query logs from your favorite AI...</td>
+        <td class="stars-cell">★ 42</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">16d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">70</td>
+        <td class="name-cell"><a href="/servers/gensecaihq-pfsense-mcp-server.html">pfsense-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">pfSense MCP Server enables security administrators to manage their pfSense...</td>
+        <td class="stars-cell">★ 42</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">2d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">71</td>
+        <td class="name-cell"><a href="/servers/nickytonline-dev-to-mcp.html">dev-to-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A remote Model Context Protocol (MCP) server for interacting with the dev.to...</td>
+        <td class="stars-cell">★ 41</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">72</td>
+        <td class="name-cell"><a href="/servers/cyreslab-ai-shodan-mcp-server.html">shodan-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A Model Context Protocol server that provides access to Shodan API functionality</td>
+        <td class="stars-cell">★ 41</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">73</td>
+        <td class="name-cell"><a href="/servers/theognis1002-mcp-gateway.html">mcp-gateway</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Model Context Protocol (MCP) Gateway &amp; Registry - Central hub for managing...</td>
+        <td class="stars-cell">★ 39</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">20d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">74</td>
+        <td class="name-cell"><a href="/servers/christophenglisch-keycloak-model-context-protocol.html">keycloak-model-context-protocol</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server implementation for Keycloak user management. Enables AI-powered...</td>
+        <td class="stars-cell">★ 39</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1y ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">75</td>
+        <td class="name-cell"><a href="/servers/dunialabs-peta-core.html">peta-core</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Peta core: The Control Plane for MCP — secure vault, managed runtime, audit...</td>
+        <td class="stars-cell">★ 38</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">76</td>
+        <td class="name-cell"><a href="/servers/knostic-mcp-scanner.html">MCP-Scanner</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Advanced Shodan-based scanner for discovering, verifying, and enumerating...</td>
+        <td class="stars-cell">★ 37</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">9d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">77</td>
+        <td class="name-cell"><a href="/servers/ithena-one-mcp-governance-sdk.html">mcp-governance-sdk</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Enterprise Governance Layer (Identity, RBAC, Credentials, Auditing, Logging,...</td>
+        <td class="stars-cell">★ 37</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">11mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">78</td>
+        <td class="name-cell"><a href="/servers/gitguardian-ggmcp.html">ggmcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server for scanning and remediating hardcoded secrets using...</td>
+        <td class="stars-cell">★ 34</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">79</td>
+        <td class="name-cell"><a href="/servers/kastelldev-kastell.html">kastell</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Provision, secure, backup, and manage self-hosted servers — full lifecycle,...</td>
+        <td class="stars-cell">★ 34</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">80</td>
+        <td class="name-cell"><a href="/servers/rfunix-tengu.html">tengu</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">AI-powered penetration testing MCP server</td>
+        <td class="stars-cell">★ 32</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
         <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">26</td>
-        <td class="name-cell"><a href="/servers/makalin-securemcp.html">SecureMCP</a></td>
-        <td class="desc-cell">SecureMCP is a security auditing tool designed to detect vulnerabilities and...</td>
-        <td class="stars-cell">★ 139</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">81</td>
+        <td class="name-cell"><a href="/servers/pixelworlds-opnsense-mcp-server.html">opnsense-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Modular MCP server for OPNsense firewall management - 88 tools providing...</td>
+        <td class="stars-cell">★ 30</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">27</td>
-        <td class="name-cell"><a href="/servers/dmontgomery40-pentest-mcp.html">pentest-mcp</a></td>
-        <td class="desc-cell">NOT for educational purposes: An MCP server for professional penetration...</td>
-        <td class="stars-cell">★ 126</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">82</td>
+        <td class="name-cell"><a href="/servers/grumpydevorg-inkscape-mcps.html">inkscape-mcps</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Inkscape MCP Server - FastMCP-based server for Inkscape CLI and DOM...</td>
+        <td class="stars-cell">★ 27</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">83</td>
+        <td class="name-cell"><a href="/servers/famma-ai-mcp-auth.html">mcp-auth</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP Auth via Reverse Proxy </td>
+        <td class="stars-cell">★ 26</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">84</td>
+        <td class="name-cell"><a href="/servers/praetorian-inc-mcphammer.html">MCPHammer</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP security testing framework for evaluating Model Context Protocol server...</td>
+        <td class="stars-cell">★ 25</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">85</td>
+        <td class="name-cell"><a href="/servers/kw510-strava-mcp.html">strava-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A Model Context Protocol (MCP) server with Strava OAuth integration, built...</td>
+        <td class="stars-cell">★ 24</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">11mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">86</td>
+        <td class="name-cell"><a href="/servers/leanmcp-leanmcp-sdk.html">leanmcp-sdk</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Production-ready TypeScript SDK for MCP servers: auth, multi-tenant,...</td>
+        <td class="stars-cell">★ 20</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">9d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">87</td>
+        <td class="name-cell"><a href="/servers/shuymn-gh-mcp.html">gh-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A GitHub CLI extension that seamlessly runs the github-mcp-server using your...</td>
+        <td class="stars-cell">★ 20</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
         <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">28</td>
-        <td class="name-cell"><a href="/servers/aaronsb-google-workspace-mcp.html">google-workspace-mcp</a></td>
-        <td class="desc-cell">A Model Context Protocol (MCP) server that provides authenticated access to...</td>
-        <td class="stars-cell">★ 124</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">88</td>
+        <td class="name-cell"><a href="/servers/hasmcp-hasmcp-ce.html">hasmcp-ce</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">HasMCP Community Edition</td>
+        <td class="stars-cell">★ 20</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">29</td>
-        <td class="name-cell"><a href="/servers/burtthecoder-mcp-virustotal.html">mcp-virustotal</a></td>
-        <td class="desc-cell">MCP server for VirusTotal API — analyze URLs, files, IPs, and domains with...</td>
-        <td class="stars-cell">★ 113</td>
+        <td style="color:var(--text-dim)">89</td>
+        <td class="name-cell"><a href="/servers/openagentidentityprotocol-agentidentityprotocol.html">agentidentityprotocol</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Agent Identity Protocol - Zero-trust security layer for AI agents. Policy...</td>
+        <td class="stars-cell">★ 19</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">16d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">90</td>
+        <td class="name-cell"><a href="/servers/layesec006-pentest-mcp-server.html">pentest-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server for penetration testing</td>
+        <td class="stars-cell">★ 16</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">91</td>
+        <td class="name-cell"><a href="/servers/aiondadotcom-mcp-salesforce.html">mcp-salesforce</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🚀 Complete MCP (Model Context Protocol) server for Salesforce integration...</td>
+        <td class="stars-cell">★ 16</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">92</td>
+        <td class="name-cell"><a href="/servers/sahiloj-mcpscan.html">MCPScan</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Offensive MCP server auditor — detects tool poisoning, credential leaks, RCE...</td>
+        <td class="stars-cell">★ 16</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">9d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">93</td>
+        <td class="name-cell"><a href="/servers/permitio-permit-fastmcp.html">permit-fastmcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Permit.io authorization middleware for FastMCP servers</td>
+        <td class="stars-cell">★ 16</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">94</td>
+        <td class="name-cell"><a href="/servers/qtty-jadx-mcp-server.html">jadx-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A Pure-Java MCP Server for JaDX Android Reverse Engineering Tool</td>
+        <td class="stars-cell">★ 15</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#B07219"></span> Java</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">95</td>
+        <td class="name-cell"><a href="/servers/local-falcon-mcp.html">mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server for Local Falcon&#x27;s local SEO and AI visibility platform: geo-grid...</td>
+        <td class="stars-cell">★ 15</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
         <td style="color:var(--text-dim)">3d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">30</td>
-        <td class="name-cell"><a href="/servers/aira-security-mcp-checkpoint.html">mcp-checkpoint</a></td>
-        <td class="desc-cell">MCP Checkpoint continuously secures and monitors Model Context Protocol...</td>
-        <td class="stars-cell">★ 111</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">21d ago</td>
+        <td style="color:var(--text-dim)">96</td>
+        <td class="name-cell"><a href="/servers/stacklok-toolhive-registry-server.html">toolhive-registry-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">An API server that implements the official MCP Registry API, providing...</td>
+        <td class="stars-cell">★ 14</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">31</td>
-        <td class="name-cell"><a href="/servers/hyprmcp-mcp-gateway.html">mcp-gateway</a></td>
-        <td class="desc-cell">MCP OAuth Proxy incl. dynamic client registration (DCR), MCP prompt...</td>
-        <td class="stars-cell">★ 87</td>
+        <td style="color:var(--text-dim)">97</td>
+        <td class="name-cell"><a href="/servers/madeinplutofabio-pic-standard.html">pic-standard</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">The industry standard for Provenance &amp; Intent Contracts (PIC) in Agentic AI....</td>
+        <td class="stars-cell">★ 14</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">3d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">98</td>
+        <td class="name-cell"><a href="/servers/go-appsec-toolbox.html">toolbox</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Collaborative application security testing between humans and agents via CLI...</td>
+        <td class="stars-cell">★ 13</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
         <td style="color:var(--text-dim)">3d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">32</td>
-        <td class="name-cell"><a href="/servers/trailofbits-slither-mcp.html">slither-mcp</a></td>
-        <td class="desc-cell">MCP server for Slither static analysis of Solidity smart contracts</td>
-        <td class="stars-cell">★ 79</td>
+        <td style="color:var(--text-dim)">99</td>
+        <td class="name-cell"><a href="/servers/hackersatyamrastogi-pentesting-cyber-mcp.html">pentesting-cyber-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🔐 50+ MCP Security Servers for AI-Powered Pentesting | Integrate Nmap, Burp...</td>
+        <td class="stars-cell">★ 13</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">100</td>
+        <td class="name-cell"><a href="/servers/mr-infect-mcp-penetration-testing.html">MCP-Penetration-testing</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">The ultimate OWASP MCP Top 10 security checklist and pentesting framework...</td>
+        <td class="stars-cell">★ 12</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">2mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">101</td>
+        <td class="name-cell"><a href="/servers/cloaky233-mist.html">MIST</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server empowering AI assistants with real-world capabilities: Gmail,...</td>
+        <td class="stars-cell">★ 12</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">33</td>
-        <td class="name-cell"><a href="/servers/modelcontextprotocol-ext-auth.html">ext-auth</a></td>
-        <td class="desc-cell">Extensions to authorization</td>
-        <td class="stars-cell">★ 64</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> MDX</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">102</td>
+        <td class="name-cell"><a href="/servers/iosdevsk-mcp-for-woocommerce.html">mcp-for-woocommerce</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">WooCommerce MCP Server — WordPress community plugin implementing the Model...</td>
+        <td class="stars-cell">★ 12</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#4F5D95"></span> PHP</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">34</td>
-        <td class="name-cell"><a href="/servers/msaad00-agent-bom.html">agent-bom</a></td>
+        <td style="color:var(--text-dim)">103</td>
+        <td class="name-cell"><a href="/servers/kriasoft-oauth-callback.html">oauth-callback</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Lightweight OAuth 2.0 authorization code capture for CLI tools &amp; desktop  ...</td>
+        <td class="stars-cell">★ 11</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">104</td>
+        <td class="name-cell"><a href="/servers/sshh12-mcp-demo.html">mcp-demo</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">URL MCP is a proof of concept stateless MCP server builder that allows users...</td>
+        <td class="stars-cell">★ 10</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> HTML</td>
+        <td style="color:var(--text-dim)">11mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">105</td>
+        <td class="name-cell"><a href="/servers/exjskdjsdfks-pentest-mcp-server.html">pentest-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">⚙️ Enable AI agents to conduct autonomous penetration testing on any Linux...</td>
+        <td class="stars-cell">★ 10</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">106</td>
+        <td class="name-cell"><a href="/servers/saravanaguhan-mcp-guard.html">mcp-guard</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Comprehensive security scanner for Model Context Protocol (MCP) servers</td>
+        <td class="stars-cell">★ 10</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">107</td>
+        <td class="name-cell"><a href="/servers/sean-tate-fastmcp-python-oauth2-with-entra-id.html">fastmcp-python-oauth2-with-entra-id</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">An example implementation of MCP authorization specifcation using Microsoft...</td>
+        <td class="stars-cell">★ 10</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">108</td>
+        <td class="name-cell"><a href="/servers/vorota-ai-nmap-mcp.html">nmap-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server for AI-powered network scanning with Nmap. Port scanning, service...</td>
+        <td class="stars-cell">★ 9</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">109</td>
+        <td class="name-cell"><a href="/servers/msaad00-agent-bom.html">agent-bom</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Security scanner for AI infrastructure — CVEs, blast radius, credential...</td>
         <td class="stars-cell">★ 8</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">35</td>
-        <td class="name-cell"><a href="/servers/nunaszek-mcp-streamable-http-server.html">mcp-streamable-http-server</a></td>
+        <td style="color:var(--text-dim)">110</td>
+        <td class="name-cell"><a href="/servers/zebbern-zebbern-kali-mcp.html">zebbern-kali-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server for Kali Linux penetration testing - 149 tools for AI-assisted...</td>
+        <td class="stars-cell">★ 8</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">4d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">111</td>
+        <td class="name-cell"><a href="/servers/quantgeekdev-mcp-oauth21-server.html">mcp-oauth2.1-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Reference mcp server implementation of draft mcp oauth spec...</td>
+        <td class="stars-cell">★ 8</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">112</td>
+        <td class="name-cell"><a href="/servers/neddl-fastify-mcp-server.html">fastify-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🚀 High-performance MCP (Model Context Protocol) server built with Fastify,...</td>
+        <td class="stars-cell">★ 7</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">113</td>
+        <td class="name-cell"><a href="/servers/chrisleekr-mcp-server-playground.html">mcp-server-playground</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A playground for Model Context Protocol (MCP) server built with TypeScript...</td>
+        <td class="stars-cell">★ 7</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">15d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">114</td>
+        <td class="name-cell"><a href="/servers/dunialabs-peta-desk.html">peta-desk</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Peta Desk is a cross‑platform desktop application that provides a...</td>
+        <td class="stars-cell">★ 6</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">8d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">115</td>
+        <td class="name-cell"><a href="/servers/commvault-commvault-mcp-server.html">commvault-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A Model Context Protocol (MCP) server for interacting with Commvault software.</td>
+        <td class="stars-cell">★ 6</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">10d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">116</td>
+        <td class="name-cell"><a href="/servers/luxshan2000-fastmcp-file-server.html">fastmcp-file-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A secure MCP (Model Context Protocol) file server providing AI assistants...</td>
+        <td class="stars-cell">★ 6</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">117</td>
+        <td class="name-cell"><a href="/servers/dmontgomery40-faxbot.html">Faxbot</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Self-hosted, open source, fax-sending API. HIPAA compliant. This fax API...</td>
+        <td class="stars-cell">★ 5</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">118</td>
+        <td class="name-cell"><a href="/servers/mcp-auth-docs.html">docs</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🔐 Plug-and-play auth for MCP servers.</td>
+        <td class="stars-cell">★ 4</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> MDX</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">119</td>
+        <td class="name-cell"><a href="/servers/gensecaihq-sonicwall-mcp-server.html">Sonicwall-MCP-Server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A comprehensive Model Context Protocol (MCP) server for analyzing SonicWall...</td>
+        <td class="stars-cell">★ 4</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">120</td>
+        <td class="name-cell"><a href="/servers/peterlarnholt-fastmcp-oauth.html">fastmcp-oauth</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">OAuth 2.1 + PKCE authentication for FastMCP servers with Google, Microsoft,...</td>
+        <td class="stars-cell">★ 4</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">121</td>
+        <td class="name-cell"><a href="/servers/mbroton-mcp-oauth-example.html">mcp-oauth-example</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Minimal example of an OAuth 2.1 Authorization Server (FastAPI) and a...</td>
+        <td class="stars-cell">★ 4</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">122</td>
+        <td class="name-cell"><a href="/servers/0x-crisbanks-mcp-for-beginners.html">mcp-for-beginners</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">This open-source curriculum introduces the fundamentals of Model Context...</td>
+        <td class="stars-cell">★ 3</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> Jupyter Notebook</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">123</td>
+        <td class="name-cell"><a href="/servers/gbaeke-fastmcp-auth.html">fastmcp-auth</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Demo with FastMCP Bearer Auth and progress indicator</td>
+        <td class="stars-cell">★ 3</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">124</td>
+        <td class="name-cell"><a href="/servers/nunaszek-mcp-streamable-http-server.html">mcp-streamable-http-server</a> </td>
         <td class="desc-cell">mcp-streamable-http-server provides a comprehensive development template for...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">36</td>
-        <td class="name-cell"><a href="/servers/valennmg-solscan-mcp.html">solscan-mcp</a></td>
+        <td style="color:var(--text-dim)">125</td>
+        <td class="name-cell"><a href="/servers/valennmg-solscan-mcp.html">solscan-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">An MCP server for querying Solana transactions using natural language with...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">37</td>
-        <td class="name-cell"><a href="/servers/betoche57-mcp-firewall.html">mcp-firewall</a></td>
+        <td style="color:var(--text-dim)">126</td>
+        <td class="name-cell"><a href="/servers/crumrine-fastmcp-personal-auth.html">fastmcp-personal-auth</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Drop-in OAuth 2.1 auth for personal FastMCP servers. Works on Claude.ai,...</td>
+        <td class="stars-cell">★ 2</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">12d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">127</td>
+        <td class="name-cell"><a href="/servers/chaosisnotrandomitisrhythmic-revenant-mcp.html">revenant-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">FastMCP server for Obsidian vault navigation and Scanner Daybook analysis</td>
+        <td class="stars-cell">★ 2</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">27d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">128</td>
+        <td class="name-cell"><a href="/servers/dinochiesa-apigee-example-authorization-on-mcp-server.html">Apigee-Example-Authorization-on-MCP-Server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">This example shows how you can use Apigee to proxy in front of a bare MCP...</td>
+        <td class="stars-cell">★ 2</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#89E051"></span> Shell</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">129</td>
+        <td class="name-cell"><a href="/servers/dehuy69-kiotviet-mcp.html">kiotviet-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">kiotviet-mcp is an MCP server built with FastMCP that connects AI agents to...</td>
+        <td class="stars-cell">★ 2</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">130</td>
+        <td class="name-cell"><a href="/servers/betoche57-mcp-firewall.html">mcp-firewall</a> </td>
         <td class="desc-cell">🛡 Enforce security policies, redact data, sandbox processes, and verify...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">38</td>
-        <td class="name-cell"><a href="/servers/assopollaccio89-personal-mcp.html">personal-mcp</a></td>
+        <td style="color:var(--text-dim)">131</td>
+        <td class="name-cell"><a href="/servers/hahaha-saygex-gmail-mcp.html">gmail-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">📧 Access Gmail programmatically with OAuth2 authentication for managing...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">132</td>
+        <td class="name-cell"><a href="/servers/rb58853-mcp-utils.html">mcp-utils</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Centralized index that groups together a series of projects related to the...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">133</td>
+        <td class="name-cell"><a href="/servers/robdavenport-framesmith.html">framesmith</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Engine-agnostic fighting game character authoring tool: JSON-on-disk project...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
+        <td style="color:var(--text-dim)">26d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">134</td>
+        <td class="name-cell"><a href="/servers/matteocolazilli-greenbonemcp.html">GreenboneMCP</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Greenbone/OpenVAS MCP Server for AI-assisted  Vulnerability Management</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">16d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">135</td>
+        <td class="name-cell"><a href="/servers/elizabethsiegle-remote-mcp-server-authless-gif-search.html">remote-mcp-server-authless-gif-search</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell"></td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">10mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">136</td>
+        <td class="name-cell"><a href="/servers/shunsuketamura06-fastmcp-fetch-server.html">fastmcp-fetch-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">FastMCP-based web content fetching server for Dify integration. Converts web...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">137</td>
+        <td class="name-cell"><a href="/servers/hemdagem-auth0-fastmcp.html">auth0-fastmcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Full Auth0 Interactive flow with FastMCP and VS Code</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">138</td>
+        <td class="name-cell"><a href="/servers/anevjes-fastmcp-toolsecuritytrimming.html">FastMCP-ToolSecurityTrimming</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A quick sample on how to implement tool security trimming based on user&#x27;s...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">139</td>
+        <td class="name-cell"><a href="/servers/luthersystems-mcp-server-docusign.html">mcp-server-docusign</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">DocuSign MCP Server with FastMCP - JWT server-to-server authentication</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">140</td>
+        <td class="name-cell"><a href="/servers/jason-cky-mcp-auth.html">mcp-auth</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Example of a FastMCP server behind a authentication proxy server</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">141</td>
+        <td class="name-cell"><a href="/servers/systemiq-ai-mcp-example-python.html">mcp-example-python</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">This example demonstrates a minimal FastMCP application with integrated...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">2d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">142</td>
+        <td class="name-cell"><a href="/servers/oe-ai-experiments-spotify-mcp-server.html">spotify-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Spotify MCP Server - FastMCP-based integration for AI assistants with OAuth...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">143</td>
+        <td class="name-cell"><a href="/servers/hkopenai-hk-law-mcp-server.html">hk-law-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">This is an MCP server that provides access to law and security related data...</td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">144</td>
+        <td class="name-cell"><a href="/servers/assopollaccio89-personal-mcp.html">personal-mcp</a> </td>
         <td class="desc-cell">Personal MCP servers (weather, health, secretary, nutrition)</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">39</td>
-        <td class="name-cell"><a href="/servers/ledunguit-mcp-dynamic-analysis-server.html">mcp-dynamic-analysis-server</a></td>
+        <td style="color:var(--text-dim)">145</td>
+        <td class="name-cell"><a href="/servers/ledunguit-mcp-dynamic-analysis-server.html">mcp-dynamic-analysis-server</a> </td>
         <td class="desc-cell">Dynamic analysis MCP server for LLM-assisted vulnerability detection and...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">40</td>
-        <td class="name-cell"><a href="/servers/kryptonomeai-cloud-mcpscan.html">mcpscan</a></td>
+        <td style="color:var(--text-dim)">146</td>
+        <td class="name-cell"><a href="/servers/kryptonomeai-cloud-mcpscan.html">mcpscan</a> </td>
         <td class="desc-cell">Security scanner for MCP server configurations</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">41</td>
-        <td class="name-cell"><a href="/servers/ary44892-mcp-config-guard.html">mcp-config-guard</a></td>
+        <td style="color:var(--text-dim)">147</td>
+        <td class="name-cell"><a href="/servers/ary44892-mcp-config-guard.html">mcp-config-guard</a> </td>
         <td class="desc-cell">Detect security risks in MCP configuration files with a zero-dependency...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">42</td>
-        <td class="name-cell"><a href="/servers/mohitejaikumar-discord-mcp.html">discord-mcp</a></td>
+        <td style="color:var(--text-dim)">148</td>
+        <td class="name-cell"><a href="/servers/mohitejaikumar-discord-mcp.html">discord-mcp</a> </td>
         <td class="desc-cell">A Model Context Protocol (MCP) server that provides Discord integration via...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">43</td>
-        <td class="name-cell"><a href="/servers/ly1595-nmap-mcp.html">nmap-mcp</a></td>
+        <td style="color:var(--text-dim)">149</td>
+        <td class="name-cell"><a href="/servers/ly1595-nmap-mcp.html">nmap-mcp</a> </td>
         <td class="desc-cell">🔍 Enable AI-driven network security scanning with a production-ready Nmap...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">44</td>
-        <td class="name-cell"><a href="/servers/downatthebottomofthemolehole-terraform-best-practices-mcp.html">terraform-best-practices-mcp</a></td>
+        <td style="color:var(--text-dim)">150</td>
+        <td class="name-cell"><a href="/servers/downatthebottomofthemolehole-terraform-best-practices-mcp.html">terraform-best-practices-mcp</a> </td>
         <td class="desc-cell">MCP server for Terraform best-practice guidance, security scanning, linting,...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">151</td>
+        <td class="name-cell"><a href="/servers/mltrev23-mcp-scan.html">mcp-scan</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Constrain, log and scan your MCP connections for security vulnerabilities.</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">152</td>
+        <td class="name-cell"><a href="/servers/hivetrail-ai-mcpaccess-auth0-express.html">mcpaccess-auth0-express</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Auth0 authentication middleware for Express-based Model Context Protocol...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">6mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">153</td>
+        <td class="name-cell"><a href="/servers/mtnvencenzo-cezzis-com-cocktails-mcp.html">cezzis-com-cocktails-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server (http-streamable) for the Cezzis.Com website project written in...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">5d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">154</td>
+        <td class="name-cell"><a href="/servers/lezeis-phantom-mcp.html">phantom-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🔒 Ensure enterprise security and compliance with PHANTOM MCP, a robust...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">155</td>
+        <td class="name-cell"><a href="/servers/rb58853-mcp-oauth.html">mcp-oauth</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">OAuth system in python, integrated with the official MCP Python SDK </td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">156</td>
+        <td class="name-cell"><a href="/servers/hivetrail-ai-mcpaccess-core.html">mcpaccess-core</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Core library for Model Context Protocol (MCP) access control. Includes...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">157</td>
+        <td class="name-cell"><a href="/servers/jadevil73-agentseal.html">agentseal</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Detect vulnerabilities in AI agents by testing their security to prevent...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">158</td>
+        <td class="name-cell"><a href="/servers/prompted365-supabase-godmode.html">supabase-godmode</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Complete Supabase project management via MCP with OAuth authentication</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">159</td>
+        <td class="name-cell"><a href="/servers/amit-khare-mcp-server.html">mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP Remote server with OAuth</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">160</td>
+        <td class="name-cell"><a href="/servers/cdot65-pan-os-mcp.html">pan-os-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Model Context Protocol (MCP) server for PAN-OS firewalls</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
     </tr>
         </tbody>
     </table>
@@ -1381,6 +2344,7 @@ footer {
                     <h4>Directory</h4>
                     <a href="/">Explore Servers</a>
                     <a href="/categories.html">Categories</a>
+                    <a href="/security.html">Security Scores</a>
                     <a href="/submit.html">Submit a Server</a>
                 </div>
                 <div class="footer-col">

@@ -503,6 +503,40 @@ a.value-prop { color: inherit; }
     color: var(--blue);
     border-color: rgba(96, 165, 250, 0.15);
 }
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+.sec-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.sec-yellow {
+    background: rgba(250, 204, 21, 0.1);
+    color: #EAB308;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.sec-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+/* Security page */
+.security-content { max-width: 700px; margin: 0 auto; padding: 40px 0 80px; }
+.security-content h2 { margin-bottom: 16px; font-weight: 700; }
+.security-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.band-explain { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+.band-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.band-row .sec-badge { font-size: 0.8rem; padding: 5px 12px; }
+.band-desc { color: var(--text-muted); font-size: 0.9rem; }
 .lang-dot {
     width: 8px;
     height: 8px;
@@ -996,6 +1030,7 @@ footer {
         <nav>
             <a href="/">Explore</a>
             <a href="/categories.html">Categories</a>
+            <a href="/security.html">Security</a>
             <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
             <a href="/submit.html" class="nav-cta">Submit Server</a>
         </nav>
@@ -1016,7 +1051,8 @@ footer {
         <span class="meta-item">★ 0 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#3572A5"></span> Python</span>
         <span class="meta-item">🔒 Security</span>
-        <span class="meta-item">Updated today</span>
+        <span class="meta-item">Updated 6d ago</span>
+        <span class="meta-item"></span>
     </div>
 
     <div class="detail-desc">Dynamic analysis MCP server for LLM-assisted vulnerability detection and evidence-based security reasoning</div>
@@ -1039,10 +1075,21 @@ footer {
     <div class="related-servers">
         <h2 class="section-title">Related Security Servers</h2>
         <div class="server-grid">
+    <a href="/servers/casdoor-casdoor.html" class="server-card">
+        <div class="server-card-header">
+            <span class="server-card-name">casdoor</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 13.2K</span></span>
+        </div>
+        <div class="server-card-desc">An open-source AI-first Identity and Access Management (IAM) /AI MCP gateway and auth server with web UI supporting...</div>
+        <div class="server-card-footer">
+            <span class="tag">🔒 Security</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+        </div>
+    </a>
     <a href="/servers/firerpa-lamda.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">lamda</span>
-            <span class="server-card-stars">★ 7.7K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 7.7K</span></span>
         </div>
         <div class="server-card-desc"> The most powerful Android RPA agent framework, next generation of mobile automation robots.</div>
         <div class="server-card-footer">
@@ -1053,7 +1100,7 @@ footer {
     <a href="/servers/wgpsec-enscan_go.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">ENScan_GO</span>
-            <span class="server-card-stars">★ 4.2K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 4.3K</span></span>
         </div>
         <div class="server-card-desc">一款基于各大企业信息API的工具，解决在遇到的各种针对国内企业信息收集难题。一键收集控股公司ICP备案、APP、小程序、微信公众号等信息聚合导出。支持MCP接入</div>
         <div class="server-card-footer">
@@ -1064,23 +1111,12 @@ footer {
     <a href="/servers/martin-ger-esp32_nat_router.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">esp32_nat_router</span>
-            <span class="server-card-stars">★ 1.8K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 1.8K</span></span>
         </div>
         <div class="server-card-desc">An AI-enabled NAT Router/Firewall for the ESP32</div>
         <div class="server-card-footer">
             <span class="tag">🔒 Security</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#6B7280"></span>C</span>
-        </div>
-    </a>
-    <a href="/servers/korotovsky-slack-mcp-server.html" class="server-card">
-        <div class="server-card-header">
-            <span class="server-card-name">slack-mcp-server</span>
-            <span class="server-card-stars">★ 1.4K</span>
-        </div>
-        <div class="server-card-desc">The most powerful MCP Slack Server with no permission requirements, Apps support, GovSlack, DMs, Group DMs and smart...</div>
-        <div class="server-card-footer">
-            <span class="tag">🔒 Security</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
         </div>
     </a></div>
     </div>
@@ -1101,6 +1137,7 @@ footer {
                     <h4>Directory</h4>
                     <a href="/">Explore Servers</a>
                     <a href="/categories.html">Categories</a>
+                    <a href="/security.html">Security Scores</a>
                     <a href="/submit.html">Submit a Server</a>
                 </div>
                 <div class="footer-col">

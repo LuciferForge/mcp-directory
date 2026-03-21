@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClaudeHistoryMCP — AI/LLM MCP Server | Protodex</title>
-    <meta name="description" content="MCP server for searching and surfacing Claude Code conversation history — 64 stars on GitHub. Browse on Protodex.">
+    <meta name="description" content="MCP server for searching and surfacing Claude Code conversation history — 65 stars on GitHub. Browse on Protodex.">
     <meta property="og:title" content="ClaudeHistoryMCP — AI/LLM MCP Server | Protodex">
-    <meta property="og:description" content="MCP server for searching and surfacing Claude Code conversation history — 64 stars on GitHub. Browse on Protodex.">
+    <meta property="og:description" content="MCP server for searching and surfacing Claude Code conversation history — 65 stars on GitHub. Browse on Protodex.">
     <meta property="og:url" content="https://protodex.io/servers/jhammant-claudehistorymcp.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="ClaudeHistoryMCP — AI/LLM MCP Server | Protodex">
-    <meta name="twitter:description" content="MCP server for searching and surfacing Claude Code conversation history — 64 stars on GitHub. Browse on Protodex.">
+    <meta name="twitter:description" content="MCP server for searching and surfacing Claude Code conversation history — 65 stars on GitHub. Browse on Protodex.">
     <link rel="canonical" href="https://protodex.io/servers/jhammant-claudehistorymcp.html">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -503,6 +503,40 @@ a.value-prop { color: inherit; }
     color: var(--blue);
     border-color: rgba(96, 165, 250, 0.15);
 }
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+.sec-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.sec-yellow {
+    background: rgba(250, 204, 21, 0.1);
+    color: #EAB308;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.sec-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+/* Security page */
+.security-content { max-width: 700px; margin: 0 auto; padding: 40px 0 80px; }
+.security-content h2 { margin-bottom: 16px; font-weight: 700; }
+.security-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.band-explain { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+.band-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.band-row .sec-badge { font-size: 0.8rem; padding: 5px 12px; }
+.band-desc { color: var(--text-muted); font-size: 0.9rem; }
 .lang-dot {
     width: 8px;
     height: 8px;
@@ -996,6 +1030,7 @@ footer {
         <nav>
             <a href="/">Explore</a>
             <a href="/categories.html">Categories</a>
+            <a href="/security.html">Security</a>
             <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
             <a href="/submit.html" class="nav-cta">Submit Server</a>
         </nav>
@@ -1013,10 +1048,11 @@ footer {
     </div>
 
     <div class="detail-meta">
-        <span class="meta-item">★ 64 stars</span>
+        <span class="meta-item">★ 65 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</span>
         <span class="meta-item">🤖 AI/LLM</span>
-        <span class="meta-item">Updated 5d ago</span>
+        <span class="meta-item">Updated 12d ago</span>
+        <span class="meta-item"><span class="sec-badge sec-yellow">&#9888; Review</span></span>
     </div>
 
     <div class="detail-desc">MCP server for searching and surfacing Claude Code conversation history</div>
@@ -1042,7 +1078,7 @@ footer {
     <a href="/servers/google-gemini-gemini-cli.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">gemini-cli</span>
-            <span class="server-card-stars">★ 97.7K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 98.5K</span></span>
         </div>
         <div class="server-card-desc">An open-source AI agent that brings the power of Gemini directly into your terminal.</div>
         <div class="server-card-footer">
@@ -1053,7 +1089,7 @@ footer {
     <a href="/servers/upstash-context7.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">context7</span>
-            <span class="server-card-stars">★ 49.0K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 49.9K</span></span>
         </div>
         <div class="server-card-desc">Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors</div>
         <div class="server-card-footer">
@@ -1064,7 +1100,7 @@ footer {
     <a href="/servers/mudler-localai.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">LocalAI</span>
-            <span class="server-card-stars">★ 43.6K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 43.6K</span></span>
         </div>
         <div class="server-card-desc"> The free, Open Source alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement, ...</div>
         <div class="server-card-footer">
@@ -1075,7 +1111,7 @@ footer {
     <a href="/servers/danny-avila-librechat.html" class="server-card">
         <div class="server-card-header">
             <span class="server-card-name">LibreChat</span>
-            <span class="server-card-stars">★ 34.6K</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 34.6K</span></span>
         </div>
         <div class="server-card-desc">Enhanced ChatGPT Clone: Features Agents, MCP, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1,...</div>
         <div class="server-card-footer">
@@ -1101,6 +1137,7 @@ footer {
                     <h4>Directory</h4>
                     <a href="/">Explore Servers</a>
                     <a href="/categories.html">Categories</a>
+                    <a href="/security.html">Security Scores</a>
                     <a href="/submit.html">Submit a Server</a>
                 </div>
                 <div class="footer-col">

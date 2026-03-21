@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Browser/Web MCP Servers — 46 Model Context Protocol Servers | Protodex</title>
+    <title>Browser/Web MCP Servers — 87 Model Context Protocol Servers | Protodex</title>
     <meta name="description" content="MCP servers for web scraping, browser automation, and web content extraction.">
-    <meta property="og:title" content="Browser/Web MCP Servers — 46 Model Context Protocol Servers | Protodex">
+    <meta property="og:title" content="Browser/Web MCP Servers — 87 Model Context Protocol Servers | Protodex">
     <meta property="og:description" content="MCP servers for web scraping, browser automation, and web content extraction.">
     <meta property="og:url" content="https://protodex.io/category/browser-web.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Browser/Web MCP Servers — 46 Model Context Protocol Servers | Protodex">
+    <meta name="twitter:title" content="Browser/Web MCP Servers — 87 Model Context Protocol Servers | Protodex">
     <meta name="twitter:description" content="MCP servers for web scraping, browser automation, and web content extraction.">
     <link rel="canonical" href="https://protodex.io/category/browser-web.html">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
@@ -503,6 +503,40 @@ a.value-prop { color: inherit; }
     color: var(--blue);
     border-color: rgba(96, 165, 250, 0.15);
 }
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+.sec-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.sec-yellow {
+    background: rgba(250, 204, 21, 0.1);
+    color: #EAB308;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.sec-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+/* Security page */
+.security-content { max-width: 700px; margin: 0 auto; padding: 40px 0 80px; }
+.security-content h2 { margin-bottom: 16px; font-weight: 700; }
+.security-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.band-explain { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+.band-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.band-row .sec-badge { font-size: 0.8rem; padding: 5px 12px; }
+.band-desc { color: var(--text-muted); font-size: 0.9rem; }
 .lang-dot {
     width: 8px;
     height: 8px;
@@ -987,6 +1021,7 @@ footer {
         <nav>
             <a href="/">Explore</a>
             <a href="/categories.html">Categories</a>
+            <a href="/security.html">Security</a>
             <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
             <a href="/submit.html" class="nav-cta">Submit Server</a>
         </nav>
@@ -1001,7 +1036,7 @@ footer {
     </div>
 </div>
 <section class="container">
-    <p style="color:var(--text-dim);margin-bottom:24px">46 servers · sorted by GitHub stars</p>
+    <p style="color:var(--text-dim);margin-bottom:24px">87 servers · sorted by GitHub stars</p>
     <div style="overflow-x:auto">
     <table class="server-table">
         <thead>
@@ -1011,371 +1046,699 @@ footer {
             
     <tr>
         <td style="color:var(--text-dim)">1</td>
-        <td class="name-cell"><a href="/servers/punkpeye-awesome-mcp-servers.html">awesome-mcp-servers</a></td>
+        <td class="name-cell"><a href="/servers/punkpeye-awesome-mcp-servers.html">awesome-mcp-servers</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">A collection of MCP servers.</td>
-        <td class="stars-cell">★ 83.0K</td>
+        <td class="stars-cell">★ 83.7K</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2</td>
-        <td class="name-cell"><a href="/servers/d4vinci-scrapling.html">Scrapling</a></td>
+        <td class="name-cell"><a href="/servers/d4vinci-scrapling.html">Scrapling</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
         <td class="desc-cell">🕷️ An adaptive Web Scraping framework that handles everything from a single...</td>
-        <td class="stars-cell">★ 29.4K</td>
+        <td class="stars-cell">★ 31.4K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">3</td>
-        <td class="name-cell"><a href="/servers/chromedevtools-chrome-devtools-mcp.html">chrome-devtools-mcp</a></td>
+        <td class="name-cell"><a href="/servers/chromedevtools-chrome-devtools-mcp.html">chrome-devtools-mcp</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
         <td class="desc-cell">Chrome DevTools for coding agents</td>
-        <td class="stars-cell">★ 28.9K</td>
+        <td class="stars-cell">★ 30.5K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">4</td>
-        <td class="name-cell"><a href="/servers/microsoft-playwright-mcp.html">playwright-mcp</a></td>
+        <td class="name-cell"><a href="/servers/microsoft-playwright-mcp.html">playwright-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Playwright MCP server</td>
-        <td class="stars-cell">★ 28.9K</td>
+        <td class="stars-cell">★ 29.3K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">5</td>
-        <td class="name-cell"><a href="/servers/executeautomation-mcp-playwright.html">mcp-playwright</a></td>
+        <td class="name-cell"><a href="/servers/executeautomation-mcp-playwright.html">mcp-playwright</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Playwright Model Context Protocol Server - Tool to automate Browsers and...</td>
         <td class="stars-cell">★ 5.3K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">6</td>
-        <td class="name-cell"><a href="/servers/wong2-awesome-mcp-servers.html">awesome-mcp-servers</a></td>
+        <td class="name-cell"><a href="/servers/wong2-awesome-mcp-servers.html">awesome-mcp-servers</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">A curated list of Model Context Protocol (MCP) servers</td>
-        <td class="stars-cell">★ 3.7K</td>
+        <td class="stars-cell">★ 3.8K</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">7</td>
-        <td class="name-cell"><a href="/servers/browserbase-mcp-server-browserbase.html">mcp-server-browserbase</a></td>
+        <td class="name-cell"><a href="/servers/browserbase-mcp-server-browserbase.html">mcp-server-browserbase</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
         <td class="desc-cell">Allow LLMs to control a browser with Browserbase and Stagehand</td>
         <td class="stars-cell">★ 3.2K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">8</td>
-        <td class="name-cell"><a href="/servers/remorses-playwriter.html">playwriter</a></td>
+        <td class="name-cell"><a href="/servers/remorses-playwriter.html">playwriter</a> </td>
         <td class="desc-cell">Chrome extension to let agents control your browser. Runs Playwright...</td>
         <td class="stars-cell">★ 3.1K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> HTML</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">9</td>
-        <td class="name-cell"><a href="/servers/sparfenyuk-mcp-proxy.html">mcp-proxy</a></td>
+        <td class="name-cell"><a href="/servers/sparfenyuk-mcp-proxy.html">mcp-proxy</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
         <td class="desc-cell">A bridge between Streamable HTTP and stdio MCP transports</td>
-        <td class="stars-cell">★ 2.3K</td>
+        <td class="stars-cell">★ 2.4K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">10</td>
-        <td class="name-cell"><a href="/servers/f-mcptools.html">mcptools</a></td>
+        <td class="name-cell"><a href="/servers/f-mcptools.html">mcptools</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
         <td class="desc-cell">A command-line interface for interacting with MCP (Model Context Protocol)...</td>
         <td class="stars-cell">★ 1.5K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">11</td>
-        <td class="name-cell"><a href="/servers/refreshdotdev-web-eval-agent.html">web-eval-agent</a></td>
+        <td class="name-cell"><a href="/servers/refreshdotdev-web-eval-agent.html">web-eval-agent</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
         <td class="desc-cell">An MCP server that autonomously evaluates web applications. </td>
         <td class="stars-cell">★ 1.2K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">12</td>
-        <td class="name-cell"><a href="/servers/miguelspizza-webmcp.html">WebMCP</a></td>
+        <td class="name-cell"><a href="/servers/miguelspizza-webmcp.html">WebMCP</a> </td>
         <td class="desc-cell">Bringing the power of MCP to the web</td>
         <td class="stars-cell">★ 1.0K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">13</td>
-        <td class="name-cell"><a href="/servers/jae-jae-fetcher-mcp.html">fetcher-mcp</a></td>
+        <td class="name-cell"><a href="/servers/jae-jae-fetcher-mcp.html">fetcher-mcp</a> <span class="sec-badge sec-green">&#10003; Secure</span></td>
         <td class="desc-cell">MCP server for fetch web page content using Playwright headless browser.</td>
         <td class="stars-cell">★ 1.0K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">14</td>
-        <td class="name-cell"><a href="/servers/kontext-dev-browser-use-mcp-server.html">browser-use-mcp-server</a></td>
+        <td class="name-cell"><a href="/servers/kontext-dev-browser-use-mcp-server.html">browser-use-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Browse the web, directly from Cursor etc.</td>
         <td class="stars-cell">★ 812</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">15</td>
-        <td class="name-cell"><a href="/servers/taybenlor-runno.html">runno</a></td>
+        <td class="name-cell"><a href="/servers/taybenlor-runno.html">runno</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Sandboxed runtime for programming languages and WASI binaries. Works in the...</td>
         <td class="stars-cell">★ 762</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">16</td>
-        <td class="name-cell"><a href="/servers/hyperbrowserai-mcp.html">mcp</a></td>
+        <td class="name-cell"><a href="/servers/hyperbrowserai-mcp.html">mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">A MCP server implementation for hyperbrowser</td>
-        <td class="stars-cell">★ 743</td>
+        <td class="stars-cell">★ 750</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">10d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">17</td>
-        <td class="name-cell"><a href="/servers/zcaceres-fetch-mcp.html">fetch-mcp</a></td>
+        <td class="name-cell"><a href="/servers/zcaceres-fetch-mcp.html">fetch-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">A flexible HTTP fetching Model Context Protocol server.</td>
-        <td class="stars-cell">★ 716</td>
+        <td class="stars-cell">★ 724</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">18</td>
-        <td class="name-cell"><a href="/servers/demcp-awesome-web3-mcp-servers.html">awesome-web3-mcp-servers</a></td>
+        <td class="name-cell"><a href="/servers/demcp-awesome-web3-mcp-servers.html">awesome-web3-mcp-servers</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">DeMCP is the first Decentralized MCP network, offering SSE proxies for MCP...</td>
-        <td class="stars-cell">★ 595</td>
+        <td class="stars-cell">★ 603</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">26d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">19</td>
-        <td class="name-cell"><a href="/servers/jasonjmcghee-webmcp.html">WebMCP</a></td>
+        <td class="name-cell"><a href="/servers/jasonjmcghee-webmcp.html">WebMCP</a> </td>
         <td class="desc-cell">Early WebMCP proposal / implementation - since evolved and worked on by much...</td>
         <td class="stars-cell">★ 580</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">20</td>
-        <td class="name-cell"><a href="/servers/reading-plus-ai-mcp-server-data-exploration.html">mcp-server-data-exploration</a></td>
+        <td class="name-cell"><a href="/servers/reading-plus-ai-mcp-server-data-exploration.html">mcp-server-data-exploration</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 528</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">5d ago</td>
+        <td style="color:var(--text-dim)">11d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">21</td>
-        <td class="name-cell"><a href="/servers/ota-tech-ai-web-agent-protocol.html">web-agent-protocol</a></td>
+        <td class="name-cell"><a href="/servers/ota-tech-ai-web-agent-protocol.html">web-agent-protocol</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">🌐Web Agent Protocol (WAP) - Record and replay user interactions in the...</td>
-        <td class="stars-cell">★ 493</td>
+        <td class="stars-cell">★ 496</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">5d ago</td>
+        <td style="color:var(--text-dim)">11d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">22</td>
-        <td class="name-cell"><a href="/servers/merajmehrabi-puppeteer-mcp-server.html">puppeteer-mcp-server</a></td>
+        <td class="name-cell"><a href="/servers/merajmehrabi-puppeteer-mcp-server.html">puppeteer-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">This MCP server provides browser automation capabilities through Puppeteer,...</td>
-        <td class="stars-cell">★ 410</td>
+        <td class="stars-cell">★ 417</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">2d ago</td>
+        <td style="color:var(--text-dim)">8d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">23</td>
-        <td class="name-cell"><a href="/servers/benjaminr-chrome-devtools-mcp.html">chrome-devtools-mcp</a></td>
+        <td class="name-cell"><a href="/servers/benjaminr-chrome-devtools-mcp.html">chrome-devtools-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">An MCP Server for Chrome DevTools, following the Chrome DevTools Protocol....</td>
-        <td class="stars-cell">★ 289</td>
+        <td class="stars-cell">★ 292</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">10d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">24</td>
-        <td class="name-cell"><a href="/servers/vikashloomba-mcp-server-playwright.html">MCP-Server-Playwright</a></td>
+        <td class="name-cell"><a href="/servers/vikashloomba-mcp-server-playwright.html">MCP-Server-Playwright</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">MCP server for browser automation using Playwright</td>
         <td class="stars-cell">★ 283</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">2d ago</td>
+        <td style="color:var(--text-dim)">9d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">25</td>
-        <td class="name-cell"><a href="/servers/punkpeye-mcp-proxy.html">mcp-proxy</a></td>
-        <td class="desc-cell">A TypeScript streamable HTTP and SSE proxy for MCP servers that use stdio...</td>
-        <td class="stars-cell">★ 241</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td class="name-cell"><a href="/servers/freddy-schuetz-n8n-claw.html">n8n-claw</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">OpenClaw-inspired autonomous AI agent built entirely in n8n. Adaptive...</td>
+        <td class="stars-cell">★ 275</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#89E051"></span> Shell</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">26</td>
-        <td class="name-cell"><a href="/servers/mikegc-aws-lambda-mcp-server.html">Lambda-MCP-Server</a></td>
-        <td class="desc-cell">Creates a simple MCP tool server with &quot;streaming&quot; HTTP.</td>
-        <td class="stars-cell">★ 231</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td class="name-cell"><a href="/servers/punkpeye-mcp-proxy.html">mcp-proxy</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A TypeScript streamable HTTP and SSE proxy for MCP servers that use stdio...</td>
+        <td class="stars-cell">★ 243</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">7d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">27</td>
-        <td class="name-cell"><a href="/servers/xeroapi-xero-mcp-server.html">xero-mcp-server</a></td>
-        <td class="desc-cell">An MCP server that integrates with the MCP protocol....</td>
-        <td class="stars-cell">★ 206</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td class="name-cell"><a href="/servers/blacktop-ida-mcp-rs.html">ida-mcp-rs</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Headless IDA Pro MCP Server</td>
+        <td class="stars-cell">★ 236</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
+        <td style="color:var(--text-dim)">18d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">28</td>
-        <td class="name-cell"><a href="/servers/apify-mcp-server-rag-web-browser.html">mcp-server-rag-web-browser</a></td>
-        <td class="desc-cell">A MCP Server for the RAG Web Browser Actor</td>
-        <td class="stars-cell">★ 198</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td class="name-cell"><a href="/servers/mikegc-aws-lambda-mcp-server.html">Lambda-MCP-Server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Creates a simple MCP tool server with &quot;streaming&quot; HTTP.</td>
+        <td class="stars-cell">★ 231</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">29</td>
-        <td class="name-cell"><a href="/servers/ptbsare-mcp-proxy-server.html">mcp-proxy-server</a></td>
-        <td class="desc-cell">This server acts as a central hub for Model Context Protocol (MCP) resource...</td>
-        <td class="stars-cell">★ 191</td>
+        <td class="name-cell"><a href="/servers/xeroapi-xero-mcp-server.html">xero-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">An MCP server that integrates with the MCP protocol....</td>
+        <td class="stars-cell">★ 212</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">30</td>
-        <td class="name-cell"><a href="/servers/egoist-fetch-mcp.html">fetch-mcp</a></td>
+        <td class="name-cell"><a href="/servers/apify-mcp-server-rag-web-browser.html">mcp-server-rag-web-browser</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A MCP Server for the RAG Web Browser Actor</td>
+        <td class="stars-cell">★ 198</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">31</td>
+        <td class="name-cell"><a href="/servers/ptbsare-mcp-proxy-server.html">mcp-proxy-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">This server acts as a central hub for Model Context Protocol (MCP) resource...</td>
+        <td class="stars-cell">★ 192</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">10d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">32</td>
+        <td class="name-cell"><a href="/servers/egoist-fetch-mcp.html">fetch-mcp</a> </td>
         <td class="desc-cell">An MCP server for fetching URLs / Youtube video transcript.</td>
         <td class="stars-cell">★ 157</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
         <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">31</td>
-        <td class="name-cell"><a href="/servers/scrapeless-ai-scrapeless-mcp-server.html">scrapeless-mcp-server</a></td>
+        <td style="color:var(--text-dim)">33</td>
+        <td class="name-cell"><a href="/servers/scrapeless-ai-scrapeless-mcp-server.html">scrapeless-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Scrapeless Mcp Server</td>
         <td class="stars-cell">★ 156</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">8d ago</td>
+        <td style="color:var(--text-dim)">15d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">32</td>
-        <td class="name-cell"><a href="/servers/phuctm97-modelfetch.html">modelfetch</a></td>
+        <td style="color:var(--text-dim)">34</td>
+        <td class="name-cell"><a href="/servers/phuctm97-modelfetch.html">modelfetch</a> </td>
         <td class="desc-cell">Runtime-agnostic TypeScript/JavaScript SDK for MCP Servers</td>
         <td class="stars-cell">★ 146</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">15d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">35</td>
+        <td class="name-cell"><a href="/servers/just-every-mcp-read-website-fast.html">mcp-read-website-fast</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Quickly reads webpages and converts to markdown for fast, token efficient...</td>
+        <td class="stars-cell">★ 137</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">36</td>
+        <td class="name-cell"><a href="/servers/browserstack-mcp-server.html">mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">BrowserStack&#x27;s Official MCP Server</td>
+        <td class="stars-cell">★ 130</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">17d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">37</td>
+        <td class="name-cell"><a href="/servers/kapeli-dash-mcp-server.html">dash-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server for Dash, the macOS documentation browser</td>
+        <td class="stars-cell">★ 130</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">38</td>
+        <td class="name-cell"><a href="/servers/pinkpixel-dev-web-scout-mcp.html">web-scout-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A powerful MCP server extension providing web search and content extraction...</td>
+        <td class="stars-cell">★ 125</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">39</td>
+        <td class="name-cell"><a href="/servers/mmmeff-outline-mcp-server.html">outline-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">It&#x27;s an MCP server... for Outline (the documentation platform!)</td>
+        <td class="stars-cell">★ 117</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">9d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">40</td>
+        <td class="name-cell"><a href="/servers/luyike221-xiaohongshu-mcp-python.html">xiaohongshu-mcp-python</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">xiaohongshu-mcp-python是一个基于现代Python技术栈开发的小红书内容自动化发布工具，通过Model Context...</td>
+        <td class="stars-cell">★ 93</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">9d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">41</td>
+        <td class="name-cell"><a href="/servers/ai-dashboad-flutter-skill.html">flutter-skill</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">AI-powered E2E testing for 10 platforms. 253 MCP tools. Zero config. Works...</td>
+        <td class="stars-cell">★ 90</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00B4AB"></span> Dart</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">42</td>
+        <td class="name-cell"><a href="/servers/n1byn1kt-apitap.html">apitap</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">The MCP server that turns any website into an API — no docs, no SDK, no...</td>
+        <td class="stars-cell">★ 77</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">43</td>
+        <td class="name-cell"><a href="/servers/ertugrul59-tradingview-chart-mcp.html">tradingview-chart-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server that captures TradingView chart images via Selenium — supports...</td>
+        <td class="stars-cell">★ 76</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
         <td style="color:var(--text-dim)">8d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">33</td>
-        <td class="name-cell"><a href="/servers/browserstack-mcp-server.html">mcp-server</a></td>
-        <td class="desc-cell">BrowserStack&#x27;s Official MCP Server</td>
-        <td class="stars-cell">★ 130</td>
+        <td style="color:var(--text-dim)">44</td>
+        <td class="name-cell"><a href="/servers/modelcontextprotocol-example-remote-server.html">example-remote-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A hosted version of the Everything server - for demonstration and testing...</td>
+        <td class="stars-cell">★ 71</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">11d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">45</td>
+        <td class="name-cell"><a href="/servers/cyanheads-pubmed-mcp-server.html">pubmed-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server for the NCBI E-utilities API. Search PubMed, fetch article...</td>
+        <td class="stars-cell">★ 66</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
         <td style="color:var(--text-dim)">10d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">34</td>
-        <td class="name-cell"><a href="/servers/kapeli-dash-mcp-server.html">dash-mcp-server</a></td>
-        <td class="desc-cell">MCP server for Dash, the macOS documentation browser</td>
-        <td class="stars-cell">★ 126</td>
+        <td style="color:var(--text-dim)">46</td>
+        <td class="name-cell"><a href="/servers/scrapegraphai-scrapegraph-mcp.html">scrapegraph-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">ScapeGraph MCP Server</td>
+        <td class="stars-cell">★ 59</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">35</td>
-        <td class="name-cell"><a href="/servers/mmmeff-outline-mcp-server.html">outline-mcp-server</a></td>
-        <td class="desc-cell">It&#x27;s an MCP server... for Outline (the documentation platform!)</td>
-        <td class="stars-cell">★ 117</td>
+        <td style="color:var(--text-dim)">47</td>
+        <td class="name-cell"><a href="/servers/kontext-dev-agent-browser.html">agent-browser</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">One connection for all your MCP servers.</td>
+        <td class="stars-cell">★ 58</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">48</td>
+        <td class="name-cell"><a href="/servers/phifever-afdiantomarkdown.html">AfdianToMarkdown</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">爱发电爬虫(afdian.com)</td>
+        <td class="stars-cell">★ 56</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
+        <td style="color:var(--text-dim)">12d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">49</td>
+        <td class="name-cell"><a href="/servers/neelsomani-web2mcp.html">web2mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Generate an MCP for any web app</td>
+        <td class="stars-cell">★ 56</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">50</td>
+        <td class="name-cell"><a href="/servers/baryhuang-mcp-headless-gmail.html">mcp-headless-gmail</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A MCP (Model Context Protocol) server that provides get, send Gmails without...</td>
+        <td class="stars-cell">★ 55</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">10mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">51</td>
+        <td class="name-cell"><a href="/servers/yangbuyiya-yby6-crawling-short-video-mcp.html">yby6-crawling-short-video-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">本项目是一个基于 FastMCP 的全网短视频去水印解析服务，支持多平台视频分享链接的解析，自动提取视频真实地址及相关信息。...</td>
+        <td class="stars-cell">★ 51</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">52</td>
+        <td class="name-cell"><a href="/servers/civyk-official-civyk-winwright.html">civyk-winwright</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Playwright-style MCP server for Windows desktop, system, and browser...</td>
+        <td class="stars-cell">★ 49</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> PowerShell</td>
+        <td style="color:var(--text-dim)">12d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">53</td>
+        <td class="name-cell"><a href="/servers/redf0x1-camofox-browser.html">camofox-browser</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Anti-detection browser server for AI agents — REST API wrapping Camoufox...</td>
+        <td class="stars-cell">★ 47</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">13d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">54</td>
+        <td class="name-cell"><a href="/servers/leanmcp-community-music-composer-webmcp.html">music-composer-webmcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">This WebMCP Music Composer project is a functional demonstration of the...</td>
+        <td class="stars-cell">★ 41</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
         <td style="color:var(--text-dim)">2d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">36</td>
-        <td class="name-cell"><a href="/servers/luyike221-xiaohongshu-mcp-python.html">xiaohongshu-mcp-python</a></td>
-        <td class="desc-cell">xiaohongshu-mcp-python是一个基于现代Python技术栈开发的小红书内容自动化发布工具，通过Model Context...</td>
-        <td class="stars-cell">★ 83</td>
+        <td style="color:var(--text-dim)">55</td>
+        <td class="name-cell"><a href="/servers/pragmar-mcp-server-webcrawl.html">mcp-server-webcrawl</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP server tailored to connecting web crawler data and archives</td>
+        <td class="stars-cell">★ 38</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">37</td>
-        <td class="name-cell"><a href="/servers/ertugrul59-tradingview-chart-mcp.html">tradingview-chart-mcp</a></td>
-        <td class="desc-cell">MCP server that captures TradingView chart images via Selenium — supports...</td>
-        <td class="stars-cell">★ 73</td>
+        <td style="color:var(--text-dim)">56</td>
+        <td class="name-cell"><a href="/servers/redf0x1-camofox-mcp.html">camofox-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Anti-detection browser MCP server for AI agents — navigate, interact, and...</td>
+        <td class="stars-cell">★ 36</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">13d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">57</td>
+        <td class="name-cell"><a href="/servers/imprvhub-mcp-browser-agent.html">mcp-browser-agent</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A Model Context Protocol (MCP) integration that provides Claude Desktop with...</td>
+        <td class="stars-cell">★ 35</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">58</td>
+        <td class="name-cell"><a href="/servers/overtlids-mcp-searxng-enhanced.html">mcp-searxng-enhanced</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Enhanced MCP server for SearXNG: category-aware web-search, web-scraping,...</td>
+        <td class="stars-cell">★ 35</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">59</td>
+        <td class="name-cell"><a href="/servers/supadata-ai-mcp.html">mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Official Supadata MCP Server - Adds powerful video &amp; web scraping to Cursor,...</td>
+        <td class="stars-cell">★ 34</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">11d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">60</td>
+        <td class="name-cell"><a href="/servers/kimtth-mcp-aoai-web-browsing.html">mcp-aoai-web-browsing</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A minimal Model Context Protocol 🖥️ server/client🧑‍💻with Azure OpenAI and 🌐...</td>
+        <td class="stars-cell">★ 31</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">11mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">61</td>
+        <td class="name-cell"><a href="/servers/kernel-kernel-mcp-server.html">kernel-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Open-source MCP server for secure, low-latency cloud-browser automation on...</td>
+        <td class="stars-cell">★ 27</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">12d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">62</td>
+        <td class="name-cell"><a href="/servers/pyx-corp-spectrawl.html">spectrawl</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">The unified web layer for AI agents. Search (8 engines), stealth browse,...</td>
+        <td class="stars-cell">★ 20</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">7d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">63</td>
+        <td class="name-cell"><a href="/servers/holon-run-webmcp-bridge.html">webmcp-bridge</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Bridge local MCP clients to browser WebMCP tools through Playwright, using...</td>
+        <td class="stars-cell">★ 20</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">64</td>
+        <td class="name-cell"><a href="/servers/michaljach-opencode-browser.html">opencode-browser</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Browser automation plugin for OpenCode AI editor - Control Chrome/Edge with...</td>
+        <td class="stars-cell">★ 17</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">65</td>
+        <td class="name-cell"><a href="/servers/sultannaufal-puppeteer-mcp-server.html">puppeteer-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Self-hosted Puppeteer MCP server with remote SSE access, API key...</td>
+        <td class="stars-cell">★ 16</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">66</td>
+        <td class="name-cell"><a href="/servers/gourraguis-glasses-mcp.html">glasses-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Glasses MCP is a simple MCP server that lets your AI agent see and capture...</td>
+        <td class="stars-cell">★ 10</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">67</td>
+        <td class="name-cell"><a href="/servers/serkan-ozal-driflyte-mcp-server.html">driflyte-mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">The Driflyte MCP Server exposes tools that allow AI assistants to query and...</td>
+        <td class="stars-cell">★ 9</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">68</td>
+        <td class="name-cell"><a href="/servers/coucya-mcp-server-requests.html">mcp-server-requests</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Web Content Retrieval (full webpage, filtered content, or...</td>
+        <td class="stars-cell">★ 7</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">69</td>
+        <td class="name-cell"><a href="/servers/mkinf-io-browser-use-gologin.html">browser-use-gologin</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">MCP to Automate GoLogin through Browser Use</td>
+        <td class="stars-cell">★ 5</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">12mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">70</td>
+        <td class="name-cell"><a href="/servers/scraperapi-scraperapi-mcp.html">scraperapi-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">This MCP server enables LLMs to retrieve and process web scraping requests...</td>
+        <td class="stars-cell">★ 3</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">2d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">71</td>
+        <td class="name-cell"><a href="/servers/aaryabhusal-ctfd-mcp.html">ctfd-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🚀 Manage CTFd challenges effortlessly with this MCP server, enabling users...</td>
+        <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
         <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">38</td>
-        <td class="name-cell"><a href="/servers/modelcontextprotocol-example-remote-server.html">example-remote-server</a></td>
-        <td class="desc-cell">A hosted version of the Everything server - for demonstration and testing...</td>
-        <td class="stars-cell">★ 70</td>
+        <td style="color:var(--text-dim)">72</td>
+        <td class="name-cell"><a href="/servers/biggy44-mcp-server.html">mcp-server</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🚀 Compress and decompress JSON with the ASON MCP server, maximizing...</td>
+        <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">5d ago</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">39</td>
-        <td class="name-cell"><a href="/servers/ai-dashboad-flutter-skill.html">flutter-skill</a></td>
-        <td class="desc-cell">AI-powered E2E testing for 10 platforms. 253 MCP tools. Zero config. Works...</td>
-        <td class="stars-cell">★ 69</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#00B4AB"></span> Dart</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">73</td>
+        <td class="name-cell"><a href="/servers/jwaldor-mcp-scrape-copilot.html">mcp-scrape-copilot</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell"></td>
+        <td class="stars-cell">★ 1</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
+        <td style="color:var(--text-dim)">1y ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">40</td>
-        <td class="name-cell"><a href="/servers/cyanheads-pubmed-mcp-server.html">pubmed-mcp-server</a></td>
-        <td class="desc-cell">MCP server for the NCBI E-utilities API. Search PubMed, fetch article...</td>
-        <td class="stars-cell">★ 65</td>
-        <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3d ago</td>
-    </tr>
-    <tr>
-        <td style="color:var(--text-dim)">41</td>
-        <td class="name-cell"><a href="/servers/ryanxili-defuddle-mcp.html">defuddle-mcp</a></td>
+        <td style="color:var(--text-dim)">74</td>
+        <td class="name-cell"><a href="/servers/ryanxili-defuddle-mcp.html">defuddle-mcp</a> </td>
         <td class="desc-cell">MCP server for extracting clean article content from web pages</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">42</td>
-        <td class="name-cell"><a href="/servers/pravinakarunanithi-auto-favicon-mcp.html">auto-favicon-mcp</a></td>
+        <td style="color:var(--text-dim)">75</td>
+        <td class="name-cell"><a href="/servers/pravinakarunanithi-auto-favicon-mcp.html">auto-favicon-mcp</a> </td>
         <td class="desc-cell">Automatically generate favicon sets from PNG images or URLs with the Auto...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">43</td>
-        <td class="name-cell"><a href="/servers/cduzpalau-webexccconfig-mcp.html">webexccconfig-mcp</a></td>
+        <td style="color:var(--text-dim)">76</td>
+        <td class="name-cell"><a href="/servers/cduzpalau-webexccconfig-mcp.html">webexccconfig-mcp</a> </td>
         <td class="desc-cell">Webex Contact Center configuration MCP server</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">44</td>
-        <td class="name-cell"><a href="/servers/pandagaume-mcp-browser-world.html">mcp-browser-world</a></td>
+        <td style="color:var(--text-dim)">77</td>
+        <td class="name-cell"><a href="/servers/pandagaume-mcp-browser-world.html">mcp-browser-world</a> </td>
         <td class="desc-cell">This is an experiment in integrating MCP into Babylon.js, with Babylon.js...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">45</td>
-        <td class="name-cell"><a href="/servers/kamflowersthemacrogod-opentwitter-mcp.html">opentwitter-mcp</a></td>
+        <td style="color:var(--text-dim)">78</td>
+        <td class="name-cell"><a href="/servers/kamflowersthemacrogod-opentwitter-mcp.html">opentwitter-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
         <td class="desc-cell">Provide Twitter data access with user profiles, tweet search, follower...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
-        <td style="color:var(--text-dim)">46</td>
-        <td class="name-cell"><a href="/servers/alialobidm-playwright-mcp.html">playwright-mcp</a></td>
+        <td style="color:var(--text-dim)">79</td>
+        <td class="name-cell"><a href="/servers/alialobidm-playwright-mcp.html">playwright-mcp</a> </td>
         <td class="desc-cell">Playwright MCP server</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">6d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">80</td>
+        <td class="name-cell"><a href="/servers/saamlaura-resolink-mcp.html">resolink-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🔗 Control Resonite VR worlds using the ResoniteLink WebSocket protocol with...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">1mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">81</td>
+        <td class="name-cell"><a href="/servers/danya120o3-processhacker-mcp.html">processhacker-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Enable runtime analysis and control of AI agents with a dynamic process...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#F34B7D"></span> C++</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">82</td>
+        <td class="name-cell"><a href="/servers/mirghhassan1234-del-datagouv-mcp.html">datagouv-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Enable AI chatbots to query and analyze data.gouv.fr datasets through...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">83</td>
+        <td class="name-cell"><a href="/servers/shafikm17-provimedia-mcp.html">provimedia-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">🚀 Enhance Claude Code with Chainguard, a powerful MCP server that offers...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">1d ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">84</td>
+        <td class="name-cell"><a href="/servers/kausthub-lab-fire-crawl-mcp.html">FIRE-CRAWL-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell"></td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">85</td>
+        <td class="name-cell"><a href="/servers/tyler-r-kendrick-playwright-bdd-test-gen.html">playwright-bdd-test-gen</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">Uses playwright mcp server and gherkin bdd files to instruct a browser-use...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">86</td>
+        <td class="name-cell"><a href="/servers/sruckh-crawl-mcp.html">crawl-mcp</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A comprehensive Model Context Protocol (MCP) server that wraps the powerful...</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
+    </tr>
+    <tr>
+        <td style="color:var(--text-dim)">87</td>
+        <td class="name-cell"><a href="/servers/linzo99-browser-use-mcp-client.html">browser-use-mcp-client</a> <span class="sec-badge sec-yellow">&#9888; Review</span></td>
+        <td class="desc-cell">A MCP client for browser-use</td>
+        <td class="stars-cell">★ 0</td>
+        <td class="lang-cell"></td>
+        <td style="color:var(--text-dim)">Unknown</td>
     </tr>
         </tbody>
     </table>
@@ -1397,6 +1760,7 @@ footer {
                     <h4>Directory</h4>
                     <a href="/">Explore Servers</a>
                     <a href="/categories.html">Categories</a>
+                    <a href="/security.html">Security Scores</a>
                     <a href="/submit.html">Submit a Server</a>
                 </div>
                 <div class="footer-col">
