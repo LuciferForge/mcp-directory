@@ -1,5 +1,18 @@
 # Protodex.io Growth Playbook
 
+## Community Links
+- **Telegram:** https://t.me/protodexmcp
+- **Discord:** TBD
+- **X/Twitter:** https://x.com/gmanjuu
+- **Dev.to:** https://dev.to/manja316
+- **GitHub:** https://github.com/LuciferForge/mcp-directory
+
+## Launched Posts
+- **Dev.to:** https://dev.to/manja316/we-scanned-5618-mcp-servers-for-security-vulnerabilities-heres-what-we-found-30k
+- **X Thread:** Posted Mar 21 from @gmanjuu (7 tweets, pinned)
+
+---
+
 ## Outreach Emails (copy-paste ready)
 
 ### Email 1: Dev.to "Favorite MCP Directories" author
