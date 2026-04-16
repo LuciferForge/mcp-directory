@@ -451,6 +451,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     max-width: 580px;
     margin: 0 auto;
     position: relative;
+    z-index: 10;
 }
 .search-wrap input {
     width: 100%;
@@ -490,6 +491,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     max-height: 420px;
     overflow-y: auto;
     display: none;
+    z-index: 50;
     z-index: 200;
     box-shadow: var(--shadow-lg);
 }
