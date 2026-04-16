@@ -324,7 +324,7 @@ header .container {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-nav { display: flex; gap: 8px; align-items: center; }
+nav { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 nav a {
     color: var(--text-muted);
     font-size: 0.875rem;
