@@ -1209,6 +1209,27 @@ footer {
     margin-bottom: 32px;
 }
 .submit-content li { margin-bottom: 10px; line-height: 1.6; }
+
+/* Install config section */
+.install-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.install-section h2 { font-size: 1.2rem; margin-bottom: 4px; }
+.install-subtitle { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px; }
+.install-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.install-tab { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; cursor: pointer; font-size: 0.85rem; color: var(--text-muted); transition: all 0.2s; }
+.install-tab:hover { border-color: var(--accent); color: var(--text); }
+.install-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.install-panel { display: none; }
+.install-panel.active { display: block; }
+.install-label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 8px; }
+.install-label code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; }
+.code-block { position: relative; background: #0d1117; border-radius: 8px; padding: 16px; overflow-x: auto; }
+.code-block pre { margin: 0; }
+.code-block code { color: #e6edf3; font-size: 0.82rem; font-family: 'SF Mono', Consolas, monospace; white-space: pre; }
+.copy-btn { position: absolute; top: 8px; right: 8px; background: #21262d; border: 1px solid #30363d; border-radius: 6px; color: #8b949e; padding: 4px 10px; cursor: pointer; font-size: 0.75rem; transition: all 0.2s; }
+.copy-btn:hover { background: #30363d; color: #e6edf3; }
+.copy-btn.copied { background: #238636; color: #fff; border-color: #238636; }
+.install-note { color: var(--text-muted); font-size: 0.8rem; margin-top: 8px; }
+.install-note code { background: var(--bg); padding: 2px 6px; border-radius: 4px; }
 """
 
 
@@ -1263,6 +1284,7 @@ def html_header(current=""):
             <a href="/">Explore</a>
             <a href="/categories.html">Categories</a>
             <a href="/security.html">Security</a>
+            <a href="/blog/">Blog</a>
             <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
             <a href="/submit.html" class="nav-cta">Submit Server</a>
         </nav>
@@ -1304,6 +1326,10 @@ def html_footer():
         </div>
     </div>
 </footer>
+<script>
+function showTab(btn,id){{var p=btn.closest('.install-section');p.querySelectorAll('.install-tab').forEach(function(t){{t.classList.remove('active')}});p.querySelectorAll('.install-panel').forEach(function(x){{x.style.display='none';x.classList.remove('active')}});btn.classList.add('active');var el=document.getElementById(id);if(el){{el.style.display='block';el.classList.add('active')}}}}
+function copyCode(btn){{var code=btn.previousElementSibling.querySelector('code').textContent;navigator.clipboard.writeText(code).then(function(){{btn.textContent='Copied';btn.classList.add('copied');setTimeout(function(){{btn.textContent='Copy';btn.classList.remove('copied')}},2000)}})}}
+</script>
 </body>
 </html>
 """
@@ -1680,6 +1706,93 @@ def build_category_page(cat_name, cat_servers):
     return html
 
 
+def generate_install_config(name, repo, lang):
+    """Generate copy-paste config snippets for Claude Desktop, Claude Code, and Cursor."""
+    safe_name = name.lower().replace(" ", "-").replace("/", "-")[:20]
+    owner, repo_name = repo.split("/", 1) if "/" in repo else ("", repo)
+
+    # Determine command based on language
+    if lang in ("TypeScript", "JavaScript"):
+        command = "npx"
+        args_str = f'"-y", "{repo}"'
+        pip_note = ""
+    elif lang == "Python":
+        command = "uvx"
+        pkg = repo_name.lower().replace("_", "-")
+        args_str = f'"{pkg}"'
+        pip_note = f'<p class="install-note">Or install with pip: <code>pip install {pkg}</code></p>'
+    elif lang == "Go":
+        command = "go"
+        args_str = f'"run", "github.com/{repo}@latest"'
+        pip_note = ""
+    elif lang == "Rust":
+        command = "cargo"
+        args_str = f'"run", "--", "{repo_name}"'
+        pip_note = ""
+    else:
+        command = "npx"
+        args_str = f'"-y", "{repo}"'
+        pip_note = ""
+
+    claude_desktop = json.dumps({
+        "mcpServers": {
+            safe_name: {
+                "command": command,
+                "args": json.loads(f"[{args_str}]")
+            }
+        }
+    }, indent=2)
+
+    claude_code = f'claude mcp add {safe_name} {command} {" ".join(json.loads(f"[{args_str}]"))}'
+
+    cursor_config = json.dumps({
+        "mcpServers": {
+            safe_name: {
+                "command": command,
+                "args": json.loads(f"[{args_str}]")
+            }
+        }
+    }, indent=2)
+
+    return f"""
+    <div class="install-section" style="margin-top:32px">
+        <h2>Quick Install</h2>
+        <p class="install-subtitle">Copy the config for your editor. Some servers may need additional setup — check the README.</p>
+
+        <div class="install-tabs">
+            <button class="install-tab active" onclick="showTab(this, 'claude-desktop-{safe_name}')">Claude Desktop</button>
+            <button class="install-tab" onclick="showTab(this, 'claude-code-{safe_name}')">Claude Code</button>
+            <button class="install-tab" onclick="showTab(this, 'cursor-{safe_name}')">Cursor</button>
+        </div>
+
+        <div id="claude-desktop-{safe_name}" class="install-panel active">
+            <p class="install-label">Add to <code>claude_desktop_config.json</code>:</p>
+            <div class="code-block">
+                <pre><code>{escape(claude_desktop)}</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+            </div>
+        </div>
+
+        <div id="claude-code-{safe_name}" class="install-panel" style="display:none">
+            <p class="install-label">Run in terminal:</p>
+            <div class="code-block">
+                <pre><code>{escape(claude_code)}</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+            </div>
+        </div>
+
+        <div id="cursor-{safe_name}" class="install-panel" style="display:none">
+            <p class="install-label">Add to <code>.cursor/mcp.json</code>:</p>
+            <div class="code-block">
+                <pre><code>{escape(cursor_config)}</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+            </div>
+        </div>
+        {pip_note}
+    </div>
+"""
+
+
 def build_server_page(server, related):
     slug = slugify(server["repo"].replace("/", "-"))
     name = server["name"]
@@ -1761,6 +1874,9 @@ def build_server_page(server, related):
 
     html = html_head(title, page_desc, f"/servers/{slug}.html", extra_head)
     html += html_header()
+    # Generate install config based on language
+    install_config = generate_install_config(name, repo, lang)
+
     html += f"""
 <div class="container server-detail">
     <div class="breadcrumb">
@@ -1785,6 +1901,8 @@ def build_server_page(server, related):
     <a href="{escape(url)}" target="_blank" rel="noopener" class="btn">
         View on GitHub →
     </a>
+
+    {install_config}
 
     <div style="margin-top:40px">
         {readme_section}
@@ -1949,6 +2067,199 @@ Sitemap: {SITE_URL}/sitemap.xml
 # Main Build
 # ─────────────────────────────────────────────
 
+BLOG_DIR = os.path.join(os.path.dirname(__file__), "..", "content")
+
+def build_blog_index(posts):
+    title = f"Blog — {SITE_NAME}"
+    desc = "Expert guides on AI agents, MCP servers, and building with AI. Comparisons, tutorials, and deep dives."
+
+    cards = ""
+    for p in posts:
+        cards += f"""
+        <a href="/blog/{p['slug']}.html" class="server-card" style="text-decoration:none">
+            <h3 class="server-name">{escape(p['title'])}</h3>
+            <p class="server-desc">{escape(p['excerpt'])}</p>
+            <div class="server-meta">
+                <span class="meta-item">{', '.join(p['tags'][:3])}</span>
+            </div>
+        </a>"""
+
+    html = html_head(title, desc, "/blog/")
+    html += html_header("blog")
+    html += f"""
+<div class="container">
+    <h1 class="section-title" style="margin-top:40px">Blog</h1>
+    <p style="color:var(--text-muted);margin-bottom:32px">Expert guides on AI agents, MCP servers, and building with AI.</p>
+    <div class="server-grid">{cards}</div>
+</div>
+"""
+    html += html_footer()
+    return html
+
+
+def build_blog_post(post):
+    title = f"{post['title']} — {SITE_NAME}"
+    html = html_head(title, post['excerpt'], f"/blog/{post['slug']}.html")
+    html += html_header("blog")
+    html += f"""
+<div class="container" style="max-width:760px">
+    <div class="breadcrumb" style="margin-top:24px">
+        <a href="/">Home</a> / <a href="/blog/">Blog</a> / {escape(post['title'][:40])}...
+    </div>
+    <article style="margin-top:32px">
+        <h1 style="font-size:2rem;margin-bottom:16px">{escape(post['title'])}</h1>
+        <div style="color:var(--text-muted);margin-bottom:32px;font-size:0.85rem">
+            {', '.join(f'<span class="tag">{t}</span>' for t in post['tags'])}
+        </div>
+        <div class="blog-content" style="line-height:1.8;color:var(--text-muted)">
+            {post['html']}
+        </div>
+    </article>
+</div>
+"""
+    html += html_footer()
+    return html
+
+
+def load_blog_posts():
+    """Load markdown blog posts from content directory."""
+    posts = []
+    blog_content_dir = BLOG_DIR
+    if not os.path.isdir(blog_content_dir):
+        return posts
+
+    for fname in sorted(os.listdir(blog_content_dir)):
+        if not fname.startswith("devto-") or not fname.endswith(".md"):
+            continue
+
+        fpath = os.path.join(blog_content_dir, fname)
+        with open(fpath, encoding='utf-8') as f:
+            content = f.read()
+
+        # Parse frontmatter
+        title = ""
+        tags = []
+        body = content
+        if content.startswith("---"):
+            parts = content.split("---", 2)
+            if len(parts) >= 3:
+                fm = parts[1]
+                body = parts[2].strip()
+                for line in fm.strip().split("\n"):
+                    if line.startswith("title:"):
+                        title = line.split(":", 1)[1].strip().strip('"').strip("'")
+                    elif line.startswith("tags:"):
+                        tags = [t.strip() for t in line.split(":", 1)[1].split(",")]
+
+        if not title:
+            title = fname.replace("devto-", "").replace(".md", "").replace("-", " ").title()
+
+        slug = fname.replace(".md", "").replace("devto-", "blog-")
+
+        # Convert markdown to basic HTML
+        html_body = markdown_to_html(body)
+        excerpt = body[:200].replace("\n", " ").replace("#", "").strip()
+
+        posts.append({
+            "title": title,
+            "slug": slug,
+            "tags": tags,
+            "html": html_body,
+            "excerpt": excerpt,
+        })
+
+    return posts
+
+
+def markdown_to_html(md):
+    """Very basic markdown to HTML converter."""
+    import re
+    lines = md.split("\n")
+    html_lines = []
+    in_code = False
+    in_list = False
+    in_table = False
+
+    for line in lines:
+        # Code blocks
+        if line.strip().startswith("```"):
+            if in_code:
+                html_lines.append("</code></pre>")
+                in_code = False
+            else:
+                lang = line.strip().replace("```", "")
+                html_lines.append(f'<pre style="background:#0d1117;border-radius:8px;padding:16px;overflow-x:auto"><code style="color:#e6edf3;font-size:0.85rem">')
+                in_code = True
+            continue
+
+        if in_code:
+            html_lines.append(escape(line))
+            continue
+
+        # Headers
+        if line.startswith("## "):
+            if in_list:
+                html_lines.append("</ul>")
+                in_list = False
+            html_lines.append(f'<h2 style="margin-top:32px;margin-bottom:12px">{escape(line[3:])}</h2>')
+            continue
+        if line.startswith("### "):
+            html_lines.append(f'<h3 style="margin-top:24px;margin-bottom:8px">{escape(line[4:])}</h3>')
+            continue
+
+        # Tables
+        if "|" in line and line.strip().startswith("|"):
+            if not in_table:
+                html_lines.append('<div style="overflow-x:auto;margin:16px 0"><table style="width:100%;border-collapse:collapse;font-size:0.85rem">')
+                in_table = True
+            cells = [c.strip() for c in line.strip().strip("|").split("|")]
+            if all(set(c) <= set("- :") for c in cells):
+                continue  # separator row
+            row = "".join(f'<td style="padding:8px 12px;border:1px solid var(--border)">{escape(c)}</td>' for c in cells)
+            html_lines.append(f"<tr>{row}</tr>")
+            continue
+        elif in_table:
+            html_lines.append("</table></div>")
+            in_table = False
+
+        # List items
+        if line.strip().startswith("- "):
+            if not in_list:
+                html_lines.append("<ul style='padding-left:24px;margin:12px 0'>")
+                in_list = True
+            # Handle bold and code in list items
+            item = escape(line.strip()[2:])
+            item = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', item)
+            item = re.sub(r'`(.+?)`', r'<code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:0.85rem">\1</code>', item)
+            html_lines.append(f"<li>{item}</li>")
+            continue
+        elif in_list and line.strip() == "":
+            html_lines.append("</ul>")
+            in_list = False
+
+        # Bold, code, links
+        processed = escape(line)
+        processed = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', processed)
+        processed = re.sub(r'`(.+?)`', r'<code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:0.85rem">\1</code>', processed)
+        processed = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" style="color:var(--accent)">\1</a>', processed)
+
+        if line.strip() == "":
+            html_lines.append("<br>")
+        elif line.strip().startswith("---"):
+            html_lines.append('<hr style="border:none;border-top:1px solid var(--border);margin:32px 0">')
+        else:
+            html_lines.append(f"<p>{processed}</p>")
+
+    if in_list:
+        html_lines.append("</ul>")
+    if in_table:
+        html_lines.append("</table></div>")
+    if in_code:
+        html_lines.append("</code></pre>")
+
+    return "\n".join(html_lines)
+
+
 def main():
     print(f"Loading data from {DATA_FILE}...")
     with open(DATA_FILE) as f:
@@ -2010,6 +2321,16 @@ def main():
     # Build security page
     print("Building security page...")
     write(os.path.join(SITE_DIR, "security.html"), build_security_page(servers))
+
+    # Build blog
+    print("Building blog...")
+    blog_posts = load_blog_posts()
+    if blog_posts:
+        os.makedirs(os.path.join(SITE_DIR, "blog"), exist_ok=True)
+        write(os.path.join(SITE_DIR, "blog", "index.html"), build_blog_index(blog_posts))
+        for post in blog_posts:
+            write(os.path.join(SITE_DIR, "blog", f"{post['slug']}.html"), build_blog_post(post))
+        print(f"  - {len(blog_posts)} blog posts")
 
     # Build SEO assets
     print("Building SEO assets...")
