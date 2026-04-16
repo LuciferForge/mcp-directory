@@ -1091,30 +1091,23 @@ nanobot
 <br>
 <p>That&#x27;s it. No config files. No API key setup wizard. It prompts you for your key on first run.</p>
 <br>
-<h2 style="margin-top:32px;margin-bottom:12px">When to Use nanobot Over Claude Code</h2>
+<h2 style="margin-top:32px;margin-bottom:12px">When to Use nanobot vs Full-Featured Agents</h2>
 <br>
 <p><strong>Use nanobot when:</strong></p>
 <ul style='padding-left:24px;margin:12px 0'>
-<li>You want something that starts in &lt;1 second (Claude Code takes 3-5s)</li>
-<li>You want to read and modify the agent&#x27;s source code (it&#x27;s small enough to understand in an afternoon)</li>
+<li>You want something that starts in &lt;1 second (full-featured agents take 3-5s)</li>
+<li>You want to read and modify the agent&#x27;s source code (small enough to understand in an afternoon)</li>
 <li>You&#x27;re doing research on AI agents and need a clean base to experiment with</li>
 <li>You want a minimal agent on a low-resource machine (CI server, Raspberry Pi, cheap VPS)</li>
-<li>You don&#x27;t need MCP servers, skills, or hooks</li>
+<li>You don&#x27;t need MCP servers, plugins, or hooks</li>
 </ul>
 <br>
-<p><strong>Use Claude Code when:</strong></p>
+<p><strong>Use a full-featured agent (Claude Code, Cursor, Goose) when:</strong></p>
 <ul style='padding-left:24px;margin:12px 0'>
 <li>You need the MCP ecosystem (5,600+ servers on [Protodex](https://protodex.io))</li>
-<li>You need hooks and automated workflows</li>
-<li>You want the best model quality (Opus/Sonnet directly)</li>
+<li>You need hooks, plugins, or automated workflows</li>
 <li>You&#x27;re working on large codebases where context management matters</li>
-</ul>
-<br>
-<p><strong>Use Goose when:</strong></p>
-<ul style='padding-left:24px;margin:12px 0'>
-<li>You want extensibility with a plugin system</li>
-<li>You need browser automation built in</li>
-<li>You want community extensions</li>
+<li>You want community extensions and integrations</li>
 </ul>
 <br>
 <h2 style="margin-top:32px;margin-bottom:12px">How nanobot Works Under the Hood</h2>
@@ -1140,7 +1133,7 @@ User prompt → LLM call → Tool use (file read/write, shell) → LLM response 
 <br>
 <p>nanobot is the right tool if you value simplicity and transparency over features. You can read every line of its code in a sitting. That makes it perfect for learning how AI agents work, for building custom agents on top of, or for environments where you need something tiny and fast.</p>
 <br>
-<p>If you need the ecosystem, stick with Claude Code + <a href="https://protodex.io" style="color:var(--accent)">MCP servers</a>. If you want to understand what&#x27;s happening under the hood, nanobot is the best teacher.</p>
+<p>If you need the ecosystem, use any MCP-compatible agent (Claude Code, Cursor, Goose) with <a href="https://protodex.io" style="color:var(--accent)">MCP servers</a>. If you want to understand what&#x27;s happening under the hood, nanobot is the best teacher.</p>
 <br>
 <hr style="border:none;border-top:1px solid var(--border);margin:32px 0">
 <br>
