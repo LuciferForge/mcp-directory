@@ -1004,6 +1004,27 @@ footer {
     margin-bottom: 32px;
 }
 .submit-content li { margin-bottom: 10px; line-height: 1.6; }
+
+/* Install config section */
+.install-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.install-section h2 { font-size: 1.2rem; margin-bottom: 4px; }
+.install-subtitle { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px; }
+.install-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.install-tab { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; cursor: pointer; font-size: 0.85rem; color: var(--text-muted); transition: all 0.2s; }
+.install-tab:hover { border-color: var(--accent); color: var(--text); }
+.install-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.install-panel { display: none; }
+.install-panel.active { display: block; }
+.install-label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 8px; }
+.install-label code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; }
+.code-block { position: relative; background: #0d1117; border-radius: 8px; padding: 16px; overflow-x: auto; }
+.code-block pre { margin: 0; }
+.code-block code { color: #e6edf3; font-size: 0.82rem; font-family: 'SF Mono', Consolas, monospace; white-space: pre; }
+.copy-btn { position: absolute; top: 8px; right: 8px; background: #21262d; border: 1px solid #30363d; border-radius: 6px; color: #8b949e; padding: 4px 10px; cursor: pointer; font-size: 0.75rem; transition: all 0.2s; }
+.copy-btn:hover { background: #30363d; color: #e6edf3; }
+.copy-btn.copied { background: #238636; color: #fff; border-color: #238636; }
+.install-note { color: var(--text-muted); font-size: 0.8rem; margin-top: 8px; }
+.install-note code { background: var(--bg); padding: 2px 6px; border-radius: 4px; }
 </style>
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
@@ -1052,7 +1073,7 @@ footer {
         <td class="desc-cell">⭐AI-driven public opinion &amp; trend monitor with multi-platform aggregation,...</td>
         <td class="stars-cell">★ 49.4K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">6d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2</td>
@@ -1060,7 +1081,7 @@ footer {
         <td class="desc-cell">An MCP-based chatbot | 一个基于MCP的聊天机器人</td>
         <td class="stars-cell">★ 24.7K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F34B7D"></span> C++</td>
-        <td style="color:var(--text-dim)">6d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">3</td>
@@ -1068,7 +1089,7 @@ footer {
         <td class="desc-cell">WhatsApp MCP server</td>
         <td class="stars-cell">★ 5.4K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">4</td>
@@ -1076,7 +1097,7 @@ footer {
         <td class="desc-cell">Model Context Protocol for WinDBG</td>
         <td class="stars-cell">★ 1.1K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">5</td>
@@ -1084,7 +1105,7 @@ footer {
         <td class="desc-cell">Telegram MCP server powered by Telethon to let MCP clients read chats,...</td>
         <td class="stars-cell">★ 817</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">6</td>
@@ -1092,7 +1113,7 @@ footer {
         <td class="desc-cell">A curated list of OpenClaw resources, tools, skills, tutorials &amp; articles....</td>
         <td class="stars-cell">★ 809</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">7</td>
@@ -1100,7 +1121,7 @@ footer {
         <td class="desc-cell">Complete MCP Platform -- Hosting, Registry, Gateway, and Chat Client</td>
         <td class="stars-cell">★ 653</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">8</td>
@@ -1108,7 +1129,7 @@ footer {
         <td class="desc-cell">The official MCP server to send emails and interact with Resend</td>
         <td class="stars-cell">★ 474</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">9</td>
@@ -1116,7 +1137,7 @@ footer {
         <td class="desc-cell">An MCP (Model Context Protocol) server implementation for Microsoft Teams...</td>
         <td class="stars-cell">★ 361</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">8d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">10</td>
@@ -1124,7 +1145,7 @@ footer {
         <td class="desc-cell">Sega Master System / Game Gear / SG-1000 emulator, debugger and embedded MCP...</td>
         <td class="stars-cell">★ 335</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F34B7D"></span> C++</td>
-        <td style="color:var(--text-dim)">8d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">11</td>
@@ -1132,7 +1153,7 @@ footer {
         <td class="desc-cell">api router for MCP Servers</td>
         <td class="stars-cell">★ 306</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">17d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">12</td>
@@ -1140,7 +1161,7 @@ footer {
         <td class="desc-cell">Model Context Protocol server for DeepSeek&#x27;s advanced language models</td>
         <td class="stars-cell">★ 306</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">13</td>
@@ -1148,7 +1169,7 @@ footer {
         <td class="desc-cell">Telegram MCP for managing dialogs, messages, drafts, read statuses, and more.</td>
         <td class="stars-cell">★ 301</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">14</td>
@@ -1156,7 +1177,7 @@ footer {
         <td class="desc-cell">A simple CLI chatbot that demonstrates the integration of the Model Context...</td>
         <td class="stars-cell">★ 248</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">8d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">15</td>
@@ -1164,7 +1185,7 @@ footer {
         <td class="desc-cell">A chatbot implementation compatible with MCP (terminal / streamlit supported)</td>
         <td class="stars-cell">★ 239</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">7mo ago</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">16</td>
@@ -1172,7 +1193,7 @@ footer {
         <td class="desc-cell">IMAP and SMTP via MCP Server</td>
         <td class="stars-cell">★ 198</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">6d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">17</td>
@@ -1180,7 +1201,7 @@ footer {
         <td class="desc-cell">chatExcel -...</td>
         <td class="stars-cell">★ 183</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">18</td>
@@ -1188,7 +1209,7 @@ footer {
         <td class="desc-cell">Selene is a desktop app that runs AI agents on your machine. Connect them to...</td>
         <td class="stars-cell">★ 151</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">2d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">19</td>
@@ -1196,7 +1217,7 @@ footer {
         <td class="desc-cell">MCP server for discord bot</td>
         <td class="stars-cell">★ 148</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">13d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">20</td>
@@ -1204,7 +1225,7 @@ footer {
         <td class="desc-cell">Fabric MCP Server: Seamlessly integrate Fabric AI capabilities into...</td>
         <td class="stars-cell">★ 85</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">8mo ago</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">21</td>
@@ -1212,7 +1233,7 @@ footer {
         <td class="desc-cell">基于MCP技术，操作微信发送消息和获取历史记录</td>
         <td class="stars-cell">★ 84</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">4mo ago</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">22</td>
@@ -1220,7 +1241,7 @@ footer {
         <td class="desc-cell">A Python server implementation for WeCom (WeChat Work) bot that follows the...</td>
         <td class="stars-cell">★ 82</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">9d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">23</td>
@@ -1228,7 +1249,7 @@ footer {
         <td class="desc-cell">FastMCP server for automating WeChat Mini Program developer tooling</td>
         <td class="stars-cell">★ 80</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">24</td>
@@ -1236,7 +1257,7 @@ footer {
         <td class="desc-cell">Implement Discord MCP server enabling AI assistants to interact with the...</td>
         <td class="stars-cell">★ 75</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">25</td>
@@ -1244,7 +1265,7 @@ footer {
         <td class="desc-cell">Email &amp; SMS infrastructure for AI agents — send and receive real email and...</td>
         <td class="stars-cell">★ 72</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">8d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">26</td>
@@ -1252,7 +1273,7 @@ footer {
         <td class="desc-cell">Connect your chat repl to wolfram alpha computational intelligence</td>
         <td class="stars-cell">★ 72</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">7mo ago</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">27</td>
@@ -1260,7 +1281,7 @@ footer {
         <td class="desc-cell">一个基于 MCP (Model Context Protocol) 的邮件服务，支持 LLM 发送带附件的电子邮件及在指定目录中搜索文件。提供安全的...</td>
         <td class="stars-cell">★ 72</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">10mo ago</td>
+        <td style="color:var(--text-dim)">11mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">28</td>
@@ -1276,7 +1297,7 @@ footer {
         <td class="desc-cell">A fully functional web workspace for Claude Code CLI—chat, Kanban task...</td>
         <td class="stars-cell">★ 72</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> HTML</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">27d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">30</td>
@@ -1284,7 +1305,7 @@ footer {
         <td class="desc-cell">Rust + WASM sublinear-time solver for asymmetric diagonally dominant...</td>
         <td class="stars-cell">★ 63</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
-        <td style="color:var(--text-dim)">9d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">31</td>
@@ -1292,7 +1313,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 62</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">8mo ago</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">32</td>
@@ -1300,7 +1321,7 @@ footer {
         <td class="desc-cell">WhatsApp Unofficial MCP Server</td>
         <td class="stars-cell">★ 56</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">2mo ago</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">33</td>
@@ -1308,7 +1329,7 @@ footer {
         <td class="desc-cell">Send system notification when Agent task is done.</td>
         <td class="stars-cell">★ 50</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">7mo ago</td>
+        <td style="color:var(--text-dim)">8mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">34</td>
@@ -1316,7 +1337,7 @@ footer {
         <td class="desc-cell">📧 MCP Mail Tool - AI-powered email management tool | 基于 MCP 的智能邮件管理工具</td>
         <td class="stars-cell">★ 47</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">4mo ago</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">35</td>
@@ -1324,7 +1345,7 @@ footer {
         <td class="desc-cell">WhatsApp Web MCP Server</td>
         <td class="stars-cell">★ 42</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">8mo ago</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">36</td>
@@ -1332,7 +1353,7 @@ footer {
         <td class="desc-cell">Experimental MCP server for Postmark, built by Postmark Labs. Designed for...</td>
         <td class="stars-cell">★ 37</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">5d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">37</td>
@@ -1348,7 +1369,7 @@ footer {
         <td class="desc-cell">PhonePi MCP enables seamless integration between desktop AI tools and your...</td>
         <td class="stars-cell">★ 33</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">11mo ago</td>
+        <td style="color:var(--text-dim)">1y ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">39</td>
@@ -1356,7 +1377,7 @@ footer {
         <td class="desc-cell">An MCP Server implementation that integrates the Balldontlie API, to provide...</td>
         <td class="stars-cell">★ 23</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">8mo ago</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">40</td>
@@ -1364,7 +1385,7 @@ footer {
         <td class="desc-cell">Email MCP server with full IMAP + SMTP support — read, search, send, manage,...</td>
         <td class="stars-cell">★ 21</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">5d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">41</td>
@@ -1380,7 +1401,7 @@ footer {
         <td class="desc-cell">Stop juggling, start finishing. GSD Task Manager makes it easy to sort your...</td>
         <td class="stars-cell">★ 15</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">27d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">43</td>
@@ -1396,7 +1417,7 @@ footer {
         <td class="desc-cell">🏰 Remotely hosted MCP server for Discord</td>
         <td class="stars-cell">★ 14</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">2d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">45</td>
@@ -1404,7 +1425,7 @@ footer {
         <td class="desc-cell">Create AI generated memes using MCP Meme Sticky. Can converted generated...</td>
         <td class="stars-cell">★ 13</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">2mo ago</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">46</td>
@@ -1412,7 +1433,7 @@ footer {
         <td class="desc-cell">A resilient MCP server built with fastMCP for sending emails through Gmail&#x27;s...</td>
         <td class="stars-cell">★ 10</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3mo ago</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">47</td>
@@ -1420,7 +1441,7 @@ footer {
         <td class="desc-cell">Automatically share development progress to Slack through AI. MCP-powered...</td>
         <td class="stars-cell">★ 9</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3mo ago</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">48</td>
@@ -1428,7 +1449,7 @@ footer {
         <td class="desc-cell">ZulipChat MCP Server - A Model Context Protocol server that bridges AI...</td>
         <td class="stars-cell">★ 6</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">18d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">49</td>
@@ -1436,7 +1457,7 @@ footer {
         <td class="desc-cell">📝 A FastMCP tool that automatically saves AI chat conversations to...</td>
         <td class="stars-cell">★ 5</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11mo ago</td>
+        <td style="color:var(--text-dim)">1y ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">50</td>
@@ -1444,7 +1465,7 @@ footer {
         <td class="desc-cell">Simple Telegram MCP server</td>
         <td class="stars-cell">★ 3</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">11mo ago</td>
+        <td style="color:var(--text-dim)">12mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">51</td>
@@ -1452,7 +1473,7 @@ footer {
         <td class="desc-cell">A Model Context Protocol (MCP) server (using java sdk 0.11.0) that provides...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#B07219"></span> Java</td>
-        <td style="color:var(--text-dim)">6mo ago</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">52</td>
@@ -1476,7 +1497,7 @@ footer {
         <td class="desc-cell">A lightweight agent-ready messaging server built with FastMCP and Twilio to...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">8mo ago</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">55</td>
@@ -1484,7 +1505,7 @@ footer {
         <td class="desc-cell">A collection of MCP servers and a Streamlit-based MCP chatbot.</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">6d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">56</td>
@@ -1492,7 +1513,7 @@ footer {
         <td class="desc-cell">Elastic Email MCP Server delivers full-scale email capabilities to the next...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
-        <td style="color:var(--text-dim)">4mo ago</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">57</td>
@@ -1500,7 +1521,7 @@ footer {
         <td class="desc-cell">FastMCP server for IMAP email operations with dynamic credential handling</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">6mo ago</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">58</td>
@@ -1508,7 +1529,7 @@ footer {
         <td class="desc-cell">An autonomous agent and FastMCP server for managing Instantly.ai email...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">5mo ago</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">59</td>
@@ -1516,7 +1537,7 @@ footer {
         <td class="desc-cell">fastmcp搭建server，mcp搭建的client，加入一个对话chatbot</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">8mo ago</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">60</td>
@@ -1524,7 +1545,7 @@ footer {
         <td class="desc-cell">FastMCP v2를 사용하여 Slack API와 연동되는 MCP(Model Context Protocol) 서버를 구축하는 프로젝트</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">9mo ago</td>
+        <td style="color:var(--text-dim)">10mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">61</td>
@@ -1532,7 +1553,7 @@ footer {
         <td class="desc-cell">FastMCP 2.14.3  Unity 3D automation server  with VRM avatar pipeline and...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">2mo ago</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">62</td>
@@ -1540,7 +1561,7 @@ footer {
         <td class="desc-cell">Source code of the session CISCOU-2385: Chatting With My Network via Cisco...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">63</td>
@@ -1548,7 +1569,7 @@ footer {
         <td class="desc-cell">🚀 A Model Context Protocol (MCP) server that enables AI assistants to send...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">5mo ago</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">64</td>
@@ -1556,7 +1577,7 @@ footer {
         <td class="desc-cell">MCP server (zk-lens) that lowers Circom and Noir circuits into a shared...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">6d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">65</td>
@@ -1564,7 +1585,7 @@ footer {
         <td class="desc-cell">Send push notifications to your phone or desktop with ntfy. Easily use...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">8mo ago</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">66</td>
@@ -1612,7 +1633,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">4mo ago</td>
+        <td style="color:var(--text-dim)">5mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">72</td>
@@ -1665,5 +1686,9 @@ footer {
         </div>
     </div>
 </footer>
+<script>
+function showTab(btn,id){var p=btn.closest('.install-section');p.querySelectorAll('.install-tab').forEach(function(t){t.classList.remove('active')});p.querySelectorAll('.install-panel').forEach(function(x){x.style.display='none';x.classList.remove('active')});btn.classList.add('active');var el=document.getElementById(id);if(el){el.style.display='block';el.classList.add('active')}}
+function copyCode(btn){var code=btn.previousElementSibling.querySelector('code').textContent;navigator.clipboard.writeText(code).then(function(){btn.textContent='Copied';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})}
+</script>
 </body>
 </html>

@@ -1004,6 +1004,27 @@ footer {
     margin-bottom: 32px;
 }
 .submit-content li { margin-bottom: 10px; line-height: 1.6; }
+
+/* Install config section */
+.install-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.install-section h2 { font-size: 1.2rem; margin-bottom: 4px; }
+.install-subtitle { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px; }
+.install-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.install-tab { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; cursor: pointer; font-size: 0.85rem; color: var(--text-muted); transition: all 0.2s; }
+.install-tab:hover { border-color: var(--accent); color: var(--text); }
+.install-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.install-panel { display: none; }
+.install-panel.active { display: block; }
+.install-label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 8px; }
+.install-label code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; }
+.code-block { position: relative; background: #0d1117; border-radius: 8px; padding: 16px; overflow-x: auto; }
+.code-block pre { margin: 0; }
+.code-block code { color: #e6edf3; font-size: 0.82rem; font-family: 'SF Mono', Consolas, monospace; white-space: pre; }
+.copy-btn { position: absolute; top: 8px; right: 8px; background: #21262d; border: 1px solid #30363d; border-radius: 6px; color: #8b949e; padding: 4px 10px; cursor: pointer; font-size: 0.75rem; transition: all 0.2s; }
+.copy-btn:hover { background: #30363d; color: #e6edf3; }
+.copy-btn.copied { background: #238636; color: #fff; border-color: #238636; }
+.install-note { color: var(--text-muted); font-size: 0.8rem; margin-top: 8px; }
+.install-note code { background: var(--bg); padding: 2px 6px; border-radius: 4px; }
 </style>
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
@@ -1052,7 +1073,7 @@ footer {
         <td class="desc-cell">An MCP server built on ableton-js enables AI assistants to control Ableton...</td>
         <td class="stars-cell">★ 72</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2</td>
@@ -1060,7 +1081,7 @@ footer {
         <td class="desc-cell">MCP server to fetch YouTube transcripts</td>
         <td class="stars-cell">★ 71</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">5mo ago</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">3</td>
@@ -1068,7 +1089,7 @@ footer {
         <td class="desc-cell">MCP server for YouTube — search videos, get transcripts, channels, and...</td>
         <td class="stars-cell">★ 70</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">2d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">4</td>
@@ -1076,7 +1097,7 @@ footer {
         <td class="desc-cell">First of its kind, A simple TUI online music streaming application written...</td>
         <td class="stars-cell">★ 55</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F34B7D"></span> C++</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">5</td>
@@ -1084,7 +1105,7 @@ footer {
         <td class="desc-cell">Blender plugin for TRELLIS and TRELLIS.2 (3D AIGC Model, Text-to-3D,...</td>
         <td class="stars-cell">★ 55</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">2mo ago</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">6</td>
@@ -1092,7 +1113,7 @@ footer {
         <td class="desc-cell">Model Context Protocol to fetch youtube transcript</td>
         <td class="stars-cell">★ 47</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3mo ago</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">7</td>
@@ -1100,7 +1121,7 @@ footer {
         <td class="desc-cell">MCP server for Fal.ai - Generate images, videos, music and audio with Claude</td>
         <td class="stars-cell">★ 40</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">5d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">8</td>
@@ -1108,7 +1129,7 @@ footer {
         <td class="desc-cell">A Model Context Protocol (MCP) server that enables AI assistants to generate...</td>
         <td class="stars-cell">★ 39</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">9</td>
@@ -1132,7 +1153,7 @@ footer {
         <td class="desc-cell">MCP server for video/audio processing via FFmpeg - convert, compress, trim,...</td>
         <td class="stars-cell">★ 21</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">2mo ago</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">12</td>
@@ -1140,7 +1161,7 @@ footer {
         <td class="desc-cell">Powered by Ray (video) and Photon (image) models by Luma AI</td>
         <td class="stars-cell">★ 21</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11mo ago</td>
+        <td style="color:var(--text-dim)">12mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">13</td>
@@ -1148,7 +1169,7 @@ footer {
         <td class="desc-cell">Model Context Protocol (MCP) server to capture images from an...</td>
         <td class="stars-cell">★ 16</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11mo ago</td>
+        <td style="color:var(--text-dim)">1y ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">14</td>
@@ -1156,7 +1177,7 @@ footer {
         <td class="desc-cell">FastMCP server providing advanced OCR capabilities with current...</td>
         <td class="stars-cell">★ 9</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">2d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">15</td>
@@ -1164,7 +1185,7 @@ footer {
         <td class="desc-cell">MCP and CLI to extract subtitles from youtube videos. based on python&#x27;s lib...</td>
         <td class="stars-cell">★ 4</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">16</td>
@@ -1172,7 +1193,7 @@ footer {
         <td class="desc-cell">A Python package for media processing using FFmpeg and FastMCP. </td>
         <td class="stars-cell">★ 4</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">2mo ago</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">17</td>
@@ -1180,7 +1201,7 @@ footer {
         <td class="desc-cell">A FastMCP server for LinkedIn automation that provides comprehensive...</td>
         <td class="stars-cell">★ 4</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">5mo ago</td>
+        <td style="color:var(--text-dim)">6mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">18</td>
@@ -1188,7 +1209,7 @@ footer {
         <td class="desc-cell">AI Generation Server based on FastMCP, supporting text-to-image,...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">6mo ago</td>
+        <td style="color:var(--text-dim)">7mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">19</td>
@@ -1265,5 +1286,9 @@ footer {
         </div>
     </div>
 </footer>
+<script>
+function showTab(btn,id){var p=btn.closest('.install-section');p.querySelectorAll('.install-tab').forEach(function(t){t.classList.remove('active')});p.querySelectorAll('.install-panel').forEach(function(x){x.style.display='none';x.classList.remove('active')});btn.classList.add('active');var el=document.getElementById(id);if(el){el.style.display='block';el.classList.add('active')}}
+function copyCode(btn){var code=btn.previousElementSibling.querySelector('code').textContent;navigator.clipboard.writeText(code).then(function(){btn.textContent='Copied';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})}
+</script>
 </body>
 </html>

@@ -1004,6 +1004,27 @@ footer {
     margin-bottom: 32px;
 }
 .submit-content li { margin-bottom: 10px; line-height: 1.6; }
+
+/* Install config section */
+.install-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.install-section h2 { font-size: 1.2rem; margin-bottom: 4px; }
+.install-subtitle { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px; }
+.install-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.install-tab { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; cursor: pointer; font-size: 0.85rem; color: var(--text-muted); transition: all 0.2s; }
+.install-tab:hover { border-color: var(--accent); color: var(--text); }
+.install-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.install-panel { display: none; }
+.install-panel.active { display: block; }
+.install-label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 8px; }
+.install-label code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; }
+.code-block { position: relative; background: #0d1117; border-radius: 8px; padding: 16px; overflow-x: auto; }
+.code-block pre { margin: 0; }
+.code-block code { color: #e6edf3; font-size: 0.82rem; font-family: 'SF Mono', Consolas, monospace; white-space: pre; }
+.copy-btn { position: absolute; top: 8px; right: 8px; background: #21262d; border: 1px solid #30363d; border-radius: 6px; color: #8b949e; padding: 4px 10px; cursor: pointer; font-size: 0.75rem; transition: all 0.2s; }
+.copy-btn:hover { background: #30363d; color: #e6edf3; }
+.copy-btn.copied { background: #238636; color: #fff; border-color: #238636; }
+.install-note { color: var(--text-muted); font-size: 0.8rem; margin-top: 8px; }
+.install-note code { background: var(--bg); padding: 2px 6px; border-radius: 4px; }
 </style>
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
@@ -1053,7 +1074,7 @@ footer {
         <span class="meta-item">★ 566 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</span>
         <span class="meta-item">🔍 Search</span>
-        <span class="meta-item">Updated 7d ago</span>
+        <span class="meta-item">Updated 1mo ago</span>
         <span class="meta-item"><span class="sec-badge sec-yellow">&#9888; Review</span></span>
     </div>
 
@@ -1062,6 +1083,64 @@ footer {
     <a href="https://github.com/web-agent-master/google-search" target="_blank" rel="noopener" class="btn">
         View on GitHub →
     </a>
+
+    
+    <div class="install-section" style="margin-top:32px">
+        <h2>Quick Install</h2>
+        <p class="install-subtitle">Copy the config for your editor. Some servers may need additional setup — check the README.</p>
+
+        <div class="install-tabs">
+            <button class="install-tab active" onclick="showTab(this, 'claude-desktop-google-search')">Claude Desktop</button>
+            <button class="install-tab" onclick="showTab(this, 'claude-code-google-search')">Claude Code</button>
+            <button class="install-tab" onclick="showTab(this, 'cursor-google-search')">Cursor</button>
+        </div>
+
+        <div id="claude-desktop-google-search" class="install-panel active">
+            <p class="install-label">Add to <code>claude_desktop_config.json</code>:</p>
+            <div class="code-block">
+                <pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;google-search&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;web-agent-master/google-search&quot;
+      ]
+    }
+  }
+}</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+            </div>
+        </div>
+
+        <div id="claude-code-google-search" class="install-panel" style="display:none">
+            <p class="install-label">Run in terminal:</p>
+            <div class="code-block">
+                <pre><code>claude mcp add google-search npx -y web-agent-master/google-search</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+            </div>
+        </div>
+
+        <div id="cursor-google-search" class="install-panel" style="display:none">
+            <p class="install-label">Add to <code>.cursor/mcp.json</code>:</p>
+            <div class="code-block">
+                <pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;google-search&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;web-agent-master/google-search&quot;
+      ]
+    }
+  }
+}</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+            </div>
+        </div>
+        
+    </div>
+
 
     <div style="margin-top:40px">
         
@@ -1154,5 +1233,9 @@ footer {
         </div>
     </div>
 </footer>
+<script>
+function showTab(btn,id){var p=btn.closest('.install-section');p.querySelectorAll('.install-tab').forEach(function(t){t.classList.remove('active')});p.querySelectorAll('.install-panel').forEach(function(x){x.style.display='none';x.classList.remove('active')});btn.classList.add('active');var el=document.getElementById(id);if(el){el.style.display='block';el.classList.add('active')}}
+function copyCode(btn){var code=btn.previousElementSibling.querySelector('code').textContent;navigator.clipboard.writeText(code).then(function(){btn.textContent='Copied';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})}
+</script>
 </body>
 </html>
