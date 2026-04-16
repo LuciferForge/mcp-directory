@@ -1441,58 +1441,63 @@ def build_home(servers, categories):
     search_script = """
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
 <script>
-let fuse, searchData;
-fetch('/search-index.json')
-    .then(r => r.json())
-    .then(data => {
-        searchData = data;
-        fuse = new Fuse(data, {
-            keys: [{name: 'n', weight: 3}, {name: 'd', weight: 1}, {name: 'r', weight: 2}],
-            threshold: 0.3,
-            limit: 10
+(function() {
+    try {
+        var fuse = null;
+        var input = document.getElementById('search-input');
+        var results = document.getElementById('search-results');
+
+        if (!input || !results) { console.error('Search elements not found'); return; }
+
+        fetch('/search-index.json')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                console.log('Search index loaded:', data.length);
+                fuse = new Fuse(data, {
+                    keys: ['n', 'd', 'r'],
+                    threshold: 0.3
+                });
+                console.log('Fuse initialized');
+            })
+            .catch(function(err) { console.error('Search index error:', err); });
+
+        input.addEventListener('input', function() {
+            var q = this.value.trim();
+            if (q.length < 2) { results.style.display = 'none'; return; }
+            if (!fuse) {
+                results.innerHTML = '<div style="padding:16px;color:#8888a0">Loading search...</div>';
+                results.style.display = 'block';
+                return;
+            }
+            var hits = fuse.search(q, {limit: 8});
+            if (hits.length === 0) {
+                results.innerHTML = '<div style="padding:16px;color:#8888a0">No servers found</div>';
+                results.style.display = 'block';
+                return;
+            }
+            var html = '';
+            for (var i = 0; i < hits.length; i++) {
+                var s = hits[i].item;
+                html += '<a href="/servers/' + s.s + '.html" class="search-result-item">' +
+                    '<div><div class="search-result-name">' + (s.n || '') + '</div>' +
+                    '<div class="search-result-desc">' + (s.d || '').substring(0,80) + '</div></div>' +
+                    '<span class="search-result-meta">' + (s.st || '') + ' · ' + (s.l || '') + '</span></a>';
+            }
+            results.innerHTML = html;
+            results.style.display = 'block';
         });
-    });
 
-const input = document.getElementById('search-input');
-const results = document.getElementById('search-results');
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { results.style.display = 'none'; this.blur(); }
+        });
 
-input.addEventListener('input', function() {
-    const q = this.value.trim();
-    if (q.length < 2 || !fuse) {
-        results.classList.remove('active');
-        return;
-    }
-    const hits = fuse.search(q, {limit: 8});
-    if (hits.length === 0) {
-        results.innerHTML = '<div style="padding:16px;color:var(--text-dim)">No servers found</div>';
-        results.classList.add('active');
-        return;
-    }
-    results.innerHTML = hits.map(h => {
-        const s = h.item;
-        return `<a href="/servers/${s.s}.html" class="search-result-item">
-            <div>
-                <div class="search-result-name">${s.n}</div>
-                <div class="search-result-desc">${(s.d||'').substring(0,80)}</div>
-            </div>
-            <span class="search-result-meta">★ ${s.st} · ${s.l||''}</span>
-        </a>`;
-    }).join('');
-    results.classList.add('active');
-});
-
-input.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        results.classList.remove('active');
-        this.blur();
-    }
-});
-
-document.addEventListener('click', function(e) {
-    if (!e.target.closest('.search-wrap')) {
-        results.classList.remove('active');
-    }
-});
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-wrap')) {
+                results.style.display = 'none';
+            }
+        });
+    } catch(err) { console.error('Search init error:', err); }
+})();
 </script>
 """
 
