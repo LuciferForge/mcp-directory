@@ -1441,63 +1441,36 @@ def build_home(servers, categories):
     search_script = """
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
 <script>
-(function() {
-    try {
-        var fuse = null;
-        var input = document.getElementById('search-input');
-        var results = document.getElementById('search-results');
+var _fuse = null;
+var _results = null;
 
-        if (!input || !results) { console.error('Search elements not found'); return; }
+fetch('/search-index.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        console.log('Search index loaded:', data.length);
+        _fuse = new Fuse(data, { keys: ['n', 'd', 'r'], threshold: 0.3 });
+        console.log('Fuse ready');
+    });
 
-        fetch('/search-index.json')
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                console.log('Search index loaded:', data.length);
-                fuse = new Fuse(data, {
-                    keys: ['n', 'd', 'r'],
-                    threshold: 0.3
-                });
-                console.log('Fuse initialized');
-            })
-            .catch(function(err) { console.error('Search index error:', err); });
+function doSearch(q) {
+    if (!_results) _results = document.getElementById('search-results');
+    q = q.trim();
+    if (q.length < 2) { _results.style.display = 'none'; return; }
+    if (!_fuse) { _results.innerHTML = '<div style="padding:16px;color:#8888a0">Loading...</div>'; _results.style.display = 'block'; return; }
+    var hits = _fuse.search(q, {limit: 8});
+    if (hits.length === 0) { _results.innerHTML = '<div style="padding:16px;color:#8888a0">No servers found</div>'; _results.style.display = 'block'; return; }
+    var h = '';
+    for (var i = 0; i < hits.length; i++) {
+        var s = hits[i].item;
+        h += '<a href="/servers/' + s.s + '.html" class="search-result-item"><div><div class="search-result-name">' + (s.n||'') + '</div><div class="search-result-desc">' + (s.d||'').substring(0,80) + '</div></div><span class="search-result-meta">' + (s.st||'') + ' · ' + (s.l||'') + '</span></a>';
+    }
+    _results.innerHTML = h;
+    _results.style.display = 'block';
+}
 
-        input.addEventListener('input', function() {
-            var q = this.value.trim();
-            if (q.length < 2) { results.style.display = 'none'; return; }
-            if (!fuse) {
-                results.innerHTML = '<div style="padding:16px;color:#8888a0">Loading search...</div>';
-                results.style.display = 'block';
-                return;
-            }
-            var hits = fuse.search(q, {limit: 8});
-            if (hits.length === 0) {
-                results.innerHTML = '<div style="padding:16px;color:#8888a0">No servers found</div>';
-                results.style.display = 'block';
-                return;
-            }
-            var html = '';
-            for (var i = 0; i < hits.length; i++) {
-                var s = hits[i].item;
-                html += '<a href="/servers/' + s.s + '.html" class="search-result-item">' +
-                    '<div><div class="search-result-name">' + (s.n || '') + '</div>' +
-                    '<div class="search-result-desc">' + (s.d || '').substring(0,80) + '</div></div>' +
-                    '<span class="search-result-meta">' + (s.st || '') + ' · ' + (s.l || '') + '</span></a>';
-            }
-            results.innerHTML = html;
-            results.style.display = 'block';
-        });
-
-        input.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') { results.style.display = 'none'; this.blur(); }
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.search-wrap')) {
-                results.style.display = 'none';
-            }
-        });
-    } catch(err) { console.error('Search init error:', err); }
-})();
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-wrap') && _results) _results.style.display = 'none';
+});
 </script>
 """
 
@@ -1511,7 +1484,7 @@ def build_home(servers, categories):
         <p>Stop scrolling through GitHub. Search {total:,}+ Model Context Protocol servers with security scores, organized by category, language, and popularity.</p>
         <div class="search-wrap">
             <span class="search-icon">&#128269;</span>
-            <input type="text" id="search-input" placeholder="Search servers... e.g. postgres, slack, stripe, browser" autocomplete="off">
+            <input type="text" id="search-input" placeholder="Search servers... e.g. postgres, slack, stripe, browser" autocomplete="off" oninput="doSearch(this.value)">
             <div id="search-results" class="search-results"></div>
         </div>
         <div class="search-chips">
