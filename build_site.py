@@ -1489,13 +1489,13 @@ document.addEventListener('click', function(e) {
         </div>
         <div class="search-chips">
             <span class="chips-label">Popular:</span>
-            <a class="chip" onclick="document.getElementById('search-input').value='postgres';document.getElementById('search-input').dispatchEvent(new Event('input'));return false;" href="#">postgres</a>
-            <a class="chip" onclick="document.getElementById('search-input').value='slack';document.getElementById('search-input').dispatchEvent(new Event('input'));return false;" href="#">slack</a>
-            <a class="chip" onclick="document.getElementById('search-input').value='github';document.getElementById('search-input').dispatchEvent(new Event('input'));return false;" href="#">github</a>
-            <a class="chip" onclick="document.getElementById('search-input').value='browser';document.getElementById('search-input').dispatchEvent(new Event('input'));return false;" href="#">browser</a>
-            <a class="chip" onclick="document.getElementById('search-input').value='stripe';document.getElementById('search-input').dispatchEvent(new Event('input'));return false;" href="#">stripe</a>
-            <a class="chip" onclick="document.getElementById('search-input').value='memory';document.getElementById('search-input').dispatchEvent(new Event('input'));return false;" href="#">memory</a>
-            <a class="chip" onclick="document.getElementById('search-input').value='filesystem';document.getElementById('search-input').dispatchEvent(new Event('input'));return false;" href="#">filesystem</a>
+            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='postgres';i.focus();doSearch('postgres');return false;" href="#">postgres</a>
+            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='slack';i.focus();doSearch('slack');return false;" href="#">slack</a>
+            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='github';i.focus();doSearch('github');return false;" href="#">github</a>
+            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='browser';i.focus();doSearch('browser');return false;" href="#">browser</a>
+            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='stripe';i.focus();doSearch('stripe');return false;" href="#">stripe</a>
+            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='memory';i.focus();doSearch('memory');return false;" href="#">memory</a>
+            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='filesystem';i.focus();doSearch('filesystem');return false;" href="#">filesystem</a>
         </div>
         <div class="hero-sub">
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> {format_stars(total_stars)} total stars</span>
