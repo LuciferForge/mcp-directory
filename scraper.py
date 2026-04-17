@@ -34,6 +34,24 @@ SEARCH_QUERIES = [
     # Additional patterns
     {"q": "mcp-server in:name,description fork:false", "sort": "updated", "label": "mcp-server-updated"},
     {"q": "\"mcp\" \"server\" \"tools\" in:readme topic:mcp", "sort": "stars", "label": "mcp-tools-readme"},
+    # Sort by recently updated to catch NEW servers (not just popular ones)
+    {"q": "mcp-server in:name", "sort": "updated", "label": "name:mcp-server-recent"},
+    {"q": "mcp server in:description", "sort": "updated", "label": "desc:mcp-recent"},
+    # Language-specific (Go, Rust, Java — growing MCP ecosystems)
+    {"q": "mcp server in:name,description language:go", "sort": "stars", "label": "go-mcp"},
+    {"q": "mcp server in:name,description language:rust", "sort": "stars", "label": "rust-mcp"},
+    {"q": "mcp server in:name,description language:java", "sort": "stars", "label": "java-mcp"},
+    {"q": "mcp server in:name,description language:csharp", "sort": "stars", "label": "csharp-mcp"},
+    # MCP SDK patterns
+    {"q": "\"@modelcontextprotocol/sdk\" in:readme", "sort": "stars", "label": "sdk-ts"},
+    {"q": "\"mcp.server\" in:readme language:python", "sort": "stars", "label": "sdk-py"},
+    # Created date filters (catch newer servers)
+    {"q": "mcp-server in:name created:>2026-03-01", "sort": "stars", "label": "new-march"},
+    {"q": "mcp-server in:name created:>2026-04-01", "sort": "stars", "label": "new-april"},
+    # Alternate naming patterns
+    {"q": "\"mcp-tool\" in:name", "sort": "stars", "label": "name:mcp-tool"},
+    {"q": "\"mcp_server\" in:name", "sort": "stars", "label": "name:mcp_server"},
+    {"q": "\"mcpserver\" in:name", "sort": "stars", "label": "name:mcpserver"},
 ]
 
 # Category keywords mapping
