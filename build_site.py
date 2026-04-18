@@ -1527,6 +1527,19 @@ document.addEventListener('click', function(e) {
     </div>
 </section>
 
+<section class="container" style="padding-top:0">
+    <a href="https://manja8.gumroad.com/l/polymarket-data" target="_blank" rel="noopener" style="display:block;margin:0 auto 2rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(0,212,170,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
+        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+            <span style="font-size:1.5rem">&#128202;</span>
+            <div style="flex:1;min-width:200px">
+                <div style="font-weight:600;font-size:0.95rem">Polymarket Historical Dataset — 8.9M Price Points</div>
+                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">9,550 markets, 15-min snapshots, orderbook depth. Built by the Protodex team.</div>
+            </div>
+            <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">From $1 &#8594;</span>
+        </div>
+    </a>
+</section>
+
 <section class="container">
     <h2 class="section-title">Browse by Category</h2>
     <p class="section-subtitle">{len(categories)} categories covering every use case from databases to AI agents</p>
