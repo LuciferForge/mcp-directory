@@ -94,133 +94,82 @@ def generate_weekly_roundup(conn):
 
     total = conn.execute("SELECT COUNT(*) FROM servers").fetchone()[0]
 
-    # Build content
-    title = f"MCP Server Weekly: {len(new_servers)} New Servers Discovered — {today.strftime('%b %d, %Y')}"
+    # Build content with card-based design matching protodex.io
+    title = f"MCP Server Weekly: {len(new_servers)} New Servers Discovered"
     slug = f"weekly-{date_str}"
 
-    new_rows = ""
-    for s in new_servers[:10]:
-        desc = escape(s['description'] or '')[:120]
-        lang = s['language'] or '—'
-        new_rows += f"""
-        <tr>
-            <td><a href="/servers/{slugify(s['repo'])}.html" style="color:var(--accent)">{escape(s['repo'])}</a></td>
-            <td>{s['stars']:,}</td>
-            <td>{escape(s['category'])}</td>
-            <td>{lang}</td>
-            <td>{desc}</td>
-        </tr>"""
+    new_cards = ""
+    for i, s in enumerate(new_servers[:10], 1):
+        desc = escape(s['description'] or 'No description')[:100]
+        lang = escape(s['language'] or '')
+        lang_html = f'<span class="srv-lang">{lang}</span>' if lang else ''
+        new_cards += (
+            f'<a href="/servers/{slugify(s["repo"])}.html" class="srv">'
+            f'<span class="srv-rank">#{i}</span>'
+            f'<div class="srv-info"><div class="srv-name">{escape(s["repo"])}</div>'
+            f'<div class="srv-desc">{desc}</div></div>'
+            f'<div class="srv-meta"><span class="srv-stars">&#9733; {s["stars"]:,}</span>'
+            f'<span class="srv-cat">{escape(s["category"])}</span>{lang_html}</div></a>\n'
+        )
 
-    trending_rows = ""
-    for s in trending:
-        desc = escape(s['description'] or '')[:100]
-        trending_rows += f"""
-        <tr>
-            <td><a href="/servers/{slugify(s['repo'])}.html" style="color:var(--accent)">{escape(s['repo'])}</a></td>
-            <td>{s['stars']:,}</td>
-            <td>{escape(s['category'])}</td>
-            <td>{desc}</td>
-        </tr>"""
+    trending_cards = ""
+    for i, s in enumerate(trending, 1):
+        desc = escape(s['description'] or '')[:90]
+        trending_cards += (
+            f'<a href="/servers/{slugify(s["repo"])}.html" class="srv">'
+            f'<span class="srv-rank">#{i}</span>'
+            f'<div class="srv-info"><div class="srv-name">{escape(s["repo"])}</div>'
+            f'<div class="srv-desc">{desc}</div></div>'
+            f'<div class="srv-meta"><span class="srv-stars">&#9733; {s["stars"]:,}</span>'
+            f'<span class="srv-cat">{escape(s["category"])}</span></div></a>\n'
+        )
 
-    cat_breakdown = ""
+    cat_pills = ""
     for c in cat_stats:
-        pct = c['cnt'] / total * 100
-        cat_breakdown += f"<li><strong>{escape(c['category'])}</strong>: {c['cnt']} servers ({pct:.0f}%)</li>\n"
+        cat_pills += f'<span class="cat-pill"><strong>{c["cnt"]}</strong> {escape(c["category"])}</span>\n'
 
     content = f"""
-    <article style="max-width:800px;margin:0 auto;padding:2rem 1rem">
-        <header style="margin-bottom:2rem">
-            <div style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.5rem">{today.strftime('%B %d, %Y')} &middot; Weekly Roundup</div>
-            <h1 style="font-size:1.8rem;line-height:1.3;margin-bottom:1rem">{escape(title)}</h1>
-            <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.6">
-                This week's scan of GitHub found {len(new_servers)} new MCP servers.
-                The Protodex index now covers <strong>{total:,} servers</strong> across {len(cat_stats)} categories.
-            </p>
-        </header>
+    <div class="post-hero">
+        <span class="post-badge"><span class="pulse"></span> Weekly Roundup &#183; {today.strftime('%b %d')}</span>
+        <h1 class="post-title"><span class="gradient">{len(new_servers)} New</span> MCP Servers This Week</h1>
+        <p class="post-subtitle">Our automated scan of GitHub found {len(new_servers)} new MCP servers.
+        The Protodex index now covers {total:,} servers across {len(cat_stats)} categories.</p>
+    </div>
 
-        <section style="margin-bottom:2.5rem">
-            <h2 style="font-size:1.3rem;margin-bottom:1rem">New This Week</h2>
-            <div style="overflow-x:auto">
-            <table style="width:100%;border-collapse:collapse;font-size:0.85rem">
-                <thead>
-                    <tr style="border-bottom:1px solid var(--border);text-align:left">
-                        <th style="padding:8px">Server</th>
-                        <th style="padding:8px">Stars</th>
-                        <th style="padding:8px">Category</th>
-                        <th style="padding:8px">Language</th>
-                        <th style="padding:8px">Description</th>
-                    </tr>
-                </thead>
-                <tbody>{new_rows}</tbody>
-            </table>
-            </div>
-            <p style="color:var(--text-muted);font-size:0.8rem;margin-top:0.5rem">
-                <a href="https://protodex.io" style="color:var(--accent)">Browse all {total:,} servers &rarr;</a>
-            </p>
-        </section>
+    <div class="stats-bar">
+        <div class="stat"><div class="stat-value">{total:,}</div><div class="stat-label">Total Servers</div></div>
+        <div class="stat"><div class="stat-value">+{len(new_servers)}</div><div class="stat-label">New This Week</div></div>
+        <div class="stat"><div class="stat-value">{len(cat_stats)}</div><div class="stat-label">Categories</div></div>
+        <div class="stat"><div class="stat-value">{trending[0]['stars']:,}</div><div class="stat-label">Top Stars</div></div>
+    </div>
 
-        <section style="margin-bottom:2.5rem">
-            <h2 style="font-size:1.3rem;margin-bottom:1rem">Top Trending</h2>
-            <div style="overflow-x:auto">
-            <table style="width:100%;border-collapse:collapse;font-size:0.85rem">
-                <thead>
-                    <tr style="border-bottom:1px solid var(--border);text-align:left">
-                        <th style="padding:8px">Server</th>
-                        <th style="padding:8px">Stars</th>
-                        <th style="padding:8px">Category</th>
-                        <th style="padding:8px">Description</th>
-                    </tr>
-                </thead>
-                <tbody>{trending_rows}</tbody>
-            </table>
-            </div>
-        </section>
+    <div class="post-body">
+        <h2>New This Week</h2>
+        <p>Servers discovered in the latest GitHub scan, ranked by stars.</p>
+        <div class="srv-grid">{new_cards}</div>
 
-        <section style="margin-bottom:2.5rem">
-            <h2 style="font-size:1.3rem;margin-bottom:1rem">Category Breakdown</h2>
-            <ul style="color:var(--text-muted);font-size:0.9rem;line-height:1.8;padding-left:1.2rem">
-                {cat_breakdown}
-            </ul>
-        </section>
+        <h2>Top Trending</h2>
+        <p>The most-starred MCP servers across the entire index.</p>
+        <div class="srv-grid">{trending_cards}</div>
 
-        <section style="margin-bottom:2rem;padding:1.2rem;background:var(--bg-card);border:1px solid var(--border);border-radius:10px">
-            <h3 style="font-size:1rem;margin-bottom:0.5rem">📊 From the Protodex Team</h3>
-            <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:0.8rem">
-                We also maintain a Polymarket historical dataset — 8.9M price points across 9,550 prediction markets.
-                Useful for backtesting trading strategies and ML research.
-            </p>
-            <a href="https://manja8.gumroad.com/l/polymarket-data" target="_blank"
-               style="color:var(--accent);font-size:0.85rem;font-weight:500">Get the dataset &rarr;</a>
-        </section>
+        <h2>By Category</h2>
+        <div class="cat-pills">{cat_pills}</div>
+        <p><a href="https://protodex.io/categories.html">Browse all categories &#8594;</a></p>
 
-        <footer style="border-top:1px solid var(--border);padding-top:1.5rem;margin-top:2rem">
-            <p style="color:var(--text-dim);font-size:0.8rem">
-                Data sourced from GitHub via automated scraping. Updated weekly.
-                <a href="https://protodex.io" style="color:var(--accent)">protodex.io</a> &middot;
-                <a href="https://github.com/LuciferForge/mcp-directory" style="color:var(--accent)">Source code</a>
-            </p>
-        </footer>
-    </article>
+        <div class="cta-card">
+            <h3>&#128202; Polymarket Historical Dataset</h3>
+            <p>8.9M price points across 9,550 prediction markets. 15-minute snapshots, orderbook depth, 30 days of data. Built by the Protodex team.</p>
+            <a href="https://manja8.gumroad.com/l/polymarket-data" target="_blank" class="cta-btn">Get the dataset &#8594;</a>
+        </div>
+    </div>
     """
 
     return title, slug, content, date_str
 
 
 def build_blog_page(title, slug, content, date_str):
-    """Build a full HTML page for a blog post."""
-    # Read an existing blog post to copy the template
-    template_file = BLOG_DIR / "blog-mcp-database-guide.html"
-    if not template_file.exists():
-        # Fallback: use index.html structure
-        template_file = BLOG_DIR / "index.html"
+    """Build a full HTML page matching the protodex.io design language."""
 
-    template = template_file.read_text()
-
-    # Extract header (everything up to <main or first <article or <section class="container">)
-    # and footer (everything after </main> or last </section>)
-    # Simple approach: replace title and body
-
-    # Build a standalone page
     page = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -233,33 +182,112 @@ def build_blog_page(title, slug, content, date_str):
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Protodex">
     <link rel="canonical" href="https://protodex.io/blog/{slug}.html">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root {{
-            --bg: #06060a; --bg-card: #0f0f14; --border: #1e1e2a;
-            --text: #f0f0f5; --text-muted: #8888a0; --text-dim: #55556a;
-            --accent: #00d4aa; --font: 'Inter', system-ui, sans-serif;
-        }}
-        * {{ margin:0; padding:0; box-sizing:border-box; }}
-        body {{ font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.6; }}
-        a {{ color:var(--accent); text-decoration:none; }}
-        a:hover {{ text-decoration:underline; }}
-        table {{ border-collapse:collapse; }}
-        td, th {{ padding:8px 12px; border-bottom:1px solid var(--border); }}
-        tr:hover {{ background:rgba(255,255,255,0.02); }}
-        nav {{ padding:1rem 2rem; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:1rem; }}
-        nav a {{ color:var(--text-muted); font-size:0.9rem; }}
+:root {{
+    --bg: #06060a;
+    --bg-card: #0f0f14;
+    --bg-card-hover: #16161d;
+    --border: #1e1e2a;
+    --border-hover: #2d2d3f;
+    --text: #f0f0f5;
+    --text-muted: #8888a0;
+    --text-dim: #55556a;
+    --accent: #00d4aa;
+    --accent2: #7B61FF;
+    --accent-glow: rgba(0, 212, 170, 0.15);
+    --yellow: #FFD93D;
+    --blue: #5B8DEF;
+    --font: 'Inter', -apple-system, system-ui, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', monospace;
+    --radius: 10px;
+    --radius-lg: 16px;
+}}
+* {{ margin:0; padding:0; box-sizing:border-box; }}
+html {{ scroll-behavior:smooth; }}
+body {{ font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; }}
+a {{ color:var(--accent); text-decoration:none; }}
+a:hover {{ opacity:0.85; }}
+
+/* Nav */
+.nav {{ padding:14px 24px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:20px; position:sticky; top:0; background:rgba(6,6,10,0.92); backdrop-filter:blur(12px); z-index:100; }}
+.nav-logo {{ font-weight:800; font-size:1.05rem; color:var(--text); letter-spacing:-0.5px; }}
+.nav a {{ color:var(--text-dim); font-size:0.85rem; transition:color 0.15s; }}
+.nav a:hover {{ color:var(--text); }}
+
+/* Hero banner */
+.post-hero {{ position:relative; padding:64px 24px 48px; text-align:center; overflow:hidden; }}
+.post-hero::before {{ content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:600px; height:600px; background:radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%); pointer-events:none; }}
+.post-badge {{ display:inline-flex; align-items:center; gap:6px; background:var(--accent-glow); border:1px solid rgba(0,212,170,0.2); border-radius:20px; padding:5px 14px; font-size:0.75rem; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:20px; }}
+.post-badge .pulse {{ width:6px; height:6px; border-radius:50%; background:var(--accent); animation:pulse 2s infinite; }}
+@keyframes pulse {{ 0%,100% {{ opacity:1; }} 50% {{ opacity:0.4; }} }}
+.post-title {{ font-size:2.2rem; font-weight:800; letter-spacing:-1.5px; line-height:1.1; max-width:700px; margin:0 auto 16px; }}
+.post-title .gradient {{ background:linear-gradient(135deg, #00d4aa 0%, #7B61FF 50%, #FFD93D 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }}
+.post-subtitle {{ color:var(--text-muted); font-size:1rem; max-width:560px; margin:0 auto; line-height:1.6; }}
+
+/* Stats bar */
+.stats-bar {{ display:flex; justify-content:center; gap:32px; padding:20px 24px; border-bottom:1px solid var(--border); flex-wrap:wrap; }}
+.stat {{ text-align:center; }}
+.stat-value {{ font-family:var(--mono); font-size:1.4rem; font-weight:700; color:var(--accent); }}
+.stat-label {{ font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.8px; margin-top:2px; }}
+
+/* Content */
+.post-body {{ max-width:720px; margin:0 auto; padding:48px 24px; }}
+.post-body h2 {{ font-size:1.2rem; font-weight:700; letter-spacing:-0.3px; margin:48px 0 16px; padding-bottom:8px; border-bottom:1px solid var(--border); }}
+.post-body h2:first-child {{ margin-top:0; }}
+.post-body p {{ color:var(--text-muted); margin-bottom:16px; }}
+
+/* Server cards (not tables) */
+.srv-grid {{ display:grid; grid-template-columns:1fr; gap:8px; margin:16px 0 32px; }}
+.srv {{ display:flex; align-items:center; gap:14px; padding:12px 16px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); transition:border-color 0.15s; }}
+.srv:hover {{ border-color:var(--border-hover); }}
+.srv-rank {{ font-family:var(--mono); font-size:0.8rem; color:var(--text-dim); min-width:24px; }}
+.srv-info {{ flex:1; min-width:0; }}
+.srv-name {{ font-weight:600; font-size:0.88rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
+.srv-desc {{ color:var(--text-dim); font-size:0.78rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:2px; }}
+.srv-meta {{ display:flex; gap:12px; align-items:center; flex-shrink:0; }}
+.srv-stars {{ font-family:var(--mono); font-size:0.82rem; color:var(--yellow); }}
+.srv-cat {{ font-size:0.7rem; padding:2px 8px; border-radius:10px; background:rgba(123,97,255,0.12); color:var(--accent2); white-space:nowrap; }}
+.srv-lang {{ font-size:0.7rem; color:var(--text-dim); }}
+
+/* Category pills */
+.cat-pills {{ display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 32px; }}
+.cat-pill {{ display:flex; align-items:center; gap:6px; padding:6px 14px; background:var(--bg-card); border:1px solid var(--border); border-radius:20px; font-size:0.8rem; color:var(--text-muted); }}
+.cat-pill strong {{ color:var(--text); font-family:var(--mono); }}
+
+/* CTA */
+.cta-card {{ margin:40px 0; padding:24px; background:linear-gradient(135deg, rgba(123,97,255,0.08), rgba(0,212,170,0.06)); border:1px solid rgba(123,97,255,0.2); border-radius:var(--radius-lg); }}
+.cta-card h3 {{ font-size:1rem; margin-bottom:6px; }}
+.cta-card p {{ color:var(--text-muted); font-size:0.88rem; margin-bottom:12px; }}
+.cta-btn {{ display:inline-block; background:var(--accent); color:#000; padding:8px 20px; border-radius:20px; font-size:0.82rem; font-weight:600; transition:opacity 0.15s; }}
+.cta-btn:hover {{ opacity:0.9; }}
+
+/* Footer */
+.post-footer {{ border-top:1px solid var(--border); padding:24px; text-align:center; color:var(--text-dim); font-size:0.78rem; }}
+.post-footer a {{ color:var(--accent); }}
+
+@media (max-width:640px) {{
+    .post-title {{ font-size:1.5rem; }}
+    .stats-bar {{ gap:16px; }}
+    .stat-value {{ font-size:1.1rem; }}
+    .srv {{ flex-direction:column; align-items:flex-start; gap:8px; }}
+    .srv-meta {{ width:100%; }}
+}}
     </style>
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </head>
 <body>
-    <nav>
-        <a href="/" style="font-weight:700;color:var(--text)">⚡ Protodex</a>
+    <nav class="nav">
+        <a href="/" class="nav-logo">&#9889; Protodex</a>
         <a href="/blog/">Blog</a>
         <a href="/categories.html">Categories</a>
+        <a href="https://github.com/LuciferForge/mcp-directory" target="_blank">GitHub</a>
     </nav>
     {content}
+    <footer class="post-footer">
+        Data sourced from GitHub. Auto-updated weekly. <a href="https://protodex.io">protodex.io</a> &middot; <a href="https://github.com/LuciferForge/mcp-directory">Source</a>
+    </footer>
 </body>
 </html>"""
 
