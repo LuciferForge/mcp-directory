@@ -1528,7 +1528,7 @@ document.addEventListener('click', function(e) {
 </section>
 
 <section class="container" style="padding-top:0">
-    <a href="https://checkout.dodopayments.com/buy/pdt_0NcwYHQb6UoiZb41mnshx" target="_blank" rel="noopener" style="display:block;margin:0 auto 2rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(0,212,170,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
+    <a href="https://manja8.gumroad.com/l/agyjd" target="_blank" rel="noopener" style="display:block;margin:0 auto 2rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(0,212,170,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
         <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
             <span style="font-size:1.5rem">&#128202;</span>
             <div style="flex:1;min-width:200px">
