@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sentry-mcp-rs — Other MCP Server | Protodex</title>
-    <meta name="description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
-    <meta property="og:title" content="sentry-mcp-rs — Other MCP Server | Protodex">
-    <meta property="og:description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
+    <title>sentry-mcp-rs — DevOps MCP Server | Protodex</title>
+    <meta name="description" content="Fast and minimal Sentry MCP server written in Rust — 9 stars on GitHub. Browse on Protodex.">
+    <meta property="og:title" content="sentry-mcp-rs — DevOps MCP Server | Protodex">
+    <meta property="og:description" content="Fast and minimal Sentry MCP server written in Rust — 9 stars on GitHub. Browse on Protodex.">
     <meta property="og:url" content="https://protodex.io/servers/utapyngo-sentry-mcp-rs.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="sentry-mcp-rs — Other MCP Server | Protodex">
-    <meta name="twitter:description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
+    <meta name="twitter:title" content="sentry-mcp-rs — DevOps MCP Server | Protodex">
+    <meta name="twitter:description" content="Fast and minimal Sentry MCP server written in Rust — 9 stars on GitHub. Browse on Protodex.">
     <link rel="canonical" href="https://protodex.io/servers/utapyngo-sentry-mcp-rs.html">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com;">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -1037,11 +1037,11 @@ footer {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "sentry-mcp-rs",
-  "description": "An MCP server.",
+  "description": "Fast and minimal Sentry MCP server written in Rust",
   "url": "https://github.com/utapyngo/sentry-mcp-rs",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
-  "programmingLanguage": "Unknown"
+  "programmingLanguage": "Rust"
 }</script>
 </head>
 <body>
@@ -1068,7 +1068,7 @@ footer {
 
 <div class="container server-detail">
     <div class="breadcrumb">
-        <a href="/">Home</a> / <a href="/category/other.html">Other</a> / sentry-mcp-rs
+        <a href="/">Home</a> / <a href="/category/devops.html">DevOps</a> / sentry-mcp-rs
     </div>
 
     <div class="detail-header">
@@ -1077,14 +1077,14 @@ footer {
     </div>
 
     <div class="detail-meta">
-        <span class="meta-item">★ 0 stars</span>
-        <span class="meta-item">Unknown language</span>
-        <span class="meta-item">📦 Other</span>
-        <span class="meta-item">Updated Unknown</span>
-        <span class="meta-item"><span class="sec-badge sec-yellow">&#9888; Review</span></span>
+        <span class="meta-item">★ 9 stars</span>
+        <span class="meta-item"><span class="lang-dot" style="background:#DEA584"></span> Rust</span>
+        <span class="meta-item">⚙️ DevOps</span>
+        <span class="meta-item">Updated 1mo ago</span>
+        <span class="meta-item"></span>
     </div>
 
-    <div class="detail-desc">An MCP server.</div>
+    <div class="detail-desc">Fast and minimal Sentry MCP server written in Rust</div>
 
     <a href="https://github.com/utapyngo/sentry-mcp-rs" target="_blank" rel="noopener" class="btn">
         View on GitHub →
@@ -1107,10 +1107,11 @@ footer {
                 <pre><code>{
   &quot;mcpServers&quot;: {
     &quot;sentry-mcp-rs&quot;: {
-      &quot;command&quot;: &quot;npx&quot;,
+      &quot;command&quot;: &quot;cargo&quot;,
       &quot;args&quot;: [
-        &quot;-y&quot;,
-        &quot;utapyngo/sentry-mcp-rs&quot;
+        &quot;run&quot;,
+        &quot;--&quot;,
+        &quot;sentry-mcp-rs&quot;
       ]
     }
   }
@@ -1122,7 +1123,7 @@ footer {
         <div id="claude-code-sentry-mcp-rs" class="install-panel" style="display:none">
             <p class="install-label">Run in terminal:</p>
             <div class="code-block">
-                <pre><code>claude mcp add sentry-mcp-rs npx -y utapyngo/sentry-mcp-rs</code></pre>
+                <pre><code>claude mcp add sentry-mcp-rs cargo run -- sentry-mcp-rs</code></pre>
                 <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
             </div>
         </div>
@@ -1133,10 +1134,11 @@ footer {
                 <pre><code>{
   &quot;mcpServers&quot;: {
     &quot;sentry-mcp-rs&quot;: {
-      &quot;command&quot;: &quot;npx&quot;,
+      &quot;command&quot;: &quot;cargo&quot;,
       &quot;args&quot;: [
-        &quot;-y&quot;,
-        &quot;utapyngo/sentry-mcp-rs&quot;
+        &quot;run&quot;,
+        &quot;--&quot;,
+        &quot;sentry-mcp-rs&quot;
       ]
     }
   }
@@ -1152,54 +1154,58 @@ footer {
         
         
         
+    <div class="detail-section">
+        <h2>Topics</h2>
+        <div class="detail-tools"><span class="tag">mcp</span><span class="tag">mcp-server</span><span class="tag">rust</span><span class="tag">rust-lang</span><span class="tag">sentry</span><span class="tag">sentry-io</span></div>
+    </div>
     </div>
 
     
     <div class="related-servers">
-        <h2 class="section-title">Related Other Servers</h2>
+        <h2 class="section-title">Related DevOps Servers</h2>
         <div class="server-grid">
-    <a href="/servers/xpzouying-xiaohongshu-mcp.html" class="server-card">
+    <a href="/servers/kubeshark-kubeshark.html" class="server-card">
         <div class="server-card-header">
-            <span class="server-card-name">xiaohongshu-mcp</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 12.0K</span></span>
+            <span class="server-card-name">kubeshark</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 11.9K</span></span>
         </div>
-        <div class="server-card-desc">MCP for xiaohongshu.com</div>
+        <div class="server-card-desc">eBPF-powered network observability for Kubernetes. Indexes L4/L7 traffic with full K8s context, decrypts TLS without...</div>
         <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
+            <span class="tag">⚙️ DevOps</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
         </div>
     </a>
-    <a href="/servers/xinnan-tech-xiaozhi-esp32-server.html" class="server-card">
+    <a href="/servers/awslabs-mcp.html" class="server-card">
         <div class="server-card-header">
-            <span class="server-card-name">xiaozhi-esp32-server</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 8.9K</span></span>
+            <span class="server-card-name">mcp</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 8.5K</span></span>
         </div>
-        <div class="server-card-desc">本项目为xiaozhi-esp32提供后端服务，帮助您快速搭建ESP32设备控制服务器。Backend service for xiaozhi-esp32, helps you quickly build an ESP32...</div>
+        <div class="server-card-desc">Official MCP Servers for AWS</div>
         <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#F7DF1E"></span>JavaScript</span>
-        </div>
-    </a>
-    <a href="/servers/lauriewired-ghidramcp.html" class="server-card">
-        <div class="server-card-header">
-            <span class="server-card-name">GhidraMCP</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 8.0K</span></span>
-        </div>
-        <div class="server-card-desc">MCP Server for Ghidra</div>
-        <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#B07219"></span>Java</span>
-        </div>
-    </a>
-    <a href="/servers/cursortouch-windows-mcp.html" class="server-card">
-        <div class="server-card-header">
-            <span class="server-card-name">Windows-MCP</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 4.8K</span></span>
-        </div>
-        <div class="server-card-desc">MCP Server for Computer Use in Windows</div>
-        <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
+            <span class="tag">⚙️ DevOps</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a>
+    <a href="/servers/txn2-kubefwd.html" class="server-card">
+        <div class="server-card-header">
+            <span class="server-card-name">kubefwd</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 4.1K</span></span>
+        </div>
+        <div class="server-card-desc">Bulk port forwarding Kubernetes services for local development.</div>
+        <div class="server-card-footer">
+            <span class="tag">⚙️ DevOps</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+        </div>
+    </a>
+    <a href="/servers/grafana-mcp-grafana.html" class="server-card">
+        <div class="server-card-header">
+            <span class="server-card-name">mcp-grafana</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 2.5K</span></span>
+        </div>
+        <div class="server-card-desc">MCP server for Grafana</div>
+        <div class="server-card-footer">
+            <span class="tag">⚙️ DevOps</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
         </div>
     </a></div>
     </div>
