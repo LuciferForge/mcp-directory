@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Live Bot Proof — Protodex</title>
+<meta name="description" content="Live reconciliation of our Polymarket bot: claimed PnL vs on-chain truth. Updated every 24h.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://protodex.io/live.html">
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; background: #0e0e10; color: #e6e6e6; margin: 0; padding: 0; line-height: 1.5; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+  h1 { font-size: 2rem; margin: 0 0 0.5rem; color: #fff; }
+  .sub { color: #999; margin-bottom: 2rem; }
+  .gap-card { background: linear-gradient(135deg, #1a1a1f, #0e0e10); border: 1px solid #2a2a2f; border-radius: 14px; padding: 2rem; margin: 2rem 0; }
+  .gap-card h2 { font-size: 1rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 1rem; font-weight: 500; }
+  .gap-num { font-size: 3.5rem; font-weight: 700; color: #ff6b6b; margin: 0.5rem 0; font-variant-numeric: tabular-nums; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+  .stat { background: #15151a; border: 1px solid #2a2a2f; border-radius: 10px; padding: 1rem; }
+  .stat .lbl { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat .val { font-size: 1.6rem; font-weight: 600; margin-top: 0.4rem; font-variant-numeric: tabular-nums; }
+  .green { color: #4ade80; } .red { color: #ff6b6b; } .neutral { color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
+  th, td { padding: 0.6rem 0.5rem; text-align: left; border-bottom: 1px solid #1f1f24; }
+  th { color: #888; font-weight: 500; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.05em; }
+  td { font-variant-numeric: tabular-nums; }
+  .footnote { color: #666; font-size: 0.85rem; margin-top: 2rem; line-height: 1.6; }
+  .pill { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; background: #2a2a2f; color: #fff; }
+  a { color: #4ade80; }
+  .nav { padding: 1rem; border-bottom: 1px solid #1f1f24; }
+  .nav a { margin-right: 1rem; text-decoration: none; color: #999; }
+  .nav a:hover { color: #fff; }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="/">Protodex</a>
+  <a href="/blog/">Blog</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/live.html" style="color:#fff">Live Bot</a>
+</div>
+<div class="wrap">
+
+<h1>Live Bot Proof</h1>
+<p class="sub">My Polymarket bot's claimed PnL vs the on-chain truth, reconciled daily. The gap is the lie. <span class="pill">Updated 2026-04-25 11:17 UTC</span></p>
+
+<div class="gap-card">
+  <h2>Accounting Gap (claimed − on-chain)</h2>
+  <div class="gap-num">$+180.56</div>
+  <div style="color:#999;font-size:0.95rem">
+    The bot reports more profit than it has actually made. This is the discrepancy I publish daily.
+    If this number stays large or grows, the bot's accounting is structurally lying.
+    If it shrinks toward zero, real fills are catching up to claims.
+  </div>
+</div>
+
+<div class="grid">
+  <div class="stat">
+    <div class="lbl">Bot's claimed PnL</div>
+    <div class="val green">$+169.68</div>
+    <div style="color:#888;font-size:0.8rem;margin-top:0.3rem">297 closed trades (positions.json)</div>
+  </div>
+  <div class="stat">
+    <div class="lbl">On-chain realized PnL</div>
+    <div class="val red">$-10.89</div>
+    <div style="color:#888;font-size:0.8rem;margin-top:0.3rem">lifetime, all tokens (data-api.polymarket.com)</div>
+  </div>
+  <div class="stat">
+    <div class="lbl">On-chain open value</div>
+    <div class="val neutral">$+5.28</div>
+    <div style="color:#888;font-size:0.8rem;margin-top:0.3rem">27 positions still held</div>
+  </div>
+  <div class="stat">
+    <div class="lbl">Net (realized + unrealized)</div>
+    <div class="val red">$-5.61</div>
+    <div style="color:#888;font-size:0.8rem;margin-top:0.3rem">true picture if I closed everything today</div>
+  </div>
+</div>
+
+<h2 style="margin-top:3rem;font-size:1.3rem">Recent closed trades</h2>
+<p style="color:#999;font-size:0.9rem">Theoretical PnL = price-on-chart at recovery trigger × shares. Realized PnL (DB) = sum of actual SELL fills since entry. The two should match. They don't. <a href="https://github.com/LuciferForge/mcp-directory/blob/master/docs/live.html">Source.</a></p>
+<table>
+  <thead><tr><th>Market</th><th>Entry</th><th>Theoretical exit</th><th>Theoretical PnL</th><th>Realized (DB)</th></tr></thead>
+  <tbody>
+    <tr>
+            <td>Will David Portnoy give another 9+ pizza review by Apri</td>
+            <td>$0.120</td>
+            <td>$0.160</td>
+            <td style="color:#0d4">$+0.33</td>
+            <td>$+3.01</td>
+        </tr><tr>
+            <td>Will the Republicans win the Rhode Island governor race</td>
+            <td>$0.043</td>
+            <td>$0.048</td>
+            <td style="color:#0d4">$+0.10</td>
+            <td>$+12.98</td>
+        </tr><tr>
+            <td>Will the Republicans win the South Dakota governor race</td>
+            <td>$0.060</td>
+            <td>$0.075</td>
+            <td style="color:#0d4">$+0.25</td>
+            <td>$+10.55</td>
+        </tr><tr>
+            <td>Will the Democrats win the Delaware Senate race in 2026</td>
+            <td>$0.055</td>
+            <td>$0.055</td>
+            <td style="color:#d40">$+0.00</td>
+            <td>$+4.67</td>
+        </tr><tr>
+            <td>Will Abstract launch a token by December 31, 2026</td>
+            <td>$0.230</td>
+            <td>$0.240</td>
+            <td style="color:#0d4">$+0.04</td>
+            <td>$+2.45</td>
+        </tr><tr>
+            <td>Will the Republicans win the Texas governor race in 202</td>
+            <td>$0.205</td>
+            <td>$0.230</td>
+            <td style="color:#0d4">$+0.12</td>
+            <td>$+2.83</td>
+        </tr><tr>
+            <td>Will the Democrats win the New Jersey Senate race in 20</td>
+            <td>$0.055</td>
+            <td>$0.050</td>
+            <td style="color:#d40">$-0.09</td>
+            <td>$+11.72</td>
+        </tr><tr>
+            <td>Will Afghanistan recognize Israel by June 30?</td>
+            <td>$0.037</td>
+            <td>$0.048</td>
+            <td style="color:#0d4">$+0.28</td>
+            <td>$+10.24</td>
+        </tr><tr>
+            <td>Will the Democrats win the Virginia Senate race in 2026</td>
+            <td>$0.070</td>
+            <td>$0.080</td>
+            <td style="color:#0d4">$+0.14</td>
+            <td>$+10.69</td>
+        </tr><tr>
+            <td>Will the Republicans win the Tennessee Senate race in 2</td>
+            <td>$0.070</td>
+            <td>$0.080</td>
+            <td style="color:#0d4">$+0.14</td>
+            <td>$+10.66</td>
+        </tr><tr>
+            <td>Will Hyperliquid perform an airdrop by December 31, 202</td>
+            <td>$0.260</td>
+            <td>$0.260</td>
+            <td style="color:#d40">$+0.00</td>
+            <td>$+2.28</td>
+        </tr><tr>
+            <td>Will the Republicans win the Arizona governor race in 2</td>
+            <td>$0.230</td>
+            <td>$0.220</td>
+            <td style="color:#d40">$-0.04</td>
+            <td>$+2.32</td>
+        </tr><tr>
+            <td>Will the Republicans win the New Jersey Senate race in </td>
+            <td>$0.040</td>
+            <td>$0.040</td>
+            <td style="color:#d40">$+0.00</td>
+            <td>$+14.06</td>
+        </tr><tr>
+            <td>Will the Democrats win the Montana Senate race in 2026?</td>
+            <td>$0.076</td>
+            <td>$0.077</td>
+            <td style="color:#0d4">$+0.01</td>
+            <td>$+11.01</td>
+        </tr><tr>
+            <td>Will US GDP growth in Q1 2026 be between 2.0% and 2.5%?</td>
+            <td>$0.205</td>
+            <td>$0.250</td>
+            <td style="color:#0d4">$+0.22</td>
+            <td>$+2.28</td>
+        </tr>
+  </tbody>
+</table>
+
+<div class="footnote">
+  <strong>Why this page exists.</strong> Most quant tools hide their losses. I publish them. This page is regenerated every 24h
+  from <code>positions.json</code> (the bot's local view) and Polymarket's <code>data-api</code> (on-chain truth). The gap
+  between the two — currently <strong>$+180.56</strong> — is what the bot's local accounting was off by, before I
+  added on-chain reconciliation. If the bot can't reconcile to chain, it can't be trusted to scale.
+  <br><br>
+  Read the <a href="https://github.com/LuciferForge/mcp-directory">code</a>,
+  query the <a href="https://api.protodex.io/stats">API</a>,
+  or check the bot file <a href="https://github.com/LuciferForge/mcp-directory/blob/master/PNL_RECONCILIATION.md">PNL_RECONCILIATION.md</a>.
+  Page last refreshed 2026-04-25T11:17:40+00:00 UTC.
+  <br><br>
+  Note: of 297 closed trades, 218 are paper-era simulations from before live trading
+  was wired up — these inflate the bot's theoretical PnL but never executed on-chain.
+  Reconcilable subset (with matching live BUY): 79.
+</div>
+
+</div>
+</body>
+</html>
