@@ -2164,7 +2164,53 @@ def load_blog_posts():
             "excerpt": excerpt,
         })
 
+    # Also discover orphan HTML posts in docs/blog/ (e.g., weekly-*, polymarket-*)
+    # These are pre-built HTML files (not from devto markdown) but should still
+    # appear in the blog index so they're discoverable.
+    posts.extend(_discover_html_blog_posts({p["slug"] for p in posts}))
     return posts
+
+
+def _discover_html_blog_posts(existing_slugs):
+    """Scan docs/blog/*.html for posts not already in `posts`. Extract title from
+    <title> tag and a snippet for the excerpt. Index-only — does NOT regenerate
+    the HTML body (those files are already authored)."""
+    import re
+    out = []
+    blog_html_dir = os.path.join(SITE_DIR, "blog")
+    if not os.path.isdir(blog_html_dir):
+        return out
+    for fname in sorted(os.listdir(blog_html_dir), reverse=True):
+        if not fname.endswith(".html") or fname == "index.html":
+            continue
+        slug = fname[:-5]
+        if slug in existing_slugs:
+            continue
+        try:
+            html = open(os.path.join(blog_html_dir, fname), encoding="utf-8").read()
+        except Exception:
+            continue
+        m_title = re.search(r"<title>([^<]+)</title>", html)
+        title = m_title.group(1).replace("— Protodex", "").strip() if m_title else slug.replace("-", " ").title()
+        m_desc = re.search(r'<meta name="description" content="([^"]+)"', html)
+        excerpt = m_desc.group(1) if m_desc else ""
+        # Tag heuristic from slug
+        tags = []
+        if slug.startswith("weekly-"):
+            tags = ["weekly", "MCP", "directory"]
+        elif slug.startswith("polymarket-"):
+            tags = ["polymarket", "prediction-markets"]
+        else:
+            tags = ["guide"]
+        out.append({
+            "title": title,
+            "slug": slug,
+            "tags": tags,
+            "html": "",  # body already authored on disk; index-only
+            "excerpt": excerpt[:200],
+            "_external": True,
+        })
+    return out
 
 
 def markdown_to_html(md):
@@ -2324,9 +2370,15 @@ def main():
     if blog_posts:
         os.makedirs(os.path.join(SITE_DIR, "blog"), exist_ok=True)
         write(os.path.join(SITE_DIR, "blog", "index.html"), build_blog_index(blog_posts))
+        # Skip _external posts — their HTML is already authored on disk.
+        rebuilt = 0
         for post in blog_posts:
+            if post.get("_external"):
+                continue
             write(os.path.join(SITE_DIR, "blog", f"{post['slug']}.html"), build_blog_post(post))
-        print(f"  - {len(blog_posts)} blog posts")
+            rebuilt += 1
+        externals = sum(1 for p in blog_posts if p.get("_external"))
+        print(f"  - {len(blog_posts)} blog posts ({rebuilt} regenerated, {externals} external/orphan)")
 
     # Build SEO assets
     print("Building SEO assets...")
