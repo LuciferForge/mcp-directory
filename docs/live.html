@@ -41,11 +41,11 @@
 <div class="wrap">
 
 <h1>Live Bot Proof</h1>
-<p class="sub">My Polymarket bot's claimed PnL vs the on-chain truth, reconciled daily. The gap is the lie. <span class="pill">Updated 2026-04-26 00:31 UTC</span></p>
+<p class="sub">My Polymarket bot's claimed PnL vs the on-chain truth, reconciled daily. The gap is the lie. <span class="pill">Updated 2026-04-26 04:15 UTC</span></p>
 
 <div class="gap-card">
   <h2>Accounting Gap (claimed − on-chain)</h2>
-  <div class="gap-num">$+181.18</div>
+  <div class="gap-num">$+181.45</div>
   <div style="color:#999;font-size:0.95rem">
     The bot reports more profit than it has actually made. This is the discrepancy I publish daily.
     If this number stays large or grows, the bot's accounting is structurally lying.
@@ -56,22 +56,22 @@
 <div class="grid">
   <div class="stat">
     <div class="lbl">Bot's claimed PnL</div>
-    <div class="val green">$+170.07</div>
-    <div style="color:#888;font-size:0.8rem;margin-top:0.3rem">301 closed trades (positions.json)</div>
+    <div class="val green">$+170.23</div>
+    <div style="color:#888;font-size:0.8rem;margin-top:0.3rem">302 closed trades (positions.json)</div>
   </div>
   <div class="stat">
     <div class="lbl">On-chain realized PnL</div>
-    <div class="val red">$-11.12</div>
+    <div class="val red">$-11.22</div>
     <div style="color:#888;font-size:0.8rem;margin-top:0.3rem">lifetime, all tokens (data-api.polymarket.com)</div>
   </div>
   <div class="stat">
     <div class="lbl">On-chain open value</div>
-    <div class="val neutral">$+5.40</div>
+    <div class="val neutral">$+4.49</div>
     <div style="color:#888;font-size:0.8rem;margin-top:0.3rem">25 positions still held</div>
   </div>
   <div class="stat">
     <div class="lbl">Net (realized + unrealized)</div>
-    <div class="val red">$-5.72</div>
+    <div class="val red">$-6.73</div>
     <div style="color:#888;font-size:0.8rem;margin-top:0.3rem">true picture if I closed everything today</div>
   </div>
 </div>
@@ -82,6 +82,12 @@
   <thead><tr><th>Market</th><th>Entry</th><th>Theoretical exit</th><th>Theoretical PnL</th><th>Realized (DB)</th></tr></thead>
   <tbody>
     <tr>
+            <td>Will the Republican Party hold exactly 51 Senate seats </td>
+            <td>$0.125</td>
+            <td>$0.145</td>
+            <td style="color:#0d4">$+0.16</td>
+            <td>$+8.61</td>
+        </tr><tr>
             <td>Will Unit launch a token by December 31, 2026?</td>
             <td>$0.245</td>
             <td>$0.275</td>
@@ -165,12 +171,6 @@
             <td>$0.080</td>
             <td style="color:#0d4">$+0.14</td>
             <td>$+10.66</td>
-        </tr><tr>
-            <td>Will Hyperliquid perform an airdrop by December 31, 202</td>
-            <td>$0.260</td>
-            <td>$0.260</td>
-            <td style="color:#d40">$+0.00</td>
-            <td>$+2.28</td>
         </tr>
   </tbody>
 </table>
@@ -178,17 +178,17 @@
 <div class="footnote">
   <strong>Why this page exists.</strong> Most quant tools hide their losses. I publish them. This page is regenerated every 24h
   from <code>positions.json</code> (the bot's local view) and Polymarket's <code>data-api</code> (on-chain truth). The gap
-  between the two — currently <strong>$+181.18</strong> — is what the bot's local accounting was off by, before I
+  between the two — currently <strong>$+181.45</strong> — is what the bot's local accounting was off by, before I
   added on-chain reconciliation. If the bot can't reconcile to chain, it can't be trusted to scale.
   <br><br>
   Read the <a href="https://github.com/LuciferForge/mcp-directory">code</a>,
   query the <a href="https://api.protodex.io/stats">API</a>,
   or check the bot file <a href="https://github.com/LuciferForge/mcp-directory/blob/master/PNL_RECONCILIATION.md">PNL_RECONCILIATION.md</a>.
-  Page last refreshed 2026-04-26T00:31:03+00:00 UTC.
+  Page last refreshed 2026-04-26T04:15:37+00:00 UTC.
   <br><br>
-  Note: of 301 closed trades, 218 are paper-era simulations from before live trading
+  Note: of 302 closed trades, 218 are paper-era simulations from before live trading
   was wired up — these inflate the bot's theoretical PnL but never executed on-chain.
-  Reconcilable subset (with matching live BUY): 83.
+  Reconcilable subset (with matching live BUY): 84.
 </div>
 
 </div>
