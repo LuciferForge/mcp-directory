@@ -45,13 +45,13 @@
 <div class="wrap">
 
 <h1>Live Trading Status</h1>
-<p class="sub">Polymarket crash-recovery bot. Tracking from <strong>Apr 27, 2026</strong> (1 day). <span class="pill">Updated 2026-04-27 14:39 UTC</span></p>
+<p class="sub">Polymarket crash-recovery bot. Tracking from <strong>Apr 27, 2026</strong> (1 day). <span class="pill">Updated 2026-04-27 14:47 UTC</span></p>
 
 <div class="hero">
   <div class="lbl">Current Equity</div>
-  <div class="num neutral">$95.48</div>
+  <div class="num neutral">$95.46</div>
   <div class="pct">
-    <span style="color:#4ade80">+$0.02 (+0.02%)</span>
+    <span style="color:#4ade80">+$0.00 (+0.00%)</span>
     since Apr 27 baseline of $95.46
   </div>
 </div>
@@ -64,7 +64,7 @@
   </div>
   <div class="stat">
     <div class="lbl">Open Position Value</div>
-    <div class="val">$4.26</div>
+    <div class="val">$4.24</div>
     <div class="meta">28 positions held on-chain</div>
   </div>
   <div class="stat">
@@ -79,17 +79,37 @@
   </div>
 </div>
 
-<h2 style="margin-top:3rem;font-size:1.3rem">Trades since Apr 27</h2>
-<p style="color:#999;font-size:0.9rem">PnL = (exit − entry) × shares per the bot's recorded entry/exit. 1 closed trades · 1 winners · sum: <strong style="color:#4ade80">$+0.06</strong>. Wallet: <a href="https://polygonscan.com/address/0x53d5ba04d1ddaa7c9eb14d6e4b3896b15acbd88c"><code>0x53d5…d88c</code> ↗ Polygonscan</a> for raw on-chain fills.</p>
+<h2 style="margin-top:3rem;font-size:1.3rem">Trades since Apr 27 (real on-chain fills)</h2>
+<p style="color:#999;font-size:0.9rem">
+  PnL = SUM(SELL proceeds) − SUM(BUY cost) per token, computed from raw <code>makingAmount</code> / <code>takingAmount</code> in CLOB responses.
+  This is the actual on-chain math, NOT the bot's theoretical exit price. Open positions show negative PnL until exited
+  (cost on the books, no proceeds yet).<br>
+  <strong>Today: 1 win · 0 loss · 2 still-open</strong>
+  · Total bought $4.00 · Total sold $1.77
+  · Net realized + unrealized: <strong style="color:#ff6b6b">$-2.23</strong><br>
+  Verify on chain: <a href="https://polygonscan.com/address/0x53d5ba04d1ddaa7c9eb14d6e4b3896b15acbd88c"><code>0x53d5…d88c</code> ↗ Polygonscan</a>.
+</p>
 <table>
-  <thead><tr><th>Time (UTC)</th><th>Market</th><th>Entry</th><th>Exit</th><th>PnL</th></tr></thead>
+  <thead><tr><th>First fill (UTC)</th><th>Market</th><th>Bought (USDC)</th><th>Sold (USDC)</th><th>PnL</th></tr></thead>
   <tbody>
     <tr>
+                <td style="color:#888;font-size:0.85rem">2026-04-27 12:33</td>
+                <td>Will Cuba recognize Israel by June 30</td>
+                <td>$0.00</td>
+                <td>$0.01</td>
+                <td style="color:#4ade80">$+0.01 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
+            </tr><tr>
                 <td style="color:#888;font-size:0.85rem">2026-04-27 10:40</td>
                 <td>Will the Democrats win the Oregon governor race in 2026</td>
-                <td>$0.155</td>
-                <td>$0.165</td>
-                <td style="color:#4ade80">$+0.06</td>
+                <td>$2.00</td>
+                <td>$1.76</td>
+                <td style="color:#ff6b6b">$-0.24 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
+            </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-04-27 00:34</td>
+                <td>(token 28293677…)</td>
+                <td>$2.00</td>
+                <td>$0.00</td>
+                <td style="color:#ff6b6b">$-2.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
             </tr>
   </tbody>
 </table>
