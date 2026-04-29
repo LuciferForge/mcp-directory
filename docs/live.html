@@ -45,13 +45,13 @@
 <div class="wrap">
 
 <h1>Live Trading Status</h1>
-<p class="sub">Polymarket crash-recovery bot. Tracking from <strong>Apr 27, 2026</strong> (2 days). <span class="pill">Updated 2026-04-28 00:15 UTC</span></p>
+<p class="sub">Polymarket crash-recovery bot. Tracking from <strong>Apr 27, 2026</strong> (3 days). <span class="pill">Updated 2026-04-29 00:15 UTC</span></p>
 
 <div class="hero">
   <div class="lbl">Current Equity</div>
-  <div class="num neutral">$94.58</div>
+  <div class="num neutral">$95.26</div>
   <div class="pct">
-    <span style="color:#ff6b6b">$-0.88 (-0.92%)</span>
+    <span style="color:#ff6b6b">$-0.20 (-0.21%)</span>
     since Apr 27 baseline of $95.46
   </div>
 </div>
@@ -59,17 +59,17 @@
 <div class="grid">
   <div class="stat">
     <div class="lbl">Cash (USDC)</div>
-    <div class="val">$91.74</div>
+    <div class="val">$89.94</div>
     <div class="meta">live, on Polymarket CLOB</div>
   </div>
   <div class="stat">
     <div class="lbl">Open Position Value</div>
-    <div class="val">$2.84</div>
-    <div class="meta">26 positions held on-chain</div>
+    <div class="val">$5.32</div>
+    <div class="meta">28 positions held on-chain</div>
   </div>
   <div class="stat">
     <div class="lbl">On-chain PnL since Apr 27</div>
-    <div class="val" style="color:#4ade80">+$0.31</div>
+    <div class="val" style="color:#ff6b6b">$-2.73</div>
     <div class="meta">realized only, ground truth</div>
   </div>
   <div class="stat">
@@ -84,15 +84,69 @@
   PnL = SUM(SELL proceeds) − SUM(BUY cost) per token, computed from raw <code>makingAmount</code> / <code>takingAmount</code> in CLOB responses.
   This is the actual on-chain math, NOT the bot's theoretical exit price. Open positions show negative PnL until exited
   (cost on the books, no proceeds yet).<br>
-  <strong>Today: 13 win · 0 loss · 2 still-open</strong>
-  · Total bought $4.00 · Total sold $2.29
-  · Net realized + unrealized: <strong style="color:#ff6b6b">$-1.71</strong><br>
+  <strong>Today: 11 win · 1 loss · 3 still-open</strong>
+  · Total bought $4.00 · Total sold $1.63
+  · Net realized + unrealized: <strong style="color:#ff6b6b">$-2.37</strong><br>
   Verify on chain: <a href="https://polygonscan.com/address/0x53d5ba04d1ddaa7c9eb14d6e4b3896b15acbd88c"><code>0x53d5…d88c</code> ↗ Polygonscan</a>.
 </p>
 <table>
   <thead><tr><th>First fill (UTC)</th><th>Market</th><th>Bought (USDC)</th><th>Sold (USDC)</th><th>PnL</th></tr></thead>
   <tbody>
     <tr>
+                <td style="color:#888;font-size:0.85rem">2026-04-28 14:21</td>
+                <td>Will the Republicans win the South Carolina governor ra</td>
+                <td>$1.00</td>
+                <td>$0.00</td>
+                <td style="color:#ff6b6b">$-1.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
+            </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-04-28 14:21</td>
+                <td>(token 65006694…)</td>
+                <td>$1.00</td>
+                <td>$0.00</td>
+                <td style="color:#ff6b6b">$-1.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
+            </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-04-28 13:46</td>
+                <td>(token 10792727…)</td>
+                <td>$0.00</td>
+                <td>$0.00</td>
+                <td style="color:#4ade80">$+0.00 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
+            </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-04-28 13:45</td>
+                <td>(token 12516303…)</td>
+                <td>$0.00</td>
+                <td>$0.01</td>
+                <td style="color:#4ade80">$+0.01 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
+            </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-04-28 13:44</td>
+                <td>(token 48659756…)</td>
+                <td>$0.00</td>
+                <td>$0.00</td>
+                <td style="color:#4ade80">$+0.00 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
+            </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-04-28 13:27</td>
+                <td>Will the Democrats win the Mississippi Senate race in 2</td>
+                <td>$1.00</td>
+                <td>$0.29</td>
+                <td style="color:#ff6b6b">$-0.71 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
+            </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-04-28 05:52</td>
+                <td>Will Zachary Shrewsbury be the Democratic nominee for S</td>
+                <td>$1.00</td>
+                <td>$0.87</td>
+                <td style="color:#ff6b6b">$-0.13 <span style="color:#ff6b6b;font-size:0.7rem">LOSS</span></td>
+            </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-04-28 02:45</td>
+                <td>Will the Vegas Golden Knights win the 2026 NHL Stanley </td>
+                <td>$0.00</td>
+                <td>$0.01</td>
+                <td style="color:#4ade80">$+0.01 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
+            </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-04-28 01:27</td>
+                <td>Will Harvey Weinstein be sentenced to less than 5 years</td>
+                <td>$0.00</td>
+                <td>$0.01</td>
+                <td style="color:#4ade80">$+0.01 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
+            </tr><tr>
                 <td style="color:#888;font-size:0.85rem">2026-04-27 20:14</td>
                 <td>(token 17975804…)</td>
                 <td>$0.00</td>
@@ -124,64 +178,10 @@
                 <td style="color:#4ade80">$+0.07 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
             </tr><tr>
                 <td style="color:#888;font-size:0.85rem">2026-04-27 20:11</td>
-                <td>(token 99976219…)</td>
+                <td>Will the Republicans win the Wyoming governor race in 2</td>
                 <td>$0.00</td>
                 <td>$0.08</td>
                 <td style="color:#4ade80">$+0.08 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 20:10</td>
-                <td>Will Afghanistan recognize Israel by June 30?</td>
-                <td>$0.00</td>
-                <td>$0.01</td>
-                <td style="color:#4ade80">$+0.01 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 20:09</td>
-                <td>(token 12516303…)</td>
-                <td>$0.00</td>
-                <td>$0.01</td>
-                <td style="color:#4ade80">$+0.01 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 18:48</td>
-                <td>Will the Democrats win the Rhode Island Senate race in </td>
-                <td>$0.00</td>
-                <td>$0.06</td>
-                <td style="color:#4ade80">$+0.06 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 18:47</td>
-                <td>MegaETH market cap (FDV) &gt;$4B one day after launch?</td>
-                <td>$0.00</td>
-                <td>$0.01</td>
-                <td style="color:#4ade80">$+0.01 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 17:19</td>
-                <td>Will the Democrats win the New Jersey Senate race in 20</td>
-                <td>$0.00</td>
-                <td>$0.01</td>
-                <td style="color:#4ade80">$+0.01 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 17:18</td>
-                <td>Will Harvey Weinstein be sentenced to less than 5 years</td>
-                <td>$0.00</td>
-                <td>$0.01</td>
-                <td style="color:#4ade80">$+0.01 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 12:33</td>
-                <td>Will Cuba recognize Israel by June 30</td>
-                <td>$0.00</td>
-                <td>$0.01</td>
-                <td style="color:#4ade80">$+0.01 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 10:40</td>
-                <td>Will the Democrats win the Oregon governor race in 2026</td>
-                <td>$2.00</td>
-                <td>$1.76</td>
-                <td style="color:#ff6b6b">$-0.24 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 00:34</td>
-                <td>(token 28293677…)</td>
-                <td>$2.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-2.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
             </tr>
   </tbody>
 </table>
@@ -197,7 +197,7 @@
   <a href="https://api.protodex.io/stats">free API</a> ·
   <a href="https://github.com/LuciferForge/polymarket-historical-data">10M-row dataset</a>.
   Page regenerates daily at 06:30 UTC.
-  Reconcilable subset (with matching live BUY): 88.
+  Reconcilable subset (with matching live BUY): 92.
 </div>
 
 </div>
