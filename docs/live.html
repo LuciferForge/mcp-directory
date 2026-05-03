@@ -45,13 +45,13 @@
 <div class="wrap">
 
 <h1>Live Trading Status</h1>
-<p class="sub">Polymarket crash-recovery bot. Tracking from <strong>Apr 27, 2026</strong> (6 days). <span class="pill">Updated 2026-05-02 00:15 UTC</span></p>
+<p class="sub">Polymarket crash-recovery bot. Tracking from <strong>Apr 27, 2026</strong> (7 days). <span class="pill">Updated 2026-05-03 00:15 UTC</span></p>
 
 <div class="hero">
   <div class="lbl">Current Equity</div>
-  <div class="num neutral">$95.02</div>
+  <div class="num neutral">$95.76</div>
   <div class="pct">
-    <span style="color:#ff6b6b">$-0.44 (-0.46%)</span>
+    <span style="color:#4ade80">+$0.30 (+0.31%)</span>
     since Apr 27 baseline of $95.46
   </div>
 </div>
@@ -59,17 +59,17 @@
 <div class="grid">
   <div class="stat">
     <div class="lbl">Cash (USDC)</div>
-    <div class="val">$88.24</div>
+    <div class="val">$85.98</div>
     <div class="meta">live, on Polymarket CLOB</div>
   </div>
   <div class="stat">
     <div class="lbl">Open Position Value</div>
-    <div class="val">$6.78</div>
-    <div class="meta">30 positions held on-chain</div>
+    <div class="val">$9.78</div>
+    <div class="meta">33 positions held on-chain</div>
   </div>
   <div class="stat">
     <div class="lbl">On-chain PnL since Apr 27</div>
-    <div class="val" style="color:#ff6b6b">$-2.96</div>
+    <div class="val" style="color:#ff6b6b">$-2.95</div>
     <div class="meta">realized only, ground truth</div>
   </div>
   <div class="stat">
@@ -84,26 +84,44 @@
   PnL = SUM(SELL proceeds) − SUM(BUY cost) per token, computed from raw <code>makingAmount</code> / <code>takingAmount</code> in CLOB responses.
   This is the actual on-chain math, NOT the bot's theoretical exit price. Open positions show negative PnL until exited
   (cost on the books, no proceeds yet).<br>
-  <strong>Today: 9 win · 1 loss · 5 still-open</strong>
-  · Total bought $6.00 · Total sold $1.88
-  · Net realized + unrealized: <strong style="color:#ff6b6b">$-4.12</strong><br>
+  <strong>Today: 6 win · 1 loss · 8 still-open</strong>
+  · Total bought $9.00 · Total sold $2.53
+  · Net realized + unrealized: <strong style="color:#ff6b6b">$-6.47</strong><br>
   Verify on chain: <a href="https://polygonscan.com/address/0x53d5ba04d1ddaa7c9eb14d6e4b3896b15acbd88c"><code>0x53d5…d88c</code> ↗ Polygonscan</a>.
 </p>
 <table>
   <thead><tr><th>First fill (UTC)</th><th>Market</th><th>Bought (USDC)</th><th>Sold (USDC)</th><th>PnL</th></tr></thead>
   <tbody>
     <tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-01 21:10</td>
-                <td>(token 33982069…)</td>
+                <td style="color:#888;font-size:0.85rem">2026-05-02 22:33</td>
+                <td>Will Julia Letlow be the republican nominee for Senate </td>
                 <td>$1.00</td>
                 <td>$0.00</td>
                 <td style="color:#ff6b6b">$-1.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
             </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-05-02 21:00</td>
+                <td>(token 20449536…)</td>
+                <td>$1.00</td>
+                <td>$0.00</td>
+                <td style="color:#ff6b6b">$-1.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
+            </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-05-02 00:34</td>
+                <td>Will Julia Letlow be the republican nominee for Senate </td>
+                <td>$1.00</td>
+                <td>$0.00</td>
+                <td style="color:#ff6b6b">$-1.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
+            </tr><tr>
+                <td style="color:#888;font-size:0.85rem">2026-05-01 21:10</td>
+                <td>Will France win Eurovision 2026?</td>
+                <td>$1.00</td>
+                <td>$0.60</td>
+                <td style="color:#ff6b6b">$-0.40 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
+            </tr><tr>
                 <td style="color:#888;font-size:0.85rem">2026-05-01 10:42</td>
                 <td>Will Israel win Eurovision 2026?</td>
                 <td>$1.00</td>
-                <td>$0.12</td>
-                <td style="color:#ff6b6b">$-0.88 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
+                <td>$0.36</td>
+                <td style="color:#ff6b6b">$-0.64 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
             </tr><tr>
                 <td style="color:#888;font-size:0.85rem">2026-05-01 09:54</td>
                 <td>(token 12516303…)</td>
@@ -164,24 +182,6 @@
                 <td>$0.00</td>
                 <td>$0.09</td>
                 <td style="color:#4ade80">$+0.09 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 20:14</td>
-                <td>Will the Republicans win the Rhode Island governor race</td>
-                <td>$0.00</td>
-                <td>$0.04</td>
-                <td style="color:#4ade80">$+0.04 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 20:13</td>
-                <td>Will the Republicans win the New Jersey Senate race in </td>
-                <td>$0.00</td>
-                <td>$0.03</td>
-                <td style="color:#4ade80">$+0.03 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-04-27 20:12</td>
-                <td>Will the Republicans win the Arkansas governor race in </td>
-                <td>$0.00</td>
-                <td>$0.12</td>
-                <td style="color:#4ade80">$+0.12 <span style="color:#4ade80;font-size:0.7rem">WIN</span></td>
             </tr>
   </tbody>
 </table>
@@ -197,7 +197,7 @@
   <a href="https://api.protodex.io/stats">free API</a> ·
   <a href="https://github.com/LuciferForge/polymarket-historical-data">10M-row dataset</a>.
   Page regenerates daily at 06:30 UTC.
-  Reconcilable subset (with matching live BUY): 94.
+  Reconcilable subset (with matching live BUY): 97.
 </div>
 
 </div>
