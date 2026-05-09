@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>authmcp-gateway — Other MCP Server | Protodex</title>
-    <meta name="description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
-    <meta property="og:title" content="authmcp-gateway — Other MCP Server | Protodex">
-    <meta property="og:description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
+    <title>authmcp-gateway — Security MCP Server | Protodex</title>
+    <meta name="description" content="🔐 Secure authentication proxy for MCP servers with JWT auth, real-time monitoring, and admin   dashboard. Production-ready Docker deployment. — 6 stars...">
+    <meta property="og:title" content="authmcp-gateway — Security MCP Server | Protodex">
+    <meta property="og:description" content="🔐 Secure authentication proxy for MCP servers with JWT auth, real-time monitoring, and admin   dashboard. Production-ready Docker deployment. — 6 stars...">
     <meta property="og:url" content="https://protodex.io/servers/loglux-authmcp-gateway.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="authmcp-gateway — Other MCP Server | Protodex">
-    <meta name="twitter:description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
+    <meta name="twitter:title" content="authmcp-gateway — Security MCP Server | Protodex">
+    <meta name="twitter:description" content="🔐 Secure authentication proxy for MCP servers with JWT auth, real-time monitoring, and admin   dashboard. Production-ready Docker deployment. — 6 stars...">
     <link rel="canonical" href="https://protodex.io/servers/loglux-authmcp-gateway.html">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com;">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -1037,11 +1037,11 @@ footer {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "authmcp-gateway",
-  "description": "An MCP server.",
+  "description": "\ud83d\udd10 Secure authentication proxy for MCP servers with JWT auth, real-time monitoring, and admin   dashboard. Production-ready Docker deployment.",
   "url": "https://github.com/loglux/authmcp-gateway",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
-  "programmingLanguage": "Unknown"
+  "programmingLanguage": "Python"
 }</script>
 </head>
 <body>
@@ -1068,7 +1068,7 @@ footer {
 
 <div class="container server-detail">
     <div class="breadcrumb">
-        <a href="/">Home</a> / <a href="/category/other.html">Other</a> / authmcp-gateway
+        <a href="/">Home</a> / <a href="/category/security.html">Security</a> / authmcp-gateway
     </div>
 
     <div class="detail-header">
@@ -1077,14 +1077,14 @@ footer {
     </div>
 
     <div class="detail-meta">
-        <span class="meta-item">★ 0 stars</span>
-        <span class="meta-item">Unknown language</span>
-        <span class="meta-item">📦 Other</span>
-        <span class="meta-item">Updated Unknown</span>
-        <span class="meta-item"><span class="sec-badge sec-yellow">&#9888; Review</span></span>
+        <span class="meta-item">★ 6 stars</span>
+        <span class="meta-item"><span class="lang-dot" style="background:#3572A5"></span> Python</span>
+        <span class="meta-item">🔒 Security</span>
+        <span class="meta-item">Updated today</span>
+        <span class="meta-item"></span>
     </div>
 
-    <div class="detail-desc">An MCP server.</div>
+    <div class="detail-desc">🔐 Secure authentication proxy for MCP servers with JWT auth, real-time monitoring, and admin   dashboard. Production-ready Docker deployment.</div>
 
     <a href="https://github.com/loglux/authmcp-gateway" target="_blank" rel="noopener" class="btn">
         View on GitHub →
@@ -1107,10 +1107,9 @@ footer {
                 <pre><code>{
   &quot;mcpServers&quot;: {
     &quot;authmcp-gateway&quot;: {
-      &quot;command&quot;: &quot;npx&quot;,
+      &quot;command&quot;: &quot;uvx&quot;,
       &quot;args&quot;: [
-        &quot;-y&quot;,
-        &quot;loglux/authmcp-gateway&quot;
+        &quot;authmcp-gateway&quot;
       ]
     }
   }
@@ -1122,7 +1121,7 @@ footer {
         <div id="claude-code-authmcp-gateway" class="install-panel" style="display:none">
             <p class="install-label">Run in terminal:</p>
             <div class="code-block">
-                <pre><code>claude mcp add authmcp-gateway npx -y loglux/authmcp-gateway</code></pre>
+                <pre><code>claude mcp add authmcp-gateway uvx authmcp-gateway</code></pre>
                 <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
             </div>
         </div>
@@ -1133,10 +1132,9 @@ footer {
                 <pre><code>{
   &quot;mcpServers&quot;: {
     &quot;authmcp-gateway&quot;: {
-      &quot;command&quot;: &quot;npx&quot;,
+      &quot;command&quot;: &quot;uvx&quot;,
       &quot;args&quot;: [
-        &quot;-y&quot;,
-        &quot;loglux/authmcp-gateway&quot;
+        &quot;authmcp-gateway&quot;
       ]
     }
   }
@@ -1144,62 +1142,74 @@ footer {
                 <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
             </div>
         </div>
-        
+        <p class="install-note">Or install with pip: <code>pip install authmcp-gateway</code></p>
     </div>
 
 
     <div style="margin-top:40px">
         
+    <div class="detail-section">
+        <h2>README Excerpt</h2>
+        <div class="detail-readme">**Secure authentication proxy for Model Context Protocol (MCP) servers** AuthMCP Gateway is a **full MCP protocol proxy** with centralized authentication, authorization, and monitoring. It transparently proxies all MCP capabilities — tools, resources, prompts, and completions — from multiple backend servers through a single authenticated endpoint.</div>
+    </div>
         
+    <div class="detail-section">
+        <h2>Tools (2)</h2>
+        <div class="detail-tools"><span class="tool-tag">initialize</span><span class="tool-tag">ping</span></div>
+    </div>
         
+    <div class="detail-section">
+        <h2>Topics</h2>
+        <div class="detail-tools"><span class="tag">jwt-auth</span><span class="tag">jwt-authentication</span><span class="tag">jwt-token</span><span class="tag">mcp</span><span class="tag">mcp-gateway</span><span class="tag">mcp-proxy</span><span class="tag">mcp-proxy-server</span><span class="tag">mcp-security</span><span class="tag">mcp-server</span><span class="tag">mcp-servers</span><span class="tag">mcp-tools</span></div>
+    </div>
     </div>
 
     
     <div class="related-servers">
-        <h2 class="section-title">Related Other Servers</h2>
+        <h2 class="section-title">Related Security Servers</h2>
         <div class="server-grid">
-    <a href="/servers/xpzouying-xiaohongshu-mcp.html" class="server-card">
+    <a href="/servers/casdoor-casdoor.html" class="server-card">
         <div class="server-card-header">
-            <span class="server-card-name">xiaohongshu-mcp</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 12.0K</span></span>
+            <span class="server-card-name">casdoor</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 13.4K</span></span>
         </div>
-        <div class="server-card-desc">MCP for xiaohongshu.com</div>
+        <div class="server-card-desc">An open-source Agent-first Identity and Access Management (IAM) /LLM MCP &amp; agent gateway and auth server with web UI...</div>
         <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
+            <span class="tag">🔒 Security</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
         </div>
     </a>
-    <a href="/servers/xinnan-tech-xiaozhi-esp32-server.html" class="server-card">
+    <a href="/servers/firerpa-lamda.html" class="server-card">
         <div class="server-card-header">
-            <span class="server-card-name">xiaozhi-esp32-server</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 8.9K</span></span>
+            <span class="server-card-name">lamda</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 7.7K</span></span>
         </div>
-        <div class="server-card-desc">本项目为xiaozhi-esp32提供后端服务，帮助您快速搭建ESP32设备控制服务器。Backend service for xiaozhi-esp32, helps you quickly build an ESP32...</div>
+        <div class="server-card-desc"> The most powerful Android RPA agent framework, next generation of mobile automation robots.</div>
         <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#F7DF1E"></span>JavaScript</span>
-        </div>
-    </a>
-    <a href="/servers/lauriewired-ghidramcp.html" class="server-card">
-        <div class="server-card-header">
-            <span class="server-card-name">GhidraMCP</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 8.0K</span></span>
-        </div>
-        <div class="server-card-desc">MCP Server for Ghidra</div>
-        <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#B07219"></span>Java</span>
-        </div>
-    </a>
-    <a href="/servers/cursortouch-windows-mcp.html" class="server-card">
-        <div class="server-card-header">
-            <span class="server-card-name">Windows-MCP</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 4.8K</span></span>
-        </div>
-        <div class="server-card-desc">MCP Server for Computer Use in Windows</div>
-        <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
+            <span class="tag">🔒 Security</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a>
+    <a href="/servers/wgpsec-enscan_go.html" class="server-card">
+        <div class="server-card-header">
+            <span class="server-card-name">ENScan_GO</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 4.2K</span></span>
+        </div>
+        <div class="server-card-desc">一款基于各大企业信息API的工具，解决在遇到的各种针对国内企业信息收集难题。一键收集控股公司ICP备案、APP、小程序、微信公众号等信息聚合导出。支持MCP接入</div>
+        <div class="server-card-footer">
+            <span class="tag">🔒 Security</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+        </div>
+    </a>
+    <a href="/servers/punkpeye-vitemcp.html" class="server-card">
+        <div class="server-card-header">
+            <span class="server-card-name">vitemcp</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 3.1K</span></span>
+        </div>
+        <div class="server-card-desc">A TypeScript framework for building MCP servers.</div>
+        <div class="server-card-footer">
+            <span class="tag">🔒 Security</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
         </div>
     </a></div>
     </div>
