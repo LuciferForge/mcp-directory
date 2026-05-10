@@ -1533,7 +1533,9 @@ document.addEventListener('click', function(e) {
             <span style="font-size:1.5rem">&#128202;</span>
             <div style="flex:1;min-width:200px">
                 <div style="font-weight:600;font-size:0.95rem">Polymarket Historical Dataset — 10.8M+ Price Snapshots</div>
-                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">13,900+ markets, 43+ days, 15-min snapshots, orderbook depth. Built by the Protodex team. Updated weekly."background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">From $1 &#8594;</span>
+                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">13,900+ markets, 43+ days, 15-min snapshots, orderbook depth. Built by the Protodex team.</div>
+            </div>
+            <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">From $1 &#8594;</span>
         </div>
     </a>
 </section>

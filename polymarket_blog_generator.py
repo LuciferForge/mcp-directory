@@ -324,7 +324,7 @@ footer{{border-top:1px solid var(--border);padding:32px 24px;text-align:center;c
 {body}
 <div class="cta-card">
     <h3>&#128202; The Full Polymarket Historical Dataset</h3>
-    <p>10.8M+ price snapshots across 13,900+ prediction markets. 15-minute frequency, orderbook depth, 43+ days of data, updated weekly. Use the same source data behind this post for your own backtests, models, and research.</p>
+    <p>10.8M+ price snapshots across 13,900+ prediction markets. 15-minute frequency, orderbook depth, 43+ days of data. Use the same source data behind this post for your own backtests, models, and research.</p>
     <a href="{cta_link}" target="_blank" rel="noopener" class="cta-btn">Get the dataset &#8594;</a>
 </div>
 </article>
