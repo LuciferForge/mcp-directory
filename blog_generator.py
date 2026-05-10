@@ -158,7 +158,7 @@ def generate_weekly_roundup(conn):
 
         <div class="cta-card">
             <h3>&#128202; Polymarket Historical Dataset</h3>
-            <p>8.9M price points across 9,550 prediction markets. 15-minute snapshots, orderbook depth, 30 days of data. Built by the Protodex team.</p>
+            <p>10.8M+ price snapshots across 13,900+ prediction markets. 15-minute frequency, orderbook depth, 43+ days of data. Updated weekly. Built by the Protodex team.</p>
             <a href="https://manja8.gumroad.com/l/polymarket-data?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign={slug}&amp;utm_content=footer-cta" target="_blank" class="cta-btn">Get the dataset &#8594;</a>
         </div>
     </div>
