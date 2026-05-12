@@ -1528,7 +1528,7 @@ document.addEventListener('click', function(e) {
 </section>
 
 <section class="container" style="padding-top:0">
-    <a href="https://manja8.gumroad.com/l/agyjd?utm_source=protodex&amp;utm_medium=homepage&amp;utm_campaign=homepage-banner&amp;utm_content=hero" target="_blank" rel="noopener" style="display:block;margin:0 auto 2rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(0,212,170,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
+    <a href="https://manja8.gumroad.com/l/agyjd?utm_source=protodex&amp;utm_medium=homepage&amp;utm_campaign=homepage-banner&amp;utm_content=hero" target="_blank" rel="noopener" style="display:block;margin:0 auto 1rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(0,212,170,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
         <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
             <span style="font-size:1.5rem">&#128202;</span>
             <div style="flex:1;min-width:200px">
@@ -1536,6 +1536,16 @@ document.addEventListener('click', function(e) {
                 <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">13,900+ markets, 43+ days, 15-min snapshots, orderbook depth. Built by the Protodex team.</div>
             </div>
             <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">From $1 &#8594;</span>
+        </div>
+    </a>
+    <a href="https://a.co/d/00cWi9t2" target="_blank" rel="noopener" style="display:block;margin:0 auto 2rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(241,196,15,0.10),rgba(230,57,70,0.08));border:1px solid rgba(241,196,15,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
+        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+            <span style="font-size:1.5rem">&#128218;</span>
+            <div style="flex:1;min-width:200px">
+                <div style="font-weight:600;font-size:0.95rem">What Does the Moon Dream About? — Children&#39;s Picture Book</div>
+                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">24-page bedtime story for ages 3-7. Paperback on Amazon Kindle Direct Publishing.</div>
+            </div>
+            <span style="background:#f1c40f;color:#1d3557;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">$9.99 on Amazon &#8594;</span>
         </div>
     </a>
 </section>

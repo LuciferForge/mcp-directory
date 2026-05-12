@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Built and Published a Children's Picture Book in 2 Days Using AI — Now Live on Amazon</title>
+<meta name="description" content="From blank Cursor session to Amazon-listed paperback: 24 illustrated pages, $9.99 list price, $3.47 royalty per copy. Here's what the pipeline looked like.">
+<meta property="og:title" content="I Built and Published a Children's Picture Book in 2 Days Using AI">
+<meta property="og:description" content="Pollinations FLUX + reportlab + KDP — full pipeline + the 2 KDP rejections I hit + how I fixed them.">
+<meta property="og:url" content="https://protodex.io/blog/kdp-moon-dream-launch-2026-05-10.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Protodex">
+<link rel="canonical" href="https://protodex.io/blog/kdp-moon-dream-launch-2026-05-10.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+<style>
+:root{--bg:#06060a;--bg-card:#0f0f14;--border:#1e1e2a;--text:#f0f0f5;--text-muted:#8888a0;--text-dim:#55556a;--accent:#00d4aa;--accent2:#7B61FF;--yellow:#FFD93D}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{opacity:0.85}
+.nav{padding:14px 24px;border-bottom:1px solid var(--border);background:rgba(6,6,10,0.92);position:sticky;top:0;backdrop-filter:blur(12px);z-index:100;display:flex;gap:24px;flex-wrap:wrap}
+.nav-logo{font-weight:800;font-size:1.05rem;color:var(--text)}.nav a{color:var(--text-dim);font-size:0.85rem}.nav a:hover{color:var(--text)}
+.post-hero{padding:56px 24px 36px;text-align:center;border-bottom:1px solid var(--border)}
+.post-hero .badge{display:inline-block;background:rgba(241,196,15,0.15);border:1px solid rgba(241,196,15,0.25);border-radius:20px;padding:5px 14px;font-size:0.72rem;font-weight:600;color:var(--yellow);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:18px}
+.post-hero h1{font-size:2rem;font-weight:800;letter-spacing:-1px;line-height:1.2;max-width:780px;margin:0 auto 12px}
+.post-hero .meta{color:var(--text-dim);font-size:0.85rem;font-family:'JetBrains Mono',monospace}
+.post-body{max-width:780px;margin:0 auto;padding:48px 24px}
+.post-body h2{font-size:1.3rem;font-weight:700;letter-spacing:-0.3px;margin:40px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.post-body p{color:var(--text-muted);margin-bottom:14px}.post-body p strong{color:var(--text)}
+.post-body ul,.post-body ol{padding-left:22px;margin-bottom:14px}
+.post-body li{color:var(--text-muted);margin-bottom:8px}.post-body li strong{color:var(--text)}
+.post-body code{background:var(--bg-card);padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:0.85em;color:var(--accent)}
+.post-body pre{background:var(--bg-card);padding:16px 20px;border-radius:8px;overflow-x:auto;margin:14px 0;border:1px solid var(--border)}
+.post-body pre code{padding:0;background:transparent}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:0.88rem;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+th{background:rgba(241,196,15,0.06);color:var(--text);font-weight:600;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
+td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--text-muted)}tr:last-child td{border-bottom:none}
+.cta-card{background:linear-gradient(135deg,rgba(241,196,15,0.10),rgba(230,57,70,0.08));border:1px solid rgba(241,196,15,0.30);border-radius:12px;padding:24px 28px;margin:40px 0 24px;text-align:center}
+.cta-card h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.cta-card p{color:var(--text-muted);margin-bottom:16px;font-size:0.92rem}
+.cta-btn{display:inline-block;background:#f1c40f;color:#1d3557;padding:11px 24px;border-radius:8px;font-weight:700;font-size:0.92rem;text-decoration:none}.cta-btn:hover{opacity:0.9}
+footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:0.82rem;margin-top:40px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="/" class="nav-logo">protodex</a>
+  <a href="/">Explore</a><a href="/categories.html">Categories</a><a href="/security.html">Security</a><a href="/blog/">Blog</a>
+</nav>
+
+<section class="post-hero">
+  <span class="badge">KDP / AI Pipeline</span>
+  <h1>I Built and Published a Children's Picture Book in 2 Days Using AI — Now Live on Amazon</h1>
+  <div class="meta">May 12, 2026 · The Dreaming World series · Book 1</div>
+</section>
+
+<article class="post-body">
+
+<div class="cta-card">
+  <h3>📖 What Does the Moon Dream About? — Live on Amazon</h3>
+  <p>24-page illustrated bedtime story for ages 3-7. Paperback. <strong>$9.99</strong></p>
+  <a href="https://a.co/d/00cWi9t2" target="_blank" rel="noopener" class="cta-btn">Buy on Amazon →</a>
+</div>
+
+<p>Two months ago I'd never used KDP. Three days ago I shipped my first paperback. It's live on Amazon now: <a href="https://a.co/d/00cWi9t2"><em>What Does the Moon Dream About?</em></a> — a bedtime story for ages 3-7.</p>
+
+<p>The whole pipeline ran on free tools + ~6 hours of focused work + 2 KDP rejection cycles. Here's what it actually looked like.</p>
+
+<h2>The pipeline</h2>
+
+<p>Three Python scripts, three open-source models, zero external services:</p>
+
+<ol>
+<li><strong>Pollinations FLUX</strong> (free, no auth) — generated 24 illustrations at 2550×2550 (300 DPI for 8.5" print) with seed=42 for character consistency across pages</li>
+<li><strong>reportlab</strong> + Google Fonts (Caveat + Patrick Hand) — assembled the 24-page interior PDF with text overlays in soft cream panels</li>
+<li><strong>reportlab</strong> again — assembled the print-ready 17.31"×8.75" cover spread (back + spine + front, with bleed)</li>
+</ol>
+
+<p>That's it. No designer, no illustrator, no manuscript editor. The rhyming verses I wrote myself (24 quatrains in one sitting), the character — a sleepy crescent moon with pink cheek-blush and a small star companion — was held consistent via prompt-engineering and shared seed.</p>
+
+<h2>What KDP rejected (twice)</h2>
+
+<p>Both rejections were mechanical, not content. KDP's automated prepress checker caught real issues:</p>
+
+<table>
+<tr><th>Rejection</th><th>Cause</th><th>Fix</th></tr>
+<tr><td>1. Cover text too close to edges</td><td>Title banner sat AT the trim line (0" safety zone); KDP requires ≥0.375"</td><td>Pulled banner 0.4" inside trim, dropped title font 60→54pt so handwritten ascenders fit inside banner</td></tr>
+<tr><td>2. Interior had insufficient bleed</td><td>Pages were 8.5×8.5 flat — KDP wants 8.75×8.75 with images extending past trim on all four sides</td><td>Re-sized pages to bled dimensions, extended image draws to <code>(0,0)→(PAGE_W,PAGE_H)</code></td></tr>
+</table>
+
+<p>Both fixes took ~30 minutes once diagnosed. The interior PDF binary went from 313 MB to 313 MB (same — images dominate, the dimension change is metadata).</p>
+
+<h2>Automated preflight (saved me a third rejection)</h2>
+
+<p>After the first rejection I wrote a 50-line PyMuPDF script that extracts every text bounding box from the PDF and verifies each is inside KDP's 0.375" safety zone. Same logic runs on the cover (per-side: back / spine / front). 10/10 text spans inside safety = ship.</p>
+
+<pre><code>import fitz
+TRIM = 8.5 * 72
+BLEED = 0.125 * 72
+SAFETY = 0.375 * 72
+PAGE = TRIM + 2 * BLEED
+safe = fitz.Rect(BLEED + SAFETY, BLEED + SAFETY,
+                 PAGE - BLEED - SAFETY, PAGE - BLEED - SAFETY)
+
+doc = fitz.open("book01_interior.pdf")
+for i, page in enumerate(doc):
+    for block in page.get_text("dict")["blocks"]:
+        for line in block.get("lines", []):
+            for span in line.get("spans", []):
+                bbox = fitz.Rect(span["bbox"])
+                if not safe.contains(bbox):
+                    print(f"page {i+1} '{span['text'][:30]}' overflows")</code></pre>
+
+<p>If I'd run this before the first submit, I'd have saved a 24-hour KDP review cycle.</p>
+
+<h2>The economics</h2>
+
+<table>
+<tr><th>Item</th><th>Number</th></tr>
+<tr><td>List price (US)</td><td>$9.99</td></tr>
+<tr><td>KDP printing cost (US)</td><td>$4.20</td></tr>
+<tr><td>Royalty per US sale (60%)</td><td><strong>$3.47</strong></td></tr>
+<tr><td>India list price (auto-synced)</td><td>₹699</td></tr>
+<tr><td>Sales required to recoup time</td><td>~6 hours of work × $50/hr ÷ $3.47 = <strong>86 copies</strong></td></tr>
+</table>
+
+<p>86 copies is the threshold for hourly-rate breakeven. At a competitive ranking for "moon bedtime story for kids," that's 2-4 months of organic sales without paid acquisition. After break-even, every additional copy is pure margin (KDP prints on demand — no inventory cost).</p>
+
+<h2>Why this isn't a one-off</h2>
+
+<p>The full pipeline is now a 90-minute template. Same Pollinations FLUX + reportlab + KDP workflow → next 4 books in the <em>Dreaming World</em> series are queued (Sun / Stars / Ocean / Forest themes). Each one carries the moon character forward as a recurring guide.</p>
+
+<p>The unit economics scale. A series of 8 books at 20 sales/month each clears ~$550/month in royalties, compounding for 5+ years. No staff, no support burden, no servers. KDP handles fulfillment globally.</p>
+
+<h2>Tools used (full list, all free)</h2>
+
+<ul>
+<li><a href="https://pollinations.ai">Pollinations.ai</a> — FLUX-based image generation, no auth, no rate limits I hit</li>
+<li><a href="https://www.reportlab.com">reportlab</a> — Python PDF assembly</li>
+<li><a href="https://fonts.google.com/specimen/Caveat">Caveat</a> + <a href="https://fonts.google.com/specimen/Patrick+Hand">Patrick Hand</a> — handwritten Google Fonts</li>
+<li><a href="https://pymupdf.readthedocs.io">PyMuPDF</a> — preflight checker for KDP safety zones</li>
+<li><a href="https://kdp.amazon.com">Amazon KDP</a> — distribution + print-on-demand</li>
+</ul>
+
+<h2>What I'd do differently</h2>
+
+<p>Run the preflight checker as the FIRST step after rendering. Both KDP rejections cost me 24-48 hours each of review-queue time when 30 seconds of Python would have caught them.</p>
+
+<div class="cta-card">
+  <h3>📖 Buy the book — or grab the pipeline code</h3>
+  <p>The book is on Amazon. The full Python pipeline (FLUX gen + reportlab interior + cover assembler + KDP preflight checker) is in my <a href="https://github.com/LuciferForge">GitHub org</a> — open-source.</p>
+  <a href="https://a.co/d/00cWi9t2" target="_blank" rel="noopener" class="cta-btn">Buy "What Does the Moon Dream About?" on Amazon →</a>
+</div>
+
+</article>
+
+<footer>
+&copy; 2026 Protodex · Built by <a href="https://protodex.io">@manja316</a> · KDP Author: Manjunath G
+</footer>
+
+</body>
+</html>
