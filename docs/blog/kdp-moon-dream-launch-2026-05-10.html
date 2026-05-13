@@ -57,13 +57,12 @@ footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;co
 
 <article class="post-body">
 
-<div class="cta-card">
-  <h3>📖 What Does the Moon Dream About? — Live on Amazon</h3>
-  <p>24-page illustrated bedtime story for ages 3-7. Paperback. <strong>$9.99</strong></p>
-  <a href="https://a.co/d/00cWi9t2" target="_blank" rel="noopener" class="cta-btn">Buy on Amazon →</a>
+<div id="book-status" class="cta-card" style="background:linear-gradient(135deg,rgba(230,57,70,0.10),rgba(241,196,15,0.08));border-color:rgba(230,57,70,0.30)">
+  <h3>📖 Book listing temporarily offline</h3>
+  <p>The Amazon listing for <em>What Does the Moon Dream About?</em> is currently unavailable. We're confirming the book&#39;s status with KDP and will restore the buy link once resolved. The story behind the build is still below.</p>
 </div>
 
-<p>Two months ago I'd never used KDP. Three days ago I shipped my first paperback. It's live on Amazon now: <a href="https://a.co/d/00cWi9t2"><em>What Does the Moon Dream About?</em></a> — a bedtime story for ages 3-7.</p>
+<p>Two months ago I'd never used KDP. Three days ago I shipped my first paperback: <em>What Does the Moon Dream About?</em> — a bedtime story for ages 3-7. <strong>Update 2026-05-13:</strong> the Amazon listing is currently offline pending KDP follow-up (see banner above). Two more books built on the same pipeline are en route.</p>
 
 <p>The whole pipeline ran on free tools + ~6 hours of focused work + 2 KDP rejection cycles. Here's what it actually looked like.</p>
 
@@ -148,9 +147,9 @@ for i, page in enumerate(doc):
 <p>Run the preflight checker as the FIRST step after rendering. Both KDP rejections cost me 24-48 hours each of review-queue time when 30 seconds of Python would have caught them.</p>
 
 <div class="cta-card">
-  <h3>📖 Buy the book — or grab the pipeline code</h3>
-  <p>The book is on Amazon. The full Python pipeline (FLUX gen + reportlab interior + cover assembler + KDP preflight checker) is in my <a href="https://github.com/LuciferForge">GitHub org</a> — open-source.</p>
-  <a href="https://a.co/d/00cWi9t2" target="_blank" rel="noopener" class="cta-btn">Buy "What Does the Moon Dream About?" on Amazon →</a>
+  <h3>🛠 Grab the pipeline code</h3>
+  <p>The full Python pipeline that built this book (FLUX cover gen + reportlab interior + cover assembler + KDP preflight checker) is in my <a href="https://github.com/LuciferForge">GitHub org</a> — open-source. Two more books built on this pipeline are queued for release (AWS SAA-C03 practice exam, Cryptograms for Programmers).</p>
+  <a href="https://github.com/LuciferForge" target="_blank" rel="noopener" class="cta-btn">View the source on GitHub →</a>
 </div>
 
 </article>

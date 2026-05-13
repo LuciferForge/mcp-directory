@@ -156,10 +156,23 @@ def generate_weekly_roundup(conn):
         <div class="cat-pills">{cat_pills}</div>
         <p><a href="https://protodex.io/categories.html">Browse all categories &#8594;</a></p>
 
-        <div class="cta-card">
-            <h3>&#128202; Polymarket Historical Dataset</h3>
-            <p>10.8M+ price snapshots across 13,900+ prediction markets. 15-minute frequency, orderbook depth, 43+ days of data. Built by the Protodex team.</p>
-            <a href="https://manja8.gumroad.com/l/polymarket-data?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign={slug}&amp;utm_content=footer-cta" target="_blank" class="cta-btn">Get the dataset &#8594;</a>
+        <h2>Built by the Protodex team</h2>
+        <div class="cta-stack">
+            <div class="cta-card">
+                <h3>&#128202; Polymarket Full Historical Dataset</h3>
+                <p>10.8M+ price snapshots across 13,900+ prediction markets. 15-minute frequency, orderbook depth, 43+ days. <strong>$9 one-time</strong>.</p>
+                <a href="https://manja8.gumroad.com/l/polymarket-data?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign={slug}&amp;utm_content=footer-cta-full" target="_blank" class="cta-btn">Get the full dataset &#8594;</a>
+            </div>
+            <div class="cta-card">
+                <h3>&#128193; Free sample on Kaggle</h3>
+                <p>13,963 active markets + 100K price-snapshot preview. CSV. Apache 2.0. <strong>Free download</strong>, no signup beyond Kaggle.</p>
+                <a href="https://www.kaggle.com/datasets/luciferforge/polymarket-markets-prices-sample-2026?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign={slug}" target="_blank" class="cta-btn">Download free sample &#8594;</a>
+            </div>
+            <div class="cta-card">
+                <h3>&#128221; MCP Security Audit Report</h3>
+                <p>Get a written security audit of any MCP server, formatted for buyers/users. Built on the methodology we use across 9,400+ servers.</p>
+                <a href="https://manja8.gumroad.com/l/mcp-security-audit?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign={slug}" target="_blank" class="cta-btn">Order an audit &#8594;</a>
+            </div>
         </div>
     </div>
     """
@@ -257,10 +270,11 @@ a:hover {{ opacity:0.85; }}
 .cat-pill strong {{ color:var(--text); font-family:var(--mono); }}
 
 /* CTA */
-.cta-card {{ margin:40px 0; padding:24px; background:linear-gradient(135deg, rgba(123,97,255,0.08), rgba(0,212,170,0.06)); border:1px solid rgba(123,97,255,0.2); border-radius:var(--radius-lg); }}
+.cta-stack {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin:20px 0 32px; }}
+.cta-card {{ padding:20px; background:linear-gradient(135deg, rgba(123,97,255,0.08), rgba(0,212,170,0.06)); border:1px solid rgba(123,97,255,0.2); border-radius:var(--radius-lg); }}
 .cta-card h3 {{ font-size:1rem; margin-bottom:6px; }}
-.cta-card p {{ color:var(--text-muted); font-size:0.88rem; margin-bottom:12px; }}
-.cta-btn {{ display:inline-block; background:var(--accent); color:#000; padding:8px 20px; border-radius:20px; font-size:0.82rem; font-weight:600; transition:opacity 0.15s; }}
+.cta-card p {{ color:var(--text-muted); font-size:0.85rem; margin-bottom:14px; }}
+.cta-btn {{ display:inline-block; background:var(--accent); color:#000; padding:8px 18px; border-radius:20px; font-size:0.8rem; font-weight:600; transition:opacity 0.15s; }}
 .cta-btn:hover {{ opacity:0.9; }}
 
 /* Footer */
