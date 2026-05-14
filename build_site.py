@@ -1538,16 +1538,39 @@ document.addEventListener('click', function(e) {
             <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">From $1 &#8594;</span>
         </div>
     </a>
-    <a href="https://a.co/d/00cWi9t2" target="_blank" rel="noopener" style="display:block;margin:0 auto 2rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(241,196,15,0.10),rgba(230,57,70,0.08));border:1px solid rgba(241,196,15,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
-        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
-            <span style="font-size:1.5rem">&#128218;</span>
+    <!-- Moon Dream banner removed 2026-05-13 — Amazon short URL a.co/d/00cWi9t2 returns HTTP 404.
+         Restore after KDP listing is verified. -->
+
+    <!-- Free India financial calculators — boring-idea empire hub -->
+    <div style="display:block;margin:0 auto 1.5rem;max-width:1000px;padding:1.25rem 1.5rem;background:linear-gradient(135deg,rgba(0,212,170,0.08),rgba(123,97,255,0.06));border:1px solid rgba(0,212,170,0.25);border-radius:14px">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.85rem;flex-wrap:wrap">
+            <span style="font-size:1.4rem">&#129518;</span>
             <div style="flex:1;min-width:200px">
-                <div style="font-weight:600;font-size:0.95rem">What Does the Moon Dream About? — Children&#39;s Picture Book</div>
-                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">24-page bedtime story for ages 3-7. Paperback on Amazon Kindle Direct Publishing.</div>
+                <div style="font-weight:700;font-size:1rem;color:var(--text)">Free India Financial Calculators</div>
+                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">FY 2026-27 rules. Built by Protodex. Open-source, no signups.</div>
             </div>
-            <span style="background:#f1c40f;color:#1d3557;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">$9.99 on Amazon &#8594;</span>
         </div>
-    </a>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.65rem">
+            <a href="https://inhandsalary.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem;transition:border-color 0.15s">
+                💰 <strong>In-Hand Salary</strong> — Old vs New regime FY 2026-27
+            </a>
+            <a href="https://hra.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                🏠 <strong>HRA Exemption</strong> — Section 10(13A), Metro/Non-Metro
+            </a>
+            <a href="https://gratuity.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                💼 <strong>Gratuity</strong> — Payment of Gratuity Act + ₹20L exemption
+            </a>
+            <a href="https://esoptax.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                📈 <strong>ESOP Tax</strong> — Perquisite + LTCG/STCG
+            </a>
+            <a href="https://stampduty.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                🏗 <strong>Karnataka Stamp Duty</strong> — Bengaluru/Mysuru, 2% reg fee
+            </a>
+            <a href="https://stampdutymaharashtra.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                🏛️ <strong>Maharashtra Stamp Duty</strong> — Mumbai/Pune, women discount
+            </a>
+        </div>
+    </div>
 </section>
 
 <section class="container">
