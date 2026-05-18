@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two free AI utilities for devs: regexai builds the regex, jsonfix rescues the broken JSON</title>
+<meta name="description" content="Two single-purpose AI tools, no login, no quota popup. Native path first, Claude in the fallback. Live URLs and the architecture that makes the pattern repeatable.">
+<meta property="og:title" content="Two free AI utilities for devs: regexai + jsonfix">
+<meta property="og:description" content="Native path first, Claude in the fallback. Two live demos and the architecture pattern.">
+<meta property="og:url" content="https://protodex.io/blog/regexai-jsonfix-free-ai-utilities-2026-05-18.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Protodex">
+<link rel="canonical" href="https://protodex.io/blog/regexai-jsonfix-free-ai-utilities-2026-05-18.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+<style>
+:root{--bg:#06060a;--bg-card:#0f0f14;--border:#1e1e2a;--text:#f0f0f5;--text-muted:#8888a0;--text-dim:#55556a;--accent:#00d4aa;--accent2:#7B61FF;--yellow:#FFD93D}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{opacity:0.85}
+.nav{padding:14px 24px;border-bottom:1px solid var(--border);background:rgba(6,6,10,0.92);position:sticky;top:0;backdrop-filter:blur(12px);z-index:100;display:flex;gap:24px;flex-wrap:wrap}
+.nav-logo{font-weight:800;font-size:1.05rem;color:var(--text)}.nav a{color:var(--text-dim);font-size:0.85rem}.nav a:hover{color:var(--text)}
+.post-hero{padding:56px 24px 36px;text-align:center;border-bottom:1px solid var(--border)}
+.post-hero .badge{display:inline-block;background:rgba(0,212,170,0.12);border:1px solid rgba(0,212,170,0.25);border-radius:20px;padding:5px 14px;font-size:0.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:18px}
+.post-hero h1{font-size:2rem;font-weight:800;letter-spacing:-1px;line-height:1.2;max-width:780px;margin:0 auto 12px}
+.post-hero .meta{color:var(--text-dim);font-size:0.85rem;font-family:'JetBrains Mono',monospace}
+.post-body{max-width:780px;margin:0 auto;padding:48px 24px}
+.post-body h2{font-size:1.3rem;font-weight:700;letter-spacing:-0.3px;margin:40px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.post-body p{color:var(--text-muted);margin-bottom:14px}.post-body p strong{color:var(--text)}
+.post-body ul,.post-body ol{padding-left:22px;margin-bottom:14px}
+.post-body li{color:var(--text-muted);margin-bottom:8px}.post-body li strong{color:var(--text)}
+.post-body code{background:var(--bg-card);padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:0.85em;color:var(--accent)}
+.post-body pre{background:var(--bg-card);padding:16px 20px;border-radius:8px;overflow-x:auto;margin:14px 0;border:1px solid var(--border)}
+.post-body pre code{padding:0;background:transparent}
+.cta-card{background:linear-gradient(135deg,rgba(0,212,170,0.10),rgba(123,97,255,0.08));border:1px solid rgba(0,212,170,0.30);border-radius:12px;padding:24px 28px;margin:40px 0 24px;text-align:center}
+.cta-card h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.cta-card p{color:var(--text-muted);margin-bottom:16px;font-size:0.92rem}
+.cta-btn{display:inline-block;background:var(--accent);color:#06060a;padding:11px 24px;border-radius:8px;font-weight:700;font-size:0.92rem;text-decoration:none;margin:4px}.cta-btn:hover{opacity:0.9}
+footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:0.82rem;margin-top:40px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="/" class="nav-logo">protodex</a>
+  <a href="/">Explore</a><a href="/categories.html">Categories</a><a href="/security.html">Security</a><a href="/blog/">Blog</a>
+</nav>
+
+<section class="post-hero">
+  <span class="badge">AI Utilities</span>
+  <h1>Two free AI utilities for devs: regexai builds the regex, jsonfix rescues the broken JSON</h1>
+  <div class="meta">May 18, 2026 · Free tools · No login</div>
+</section>
+
+<article class="post-body">
+
+<p>Most days at a terminal, I lose ten minutes to one of two stupid problems:</p>
+<ol>
+<li>Writing a regex I half-remember the syntax for.</li>
+<li>Pasting a payload into a parser and watching it reject me because somebody, somewhere, left a trailing comma.</li>
+</ol>
+
+<p>I shipped two free tools that close both holes. Both run in the browser, both use Claude under the hood for the AI fallback, both have zero login.</p>
+
+<h2>regexai — describe it, get the regex</h2>
+<ul>
+<li>Live: <a href="https://regexai-six.vercel.app/?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign=apps-week">regexai-six.vercel.app</a></li>
+<li>Type <code>match phone numbers in (xxx) xxx-xxxx format</code>, hit Build. Get a regex, the flags, a generated test string, and a plain-English explanation of every group.</li>
+<li>Bonus: live test mode highlights matches as you tweak the pattern.</li>
+</ul>
+
+<h2>jsonfix — paste broken JSON, get clean JSON</h2>
+<ul>
+<li>Live: <a href="https://jsonfix-lake.vercel.app/?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign=apps-week">jsonfix-lake.vercel.app</a></li>
+<li>Format, minify, or AI-fix. The fix tab takes input that's missing quotes, has trailing commas, or has the wrong nesting, and rewrites it correctly — with an explanation of what was broken.</li>
+</ul>
+
+<h2>The pattern</h2>
+<ol>
+<li><strong>Deterministic path first.</strong> regexai runs your regex through native <code>RegExp</code> and highlights matches as you type. jsonfix calls <code>JSON.parse</code> and formats. No API, no latency, no cost. 95% of sessions never leave this path.</li>
+<li><strong>AI fallback.</strong> If the deterministic path fails, one button hands the problem to Claude (haiku-4-5) with a tight prompt and a JSON schema. Result lands back in the same UI.</li>
+<li><strong>No login, no quota, no upsell.</strong> Friction kills these utilities. The cost per session is low enough that I eat it.</li>
+</ol>
+
+<h2>Why this shape wins</h2>
+<p>Chat re-establishes context every turn. A textarea doesn't. For chores you do more than once a week, the page wins on activation energy alone. ChatGPT is great for novel problems. It's wrong for the 30th time this month you needed to validate an IPv4.</p>
+
+<h2>Stack</h2>
+<ul>
+<li>Next.js 16 App Router</li>
+<li><code>@anthropic-ai/sdk</code>, model <code>claude-haiku-4-5</code></li>
+<li>Edge runtime</li>
+<li>Vercel analytics, no DB, no auth</li>
+</ul>
+
+<h2>What's next in this shape</h2>
+<ul>
+<li>cron expression builder</li>
+<li>SQL → English explainer</li>
+<li>curl → fetch/requests converter</li>
+<li>diff → plain English summary</li>
+</ul>
+
+<div class="cta-card">
+<h3>Try them</h3>
+<p>Both free, both no-login. Bookmark the one you'll actually use.</p>
+<a class="cta-btn" href="https://regexai-six.vercel.app/?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign=apps-week">Open regexai →</a>
+<a class="cta-btn" href="https://jsonfix-lake.vercel.app/?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign=apps-week">Open jsonfix →</a>
+</div>
+
+<p style="color:var(--text-dim);font-size:0.85rem;margin-top:24px">Want this pattern applied to building MCP servers? The <a href="https://manja8.gumroad.com/l/mcp-boilerplate?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign=apps-week">MCP Boilerplate ($79)</a> is the same idea: deterministic scaffold, AI in the fallback.</p>
+
+</article>
+
+<footer>
+<a href="/">protodex.io</a> · <a href="/blog/">Blog</a> · Built by <a href="https://x.com/gmanjuu">@gmanjuu</a>
+</footer>
+</body>
+</html>
