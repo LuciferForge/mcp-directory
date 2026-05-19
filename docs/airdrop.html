@@ -1383,9 +1383,16 @@ function AirdropScanner() {
                           <div className="notes">{proto.notes}</div>
                           <div className="est">{proto.est} potential</div>
                           {proto.action && (
-                            <a href={proto.action.url} target="_blank" rel="noopener" className="action-cta" style={{ display: 'inline-block', marginTop: 10, color: proto.color, fontSize: 10, fontWeight: 700, letterSpacing: 1 }}>
-                              {proto.action.text} →
-                            </a>
+                            <div style={{ marginTop: 10, display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+                              <a href={proto.action.url} target="_blank" rel="noopener" className="action-cta" style={{ display: 'inline-block', color: proto.color, fontSize: 10, fontWeight: 700, letterSpacing: 1 }}>
+                                {proto.action.text} →
+                              </a>
+                              {proto.action.url.includes('debridge') && (
+                                <a href="https://orbiter.finance/?channel=0x188699dbD8Dadd7f5e0DCBfe2D111CFF1E096F2B" target="_blank" rel="noopener" style={{ fontSize: 9, color: 'var(--text-muted)', fontWeight: 600, letterSpacing: 0.5 }}>
+                                  or via Orbiter →
+                                </a>
+                              )}
+                            </div>
                           )}
                         </div>
                       );
@@ -1418,9 +1425,16 @@ function AirdropScanner() {
                           <div className="proto">{a.proto} · Tier {a.tier}</div>
                         </div>
                         {a.action && (
-                          <a className="cta" href={a.action.url} target="_blank" rel="noopener">
-                            {a.action.text} →
-                          </a>
+                          <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                            <a className="cta" href={a.action.url} target="_blank" rel="noopener">
+                              {a.action.text} →
+                            </a>
+                            {a.action.url.includes('debridge') && (
+                              <a href="https://orbiter.finance/?channel=0x188699dbD8Dadd7f5e0DCBfe2D111CFF1E096F2B" target="_blank" rel="noopener" style={{ fontSize: 9, color: 'var(--text-muted)', fontWeight: 600, letterSpacing: 0.5, textDecoration: 'none' }}>
+                                or Orbiter →
+                              </a>
+                            )}
+                          </div>
                         )}
                       </div>
                     ))}
