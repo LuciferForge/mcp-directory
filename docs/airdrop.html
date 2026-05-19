@@ -433,7 +433,7 @@ const PROTOCOLS = [
     id: "hyperevm", name: "HyperEVM", tier: "A", cat: "HL Ecosystem", status: "LIVE",
     color: "#06B6D4", est: "₹50K–5L", likelihood: 65, chain: 42161,
     notes: "Hyperliquid native L1 ecosystem (HypurrFi / HyperLend). Ecosystem token drops separate from HYPE; ARB wallet history is the bridge-eligibility proxy.",
-    action: { text: "Bridge to HyperEVM", url: "https://app.hyperliquid.xyz/" },
+    action: { text: "Bridge to HyperEVM (via deBridge)", url: "https://app.debridge.com/r/32976" },
     criteria: [
       { label: "ARB Txs",      key: "txCount",       t: [10, 50, 200, 500], pts: 35 },
       { label: "Active Days",  key: "uniqueDays",    t: [5, 15, 30, 60],    pts: 30 },
@@ -445,7 +445,7 @@ const PROTOCOLS = [
     id: "berachain", name: "Berachain S2", tier: "A", cat: "L1", status: "LIVE",
     color: "#EF4444", est: "₹50K–4L", likelihood: 60, chain: 80094,
     notes: "BERA airdropped Feb 2025. S2 farming via BGT delegation + Infrared / Kodiak vaults. Diversity bonus rewards multi-dApp use.",
-    action: { text: "Stake BGT on Infrared", url: "https://infrared.finance/" },
+    action: { text: "Bridge to Berachain (via deBridge)", url: "https://app.debridge.com/r/32976?inputChain=1&outputChain=80094" },
     criteria: [
       { label: "BERA Txs",     key: "txCount",       t: [5, 25, 100, 300], pts: 35 },
       { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 25, 50],   pts: 30 },
@@ -457,7 +457,7 @@ const PROTOCOLS = [
     id: "sonic", name: "Sonic S2", tier: "A", cat: "L1", status: "LIVE",
     color: "#22D3EE", est: "₹30K–3L", likelihood: 65, chain: 146,
     notes: "S token airdropped Dec 2024. S2 farming via Rings + Beethoven X + SwapX. Volume + day count both matter.",
-    action: { text: "Trade on SwapX", url: "https://swapx.fi/" },
+    action: { text: "Bridge to Sonic (via deBridge)", url: "https://app.debridge.com/r/32976?inputChain=1&outputChain=146" },
     criteria: [
       { label: "Txs",          key: "txCount",       t: [10, 40, 150, 400], pts: 35 },
       { label: "Active Days",  key: "uniqueDays",    t: [5, 15, 30, 60],    pts: 30 },
@@ -469,7 +469,7 @@ const PROTOCOLS = [
     id: "linea", name: "Linea S3", tier: "A", cat: "L2", status: "LIVE",
     color: "#818CF8", est: "₹20K–2L", likelihood: 70, chain: 59144,
     notes: "LXP-L points still farmed post-LINEA. Ignition + Surge campaigns reward bridge + DeFi diversity.",
-    action: { text: "Bridge ETH to Linea", url: "https://bridge.linea.build/" },
+    action: { text: "Bridge ETH to Linea (via deBridge)", url: "https://app.debridge.com/r/32976?inputChain=1&outputChain=59144" },
     criteria: [
       { label: "Txs",          key: "txCount",       t: [10, 40, 150, 400], pts: 35 },
       { label: "Active Days",  key: "uniqueDays",    t: [5, 15, 30, 60],    pts: 30 },
@@ -481,7 +481,7 @@ const PROTOCOLS = [
     id: "scroll", name: "Scroll S3", tier: "A", cat: "ZK L2", status: "LIVE",
     color: "#FBBF24", est: "₹15K–1.5L", likelihood: 55, chain: 534352,
     notes: "SCR launched Oct 2024. S3 (Marks) farming continues via Ambient / Rho / SyncSwap.",
-    action: { text: "Trade on Ambient", url: "https://ambient.finance/" },
+    action: { text: "Bridge to Scroll (via deBridge)", url: "https://app.debridge.com/r/32976?inputChain=1&outputChain=534352" },
     criteria: [
       { label: "Txs",          key: "txCount",       t: [5, 20, 75, 200],   pts: 35 },
       { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 25, 50],    pts: 35 },
@@ -494,7 +494,7 @@ const PROTOCOLS = [
     id: "base", name: "Base", tier: "B", cat: "L2", status: "LIVE",
     color: "#3B82F6", est: "₹20K–2L", likelihood: 60, chain: 8453,
     notes: "Coinbase's L2. No direct token but ecosystem drops (Aerodrome, Morpho, Moonwell, Beefy) compound on activity.",
-    action: { text: "Trade on Aerodrome", url: "https://aerodrome.finance/" },
+    action: { text: "Bridge to Base (via deBridge)", url: "https://app.debridge.com/r/32976?inputChain=1&outputChain=8453" },
     criteria: [
       { label: "Txs",          key: "txCount",       t: [10, 50, 200, 500], pts: 35 },
       { label: "Active Days",  key: "uniqueDays",    t: [7, 20, 45, 90],    pts: 30 },
@@ -506,7 +506,7 @@ const PROTOCOLS = [
     id: "unichain", name: "Unichain", tier: "B", cat: "L2", status: "LIVE",
     color: "#EC4899", est: "₹10K–1L", likelihood: 55, chain: 130,
     notes: "Uniswap's L2. UNI holder rewards + early-user bonus possible.",
-    action: { text: "Swap on Uniswap (Unichain)", url: "https://app.uniswap.org/" },
+    action: { text: "Bridge to Unichain (via deBridge)", url: "https://app.debridge.com/r/32976?inputChain=1&outputChain=130" },
     criteria: [
       { label: "Txs",          key: "txCount",       t: [5, 20, 75, 200],   pts: 35 },
       { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 20, 40],    pts: 30 },
@@ -518,7 +518,7 @@ const PROTOCOLS = [
     id: "blast", name: "Blast Gold", tier: "B", cat: "L2", status: "LIVE",
     color: "#FDE68A", est: "₹10K–1L", likelihood: 45, chain: 81457,
     notes: "BLAST airdropped Jun 2024. Gold points still farmed via Thruster / Juice / Blasterswap. Diminished returns expected.",
-    action: { text: "Bridge to Blast", url: "https://blast.io/bridge" },
+    action: { text: "Bridge to Blast (via deBridge)", url: "https://app.debridge.com/r/32976?inputChain=1&outputChain=81457" },
     criteria: [
       { label: "Txs",          key: "txCount",       t: [5, 20, 75, 200],   pts: 35 },
       { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 25, 50],    pts: 35 },
@@ -529,7 +529,7 @@ const PROTOCOLS = [
     id: "mantle", name: "Mantle", tier: "B", cat: "L2", status: "LIVE",
     color: "#5EEAD4", est: "₹10K–80K", likelihood: 40, chain: 5000,
     notes: "mETH ecosystem + Merchant Moe. Lower-conviction farming after MNT token mature.",
-    action: { text: "Stake mETH", url: "https://meth.mantle.xyz/" },
+    action: { text: "Bridge to Mantle (via deBridge)", url: "https://app.debridge.com/r/32976?inputChain=1&outputChain=5000" },
     criteria: [
       { label: "Txs",          key: "txCount",       t: [5, 20, 75, 200],   pts: 40 },
       { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 25, 50],    pts: 35 },
@@ -540,7 +540,7 @@ const PROTOCOLS = [
     id: "manta", name: "Manta Pacific", tier: "B", cat: "ZK L2", status: "LIVE",
     color: "#34D399", est: "₹5K–50K", likelihood: 35, chain: 169,
     notes: "Post-MANTA, points seasons via izumi / Aperture. Lower conviction.",
-    action: { text: "Trade on Manta", url: "https://pacific.manta.network/" },
+    action: { text: "Bridge to Manta (via deBridge)", url: "https://app.debridge.com/r/32976?inputChain=1&outputChain=169" },
     criteria: [
       { label: "Txs",          key: "txCount",       t: [5, 20, 75, 200],   pts: 40 },
       { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 25, 50],    pts: 35 },
@@ -1096,6 +1096,22 @@ function AirdropScanner() {
       <div className="honest-banner">
         <h3>⚠ Airdrop reality (May 2026)</h3>
         <p>The easy era is over. <b>HYPE, BERA, ZK, SCR, MODE, S, INIT, ES, MON</b> have all airdropped. Most retail farmers are <b>net negative on gas</b>. This scanner shows you the truth: what's left worth farming, what you've actually spent, and which of your wallets look like a Sybil cluster. Free. Open methodology.</p>
+      </div>
+
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap',
+        background: 'linear-gradient(135deg, rgba(16,185,129,0.06), rgba(123,97,255,0.06))',
+        border: '1px solid rgba(16,185,129,0.25)', borderLeft: '3px solid var(--accent)',
+        borderRadius: 8, padding: '12px 16px', margin: '0 0 20px',
+      }}>
+        <div style={{ flex: 1, minWidth: 240 }}>
+          <div style={{ fontFamily: 'var(--font)', color: 'var(--text)', fontWeight: 700, fontSize: 13, marginBottom: 2 }}>🇮🇳 Need crypto first?</div>
+          <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>CoinDCX = fastest INR&nbsp;→&nbsp;crypto on-ramp in India. ₹100 minimum, UPI works, KYC takes 5 min.</div>
+        </div>
+        <a href="https://invite.coindcx.com/73849352" target="_blank" rel="noopener" style={{
+          padding: '8px 14px', background: 'var(--accent)', color: '#06060a',
+          borderRadius: 6, fontSize: 10, letterSpacing: 1.5, fontWeight: 700, textDecoration: 'none',
+        }}>OPEN COINDCX →</a>
       </div>
 
       {/* SETUP */}
