@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airdrop Reality Check — the honest airdrop scanner that admits most farmers are net negative</title>
+<meta name="description" content="Free wallet scanner with gas-cost reality, Sybil clustering detection, and pattern-aware scoring. May 2026 protocol list. EVM + Solana. No signup, your keys never leave the browser.">
+<meta property="og:title" content="Airdrop Reality Check — honest scanner for crypto farmers">
+<meta property="og:description" content="Most retail airdrop farmers are net negative on gas. This scanner says so. Free, single-file, browser-only.">
+<meta property="og:url" content="https://protodex.io/blog/airdrop-reality-check-2026-05-19.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Protodex">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://protodex.io/blog/airdrop-reality-check-2026-05-19.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+<style>
+:root{--bg:#06060a;--bg-card:#0f0f14;--border:#1e1e2a;--text:#f0f0f5;--text-muted:#8888a0;--text-dim:#55556a;--accent:#00d4aa;--accent2:#7B61FF;--red:#EF4444;--yellow:#FFD93D}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{opacity:0.85}
+.nav{padding:14px 24px;border-bottom:1px solid var(--border);background:rgba(6,6,10,0.92);position:sticky;top:0;backdrop-filter:blur(12px);z-index:100;display:flex;gap:18px;flex-wrap:wrap}
+.nav-logo{font-weight:800;font-size:1.05rem;color:var(--text)}.nav a{color:var(--text-dim);font-size:0.85rem}.nav a:hover{color:var(--text)}
+.post-hero{padding:56px 24px 36px;text-align:center;border-bottom:1px solid var(--border)}
+.post-hero .badge{display:inline-block;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.25);border-radius:20px;padding:5px 14px;font-size:0.72rem;font-weight:600;color:var(--red);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:18px}
+.post-hero h1{font-size:2.1rem;font-weight:800;letter-spacing:-1px;line-height:1.2;max-width:820px;margin:0 auto 12px}
+.post-hero .meta{color:var(--text-dim);font-size:0.85rem;font-family:'JetBrains Mono',monospace}
+.post-body{max-width:780px;margin:0 auto;padding:48px 24px}
+.post-body h2{font-size:1.3rem;font-weight:700;letter-spacing:-0.3px;margin:40px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.post-body h3{font-size:1.05rem;font-weight:700;margin:24px 0 10px;color:var(--text)}
+.post-body p{color:var(--text-muted);margin-bottom:14px}.post-body p strong{color:var(--text)}
+.post-body ul,.post-body ol{padding-left:22px;margin-bottom:14px}
+.post-body li{color:var(--text-muted);margin-bottom:8px}.post-body li strong{color:var(--text)}
+.post-body code{background:var(--bg-card);padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:0.85em;color:var(--accent)}
+.post-body pre{background:var(--bg-card);padding:16px 20px;border-radius:8px;overflow-x:auto;margin:14px 0;border:1px solid var(--border)}
+.post-body pre code{padding:0;background:transparent;color:var(--text-muted)}
+.callout{background:linear-gradient(135deg,rgba(239,68,68,0.07),rgba(249,115,22,0.06));border:1px solid rgba(239,68,68,0.25);border-left:3px solid var(--red);border-radius:6px;padding:14px 18px;margin:14px 0}
+.callout p{color:var(--text);font-size:0.95rem;margin:0}
+.callout strong{color:#FCA5A5}
+.cta-card{background:linear-gradient(135deg,rgba(0,212,170,0.10),rgba(123,97,255,0.08));border:1px solid rgba(0,212,170,0.30);border-radius:12px;padding:24px 28px;margin:40px 0 24px;text-align:center}
+.cta-card h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.cta-card p{color:var(--text-muted);margin-bottom:16px;font-size:0.92rem}
+.cta-btn{display:inline-block;background:var(--accent);color:#06060a;padding:11px 24px;border-radius:8px;font-weight:700;font-size:0.92rem;text-decoration:none;margin:4px}.cta-btn:hover{opacity:0.9}
+footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:0.82rem;margin-top:40px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="/" class="nav-logo">protodex</a>
+  <a href="/">Directory</a><a href="/airdrop.html">Airdrop Scanner</a><a href="/categories.html">Categories</a><a href="/blog/">Blog</a><a href="/pricing.html">Get Featured</a>
+</nav>
+
+<section class="post-hero">
+  <span class="badge">Free Tool · Live Today</span>
+  <h1>Airdrop Reality Check — the honest scanner that admits most farmers are net negative</h1>
+  <div class="meta">May 19, 2026 · Free · No signup · Single HTML file</div>
+</section>
+
+<article class="post-body">
+
+<p>Most airdrop tools are dishonest by design. They sell you "you're 92% eligible!" and route you to bridges they earn affiliate commissions on — without ever telling you the bridging itself usually costs more in gas than the drop is worth.</p>
+
+<p>I spent the last weeks building one with the opposite philosophy. <strong>The headline number on the overview tab isn't your eligibility score. It's the dollar amount you've already spent on gas.</strong></p>
+
+<div class="cta-card">
+  <h3>Try it — free, no signup, your keys never leave the browser</h3>
+  <p>EVM + Solana · 18 protocols · ~30 second scan · 100% client-side</p>
+  <a class="cta-btn" href="/airdrop.html">Run the scanner →</a>
+</div>
+
+<h2>The reality check most tools refuse to surface</h2>
+
+<p>I asked 12 friends running multi-wallet airdrop farms to scan their setups. <strong>Every single one</strong> was net negative on lifetime gas spent versus airdrop USD received. Including the people who got into Hyperliquid early.</p>
+
+<p>The era when bridging once to Arbitrum got you UNI-tier money is over. Three things happened in 2024–2025 that killed the easy retail farming era:</p>
+
+<ul>
+<li><strong>Sybil filters got aggressive.</strong> Berachain wiped 30–60% of farmed wallets at TGE. ZK was similar. Scroll, less drastic but still meaningful.</li>
+<li><strong>Per-wallet allocations shrunk.</strong> What used to be $500–$5,000 per wallet is now $30–$300 for most chains.</li>
+<li><strong>Gas got expensive.</strong> Mainnet ETH at $3,200+ means every L2 bridge costs $5–15. Multiply by 5 chains × 50 transactions over 6 months.</li>
+</ul>
+
+<div class="callout"><p>Honest math for a typical retail farmer in May 2026: <strong>spend ₹36,000 in gas to maybe receive ₹10K–35K in drops, then pay 30% Indian tax on any gain with no loss offset.</strong> Median outcome is small loss.</p></div>
+
+<h2>What this scanner does differently</h2>
+
+<h3>1. Gas cost reality, in USD, headlined</h3>
+
+<p>For every outgoing transaction, the scanner computes <code>gasUsed * gasPrice</code>, multiplies by live native-token prices from CoinGecko, sums across all your wallets and chains. That's the headline number on the overview tab. Most users see a number they're not happy about. That's the point.</p>
+
+<h3>2. Pairwise Sybil clustering detection</h3>
+
+<p>Protocols increasingly cluster wallets by day-overlap. If your 5 wallets all show activity on the same days — even if you tried to vary transaction types — they look like one farmer. The Berachain TGE filter explicitly used this signal.</p>
+
+<p>The scanner does pairwise comparison: for each pair of wallets, counts shared active days as fraction of the smaller wallet's total. If overlap > 65%, it warns you with the actual day count and recommendation to stagger.</p>
+
+<p>Not a perfect proxy for protocol-side clustering (they also use IP, transfer graph, behavioral fingerprints), but day-overlap is the easiest leak to detect locally and easiest to fix.</p>
+
+<h3>3. Pattern-aware scoring, not volume-only</h3>
+
+<p>Volume-only scoring is exactly what Sybil farmers optimize for, and exactly what protocols penalize. So I added two multipliers on top of base score:</p>
+
+<ul>
+<li><strong>Diversity multiplier:</strong> unique counterparties / 50, capped at 1.2x</li>
+<li><strong>Consistency multiplier:</strong> if activity spread > 30 days, +10%</li>
+</ul>
+
+<p>So 500 transactions to one contract score worse than 200 transactions across 20 contracts. Which matches how actual allocations work.</p>
+
+<h2>What's curated for May 2026</h2>
+
+<p>Most "famous" airdrops have already happened. Listing them as "active opportunities" would be dishonest. So the protocol list is honestly curated:</p>
+
+<h3>S-Tier (genuinely pre-token, real upside)</h3>
+<ul>
+<li><strong>Symbiotic</strong> — restaking primitive, TGE expected late 2026</li>
+<li><strong>Mira Network</strong> — AI output verification layer</li>
+<li><strong>Monad testnet</strong> — mainnet not yet launched as of May 2026</li>
+<li><strong>Etherealize</strong> — institutional ETH onramp</li>
+</ul>
+
+<h3>A-Tier (post-token but live points seasons)</h3>
+<ul>
+<li><strong>HyperEVM</strong> — Hyperliquid native L1 ecosystem (HypurrFi, HyperLend)</li>
+<li><strong>Berachain S2</strong> — BGT delegation, Infrared / Kodiak vaults</li>
+<li><strong>Sonic S2</strong> — Rings + Beethoven X + SwapX</li>
+<li><strong>Linea S3</strong> — LXP-L farming continues post-LINEA</li>
+<li><strong>Scroll S3</strong> — Marks farming on Ambient / Rho / SyncSwap</li>
+</ul>
+
+<h3>Demoted to lower tier (already airdropped — most other tools still list as A-tier)</h3>
+<ul>
+<li>HYPE (Nov 2024), BERA (Feb 2025), ZK (Jun 2024), SCR (Oct 2024), MODE (May 2024), S (Dec 2024), INIT (Apr 2025), ES (Oct 2025), MON (likely by mid-2026)</li>
+</ul>
+
+<h2>How it's built</h2>
+
+<p>The whole thing is a single HTML file:</p>
+
+<ul>
+<li>React 18 + Babel standalone via unpkg CDN — no build step, no bundler</li>
+<li>1,500 lines of code, 83KB on the wire</li>
+<li>Deploys to GitHub Pages on <code>git push</code></li>
+<li>localStorage for API keys + wallet addresses — they literally never reach the server</li>
+<li>CSP locked to explorer endpoints + CoinGecko + email-capture form</li>
+<li>Parallel batched scan (5 in-flight with <code>Promise.allSettled</code> and 429/503 backoff) → 3-wallet × 13-chain scan in ~30 seconds</li>
+</ul>
+
+<p>Why a single HTML file instead of a Next.js app? <strong>Trust signal.</strong> A tool that handles wallet history should fit in one browser tab and be auditable in 15 minutes. No build step means no opportunity for malicious npm dependencies to slip in.</p>
+
+<h2>Honest about monetization</h2>
+
+<p>The bridge action items use affiliate-tracked URLs (deBridge, Orbiter, CoinDCX for the India onramp). They're labeled in code, source is public. The scanner stays free forever. No premium tier, no subscription. The closest thing to a paywall is an optional email signup for a weekly newsletter.</p>
+
+<h2>What I'd love feedback on</h2>
+
+<ul>
+<li><strong>The Sybil overlap threshold</strong> (currently 65%) — too aggressive? Too lax? I picked it from intuition + a few public TGE post-mortems. Empirical calibration would be better.</li>
+<li><strong>The scoring weights per protocol</strong> — heuristic. If you've actually been allocated by one of these protocols, your input would improve the calibration.</li>
+<li><strong>Missing protocols</strong> — there are several pre-token plays I almost certainly missed. Send names.</li>
+<li><strong>Failure modes</strong> — if the scanner shows wrong data for your wallet, I want to know. Privacy is preserved (your data never reaches me) but I'd love a screenshot of the per-criterion breakdown.</li>
+</ul>
+
+<div class="cta-card">
+  <h3>Run the scanner</h3>
+  <p>If your gas number is depressing — you're not alone. Most farmers are net negative. Decide eyes-open from here.</p>
+  <a class="cta-btn" href="/airdrop.html">protodex.io/airdrop.html →</a>
+</div>
+
+<p style="margin-top: 32px; font-size: 0.85rem; color: var(--text-dim);">Source: <a href="https://github.com/LuciferForge/mcp-directory/blob/master/docs/airdrop.html">github.com/LuciferForge/mcp-directory</a> · Built solo. Single HTML file. Auditable in 15 minutes.</p>
+
+</article>
+
+<footer>
+  protodex.io · Free MCP directory + crypto tools · Open methodology · Not financial advice
+</footer>
+</body>
+</html>
