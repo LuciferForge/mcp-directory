@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — Featured MCP Server Listings | Protodex</title>
+    <meta name="description" content="Get your MCP server in front of thousands of Claude, Cursor, and AI agent developers. Featured listings, Promoted slots, and Verified badges on the largest MCP server directory.">
+    <meta property="og:title" content="Pricing — Featured MCP Server Listings | Protodex">
+    <meta property="og:description" content="Put your MCP server in front of developers actively searching for tools to plug into Claude and Cursor.">
+    <meta property="og:url" content="https://protodex.io/pricing.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Protodex">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Pricing — Featured MCP Server Listings | Protodex">
+    <meta name="twitter:description" content="Put your MCP server in front of developers actively searching for tools to plug into Claude and Cursor.">
+    <link rel="canonical" href="https://protodex.io/pricing.html">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://scripts.simpleanalyticscdn.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com https://api.web3forms.com;">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #06060a;
+    --bg-card: #0f0f14;
+    --bg-card-hover: #16161d;
+    --border: #1e1e2a;
+    --border-hover: #2d2d3f;
+    --text: #f0f0f5;
+    --text-muted: #8888a0;
+    --text-dim: #55556a;
+    --accent: #00d4aa;
+    --accent-hover: #00b894;
+    --accent-glow: rgba(0, 212, 170, 0.15);
+    --accent2: #7B61FF;
+    --yellow: #FFD93D;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', monospace;
+    --radius: 10px;
+    --radius-lg: 16px;
+    --max-w: 1100px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
+a:hover { color: var(--accent-hover); }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+header { border-bottom: 1px solid var(--border); padding: 14px 0; position: sticky; top: 0; background: rgba(6,6,10,0.88); backdrop-filter: blur(16px) saturate(180%); z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.logo { font-weight: 900; font-size: 1.15rem; color: var(--text); letter-spacing: -0.5px; }
+.logo span { color: var(--accent); }
+nav { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+nav a { padding: 8px 12px; border-radius: 8px; color: var(--text-muted); font-size: 0.875rem; font-weight: 500; }
+nav a:hover { color: var(--text); background: var(--bg-card); text-decoration: none; }
+nav a.nav-cta { background: var(--accent); color: #06060a; font-weight: 600; }
+nav a.nav-cta:hover { background: var(--accent-hover); color: #06060a; }
+
+.hero { padding: 80px 0 40px; text-align: center; }
+.hero-badge { display: inline-block; padding: 6px 14px; border-radius: 100px; background: var(--accent-glow); border: 1px solid rgba(0,212,170,0.3); color: var(--accent); font-size: 0.8rem; font-weight: 600; margin-bottom: 24px; }
+.hero h1 { font-size: 3rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
+.hero h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero p { color: var(--text-muted); font-size: 1.15rem; max-width: 680px; margin: 0 auto 8px; }
+
+.stats-row { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-top: 30px; color: var(--text-muted); font-size: 0.9rem; }
+.stats-row strong { color: var(--text); font-weight: 700; }
+
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; padding: 50px 0; }
+.tier { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px 28px; position: relative; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
+.tier:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.tier.popular { border-color: var(--accent); }
+.tier.popular::before { content: 'MOST POPULAR'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #06060a; padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 800; letter-spacing: 1px; }
+.tier-name { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+.tier-price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; }
+.tier-price .amount { font-size: 2.6rem; font-weight: 800; letter-spacing: -1px; color: var(--text); }
+.tier-price .period { color: var(--text-muted); font-size: 0.95rem; }
+.tier-tag { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 24px; }
+.tier ul { list-style: none; margin-bottom: 28px; flex: 1; }
+.tier li { padding: 8px 0; color: var(--text); font-size: 0.92rem; display: flex; gap: 10px; align-items: flex-start; }
+.tier li::before { content: '→'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+.tier li.muted { color: var(--text-dim); }
+.tier li.muted::before { content: '·'; color: var(--text-dim); }
+.tier-btn { display: block; padding: 14px 20px; border-radius: 10px; background: var(--bg); border: 1px solid var(--border); color: var(--text); text-align: center; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+.tier-btn:hover { background: var(--bg-card-hover); border-color: var(--border-hover); text-decoration: none; }
+.tier.popular .tier-btn { background: var(--accent); color: #06060a; border-color: var(--accent); }
+.tier.popular .tier-btn:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+
+.section { padding: 60px 0; border-top: 1px solid var(--border); }
+.section h2 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+.section .lede { color: var(--text-muted); margin-bottom: 32px; max-width: 700px; }
+
+.faq-grid { display: grid; gap: 20px; }
+.faq { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; }
+.faq h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+.faq p { color: var(--text-muted); font-size: 0.93rem; line-height: 1.65; }
+
+.proof-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; padding: 18px 0; }
+.proof { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 20px; text-align: center; }
+.proof .num { font-size: 2rem; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
+.proof .label { color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; }
+
+.contact-form { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; max-width: 640px; margin: 32px 0; }
+.contact-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.contact-form label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
+.contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 12px 14px; border-radius: 8px; background: var(--bg); border: 1px solid var(--border); color: var(--text); font-family: var(--font); font-size: 0.95rem; }
+.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { outline: none; border-color: var(--accent); }
+.contact-form textarea { min-height: 110px; resize: vertical; }
+.contact-form button { background: var(--accent); color: #06060a; border: none; padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: background 0.2s; width: 100%; }
+.contact-form button:hover { background: var(--accent-hover); }
+.contact-form .msg { margin-top: 16px; padding: 12px 14px; border-radius: 8px; font-size: 0.9rem; }
+.contact-form .msg.ok { background: rgba(0,212,170,0.1); color: var(--accent); border: 1px solid rgba(0,212,170,0.3); }
+.contact-form .msg.err { background: rgba(255,80,100,0.1); color: #ff6b80; border: 1px solid rgba(255,80,100,0.3); }
+.contact-form .hint { color: var(--text-dim); font-size: 0.78rem; margin-top: 12px; }
+
+footer { border-top: 1px solid var(--border); padding: 40px 0 50px; margin-top: 60px; color: var(--text-muted); font-size: 0.85rem; }
+footer .container { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; }
+footer a { color: var(--text-muted); }
+footer a:hover { color: var(--text); }
+
+@media (max-width: 768px) {
+    .hero { padding: 50px 0 30px; }
+    .hero h1 { font-size: 2.1rem; }
+    .contact-form .row { grid-template-columns: 1fr; }
+    .contact-form { padding: 22px; }
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="/" class="logo">proto<span>dex</span></a>
+        <nav>
+            <a href="/">Directory</a>
+            <a href="/categories.html">Categories</a>
+            <a href="/blog/">Blog</a>
+            <a href="/submit.html">Submit</a>
+            <a href="/pricing.html" class="nav-cta">Get Featured</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">For MCP server builders</div>
+        <h1>Put your MCP server in front of<br><span class="gradient">developers actively shopping</span></h1>
+        <p>Protodex is the largest public MCP directory. Featured placements get your server seen by Claude, Cursor, and AI agent builders looking for exactly what you ship.</p>
+        <div class="stats-row">
+            <div><strong>10,524</strong> servers indexed</div>
+            <div><strong>200+</strong> categories</div>
+            <div><strong>Daily</strong> crawl updates</div>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="pricing-grid">
+
+        <div class="tier">
+            <div class="tier-name">Verified</div>
+            <div class="tier-price"><span class="amount">$19</span><span class="period">one-time</span></div>
+            <div class="tier-tag">Trust badge + listing review</div>
+            <ul>
+                <li>Verified badge on your server page</li>
+                <li>Human review of metadata, install instructions, README</li>
+                <li>Direct contact for listing fixes</li>
+                <li>Priority re-crawl after updates</li>
+                <li class="muted">No placement boost</li>
+            </ul>
+            <a class="tier-btn" href="#apply" data-tier="verified">Apply for Verified</a>
+        </div>
+
+        <div class="tier popular">
+            <div class="tier-name">Promoted</div>
+            <div class="tier-price"><span class="amount">$49</span><span class="period">/ month</span></div>
+            <div class="tier-tag">Surface above organic in your category</div>
+            <ul>
+                <li>Top-of-category placement on 1 category page</li>
+                <li>Verified badge included</li>
+                <li>Custom 1-line tagline shown on listing</li>
+                <li>SimpleAnalytics referral data shared monthly</li>
+                <li>Cancel anytime, no contract</li>
+            </ul>
+            <a class="tier-btn" href="#apply" data-tier="promoted">Apply for Promoted</a>
+        </div>
+
+        <div class="tier">
+            <div class="tier-name">Featured</div>
+            <div class="tier-price"><span class="amount">$99</span><span class="period">/ month</span></div>
+            <div class="tier-tag">Homepage spotlight + category top slot</div>
+            <ul>
+                <li>Homepage Featured strip (rotating, max 5 advertisers)</li>
+                <li>Top slot in up to 3 category pages</li>
+                <li>Inclusion in monthly "What's new on Protodex" blog post</li>
+                <li>Logo + tagline shown on listing</li>
+                <li>Everything in Promoted + Verified</li>
+            </ul>
+            <a class="tier-btn" href="#apply" data-tier="featured">Apply for Featured</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Why this works</h2>
+        <p class="lede">The directory already drives discovery. Featured placements give your server a fair shot against ones that just happened to launch with more GitHub stars.</p>
+        <div class="proof-row">
+            <div class="proof"><div class="num">10,524</div><div class="label">indexed MCP servers</div></div>
+            <div class="proof"><div class="num">Top 3</div><div class="label">Google rank for many MCP search queries</div></div>
+            <div class="proof"><div class="num">Daily</div><div class="label">crawler refreshes — your updates show fast</div></div>
+            <div class="proof"><div class="num">7-day</div><div class="label">money-back guarantee on monthly tiers</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="apply">
+    <div class="container">
+        <h2>Apply for a slot</h2>
+        <p class="lede">Slots are reviewed manually so the directory stays high-signal. Average response time is under 24 hours. We invoice via Polar or Stripe once approved — no payment until your placement is live.</p>
+
+        <form class="contact-form" id="apply-form">
+            <input type="hidden" name="access_key" value="b2fb1576-a39b-4683-8ee9-4e152f731113">
+            <input type="hidden" name="subject" value="Protodex Featured Application">
+            <input type="hidden" name="from_name" value="Protodex Pricing Page">
+            <input type="hidden" name="redirect" value="false">
+
+            <div class="row">
+                <div>
+                    <label for="name">Your name</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label for="tier">Tier</label>
+                    <select name="tier" id="tier" required>
+                        <option value="">— Select tier —</option>
+                        <option value="verified">Verified ($19 one-time)</option>
+                        <option value="promoted">Promoted ($49/mo)</option>
+                        <option value="featured">Featured ($99/mo)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="server_url">MCP server URL (GitHub / npm / docs)</label>
+                    <input type="url" name="server_url" id="server_url" required placeholder="https://github.com/...">
+                </div>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+                <label for="tagline">One-line tagline (shown on your listing if approved)</label>
+                <input type="text" name="tagline" id="tagline" maxlength="140" placeholder="e.g., Polymarket data MCP for quant traders">
+            </div>
+
+            <div style="margin-bottom: 16px;">
+                <label for="notes">Anything else? (target categories, special requests, questions)</label>
+                <textarea name="notes" id="notes" placeholder="Optional"></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn">Submit application</button>
+            <div id="form-msg"></div>
+            <div class="hint">By submitting you agree we can email you about your application. No marketing list, no resale.</div>
+        </form>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>FAQ</h2>
+        <div class="faq-grid" style="margin-top: 30px;">
+            <div class="faq">
+                <h3>Does paying for placement compromise the organic directory?</h3>
+                <p>No. Sponsored slots are visually labelled (`Sponsored` / `Featured` tag) and live alongside the organic ranking, not replacing it. The organic ranking algorithm continues to use stars, recency, install count, and category fit.</p>
+            </div>
+            <div class="faq">
+                <h3>Is there a refund policy?</h3>
+                <p>Yes — 7-day money-back on monthly tiers if you're unsatisfied. Verified is a one-time fee and is non-refundable once the review is delivered.</p>
+            </div>
+            <div class="faq">
+                <h3>What if my server isn't listed yet?</h3>
+                <p>Submit it at <a href="/submit.html">/submit</a> first. Once it's in the directory you can apply for a slot. Or apply now and mention it in the notes — we'll handle both in one review.</p>
+            </div>
+            <div class="faq">
+                <h3>Do you accept crypto / international payments?</h3>
+                <p>Yes. Polar.sh covers cards globally. We can also invoice via Stripe, Razorpay (INR), or accept stablecoins (USDC on Polygon) for annual plans.</p>
+            </div>
+            <div class="faq">
+                <h3>Why is there no self-checkout?</h3>
+                <p>Manual review keeps the directory high-signal — we won't take money to feature a broken or low-quality server. Average application-to-live time is under 48 hours.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div>© 2026 Protodex · <a href="/">Directory</a> · <a href="/blog/">Blog</a> · <a href="/security.html">Security</a></div>
+        <div>Questions? <a href="mailto:hello@protodex.io">hello@protodex.io</a></div>
+    </div>
+</footer>
+
+<script>
+// Pre-fill tier when user clicks a pricing card
+document.querySelectorAll('.tier-btn[data-tier]').forEach(b => {
+    b.addEventListener('click', e => {
+        const t = b.getAttribute('data-tier');
+        const sel = document.getElementById('tier');
+        if (sel) sel.value = t;
+    });
+});
+
+// Submit via Web3Forms (no backend)
+const form = document.getElementById('apply-form');
+const msg = document.getElementById('form-msg');
+const btn = document.getElementById('submit-btn');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    msg.textContent = '';
+    msg.className = '';
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try {
+        const data = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+        const j = await res.json();
+        if (j.success) {
+            msg.className = 'msg ok';
+            msg.innerHTML = '✓ Application received. You will hear back within 24 hours at the email you provided.';
+            form.reset();
+        } else {
+            msg.className = 'msg err';
+            msg.textContent = 'Something went wrong: ' + (j.message || 'try again or email hello@protodex.io directly.');
+        }
+    } catch (err) {
+        msg.className = 'msg err';
+        msg.textContent = 'Network error. Email hello@protodex.io directly with your application.';
+    }
+    btn.disabled = false;
+    btn.textContent = 'Submit application';
+});
+</script>
+<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</body>
+</html>
