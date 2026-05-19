@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Airdrop Reality Check — Multi-chain wallet scanner | Protodex</title>
+<meta name="description" content="The honest airdrop scanner. Scan multi-chain wallets, see real gas cost vs drops received, get a brutal-honesty action plan. EVM + Solana, 25+ protocols. Free.">
+<meta property="og:title" content="Airdrop Reality Check — Multi-chain wallet scanner">
+<meta property="og:description" content="Most airdrop farmers are net negative on gas. This scanner tells you the truth. EVM + Solana, 25+ protocols, free.">
+<meta property="og:url" content="https://protodex.io/airdrop.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Protodex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Airdrop Reality Check — Multi-chain wallet scanner">
+<meta name="twitter:description" content="Most airdrop farmers are net negative on gas. This scanner tells you the truth.">
+<link rel="canonical" href="https://protodex.io/airdrop.html">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://api.etherscan.io https://api.routescan.io https://api.sonicscan.org https://testnet.monadexplorer.com https://api.helius.xyz https://api.coingecko.com https://protodex.io https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com;">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #06090F;
+  --bg-card: #0B1119;
+  --bg-deep: #080d17;
+  --bg-hover: #11192A;
+  --border: rgba(255,255,255,0.06);
+  --border-strong: rgba(255,255,255,0.12);
+  --text: #EDF2F7;
+  --text-mid: #B0C4D8;
+  --text-muted: #6B7B8E;
+  --text-dim: #2D4A5E;
+  --accent: #10B981;
+  --accent-hover: #34D399;
+  --accent-glow: rgba(16,185,129,0.15);
+  --red: #EF4444;
+  --orange: #F97316;
+  --amber: #F59E0B;
+  --yellow: #FBBF24;
+  --blue: #3B82F6;
+  --purple: #8B5CF6;
+  --pink: #EC4899;
+  --cyan: #06B6D4;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', 'Menlo', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--mono);
+  background: var(--bg);
+  color: var(--text-mid);
+  line-height: 1.55;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--accent); text-decoration: none; transition: color .15s; }
+a:hover { color: var(--accent-hover); }
+button { font-family: inherit; }
+
+/* Page grid */
+.page {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, rgba(16,185,129,0.04), transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(139,92,246,0.03), transparent 50%),
+    var(--bg);
+}
+.page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(16,185,129,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16,185,129,0.015) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.wrap { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 18px 16px 60px; }
+
+/* Top nav (matches protodex) */
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0 22px;
+  font-family: var(--font);
+}
+.topnav .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; color: var(--text); font-size: 1.05rem; }
+.topnav .brand span { color: var(--accent); }
+.topnav nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.topnav nav a { color: var(--text-muted); font-size: 0.8rem; padding: 6px 10px; border-radius: 6px; font-weight: 500; }
+.topnav nav a:hover { color: var(--text); background: var(--bg-card); }
+.topnav nav a.cta { background: var(--accent); color: #06060a; font-weight: 700; }
+.topnav nav a.cta:hover { background: var(--accent-hover); color: #06060a; }
+
+/* Hero */
+.hero { margin-bottom: 24px; }
+.status { display: inline-flex; align-items: center; gap: 8px; padding: 4px 10px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 100px; font-size: 10px; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 12px; }
+.status .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 6px var(--accent); animation: pulse 2s infinite; }
+.hero h1 { font-family: var(--font); font-size: clamp(1.8rem, 4.5vw, 2.4rem); color: var(--text); letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 8px; font-weight: 800; }
+.hero h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero .sub { font-family: var(--font); color: var(--text-muted); font-size: 0.95rem; max-width: 720px; }
+
+/* Tier counts */
+.tier-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 16px; max-width: 360px; }
+.tier-pill { text-align: center; padding: 6px 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 6px; }
+.tier-pill b { font-family: var(--font); display: block; font-size: 14px; font-weight: 800; }
+.tier-pill span { font-size: 8px; letter-spacing: 1px; color: var(--text-dim); }
+
+/* Honest banner — the brutal truth callout */
+.honest-banner { background: linear-gradient(135deg, rgba(239,68,68,0.10), rgba(249,115,22,0.08)); border: 1px solid rgba(239,68,68,0.30); border-left: 3px solid var(--red); border-radius: 8px; padding: 14px 18px; margin: 18px 0 24px; }
+.honest-banner h3 { font-family: var(--font); color: #FECACA; font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; letter-spacing: 0.5px; }
+.honest-banner p { color: var(--text-mid); font-size: 12px; }
+.honest-banner b { color: #FCA5A5; }
+
+/* Card */
+.card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; margin-bottom: 14px; }
+.card-h { font-size: 9px; letter-spacing: 3px; color: var(--text-dim); margin-bottom: 12px; }
+.card-h::before { content: '▶ '; color: var(--accent); }
+
+/* Setup form */
+.setup-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.setup-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+@media (max-width: 720px) {
+  .setup-grid, .setup-grid-2 { grid-template-columns: 1fr; }
+  .tier-row { grid-template-columns: repeat(4, 1fr); max-width: 100%; }
+}
+.field { display: flex; flex-direction: column; }
+.field label { font-size: 9px; letter-spacing: 1.8px; color: var(--text-dim); margin-bottom: 6px; }
+.field input, .field textarea, .field select {
+  width: 100%; background: var(--bg-deep); border: 1px solid var(--border);
+  border-radius: 6px; color: var(--text-mid); font-size: 11px; font-family: var(--mono);
+  padding: 8px 10px; outline: none; resize: vertical;
+}
+.field textarea { min-height: 80px; }
+.field input::placeholder, .field textarea::placeholder { color: #0F2030; }
+.field input:focus, .field textarea:focus { border-color: rgba(16,185,129,0.4); }
+
+/* Run row */
+.run-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #059669);
+  color: #fff; border: none; border-radius: 6px; padding: 10px 22px;
+  font-size: 11px; letter-spacing: 2px; font-weight: 700; cursor: pointer;
+  font-family: var(--mono); transition: transform .1s;
+}
+.btn-primary:active { transform: scale(0.98); }
+.btn-primary:disabled { background: var(--bg-deep); color: var(--text-dim); cursor: not-allowed; }
+.btn-ghost {
+  background: transparent; color: var(--text-muted); border: 1px solid var(--border);
+  border-radius: 6px; padding: 8px 14px; font-size: 10px; cursor: pointer;
+  font-family: var(--mono); transition: all .15s;
+}
+.btn-ghost:hover { color: var(--text); border-color: var(--accent); }
+.meta { font-size: 10px; color: var(--text-dim); }
+
+/* Progress */
+.bar-track { flex: 1; min-width: 100px; height: 6px; background: var(--bg-deep); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent)60, var(--accent)); transition: width .6s; }
+.pct { font-size: 10px; color: var(--accent); min-width: 36px; }
+
+/* Tabs */
+.tabs { display: flex; flex-wrap: wrap; border-bottom: 1px solid var(--border); margin-bottom: 18px; }
+.tab { padding: 10px 16px; background: none; border: none; color: var(--text-dim); font-size: 10px; letter-spacing: 2px; cursor: pointer; font-family: var(--mono); text-transform: uppercase; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab:hover { color: var(--text); }
+
+/* Summary tiles */
+.summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
+.summary .tile { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+.summary .tile .label { font-size: 8px; letter-spacing: 2px; color: var(--text-dim); margin-bottom: 4px; }
+.summary .tile .v { font-family: var(--font); font-size: 18px; font-weight: 700; }
+@media (max-width: 540px) { .summary { grid-template-columns: repeat(2, 1fr); } }
+
+/* Gas Reality block */
+.gas-reality { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; background: var(--bg-deep); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 18px; }
+.gas-reality > div { padding: 14px 16px; border-right: 1px solid var(--border); }
+.gas-reality > div:last-child { border-right: 0; }
+.gas-reality .lbl { font-size: 9px; letter-spacing: 2px; color: var(--text-dim); margin-bottom: 4px; }
+.gas-reality .v { font-family: var(--font); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+.gas-reality .sub { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+.gas-reality .verdict-good { color: var(--accent); }
+.gas-reality .verdict-bad { color: var(--red); }
+.gas-reality .verdict-neutral { color: var(--amber); }
+@media (max-width: 720px) {
+  .gas-reality { grid-template-columns: 1fr; }
+  .gas-reality > div { border-right: 0; border-bottom: 1px solid var(--border); }
+  .gas-reality > div:last-child { border-bottom: 0; }
+}
+
+/* Wallet card */
+.wallet-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; }
+.wallet-h { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 12px; }
+.wallet-h .name { font-family: var(--font); font-size: 13px; color: var(--text); font-weight: 700; }
+.wallet-h .addr { font-size: 10px; color: var(--text-dim); }
+.wallet-h .right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.wallet-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+@media (max-width: 900px) { .wallet-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 540px) { .wallet-grid { grid-template-columns: repeat(2, 1fr); } }
+.proto-tile { background: var(--bg-deep); border: 1px solid var(--border); border-radius: 7px; padding: 8px 10px; }
+.proto-tile .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; font-size: 10px; font-weight: 700; }
+.proto-tile .score { font-size: 9px; color: var(--text-dim); margin-top: 3px; }
+
+/* Pills */
+.pill { display: inline-block; padding: 2px 7px; font-size: 9px; letter-spacing: 1.5px; font-weight: 700; border-radius: 3px; white-space: nowrap; }
+.pill.tiny { padding: 1px 5px; font-size: 8px; }
+
+/* Bar */
+.bar { height: 4px; background: var(--bg-deep); border-radius: 2px; overflow: hidden; }
+.bar > div { height: 100%; transition: width 1s ease; }
+
+/* Spin */
+.spin { width: 12px; height: 12px; border: 2px solid var(--bg-deep); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; display: inline-block; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* Per-wallet detail */
+.detail-row { display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid var(--border); align-items: flex-start; flex-wrap: wrap; }
+.detail-name { min-width: 130px; }
+.detail-name b { display: block; font-family: var(--font); font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+.detail-bd { flex: 1; min-width: 200px; }
+.detail-stats { display: flex; flex-wrap: wrap; gap: 10px; font-size: 10px; margin-top: 4px; }
+.detail-stats .k { color: var(--text-dim); }
+.detail-stats .v { color: var(--accent); }
+.detail-stats .v.zero { color: var(--text-dim); }
+
+/* Protocol grid */
+.proto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 720px) { .proto-grid { grid-template-columns: 1fr; } }
+.proto-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 10px; padding: 14px; position: relative; overflow: hidden; }
+.proto-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+.proto-card .row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.proto-card .row h4 { font-family: var(--font); font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.proto-card .pills { display: flex; flex-wrap: wrap; gap: 4px; }
+.proto-card .right { text-align: right; }
+.proto-card .right .pct { font-family: var(--font); font-size: 16px; font-weight: 800; }
+.proto-card .right .sub { font-size: 8px; color: var(--text-dim); }
+.proto-card .avg-block { margin-bottom: 8px; }
+.proto-card .avg-row { display: flex; align-items: center; gap: 8px; }
+.proto-card .avg-row .v { font-family: var(--font); font-size: 11px; font-weight: 700; min-width: 28px; }
+.proto-card .wallets-list { margin-bottom: 8px; }
+.proto-card .wallet-line { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-size: 10px; }
+.proto-card .wallet-line .lbl { color: var(--text-dim); min-width: 70px; }
+.proto-card .est { color: var(--accent); font-size: 10px; margin-top: 6px; font-weight: 600; }
+.proto-card .notes { font-size: 9.5px; color: var(--text-dim); margin-top: 4px; line-height: 1.5; }
+
+/* Actions */
+.action-section { margin-bottom: 18px; }
+.action-section .pri-h { font-size: 9px; letter-spacing: 3px; margin-bottom: 8px; }
+.action { display: flex; gap: 12px; padding: 12px 14px; border-radius: 7px; margin-bottom: 8px; align-items: center; flex-wrap: wrap; }
+.action .msg { flex: 1; min-width: 200px; font-size: 12px; color: var(--text); }
+.action .msg .proto { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
+.action .cta {
+  font-family: var(--mono);
+  background: transparent; color: var(--text); border: 1px solid var(--border-strong);
+  padding: 7px 14px; border-radius: 6px; font-size: 10px; letter-spacing: 1.5px; font-weight: 700;
+  cursor: pointer; text-decoration: none; transition: all .15s; white-space: nowrap;
+}
+.action .cta:hover { background: rgba(255,255,255,0.05); border-color: var(--accent); color: var(--accent); }
+.action.p0 { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.25); border-left: 3px solid var(--red); }
+.action.p1 { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.25); border-left: 3px solid var(--amber); }
+.action.p2 { background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.25); border-left: 3px solid var(--accent); }
+.action.p3 { background: rgba(139,92,246,0.06); border: 1px solid rgba(139,92,246,0.25); border-left: 3px solid var(--purple); }
+
+/* Sybil tab */
+.sybil-grid { display: grid; gap: 10px; }
+.sybil-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+.sybil-card.warn { background: rgba(239,68,68,0.05); border-color: rgba(239,68,68,0.3); }
+.sybil-card .h { font-family: var(--font); font-size: 12px; color: var(--text); font-weight: 600; margin-bottom: 4px; }
+.sybil-card .b { font-size: 11px; color: var(--text-muted); }
+
+/* Errors */
+.err { font-size: 10px; color: var(--red); }
+.empty { text-align: center; padding: 40px 20px; color: var(--text-dim); font-size: 12px; }
+
+/* Email capture */
+.email-block { background: linear-gradient(135deg, rgba(139,92,246,0.06), rgba(16,185,129,0.06)); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-top: 32px; }
+.email-block h3 { font-family: var(--font); color: var(--text); font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.email-block p { color: var(--text-muted); font-size: 12px; margin-bottom: 14px; max-width: 600px; }
+.email-form { display: flex; gap: 8px; max-width: 420px; flex-wrap: wrap; }
+.email-form input { flex: 1; min-width: 200px; padding: 10px 12px; background: var(--bg-deep); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 12px; }
+.email-form input:focus { outline: none; border-color: var(--accent); }
+.email-form button { padding: 10px 18px; background: var(--accent); color: #06060a; border: none; border-radius: 6px; font-weight: 700; font-size: 11px; cursor: pointer; }
+.email-form .msg { font-size: 11px; margin-top: 8px; width: 100%; }
+.email-form .msg.ok { color: var(--accent); }
+.email-form .msg.err { color: var(--red); }
+
+/* Footer */
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 9px; color: var(--text-dim); letter-spacing: 1.5px; }
+
+/* Share button */
+.share-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+
+/* Ring SVG inline */
+.ring text { font-family: var(--mono); }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="wrap">
+
+<div class="topnav">
+  <a href="/" class="brand">proto<span>dex</span></a>
+  <nav>
+    <a href="/">Directory</a>
+    <a href="/airdrop.html">Airdrop Scanner</a>
+    <a href="/blog/">Blog</a>
+    <a href="/pricing.html" class="cta">Get Featured</a>
+  </nav>
+</div>
+
+<div id="root"></div>
+
+<div class="foot">
+  <span>PROTODEX AIRDROP SCANNER v1 · Free · Open methodology · Verify on-chain</span>
+  <span>Heuristic scores · Not financial advice</span>
+</div>
+
+</div>
+</div>
+
+<!-- React + Babel via CDN, no build step -->
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"></script>
+
+<script type="text/babel" data-presets="react,env">
+const { useState, useEffect, useCallback, useMemo, useRef } = React;
+const { createRoot } = ReactDOM;
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const isEVM = (a) => /^0x[0-9a-fA-F]{40}$/.test(a);
+const isSOL = (a) => /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(a);
+const short = (a) => (a && a.length > 12 ? `${a.slice(0,6)}…${a.slice(-4)}` : a || '');
+const fmt = (v) => (typeof v === 'number' && v < 1 && v > 0 ? v.toFixed(3) : Math.round((v || 0) * 10) / 10);
+
+// ═══════════════════════════════════════════════════════════════════════════
+// V2 unified Etherscan supports almost all major chains. Special-cases below.
+// ═══════════════════════════════════════════════════════════════════════════
+const V2_CHAINS = new Set([1, 10, 8453, 42161, 59144, 534352, 324, 81457, 130, 34443, 5000, 7777777, 169, 80094, 146]);
+
+const CHAIN_META = {
+  1:       { name: "Ethereum",      short: "ETH",     color: "#627EEA", native: "ETH" },
+  10:      { name: "Optimism",      short: "OP",      color: "#FF0420", native: "ETH" },
+  8453:    { name: "Base",          short: "BASE",    color: "#3B82F6", native: "ETH" },
+  42161:   { name: "Arbitrum",      short: "ARB",     color: "#28A0F0", native: "ETH" },
+  59144:   { name: "Linea",         short: "LINEA",   color: "#818CF8", native: "ETH" },
+  534352:  { name: "Scroll",        short: "SCR",     color: "#FBBF24", native: "ETH" },
+  324:     { name: "zkSync Era",    short: "ZK",      color: "#60A5FA", native: "ETH" },
+  81457:   { name: "Blast",         short: "BLAST",   color: "#FDE68A", native: "ETH" },
+  130:     { name: "Unichain",      short: "UNI",     color: "#EC4899", native: "ETH" },
+  34443:   { name: "Mode",          short: "MODE",    color: "#4ADE80", native: "ETH" },
+  5000:    { name: "Mantle",        short: "MNT",     color: "#5EEAD4", native: "MNT" },
+  80094:   { name: "Berachain",     short: "BERA",    color: "#EF4444", native: "BERA" },
+  146:     { name: "Sonic",         short: "S",       color: "#22D3EE", native: "S" },
+  10143:   { name: "Monad Testnet", short: "MON",     color: "#8B5CF6", native: "MON" },
+  7777777: { name: "Zora",          short: "ZORA",    color: "#A78BFA", native: "ETH" },
+  169:     { name: "Manta",         short: "MANTA",   color: "#34D399", native: "ETH" },
+  "solana": { name: "Solana",       short: "SOL",     color: "#9945FF", native: "SOL" },
+};
+
+// Approximate native token USD prices for gas-cost calculation
+// Refreshable via CoinGecko fetch, fallback to these defaults.
+const DEFAULT_PRICES = {
+  ETH: 3200, MNT: 0.65, BERA: 4.20, S: 0.45, MON: 0.30, SOL: 165,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PROTOCOLS — curated for May 2026 reality
+// Most "easy" airdrops have already happened. What's left:
+//   S-TIER: rare pre-token plays with verifiable engagement signal
+//   A-TIER: post-token but ongoing seasons with high allocations
+//   B-TIER: speculative or thin signal
+//   C-TIER: low conviction
+// ═══════════════════════════════════════════════════════════════════════════
+const PROTOCOLS = [
+  // ── S-TIER ──────────────────────────────────────────────────────────────
+  {
+    id: "symbiotic", name: "Symbiotic", tier: "S", cat: "Restaking", status: "PRE-TOKEN",
+    color: "#EF4444", est: "₹1L–10L", likelihood: 75, chain: 1,
+    notes: "Restaking primitive (Mellow / Re7). Points season ongoing, TGE expected late 2026.",
+    action: { text: "Restake ETH on Symbiotic", url: "https://app.symbiotic.fi/" },
+    criteria: [
+      { label: "ETH Txs",     key: "txCount",       t: [3, 10, 30, 80],   pts: 30 },
+      { label: "Active Days", key: "uniqueDays",    t: [5, 20, 50, 100],  pts: 25 },
+      { label: "Has ETH",     key: "hasBalance",    t: [1, 1, 1, 1],      pts: 25 },
+      { label: "Active <30d", key: "recentlyActive",t: [1, 1, 1, 1],      pts: 20 },
+    ]
+  },
+  {
+    id: "mira", name: "Mira Network", tier: "S", cat: "AI Verification", status: "PRE-TOKEN",
+    color: "#8B5CF6", est: "Unknown", likelihood: 60, chain: 1,
+    notes: "AI output verification layer. Early discord engagement primary signal; ETH activity proxy weak.",
+    action: { text: "Join Mira Discord", url: "https://mira.network/" },
+    criteria: [
+      { label: "ETH Txs",     key: "txCount",       t: [5, 20, 50, 100],  pts: 30 },
+      { label: "Active Days", key: "uniqueDays",    t: [5, 20, 50, 100],  pts: 25 },
+      { label: "Has ETH",     key: "hasBalance",    t: [1, 1, 1, 1],      pts: 25 },
+      { label: "Active <30d", key: "recentlyActive",t: [1, 1, 1, 1],      pts: 20 },
+    ]
+  },
+  {
+    id: "monad", name: "Monad", tier: "S", cat: "L1 Testnet", status: "TESTNET",
+    color: "#A78BFA", est: "Variable", likelihood: 70, chain: 10143,
+    notes: "Mainnet not yet launched as of May 2026. Testnet daily streak + unique day count = primary signal. Testnet explorer API often unstable.",
+    action: { text: "Bridge to Monad testnet", url: "https://testnet.monad.xyz/" },
+    criteria: [
+      { label: "Tx Count",    key: "txCount",       t: [10, 50, 200, 500], pts: 40 },
+      { label: "Unique Days", key: "uniqueDays",    t: [5, 20, 45, 90],    pts: 35 },
+      { label: "Active <14d", key: "recentlyActive",t: [1, 1, 1, 1],       pts: 25 },
+    ]
+  },
+  {
+    id: "etherealize", name: "Etherealize", tier: "S", cat: "Institutional Onboarding", status: "PRE-TOKEN",
+    color: "#3B82F6", est: "Unknown", likelihood: 40, chain: 1,
+    notes: "Institutional ETH onramp (Vitalik / Joseph Lubin associated). Low retail eligibility expected; ETH whale wallets favored.",
+    action: { text: "Learn about Etherealize", url: "https://etherealize.com/" },
+    criteria: [
+      { label: "ETH Txs",     key: "txCount",       t: [5, 20, 50, 100],  pts: 25 },
+      { label: "Active Days", key: "uniqueDays",    t: [10, 30, 70, 150], pts: 25 },
+      { label: "Has ETH",     key: "hasBalance",    t: [1, 1, 1, 1],      pts: 25 },
+      { label: "ETH Volume",  key: "totalValueEth", t: [0.5, 2, 10, 50],  pts: 25 },
+    ]
+  },
+
+  // ── A-TIER (post-token but live points seasons) ─────────────────────────
+  {
+    id: "hyperevm", name: "HyperEVM", tier: "A", cat: "HL Ecosystem", status: "LIVE",
+    color: "#06B6D4", est: "₹50K–5L", likelihood: 65, chain: 42161,
+    notes: "Hyperliquid native L1 ecosystem (HypurrFi / HyperLend). Ecosystem token drops separate from HYPE; ARB wallet history is the bridge-eligibility proxy.",
+    action: { text: "Bridge to HyperEVM", url: "https://app.hyperliquid.xyz/" },
+    criteria: [
+      { label: "ARB Txs",      key: "txCount",       t: [10, 50, 200, 500], pts: 35 },
+      { label: "Active Days",  key: "uniqueDays",    t: [5, 15, 30, 60],    pts: 30 },
+      { label: "Active <30d",  key: "recentlyActive",t: [1, 1, 1, 1],       pts: 20 },
+      { label: "ETH Volume",   key: "totalValueEth", t: [0.1, 0.5, 2, 10],  pts: 15 },
+    ]
+  },
+  {
+    id: "berachain", name: "Berachain S2", tier: "A", cat: "L1", status: "LIVE",
+    color: "#EF4444", est: "₹50K–4L", likelihood: 60, chain: 80094,
+    notes: "BERA airdropped Feb 2025. S2 farming via BGT delegation + Infrared / Kodiak vaults. Diversity bonus rewards multi-dApp use.",
+    action: { text: "Stake BGT on Infrared", url: "https://infrared.finance/" },
+    criteria: [
+      { label: "BERA Txs",     key: "txCount",       t: [5, 25, 100, 300], pts: 35 },
+      { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 25, 50],   pts: 30 },
+      { label: "Active <30d",  key: "recentlyActive",t: [1, 1, 1, 1],      pts: 20 },
+      { label: "Volume",       key: "totalValueEth", t: [0.05, 0.2, 1, 5], pts: 15 },
+    ]
+  },
+  {
+    id: "sonic", name: "Sonic S2", tier: "A", cat: "L1", status: "LIVE",
+    color: "#22D3EE", est: "₹30K–3L", likelihood: 65, chain: 146,
+    notes: "S token airdropped Dec 2024. S2 farming via Rings + Beethoven X + SwapX. Volume + day count both matter.",
+    action: { text: "Trade on SwapX", url: "https://swapx.fi/" },
+    criteria: [
+      { label: "Txs",          key: "txCount",       t: [10, 40, 150, 400], pts: 35 },
+      { label: "Active Days",  key: "uniqueDays",    t: [5, 15, 30, 60],    pts: 30 },
+      { label: "Active <30d",  key: "recentlyActive",t: [1, 1, 1, 1],       pts: 20 },
+      { label: "Volume",       key: "totalValueEth", t: [1, 5, 20, 100],    pts: 15 },
+    ]
+  },
+  {
+    id: "linea", name: "Linea S3", tier: "A", cat: "L2", status: "LIVE",
+    color: "#818CF8", est: "₹20K–2L", likelihood: 70, chain: 59144,
+    notes: "LXP-L points still farmed post-LINEA. Ignition + Surge campaigns reward bridge + DeFi diversity.",
+    action: { text: "Bridge ETH to Linea", url: "https://bridge.linea.build/" },
+    criteria: [
+      { label: "Txs",          key: "txCount",       t: [10, 40, 150, 400], pts: 35 },
+      { label: "Active Days",  key: "uniqueDays",    t: [5, 15, 30, 60],    pts: 30 },
+      { label: "Active <30d",  key: "recentlyActive",t: [1, 1, 1, 1],       pts: 20 },
+      { label: "ETH Volume",   key: "totalValueEth", t: [0.05, 0.2, 1, 3],  pts: 15 },
+    ]
+  },
+  {
+    id: "scroll", name: "Scroll S3", tier: "A", cat: "ZK L2", status: "LIVE",
+    color: "#FBBF24", est: "₹15K–1.5L", likelihood: 55, chain: 534352,
+    notes: "SCR launched Oct 2024. S3 (Marks) farming continues via Ambient / Rho / SyncSwap.",
+    action: { text: "Trade on Ambient", url: "https://ambient.finance/" },
+    criteria: [
+      { label: "Txs",          key: "txCount",       t: [5, 20, 75, 200],   pts: 35 },
+      { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 25, 50],    pts: 35 },
+      { label: "Active <30d",  key: "recentlyActive",t: [1, 1, 1, 1],       pts: 30 },
+    ]
+  },
+
+  // ── B-TIER ──────────────────────────────────────────────────────────────
+  {
+    id: "base", name: "Base", tier: "B", cat: "L2", status: "LIVE",
+    color: "#3B82F6", est: "₹20K–2L", likelihood: 60, chain: 8453,
+    notes: "Coinbase's L2. No direct token but ecosystem drops (Aerodrome, Morpho, Moonwell, Beefy) compound on activity.",
+    action: { text: "Trade on Aerodrome", url: "https://aerodrome.finance/" },
+    criteria: [
+      { label: "Txs",          key: "txCount",       t: [10, 50, 200, 500], pts: 35 },
+      { label: "Active Days",  key: "uniqueDays",    t: [7, 20, 45, 90],    pts: 30 },
+      { label: "Active <30d",  key: "recentlyActive",t: [1, 1, 1, 1],       pts: 20 },
+      { label: "ETH Volume",   key: "totalValueEth", t: [0.05, 0.2, 1, 5],  pts: 15 },
+    ]
+  },
+  {
+    id: "unichain", name: "Unichain", tier: "B", cat: "L2", status: "LIVE",
+    color: "#EC4899", est: "₹10K–1L", likelihood: 55, chain: 130,
+    notes: "Uniswap's L2. UNI holder rewards + early-user bonus possible.",
+    action: { text: "Swap on Uniswap (Unichain)", url: "https://app.uniswap.org/" },
+    criteria: [
+      { label: "Txs",          key: "txCount",       t: [5, 20, 75, 200],   pts: 35 },
+      { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 20, 40],    pts: 30 },
+      { label: "Active <30d",  key: "recentlyActive",t: [1, 1, 1, 1],       pts: 20 },
+      { label: "ETH Volume",   key: "totalValueEth", t: [0.05, 0.2, 1, 3],  pts: 15 },
+    ]
+  },
+  {
+    id: "blast", name: "Blast Gold", tier: "B", cat: "L2", status: "LIVE",
+    color: "#FDE68A", est: "₹10K–1L", likelihood: 45, chain: 81457,
+    notes: "BLAST airdropped Jun 2024. Gold points still farmed via Thruster / Juice / Blasterswap. Diminished returns expected.",
+    action: { text: "Bridge to Blast", url: "https://blast.io/bridge" },
+    criteria: [
+      { label: "Txs",          key: "txCount",       t: [5, 20, 75, 200],   pts: 35 },
+      { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 25, 50],    pts: 35 },
+      { label: "Active <30d",  key: "recentlyActive",t: [1, 1, 1, 1],       pts: 30 },
+    ]
+  },
+  {
+    id: "mantle", name: "Mantle", tier: "B", cat: "L2", status: "LIVE",
+    color: "#5EEAD4", est: "₹10K–80K", likelihood: 40, chain: 5000,
+    notes: "mETH ecosystem + Merchant Moe. Lower-conviction farming after MNT token mature.",
+    action: { text: "Stake mETH", url: "https://meth.mantle.xyz/" },
+    criteria: [
+      { label: "Txs",          key: "txCount",       t: [5, 20, 75, 200],   pts: 40 },
+      { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 25, 50],    pts: 35 },
+      { label: "Active <30d",  key: "recentlyActive",t: [1, 1, 1, 1],       pts: 25 },
+    ]
+  },
+  {
+    id: "manta", name: "Manta Pacific", tier: "B", cat: "ZK L2", status: "LIVE",
+    color: "#34D399", est: "₹5K–50K", likelihood: 35, chain: 169,
+    notes: "Post-MANTA, points seasons via izumi / Aperture. Lower conviction.",
+    action: { text: "Trade on Manta", url: "https://pacific.manta.network/" },
+    criteria: [
+      { label: "Txs",          key: "txCount",       t: [5, 20, 75, 200],   pts: 40 },
+      { label: "Active Days",  key: "uniqueDays",    t: [3, 10, 25, 50],    pts: 35 },
+      { label: "Active <30d",  key: "recentlyActive",t: [1, 1, 1, 1],       pts: 25 },
+    ]
+  },
+
+  // ── Solana programs (use program-detected counts) ───────────────────────
+  {
+    id: "jupiter", name: "Jupiter S5+", tier: "A", cat: "DEX Agg", status: "LIVE",
+    color: "#10B981", est: "₹20K–3L", likelihood: 60, chain: "solana",
+    programId: "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+    notes: "JUP S1-S4 already airdropped. S5+ farming via swap volume and perps. Diversity of swap pairs matters.",
+    action: { text: "Swap on Jupiter", url: "https://jup.ag/" },
+    criteria: [
+      { label: "SOL Txs",      key: "solTxCount",      t: [10, 50, 200, 500], pts: 25 },
+      { label: "Active Days",  key: "solUniqueDays",   t: [5, 20, 40, 80],    pts: 25 },
+      { label: "JUP Swaps",    key: "jupiterTxs",      t: [3, 15, 50, 150],   pts: 35 },
+      { label: "Active <30d",  key: "solRecentlyActive",t: [1, 1, 1, 1],      pts: 15 },
+    ]
+  },
+  {
+    id: "kamino", name: "Kamino S3", tier: "B", cat: "Lending", status: "LIVE",
+    color: "#34D399", est: "₹15K–2L", likelihood: 50, chain: "solana",
+    programId: "KLend2g3cP87fffoy8q1mQqGKjrL4D8KCRG2aFiGJFt",
+    notes: "KMNO already airdropped. Multiply + lend continues for ongoing seasons.",
+    action: { text: "Lend on Kamino", url: "https://app.kamino.finance/" },
+    criteria: [
+      { label: "SOL Txs",      key: "solTxCount",      t: [5, 30, 100, 300], pts: 20 },
+      { label: "Active Days",  key: "solUniqueDays",   t: [5, 15, 35, 70],   pts: 20 },
+      { label: "Kamino Ixs",   key: "kaminoTxs",       t: [2, 10, 30, 100],  pts: 45 },
+      { label: "Active <30d",  key: "solRecentlyActive",t: [1, 1, 1, 1],     pts: 15 },
+    ]
+  },
+  {
+    id: "drift", name: "Drift S4", tier: "B", cat: "Perps DEX", status: "LIVE",
+    color: "#F472B6", est: "₹15K–1.5L", likelihood: 55, chain: "solana",
+    programId: "dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH",
+    notes: "DRIFT + BET tokens already live. Vaults and perps continue for ongoing programs.",
+    action: { text: "Trade perps on Drift", url: "https://app.drift.trade/" },
+    criteria: [
+      { label: "SOL Txs",      key: "solTxCount",      t: [5, 25, 100, 300], pts: 25 },
+      { label: "Active Days",  key: "solUniqueDays",   t: [3, 12, 30, 60],   pts: 25 },
+      { label: "Drift Trades", key: "driftTxs",        t: [2, 10, 30, 100],  pts: 35 },
+      { label: "Active <30d",  key: "solRecentlyActive",t: [1, 1, 1, 1],     pts: 15 },
+    ]
+  },
+  {
+    id: "marginfi", name: "Marginfi S2", tier: "C", cat: "Lending", status: "LIVE",
+    color: "#6EE7B7", est: "₹5K–50K", likelihood: 30, chain: "solana",
+    programId: "MFv2hWf31Z9kbCa1snEPdcgp168vLs2dz1jm3ke4GJsq",
+    notes: "MRGN airdrop disputed/delayed. Continuing points season but conviction low.",
+    action: { text: "Lend on Marginfi", url: "https://app.marginfi.com/" },
+    criteria: [
+      { label: "SOL Txs",      key: "solTxCount",      t: [5, 20, 75, 200],  pts: 25 },
+      { label: "Mrgn Ixs",     key: "marginfITxs",     t: [2, 8, 25, 80],    pts: 45 },
+      { label: "Active <30d",  key: "solRecentlyActive",t: [1, 1, 1, 1],     pts: 30 },
+    ]
+  },
+];
+
+const T = { S: "#EF4444", A: "#F59E0B", B: "#10B981", C: "#6B7B8E" };
+const TIER_LABEL = { S: "PRE-TOKEN — Max upside", A: "Live season — High conviction", B: "Active — Lower conviction", C: "Speculative — Low conviction" };
+
+// ═══════════════════════════════════════════════════════════════════════════
+// API helpers
+// ═══════════════════════════════════════════════════════════════════════════
+function buildEVMUrls(address, chainId, apiKey) {
+  let base; let useKey = true;
+  if (V2_CHAINS.has(chainId) && chainId !== 80094 && chainId !== 146) {
+    base = `https://api.etherscan.io/v2/api?chainid=${chainId}`;
+  } else if (chainId === 80094) {
+    base = "https://api.routescan.io/v2/network/mainnet/evm/80094/etherscan/api?x=1";
+    useKey = false;
+  } else if (chainId === 146) {
+    base = "https://api.sonicscan.org/api?x=1";
+    // Sonicscan needs its own key — if user supplied Etherscan, this'll fail gracefully
+  } else if (chainId === 10143) {
+    base = "https://testnet.monadexplorer.com/api?x=1";
+    useKey = false;
+  } else {
+    return null;
+  }
+  const k = useKey && apiKey ? `&apikey=${apiKey}` : "";
+  return {
+    txList: `${base}&module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&sort=asc&page=1&offset=2000${k}`,
+    balance: `${base}&module=account&action=balance&address=${address}&tag=latest${k}`,
+  };
+}
+
+async function fetchWithRetry(url, attempts = 2) {
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const r = await fetch(url, { method: 'GET' });
+      if (r.status === 429 || r.status === 503) {
+        await sleep(1500 + i * 1500);
+        continue;
+      }
+      if (!r.ok) {
+        return { ok: false, error: `HTTP ${r.status}` };
+      }
+      const data = await r.json();
+      return { ok: true, data };
+    } catch (e) {
+      if (i === attempts - 1) return { ok: false, error: e.message };
+      await sleep(800);
+    }
+  }
+  return { ok: false, error: 'unknown' };
+}
+
+async function fetchEVMChain(address, chainId, apiKey) {
+  const urls = buildEVMUrls(address, chainId, apiKey);
+  if (!urls) return { txs: [], balWei: "0", error: "Unsupported chain" };
+  const [tr, br] = await Promise.all([
+    fetchWithRetry(urls.txList),
+    fetchWithRetry(urls.balance),
+  ]);
+  const data = tr.ok ? tr.data : null;
+  const txs = (data && data.status === "1") ? (data.result || []) : [];
+  const err = !tr.ok ? tr.error :
+              (data && data.status !== "1" && data.message && !String(data.message).includes("No transactions") ? String(data.message) : null);
+  return { txs, balWei: (br.ok && br.data ? br.data.result : "0") || "0", error: err };
+}
+
+// FIX from v1: use UTC day, count all relevant interactions, surface gas spent
+function computeEVMMetrics(txs, address, balWei) {
+  const addr = address.toLowerCase();
+  const now = Date.now() / 1000;
+  // Outgoing txs (user-initiated activity)
+  const out = txs.filter(t => t.from && t.from.toLowerCase() === addr && t.isError !== "1");
+  // Track all wallets touched (token transfers, contracts called)
+  const counterparties = new Set();
+  out.forEach(t => { if (t.to) counterparties.add(t.to.toLowerCase()); });
+  // Days in UTC (not local timezone)
+  const days = new Set(out.map(t => new Date(parseInt(t.timeStamp) * 1000).toISOString().slice(0, 10)));
+  // Time spread: stddev of tx timestamps in days (higher = more consistent over time)
+  const spread = (() => {
+    if (out.length < 2) return 0;
+    const ts = out.map(t => parseInt(t.timeStamp));
+    const min = Math.min(...ts), max = Math.max(...ts);
+    return (max - min) / 86400;
+  })();
+  // Gas spent (sum gasUsed * gasPrice across outgoing)
+  let gasWei = 0n;
+  try {
+    out.forEach(t => {
+      if (t.gasUsed && t.gasPrice) {
+        gasWei += BigInt(t.gasUsed) * BigInt(t.gasPrice);
+      }
+    });
+  } catch (e) { gasWei = 0n; }
+  const gasNative = Number(gasWei) / 1e18;
+  return {
+    txCount: out.length,
+    uniqueDays: days.size,
+    daysList: [...days],
+    counterpartiesCount: counterparties.size,
+    spread,
+    recentlyActive: out.some(t => parseInt(t.timeStamp) > now - 30 * 86400) ? 1 : 0,
+    totalValueEth: out.reduce((s, t) => s + parseFloat(t.value || "0") / 1e18, 0),
+    lastDaysAgo: txs.length ? Math.floor((now - parseInt(txs[txs.length - 1].timeStamp)) / 86400) : null,
+    hasBalance: parseFloat(balWei) / 1e18 > 0.05 ? 1 : 0,
+    balanceNative: parseFloat(balWei) / 1e18,
+    gasNative,
+    counterparties: [...counterparties],
+  };
+}
+
+async function fetchSolana(address, heliusKey) {
+  if (!heliusKey) return { txs: [], error: "Missing Helius key" };
+  const all = []; let before;
+  for (let p = 0; p < 8; p++) {
+    try {
+      let url = `https://api.helius.xyz/v0/addresses/${address}/transactions?api-key=${heliusKey}&limit=100`;
+      if (before) url += `&before=${before}`;
+      const r = await fetch(url);
+      if (!r.ok) {
+        const t = await r.text();
+        return { txs: all, error: `Helius ${r.status}: ${t.slice(0, 80)}` };
+      }
+      const d = await r.json();
+      if (!Array.isArray(d) || !d.length) break;
+      all.push(...d);
+      before = d[d.length - 1].signature;
+      if (d.length < 100) break;
+      await sleep(220);
+    } catch (e) { return { txs: all, error: e.message }; }
+  }
+  return { txs: all, error: null };
+}
+
+// FIX from v1: scan ALL accountData entries, not just [0]; UTC day; surface gas
+function computeSolMetrics(txs, address) {
+  const now = Date.now() / 1000;
+  const mine = txs.filter(t => {
+    if (t.transactionError) return false;
+    if (t.feePayer === address) return true;
+    if (Array.isArray(t.accountData) && t.accountData.some(a => a.account === address)) return true;
+    return false;
+  });
+  const days = new Set(mine.map(t => new Date(t.timestamp * 1000).toISOString().slice(0, 10)));
+  const programCounts = {};
+  const counterparties = new Set();
+  mine.forEach(tx => {
+    const ps = new Set();
+    (tx.instructions || []).forEach(i => i.programId && ps.add(i.programId));
+    (tx.innerInstructions || []).forEach(ii => (ii.instructions || []).forEach(i => i.programId && ps.add(i.programId)));
+    ps.forEach(p => { programCounts[p] = (programCounts[p] || 0) + 1; counterparties.add(p); });
+  });
+  // Gas (fees) sum
+  const feeLamports = mine.reduce((s, t) => s + (t.fee || 0), 0);
+  const feeSOL = feeLamports / 1e9;
+  return {
+    solTxCount: mine.length,
+    solUniqueDays: days.size,
+    solCounterparties: counterparties.size,
+    solRecentlyActive: mine.some(t => t.timestamp > now - 30 * 86400) ? 1 : 0,
+    solGasNative: feeSOL,
+    daysList: [...days],
+    jupiterTxs:  programCounts["JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4"] || 0,
+    kaminoTxs:   programCounts["KLend2g3cP87fffoy8q1mQqGKjrL4D8KCRG2aFiGJFt"] || 0,
+    driftTxs:    programCounts["dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH"] || 0,
+    marginfITxs: programCounts["MFv2hWf31Z9kbCa1snEPdcgp168vLs2dz1jm3ke4GJsq"] || 0,
+    counterpartiesArr: [...counterparties],
+  };
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Scoring v2: volume thresholds + diversity multiplier + consistency multiplier
+// ═══════════════════════════════════════════════════════════════════════════
+function scoreProto(metrics, proto) {
+  const m = metrics[proto.chain] || {};
+  let total = 0;
+  const bd = [];
+  proto.criteria.forEach(c => {
+    const v = m[c.key] ?? 0, t = c.t;
+    const pts = v >= t[3] ? c.pts : v >= t[2] ? Math.round(c.pts * 0.75) : v >= t[1] ? Math.round(c.pts * 0.5) : v >= t[0] ? Math.round(c.pts * 0.25) : 0;
+    total += pts;
+    bd.push({ label: c.label, val: v, pts, max: c.pts });
+  });
+  // Diversity bonus: unique counterparties / 10, capped at +20%
+  const isSol = proto.chain === "solana";
+  const cps = isSol ? (m.solCounterparties || 0) : (m.counterpartiesCount || 0);
+  const diversityMult = Math.min(1.2, 1 + cps / 50);
+  // Consistency bonus: time spread > 30 days = +10%
+  const spread = isSol ? 0 : (m.spread || 0);
+  const consistencyMult = spread > 30 ? 1.1 : 1.0;
+  const adjusted = Math.min(100, Math.round(total * diversityMult * consistencyMult));
+  return { score: adjusted, raw: total, breakdown: bd, diversityMult, consistencyMult };
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Sybil correlation: do two wallets share too many active days?
+// ═══════════════════════════════════════════════════════════════════════════
+function detectSybilClusters(metrics, allAddrs) {
+  const clusters = [];
+  for (let i = 0; i < allAddrs.length; i++) {
+    for (let j = i + 1; j < allAddrs.length; j++) {
+      const a = allAddrs[i], b = allAddrs[j];
+      const mA = metrics[a], mB = metrics[b];
+      if (!mA || !mB) continue;
+      // Collect all days across all chains for each wallet
+      const daysA = new Set(), daysB = new Set();
+      Object.values(mA).forEach(cm => (cm.daysList || []).forEach(d => daysA.add(d)));
+      Object.values(mB).forEach(cm => (cm.daysList || []).forEach(d => daysB.add(d)));
+      if (daysA.size < 5 || daysB.size < 5) continue;
+      const overlap = [...daysA].filter(d => daysB.has(d)).length;
+      const smaller = Math.min(daysA.size, daysB.size);
+      const pct = overlap / smaller;
+      if (pct > 0.65) {
+        clusters.push({ a, b, overlap, daysA: daysA.size, daysB: daysB.size, pct });
+      }
+    }
+  }
+  return clusters;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Gas cost roll-up (USD)
+// ═══════════════════════════════════════════════════════════════════════════
+function computeGasUSD(metrics, prices) {
+  let totalUSD = 0;
+  const byChain = {};
+  Object.entries(metrics).forEach(([addr, byCh]) => {
+    Object.entries(byCh).forEach(([chainId, m]) => {
+      const native = (chainId === "solana" ? m.solGasNative : m.gasNative) || 0;
+      const sym = CHAIN_META[chainId]?.native || "ETH";
+      const usd = native * (prices[sym] || DEFAULT_PRICES[sym] || 0);
+      totalUSD += usd;
+      byChain[chainId] = (byChain[chainId] || 0) + usd;
+    });
+  });
+  return { totalUSD, byChain };
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// UI primitives
+// ═══════════════════════════════════════════════════════════════════════════
+function Pill({ children, color = "#10B981", tiny }) {
+  return (
+    <span className={"pill" + (tiny ? " tiny" : "")} style={{ background: `${color}1A`, color, border: `1px solid ${color}40` }}>
+      {children}
+    </span>
+  );
+}
+function Bar({ v, color, h = 4 }) {
+  return <div className="bar" style={{ height: h }}><div style={{ width: `${Math.min(100, v)}%`, background: `linear-gradient(90deg, ${color}55, ${color})` }} /></div>;
+}
+function Ring({ score, color, size = 44 }) {
+  const r = (size - 8) / 2, c = 2 * Math.PI * r;
+  return (
+    <svg className="ring" width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="#0d1525" strokeWidth={4} />
+      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke={color} strokeWidth={4}
+        strokeDasharray={c} strokeDashoffset={c - (score / 100) * c}
+        strokeLinecap="round" transform={`rotate(-90 ${size/2} ${size/2})`}
+        style={{ transition: "stroke-dashoffset 1s ease" }} />
+      <text x={size/2} y={size/2 + 4} textAnchor="middle" fill={color} style={{ fontSize: 10, fontWeight: 700 }}>{score}</text>
+    </svg>
+  );
+}
+const Spin = () => <span className="spin"></span>;
+
+// ═══════════════════════════════════════════════════════════════════════════
+// MAIN APP
+// ═══════════════════════════════════════════════════════════════════════════
+function AirdropScanner() {
+  // Load from localStorage on mount
+  const [ethKey, setEthKey] = useState(() => localStorage.getItem('pd_eth_key') || '');
+  const [helKey, setHelKey] = useState(() => localStorage.getItem('pd_hel_key') || '');
+  const [evmRaw, setEvmRaw] = useState(() => localStorage.getItem('pd_evm_raw') || '');
+  const [solRaw, setSolRaw] = useState(() => localStorage.getItem('pd_sol_raw') || '');
+  const [labRaw, setLabRaw] = useState(() => localStorage.getItem('pd_lab_raw') || '');
+  const [labels, setLabels] = useState({});
+  const [metrics, setMetrics] = useState({});
+  const [scanSt, setScanSt] = useState({});
+  const [errors, setErrors] = useState({});
+  const [tab, setTab] = useState("overview");
+  const [ran, setRan] = useState(false);
+  const [progress, setProgress] = useState({ done: 0, total: 0 });
+  const [prices, setPrices] = useState(DEFAULT_PRICES);
+  const [showKeys, setShowKeys] = useState(false);
+
+  // Persist
+  useEffect(() => { localStorage.setItem('pd_eth_key', ethKey); }, [ethKey]);
+  useEffect(() => { localStorage.setItem('pd_hel_key', helKey); }, [helKey]);
+  useEffect(() => { localStorage.setItem('pd_evm_raw', evmRaw); }, [evmRaw]);
+  useEffect(() => { localStorage.setItem('pd_sol_raw', solRaw); }, [solRaw]);
+  useEffect(() => { localStorage.setItem('pd_lab_raw', labRaw); }, [labRaw]);
+
+  // Pull live native-token prices from CoinGecko (fallback to defaults if it fails)
+  useEffect(() => {
+    (async () => {
+      try {
+        const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum,mantle,berachain-bera,sonic-3,monad,solana&vs_currencies=usd');
+        if (r.ok) {
+          const d = await r.json();
+          setPrices({
+            ETH:  d.ethereum?.usd  || DEFAULT_PRICES.ETH,
+            MNT:  d.mantle?.usd    || DEFAULT_PRICES.MNT,
+            BERA: d['berachain-bera']?.usd || DEFAULT_PRICES.BERA,
+            S:    d['sonic-3']?.usd || DEFAULT_PRICES.S,
+            MON:  d.monad?.usd     || DEFAULT_PRICES.MON,
+            SOL:  d.solana?.usd    || DEFAULT_PRICES.SOL,
+          });
+        }
+      } catch (e) { /* keep defaults */ }
+    })();
+  }, []);
+
+  const evmWallets = useMemo(() => evmRaw.split(/[\n,]+/).map(s => s.trim()).filter(isEVM), [evmRaw]);
+  const solWallets = useMemo(() => solRaw.split(/[\n,]+/).map(s => s.trim()).filter(isSOL), [solRaw]);
+  const allWallets = useMemo(() => [...evmWallets.map(a => ({ a, type: "evm" })), ...solWallets.map(a => ({ a, type: "sol" }))], [evmWallets, solWallets]);
+  const allAddrs = useMemo(() => [...evmWallets, ...solWallets], [evmWallets, solWallets]);
+
+  const evmChains = useMemo(() => [...new Set(PROTOCOLS.filter(p => p.chain !== "solana").map(p => p.chain))], []);
+  const needsSolana = useMemo(() => PROTOCOLS.some(p => p.chain === "solana"), []);
+  const totalQueries = evmWallets.length * evmChains.length + (needsSolana ? solWallets.length : 0);
+
+  const run = useCallback(async () => {
+    setRan(true);
+    setMetrics({});
+    setScanSt({});
+    setErrors({});
+    let done = 0;
+    // Parse labels
+    const lbls = {};
+    const lblLines = labRaw.split(/[\n,]+/).map(s => s.trim());
+    [...evmWallets, ...solWallets].forEach((a, i) => { if (lblLines[i]) lbls[a] = lblLines[i]; });
+    setLabels(lbls);
+    setProgress({ done: 0, total: totalQueries });
+
+    // FIX: parallelize per-wallet across chains (3-5 in flight), keeps under explorer rate limits
+    const tasks = [];
+    for (const address of evmWallets) {
+      for (const chainId of evmChains) {
+        tasks.push({ type: 'evm', address, chainId });
+      }
+    }
+    for (const address of solWallets) tasks.push({ type: 'sol', address });
+
+    // Process in batches of 5
+    const BATCH = 5;
+    for (let i = 0; i < tasks.length; i += BATCH) {
+      const batch = tasks.slice(i, i + BATCH);
+      await Promise.allSettled(batch.map(async (task) => {
+        const key = task.type === 'sol' ? `${task.address}_solana` : `${task.address}_${task.chainId}`;
+        setScanSt(s => ({ ...s, [key]: "loading" }));
+        if (task.type === 'evm') {
+          const { txs, balWei, error } = await fetchEVMChain(task.address, task.chainId, ethKey);
+          const m = computeEVMMetrics(txs, task.address, balWei);
+          setMetrics(prev => ({ ...prev, [task.address]: { ...(prev[task.address] || {}), [task.chainId]: m } }));
+          setScanSt(s => ({ ...s, [key]: error ? "error" : "done" }));
+          if (error) setErrors(e => ({ ...e, [key]: error }));
+        } else {
+          const { txs, error } = await fetchSolana(task.address, helKey);
+          const m = computeSolMetrics(txs, task.address);
+          setMetrics(prev => ({ ...prev, [task.address]: { ...(prev[task.address] || {}), solana: m } }));
+          setScanSt(s => ({ ...s, [key]: error ? "error" : "done" }));
+          if (error) setErrors(e => ({ ...e, [key]: error }));
+        }
+        done++;
+        setProgress({ done, total: totalQueries });
+      }));
+      await sleep(300); // Inter-batch breather
+    }
+  }, [evmWallets, solWallets, ethKey, helKey, labRaw, totalQueries, evmChains]);
+
+  const getScore = useCallback((address, proto) => {
+    const m = metrics[address];
+    if (!m) return null;
+    return scoreProto(m, proto);
+  }, [metrics]);
+
+  const walletAvg = useCallback((address) => {
+    const m = metrics[address];
+    if (!m) return 0;
+    // Restrict to protocols on the right chain type
+    const type = isEVM(address) ? 'evm' : 'sol';
+    const ps = PROTOCOLS.filter(p => type === 'evm' ? p.chain !== "solana" : p.chain === "solana");
+    const scores = ps.map(p => getScore(address, p)).filter(Boolean).map(s => s.score);
+    return scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0;
+  }, [metrics, getScore]);
+
+  const protoAvg = useCallback((proto) => {
+    const addrs = proto.chain === "solana" ? solWallets : evmWallets;
+    const scores = addrs.map(a => getScore(a, proto)).filter(Boolean).map(s => s.score);
+    return scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0;
+  }, [evmWallets, solWallets, getScore]);
+
+  const statusKey = (address, chainId) => `${address}_${chainId === "solana" ? "solana" : chainId}`;
+
+  // Gas reality
+  const gas = useMemo(() => computeGasUSD(metrics, prices), [metrics, prices]);
+
+  // Sybil
+  const sybilClusters = useMemo(() => detectSybilClusters(metrics, allAddrs), [metrics, allAddrs]);
+
+  // Action plan with affiliate-ready outbound URLs
+  const actions = useMemo(() => {
+    const out = [];
+    if (!ran) return out;
+    PROTOCOLS.forEach(proto => {
+      const addrs = proto.chain === "solana" ? solWallets : evmWallets;
+      // No wallet on right chain
+      if (addrs.length === 0) {
+        out.push({
+          pri: proto.tier === "S" ? "P0" : "P2",
+          msg: `No ${proto.chain === "solana" ? "Solana" : "EVM"} wallet farming ${proto.name}`,
+          proto: proto.name,
+          tier: proto.tier,
+          action: proto.action,
+        });
+        return;
+      }
+      // Low-scoring wallets on S-tier
+      addrs.forEach(a => {
+        const r = getScore(a, proto);
+        if (!r) return;
+        if (proto.tier === "S" && r.score < 30) {
+          out.push({
+            pri: "P0", proto: proto.name, tier: proto.tier,
+            msg: `${labels[a] || short(a)} scores ${r.score}/100 on ${proto.name} — high-upside opportunity at risk`,
+            action: proto.action,
+          });
+        }
+        if ((proto.tier === "A") && r.score < 40) {
+          out.push({
+            pri: "P1", proto: proto.name, tier: proto.tier,
+            msg: `${labels[a] || short(a)} scores ${r.score}/100 on ${proto.name} — boost activity this week`,
+            action: proto.action,
+          });
+        }
+        // Inactive on active-season protocols
+        const m = metrics[a]?.[proto.chain];
+        const isSol = proto.chain === "solana";
+        const inactive = isSol ? m?.solRecentlyActive === 0 : m?.recentlyActive === 0;
+        if (inactive && r.score > 30 && (proto.tier === "A" || proto.tier === "S")) {
+          out.push({
+            pri: "P1", proto: proto.name, tier: proto.tier,
+            msg: `${labels[a] || short(a)} inactive >30 days on ${proto.name} — streak at risk`,
+            action: proto.action,
+          });
+        }
+      });
+    });
+    // Sort by priority
+    return out.sort((x, y) => x.pri.localeCompare(y.pri));
+  }, [ran, evmWallets, solWallets, metrics, labels, getScore]);
+
+  const pct = progress.total > 0 ? Math.round(progress.done / progress.total * 100) : 0;
+  const scanning = Object.values(scanSt).some(s => s === "loading");
+  const tierCounts = ['S','A','B','C'].map(t => ({ t, n: PROTOCOLS.filter(p => p.tier === t).length }));
+
+  // Share text for Twitter
+  const shareText = useMemo(() => {
+    if (!ran) return '';
+    const avg = allAddrs.map(a => walletAvg(a)).filter(Boolean);
+    const overall = avg.length ? Math.round(avg.reduce((a, b) => a + b, 0) / avg.length) : 0;
+    return `Just scanned ${allAddrs.length} wallets across ${PROTOCOLS.length} protocols on @protodex_io airdrop reality check.\n\nAvg score: ${overall}/100\nGas spent: $${gas.totalUSD.toFixed(2)}\n\nFree tool: https://protodex.io/airdrop.html`;
+  }, [ran, allAddrs, walletAvg, gas]);
+
+  const onShareTwitter = () => {
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+    window.open(url, '_blank', 'noopener');
+  };
+
+  const onCopyShare = async () => {
+    try {
+      await navigator.clipboard.writeText(shareText);
+      const el = document.getElementById('copy-msg');
+      if (el) { el.textContent = 'Copied!'; setTimeout(() => { el.textContent = ''; }, 1500); }
+    } catch (e) {}
+  };
+
+  return (
+    <>
+      <div className="hero">
+        <div className="status"><span className="dot"></span>PROTODEX // AIRDROP REALITY CHECK</div>
+        <h1>The <span className="gradient">honest</span> airdrop scanner</h1>
+        <p className="sub">Multi-chain wallet scanner with real gas-cost accounting, Sybil cluster detection, and a brutal-honesty action plan. EVM + Solana. {PROTOCOLS.length} protocols. Your data never leaves your browser.</p>
+        <div className="tier-row">
+          {tierCounts.map(({ t, n }) => (
+            <div className="tier-pill" key={t}>
+              <b style={{ color: T[t] }}>{n}</b>
+              <span>{t}-TIER</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="honest-banner">
+        <h3>⚠ Airdrop reality (May 2026)</h3>
+        <p>The easy era is over. <b>HYPE, BERA, ZK, SCR, MODE, S, INIT, ES, MON</b> have all airdropped. Most retail farmers are <b>net negative on gas</b>. This scanner shows you the truth: what's left worth farming, what you've actually spent, and which of your wallets look like a Sybil cluster. Free. Open methodology.</p>
+      </div>
+
+      {/* SETUP */}
+      <div className="card">
+        <div className="card-h">SCANNER SETUP</div>
+        <div className="setup-grid">
+          <div className="field">
+            <label>EVM WALLETS (0x...)</label>
+            <textarea value={evmRaw} onChange={e => setEvmRaw(e.target.value)} placeholder={"0xWallet1\n0xWallet2"} rows={3} />
+          </div>
+          <div className="field">
+            <label>SOLANA WALLETS (base58)</label>
+            <textarea value={solRaw} onChange={e => setSolRaw(e.target.value)} placeholder={"SolWallet1\nSolWallet2"} rows={3} />
+          </div>
+          <div className="field">
+            <label>LABELS (one per wallet, same order)</label>
+            <textarea value={labRaw} onChange={e => setLabRaw(e.target.value)} placeholder={"Main\nFarming-1\nFarming-2"} rows={3} />
+          </div>
+        </div>
+        <div className="setup-grid-2">
+          <div className="field">
+            <label>ETHERSCAN V2 API KEY <a href="https://etherscan.io/apis" target="_blank" rel="noopener" style={{ color: 'var(--accent)', textTransform: 'none', letterSpacing: 0 }}>(free)</a></label>
+            <input type={showKeys ? 'text' : 'password'} value={ethKey} onChange={e => setEthKey(e.target.value)} placeholder="Covers ETH, ARB, BASE, LINEA, SCROLL, ZK, BLAST, OP, MANTLE, MODE, UNI, MANTA, ZORA" />
+          </div>
+          <div className="field">
+            <label>HELIUS API KEY <a href="https://helius.xyz/" target="_blank" rel="noopener" style={{ color: 'var(--accent)', textTransform: 'none', letterSpacing: 0 }}>(free tier 100k credits/mo)</a></label>
+            <input type={showKeys ? 'text' : 'password'} value={helKey} onChange={e => setHelKey(e.target.value)} placeholder="Required for all Solana scanning" />
+          </div>
+        </div>
+        <div className="run-row">
+          <button className="btn-primary" onClick={run} disabled={!allWallets.length || scanning}>
+            {scanning ? "SCANNING…" : "▶ RUN SCAN"}
+          </button>
+          <button className="btn-ghost" onClick={() => setShowKeys(v => !v)}>
+            {showKeys ? "🙈 Hide keys" : "👁 Show keys"}
+          </button>
+          <div className="meta">
+            {evmWallets.length} EVM · {solWallets.length} SOL · {evmChains.length} chains · {totalQueries} queries
+          </div>
+          {ran && (
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 10, minWidth: 200 }}>
+              <div className="bar-track"><div className="bar-fill" style={{ width: `${pct}%` }} /></div>
+              <span className="pct">{pct}%</span>
+            </div>
+          )}
+        </div>
+        <div className="meta" style={{ marginTop: 10, fontSize: 9 }}>
+          🔒 API keys + wallet addresses are stored only in <b>your browser localStorage</b>. Nothing sent to our servers.
+        </div>
+      </div>
+
+      {ran && (
+        <>
+          <div className="tabs">
+            {["overview","wallets","protocols","actions","sybil"].map(t => (
+              <button key={t} className={"tab" + (tab === t ? " active" : "")} onClick={() => setTab(t)}>{t}</button>
+            ))}
+          </div>
+
+          {/* OVERVIEW */}
+          {tab === "overview" && (
+            <>
+              <div className="summary">
+                <div className="tile"><div className="label">WALLETS</div><div className="v" style={{ color: '#8B5CF6' }}>{allWallets.length}</div></div>
+                <div className="tile"><div className="label">PROTOCOLS</div><div className="v" style={{ color: '#06B6D4' }}>{PROTOCOLS.length}</div></div>
+                <div className="tile"><div className="label">CHAINS</div><div className="v" style={{ color: '#10B981' }}>{evmChains.length + (needsSolana ? 1 : 0)}</div></div>
+                <div className="tile"><div className="label">QUERIES DONE</div><div className="v" style={{ color: '#F59E0B' }}>{progress.done}</div></div>
+              </div>
+
+              {/* GAS REALITY CHECK */}
+              <div className="gas-reality">
+                <div>
+                  <div className="lbl">GAS SPENT (USD)</div>
+                  <div className="v" style={{ color: 'var(--text)' }}>${gas.totalUSD.toFixed(2)}</div>
+                  <div className="sub">across {Object.keys(gas.byChain).length} chains, all wallets</div>
+                </div>
+                <div>
+                  <div className="lbl">AVG SCORE ACROSS S+A</div>
+                  <div className={"v " + (() => {
+                    const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
+                    const scores = allAddrs.flatMap(a => sa.map(p => getScore(a, p))).filter(Boolean).map(s => s.score);
+                    const avg = scores.length ? Math.round(scores.reduce((x,y)=>x+y,0) / scores.length) : 0;
+                    return avg > 60 ? 'verdict-good' : avg > 35 ? 'verdict-neutral' : 'verdict-bad';
+                  })()}>
+                    {(() => {
+                      const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
+                      const scores = allAddrs.flatMap(a => sa.map(p => getScore(a, p))).filter(Boolean).map(s => s.score);
+                      return scores.length ? Math.round(scores.reduce((x,y)=>x+y,0) / scores.length) : 0;
+                    })()}/100
+                  </div>
+                  <div className="sub">higher = better positioned for what's left</div>
+                </div>
+                <div>
+                  <div className="lbl">VERDICT</div>
+                  <div className="v" style={{ color: (() => {
+                    const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
+                    const scores = allAddrs.flatMap(a => sa.map(p => getScore(a, p))).filter(Boolean).map(s => s.score);
+                    const avg = scores.length ? Math.round(scores.reduce((x,y)=>x+y,0) / scores.length) : 0;
+                    return avg > 60 && gas.totalUSD < 100 ? 'var(--accent)' : avg > 40 ? 'var(--amber)' : 'var(--red)';
+                  })() }}>
+                    {(() => {
+                      const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
+                      const scores = allAddrs.flatMap(a => sa.map(p => getScore(a, p))).filter(Boolean).map(s => s.score);
+                      const avg = scores.length ? Math.round(scores.reduce((x,y)=>x+y,0) / scores.length) : 0;
+                      if (avg > 60 && gas.totalUSD < 100) return "STRONG";
+                      if (avg > 40) return "MIXED";
+                      return "WEAK";
+                    })()}
+                  </div>
+                  <div className="sub">{sybilClusters.length > 0 ? `⚠ ${sybilClusters.length} sybil cluster${sybilClusters.length>1?'s':''} detected — see Sybil tab` : "No sybil correlation detected"}</div>
+                </div>
+              </div>
+
+              {/* Per wallet */}
+              {allWallets.map(({ a, type }) => (
+                <div key={a} className="wallet-card">
+                  <div className="wallet-h">
+                    <Pill color={type === "evm" ? "#627EEA" : "#9945FF"} tiny>{type.toUpperCase()}</Pill>
+                    <span className="name">{labels[a] || "Unnamed"}</span>
+                    <span className="addr">{short(a)}</span>
+                    <div className="right">
+                      <span className="addr">AVG</span>
+                      <Ring score={walletAvg(a)} color={walletAvg(a) >= 60 ? "#10B981" : walletAvg(a) >= 35 ? "#F59E0B" : "#EF4444"} />
+                    </div>
+                  </div>
+                  <div className="wallet-grid">
+                    {PROTOCOLS.filter(p => type === "evm" ? p.chain !== "solana" : p.chain === "solana").map(proto => {
+                      const st = scanSt[statusKey(a, proto.chain)];
+                      const r = getScore(a, proto);
+                      return (
+                        <div key={proto.id} className="proto-tile" style={{ borderColor: r && r.score > 60 ? proto.color + '40' : undefined }}>
+                          <div className="top" style={{ color: proto.color }}>
+                            <span>{proto.name}</span>
+                            {st === "loading" && <Spin />}
+                          </div>
+                          {r ? <Bar v={r.score} color={proto.color} /> : <div style={{ fontSize: 9, color: 'var(--text-dim)' }}>—</div>}
+                          {r && <div className="score">{r.score}/100</div>}
+                          {errors[statusKey(a, proto.chain)] && <div style={{ fontSize: 8, color: 'var(--red)', marginTop: 2 }}>ERR</div>}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+
+              {/* Share row */}
+              <div className="share-bar">
+                <button className="btn-ghost" onClick={onShareTwitter}>📤 Share on X</button>
+                <button className="btn-ghost" onClick={onCopyShare}>📋 Copy summary</button>
+                <span id="copy-msg" className="meta"></span>
+              </div>
+            </>
+          )}
+
+          {/* WALLETS */}
+          {tab === "wallets" && (
+            <>
+              {allWallets.map(({ a, type }) => (
+                <div key={a} className="wallet-card">
+                  <div className="wallet-h">
+                    <Pill color={type === "evm" ? "#627EEA" : "#9945FF"} tiny>{type.toUpperCase()}</Pill>
+                    <span className="name">{labels[a] || "Unnamed"}</span>
+                    <span className="addr">{a}</span>
+                  </div>
+                  {PROTOCOLS.filter(p => type === "evm" ? p.chain !== "solana" : p.chain === "solana").map(proto => {
+                    const st = scanSt[statusKey(a, proto.chain)];
+                    const r = getScore(a, proto);
+                    return (
+                      <div key={proto.id} className="detail-row">
+                        <div className="detail-name">
+                          <b style={{ color: proto.color }}>{proto.name}</b>
+                          <div style={{ display: 'flex', gap: 4 }}>
+                            <Pill color={T[proto.tier]} tiny>{proto.tier}</Pill>
+                            <Pill color={CHAIN_META[proto.chain]?.color || '#6B7B8E'} tiny>{CHAIN_META[proto.chain]?.short || '?'}</Pill>
+                          </div>
+                        </div>
+                        <div className="detail-bd">
+                          {st === "loading" && <div className="meta"><Spin /> Fetching…</div>}
+                          {r && !errors[statusKey(a, proto.chain)] && (
+                            <>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
+                                <Bar v={r.score} color={proto.color} />
+                                <span style={{ fontFamily: 'var(--font)', fontSize: 11, color: proto.color, fontWeight: 700, minWidth: 28 }}>{r.score}</span>
+                                {r.diversityMult > 1.05 && <Pill color="#34D399" tiny>+{Math.round((r.diversityMult-1)*100)}% DIVERSITY</Pill>}
+                                {r.consistencyMult > 1.05 && <Pill color="#A78BFA" tiny>+{Math.round((r.consistencyMult-1)*100)}% CONSISTENCY</Pill>}
+                              </div>
+                              <div className="detail-stats">
+                                {r.breakdown.map((b, i) => (
+                                  <span key={i}>
+                                    <span className="k">{b.label}: </span>
+                                    <span className={"v" + (b.pts > 0 ? "" : " zero")}>{fmt(b.val)}</span>
+                                    <span className="k"> ({b.pts}/{b.max})</span>
+                                  </span>
+                                ))}
+                              </div>
+                            </>
+                          )}
+                          {errors[statusKey(a, proto.chain)] && <div className="err">⚠ {errors[statusKey(a, proto.chain)]}</div>}
+                          {!st && <div style={{ fontSize: 9, color: 'var(--text-dim)' }}>Not scanned</div>}
+                        </div>
+                        {r && (
+                          <Pill color={r.score >= 70 ? "#10B981" : r.score >= 40 ? "#F59E0B" : "#EF4444"}>
+                            {r.score >= 70 ? "STRONG" : r.score >= 40 ? "MODERATE" : "WEAK"}
+                          </Pill>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
+            </>
+          )}
+
+          {/* PROTOCOLS */}
+          {tab === "protocols" && (
+            <>
+              {['S','A','B','C'].map(tier => (
+                <div key={tier} style={{ marginBottom: 24 }}>
+                  <div style={{ fontSize: 9, letterSpacing: 3, color: T[tier], marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                    <span style={{ fontFamily: 'var(--font)', fontSize: 13, fontWeight: 700 }}>{tier}-TIER</span>
+                    <span style={{ color: 'var(--text-dim)' }}>— {TIER_LABEL[tier]}</span>
+                  </div>
+                  <div className="proto-grid">
+                    {PROTOCOLS.filter(p => p.tier === tier).map(proto => {
+                      const addrs = proto.chain === "solana" ? solWallets : evmWallets;
+                      const avg = protoAvg(proto);
+                      return (
+                        <div key={proto.id} className="proto-card">
+                          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(90deg, ${proto.color}, transparent)` }} />
+                          <div className="row">
+                            <div>
+                              <h4>{proto.name}</h4>
+                              <div className="pills">
+                                <Pill color={proto.status === "PRE-TOKEN" ? '#EF4444' : proto.status === "LIVE" ? '#10B981' : '#F59E0B'} tiny>{proto.status}</Pill>
+                                <Pill color={CHAIN_META[proto.chain]?.color || '#6B7B8E'} tiny>{CHAIN_META[proto.chain]?.name || '?'}</Pill>
+                                <Pill color={proto.color} tiny>{proto.cat}</Pill>
+                              </div>
+                            </div>
+                            <div className="right">
+                              <div className="pct" style={{ color: proto.color }}>{proto.likelihood}%</div>
+                              <div className="sub">drop conviction</div>
+                            </div>
+                          </div>
+                          <div className="avg-block">
+                            <div style={{ fontSize: 9, color: 'var(--text-dim)', marginBottom: 4 }}>YOUR WALLET AVG</div>
+                            <div className="avg-row">
+                              <Bar v={avg} color={proto.color} />
+                              <span className="v" style={{ color: proto.color }}>{avg}</span>
+                            </div>
+                          </div>
+                          {addrs.length > 0 ? (
+                            <div className="wallets-list">
+                              {addrs.map(a => {
+                                const r = getScore(a, proto);
+                                const st = scanSt[statusKey(a, proto.chain)];
+                                return (
+                                  <div key={a} className="wallet-line">
+                                    <span className="lbl">{labels[a] || short(a)}</span>
+                                    {st === "loading" ? <Spin /> :
+                                      r ? <><Bar v={r.score} color={proto.color} /><span style={{ color: proto.color, minWidth: 24, textAlign: 'right' }}>{r.score}</span></> :
+                                      <span style={{ color: 'var(--text-dim)' }}>—</span>}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          ) : (
+                            <div style={{ fontSize: 10, color: 'var(--red)' }}>⚠ No {proto.chain === "solana" ? "Solana" : "EVM"} wallets added</div>
+                          )}
+                          <div className="notes">{proto.notes}</div>
+                          <div className="est">{proto.est} potential</div>
+                          {proto.action && (
+                            <a href={proto.action.url} target="_blank" rel="noopener" className="action-cta" style={{ display: 'inline-block', marginTop: 10, color: proto.color, fontSize: 10, fontWeight: 700, letterSpacing: 1 }}>
+                              {proto.action.text} →
+                            </a>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+
+          {/* ACTIONS */}
+          {tab === "actions" && (
+            <>
+              {actions.length === 0 && (
+                <div className="empty">No critical actions. Either you're crushing it, or you haven't scanned wallets yet.</div>
+              )}
+              {['P0','P1','P2','P3'].map(pri => {
+                const filtered = actions.filter(a => a.pri === pri);
+                if (!filtered.length) return null;
+                const labels = { P0: 'CRITICAL — Act today', P1: 'HIGH — This week', P2: 'MEDIUM — This month', P3: 'LOW — Optional' };
+                const colors = { P0: '#EF4444', P1: '#F59E0B', P2: '#10B981', P3: '#8B5CF6' };
+                return (
+                  <div className="action-section" key={pri}>
+                    <div className="pri-h" style={{ color: colors[pri] }}>{pri} — {labels[pri]}</div>
+                    {filtered.map((a, i) => (
+                      <div key={i} className={"action " + pri.toLowerCase()}>
+                        <Pill color={colors[pri]}>{pri}</Pill>
+                        <div className="msg">
+                          <div>{a.msg}</div>
+                          <div className="proto">{a.proto} · Tier {a.tier}</div>
+                        </div>
+                        {a.action && (
+                          <a className="cta" href={a.action.url} target="_blank" rel="noopener">
+                            {a.action.text} →
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                );
+              })}
+            </>
+          )}
+
+          {/* SYBIL */}
+          {tab === "sybil" && (
+            <>
+              <p style={{ color: 'var(--text-muted)', fontSize: 12, marginBottom: 16 }}>
+                Protocols increasingly use clustering analysis to detect Sybil farmers. If your wallets share too many active days, they look like one person operating many wallets — and get filtered out at allocation time. This tab cross-checks your wallets pairwise.
+              </p>
+              {allAddrs.length < 2 ? (
+                <div className="empty">Add at least 2 wallets to check for Sybil correlation.</div>
+              ) : sybilClusters.length === 0 ? (
+                <div className="sybil-card">
+                  <div className="h" style={{ color: 'var(--accent)' }}>✓ No Sybil correlation detected</div>
+                  <div className="b">Your wallets operate on sufficiently different schedules. This doesn't guarantee protocols will treat them as independent — they also check on-chain transfer patterns, IP addresses, and behavioral fingerprints — but day-overlap is the easiest signal to fix.</div>
+                </div>
+              ) : (
+                <div className="sybil-grid">
+                  {sybilClusters.map((c, i) => (
+                    <div className="sybil-card warn" key={i}>
+                      <div className="h" style={{ color: 'var(--red)' }}>⚠ HIGH OVERLAP: {labels[c.a] || short(c.a)} ↔ {labels[c.b] || short(c.b)}</div>
+                      <div className="b">
+                        Share <b style={{ color: 'var(--red)' }}>{c.overlap} active days</b> ({Math.round(c.pct * 100)}% of the smaller wallet's activity).
+                        Real users rarely show this pattern. <b>Recommendation:</b> stagger activity across days, avoid scripting both at once, and don't bridge same amounts on same days.
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+        </>
+      )}
+
+      {/* Email capture */}
+      <div className="email-block">
+        <h3>Get a weekly airdrop reality check</h3>
+        <p>One email per week. New protocols added to the scanner, fresh allocation criteria, post-mortems on drops that happened. No hype. Unsubscribe anytime.</p>
+        <form className="email-form" onSubmit={(e) => {
+          e.preventDefault();
+          const fd = new FormData(e.target);
+          const email = fd.get('email');
+          if (!email) return;
+          const msg = e.target.querySelector('.msg');
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: (() => {
+              const f = new FormData();
+              f.append('access_key', 'b2fb1576-a39b-4683-8ee9-4e152f731113');
+              f.append('subject', 'Airdrop newsletter signup');
+              f.append('email', email);
+              f.append('from_name', 'Protodex Airdrop Scanner');
+              return f;
+            })(),
+          }).then(r => r.json()).then(d => {
+            if (d.success) { msg.className = 'msg ok'; msg.textContent = "✓ You're in. Watch your inbox."; e.target.reset(); }
+            else { msg.className = 'msg err'; msg.textContent = '⚠ Try again or email manja316@gmail.com directly.'; }
+          }).catch(() => { msg.className = 'msg err'; msg.textContent = '⚠ Network error.'; });
+        }}>
+          <input type="email" name="email" placeholder="you@email.com" required />
+          <button type="submit">SUBSCRIBE</button>
+          <div className="msg"></div>
+        </form>
+      </div>
+    </>
+  );
+}
+
+createRoot(document.getElementById('root')).render(<AirdropScanner />);
+</script>
+<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</body>
+</html>
