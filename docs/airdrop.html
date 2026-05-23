@@ -1194,7 +1194,8 @@ function AirdropScanner() {
                     const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
                     const scores = allAddrs.flatMap(a => sa.map(p => getScore(a, p))).filter(Boolean).map(s => s.score);
                     const avg = scores.length ? Math.round(scores.reduce((x,y)=>x+y,0) / scores.length) : 0;
-                    return avg > 60 ? 'verdict-good' : avg > 35 ? 'verdict-neutral' : 'verdict-bad';
+                    // 2026-05-23: shift threshold so 'farmed out' shows amber, not punitive red.
+                    return avg > 60 ? 'verdict-good' : avg > 15 ? 'verdict-neutral' : 'verdict-bad';
                   })()}>
                     {(() => {
                       const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
@@ -1210,7 +1211,8 @@ function AirdropScanner() {
                     const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
                     const scores = allAddrs.flatMap(a => sa.map(p => getScore(a, p))).filter(Boolean).map(s => s.score);
                     const avg = scores.length ? Math.round(scores.reduce((x,y)=>x+y,0) / scores.length) : 0;
-                    return avg > 60 && gas.totalUSD < 100 ? 'var(--accent)' : avg > 40 ? 'var(--amber)' : 'var(--red)';
+                    // 2026-05-23: amber threshold lowered so descriptive labels don't read as failures
+                    return avg > 60 && gas.totalUSD < 100 ? 'var(--accent)' : avg > 15 ? 'var(--amber)' : 'var(--red)';
                   })() }}>
                     {(() => {
                       const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
@@ -1245,29 +1247,43 @@ function AirdropScanner() {
                       r: getScore(a, p),
                       err: errors[statusKey(a, p.chain)],
                     }));
-                    // Successes (with score) sorted desc, then loading, then "—" (no scan), then errors collapsed
-                    const scored = decorated.filter(d => d.r && !d.err).sort((x,y) => y.r.score - x.r.score);
+                    // Hierarchy: HAS-ACTIVITY (score>0) → sorted desc, then LOADING, then NO-ACTIVITY (score=0), then ERRORED
+                    const active = decorated.filter(d => d.r && d.r.score > 0 && !d.err).sort((x,y) => y.r.score - x.r.score);
                     const loading = decorated.filter(d => d.st === "loading" && !d.r);
-                    const noData = decorated.filter(d => !d.r && d.st !== "loading" && !d.err);
+                    const inactive = decorated.filter(d => d.r && d.r.score === 0 && !d.err);
+                    const noScan = decorated.filter(d => !d.r && d.st !== "loading" && !d.err);
                     const errored = decorated.filter(d => d.err);
                     return (
                       <>
+                        {/* Coverage line: tells user how many actually scanned */}
+                        <div style={{ fontSize: 10, color: 'var(--text-dim)', marginBottom: 10, letterSpacing: 0.5 }}>
+                          <span style={{ color: 'var(--text)', fontWeight: 600 }}>{active.length + inactive.length}</span> of {decorated.length} protocols scanned
+                          {active.length > 0 && <span> · <span style={{ color: '#10B981', fontWeight: 600 }}>{active.length} with activity</span></span>}
+                          {inactive.length > 0 && <span> · <span style={{ color: '#6B7B8E' }}>{inactive.length} idle</span></span>}
+                          {errored.length > 0 && <span> · <span style={{ color: '#F59E0B' }}>{errored.length} skipped</span></span>}
+                        </div>
                         <div className="wallet-grid">
-                          {[...scored, ...loading, ...noData].map(({ proto, st, r }) => (
-                            <div key={proto.id} className="proto-tile" style={{ borderColor: r && r.score > 60 ? proto.color + '40' : undefined }}>
+                          {[...active, ...loading].map(({ proto, st, r }) => (
+                            <div key={proto.id} className="proto-tile" style={{ borderColor: r && r.score > 60 ? proto.color + '60' : r && r.score > 40 ? proto.color + '30' : undefined }}>
                               <div className="top" style={{ color: proto.color }}>
                                 <span>{proto.name}</span>
                                 {st === "loading" && <Spin />}
                               </div>
-                              {r ? <Bar v={r.score} color={proto.color} /> : <div style={{ fontSize: 9, color: 'var(--text-dim)' }}>—</div>}
+                              {r ? <Bar v={r.score} color={proto.color} /> : <div style={{ fontSize: 9, color: 'var(--text-dim)' }}>scanning…</div>}
                               {r && <div className="score">{r.score}/100</div>}
                             </div>
                           ))}
                         </div>
+                        {(inactive.length > 0 || noScan.length > 0) && (
+                          <div style={{ marginTop: 10, padding: '7px 10px', background: 'rgba(107,123,142,0.04)', border: '1px solid rgba(107,123,142,0.18)', borderRadius: 6, fontSize: 10, color: 'var(--text-dim)' }}>
+                            <span style={{ color: '#6B7B8E', fontWeight: 700, letterSpacing: 1 }}>○ {inactive.length + noScan.length} no activity</span>
+                            <span style={{ marginLeft: 8 }}>Wallet hasn't touched these — {[...inactive, ...noScan].slice(0,6).map(d => d.proto.name).join(", ")}{(inactive.length + noScan.length) > 6 ? ` +${inactive.length + noScan.length - 6} more` : ""}</span>
+                          </div>
+                        )}
                         {errored.length > 0 && (
-                          <div style={{ marginTop: 10, padding: '8px 10px', background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.18)', borderRadius: 6, fontSize: 10, color: 'var(--text-dim)' }}>
-                            <span style={{ color: '#EF4444', fontWeight: 700, letterSpacing: 1 }}>⚠ {errored.length} not scanned</span>
-                            <span style={{ marginLeft: 8 }}>RPC unavailable or no API access — {errored.slice(0,5).map(d => d.proto.name).join(", ")}{errored.length > 5 ? ` +${errored.length-5} more` : ""}</span>
+                          <div style={{ marginTop: 8, padding: '7px 10px', background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.20)', borderRadius: 6, fontSize: 10, color: 'var(--text-dim)' }}>
+                            <span style={{ color: '#F59E0B', fontWeight: 700, letterSpacing: 1 }}>⚠ {errored.length} skipped</span>
+                            <span style={{ marginLeft: 8 }}>RPC unavailable or no API access — try re-running, may succeed: {errored.slice(0,5).map(d => d.proto.name).join(", ")}{errored.length > 5 ? ` +${errored.length-5} more` : ""}</span>
                           </div>
                         )}
                       </>
