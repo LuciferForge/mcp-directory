@@ -1216,9 +1216,9 @@ function AirdropScanner() {
                       const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
                       const scores = allAddrs.flatMap(a => sa.map(p => getScore(a, p))).filter(Boolean).map(s => s.score);
                       const avg = scores.length ? Math.round(scores.reduce((x,y)=>x+y,0) / scores.length) : 0;
-                      if (avg > 60 && gas.totalUSD < 100) return "STRONG";
-                      if (avg > 40) return "MIXED";
-                      return "WEAK";
+                      if (avg > 60 && gas.totalUSD < 100) return "WELL POSITIONED";
+                      if (avg > 40) return "SPOTTY";
+                      return "MOSTLY FARMED OUT";
                     })()}
                   </div>
                   <div className="sub">{sybilClusters.length > 0 ? `⚠ ${sybilClusters.length} sybil cluster${sybilClusters.length>1?'s':''} detected — see Sybil tab` : "No sybil correlation detected"}</div>
@@ -1237,23 +1237,42 @@ function AirdropScanner() {
                       <Ring score={walletAvg(a)} color={walletAvg(a) >= 60 ? "#10B981" : walletAvg(a) >= 35 ? "#F59E0B" : "#EF4444"} />
                     </div>
                   </div>
-                  <div className="wallet-grid">
-                    {PROTOCOLS.filter(p => type === "evm" ? p.chain !== "solana" : p.chain === "solana").map(proto => {
-                      const st = scanSt[statusKey(a, proto.chain)];
-                      const r = getScore(a, proto);
-                      return (
-                        <div key={proto.id} className="proto-tile" style={{ borderColor: r && r.score > 60 ? proto.color + '40' : undefined }}>
-                          <div className="top" style={{ color: proto.color }}>
-                            <span>{proto.name}</span>
-                            {st === "loading" && <Spin />}
-                          </div>
-                          {r ? <Bar v={r.score} color={proto.color} /> : <div style={{ fontSize: 9, color: 'var(--text-dim)' }}>—</div>}
-                          {r && <div className="score">{r.score}/100</div>}
-                          {errors[statusKey(a, proto.chain)] && <div style={{ fontSize: 8, color: 'var(--red)', marginTop: 2 }}>ERR</div>}
+                  {(() => {
+                    const protos = PROTOCOLS.filter(p => type === "evm" ? p.chain !== "solana" : p.chain === "solana");
+                    const decorated = protos.map(p => ({
+                      proto: p,
+                      st: scanSt[statusKey(a, p.chain)],
+                      r: getScore(a, p),
+                      err: errors[statusKey(a, p.chain)],
+                    }));
+                    // Successes (with score) sorted desc, then loading, then "—" (no scan), then errors collapsed
+                    const scored = decorated.filter(d => d.r && !d.err).sort((x,y) => y.r.score - x.r.score);
+                    const loading = decorated.filter(d => d.st === "loading" && !d.r);
+                    const noData = decorated.filter(d => !d.r && d.st !== "loading" && !d.err);
+                    const errored = decorated.filter(d => d.err);
+                    return (
+                      <>
+                        <div className="wallet-grid">
+                          {[...scored, ...loading, ...noData].map(({ proto, st, r }) => (
+                            <div key={proto.id} className="proto-tile" style={{ borderColor: r && r.score > 60 ? proto.color + '40' : undefined }}>
+                              <div className="top" style={{ color: proto.color }}>
+                                <span>{proto.name}</span>
+                                {st === "loading" && <Spin />}
+                              </div>
+                              {r ? <Bar v={r.score} color={proto.color} /> : <div style={{ fontSize: 9, color: 'var(--text-dim)' }}>—</div>}
+                              {r && <div className="score">{r.score}/100</div>}
+                            </div>
+                          ))}
                         </div>
-                      );
-                    })}
-                  </div>
+                        {errored.length > 0 && (
+                          <div style={{ marginTop: 10, padding: '8px 10px', background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.18)', borderRadius: 6, fontSize: 10, color: 'var(--text-dim)' }}>
+                            <span style={{ color: '#EF4444', fontWeight: 700, letterSpacing: 1 }}>⚠ {errored.length} not scanned</span>
+                            <span style={{ marginLeft: 8 }}>RPC unavailable or no API access — {errored.slice(0,5).map(d => d.proto.name).join(", ")}{errored.length > 5 ? ` +${errored.length-5} more` : ""}</span>
+                          </div>
+                        )}
+                      </>
+                    );
+                  })()}
                 </div>
               ))}
 
