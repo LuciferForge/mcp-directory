@@ -298,6 +298,76 @@ button { font-family: inherit; }
 
 /* Ring SVG inline */
 .ring text { font-family: var(--mono); }
+
+/* ─────────────────────────────────────────────────────────────────
+   Magazine-article layout (Overview tab redesign 2026-05-23)
+   Editorial typography, asymmetric, less dashboard, more report.
+   ─────────────────────────────────────────────────────────────── */
+.article { max-width: 720px; margin: 24px auto 0; padding: 0 4px; }
+.article .stamp { font-family: var(--mono); font-size: 10px; letter-spacing: 1.2px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 18px; }
+.article .stamp b { color: var(--text); font-weight: 700; }
+.article .lede {
+  font-family: 'Iowan Old Style', 'Source Serif 4', 'Source Serif Pro', Charter, Georgia, 'Times New Roman', serif;
+  font-size: 38px; line-height: 1.15; letter-spacing: -0.015em; font-weight: 700;
+  color: rgba(255,255,255,0.94); margin: 0 0 14px;
+}
+.article .lede .punct { color: var(--amber); }
+.article .lede.bull   { color: rgba(255,255,255,0.94); }
+.article .lede.bear   .punct { color: #B91C1C; }
+.article .dek {
+  font-family: 'Iowan Old Style', 'Source Serif 4', Charter, Georgia, serif;
+  font-style: italic; font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.72);
+  margin: 0 0 28px; max-width: 620px;
+}
+.article .pull {
+  display: flex; gap: 18px; align-items: baseline; flex-wrap: wrap;
+  padding: 18px 0 16px; margin: 6px 0 22px;
+  border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.article .pull .num {
+  font-family: 'Iowan Old Style', Charter, Georgia, serif;
+  font-size: 56px; line-height: 1; font-weight: 700; letter-spacing: -0.02em;
+  color: var(--text);
+}
+.article .pull .num .sm { font-size: 28px; color: var(--text-dim); font-weight: 400; }
+.article .pull .copy { flex: 1; min-width: 220px; }
+.article .pull .copy .label { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.article .pull .copy .title { font-family: 'Iowan Old Style', Charter, Georgia, serif; font-size: 19px; color: var(--text); font-weight: 600; line-height: 1.3; }
+.article .pull .copy .sub { font-size: 13px; color: var(--text-dim); margin-top: 4px; line-height: 1.45; }
+.article .body { font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.78); margin: 0 0 22px; }
+.article .body .num-inline { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+.article .body em { font-style: normal; color: var(--text); font-weight: 600; }
+.article .numbered { margin: 8px 0 28px; padding: 0; list-style: none; counter-reset: section; }
+.article .numbered > li {
+  counter-increment: section;
+  display: grid; grid-template-columns: 32px 1fr; gap: 14px;
+  padding: 14px 0; border-top: 1px solid rgba(255,255,255,0.06);
+}
+.article .numbered > li:first-child { border-top: none; padding-top: 4px; }
+.article .numbered > li::before {
+  content: counter(section, decimal-leading-zero);
+  font-family: 'Iowan Old Style', Charter, Georgia, serif;
+  font-size: 18px; color: var(--text-dim); line-height: 1.4;
+}
+.article .numbered .pt-title { font-size: 15px; color: var(--text); font-weight: 600; margin-bottom: 4px; line-height: 1.35; }
+.article .numbered .pt-body { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.65); }
+.article .footnote {
+  font-family: 'Iowan Old Style', Charter, Georgia, serif;
+  font-style: italic; font-size: 13px; line-height: 1.55;
+  color: var(--text-dim); margin: 28px 0 0; padding: 12px 0 0;
+  border-top: 1px dashed rgba(255,255,255,0.10);
+}
+.article .footnote b { color: rgba(255,255,255,0.72); font-style: normal; font-weight: 600; }
+
+/* The per-wallet detail (below the article) is its own section */
+.article-detail-h { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; color: var(--text-dim); text-transform: uppercase; margin: 36px 0 12px; }
+
+@media (max-width: 640px) {
+  .article .lede { font-size: 30px; }
+  .article .pull .num { font-size: 44px; }
+  .article .pull .num .sm { font-size: 22px; }
+  .article .dek { font-size: 15px; }
+}
 </style>
 </head>
 <body>
@@ -1171,61 +1241,104 @@ function AirdropScanner() {
             ))}
           </div>
 
-          {/* OVERVIEW */}
-          {tab === "overview" && (
-            <>
-              <div className="summary">
-                <div className="tile"><div className="label">WALLETS</div><div className="v" style={{ color: '#8B5CF6' }}>{allWallets.length}</div></div>
-                <div className="tile"><div className="label">PROTOCOLS</div><div className="v" style={{ color: '#06B6D4' }}>{PROTOCOLS.length}</div></div>
-                <div className="tile"><div className="label">CHAINS</div><div className="v" style={{ color: '#10B981' }}>{evmChains.length + (needsSolana ? 1 : 0)}</div></div>
-                <div className="tile"><div className="label">QUERIES DONE</div><div className="v" style={{ color: '#F59E0B' }}>{progress.done}</div></div>
-              </div>
+          {/* OVERVIEW — magazine-article layout */}
+          {tab === "overview" && (() => {
+            const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
+            const allScored = allAddrs.flatMap(a => PROTOCOLS.map(p => ({ a, p, r: getScore(a, p), err: errors[statusKey(a, p.chain)] })));
+            const scoredActive = allScored.filter(s => s.r && s.r.score > 0 && !s.err).sort((x,y) => y.r.score - x.r.score);
+            const scoredIdle = allScored.filter(s => s.r && s.r.score === 0 && !s.err);
+            const scoredErr = allScored.filter(s => s.err);
+            const totalScans = scoredActive.length + scoredIdle.length;
+            const totalAttempted = allScored.length;
+            const saScores = scoredActive.filter(s => s.p.tier === "S" || s.p.tier === "A").map(s => s.r.score);
+            const avg = saScores.length ? Math.round(saScores.reduce((x,y)=>x+y,0) / saScores.length) : 0;
+            const hero = scoredActive[0];
+            const topNames = scoredActive.slice(0, 4).map(s => s.p.name);
+            // Verdict — opinionated single sentence used as the lede
+            let ledeMain, ledeKicker, mood;
+            if (avg > 60 && gas.totalUSD < 100) {
+              ledeMain = "Well positioned"; ledeKicker = "."; mood = "bull";
+            } else if (avg > 15) {
+              ledeMain = "Mostly farmed out"; ledeKicker = "."; mood = "amber";
+            } else {
+              ledeMain = "Wallet's tapped out"; ledeKicker = "."; mood = "bear";
+            }
+            const strongCount = scoredActive.filter(s => s.r.score >= 60).length;
+            const moderateCount = scoredActive.filter(s => s.r.score >= 30 && s.r.score < 60).length;
+            // Dek prose — folds numbers into a real sentence
+            const dekParts = [];
+            if (strongCount > 0) dekParts.push(`${strongCount} strong position${strongCount > 1 ? 's' : ''}`);
+            if (moderateCount > 0) dekParts.push(`${moderateCount} moderate`);
+            const dek = `${dekParts.join(", ") || "Nothing strong"} across ${totalScans} of ${totalAttempted} protocols scanned. $${gas.totalUSD.toFixed(0)} in lifetime gas across ${Object.keys(gas.byChain).length} chains. ${sybilClusters.length > 0 ? `${sybilClusters.length} sybil cluster${sybilClusters.length>1?'s':''} flagged — see the Sybil tab.` : "No sybil correlation detected."}`;
+            const scanTime = new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+            return (
+              <>
+                <div className="article">
+                  <div className="stamp">Scanned <b>{scanTime}</b> · {allWallets.length} wallet{allWallets.length > 1 ? 's' : ''} · {totalAttempted} protocols attempted · {totalScans} returned data</div>
+                  <h1 className={"lede " + mood}>{ledeMain}<span className="punct">{ledeKicker}</span></h1>
+                  <p className="dek">{dek}</p>
 
-              {/* GAS REALITY CHECK */}
-              <div className="gas-reality">
-                <div>
-                  <div className="lbl">GAS SPENT (USD)</div>
-                  <div className="v" style={{ color: 'var(--text)' }}>${gas.totalUSD.toFixed(2)}</div>
-                  <div className="sub">across {Object.keys(gas.byChain).length} chains, all wallets</div>
+                  {hero && (
+                    <div className="pull">
+                      <div className="num" style={{ color: hero.p.color }}>
+                        {hero.r.score}<span className="sm">/100</span>
+                      </div>
+                      <div className="copy">
+                        <div className="label">Strongest position</div>
+                        <div className="title">{hero.p.name}</div>
+                        <div className="sub">{hero.p.cat} · {hero.p.status} · {hero.p.tier}-tier</div>
+                      </div>
+                    </div>
+                  )}
+
+                  <p className="body">
+                    {scoredActive.length === 0
+                      ? <>The scanner returned <span className="num-inline">{totalScans}</span> protocols with data but none with meaningful activity. Either this wallet is brand-new on the chains we cover, or its work predates our scoring window.</>
+                      : <>Of the <span className="num-inline">{totalScans}</span> protocols that returned data, <span className="num-inline">{scoredActive.length}</span> show real activity{topNames.length > 0 ? <> — <em>{topNames.join(", ")}</em>{scoredActive.length > topNames.length ? <>, and {scoredActive.length - topNames.length} more</> : ""}</> : ""}. The other <span className="num-inline">{scoredIdle.length}</span> chains scanned cleanly but show no transactions{scoredErr.length > 0 ? <>, and <span className="num-inline">{scoredErr.length}</span> chains we couldn't reach (RPC unavailable — re-run later, may succeed)</> : ""}.</>
+                    }
+                  </p>
+
+                  <ol className="numbered">
+                    {strongCount > 0 && (
+                      <li>
+                        <div>
+                          <div className="pt-title">Defendable positions worth keeping warm.</div>
+                          <div className="pt-body">{scoredActive.filter(s => s.r.score >= 60).map(s => s.p.name).join(", ")} {strongCount > 1 ? 'are' : 'is'} {scoredActive.filter(s => s.r.score >= 60).every(s => s.p.status === "PRE-TOKEN" || s.p.status === "TESTNET") ? "pre-token" : "active"}. Keep doing the basic things — vote, deploy small, don't sybil. Don't farm aggressively from here; you're already in the snapshot pool.</div>
+                        </div>
+                      </li>
+                    )}
+                    {gas.totalUSD > 200 && (
+                      <li>
+                        <div>
+                          <div className="pt-title">${gas.totalUSD.toFixed(0)} in lifetime gas. Stop topping up the dead ones.</div>
+                          <div className="pt-body">HYPE, BERA, ZK, SCR, MODE, S, INIT, ES, MON have all airdropped. Whatever you spent on those chains in 2024-25 is a sunk cost. Don't keep funding the gas tax on chains that already paid out.</div>
+                        </div>
+                      </li>
+                    )}
+                    {scoredErr.length > 0 && (
+                      <li>
+                        <div>
+                          <div className="pt-title">{scoredErr.length} chains we couldn't see today.</div>
+                          <div className="pt-body">{scoredErr.slice(0, 5).map(s => s.p.name).join(", ")}{scoredErr.length > 5 ? `, +${scoredErr.length - 5} more` : ""}. RPC providers fail unpredictably — Berachain alone errors ~60% of the time. Re-run in 10 minutes for a more complete picture. Numbers above are based on what came back.</div>
+                        </div>
+                      </li>
+                    )}
+                    {sybilClusters.length === 0 && allWallets.length > 1 && (
+                      <li>
+                        <div>
+                          <div className="pt-title">No sybil correlation across your {allWallets.length} wallets.</div>
+                          <div className="pt-body">Your wallets don't look algorithmically related. Good — most projects fade clusters before paying out.</div>
+                        </div>
+                      </li>
+                    )}
+                  </ol>
+
+                  <p className="footnote">
+                    The "{ledeMain.toLowerCase()}" verdict averages <b>S</b> and <b>A</b> tier protocols only (the ones with real upside left). Coverage was <b>{totalScans}/{totalAttempted}</b> today — the number can shift between runs as RPC providers come and go. The scanner is open methodology; bars below show per-wallet detail.
+                  </p>
                 </div>
-                <div>
-                  <div className="lbl">AVG SCORE ACROSS S+A</div>
-                  <div className={"v " + (() => {
-                    const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
-                    const scores = allAddrs.flatMap(a => sa.map(p => getScore(a, p))).filter(Boolean).map(s => s.score);
-                    const avg = scores.length ? Math.round(scores.reduce((x,y)=>x+y,0) / scores.length) : 0;
-                    // 2026-05-23: shift threshold so 'farmed out' shows amber, not punitive red.
-                    return avg > 60 ? 'verdict-good' : avg > 15 ? 'verdict-neutral' : 'verdict-bad';
-                  })()}>
-                    {(() => {
-                      const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
-                      const scores = allAddrs.flatMap(a => sa.map(p => getScore(a, p))).filter(Boolean).map(s => s.score);
-                      return scores.length ? Math.round(scores.reduce((x,y)=>x+y,0) / scores.length) : 0;
-                    })()}/100
-                  </div>
-                  <div className="sub">higher = better positioned for what's left</div>
-                </div>
-                <div>
-                  <div className="lbl">VERDICT</div>
-                  <div className="v" style={{ color: (() => {
-                    const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
-                    const scores = allAddrs.flatMap(a => sa.map(p => getScore(a, p))).filter(Boolean).map(s => s.score);
-                    const avg = scores.length ? Math.round(scores.reduce((x,y)=>x+y,0) / scores.length) : 0;
-                    // 2026-05-23: amber threshold lowered so descriptive labels don't read as failures
-                    return avg > 60 && gas.totalUSD < 100 ? 'var(--accent)' : avg > 15 ? 'var(--amber)' : 'var(--red)';
-                  })() }}>
-                    {(() => {
-                      const sa = PROTOCOLS.filter(p => p.tier === "S" || p.tier === "A");
-                      const scores = allAddrs.flatMap(a => sa.map(p => getScore(a, p))).filter(Boolean).map(s => s.score);
-                      const avg = scores.length ? Math.round(scores.reduce((x,y)=>x+y,0) / scores.length) : 0;
-                      if (avg > 60 && gas.totalUSD < 100) return "WELL POSITIONED";
-                      if (avg > 40) return "SPOTTY";
-                      return "MOSTLY FARMED OUT";
-                    })()}
-                  </div>
-                  <div className="sub">{sybilClusters.length > 0 ? `⚠ ${sybilClusters.length} sybil cluster${sybilClusters.length>1?'s':''} detected — see Sybil tab` : "No sybil correlation detected"}</div>
-                </div>
-              </div>
+
+                <div className="article-detail-h">Per-wallet detail</div>
 
               {/* Per wallet */}
               {allWallets.map(({ a, type }) => (
@@ -1299,7 +1412,8 @@ function AirdropScanner() {
                 <span id="copy-msg" className="meta"></span>
               </div>
             </>
-          )}
+            );
+          })()}
 
           {/* WALLETS */}
           {tab === "wallets" && (
