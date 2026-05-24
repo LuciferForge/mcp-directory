@@ -346,6 +346,7 @@
   <url><loc>https://protodex.io/servers/aidc-ai-pixelle-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/jetbrains-mcp-jetbrains.html</loc></url>
   <url><loc>https://protodex.io/servers/datalayer-jupyter-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/alvinunreal-openpets.html</loc></url>
   <url><loc>https://protodex.io/servers/vkhanhqui-figma-mcp-go.html</loc></url>
   <url><loc>https://protodex.io/servers/splx-ai-agentic-radar.html</loc></url>
   <url><loc>https://protodex.io/servers/secretiveshell-mcp-bridge.html</loc></url>
@@ -378,6 +379,7 @@
   <url><loc>https://protodex.io/servers/rohitg00-kubectl-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/asciimoo-hister.html</loc></url>
   <url><loc>https://protodex.io/servers/isair-jarvis.html</loc></url>
+  <url><loc>https://protodex.io/servers/bgauryy-octocode.html</loc></url>
   <url><loc>https://protodex.io/servers/bgauryy-octocode.html</loc></url>
   <url><loc>https://protodex.io/servers/cisco-ai-defense-mcp-scanner.html</loc></url>
   <url><loc>https://protodex.io/servers/ai-boost-awesome-harness-engineering.html</loc></url>
@@ -788,6 +790,7 @@
   <url><loc>https://protodex.io/servers/bigcodegen-mcp-neovim-server.html</loc></url>
   <url><loc>https://protodex.io/servers/inditextech-mcp-server-simulator-ios-idb.html</loc></url>
   <url><loc>https://protodex.io/servers/napthaai-automcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/plmbr-notebook-intelligence.html</loc></url>
   <url><loc>https://protodex.io/servers/obra-private-journal-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/chaindead-telegram-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/sdglbl-mcp-claude-code.html</loc></url>
@@ -963,6 +966,7 @@
   <url><loc>https://protodex.io/servers/dmmulroy-overseer.html</loc></url>
   <url><loc>https://protodex.io/servers/fengin-image-gen-server.html</loc></url>
   <url><loc>https://protodex.io/servers/jsonbored-awesome-claude.html</loc></url>
+  <url><loc>https://protodex.io/servers/testerlingcodo-gemini-antigravity-cli.html</loc></url>
   <url><loc>https://protodex.io/servers/ericzakariasson-uber-eats-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/salacoste-mcp-n8n-workflow-builder.html</loc></url>
   <url><loc>https://protodex.io/servers/mastergo-design-mastergo-magic-mcp.html</loc></url>
@@ -1164,6 +1168,8 @@
   <url><loc>https://protodex.io/servers/posit-dev-mcptools.html</loc></url>
   <url><loc>https://protodex.io/servers/celestoai-agentor.html</loc></url>
   <url><loc>https://protodex.io/servers/rust-mcp-stack-rust-mcp-sdk.html</loc></url>
+  <url><loc>https://protodex.io/servers/openosint-openosint.html</loc></url>
+  <url><loc>https://protodex.io/servers/zgsm-ai-everything-ai-coding.html</loc></url>
   <url><loc>https://protodex.io/servers/nulab-backlog-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/langfuse-mcp-server-langfuse.html</loc></url>
   <url><loc>https://protodex.io/servers/railwayapp-railway-mcp-server.html</loc></url>
@@ -1775,6 +1781,7 @@
   <url><loc>https://protodex.io/servers/raine-consult-llm-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/joelhooks-logseq-mcp-tools.html</loc></url>
   <url><loc>https://protodex.io/servers/akutishevsky-lunchmoney-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/eshaan-nair-arcrift.html</loc></url>
   <url><loc>https://protodex.io/servers/ai-dashboad-flutter-skill.html</loc></url>
   <url><loc>https://protodex.io/servers/xiaotonng-lc2mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/conorluddy-xc-mcp.html</loc></url>
@@ -1961,6 +1968,7 @@
   <url><loc>https://protodex.io/servers/epheterson-applemusic-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/alperhankendi-ctxo.html</loc></url>
   <url><loc>https://protodex.io/servers/rapiercraft-perplexity-comet-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/flowing-abyss-obsidian-hybrid-search.html</loc></url>
   <url><loc>https://protodex.io/servers/ximilalaxiang-delive.html</loc></url>
   <url><loc>https://protodex.io/servers/geekjourneyx-md2wechat-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/goern-forgejo-mcp.html</loc></url>
@@ -2010,6 +2018,7 @@
   <url><loc>https://protodex.io/servers/awslabs-threat-modeling-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/kintone-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/daredev256-fcpxml-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/profullstack-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/rootly-ai-labs-rootly-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/zeromicro-mcp-zero.html</loc></url>
   <url><loc>https://protodex.io/servers/moeru-ai-mcp-launcher.html</loc></url>
@@ -2672,6 +2681,8 @@
   <url><loc>https://protodex.io/servers/lennix1337-genexus18mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/klyne-ai-klyne.html</loc></url>
   <url><loc>https://protodex.io/servers/hvkshetry-office-365-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/tractorjuice-arckit-codex.html</loc></url>
+  <url><loc>https://protodex.io/servers/freeformz-paperless-ngx-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/1dark134-arxiv-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/depshubhq-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/thunderboltsid-mcp-nutanix.html</loc></url>
@@ -2730,6 +2741,7 @@
   <url><loc>https://protodex.io/servers/devakone-mysql-query-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/d-padmanabhan-agent-engineering-handbook.html</loc></url>
   <url><loc>https://protodex.io/servers/cloudglue-cloudglue-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/wbopan-things-cloud-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/modelcontextprotocol-transports-wg.html</loc></url>
   <url><loc>https://protodex.io/servers/backstabslash-goccc.html</loc></url>
   <url><loc>https://protodex.io/servers/wangzhaobo168-dm-mcp-server.html</loc></url>
@@ -2798,6 +2810,7 @@
   <url><loc>https://protodex.io/servers/wyattjoh-media-server-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/elastic-semantic-code-search-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/thunderbit-com-thunderbit-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/erikunha-portfolio.html</loc></url>
   <url><loc>https://protodex.io/servers/ykarapazar-word-mcp-live.html</loc></url>
   <url><loc>https://protodex.io/servers/danielmarbach-mnemonic.html</loc></url>
   <url><loc>https://protodex.io/servers/exjskdjsdfks-pentest-mcp-server.html</loc></url>
@@ -3065,6 +3078,7 @@
   <url><loc>https://protodex.io/servers/intersystems-community-iris-agentic-dev.html</loc></url>
   <url><loc>https://protodex.io/servers/hsingjui-mcpdock.html</loc></url>
   <url><loc>https://protodex.io/servers/kc0506-ntucool.html</loc></url>
+  <url><loc>https://protodex.io/servers/phungxuananh-selenium-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/fedosov-agent-sync.html</loc></url>
   <url><loc>https://protodex.io/servers/hidorakai002-ai-workspace-archive.html</loc></url>
   <url><loc>https://protodex.io/servers/crosery-runai.html</loc></url>
@@ -3298,6 +3312,8 @@
   <url><loc>https://protodex.io/servers/lapidakis-deckard.html</loc></url>
   <url><loc>https://protodex.io/servers/zavora-ai-computer-use-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/decisionsdev-ibm-decision-intelligence-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/guymanndude-frankenclaw.html</loc></url>
+  <url><loc>https://protodex.io/servers/kittycad-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/modelcontextprotocol-experimental-ext-grouping.html</loc></url>
   <url><loc>https://protodex.io/servers/modelcontextprotocol-experimental-ext-variants.html</loc></url>
   <url><loc>https://protodex.io/servers/ericvoltolin-xc-mcp.html</loc></url>
@@ -4021,6 +4037,10 @@
   <url><loc>https://protodex.io/servers/miura55-roomba_mcp_server.html</loc></url>
   <url><loc>https://protodex.io/servers/ncosentino-google-search-console-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/miaofalianhua-resxmcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/portel-dev-photons.html</loc></url>
+  <url><loc>https://protodex.io/servers/shuwalker-ares-autonomous-reasoning-execution-system.html</loc></url>
+  <url><loc>https://protodex.io/servers/jordanburke-joplin-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/webexcommunity-webex-bot-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/craneoankh-mcp-server-manager.html</loc></url>
   <url><loc>https://protodex.io/servers/percona-lab-pack.html</loc></url>
   <url><loc>https://protodex.io/servers/amienbou121-crawl4ai-mcp-server.html</loc></url>
@@ -4625,6 +4645,8 @@
   <url><loc>https://protodex.io/servers/crowdstrike-aidr-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/yuandian-ailaw-yuandian-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/sw9t-php-mcp-tool-definition.html</loc></url>
+  <url><loc>https://protodex.io/servers/stgarca-consensus-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/golden0voyager-kimi-code-usage.html</loc></url>
   <url><loc>https://protodex.io/servers/modelcontextprotocol-agents-wg.html</loc></url>
   <url><loc>https://protodex.io/servers/modelcontextprotocol-actions.html</loc></url>
   <url><loc>https://protodex.io/servers/alaarab-phren.html</loc></url>
@@ -5862,6 +5884,26 @@
   <url><loc>https://protodex.io/servers/bhayanak-qualys-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/iuk-ink-binance-mcp-server.html</loc></url>
   <url><loc>https://protodex.io/servers/sashadev-sky-build-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/shanefirek-clay-mcp-public.html</loc></url>
+  <url><loc>https://protodex.io/servers/mayor-modder-cities2-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/kwonye-mcpx.html</loc></url>
+  <url><loc>https://protodex.io/servers/wongo-my-minimax-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/genoxdeveloper-buygit-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/moonbanking-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/onepointconsultingltd-joomla-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/cyanheads-bls-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/cyanheads-eia-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/cyanheads-crossref-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/cyanheads-biorxiv-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/cyanheads-fred-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/ryanmyatthu-dev-codelensmcpserver.html</loc></url>
+  <url><loc>https://protodex.io/servers/anuragagrawal0430-atlassian-confluence-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/get-technology-inc-jamf-docs-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/mohitlikestocode-cloudwatch-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/vanterx-mssql-performance-skills.html</loc></url>
+  <url><loc>https://protodex.io/servers/domdomegg-call-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/datashaman-growth.html</loc></url>
+  <url><loc>https://protodex.io/servers/santiagoalvarezm-ynab-mcp-orchestrator.html</loc></url>
   <url><loc>https://protodex.io/servers/viktorbarzin-claude-memory-mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/franklynchimobi-locusts_mcp.html</loc></url>
   <url><loc>https://protodex.io/servers/luis13-source-jira-simple-mcp.html</loc></url>
@@ -11201,4 +11243,112 @@
   <url><loc>https://protodex.io/servers/sunl-billing-cost-management-mcp-server-for-amazon-quick.html</loc></url>
   <url><loc>https://protodex.io/servers/katopz-zed-mcp-server-zai-web-reader.html</loc></url>
   <url><loc>https://protodex.io/servers/islibasha-publer-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/bp4151-safepghstreetsmcpserver.html</loc></url>
+  <url><loc>https://protodex.io/servers/farchanjo-substrate.html</loc></url>
+  <url><loc>https://protodex.io/servers/nomad-actual-aetherium-nexus-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/payzuplus-payzu-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/kswanjitsu-openclinicalai.html</loc></url>
+  <url><loc>https://protodex.io/servers/ljohri-bib-papers-extractor.html</loc></url>
+  <url><loc>https://protodex.io/servers/silviosotelo-mobile-release-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/v-sekai-fire-taskweft-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/linny006-mcp-servers-live.html</loc></url>
+  <url><loc>https://protodex.io/servers/hopakhei-drawtree-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/api-evangelist-agentgateway.html</loc></url>
+  <url><loc>https://protodex.io/servers/hbestm-openlist-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/saajit1997-world_cup_database.html</loc></url>
+  <url><loc>https://protodex.io/servers/oaslananka-a2a-warp.html</loc></url>
+  <url><loc>https://protodex.io/servers/bp4151-domiobstructionmcpserver.html</loc></url>
+  <url><loc>https://protodex.io/servers/ykshah1309-neuro-research-discovery-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/emerson-duarte-brain-tools.html</loc></url>
+  <url><loc>https://protodex.io/servers/groupthink-dev-tailscale-blade-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/lukaj99-code-context-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/loerei-purritize-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/reaatech-webhook-relay-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/dylancm4-schwab-readonly-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/archzak-totally-not-a-bot.html</loc></url>
+  <url><loc>https://protodex.io/servers/g-cqd-claudetalk.html</loc></url>
+  <url><loc>https://protodex.io/servers/chrischall-zillow-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/chrischall-redfin-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/julie-huang666-sample-pubrio-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/jeffdoubleyou-eth-rpc-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/vishraj-mcp-servers.html</loc></url>
+  <url><loc>https://protodex.io/servers/docketlayer-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/dekolowe-code-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/winingv5-blip-outlook-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/pauljbernard-edgar_mcp_server.html</loc></url>
+  <url><loc>https://protodex.io/servers/yak33-customs-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/tuoaoa-context-pruning-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/afshinator-mcp-server-go-quality.html</loc></url>
+  <url><loc>https://protodex.io/servers/autobiographerspot78-datosgobdo-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/randyramig-kexp_mcp_server.html</loc></url>
+  <url><loc>https://protodex.io/servers/delta-daemon-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/karbelekedar-mcp-servers.html</loc></url>
+  <url><loc>https://protodex.io/servers/dspkgp-jira-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/algoevolved-samgov-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/astromechza-ha-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/foritllc-linkedin-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/bj-pina-overwatch-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/sourabhdhalia-mcp-auth-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/ifurniel-orbit-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/xmv-solutions-gmbh-oss-mcp-server-template.html</loc></url>
+  <url><loc>https://protodex.io/servers/accelerated-ideas-useresume-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/sarahsaleem05-playwright_mcp_server.html</loc></url>
+  <url><loc>https://protodex.io/servers/nandy2k2-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/albertobneto-ai-mcp-salesforce-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/uriwise-chess_dot_com_mcp_server.html</loc></url>
+  <url><loc>https://protodex.io/servers/aiweather-anurag-ottasia-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/eshitakundu-hn-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/kononenko-e-mcp-caldav-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/drezzler-plane-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/msion81-vca-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/chloemeadow0-code-gmail-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/adimendun-tiingo-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/web-techwhiz-learnmcpserver.html</loc></url>
+  <url><loc>https://protodex.io/servers/dmitriy01986-arch-xiaozhi-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/hritikabhatnagar2003-google-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/enkil1976-memoria_rag2_mcp_server.html</loc></url>
+  <url><loc>https://protodex.io/servers/originaldopey-dmb-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/cyanheads-reliefweb-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/diamond2233-test-remote-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/gensecops-honestas-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/mdtahmidhossain-testrail-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/mdtahmidhossain-vsphere-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/kraftankaran-genai-day5-lab2build-your-own-python-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/sbhuvan455-gmail-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/ashabharathy-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/nicoloferri1992-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/piinokhoahocf8-awesome-mcp-servers-main.html</loc></url>
+  <url><loc>https://protodex.io/servers/codigosinsiesta-mcp-servers-presentation.html</loc></url>
+  <url><loc>https://protodex.io/servers/viktoredv-pokeapi-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/cuongbuilh-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/drashrafsaiyed-cyber-claude-skill-mcp-server-builder.html</loc></url>
+  <url><loc>https://protodex.io/servers/jackmullis-spitcast-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/sirakinb-buildium-mcp-server-cli.html</loc></url>
+  <url><loc>https://protodex.io/servers/futuretea-flashduty-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/hossamahmedsamy-ems-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/yongyuanfan-doc-generation-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/suraaj-rajeev-gsheet-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/tumuluripradeep-multi_mcp_server_model_verna_ai.html</loc></url>
+  <url><loc>https://protodex.io/servers/ph7klw76-github-mcp-server2.html</loc></url>
+  <url><loc>https://protodex.io/servers/seonwoo-jung-velog-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/sleepingtalent-oanda-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/ares16ka-cpu-mcp_server_auto_created.html</loc></url>
+  <url><loc>https://protodex.io/servers/ph7klw76-jupyter-mcp-server2.html</loc></url>
+  <url><loc>https://protodex.io/servers/scott736-folk-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/samtruss-pathfinder-ai-mcp-servers.html</loc></url>
+  <url><loc>https://protodex.io/servers/mahmoud-bebars-pdf-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/artefactventures-artefact-mcp-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/topikkhususfauzif-python-mcp-db-server.html</loc></url>
+  <url><loc>https://protodex.io/servers/bhrum-chatgpt-vps-control.html</loc></url>
+  <url><loc>https://protodex.io/servers/bounceprotect-bounceprotect-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/mortazavilab-encodelib.html</loc></url>
+  <url><loc>https://protodex.io/servers/nikitatsym-gitlab-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/tolegm-astranl-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/k3ijo-miyamoto-ai-threats.html</loc></url>
+  <url><loc>https://protodex.io/servers/liyue2341-agentforge-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/maugomez77-spec2mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/htiel-health-auto-import.html</loc></url>
+  <url><loc>https://protodex.io/servers/vailtom-hbmcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/ad0750-regintel-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/medalcode-docmcp.html</loc></url>
 </urlset>
