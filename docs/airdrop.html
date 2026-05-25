@@ -44,6 +44,9 @@
   --cyan: #06B6D4;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --mono: 'JetBrains Mono', 'SF Mono', 'Menlo', monospace;
+  /* Custom easing curves — stronger than built-in CSS easings (per Emil Kowalski) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -147,22 +150,48 @@ button { font-family: inherit; }
   background: linear-gradient(135deg, var(--accent), #059669);
   color: #fff; border: none; border-radius: 6px; padding: 10px 22px;
   font-size: 11px; letter-spacing: 2px; font-weight: 700; cursor: pointer;
-  font-family: var(--mono); transition: transform .1s;
+  font-family: var(--mono);
+  /* Specific properties (not `all`); custom curve; 160ms is the button-press sweet spot */
+  transition: transform 160ms var(--ease-out), background 200ms ease, color 200ms ease, filter 200ms ease;
+  will-change: transform;
 }
-.btn-primary:active { transform: scale(0.98); }
-.btn-primary:disabled { background: var(--bg-deep); color: var(--text-dim); cursor: not-allowed; }
+.btn-primary:active { transform: scale(0.97); }
+.btn-primary:disabled {
+  background: var(--bg-deep); color: var(--text-dim); cursor: not-allowed;
+  /* Disabled = "thinking", not "off". Mild blur signals state without harsh swap. */
+  filter: blur(0.3px);
+}
 .btn-ghost {
   background: transparent; color: var(--text-muted); border: 1px solid var(--border);
   border-radius: 6px; padding: 8px 14px; font-size: 10px; cursor: pointer;
-  font-family: var(--mono); transition: all .15s;
+  font-family: var(--mono);
+  /* Specific properties beat `all`: cheaper, predictable, no accidental layout transitions */
+  transition: color 160ms var(--ease-out), border-color 160ms var(--ease-out), transform 160ms var(--ease-out);
 }
-.btn-ghost:hover { color: var(--text); border-color: var(--accent); }
+@media (hover: hover) and (pointer: fine) {
+  .btn-ghost:hover { color: var(--text); border-color: var(--accent); }
+}
+.btn-ghost:active { transform: scale(0.97); }
 .meta { font-size: 10px; color: var(--text-dim); }
 
-/* Progress */
+/* Progress — scan takes 20-60s. Must feel alive without lying about completion. */
 .bar-track { flex: 1; min-width: 100px; height: 6px; background: var(--bg-deep); border-radius: 3px; overflow: hidden; }
-.bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent)60, var(--accent)); transition: width .6s; }
-.pct { font-size: 10px; color: var(--accent); min-width: 36px; }
+.bar-fill {
+  height: 100%; width: 100%;
+  background: linear-gradient(90deg, var(--accent)60, var(--accent));
+  /* scaleX is GPU-composited; `transition: width` re-runs layout every frame */
+  transform-origin: left center;
+  transform: scaleX(0);
+  /* Linear for constant motion (progress = uniform fill); ease-out would lie about pace */
+  transition: transform 400ms linear;
+  will-change: transform;
+}
+.pct { font-size: 10px; color: var(--accent); min-width: 36px; font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary, .btn-ghost { transition: none; }
+  .btn-primary:active, .btn-ghost:active { transform: none; }
+  .bar-fill { transition: none; }
+}
 
 /* Tabs */
 .tabs { display: flex; flex-wrap: wrap; border-bottom: 1px solid var(--border); margin-bottom: 18px; }
@@ -1223,7 +1252,7 @@ function AirdropScanner() {
           </div>
           {ran && (
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 10, minWidth: 200 }}>
-              <div className="bar-track"><div className="bar-fill" style={{ width: `${pct}%` }} /></div>
+              <div className="bar-track"><div className="bar-fill" style={{ transform: `scaleX(${Math.max(0, Math.min(1, pct/100))})` }} /></div>
               <span className="pct">{pct}%</span>
             </div>
           )}
