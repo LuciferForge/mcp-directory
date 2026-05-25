@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wet-mcp — Other MCP Server | Protodex</title>
-    <meta name="description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
-    <meta property="og:title" content="wet-mcp — Other MCP Server | Protodex">
-    <meta property="og:description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
+    <title>wet-mcp — Search MCP Server | Protodex</title>
+    <meta name="description" content="Open-source MCP Server for web search, content extraction, library docs &amp; multimodal analysis. — 8 stars on GitHub. Browse on Protodex.">
+    <meta property="og:title" content="wet-mcp — Search MCP Server | Protodex">
+    <meta property="og:description" content="Open-source MCP Server for web search, content extraction, library docs &amp; multimodal analysis. — 8 stars on GitHub. Browse on Protodex.">
     <meta property="og:url" content="https://protodex.io/servers/n24q02m-wet-mcp.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="wet-mcp — Other MCP Server | Protodex">
-    <meta name="twitter:description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
+    <meta name="twitter:title" content="wet-mcp — Search MCP Server | Protodex">
+    <meta name="twitter:description" content="Open-source MCP Server for web search, content extraction, library docs &amp; multimodal analysis. — 8 stars on GitHub. Browse on Protodex.">
     <link rel="canonical" href="https://protodex.io/servers/n24q02m-wet-mcp.html">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com;">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -1037,11 +1037,11 @@ footer {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "wet-mcp",
-  "description": "An MCP server.",
+  "description": "Open-source MCP Server for web search, content extraction, library docs & multimodal analysis.",
   "url": "https://github.com/n24q02m/wet-mcp",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
-  "programmingLanguage": "Unknown"
+  "programmingLanguage": "Python"
 }</script>
 </head>
 <body>
@@ -1068,7 +1068,7 @@ footer {
 
 <div class="container server-detail">
     <div class="breadcrumb">
-        <a href="/">Home</a> / <a href="/category/other.html">Other</a> / wet-mcp
+        <a href="/">Home</a> / <a href="/category/search.html">Search</a> / wet-mcp
     </div>
 
     <div class="detail-header">
@@ -1077,17 +1077,21 @@ footer {
     </div>
 
     <div class="detail-meta">
-        <span class="meta-item">★ 0 stars</span>
-        <span class="meta-item">Unknown language</span>
-        <span class="meta-item">📦 Other</span>
-        <span class="meta-item">Updated Unknown</span>
-        <span class="meta-item"><span class="sec-badge sec-yellow">&#9888; Review</span></span>
+        <span class="meta-item">★ 8 stars</span>
+        <span class="meta-item"><span class="lang-dot" style="background:#3572A5"></span> Python</span>
+        <span class="meta-item">🔍 Search</span>
+        <span class="meta-item">Updated today</span>
+        <span class="meta-item"></span>
     </div>
 
-    <div class="detail-desc">An MCP server.</div>
+    <div class="detail-desc">Open-source MCP Server for web search, content extraction, library docs &amp; multimodal analysis.</div>
 
     <a href="https://github.com/n24q02m/wet-mcp" target="_blank" rel="noopener" class="btn">
         View on GitHub →
+    </a>
+
+    <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=server-page&utm_campaign=mcp-cta&utm_content=n24q02m-wet-mcp" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:8px 16px;background:linear-gradient(135deg,#c96442,#a04e35);color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;border:none">
+        Try with Claude — $10 free →
     </a>
 
     
@@ -1107,10 +1111,9 @@ footer {
                 <pre><code>{
   &quot;mcpServers&quot;: {
     &quot;wet-mcp&quot;: {
-      &quot;command&quot;: &quot;npx&quot;,
+      &quot;command&quot;: &quot;uvx&quot;,
       &quot;args&quot;: [
-        &quot;-y&quot;,
-        &quot;n24q02m/wet-mcp&quot;
+        &quot;wet-mcp&quot;
       ]
     }
   }
@@ -1122,7 +1125,7 @@ footer {
         <div id="claude-code-wet-mcp" class="install-panel" style="display:none">
             <p class="install-label">Run in terminal:</p>
             <div class="code-block">
-                <pre><code>claude mcp add wet-mcp npx -y n24q02m/wet-mcp</code></pre>
+                <pre><code>claude mcp add wet-mcp uvx wet-mcp</code></pre>
                 <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
             </div>
         </div>
@@ -1133,10 +1136,9 @@ footer {
                 <pre><code>{
   &quot;mcpServers&quot;: {
     &quot;wet-mcp&quot;: {
-      &quot;command&quot;: &quot;npx&quot;,
+      &quot;command&quot;: &quot;uvx&quot;,
       &quot;args&quot;: [
-        &quot;-y&quot;,
-        &quot;n24q02m/wet-mcp&quot;
+        &quot;wet-mcp&quot;
       ]
     }
   }
@@ -1144,62 +1146,74 @@ footer {
                 <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
             </div>
         </div>
-        
+        <p class="install-note">Or install with pip: <code>pip install wet-mcp</code></p>
     </div>
 
 
     <div style="margin-top:40px">
         
+    <div class="detail-section">
+        <h2>README Excerpt</h2>
+        <div class="detail-readme">mcp-name: io.github.n24q02m/wet-mcp **5-strategy web search + extract + media MCP server, web-core ScrapingAgent backend.** | Phase | Status | Scope | |---|---|---| | Phase 1 | Shipped | web-core ScrapingAgent migration, smart chunks output, search polish, media slim | | Phase 2 | Shipped | Context7-level docs search: library index (Tier 1 + Tier 2), version-aware queries with token cap, project lock (Cabinets) |</div>
+    </div>
         
+    <div class="detail-section">
+        <h2>Tools (4)</h2>
+        <div class="detail-tools"><span class="tool-tag">config</span><span class="tool-tag">extract</span><span class="tool-tag">media</span><span class="tool-tag">search</span></div>
+    </div>
         
+    <div class="detail-section">
+        <h2>Topics</h2>
+        <div class="detail-tools"><span class="tag">ai-agents</span><span class="tag">ai-coding</span><span class="tag">claude</span><span class="tag">claude-code</span><span class="tag">crawl4ai</span><span class="tag">cursor</span><span class="tag">docker</span><span class="tag">mcp</span><span class="tag">mcp-server</span><span class="tag">model-context-protocol</span><span class="tag">open-source</span><span class="tag">python</span><span class="tag">searxng</span><span class="tag">web-scraping</span><span class="tag">web-search</span></div>
+    </div>
     </div>
 
     
     <div class="related-servers">
-        <h2 class="section-title">Related Other Servers</h2>
+        <h2 class="section-title">Related Search Servers</h2>
         <div class="server-grid">
-    <a href="/servers/xpzouying-xiaohongshu-mcp.html" class="server-card">
+    <a href="/servers/exa-labs-exa-mcp-server.html" class="server-card">
         <div class="server-card-header">
-            <span class="server-card-name">xiaohongshu-mcp</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 12.0K</span></span>
+            <span class="server-card-name">exa-mcp-server</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 4.0K</span></span>
         </div>
-        <div class="server-card-desc">MCP for xiaohongshu.com</div>
+        <div class="server-card-desc">Exa MCP for web search and web crawling!</div>
         <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+            <span class="tag">🔍 Search</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
         </div>
     </a>
-    <a href="/servers/xinnan-tech-xiaozhi-esp32-server.html" class="server-card">
+    <a href="/servers/deedy5-ddgs.html" class="server-card">
         <div class="server-card-header">
-            <span class="server-card-name">xiaozhi-esp32-server</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 8.9K</span></span>
+            <span class="server-card-name">ddgs</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 2.3K</span></span>
         </div>
-        <div class="server-card-desc">本项目为xiaozhi-esp32提供后端服务，帮助您快速搭建ESP32设备控制服务器。Backend service for xiaozhi-esp32, helps you quickly build an ESP32...</div>
+        <div class="server-card-desc">A metasearch library that aggregates results from diverse web search services</div>
         <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
+            <span class="tag">🔍 Search</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a>
+    <a href="/servers/tavily-ai-tavily-mcp.html" class="server-card">
+        <div class="server-card-header">
+            <span class="server-card-name">tavily-mcp</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 1.4K</span></span>
+        </div>
+        <div class="server-card-desc">Production ready MCP server with real-time search, extract, map &amp; crawl.</div>
+        <div class="server-card-footer">
+            <span class="tag">🔍 Search</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#F7DF1E"></span>JavaScript</span>
         </div>
     </a>
-    <a href="/servers/lauriewired-ghidramcp.html" class="server-card">
+    <a href="/servers/aas-ee-open-websearch.html" class="server-card">
         <div class="server-card-header">
-            <span class="server-card-name">GhidraMCP</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 8.0K</span></span>
+            <span class="server-card-name">open-webSearch</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 1.0K</span></span>
         </div>
-        <div class="server-card-desc">MCP Server for Ghidra</div>
+        <div class="server-card-desc">Multi-engine MCP server, CLI, and local daemon for agent web search and content retrieval — skill-guided workflows,...</div>
         <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#B07219"></span>Java</span>
-        </div>
-    </a>
-    <a href="/servers/cursortouch-windows-mcp.html" class="server-card">
-        <div class="server-card-header">
-            <span class="server-card-name">Windows-MCP</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 4.8K</span></span>
-        </div>
-        <div class="server-card-desc">MCP Server for Computer Use in Windows</div>
-        <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+            <span class="tag">🔍 Search</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
         </div>
     </a></div>
     </div>
@@ -1228,10 +1242,14 @@ footer {
                     <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
                     <a href="https://github.com/LuciferForge" target="_blank" rel="noopener">LuciferForge</a>
                 </div>
+                <div class="footer-col">
+                    <h4>Built with</h4>
+                    <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=footer&utm_campaign=mcp-directory" target="_blank" rel="noopener">Claude ($10 free credit)</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Protodex. Open source. Updated weekly from GitHub.
+            &copy; 2026 Protodex. Open source. Updated weekly from GitHub. Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=footer-text&utm_campaign=mcp-directory" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Claude</a>.
         </div>
     </div>
 </footer>
