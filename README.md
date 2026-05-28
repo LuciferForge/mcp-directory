@@ -1,15 +1,15 @@
 # Protodex — The MCP Server Index
 
-**[protodex.io](http://protodex.io)** — Search 1,629+ Model Context Protocol servers. Find the right MCP server for Claude, Cursor, and AI agents.
+**[protodex.io](http://protodex.io)** — Search 12,027+ Model Context Protocol servers. Find the right MCP server for Claude, Cursor, and AI agents.
 
-[![Servers](https://img.shields.io/badge/servers-1%2C629-8B5CF6)](http://protodex.io)
+[![Servers](https://img.shields.io/badge/servers-12%2C027-8B5CF6)](http://protodex.io)
 [![Categories](https://img.shields.io/badge/categories-13-22C55E)](http://protodex.io/categories.html)
-[![Languages](https://img.shields.io/badge/languages-31-3B82F6)](http://protodex.io)
+[![Languages](https://img.shields.io/badge/languages-68-3B82F6)](http://protodex.io)
 [![Updated](https://img.shields.io/badge/updated-weekly-EAB308)](http://protodex.io)
 
 ## Browse at [protodex.io](http://protodex.io)
 
-- Instant search across all 1,629 servers
+- Instant search across all 12,027 servers
 - 13 categories: AI/LLM, Database, API Integration, Security, DevOps, and more
 - Individual pages for every server with metadata, tools, and related servers
 - Ranked by GitHub stars so you find battle-tested tools first
@@ -19,21 +19,21 @@
 
 | Category | Servers | Top Repo |
 |----------|---------|----------|
-| AI/LLM | 779 | gemini-cli (97K stars) |
-| Code/Dev Tools | 180 | — |
-| API Integration | 102 | n8n (179K stars) |
-| Memory/Knowledge | 97 | modelcontextprotocol/servers (81K) |
-| Database | 75 | — |
-| Browser/Web | 46 | Scrapling (29K) |
-| Security | 44 | — |
-| Search | 43 | — |
-| DevOps | 41 | — |
-| Data/Analytics | 27 | — |
-| Communication | 22 | — |
-| File System | 15 | — |
-| Other | 158 | — |
+| AI/LLM | 4,899 | gemini-cli (97K stars) |
+| Other | 2,383 | — |
+| Code/Dev Tools | 1,185 | — |
+| API Integration | 867 | n8n (179K stars) |
+| Database | 474 | — |
+| Memory/Knowledge | 466 | modelcontextprotocol/servers (81K) |
+| Security | 384 | — |
+| Browser/Web | 324 | Scrapling (29K) |
+| DevOps | 297 | — |
+| Search | 235 | — |
+| Data/Analytics | 208 | — |
+| File System | 177 | — |
+| Communication | 128 | — |
 
-**Languages:** Python (570), TypeScript (548), JavaScript (121), Go (103), Rust (51), C# (25), Java (22), and 24 more.
+**Languages:** Python (3,749), TypeScript (3,431), JavaScript (1,047), Go (784), Rust (603), C# (514), Java (471), and 61 more.
 
 ## Run the Scraper Yourself
 
@@ -54,7 +54,7 @@ python3 mcp_directory.py export          # Export as JSON
 ## Build the Website
 
 ```bash
-python3 build_site.py    # Generates all 1,647 HTML pages into docs/
+python3 build_site.py    # Generates all HTML pages (one per server + category/index pages) into docs/
 ```
 
 The static site is served via GitHub Pages at [protodex.io](http://protodex.io).
