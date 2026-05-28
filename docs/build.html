@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Need an MCP server built? | Protodex</title>
+<meta name="description" content="I build production MCP servers that connect your API or database to Claude — shipped in 7 days. I also run protodex.io, the largest MCP directory (12,000+ servers).">
+<meta property="og:title" content="MCP Server Development — shipped in 7 days">
+<meta property="og:description" content="Production MCP servers connecting your API/DB to Claude. Built by the maintainer of protodex.io, the largest MCP directory.">
+<meta property="og:url" content="https://protodex.io/build.html">
+<link rel="canonical" href="https://protodex.io/build.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06090F;--card:#0B1119;--bd:rgba(255,255,255,.08);--tx:#EDF2F7;--mut:#9FB0C3;--acc:#00d4aa;--acc2:#7B61FF;--font:'Inter',-apple-system,system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+.wrap{max-width:760px;margin:0 auto;padding:32px 20px 80px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;font-size:.9rem}
+.nav .brand{font-weight:800;font-size:1.05rem}
+.nav .brand span{color:var(--acc)}
+.nav a{color:var(--mut);margin-left:16px}
+.hero h1{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;letter-spacing:-.5px;line-height:1.15;margin-bottom:14px}
+.hero h1 .g{background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:1.1rem;color:var(--mut);margin-bottom:10px}
+.trust{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--acc);background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.25);border-radius:100px;padding:5px 12px;margin:18px 0 32px}
+.what{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:24px;margin-bottom:24px}
+.what h2{font-size:.75rem;letter-spacing:2px;color:var(--mut);text-transform:uppercase;margin-bottom:14px}
+.what ul{list-style:none}
+.what li{padding:7px 0 7px 26px;position:relative;font-size:.95rem}
+.what li::before{content:'\2713';position:absolute;left:0;color:var(--acc);font-weight:700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+.tile{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px}
+.tile .k{font-size:.72rem;letter-spacing:1.5px;color:var(--mut);text-transform:uppercase;margin-bottom:6px}
+.tile .v{font-size:1.4rem;font-weight:800}
+.tile .d{font-size:.82rem;color:var(--mut);margin-top:4px}
+form{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:24px;margin-top:8px}
+form h2{font-size:1.2rem;font-weight:700;margin-bottom:6px}
+form p{color:var(--mut);font-size:.9rem;margin-bottom:18px}
+label{display:block;font-size:.8rem;color:var(--mut);margin:14px 0 6px}
+input,textarea{width:100%;background:#080d17;border:1px solid var(--bd);border-radius:8px;color:var(--tx);font-family:inherit;font-size:.95rem;padding:11px 13px;outline:none}
+input:focus,textarea:focus{border-color:var(--acc)}
+textarea{min-height:90px;resize:vertical}
+button{margin-top:20px;width:100%;background:linear-gradient(135deg,var(--acc),#059669);color:#06060a;border:none;border-radius:8px;padding:13px;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;transition:transform .12s cubic-bezier(.23,1,.32,1)}
+button:active{transform:scale(.98)}
+.foot{text-align:center;color:var(--mut);font-size:.82rem;margin-top:32px}
+.foot a{color:var(--mut);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="/" class="brand">proto<span>dex</span></a>
+    <div><a href="/">Explore servers</a><a href="/blog/">Blog</a></div>
+  </div>
+
+  <div class="hero">
+    <h1>I build <span class="g">production MCP servers</span> that connect your API or database to Claude.</h1>
+    <p class="sub">Spec-compliant, tested, deployed &mdash; in 7 days. Fixed price, no scope creep.</p>
+    <div class="trust">&#9889; Built by the maintainer of protodex.io &mdash; the largest MCP directory (12,000+ servers indexed)</div>
+  </div>
+
+  <div class="what">
+    <h2>What you get</h2>
+    <ul>
+      <li>One production MCP server wrapping your API, database, or internal tools</li>
+      <li>Tools &amp; resources defined to MCP spec, with auth, error handling, rate limiting</li>
+      <li>Deployed to your infra (or a managed endpoint) &mdash; ready to use</li>
+      <li>Install instructions for Claude Desktop, Cursor, and Claude Code</li>
+      <li>Security-scanned before handoff (I built protodex's MCP security layer)</li>
+      <li>Optional: listed on protodex.io for discovery by 1000s of MCP devs</li>
+    </ul>
+  </div>
+
+  <div class="grid2">
+    <div class="tile"><div class="k">Timeline</div><div class="v">7 days</div><div class="d">From scope call to deployed server</div></div>
+    <div class="tile"><div class="k">Why me</div><div class="v">I index them all</div><div class="d">12k+ MCP servers catalogued &mdash; I know what makes them reliable across every framework</div></div>
+  </div>
+
+  <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="b2fb1576-a39b-4683-8ee9-4e152f731113">
+    <input type="hidden" name="subject" value="New MCP server build inquiry — protodex.io/build">
+    <input type="hidden" name="from_name" value="Protodex Build Page">
+    <h2>Get a quote</h2>
+    <p>Tell me what you want connected to Claude. I'll reply within 24h with scope + a fixed price.</p>
+    <label for="name">Your name</label>
+    <input id="name" type="text" name="name" required>
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" required>
+    <label for="msg">What should the MCP server connect to? (API, database, tool&hellip;)</label>
+    <textarea id="msg" name="message" placeholder="e.g. We have a REST API for our analytics product and want Claude users to query it via MCP." required></textarea>
+    <input type="hidden" name="redirect" value="https://protodex.io/build.html?sent=1">
+    <button type="submit">Send inquiry &rarr;</button>
+  </form>
+
+  <div class="foot">
+    No spam, no agency runaround &mdash; you talk directly to the person building it.<br>
+    <a href="/">&larr; Back to the MCP directory</a>
+  </div>
+</div>
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</body>
+</html>

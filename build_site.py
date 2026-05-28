@@ -1287,7 +1287,11 @@ GUMROAD_PRODUCTS = {
                          "cta": "Claude Skills Pack →", "price": "$99",
                          "pitch": "Production-grade Claude Code skills"},
 }
-GUMROAD_PROMO = GUMROAD_PRODUCTS["api-connector"]  # ← active product
+GUMROAD_PROMO = GUMROAD_PRODUCTS["api-connector"]  # ← active product (footer)
+
+# Primary site-wide CTA. At 864 MCP-dev visitors/mo, lead-gen for a $1,500
+# MCP-build service is far higher-EV than a $7 product sale. Points to /build.html.
+SERVICES_CTA = {"url": "/build.html", "cta": "Need an MCP server? →"}
 
 
 def html_header(current=""):
@@ -1307,7 +1311,7 @@ def html_header(current=""):
             <a href="/security.html">Security</a>
             <a href="/blog/">Blog</a>
             <a href="/submit.html">Submit</a>
-            <a href="{GUMROAD_PROMO['url']}?utm_source=protodex&utm_medium=nav&utm_campaign=gumroad" target="_blank" rel="noopener" class="nav-cta" data-promo="gumroad">{GUMROAD_PROMO['cta']}</a>
+            <a href="{SERVICES_CTA['url']}" class="nav-cta" data-promo="services">{SERVICES_CTA['cta']}</a>
         </nav>
     </div>
 </header>
