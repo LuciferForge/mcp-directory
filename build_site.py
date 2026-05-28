@@ -1274,6 +1274,22 @@ def html_head(title, description, canonical_path="/", extra_head=""):
 """
 
 
+# ── Gumroad promotion (single source of truth for the site-wide CTA) ──
+# Swap `key` to change which product the whole site promotes on next rebuild.
+GUMROAD_PRODUCTS = {
+    "mcp-boilerplate": {"url": "https://manja8.gumroad.com/l/mcp-boilerplate",
+                         "cta": "MCP Boilerplate →", "price": "$79",
+                         "pitch": "Ship a production MCP server in an afternoon"},
+    "api-connector":   {"url": "https://manja8.gumroad.com/l/api-connector",
+                         "cta": "Build a Connector →", "price": "$7",
+                         "pitch": "Turn any API into a Claude Code skill"},
+    "skills-pack":     {"url": "https://manja8.gumroad.com/l/dhnzd",
+                         "cta": "Claude Skills Pack →", "price": "$99",
+                         "pitch": "Production-grade Claude Code skills"},
+}
+GUMROAD_PROMO = GUMROAD_PRODUCTS["api-connector"]  # ← active product
+
+
 def html_header(current=""):
     return f"""
 <header>
@@ -1290,8 +1306,8 @@ def html_header(current=""):
             <a href="/categories.html">Categories</a>
             <a href="/security.html">Security</a>
             <a href="/blog/">Blog</a>
-            <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
-            <a href="/submit.html" class="nav-cta">Submit Server</a>
+            <a href="/submit.html">Submit</a>
+            <a href="{GUMROAD_PROMO['url']}?utm_source=protodex&utm_medium=nav&utm_campaign=gumroad" target="_blank" rel="noopener" class="nav-cta" data-promo="gumroad">{GUMROAD_PROMO['cta']}</a>
         </nav>
     </div>
 </header>
@@ -1325,7 +1341,8 @@ def html_footer():
                     <a href="https://github.com/LuciferForge" target="_blank" rel="noopener">LuciferForge</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Built with</h4>
+                    <h4>For Developers</h4>
+                    <a href="{GUMROAD_PROMO['url']}?utm_source=protodex&utm_medium=footer&utm_campaign=gumroad" target="_blank" rel="noopener" data-promo="gumroad">{GUMROAD_PROMO['cta'].replace(' →','')} ({GUMROAD_PROMO['price']})</a>
                     <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=footer&utm_campaign=mcp-directory" target="_blank" rel="noopener">Claude ($10 free credit)</a>
                 </div>
             </div>
