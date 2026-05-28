@@ -58,42 +58,44 @@ button:active{transform:scale(.98)}
   </div>
 
   <div class="hero">
-    <h1>I build <span class="g">production MCP servers</span> that connect your API or database to Claude.</h1>
-    <p class="sub">Spec-compliant, tested, deployed &mdash; in 7 days. Fixed price, no scope creep.</p>
+    <h1>Send me your API. Get a <span class="g">production MCP server</span> in 5 days.</h1>
+    <p class="sub">$900 flat. Your REST/OpenAPI endpoints, exposed to Claude as MCP tools &mdash; tested, deployed, done.</p>
     <div class="trust">&#9889; Built by the maintainer of protodex.io &mdash; the largest MCP directory (12,000+ servers indexed)</div>
+  </div>
+
+  <div class="grid2">
+    <div class="tile"><div class="k">Price</div><div class="v">$900 flat</div><div class="d">No hourly, no scope creep, no surprise invoice</div></div>
+    <div class="tile"><div class="k">Timeline</div><div class="v">5 days</div><div class="d">From your API link to a deployed server</div></div>
   </div>
 
   <div class="what">
     <h2>What you get</h2>
     <ul>
-      <li>One production MCP server wrapping your API, database, or internal tools</li>
-      <li>Tools &amp; resources defined to MCP spec, with auth, error handling, rate limiting</li>
-      <li>Deployed to your infra (or a managed endpoint) &mdash; ready to use</li>
-      <li>Install instructions for Claude Desktop, Cursor, and Claude Code</li>
-      <li>Security-scanned before handoff (I built protodex's MCP security layer)</li>
-      <li>Optional: listed on protodex.io for discovery by 1000s of MCP devs</li>
+      <li>A production MCP server exposing your API's main endpoints as Claude tools</li>
+      <li>Auth, error handling, and rate limiting wired in</li>
+      <li>Tested + security-scanned (I built protodex's MCP security layer)</li>
+      <li>Deployed to your infra or a managed endpoint &mdash; ready to use</li>
+      <li>Install docs for Claude Desktop, Cursor, and Claude Code</li>
+      <li>Optional: listed on protodex.io for discovery by thousands of MCP devs</li>
     </ul>
-  </div>
-
-  <div class="grid2">
-    <div class="tile"><div class="k">Timeline</div><div class="v">7 days</div><div class="d">From scope call to deployed server</div></div>
-    <div class="tile"><div class="k">Why me</div><div class="v">I index them all</div><div class="d">12k+ MCP servers catalogued &mdash; I know what makes them reliable across every framework</div></div>
   </div>
 
   <form action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="b2fb1576-a39b-4683-8ee9-4e152f731113">
     <input type="hidden" name="subject" value="New MCP server build inquiry — protodex.io/build">
     <input type="hidden" name="from_name" value="Protodex Build Page">
-    <h2>Get a quote</h2>
-    <p>Tell me what you want connected to Claude. I'll reply within 24h with scope + a fixed price.</p>
+    <h2>Start your build</h2>
+    <p>Drop your API docs link. I reply within 24h with the exact tools I'll build &mdash; then it's "go" and 5 days.</p>
     <label for="name">Your name</label>
     <input id="name" type="text" name="name" required>
     <label for="email">Email</label>
     <input id="email" type="email" name="email" required>
-    <label for="msg">What should the MCP server connect to? (API, database, tool&hellip;)</label>
-    <textarea id="msg" name="message" placeholder="e.g. We have a REST API for our analytics product and want Claude users to query it via MCP." required></textarea>
+    <label for="api">Your API docs / OpenAPI spec link</label>
+    <input id="api" type="text" name="api_link" placeholder="https://docs.yourcompany.com/api  (or paste a spec URL)" required>
+    <label for="msg">Anything specific you want Claude to be able to do? (optional)</label>
+    <textarea id="msg" name="message" placeholder="e.g. let users query our analytics + trigger report exports"></textarea>
     <input type="hidden" name="redirect" value="https://protodex.io/build.html?sent=1">
-    <button type="submit">Send inquiry &rarr;</button>
+    <button type="submit">Start my MCP server &rarr;</button>
   </form>
 
   <div class="foot">
