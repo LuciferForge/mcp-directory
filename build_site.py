@@ -1346,6 +1346,8 @@ def html_footer():
                 </div>
                 <div class="footer-col">
                     <h4>For Developers</h4>
+                    <a href="/mcp-quickref.html">MCP Server Builder's Quick Reference</a>
+                    <a href="/build.html">Get an MCP server built</a>
                     <a href="{GUMROAD_PROMO['url']}?utm_source=protodex&utm_medium=footer&utm_campaign=gumroad" target="_blank" rel="noopener" data-promo="gumroad">{GUMROAD_PROMO['cta'].replace(' →','')} ({GUMROAD_PROMO['price']})</a>
                     <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=footer&utm_campaign=mcp-directory" target="_blank" rel="noopener">Claude ($10 free credit)</a>
                 </div>
@@ -2080,6 +2082,8 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/categories.html")
     urls.append(f"{SITE_URL}/submit.html")
     urls.append(f"{SITE_URL}/security.html")
+    urls.append(f"{SITE_URL}/build.html")
+    urls.append(f"{SITE_URL}/mcp-quickref.html")
 
     for cat_name in categories:
         meta = CATEGORY_META.get(cat_name, CATEGORY_META["Other"])

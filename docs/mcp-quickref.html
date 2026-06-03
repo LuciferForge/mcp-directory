@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP Server Builder's Quick Reference — Build an MCP Server (Python & TypeScript) | Protodex</title>
+<meta name="description" content="Free, complete reference for building Model Context Protocol (MCP) servers in Python (FastMCP) &amp; TypeScript: transports, auth, schemas, debugging, deployment to Claude Desktop/Code, security &amp; testing. 22 sections.">
+<meta name="keywords" content="MCP server, Model Context Protocol, how to build an MCP server, FastMCP, MCP cheatsheet, MCP tutorial, Claude tools, MCP TypeScript SDK">
+<link rel="canonical" href="https://protodex.io/mcp-quickref.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MCP Server Builder's Quick Reference — Python & TypeScript">
+<meta property="og:description" content="Free, complete reference for building Model Context Protocol (MCP) servers in Python (FastMCP) &amp; TypeScript: transports, auth, schemas, debugging, deployment to Claude Desktop/Code, security &amp; testing. 22 sections.">
+<meta property="og:url" content="https://protodex.io/mcp-quickref.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MCP Server Builder's Quick Reference">
+<meta name="twitter:description" content="Free, complete reference for building Model Context Protocol (MCP) servers in Python (FastMCP) &amp; TypeScript: transports, auth, schemas, debugging, deployment to Claude Desktop/Code, security &amp; testing. 22 sections.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "MCP Server Builder's Quick Reference", "description": "A complete, free reference for building Model Context Protocol (MCP) servers in Python (FastMCP) and TypeScript \u2014 transports, auth, schemas, debugging, deployment, security, and testing.", "author": {"@type": "Organization", "name": "Protodex"}, "publisher": {"@type": "Organization", "name": "Protodex", "url": "https://protodex.io/"}, "url": "https://protodex.io/mcp-quickref.html", "datePublished": "2026-06-03", "dateModified": "2026-06-03", "keywords": "MCP server, Model Context Protocol, FastMCP, MCP tutorial, build MCP server, MCP cheatsheet, Claude tools"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is an MCP server?", "acceptedAnswer": {"@type": "Answer", "text": "An MCP (Model Context Protocol) server is a JSON-RPC 2.0 program that exposes tools, resources, and prompts to an AI client like Claude. The client calls your tools; your server runs the logic and returns content blocks the model reads."}}, {"@type": "Question", "name": "Should I build my MCP server in Python or TypeScript?", "acceptedAnswer": {"@type": "Answer", "text": "Both SDKs are first-party and equally capable. Pick by where your existing code lives: Python (FastMCP, the mcp[cli] package) if your API/logic is already in Python; TypeScript (@modelcontextprotocol/sdk) if it's in Node."}}, {"@type": "Question", "name": "How do I connect an MCP server to Claude Desktop?", "acceptedAnswer": {"@type": "Answer", "text": "Add a stdio entry to claude_desktop_config.json with the command and args that launch your server, then restart Claude Desktop. The Deployment: Claude Desktop section above has the exact JSON."}}, {"@type": "Question", "name": "What makes a good MCP tool description?", "acceptedAnswer": {"@type": "Answer", "text": "The model only acts on what the description says. Write it for the model, not a human: state what the tool does, when to use it, and the exact format of each argument. Vague descriptions cause the model to call tools wrong or not at all."}}, {"@type": "Question", "name": "Can I hire someone to build a production MCP server for me?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Protodex builds production MCP servers from your existing REST/OpenAPI API \u2014 auth, error handling, rate limiting, security-scanned, deployed \u2014 for a $900 flat fee in about 5 days. Send your API docs on the build page."}}]}</script>
+<style>
+:root{--bg:#06090F;--card:#0B1119;--bd:rgba(255,255,255,.08);--tx:#EDF2F7;--mut:#9FB0C3;--acc:#00d4aa;--acc2:#7B61FF;--font:'Inter',-apple-system,system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--tx);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:820px;margin:0 auto;padding:28px 20px 90px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;font-size:.9rem}
+.nav .brand{font-weight:800;font-size:1.05rem;color:var(--tx)}
+.nav .brand span{color:var(--acc)}
+.nav .links a{color:var(--mut);margin-left:16px}
+.hero h1{font-size:clamp(1.7rem,4.5vw,2.4rem);font-weight:800;letter-spacing:-.5px;line-height:1.18;margin-bottom:12px}
+.hero h1 .g{background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:1.08rem;color:var(--mut);margin-bottom:16px}
+.trust{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--acc);background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.25);border-radius:100px;padding:5px 12px;margin-bottom:28px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px 24px;margin-bottom:36px}
+.toc h2{font-size:.72rem;letter-spacing:2px;color:var(--mut);text-transform:uppercase;margin-bottom:12px}
+.toc ol{columns:2;column-gap:28px;list-style:decimal;padding-left:20px;font-size:.92rem}
+.toc li{margin:3px 0;break-inside:avoid}
+.toc a{color:var(--tx)}
+@media(max-width:560px){.toc ol{columns:1}}
+section{margin:38px 0;scroll-margin-top:20px}
+section h2{font-size:1.32rem;font-weight:800;letter-spacing:-.3px;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+section h3{font-size:1rem;font-weight:700;color:var(--tx);margin:20px 0 8px}
+section p{margin:10px 0;color:#D4DEEA}
+section ul,section ol{margin:12px 0 12px 22px;color:#D4DEEA}
+section li{margin:5px 0}
+code{font-family:var(--mono);font-size:.86em;background:rgba(123,97,255,.12);color:#c9b6ff;border:1px solid rgba(123,97,255,.18);border-radius:5px;padding:1px 5px}
+pre{background:#080d17;border:1px solid var(--bd);border-radius:10px;padding:16px 18px;overflow-x:auto;margin:14px 0}
+pre code{background:none;border:none;color:#cfe3da;padding:0;font-size:.85rem;line-height:1.55}
+table.kv{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem}
+table.kv th{text-align:left;vertical-align:top;color:var(--acc);font-weight:600;padding:8px 14px 8px 0;white-space:nowrap;border-bottom:1px solid var(--bd)}
+table.kv td{vertical-align:top;color:#D4DEEA;padding:8px 0;border-bottom:1px solid var(--bd)}
+.cta{background:linear-gradient(135deg,rgba(0,212,170,.10),rgba(123,97,255,.10));border:1px solid rgba(0,212,170,.30);border-radius:14px;padding:26px;margin:44px 0}
+.cta h2{font-size:1.25rem;font-weight:800;margin-bottom:8px;border:none;padding:0}
+.cta p{color:var(--mut);margin-bottom:16px;font-size:.96rem}
+.cta .btn{display:inline-block;background:linear-gradient(135deg,var(--acc),#059669);color:#06060a;font-weight:700;border-radius:8px;padding:12px 22px;font-size:.98rem}
+.cta .btn:hover{text-decoration:none;transform:translateY(-1px)}
+.faqwrap{margin:40px 0}
+.faqwrap h2{font-size:1.32rem;font-weight:800;margin-bottom:14px}
+.faq{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px 18px;margin:10px 0}
+.faq summary{cursor:pointer;font-weight:600;font-size:.98rem;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:'+';color:var(--acc);font-weight:800;margin-right:10px}
+.faq[open] summary::before{content:'\2212'}
+.faq p{color:var(--mut);margin-top:10px;font-size:.93rem}
+.foot{text-align:center;color:var(--mut);font-size:.82rem;margin-top:50px;border-top:1px solid var(--bd);padding-top:24px}
+.foot a{color:var(--mut);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav">
+    <a href="/" class="brand">proto<span>dex</span></a>
+    <div class="links"><a href="/">Explore servers</a><a href="/blog/">Blog</a><a href="/build.html">Build for me</a></div>
+  </nav>
+
+  <header class="hero">
+    <h1>MCP Server Builder's <span class="g">Quick Reference</span></h1>
+    <p class="sub">Build, debug, and ship Model Context Protocol servers in Python (FastMCP) and TypeScript &mdash; the whole loop on one page.</p>
+    <div class="trust">&#9889; Maintained by protodex.io &mdash; the largest MCP directory (13,000+ servers indexed)</div>
+  </header>
+
+  <nav class="toc">
+    <h2>22 sections</h2>
+    <ol>
+      <li><a href="#what-mcp-is-in-one-page">What MCP is, in one page</a></li>
+<li><a href="#pick-a-language-python-or-typescript">Pick a language: Python or TypeScript</a></li>
+<li><a href="#python-fastmcp-in-30-lines">Python: FastMCP in 30 lines</a></li>
+<li><a href="#python-tool-i-o-and-errors">Python: tool I/O and errors</a></li>
+<li><a href="#python-context-progress-logs">Python: Context, progress, logs</a></li>
+<li><a href="#typescript-minimal-server">TypeScript: minimal server</a></li>
+<li><a href="#transports">Transports</a></li>
+<li><a href="#authentication">Authentication</a></li>
+<li><a href="#tool-descriptions-what-the-model-actually-reads">Tool descriptions: what the model actually reads</a></li>
+<li><a href="#schemas-get-them-right-or-pay-forever">Schemas: get them right or pay forever</a></li>
+<li><a href="#debugging">Debugging</a></li>
+<li><a href="#deployment-claude-desktop">Deployment: Claude Desktop</a></li>
+<li><a href="#deployment-claude-code">Deployment: Claude Code</a></li>
+<li><a href="#deployment-hosted-http-server">Deployment: hosted HTTP server</a></li>
+<li><a href="#distribution-how-users-find-you">Distribution: how users find you</a></li>
+<li><a href="#patterns-and-anti-patterns">Patterns and anti-patterns</a></li>
+<li><a href="#security-checklist">Security checklist</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#performance">Performance</a></li>
+<li><a href="#versioning-and-breaking-changes">Versioning and breaking changes</a></li>
+<li><a href="#glossary">Glossary</a></li>
+<li><a href="#further-reading">Further reading</a></li>
+    </ol>
+  </nav>
+
+  <section id="what-mcp-is-in-one-page"><h2>What MCP is, in one page</h2><p>The Model Context Protocol is a JSON-RPC 2.0 wire protocol that lets a language-model client (Claude Desktop, Claude Code, an agent runtime) talk to an external server that exposes tools, resources, and prompts. The server runs in a separate process. The client launches it or connects to it. They speak JSON over a transport: stdio, Streamable HTTP, or SSE.</p>
+<p>MCP is not an LLM API. It does not call models. It is the bridge between a model-facing client and the outside world. A server might wrap a database, a shell, a file system, a web search, a hardware device, or a SaaS API. The client decides which servers to load, and the model decides which tools to call.</p>
+<h3>The three primitives</h3>
+<table class="kv"><tbody><tr><th>Tools</th><td>Functions the model can call. JSON-Schema input, free-form output. The high-impact primitive.</td></tr><tr><th>Resources</th><td>Read-only data the client can attach to the model's context. URI-addressed. Optional.</td></tr><tr><th>Prompts</th><td>Named prompt templates the user can pick from a menu. Optional, often skipped.</td></tr></tbody></table>
+<p>If you only build one primitive, build tools. Resources and prompts are nice; tools are why MCP exists.</p>
+<h3>The handshake</h3>
+<ol><li>Client launches the server (stdio) or opens a connection (HTTP).</li><li>Client sends <code>initialize</code> with its protocol version and capabilities.</li><li>Server replies with its protocol version, capabilities, and server info.</li><li>Client sends <code>notifications/initialized</code>. Session is now live.</li><li>Client calls <code>tools/list</code>, <code>resources/list</code>, <code>prompts/list</code> to enumerate.</li><li>From there, normal request/response (tools/call, resources/read, etc.).</li></ol></section>
+
+<section id="pick-a-language-python-or-typescript"><h2>Pick a language: Python or TypeScript</h2><p>Both SDKs are first-party. Pick by where your existing code lives.</p>
+<table class="kv"><tbody><tr><th>Python (FastMCP)</th><td>Fastest to write. Decorator-based. Best if your tool wraps a Python library, a pandas pipeline, an ML model, or a CLI.</td></tr><tr><th>TypeScript</th><td>Best if your tool wraps a Node API, a browser automation library, or you want to ship a single-binary stdio server via <code>npx</code>.</td></tr><tr><th>Other (Go, Rust, C#)</th><td>Community SDKs exist. Stable enough for personal use; for distribution prefer the two first-party SDKs until your need is specific.</td></tr></tbody></table>
+<p>Most servers published on the public registries are Python. Most servers shipped inside paid products are TypeScript (smaller image, faster cold-start). For a first server, Python.</p></section>
+
+<section id="python-fastmcp-in-30-lines"><h2>Python: FastMCP in 30 lines</h2><p><code>mcp[cli]</code> is the official Python SDK. FastMCP is the high-level API on top.</p>
+<pre><code># pyproject: dependencies = ["mcp[cli]&gt;=1.2"]
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP("weather")
+
+@mcp.tool()
+def get_forecast(city: str, days: int = 1) -&gt; str:
+    """Return a plain-text weather forecast for a city.
+
+    Args:
+        city: City name in English.
+        days: 1-7. Defaults to 1.
+    """
+    return fetch_forecast(city, days)   # your code
+
+@mcp.resource("weather://{city}/current")
+def current(city: str) -&gt; str:
+    return fetch_current(city)
+
+if __name__ == "__main__":
+    mcp.run()                            # stdio transport by default
+</code></pre>
+<p>Three things to notice. First, the docstring becomes the tool description the model sees. Write it for the model, not for a human reader. Second, type hints become the JSON Schema. <code>int = 1</code> means optional with default. Use <code>Literal['a','b']</code> for enums. Third, <code>mcp.run()</code> blocks on stdio. For HTTP, see section 7.</p>
+<h3>Naming</h3>
+<ul><li>Server name: lowercase, hyphen-separated, matches the package name. e.g. <code>weather</code>, <code>github-search</code>, <code>polymarket-data</code>.</li><li>Tool names: snake_case verb_object. e.g. <code>get_forecast</code>, <code>create_issue</code>, <code>place_order</code>. The model picks tools by name; pick names that read like an English imperative.</li><li>Resource URIs: scheme://path. The scheme is your namespace. Be consistent. <code>weather://city/current</code>, <code>github://repo/issues/123</code>.</li></ul></section>
+
+<section id="python-tool-i-o-and-errors"><h2>Python: tool I/O and errors</h2><p>FastMCP marshals return values into MCP content blocks. Three rules.</p>
+<ul><li>Return a <code>str</code> for plain text. The simplest case.</li><li>Return a <code>dict</code> or <code>list</code> and FastMCP serializes as JSON inside a text block. The model reads it fine; this is the default for structured data.</li><li>Return <code>mcp.types.ImageContent(data=..., mimeType=...)</code> for images. The data is base64. The model can see it if the client supports image content.</li></ul>
+<h3>Errors</h3>
+<p>Raise. FastMCP catches and converts to an MCP error response. The model sees the message; show it something actionable.</p>
+<pre><code>@mcp.tool()
+def transfer(amount: float, to: str) -&gt; str:
+    if amount &lt;= 0:
+        raise ValueError("amount must be &gt; 0")
+    if amount &gt; balance():
+        raise ValueError(
+            f"insufficient balance: have {balance()},"
+            f" need {amount}"
+        )
+    return do_transfer(amount, to)
+</code></pre>
+<p>Good error text reads as an instruction to the caller: what went wrong, what would fix it. Bad error text is a stack trace or "internal error". The model can recover from the first; the second wastes a turn.</p></section>
+
+<section id="python-context-progress-logs"><h2>Python: Context, progress, logs</h2><p>Inject an <code>mcp.server.fastmcp.Context</code> parameter into any tool to get access to logging, progress reporting, and the active session.</p>
+<pre><code>from mcp.server.fastmcp import FastMCP, Context
+
+@mcp.tool()
+async def crawl(url: str, depth: int, ctx: Context) -&gt; str:
+    pages = enumerate_pages(url, depth)
+    for i, page in enumerate(pages):
+        await ctx.report_progress(i, len(pages))
+        ctx.info(f"fetched {page.url}")
+    return summarize(pages)
+</code></pre>
+<p><code>report_progress</code> is shown by graphical clients (Claude Desktop shows a bar). <code>ctx.info</code> / <code>ctx.warning</code> / <code>ctx.error</code> go to the client's log surface; the model does not see them. Use them for post-mortem debugging, not for routing model behavior.</p></section>
+
+<section id="typescript-minimal-server"><h2>TypeScript: minimal server</h2><p><code>@modelcontextprotocol/sdk</code> is the official TypeScript SDK. The API mirrors the Python one but is more explicit (no decorators).</p>
+<pre><code>import { McpServer } from
+  "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from
+  "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+
+const server = new McpServer({
+  name: "weather", version: "0.1.0",
+});
+
+server.tool(
+  "get_forecast",
+  "Return a forecast for a city.",
+  {
+    city: z.string(),
+    days: z.number().int().min(1).max(7).default(1),
+  },
+  async ({ city, days }) =&gt; {
+    const text = await fetchForecast(city, days);
+    return { content: [{ type: "text", text }] };
+  },
+);
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
+</code></pre>
+<p>Use Zod for input schemas. The SDK converts Zod to JSON Schema for the protocol. Return shape is <code>{ content: [...] }</code> with one or more content blocks. Each block has a <code>type</code> (text, image, resource).</p>
+<h3>Package layout</h3>
+<ul><li><code>package.json</code> <code>bin</code> field points at the entry file (with <code>#!/usr/bin/env node</code>). Users invoke via <code>npx your-server</code>.</li><li>Ship as ESM. CommonJS works but the modern templates assume ESM.</li><li>Mark the server's stdout as protocol-only: never <code>console.log</code> to stdout. Use <code>console.error</code> for diagnostics so the client doesn't choke parsing JSON.</li></ul></section>
+
+<section id="transports"><h2>Transports</h2><h3>stdio (default for local servers)</h3>
+<p>The client launches the server as a subprocess. Requests go in on stdin, responses on stdout, diagnostics on stderr. Zero network. Works everywhere. Default for Claude Desktop and Claude Code server configs.</p>
+<h3>Streamable HTTP (current standard for remote)</h3>
+<p>One POST endpoint. Client sends JSON-RPC requests; server streams responses as Server-Sent Events. Replaces the older SSE transport. Use for any server that runs out-of-process, on a different machine, or behind a load balancer.</p>
+<pre><code># Python (FastMCP) -- HTTP server on :8000
+mcp.run(
+    transport="streamable-http",
+    host="0.0.0.0",
+    port=8000,
+)
+</code></pre>
+<h3>SSE (deprecated, but still seen)</h3>
+<p>Older two-endpoint design: GET /sse for the event stream, POST /messages for requests. New servers should not implement SSE. Existing servers should migrate when the client matrix permits.</p>
+<h3>Picking one</h3>
+<table class="kv"><tbody><tr><th>Local dev / personal use</th><td>stdio</td></tr><tr><th>Shipping a public server / multi-user</th><td>Streamable HTTP behind TLS</td></tr><tr><th>Inside a private LAN service</th><td>Streamable HTTP, no auth or simple bearer</td></tr><tr><th>Connecting to a legacy MCP server</th><td>SSE, but migrate it</td></tr></tbody></table></section>
+
+<section id="authentication"><h2>Authentication</h2><p>Stdio servers do not authenticate; the OS process boundary is the trust boundary. The user trusts the client; the client trusts the server it launches. If a stdio server needs an API key, read it from an environment variable the client injects.</p>
+<h3>HTTP servers: pick one</h3>
+<table class="kv"><tbody><tr><th>Bearer token</th><td>Simple. Header <code>Authorization: Bearer &lt;token&gt;</code>. Good for personal-use servers and behind-the-firewall deployments.</td></tr><tr><th>OAuth 2.1 (MCP spec)</th><td>The protocol-blessed path for multi-user public servers. Client performs an OAuth flow; resulting token attached to every request. More moving parts but interoperable.</td></tr><tr><th>mTLS</th><td>If you control both ends and operate at scale. Not common in MCP land yet.</td></tr></tbody></table>
+<h3>Secret handling</h3>
+<ul><li>Never log the token. The SDKs do not log request bodies by default; if you add middleware, redact <code>Authorization</code> headers.</li><li>Rotate. A token that lives forever is a token that leaks forever.</li><li>Scope. If the upstream API supports scoped tokens, mint the narrowest one the server needs and document the scopes in the README.</li></ul></section>
+
+<section id="tool-descriptions-what-the-model-actually-reads"><h2>Tool descriptions: what the model actually reads</h2><p>The model decides whether to call your tool based on the tool name, description, and parameter schema. Treat the description as the tool's marketing copy aimed at the model. Three rules.</p>
+<ol><li>Lead with WHEN to use it, not what it does. "Use this to look up the current price of a stock. Returns the latest trade price in USD." beats "Fetches financial data."</li><li>Name the inputs in plain language inside the description, even though they are also in the schema. The model is more reliable about parameter shapes when both signals agree.</li><li>Mention what the tool does NOT do, if it is easy to confuse with another tool. "This is delete_file, not move_file — the file is gone after this call."</li></ol>
+<p>Test by reading the description aloud and asking: if I knew nothing else, would I know when to call this? If you have to clarify out loud, the model will also have to guess.</p></section>
+
+<section id="schemas-get-them-right-or-pay-forever"><h2>Schemas: get them right or pay forever</h2><p>Every wrong-shape call costs the user a turn and the operator credibility. Defensive schema design pays back many times over.</p>
+<ul><li>Required vs optional: only require fields you actually require. Optional with a sensible default is the model's friend.</li><li>Enums beat free strings. <code>severity: 'low' | 'medium' | 'high'</code> is hit every time; <code>severity: str</code> will get "normal" and "medium-high" and 12 other variants.</li><li>Dates: pick one format and put it in the description. ISO 8601 with explicit timezone is the safe bet. <code>"2026-05-27T10:00:00Z"</code>, not <code>"tomorrow at 10"</code>.</li><li>Ranges: state them. <code>temperature: float (0.0 to 2.0)</code>. Without the range, models clamp to their priors and you get 0.7 forever.</li><li>No arbitrary dicts. If the input is <code>{ k: v }</code> open-ended, define a list of <code>{key: str, value: str}</code> records. Open dicts produce empty dicts.</li></ul>
+<h3>Output shapes</h3>
+<ul><li>Be consistent. If a tool returns JSON, every call returns the same top-level shape, even on empty results.</li><li>Errors are not return values. Raise. Don't return <code>{ "error": "..." }</code> — the model has no convention for noticing it.</li><li>Truncate. A tool that dumps 200KB of HTML burns context for no gain. Pre-process, summarize, or paginate.</li></ul></section>
+
+<section id="debugging"><h2>Debugging</h2><h3>stdio servers</h3>
+<p>The Inspector is the official debugging tool. It is an Electron app that talks to your server like a client would and shows the wire traffic.</p>
+<pre><code># launch your server under the Inspector
+npx @modelcontextprotocol/inspector python my_server.py
+# then open the URL it prints (usually http://localhost:5173)
+</code></pre>
+<p>Use it to confirm <code>tools/list</code> matches what you intended, to exercise tool calls with hand-crafted arguments, and to watch what your server actually returns.</p>
+<h3>When the client fails to load the server</h3>
+<ul><li>Stray writes to stdout. Anything that isn't valid JSON-RPC on stdout breaks the protocol. The single most common bug. Audit every <code>print</code>, <code>console.log</code>, <code>logging.basicConfig</code> (default writes to stderr — fine; but check).</li><li>Wrong Python: the client launches <code>python</code> from its own PATH. If your tool needs a venv, point the client config at the venv's python directly, not at <code>python</code>.</li><li>Slow startup. Some clients time out after ~10s. Defer heavy imports until the first tool call.</li><li>Permission denied on the script. <code>chmod +x your_server.py</code> for executables; or have the client invoke the interpreter explicitly.</li></ul>
+<h3>When tools never get called</h3>
+<ul><li>Read your tool description and ask: did I say WHEN to use it? Vague descriptions get skipped.</li><li>Check the model's tool list at runtime. Some clients cap the number of advertised tools. If you ship 40, the model may see only the first 20.</li><li>Name collisions across servers. If two servers both expose <code>search</code>, the model picks one and ignores the other. Prefix when in doubt.</li></ul></section>
+
+<section id="deployment-claude-desktop"><h2>Deployment: Claude Desktop</h2><p>Claude Desktop reads <code>claude_desktop_config.json</code> on launch. macOS path: <code>~/Library/Application Support/Claude/claude_desktop_config.json</code>. Windows: <code>%APPDATA%\Claude\claude_desktop_config.json</code>.</p>
+<pre><code>{
+  "mcpServers": {
+    "weather": {
+      "command": "uvx",
+      "args": ["weather-mcp"],
+      "env": { "WEATHER_API_KEY": "..." }
+    },
+    "local-py": {
+      "command": "/Users/me/proj/.venv/bin/python",
+      "args": ["/Users/me/proj/server.py"]
+    }
+  }
+}
+</code></pre>
+<p>Restart Claude Desktop after editing. The slider icon (bottom-right of the prompt box) lists loaded servers. A red dot means startup failed; click it for the error.</p></section>
+
+<section id="deployment-claude-code"><h2>Deployment: Claude Code</h2><p>Claude Code stores MCP server configs in <code>~/.claude.json</code> under the <code>mcpServers</code> key, with the same shape as Claude Desktop's config. The CLI also accepts ad-hoc additions:</p>
+<pre><code># add a stdio server for the current project
+claude mcp add weather -- uvx weather-mcp
+
+# add a remote HTTP server
+claude mcp add --transport http example https://mcp.example.com
+
+# list servers visible to the current project
+claude mcp list
+</code></pre>
+<p>Project-scoped servers live in <code>.mcp.json</code> at the project root and are committed to the repo, so collaborators get the same toolset. User-scoped servers live in <code>~/.claude.json</code> and follow you across projects.</p></section>
+
+<section id="deployment-hosted-http-server"><h2>Deployment: hosted HTTP server</h2><p>If you are shipping a public server, the bare minimum stack is:</p>
+<ol><li>A small VM or container platform (Fly, Railway, Render, Cloudflare Workers if your runtime fits).</li><li>TLS in front of your server. The MCP HTTP spec assumes TLS for remote use; do not run plain HTTP on the public internet.</li><li>A health endpoint (<code>GET /health</code> returning 200) so the platform can route traffic only to live instances.</li><li>Structured logs to stderr or a log drain. Include the JSON-RPC <code>id</code> of each request so you can correlate across multi-turn sessions.</li><li>Rate limits at the edge. A single misbehaving client can otherwise melt your upstream.</li></ol>
+<h3>Auth checklist</h3>
+<ul><li>If personal-use: a single static bearer token is fine, rotated monthly.</li><li>If multi-user: implement the MCP OAuth 2.1 flow or front the server with an existing OAuth proxy.</li><li>If both: separate the bearer-token endpoint from the OAuth endpoint at the URL level so misconfigured clients fail loudly, not silently.</li></ul></section>
+
+<section id="distribution-how-users-find-you"><h2>Distribution: how users find you</h2><ul><li>PyPI / npm: publish the server as a package. <code>uvx &lt;pkg&gt;</code> and <code>npx &lt;pkg&gt;</code> are the canonical user invocations. A README with a copy-paste Claude Desktop config block doubles install rate.</li><li>Public registries: the community keeps a few directories (modelcontextprotocol's <code>servers</code> repo on GitHub, Smithery, PulseMCP). Submitting takes ten minutes and is worth it.</li><li>Your own README: include three things at the top — the one-line description, the config block, and one example prompt. Nothing else matters until the user has those.</li><li>Versioning: semver. Bump major on schema breaks (tool removed, required field added). Models tolerate added optional fields silently; they break on removed tools loudly.</li></ul></section>
+
+<section id="patterns-and-anti-patterns"><h2>Patterns and anti-patterns</h2><h3>Patterns that work</h3>
+<ul><li>Wrap one upstream cleanly. The best servers do one thing: GitHub, Postgres, a single SaaS. Resist the temptation to bundle.</li><li>Read-then-write tools. Pair <code>list_issues</code> with <code>create_issue</code>, <code>read_file</code> with <code>edit_file</code>. The model uses read to ground itself before writing.</li><li>Dry-run flags. For destructive tools, accept a <code>dry_run: bool = false</code> and return what would happen. Models love being asked to confirm.</li><li>Idempotency keys. For create-style tools, accept an optional <code>idempotency_key</code> so re-tries don't duplicate.</li></ul>
+<h3>Anti-patterns to avoid</h3>
+<ul><li>The kitchen-sink server. 40 tools, half overlapping. Models pick wrong, users get confused, you maintain twice as much.</li><li>Tools that take SQL/code/templating-language strings as input. Sometimes necessary, but each one is an injection surface — sandbox before executing.</li><li>Hidden side effects. A tool named <code>get_user</code> should not also create a user record if one is missing. The name is a promise.</li><li>Auto-confirm on destructive actions. <code>delete_database</code> should never be a single tool call. Pair with <code>confirm_delete_database(token)</code> where the token comes from the first call's output.</li><li>Returning raw upstream payloads. Pass-through tools dump kilobytes of unused fields into the model's context. Project to the fields that matter.</li></ul></section>
+
+<section id="security-checklist"><h2>Security checklist</h2><ul><li>Treat all tool inputs as untrusted. The model is a confused deputy; a malicious prompt can synthesize hostile inputs.</li><li>Sandbox shell-execution and code-execution tools. <code>subprocess.run(shell=True)</code> with model-supplied arguments is a remote-code-execution sink.</li><li>Path-traversal: if a tool takes a file path, resolve it and confirm it lives inside the directory you intend. <code>pathlib.Path(p).resolve().is_relative_to(root)</code> is the cheap test.</li><li>SQL: parameterize. No string interpolation, ever. The model will produce injectable strings if you let it.</li><li>Network egress: if a tool fetches a URL the model supplies, block the metadata IP ranges (169.254.169.254 et al.) and localhost. SSRF is the classic AI-app vulnerability.</li><li>Rate limits per tool. A model in a loop can exhaust an API quota in seconds. Add a per-session call counter.</li><li>Logging: redact secrets in arguments and outputs before persisting.</li></ul></section>
+
+<section id="testing"><h2>Testing</h2><p>Three layers, in order of importance:</p>
+<ol><li>Unit tests on the tool functions themselves, called directly. This catches 90% of bugs at near-zero cost.</li><li>Integration tests using the SDK's in-process client. Both Python and TypeScript SDKs ship a test client you can wire to the server in the same process — no transport involved.</li><li>End-to-end tests with the Inspector or a script that drives the actual stdio transport. Catches transport bugs (stray stdout writes, malformed JSON-RPC).</li></ol>
+<pre><code># Python: in-process integration test
+import pytest
+from mcp.shared.memory import (
+    create_connected_server_and_client_session,
+)
+from my_server import mcp
+
+@pytest.mark.asyncio
+async def test_get_forecast():
+    async with create_connected_server_and_client_session(
+        mcp._mcp_server
+    ) as (_, client):
+        result = await client.call_tool(
+            "get_forecast", {"city": "Mumbai"}
+        )
+        assert "Mumbai" in result.content[0].text
+</code></pre></section>
+
+<section id="performance"><h2>Performance</h2><ul><li>Cold start: imports dominate. Defer heavy imports (pandas, torch, big API clients) into the first tool that needs them.</li><li>Per-call latency: the model waits for your tool. A 3-second tool turns a 5-call agentic loop into 15 seconds of wall-clock. Cache, batch, or stream where possible.</li><li>Memory: long-running stdio servers leak. Restart-on-interval is acceptable; the client will reconnect.</li><li>Concurrency: stdio servers handle one request at a time by default. If your tool is I/O-bound (network, disk), use async — FastMCP supports <code>async def</code> tools natively.</li><li>Output size: every byte returned is a token in the model's context. The cheap fix is to return less; the right fix is to return more useful less.</li></ul></section>
+
+<section id="versioning-and-breaking-changes"><h2>Versioning and breaking changes</h2><p>Treat your tool surface like a public API. Models trained against an old surface still work against a new one only if you add, not remove.</p>
+<table class="kv"><tbody><tr><th>Adding a tool</th><td>Safe. Bump minor.</td></tr><tr><th>Adding an optional parameter</th><td>Safe. Bump minor.</td></tr><tr><th>Adding a required parameter</th><td>Breaking. Bump major OR provide a default and keep optional.</td></tr><tr><th>Renaming a tool</th><td>Breaking. Keep the old name as an alias for one major version.</td></tr><tr><th>Removing a tool</th><td>Breaking. Bump major. Announce in CHANGELOG.</td></tr><tr><th>Changing return shape</th><td>Breaking, even if it 'looks compatible' — the model has memorized your old shape.</td></tr></tbody></table>
+<p>If you must break: document the migration in the README, and consider shipping the old and new tool side-by-side for one release so users can update at their pace.</p></section>
+
+<section id="glossary"><h2>Glossary</h2><table class="kv"><tbody><tr><th>Client</th><td>The model-facing application (Claude Desktop, Claude Code, agent runtime) that loads servers.</td></tr><tr><th>Server</th><td>An external process that exposes tools/resources/prompts via MCP.</td></tr><tr><th>Tool</th><td>A function the model can call. Has a name, description, and JSON-Schema input.</td></tr><tr><th>Resource</th><td>A read-only blob of data the client can attach to the model's context, addressed by URI.</td></tr><tr><th>Prompt</th><td>A named, parameterized prompt template offered to the user.</td></tr><tr><th>Transport</th><td>How bytes move between client and server. Stdio, Streamable HTTP, SSE (deprecated).</td></tr><tr><th>Capability</th><td>A protocol feature a side declares it supports during the initialize handshake.</td></tr><tr><th>Inspector</th><td>The official Electron debugger for MCP servers.</td></tr><tr><th>FastMCP</th><td>The decorator-based high-level API in the Python SDK.</td></tr><tr><th>JSON-RPC 2.0</th><td>The wire format MCP uses. Requests have id/method/params; responses have id and result-or-error.</td></tr></tbody></table></section>
+
+<section id="further-reading"><h2>Further reading</h2><ul><li>modelcontextprotocol.io — the official spec and docs. Read the spec at least once end-to-end before shipping.</li><li>github.com/modelcontextprotocol/python-sdk — Python SDK source. The examples directory is high-quality.</li><li>github.com/modelcontextprotocol/typescript-sdk — TypeScript SDK source.</li><li>github.com/modelcontextprotocol/servers — community reference servers. Read three before writing your first.</li><li>github.com/modelcontextprotocol/inspector — the debugger.</li><li>The Anthropic engineering blog post on writing good tools (search 'writing tools for claude') is the best short read on tool-description design.</li></ul>
+<p>Bookmark all six. You will reference them while building, every time.</p></section>
+
+  <div class="cta">
+    <h2>Don't want to build it yourself?</h2>
+    <p>Send me your REST or OpenAPI API. I ship a production MCP server &mdash; auth, error handling, rate limiting, security-scanned, deployed &mdash; in about 5 days for a $900 flat fee. Built by the maintainer of this directory.</p>
+    <a class="btn" href="/build.html">Get a production MCP server &rarr;</a>
+  </div>
+
+  <div class="faqwrap">
+    <h2>FAQ</h2>
+    <details class="faq"><summary>What is an MCP server?</summary><p>An MCP (Model Context Protocol) server is a JSON-RPC 2.0 program that exposes tools, resources, and prompts to an AI client like Claude. The client calls your tools; your server runs the logic and returns content blocks the model reads.</p></details>
+<details class="faq"><summary>Should I build my MCP server in Python or TypeScript?</summary><p>Both SDKs are first-party and equally capable. Pick by where your existing code lives: Python (FastMCP, the mcp[cli] package) if your API/logic is already in Python; TypeScript (@modelcontextprotocol/sdk) if it's in Node.</p></details>
+<details class="faq"><summary>How do I connect an MCP server to Claude Desktop?</summary><p>Add a stdio entry to claude_desktop_config.json with the command and args that launch your server, then restart Claude Desktop. The Deployment: Claude Desktop section above has the exact JSON.</p></details>
+<details class="faq"><summary>What makes a good MCP tool description?</summary><p>The model only acts on what the description says. Write it for the model, not a human: state what the tool does, when to use it, and the exact format of each argument. Vague descriptions cause the model to call tools wrong or not at all.</p></details>
+<details class="faq"><summary>Can I hire someone to build a production MCP server for me?</summary><p>Yes. Protodex builds production MCP servers from your existing REST/OpenAPI API — auth, error handling, rate limiting, security-scanned, deployed — for a $900 flat fee in about 5 days. Send your API docs on the build page.</p></details>
+  </div>
+
+  <div class="foot">
+    A free reference from <a href="/">protodex.io</a> &mdash; browse 13,000+ MCP servers, or <a href="/build.html">have one built for you</a>.<br>
+    <a href="/">&larr; Back to the MCP directory</a>
+  </div>
+</div>
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</body>
+</html>
