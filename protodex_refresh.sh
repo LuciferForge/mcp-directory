@@ -43,14 +43,36 @@ PAGE_COUNT=$(find docs -name "*.html" | wc -l | tr -d ' ')
 log "  Generated: $PAGE_COUNT HTML pages"
 
 # 5. Git commit + push (only if there are changes)
-log "Step 5: Git push..."
-git add -A docs/ mcp_directory.json mcp_directory.db 2>> "$LOG"
-CHANGES=$(git diff --cached --stat 2>/dev/null | tail -1)
+# NOTE: mcp_directory.db is intentionally gitignored — DO NOT add it here.
+# Past failure (2026-04-26): including it caused `git add` to exit non-zero,
+# which under `set -e` aborted the script before commit+push, leaving 17h of
+# protodex.io staleness. Keep this list to docs/ + json only.
+#
+# 2026-06-05 OUTAGE FIX: /usr/bin/git is the Apple CLT shim. With no developer
+# tools installed it aborts every run with "xcode-select: No developer tools",
+# so Step 5 died silently and protodex.io stopped publishing (06-04..06-05).
+# Use the standalone Homebrew git (2.54, /usr/local/bin/git — needs NO CLT) and
+# push over HTTPS via gh's already-authed credential helper (the SSH deploy-key
+# path was fragile). Reconcile first: manual gh-API deploys can leave remote
+# ahead of the local .git, so point HEAD at the real remote tip WITHOUT touching
+# the freshly-built working tree, then stage the diff on top of it.
+log "Step 5: Git push (brew git + gh https)..."
+GIT="/usr/local/bin/git"
+HTTPS="https://github.com/LuciferForge/mcp-directory.git"
+CRED="credential.helper=!gh auth git-credential"
+if "$GIT" -c "$CRED" fetch "$HTTPS" master >> "$LOG" 2>&1; then
+    "$GIT" reset --mixed FETCH_HEAD >> "$LOG" 2>&1 || true
+else
+    log "  WARN: remote fetch failed — committing on local HEAD"
+fi
+"$GIT" add -A docs/ mcp_directory.json 2>> "$LOG"
+CHANGES=$("$GIT" diff --cached --stat 2>/dev/null | tail -1)
 if [ -n "$CHANGES" ]; then
-    git commit -m "Auto-refresh: $NEW_COUNT servers indexed on $(date '+%Y-%m-%d')
+    "$GIT" -c user.name='Protodex Bot' -c user.email='noreply@protodex.io' \
+        commit -m "Auto-refresh: $NEW_COUNT servers indexed on $(date '+%Y-%m-%d')
 
 Co-Authored-By: Protodex Bot <noreply@protodex.io>" >> "$LOG" 2>&1
-    GIT_SSH_COMMAND="ssh -i ~/.ssh/id_luciferforge -p 443 -o StrictHostKeyChecking=no" git push origin master >> "$LOG" 2>&1
+    "$GIT" -c "$CRED" push "$HTTPS" HEAD:master >> "$LOG" 2>&1
     log "  Pushed: $CHANGES"
 else
     log "  No changes to push"
