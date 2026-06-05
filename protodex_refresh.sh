@@ -59,7 +59,9 @@ log "  Generated: $PAGE_COUNT HTML pages"
 log "Step 5: Git push (brew git + gh https)..."
 GIT="/usr/local/bin/git"
 HTTPS="https://github.com/LuciferForge/mcp-directory.git"
-CRED="credential.helper=!gh auth git-credential"
+# Absolute gh path: launchd's PATH may omit /usr/local/bin, and git invokes the
+# credential helper via `sh -c` with the inherited (minimal) PATH.
+CRED="credential.helper=!/usr/local/bin/gh auth git-credential"
 if "$GIT" -c "$CRED" fetch "$HTTPS" master >> "$LOG" 2>&1; then
     "$GIT" reset --mixed FETCH_HEAD >> "$LOG" 2>&1 || true
 else
