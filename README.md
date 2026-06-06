@@ -1,15 +1,15 @@
 # Protodex — The MCP Server Index
 
-**[protodex.io](http://protodex.io)** — Search 12,027+ Model Context Protocol servers. Find the right MCP server for Claude, Cursor, and AI agents.
+**[protodex.io](http://protodex.io)** — Search 13,544+ Model Context Protocol servers. Find the right MCP server for Claude, Cursor, and AI agents.
 
-[![Servers](https://img.shields.io/badge/servers-12%2C027-8B5CF6)](http://protodex.io)
+[![Servers](https://img.shields.io/badge/servers-13%2C544-8B5CF6)](http://protodex.io)
 [![Categories](https://img.shields.io/badge/categories-13-22C55E)](http://protodex.io/categories.html)
 [![Languages](https://img.shields.io/badge/languages-68-3B82F6)](http://protodex.io)
 [![Updated](https://img.shields.io/badge/updated-weekly-EAB308)](http://protodex.io)
 
 ## Browse at [protodex.io](http://protodex.io)
 
-- Instant search across all 12,027 servers
+- Instant search across all 13,544 servers
 - 13 categories: AI/LLM, Database, API Integration, Security, DevOps, and more
 - Individual pages for every server with metadata, tools, and related servers
 - Ranked by GitHub stars so you find battle-tested tools first
