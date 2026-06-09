@@ -2,3 +2,10 @@ __pycache__/
 *.db
 
 .env
+
+# Outreach CSVs contain prospect emails — keep out of public repo
+campaigns/
+
+# untracked 2026-06-09 (security): internal/paid, not for public repo
+GROWTH_PLAYBOOK.md
+docs/downloads/cross_signal_dataset.zip
