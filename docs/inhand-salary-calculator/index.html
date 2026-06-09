@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>In-Hand Salary Calculator India 2026 — CTC to Take-Home, New vs Old Regime, PF &amp; Tax</title>
+<meta name="description" content="Free in-hand salary calculator for India 2026. Convert your CTC to monthly take-home pay with the Budget 2025 new-regime slabs, old-regime HRA exemption, EPF, gratuity, professional tax and income-tax TDS. Full CTC breakup included.">
+<link rel="canonical" href="https://protodex.io/inhand-salary-calculator/">
+<meta property="og:title" content="In-Hand Salary Calculator India 2026 — CTC to Take-Home Pay">
+<meta property="og:description" content="Turn your CTC into real monthly in-hand salary: new vs old regime, EPF, gratuity, professional tax, HRA exemption and income-tax TDS. Built for Indian salaried employees.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://protodex.io/inhand-salary-calculator/">
+<meta name="theme-color" content="#1d3557">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💰</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "In-Hand Salary Calculator India 2026",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
+  "description": "Free in-hand salary calculator for India 2026. Converts CTC to monthly take-home pay with Budget 2025 new-regime slabs, old-regime HRA exemption, EPF, gratuity, professional tax and income-tax TDS.",
+  "url": "https://protodex.io/inhand-salary-calculator/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is in-hand salary calculated from CTC in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In-hand salary = Gross salary − employee EPF − professional tax − income-tax TDS. Gross salary itself is your CTC minus the employer's contributions that never reach your bank account each month, mainly the employer's 12% EPF and the gratuity provision (about 4.81% of basic). So your monthly take-home is always meaningfully lower than CTC ÷ 12. For a ₹12 lakh CTC with 50% basic on the new regime, monthly in-hand works out to roughly ₹85,000 — not ₹1 lakh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between CTC, gross salary and in-hand salary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CTC (Cost to Company) is everything the employer spends on you, including employer EPF, gratuity and sometimes insurance. Gross salary is CTC minus those employer-side contributions — it is your salary before deductions. In-hand (net) salary is gross minus your own EPF, professional tax and income-tax TDS. Three different numbers: CTC is the offer headline, gross is on paper, in-hand is what hits your account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which regime gives higher in-hand salary in 2026 — new or old?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most salaried people the new regime now gives higher in-hand pay because, after the Budget 2025 changes, income up to ₹12 lakh of taxable income pays zero tax (via the Section 87A rebate) and the standard deduction is ₹75,000. The old regime only wins if you claim large deductions — HRA, 80C of ₹1.5 lakh, home-loan interest, 80D — that together exceed roughly ₹4–4.5 lakh. The calculator computes both so you can compare your exact case."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much EPF is deducted from salary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Employee EPF is 12% of basic salary, deducted from your gross every month. The employer also contributes 12% of basic, but that sits inside your CTC and goes to your PF account, not your bank. Some employers cap PF at the statutory wage of ₹15,000 basic (₹1,800 per month); others apply 12% of your actual basic. The calculator lets you toggle the statutory cap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is income tax up to 12 lakh really zero in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under the new regime, taxable income up to ₹12 lakh attracts a full Section 87A rebate, so the net tax is zero. With the ₹75,000 standard deduction, a salaried person can earn up to about ₹12.75 lakh gross and still pay no income tax. Above ₹12 lakh of taxable income the rebate is withdrawn and the slab tax applies from ₹4 lakh upward (with marginal relief just above the threshold). The old regime keeps its lower ₹5 lakh rebate limit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is professional tax and how much is deducted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Professional tax is a small state-level tax on salaried income, deducted by your employer. It is capped at ₹2,500 per year by law; states like Karnataka, Maharashtra, West Bengal and Telangana typically charge about ₹200 per month (₹2,400 a year). A few states and union territories — Delhi, Haryana, UP, Uttarakhand — levy no professional tax at all. Set it to zero in the calculator if your state does not charge it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is HRA exemption calculated for in-hand salary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HRA exemption applies only under the old regime and is the least of: the actual HRA received; 50% of basic for metro cities (40% for non-metro); or rent paid minus 10% of basic. Whatever is exempt reduces your taxable income and raises in-hand pay. The new regime does not allow HRA exemption at all, which is why high-rent payers in metros sometimes still come out ahead on the old regime."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my in-hand salary so much lower than CTC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three layers shrink CTC into take-home: employer EPF and gratuity (about 12% of basic plus 4.81% of basic) are part of CTC but never paid in cash; your own 12% EPF is deducted; and income-tax TDS plus professional tax come off the rest. A higher basic salary raises both PF contributions, which lowers monthly in-hand even though it builds your retirement corpus. Variable pay, bonuses and insurance loaded into CTC also inflate the headline above your fixed monthly pay."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#f8f9fb}
+.container{max-width:760px;margin:0 auto;padding:24px 16px}
+header{text-align:center;padding:32px 16px 16px;background:linear-gradient(135deg,#1d3557 0%,#457b9d 100%);color:#fff;border-radius:0 0 16px 16px}
+header h1{font-size:1.8rem;margin-bottom:8px;line-height:1.25}
+header p{font-size:1rem;opacity:0.92}
+.badge{display:inline-block;background:#f1c40f;color:#1d3557;padding:4px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;margin-top:8px}
+.calc{background:#fff;padding:28px 24px;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.06);margin-top:-16px;position:relative;z-index:2}
+.calc h2{font-size:1.3rem;margin-bottom:18px;color:#1d3557}
+label{display:block;font-weight:600;margin:14px 0 6px;font-size:0.95rem}
+input[type=number],select{width:100%;padding:12px 14px;border:1.5px solid #d0d6e0;border-radius:8px;font-size:1rem;background:#fff;transition:border-color 0.2s}
+input[type=number]:focus,select:focus{outline:none;border-color:#457b9d}
+.helper{font-size:0.82rem;color:#666;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+.modes{display:flex;gap:0;margin-bottom:6px;border:1.5px solid #1d3557;border-radius:8px;overflow:hidden}
+.modes button{flex:1;margin:0;border-radius:0;background:#fff;color:#1d3557;font-size:0.98rem;padding:12px}
+.modes button.active{background:#1d3557;color:#fff}
+.check{display:flex;align-items:center;gap:8px;margin-top:16px;font-weight:600;font-size:0.95rem}
+.check input{width:auto;margin:0}
+button{width:100%;background:#1d3557;color:#fff;padding:14px 20px;border:none;border-radius:8px;font-size:1.05rem;font-weight:700;cursor:pointer;margin-top:20px;transition:background 0.2s}
+button:hover{background:#0d233d}
+.result{margin-top:24px;padding:20px;background:#f1faee;border-left:4px solid #2a9d8f;border-radius:8px;display:none}
+.result.show{display:block}
+.result h3{font-size:1.15rem;margin-bottom:10px;color:#1d3557}
+.bignum{text-align:center;padding:8px 0 16px}
+.bignum .amt{font-size:2.1rem;font-weight:800;color:#2a9d8f;line-height:1.1}
+.bignum .cap{font-size:0.85rem;color:#555;margin-top:4px}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #ccc;font-size:0.95rem}
+.row:last-of-type{border-bottom:none;font-weight:700;font-size:1.1rem;padding-top:12px;margin-top:8px;border-top:2px solid #1d3557}
+.row .lbl{color:#444}
+.row .val{color:#1d3557;font-weight:600}
+.regimebox{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+@media(max-width:520px){.regimebox{grid-template-columns:1fr}}
+.regimecard{padding:14px;border-radius:10px;border:2px solid #e0e4eb;text-align:center}
+.regimecard.win{border-color:#2a9d8f;background:#eafaf4}
+.regimecard .rn{font-size:0.82rem;color:#666;font-weight:600;text-transform:uppercase;letter-spacing:0.4px}
+.regimecard .rv{font-size:1.35rem;font-weight:800;color:#1d3557;margin-top:4px}
+.regimecard .rt{font-size:0.78rem;color:#777;margin-top:2px}
+.winflag{display:inline-block;background:#2a9d8f;color:#fff;font-size:0.68rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:6px}
+.schedule{margin-top:20px;border:1px solid #e0e4eb;border-radius:8px;overflow:hidden}
+.schedule table{width:100%;border-collapse:collapse;font-size:0.9rem}
+.schedule th,.schedule td{padding:9px 12px;border-bottom:1px solid #eef0f4;text-align:right}
+.schedule th{background:#1d3557;color:#fff;font-weight:600;text-align:right}
+.schedule th:first-child,.schedule td:first-child{text-align:left}
+.schedule tr:last-child td{border-bottom:none;font-weight:700}
+section.content{background:#fff;padding:28px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+section.content h2{font-size:1.4rem;margin:18px 0 12px;color:#1d3557}
+section.content h2:first-child{margin-top:0}
+section.content h3{font-size:1.1rem;margin:16px 0 8px;color:#2a4d6e}
+section.content p{margin-bottom:12px}
+section.content ul,section.content ol{padding-left:22px;margin-bottom:12px}
+section.content li{margin-bottom:6px}
+table.guide{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.95rem}
+table.guide th,table.guide td{padding:10px 12px;border:1px solid #e0e4eb;text-align:left}
+table.guide th{background:#1d3557;color:#fff;font-weight:600}
+table.guide tr:nth-child(even){background:#f8f9fb}
+.note{background:#fff8e1;border-left:4px solid #f1c40f;padding:14px 18px;margin:14px 0;border-radius:6px;font-size:0.95rem}
+.cta{background:#fff;padding:24px;border-radius:14px;margin-top:24px;text-align:center;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+.cta h3{color:#1d3557;margin-bottom:8px}
+.cta a{display:inline-block;background:#e63946;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px 4px;font-size:0.95rem}
+.cta a.alt{background:#1d3557}
+footer{text-align:center;padding:32px 16px;color:#666;font-size:0.85rem;line-height:1.7}
+footer a{color:#457b9d}
+@media(max-width:520px){
+  header h1{font-size:1.45rem}
+  .calc{padding:22px 18px}
+  section.content{padding:22px 18px}
+  .bignum .amt{font-size:1.7rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>In-Hand Salary Calculator India 2026</h1>
+<p>CTC → monthly take-home · New vs old regime · EPF · gratuity · professional tax · HRA</p>
+<span class="badge">Budget 2025 slabs · FY 2025-26 / 2026-27</span>
+</header>
+
+<div class="container">
+
+<div class="calc">
+<h2>Calculate Your In-Hand Salary</h2>
+
+<div class="two">
+<div>
+<label for="ctc">Annual CTC (₹) <span style="color:#e63946">*</span></label>
+<input type="number" id="ctc" placeholder="e.g., 1200000" min="100000" step="50000" value="1200000">
+<div class="helper">The total cost-to-company on your offer letter.</div>
+</div>
+
+<div>
+<label for="basicpct">Basic salary (% of CTC)</label>
+<select id="basicpct">
+  <option value="40">40% of CTC</option>
+  <option value="45">45% of CTC</option>
+  <option value="50" selected>50% of CTC (common)</option>
+  <option value="55">55% of CTC</option>
+</select>
+<div class="helper">Basic drives PF &amp; gratuity. Most firms use 40–50%.</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="age">Age group</label>
+<select id="age">
+  <option value="below60" selected>Below 60</option>
+  <option value="60to80">60 to 80 (senior)</option>
+  <option value="above80">Above 80 (super senior)</option>
+</select>
+<div class="helper">Affects old-regime basic exemption.</div>
+</div>
+
+<div>
+<label for="ptax">Professional tax (₹ / year)</label>
+<input type="number" id="ptax" min="0" max="2500" step="100" value="2400">
+<div class="helper">~₹2,400 in most states; ₹0 in Delhi/Haryana/UP.</div>
+</div>
+</div>
+
+<div class="check">
+<input type="checkbox" id="pfcap" onchange="calc()">
+<label for="pfcap" style="margin:0">Cap EPF at the statutory ₹15,000 basic (₹1,800/month each side)</label>
+</div>
+
+<div class="check">
+<input type="checkbox" id="oldopts" onchange="toggleOld()">
+<label for="oldopts" style="margin:0">I claim old-regime deductions (HRA / 80C / home loan)</label>
+</div>
+
+<div id="oldFields" style="display:none;border-left:3px solid #457b9d;padding:4px 0 4px 14px;margin-top:10px">
+  <div class="two">
+    <div>
+      <label for="rent">Annual rent paid (₹)</label>
+      <input type="number" id="rent" min="0" step="6000" value="0">
+      <div class="helper">For HRA exemption (old regime only).</div>
+    </div>
+    <div>
+      <label for="metro">City type (for HRA)</label>
+      <select id="metro">
+        <option value="0.40" selected>Non-metro (40% of basic)</option>
+        <option value="0.50">Metro — Delhi/Mumbai/Kolkata/Chennai (50%)</option>
+      </select>
+      <div class="helper">Metros allow a higher HRA exemption.</div>
+    </div>
+  </div>
+  <div class="two">
+    <div>
+      <label for="ded80c">Extra 80C invested (₹, beyond EPF)</label>
+      <input type="number" id="ded80c" min="0" max="150000" step="5000" value="0">
+      <div class="helper">ELSS, PPF, LIC, etc. EPF already counted. Cap ₹1.5L total.</div>
+    </div>
+    <div>
+      <label for="dedother">80D + home-loan interest etc. (₹)</label>
+      <input type="number" id="dedother" min="0" step="5000" value="0">
+      <div class="helper">Health insurance (80D), Sec 24(b) up to ₹2L, NPS 80CCD(1B).</div>
+    </div>
+  </div>
+</div>
+
+<button onclick="calc()">Calculate In-Hand Salary</button>
+
+<div id="result" class="result">
+  <div class="bignum">
+    <div class="amt" id="r_monthly"></div>
+    <div class="cap" id="r_monthlycap">estimated monthly in-hand · best regime for you</div>
+  </div>
+
+  <div class="regimebox">
+    <div class="regimecard" id="card_new">
+      <div class="rn">New Regime</div>
+      <div class="rv" id="new_inhand"></div>
+      <div class="rt" id="new_tax"></div>
+      <div id="new_flag"></div>
+    </div>
+    <div class="regimecard" id="card_old">
+      <div class="rn">Old Regime</div>
+      <div class="rv" id="old_inhand"></div>
+      <div class="rt" id="old_tax"></div>
+      <div id="old_flag"></div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:18px">Annual CTC Breakup</h3>
+  <div class="row"><span class="lbl">Basic salary</span><span class="val" id="r_basic"></span></div>
+  <div class="row"><span class="lbl">HRA</span><span class="val" id="r_hra"></span></div>
+  <div class="row"><span class="lbl">Special allowance &amp; other</span><span class="val" id="r_special"></span></div>
+  <div class="row"><span class="lbl">Employer EPF (in CTC, not paid in cash)</span><span class="val" id="r_eepf"></span></div>
+  <div class="row"><span class="lbl">Gratuity provision (4.81% of basic)</span><span class="val" id="r_grat"></span></div>
+  <div class="row"><span class="lbl">Gross salary (on paper)</span><span class="val" id="r_gross"></span></div>
+
+  <h3 style="margin-top:18px">Deductions (best regime)</h3>
+  <div class="schedule">
+    <table>
+      <thead><tr><th>Item</th><th>Annual</th><th>Monthly</th></tr></thead>
+      <tbody id="r_deduct"></tbody>
+    </table>
+  </div>
+  <p id="r_note" style="font-size:0.85rem;color:#666;margin-top:14px"></p>
+</div>
+</div>
+
+<div class="cta">
+<h3>Your Tax Is Zero up to ₹12L — Now Make the Surplus Work</h3>
+<p style="margin-bottom:12px;color:#444">The new regime hands most salaried Indians a far bigger take-home than before. The leak now is idle savings sitting at 3% in a savings account. Start a zero-commission SIP or park the surplus in a liquid fund to beat inflation:</p>
+<a href="https://app.groww.in/v3cO/mfynf0t8?utm_source=protodex&utm_medium=calculator&utm_campaign=inhand_salary&utm_content=primary-cta" target="_blank" rel="noopener nofollow sponsored">Start a SIP on Groww →</a>
+<a href="https://zerodha.com/open-account?c=VN7717&utm_source=protodex&utm_medium=calculator&utm_campaign=inhand_salary&utm_content=secondary-cta" target="_blank" rel="noopener nofollow sponsored" class="alt">Open Free Demat on Zerodha →</a>
+<p style="font-size:0.72rem;color:#888;margin-top:12px;font-style:italic">Affiliate links — protodex.io may earn a commission at no extra cost to you. Mutual-fund investments carry market risk; read all scheme documents carefully.</p>
+</div>
+
+<section class="content">
+<h2>From CTC to In-Hand — How Your Salary Actually Shrinks</h2>
+
+<p>The single most misread number on an Indian job offer is the CTC. A ₹12 lakh CTC does <strong>not</strong> mean ₹1 lakh a month in your account — it usually means about <strong>₹85,000</strong>. The gap is not a scam; it is the layered structure of Indian payroll, where employer contributions are bundled into the headline "cost to company" and several deductions come off before the money reaches your bank. This calculator unwinds that structure the way a real payslip does: it splits your CTC into basic, HRA and allowances, removes the employer's EPF and gratuity, applies the correct income tax under <strong>both the new and old regimes</strong>, and shows you the regime that leaves more in your pocket.</p>
+
+<div class="note"><strong>The headline trap:</strong> CTC includes money you never see monthly — the employer's 12% EPF, the gratuity provision, and sometimes insurance premiums and a variable bonus. Two offers with the same CTC can have very different in-hand pay depending on how much is loaded into basic, PF and variable components. Always compare <em>in-hand</em>, not CTC.</p>
+
+<h2>The Three Salary Numbers</h2>
+<table class="guide">
+<thead><tr><th>Term</th><th>What it means</th></tr></thead>
+<tbody>
+<tr><td><strong>CTC</strong></td><td>Total cost to company — gross salary + employer EPF + gratuity + any insurance/perks</td></tr>
+<tr><td><strong>Gross salary</strong></td><td>CTC minus employer-side contributions; the figure before your own deductions</td></tr>
+<tr><td><strong>In-hand (net)</strong></td><td>Gross minus employee EPF, professional tax and income-tax TDS — what reaches your bank</td></tr>
+</tbody>
+</table>
+
+<h2>How In-Hand Salary Is Calculated</h2>
+<p>The calculator follows the exact sequence a payroll system uses:</p>
+<ol>
+<li><strong>Basic salary</strong> = your chosen percentage of CTC (40–55%). Basic is the engine — it drives PF, gratuity and HRA.</li>
+<li><strong>Employer EPF</strong> = 12% of basic (or ₹1,800/month if you cap at the ₹15,000 statutory wage). This is inside CTC but goes to your PF account, not your bank.</li>
+<li><strong>Gratuity provision</strong> = 4.81% of basic, set aside by the employer as part of CTC.</li>
+<li><strong>Gross salary</strong> = CTC − employer EPF − gratuity.</li>
+<li><strong>Employee EPF</strong> = 12% of basic, deducted from gross.</li>
+<li><strong>Professional tax</strong> = your state's levy, up to ₹2,500/year.</li>
+<li><strong>Income tax (TDS)</strong> = computed on taxable income under each regime, after the standard deduction and any eligible exemptions.</li>
+<li><strong>In-hand</strong> = Gross − employee EPF − professional tax − income tax, divided by 12 for the monthly figure.</li>
+</ol>
+
+<h2>New Regime Tax Slabs (FY 2025-26, Budget 2025)</h2>
+<p>The new regime is the default from FY 2025-26 and, after the Budget 2025 overhaul, is the better choice for most salaried people. The standard deduction is <strong>₹75,000</strong>, and a Section 87A rebate makes tax <strong>zero up to ₹12 lakh of taxable income</strong>.</p>
+<table class="guide">
+<thead><tr><th>Taxable income</th><th>Rate</th></tr></thead>
+<tbody>
+<tr><td>Up to ₹4,00,000</td><td>Nil</td></tr>
+<tr><td>₹4,00,001 – ₹8,00,000</td><td>5%</td></tr>
+<tr><td>₹8,00,001 – ₹12,00,000</td><td>10%</td></tr>
+<tr><td>₹12,00,001 – ₹16,00,000</td><td>15%</td></tr>
+<tr><td>₹16,00,001 – ₹20,00,000</td><td>20%</td></tr>
+<tr><td>₹20,00,001 – ₹24,00,000</td><td>25%</td></tr>
+<tr><td>Above ₹24,00,000</td><td>30%</td></tr>
+</tbody>
+</table>
+<p>Because of the 87A rebate, a salaried person with up to about <strong>₹12.75 lakh gross</strong> (₹12 lakh after the ₹75,000 standard deduction) pays <strong>no income tax at all</strong>. A 4% Health &amp; Education cess applies on top of the computed tax once you cross the rebate ceiling.</p>
+
+<h2>Old Regime Tax Slabs</h2>
+<p>The old regime keeps lower exemption thresholds but lets you claim HRA, the full ₹1.5 lakh under 80C, home-loan interest (₹2 lakh under Section 24b), 80D health insurance and more. Its 87A rebate covers only up to ₹5 lakh of taxable income, and the standard deduction is ₹50,000.</p>
+<table class="guide">
+<thead><tr><th>Taxable income</th><th>Rate (below 60)</th></tr></thead>
+<tbody>
+<tr><td>Up to ₹2,50,000</td><td>Nil</td></tr>
+<tr><td>₹2,50,001 – ₹5,00,000</td><td>5%</td></tr>
+<tr><td>₹5,00,001 – ₹10,00,000</td><td>20%</td></tr>
+<tr><td>Above ₹10,00,000</td><td>30%</td></tr>
+</tbody>
+</table>
+<p>Senior citizens (60–80) get a ₹3 lakh basic exemption and super seniors (80+) get ₹5 lakh under the old regime — the calculator applies this automatically from your age group.</p>
+
+<h2>New vs Old — Which Wins?</h2>
+<p>The break-even rule of thumb: the old regime only beats the new one if your total deductions (HRA exemption + 80C + 80D + home-loan interest + NPS) exceed roughly <strong>₹4–4.5 lakh</strong>. Below that, the new regime's wider zero-tax band and bigger standard deduction win. The two cases where the old regime still pays off:</p>
+<ul>
+<li><strong>High metro rent</strong> — a large HRA exemption can swing tens of thousands.</li>
+<li><strong>A home loan</strong> — ₹2 lakh of interest under Section 24(b) is a big old-regime-only deduction.</li>
+</ul>
+<p>Tick "I claim old-regime deductions" above to enter rent, 80C and other deductions, and the calculator will mark which regime leaves you with more in-hand pay.</p>
+
+<h2>Why a Higher Basic Cuts Your Monthly Take-Home</h2>
+<p>It feels backwards, but a higher basic salary <em>reduces</em> your monthly in-hand — because both your 12% EPF and the employer's 12% scale with basic. That money is not lost; it compounds tax-free in your EPF at around 8.25% and is a forced retirement saving. So a lower in-hand from a higher basic is often a better deal than it looks. If you want maximum cash now, a structure with lower basic and more special allowance raises take-home but shrinks your PF corpus.</p>
+
+<h2>Professional Tax by State</h2>
+<p>Professional tax is a state subject, capped at ₹2,500/year nationally. Karnataka, Maharashtra, West Bengal, Tamil Nadu, Telangana and Andhra Pradesh charge roughly ₹200/month. Delhi, Haryana, Uttar Pradesh, Uttarakhand and most union territories levy <strong>nothing</strong> — set the field to ₹0 if you work there.</p>
+
+<h2>Common Mistakes Reading an Offer</h2>
+<ul>
+<li><strong>Treating CTC ÷ 12 as monthly pay.</strong> It overstates take-home by 15–30%.</li>
+<li><strong>Ignoring variable pay.</strong> A "₹15 lakh CTC" with ₹3 lakh variable is really a ₹12 lakh fixed offer; the variable is performance-linked and often partly paid.</li>
+<li><strong>Forgetting the regime choice.</strong> Picking the wrong regime can cost ₹20,000–₹50,000 a year. Compare both before declaring to payroll.</li>
+<li><strong>Over-weighting a high basic.</strong> Great for PF, worse for monthly cash — decide based on your cash-flow needs.</li>
+<li><strong>Missing professional tax / insurance lines.</strong> Small but real monthly leaks the headline hides.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>What is the in-hand salary for a ₹12 LPA CTC?</h3>
+<p>With 50% basic on the new regime, a ₹12 lakh CTC gives roughly ₹85,000 per month in-hand — income tax is zero under the 87A rebate, and the gap from ₹1 lakh is mostly EPF (yours + employer's) and gratuity. Use the calculator for your exact basic percentage and state.</p>
+
+<h3>What is the in-hand for ₹7 LPA or ₹10 LPA?</h3>
+<p>A ₹7 lakh CTC lands near ₹49,700/month and a ₹10 lakh CTC near ₹71,100/month on the new regime (50% basic), both effectively tax-free after the rebate. Enter your figure above for a precise breakup.</p>
+
+<h3>Does in-hand salary include the employer's PF?</h3>
+<p>No. The employer's 12% EPF is part of your CTC and goes into your PF account, not your monthly bank credit. In-hand counts only the cash that reaches you after your own deductions.</p>
+
+<h3>Is the new regime compulsory in 2026?</h3>
+<p>The new regime is the <em>default</em>, but you can still opt for the old regime when filing or declaring to your employer. Salaried taxpayers can switch between regimes each year; those with business income face stricter switching rules.</p>
+
+<h3>How accurate is this calculator?</h3>
+<p>It models the standard CTC structure (basic, HRA, employer EPF, gratuity, special allowance), the Budget 2025 new-regime and old-regime slabs, the 87A rebate, cess and professional tax. Real payslips vary with employer-specific components (NPS, LTA, food cards, insurance, variable pay), so treat the output as a close estimate, not a payslip.</p>
+
+<h3>Does it handle surcharge for high salaries?</h3>
+<p>Yes — for taxable income above ₹50 lakh the calculator applies the surcharge (10% / 15% / 25%), with the new regime's 25% cap, before adding the 4% cess. Marginal relief near each threshold is not modelled, so very-close-to-threshold figures may differ slightly.</p>
+
+</section>
+
+<div class="related" style="background:#fff;padding:20px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)">
+<h3 style="color:#1d3557;font-size:1rem;margin-bottom:10px">Related free calculators</h3>
+<a href="https://incometax-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧾 Income Tax Calculator India FY 2026-27 (Old vs New Regime + 87A Rebate) →</a>
+<a href="https://protodex.io/fd-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏦 FD &amp; RD Calculator India 2026 (Maturity, TDS &amp; Post-Tax Returns) →</a>
+<a href="https://ppf-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏦 PPF Calculator India 2026 (7.1% Rate, ₹1.5L Cap, EEE Tax-Free) →</a>
+<a href="https://sip-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📈 SIP Calculator India 2026 (Step-Up, Lumpsum &amp; Real Returns) →</a>
+<a href="https://nps-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧓 NPS Calculator India 2026 (Corpus, Pension &amp; 80CCD(1B) ₹50k Saving) →</a>
+<a href="https://emi-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏦 EMI Calculator India 2026 (Home / Personal / Car Loan + Prepayment) →</a>
+<a href="https://ltcg-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📈 LTCG Calculator India 2026 (Equity 12.5% + Debt + Property Indexation) →</a>
+<a href="https://gratuity.protodex.io/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💼 Gratuity Calculator India 2026 (Payment of Gratuity Act + ₹20 Lakh Exemption) →</a>
+<a href="https://hra.protodex.io/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏠 HRA Exemption Calculator India 2026 (Section 10(13A), Metro / Non-Metro) →</a>
+</div>
+
+<footer>
+<p>Last updated: <strong id="lastmod">2026-06-09</strong> · Built for Indian salaried employees · Not tax advice</p>
+<p>In-hand figures are estimates based on a standard CTC structure and the Budget 2025 income-tax slabs. Your actual payslip depends on employer-specific components (NPS, LTA, insurance, variable pay) and your declared investments. Marginal relief on the rebate/surcharge is not modelled. Verify with your HR or a qualified tax advisor before any decision.</p>
+<p>© 2026 protodex.io · <a href="https://protodex.io/privacy">Privacy</a> · <a href="https://protodex.io/disclosure">Affiliate disclosure</a></p>
+</footer>
+
+</div>
+
+<script>
+function fmt(n){ return "₹" + Math.round(n).toLocaleString("en-IN"); }
+
+function toggleOld(){
+  document.getElementById("oldFields").style.display = document.getElementById("oldopts").checked ? "block" : "none";
+  calc();
+}
+
+// Income tax for a taxable income, regime, age group. Returns tax incl. surcharge + 4% cess.
+function incomeTax(taxable, regime, age){
+  if(taxable <= 0) return 0;
+  var slabs, rebateLimit, surchargeCap;
+  if(regime === "new"){
+    slabs = [[400000,0],[800000,0.05],[1200000,0.10],[1600000,0.15],[2000000,0.20],[2400000,0.25],[Infinity,0.30]];
+    rebateLimit = 1200000;       // 87A: zero tax up to 12L taxable
+    surchargeCap = 0.25;         // new regime caps surcharge at 25%
+  } else {
+    var base = age === "above80" ? 500000 : (age === "60to80" ? 300000 : 250000);
+    slabs = [[base,0],[500000,0.05],[1000000,0.20],[Infinity,0.30]];
+    rebateLimit = 500000;        // 87A old: zero tax up to 5L taxable
+    surchargeCap = 0.37;
+  }
+  var tax = 0, prev = 0;
+  for(var k=0;k<slabs.length;k++){
+    var cap = slabs[k][0], rate = slabs[k][1];
+    if(taxable > prev){
+      var slice = Math.min(taxable, cap) - prev;
+      if(slice > 0) tax += slice * rate;
+      prev = cap;
+    } else break;
+  }
+  // Section 87A rebate
+  if(taxable <= rebateLimit) tax = 0;
+  // Surcharge on high incomes
+  var sur = 0;
+  if(taxable > 50000000) sur = (regime==="new"? surchargeCap : 0.37);
+  else if(taxable > 20000000) sur = 0.25;
+  else if(taxable > 10000000) sur = 0.15;
+  else if(taxable > 5000000) sur = 0.10;
+  if(regime==="new" && sur > surchargeCap) sur = surchargeCap;
+  tax = tax * (1 + sur);
+  // 4% Health & Education cess
+  tax = tax * 1.04;
+  return tax;
+}
+
+function calc(){
+  var ctc = parseFloat(document.getElementById("ctc").value) || 0;
+  var basicPct = parseFloat(document.getElementById("basicpct").value) || 50;
+  var age = document.getElementById("age").value;
+  var ptax = parseFloat(document.getElementById("ptax").value) || 0;
+  var pfcap = document.getElementById("pfcap").checked;
+  var useOld = document.getElementById("oldopts").checked;
+
+  if(ctc < 100000){ alert("Enter an annual CTC of at least ₹1,00,000."); return; }
+
+  var basic = ctc * basicPct / 100;
+  var metroPct = parseFloat(document.getElementById("metro").value) || 0.40;
+  var hra = basic * metroPct;            // HRA component of CTC = 40/50% of basic
+
+  // PF: 12% of basic, or capped at 1800/mo (12% of 15000) if box ticked
+  var pfBase = pfcap ? Math.min(basic, 180000) : basic;   // 15000*12 = 180000
+  var employerPF = pfBase * 0.12;
+  var employeePF = pfBase * 0.12;
+  var gratuity = basic * 0.0481;
+
+  var gross = ctc - employerPF - gratuity;
+  var special = gross - basic - hra;     // balancing figure (pre-deduction)
+  if(special < 0) special = 0;
+
+  // ---- NEW REGIME ----
+  var taxableNew = Math.max(0, gross - 75000);
+  var taxNew = incomeTax(taxableNew, "new", age);
+  var inhandNew = gross - employeePF - ptax - taxNew;
+
+  // ---- OLD REGIME ----
+  var hraExempt = 0;
+  if(useOld){
+    var rent = parseFloat(document.getElementById("rent").value) || 0;
+    if(rent > 0){
+      var e1 = hra;
+      var e2 = basic * metroPct;
+      var e3 = Math.max(0, rent - 0.10 * basic);
+      hraExempt = Math.max(0, Math.min(e1, e2, e3));
+    }
+  }
+  var extra80c = useOld ? (parseFloat(document.getElementById("ded80c").value) || 0) : 0;
+  var total80c = Math.min(150000, employeePF + extra80c);   // EPF counts toward 80C
+  var dedOther = useOld ? (parseFloat(document.getElementById("dedother").value) || 0) : 0;
+  var taxableOld = Math.max(0, gross - 50000 - hraExempt - total80c - dedOther - ptax);
+  var taxOld = incomeTax(taxableOld, "old", age);
+  var inhandOld = gross - employeePF - ptax - taxOld;
+
+  // Best regime
+  var newWins = inhandNew >= inhandOld;
+  var bestInhand = newWins ? inhandNew : inhandOld;
+  var bestTax = newWins ? taxNew : taxOld;
+
+  // ---- render ----
+  document.getElementById("r_monthly").textContent = fmt(bestInhand/12) + " /mo";
+  document.getElementById("r_monthlycap").textContent =
+    "estimated monthly in-hand · " + (newWins ? "new" : "old") + " regime is better for you";
+
+  document.getElementById("new_inhand").textContent = fmt(inhandNew/12) + "/mo";
+  document.getElementById("new_tax").textContent = "tax " + fmt(taxNew) + "/yr";
+  document.getElementById("old_inhand").textContent = fmt(inhandOld/12) + "/mo";
+  document.getElementById("old_tax").textContent = "tax " + fmt(taxOld) + "/yr";
+  document.getElementById("card_new").classList.toggle("win", newWins);
+  document.getElementById("card_old").classList.toggle("win", !newWins);
+  document.getElementById("new_flag").innerHTML = newWins ? '<span class="winflag">✓ Higher in-hand</span>' : '';
+  document.getElementById("old_flag").innerHTML = !newWins ? '<span class="winflag">✓ Higher in-hand</span>' : '';
+
+  document.getElementById("r_basic").textContent = fmt(basic);
+  document.getElementById("r_hra").textContent = fmt(hra);
+  document.getElementById("r_special").textContent = fmt(special);
+  document.getElementById("r_eepf").textContent = fmt(employerPF);
+  document.getElementById("r_grat").textContent = fmt(gratuity);
+  document.getElementById("r_gross").textContent = fmt(gross);
+
+  var rows = "";
+  rows += "<tr><td>Gross salary</td><td>" + fmt(gross) + "</td><td>" + fmt(gross/12) + "</td></tr>";
+  rows += "<tr><td>− Employee EPF (12%)</td><td>" + fmt(employeePF) + "</td><td>" + fmt(employeePF/12) + "</td></tr>";
+  rows += "<tr><td>− Professional tax</td><td>" + fmt(ptax) + "</td><td>" + fmt(ptax/12) + "</td></tr>";
+  rows += "<tr><td>− Income tax (" + (newWins?"new":"old") + " regime)</td><td>" + fmt(bestTax) + "</td><td>" + fmt(bestTax/12) + "</td></tr>";
+  rows += "<tr><td>In-hand salary</td><td>" + fmt(bestInhand) + "</td><td>" + fmt(bestInhand/12) + "</td></tr>";
+  document.getElementById("r_deduct").innerHTML = rows;
+
+  var note = "Take-home is about " + fmt(bestInhand/12) + "/month — that is " +
+    Math.round(bestInhand/ctc*100) + "% of your ₹" + (ctc/100000).toFixed(2).replace(/\.00$/,"") +
+    " lakh CTC. The rest is employer EPF (" + fmt(employerPF) + "), gratuity (" + fmt(gratuity) +
+    "), your EPF (" + fmt(employeePF) + ")" + (bestTax>0 ? ", and income tax (" + fmt(bestTax) + ")" : ", with zero income tax thanks to the 87A rebate") + ". ";
+  if(useOld && !newWins){
+    note += "Your deductions tipped the old regime ahead — keep claiming HRA/80C to hold that edge. ";
+  } else if(useOld && newWins){
+    note += "Even with your deductions the new regime still wins; you can skip the paperwork. ";
+  } else {
+    note += "Tick the old-regime box above to test whether HRA/80C deductions beat the new regime for you. ";
+  }
+  document.getElementById("r_note").textContent = note;
+
+  document.getElementById("result").classList.add("show");
+}
+
+["ctc","basicpct","age","ptax","rent","metro","ded80c","dedother"].forEach(function(id){
+  var el = document.getElementById(id);
+  if(!el) return;
+  el.addEventListener("keypress", function(e){ if(e.key === "Enter") calc(); });
+  el.addEventListener("change", calc);
+});
+
+window.addEventListener("DOMContentLoaded", function(){ calc(); });
+</script>
+
+<!-- LF:EMAIL-CAPTURE v1 -->
+<section style="max-width:680px;margin:48px auto 24px;padding:20px 22px;background:#fafbff;border:1px solid #e1e5ee;border-radius:10px;font-family:-apple-system,system-ui,sans-serif">
+  <div style="font-weight:600;font-size:1rem;color:#1a1a2e;margin-bottom:4px">Subscribe for India tax &amp; salary updates</div>
+  <div style="font-size:0.85rem;color:#555;margin-bottom:14px">Slab changes, regime tips, EPF/PT updates, new calculators. No spam. Unsubscribe anytime.</div>
+  <form onsubmit="event.preventDefault(); var f=this; var msg=f.querySelector('.lf_msg'); msg.textContent='Sending…'; fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'b2fb1576-a39b-4683-8ee9-4e152f731113',subject:'India calc newsletter signup ('+location.hostname+')',email:f.email.value,from_name:'protodex.io '+location.hostname,source:location.href})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.textContent='✓ Subscribed. Watch your inbox.';msg.style.color='#16a34a';f.email.value=''}else{msg.textContent='Could not subscribe. Email manja316@gmail.com directly.';msg.style.color='#dc2626'}}).catch(function(){msg.textContent='Network error. Try again.';msg.style.color='#dc2626'})" style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid #d4d8e2;border-radius:6px;font-size:0.95rem">
+    <button type="submit" style="padding:10px 22px;background:#1a1a2e;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.9rem">Subscribe</button>
+  </form>
+  <div class="lf_msg" style="margin-top:8px;font-size:0.82rem"></div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e5ee;font-size:0.72rem;color:#888">
+    Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=calc-footer&utm_campaign=india-calcs" target="_blank" rel="noopener" style="color:#666">Claude</a> · <a href="https://protodex.io" style="color:#666">protodex.io</a>
+  </div>
+</section>
+
+</body>
+</html>

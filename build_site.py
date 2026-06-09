@@ -2087,6 +2087,7 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/mcp-quickref.html")
     urls.append(f"{SITE_URL}/mcp-scorecard.html")
     urls.append(f"{SITE_URL}/fd-calculator/")
+    urls.append(f"{SITE_URL}/inhand-salary-calculator/")
 
     for cat_name in categories:
         meta = CATEGORY_META.get(cat_name, CATEGORY_META["Other"])
