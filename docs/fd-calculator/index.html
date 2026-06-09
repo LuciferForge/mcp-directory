@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FD &amp; RD Calculator India 2026 — Fixed Deposit + Recurring Deposit Maturity, TDS &amp; Post-Tax Returns</title>
+<meta name="description" content="Free FD and RD calculator for India 2026. Computes fixed deposit and recurring deposit maturity with real quarterly compounding, senior-citizen rates, TDS on interest, and slab-rate post-tax returns. Year-by-year schedule included.">
+<link rel="canonical" href="https://protodex.io/fd-calculator/">
+<meta property="og:title" content="FD &amp; RD Calculator India 2026 — Maturity, TDS &amp; Post-Tax Returns">
+<meta property="og:description" content="Fixed deposit and recurring deposit calculator with quarterly compounding, senior-citizen rates, TDS thresholds, and slab-rate post-tax maturity. Built for Indian savers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://protodex.io/fd-calculator/">
+<meta name="theme-color" content="#1d3557">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏦</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "FD & RD Calculator India 2026",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
+  "description": "Free fixed deposit and recurring deposit calculator for India 2026. Maturity value with quarterly compounding, senior-citizen rates, TDS on interest, and slab-rate post-tax returns.",
+  "url": "https://protodex.io/fd-calculator/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is fixed deposit (FD) maturity calculated in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indian banks compound FD interest quarterly by default. The maturity amount is A = P × (1 + r/(4×100))^(4×t), where P is the principal, r is the annual interest rate, and t is the tenure in years. For a cumulative FD the interest is reinvested every quarter; for a non-cumulative (payout) FD the interest is paid out and does not compound. A ₹1,00,000 FD at 7% for 5 years with quarterly compounding matures at about ₹1,41,478."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is recurring deposit (RD) maturity calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An RD takes a fixed monthly deposit and compounds it quarterly. Banks use M = R × [(1+i)^n − 1] / [1 − (1+i)^(−1/3)], where R is the monthly instalment, i is the quarterly rate (annual rate ÷ 400), and n is the number of quarters (months ÷ 3). A ₹5,000 monthly RD at 7% for 1 year matures at about ₹62,311 — ₹2,311 of it interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is FD and RD interest taxable in India in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Interest from both fixed and recurring deposits is fully taxable as 'Income from Other Sources' and added to your total income, taxed at your slab rate. It is taxed on an accrual basis each financial year, not only at maturity. There is no special concessional rate as there is for equity LTCG — this is the key reason long-horizon investors often prefer equity SIPs over FDs after tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When does the bank deduct TDS on FD interest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After the Budget 2025 changes, a bank deducts 10% TDS when your total interest from that bank in a financial year exceeds ₹50,000 for general depositors or ₹1,00,000 for senior citizens. If your total income is below the taxable limit you can submit Form 15G (15H for seniors) to stop the deduction. TDS is not an extra tax — it is adjusted against your final tax liability, and if no PAN is provided TDS is 20%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do senior citizens get a higher FD interest rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Most banks offer senior citizens (age 60+) an extra 0.25%–0.50% over the standard FD rate, and some small finance banks add up to 0.75%. Seniors also get a higher TDS threshold (₹1,00,000) and a Section 80TTB deduction of up to ₹50,000 on interest income. Tick the senior-citizen box in the calculator to add the typical 0.50% bump."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is FD or RD better — and how do they differ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A fixed deposit invests a lump sum once and is ideal when you already have the money. A recurring deposit invests a fixed amount every month and suits salaried savers building a corpus from monthly income. For the same rate and period an FD earns more than an RD of equal total value, because in an FD the entire principal compounds from day one, whereas RD instalments compound only from the month each is deposited."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between cumulative and non-cumulative FD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In a cumulative FD the interest is reinvested every quarter and paid as one lump sum at maturity, so you benefit from compounding. In a non-cumulative FD the interest is paid out monthly, quarterly, or annually and does not compound — useful for retirees needing regular income. For maximum maturity value choose cumulative; for a regular income stream choose non-cumulative."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a tax-saving FD different from a regular FD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 5-year tax-saving FD qualifies for a Section 80C deduction up to ₹1.5 lakh, but only under the old tax regime, and it has a mandatory 5-year lock-in with no premature withdrawal or loan facility. The interest it earns is still fully taxable at your slab rate. Under the new tax regime the 80C deduction is unavailable, so a tax-saving FD offers no advantage over a regular FD."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#f8f9fb}
+.container{max-width:760px;margin:0 auto;padding:24px 16px}
+header{text-align:center;padding:32px 16px 16px;background:linear-gradient(135deg,#1d3557 0%,#457b9d 100%);color:#fff;border-radius:0 0 16px 16px}
+header h1{font-size:1.8rem;margin-bottom:8px;line-height:1.25}
+header p{font-size:1rem;opacity:0.92}
+.badge{display:inline-block;background:#f1c40f;color:#1d3557;padding:4px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;margin-top:8px}
+.calc{background:#fff;padding:28px 24px;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.06);margin-top:-16px;position:relative;z-index:2}
+.calc h2{font-size:1.3rem;margin-bottom:18px;color:#1d3557}
+label{display:block;font-weight:600;margin:14px 0 6px;font-size:0.95rem}
+input[type=number],select{width:100%;padding:12px 14px;border:1.5px solid #d0d6e0;border-radius:8px;font-size:1rem;background:#fff;transition:border-color 0.2s}
+input[type=number]:focus,select:focus{outline:none;border-color:#457b9d}
+.helper{font-size:0.82rem;color:#666;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+.modes{display:flex;gap:0;margin-bottom:6px;border:1.5px solid #1d3557;border-radius:8px;overflow:hidden}
+.modes button{flex:1;margin:0;border-radius:0;background:#fff;color:#1d3557;font-size:0.98rem;padding:12px}
+.modes button.active{background:#1d3557;color:#fff}
+.check{display:flex;align-items:center;gap:8px;margin-top:16px;font-weight:600;font-size:0.95rem}
+.check input{width:auto;margin:0}
+button{width:100%;background:#1d3557;color:#fff;padding:14px 20px;border:none;border-radius:8px;font-size:1.05rem;font-weight:700;cursor:pointer;margin-top:20px;transition:background 0.2s}
+button:hover{background:#0d233d}
+.result{margin-top:24px;padding:20px;background:#f1faee;border-left:4px solid #2a9d8f;border-radius:8px;display:none}
+.result.show{display:block}
+.result h3{font-size:1.15rem;margin-bottom:10px;color:#1d3557}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #ccc;font-size:0.95rem}
+.row:last-of-type{border-bottom:none;font-weight:700;font-size:1.1rem;padding-top:12px;margin-top:8px;border-top:2px solid #1d3557}
+.row .lbl{color:#444}
+.row .val{color:#1d3557;font-weight:600}
+.schedule{margin-top:20px;max-height:340px;overflow-y:auto;border:1px solid #e0e4eb;border-radius:8px}
+.schedule table{width:100%;border-collapse:collapse;font-size:0.88rem}
+.schedule th,.schedule td{padding:8px 10px;border-bottom:1px solid #eef0f4;text-align:right}
+.schedule th{background:#1d3557;color:#fff;position:sticky;top:0;font-weight:600;text-align:right}
+.schedule th:first-child,.schedule td:first-child{text-align:left}
+section.content{background:#fff;padding:28px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+section.content h2{font-size:1.4rem;margin:18px 0 12px;color:#1d3557}
+section.content h2:first-child{margin-top:0}
+section.content h3{font-size:1.1rem;margin:16px 0 8px;color:#2a4d6e}
+section.content p{margin-bottom:12px}
+section.content ul,section.content ol{padding-left:22px;margin-bottom:12px}
+section.content li{margin-bottom:6px}
+table.guide{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.95rem}
+table.guide th,table.guide td{padding:10px 12px;border:1px solid #e0e4eb;text-align:left}
+table.guide th{background:#1d3557;color:#fff;font-weight:600}
+table.guide tr:nth-child(even){background:#f8f9fb}
+.note{background:#fff8e1;border-left:4px solid #f1c40f;padding:14px 18px;margin:14px 0;border-radius:6px;font-size:0.95rem}
+.cta{background:#fff;padding:24px;border-radius:14px;margin-top:24px;text-align:center;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+.cta h3{color:#1d3557;margin-bottom:8px}
+.cta a{display:inline-block;background:#e63946;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px 4px;font-size:0.95rem}
+.cta a.alt{background:#1d3557}
+footer{text-align:center;padding:32px 16px;color:#666;font-size:0.85rem;line-height:1.7}
+footer a{color:#457b9d}
+@media(max-width:520px){
+  header h1{font-size:1.45rem}
+  .calc{padding:22px 18px}
+  section.content{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>FD &amp; RD Calculator India 2026</h1>
+<p>Fixed deposit · Recurring deposit · Quarterly compounding · Senior-citizen rates · TDS &amp; post-tax returns</p>
+<span class="badge">Real bank compounding · Updated 2026</span>
+</header>
+
+<div class="container">
+
+<div class="calc">
+<h2>Calculate Your Deposit Maturity</h2>
+
+<div class="modes">
+<button id="mode_fd" class="active" onclick="setMode('fd')">Fixed Deposit (FD)</button>
+<button id="mode_rd" onclick="setMode('rd')">Recurring Deposit (RD)</button>
+</div>
+<div class="helper" id="modeHint">FD: invest a lump sum once. Switch to RD to deposit a fixed amount every month.</div>
+
+<div class="two">
+<div>
+<label for="amount"><span id="amountLabel">Deposit amount (₹)</span> <span style="color:#e63946">*</span></label>
+<input type="number" id="amount" placeholder="e.g., 100000" min="100" step="1000" value="100000">
+<div class="helper" id="amountHelp">The lump sum you invest in the FD.</div>
+</div>
+
+<div>
+<label for="rate">Interest rate (% p.a.) <span style="color:#e63946">*</span></label>
+<input type="number" id="rate" min="1" max="15" step="0.05" value="7">
+<div class="helper">Typical 2026 bank FD/RD rate ≈ 6.5–7.5%; small finance banks up to ~8.5%.</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="years">Tenure — years <span style="color:#e63946">*</span></label>
+<input type="number" id="years" min="0" max="10" step="1" value="5">
+<div class="helper">Whole years of the deposit.</div>
+</div>
+
+<div>
+<label for="months">Tenure — extra months</label>
+<input type="number" id="months" min="0" max="11" step="1" value="0">
+<div class="helper">Add 0–11 months on top of the years.</div>
+</div>
+</div>
+
+<div class="two" id="fdFreqWrap">
+<div>
+<label for="freq">Compounding frequency</label>
+<select id="freq">
+  <option value="4" selected>Quarterly (Indian bank default)</option>
+  <option value="12">Monthly</option>
+  <option value="2">Half-yearly</option>
+  <option value="1">Annually</option>
+  <option value="0">Simple interest (non-compounding)</option>
+</select>
+<div class="helper">Banks compound FDs quarterly by default.</div>
+</div>
+
+<div>
+<label for="slab">Your income-tax slab (% — for post-tax)</label>
+<select id="slab">
+  <option value="0" selected>Don't apply tax</option>
+  <option value="5">5%</option>
+  <option value="10">10%</option>
+  <option value="20">20%</option>
+  <option value="30">30%</option>
+</select>
+<div class="helper">FD/RD interest is taxed at your slab rate.</div>
+</div>
+</div>
+
+<div class="check">
+<input type="checkbox" id="senior" onchange="calc()">
+<label for="senior" style="margin:0">Senior citizen (age 60+) — add the typical +0.50% rate bump</label>
+</div>
+
+<button onclick="calc()">Calculate Maturity</button>
+
+<div id="result" class="result">
+  <h3 id="resultTitle">Your FD Projection</h3>
+  <div class="row"><span class="lbl" id="r_invested_lbl">Principal invested</span><span class="val" id="r_invested"></span></div>
+  <div class="row"><span class="lbl">Effective rate used</span><span class="val" id="r_rate"></span></div>
+  <div class="row"><span class="lbl">Interest earned</span><span class="val" id="r_interest"></span></div>
+  <div class="row" id="r_tax_row" style="display:none"><span class="lbl">Tax on interest (at slab)</span><span class="val" id="r_tax"></span></div>
+  <div class="row" id="r_posttax_row" style="display:none"><span class="lbl">Maturity after tax</span><span class="val" id="r_posttax"></span></div>
+  <div class="row"><span class="lbl">Maturity value</span><span class="val" id="r_maturity"></span></div>
+
+  <div class="schedule" id="r_schedule_wrap" style="display:none">
+    <table>
+      <thead><tr><th>Year</th><th id="sch_inv_head">Invested (cum.)</th><th>Value (cum.)</th><th>Interest</th></tr></thead>
+      <tbody id="r_schedule"></tbody>
+    </table>
+  </div>
+  <p id="tdsNote" style="font-size:0.85rem;color:#666;margin-top:14px"></p>
+</div>
+</div>
+
+<div class="cta">
+<h3>Want to Beat the FD Rate? Open a Demat &amp; Compare</h3>
+<p style="margin-bottom:12px;color:#444">After tax, a 7% FD held in the 30% slab nets only ~4.9% — often below inflation. For goals 7+ years out, a low-cost equity index fund has historically outpaced FDs, and equity LTCG is taxed at just 12.5% versus your full slab on FD interest. Open a zero-commission demat to compare:</p>
+<a href="https://zerodha.com/open-account?c=VN7717&utm_source=protodex&utm_medium=calculator&utm_campaign=fd_india&utm_content=primary-cta" target="_blank" rel="noopener nofollow sponsored">Open Free Demat on Zerodha →</a>
+<a href="https://app.groww.in/v3cO/mfynf0t8?utm_source=protodex&utm_medium=calculator&utm_campaign=fd_india&utm_content=secondary-cta" target="_blank" rel="noopener nofollow sponsored" class="alt">Compare on Groww →</a>
+<p style="font-size:0.72rem;color:#888;margin-top:12px;font-style:italic">Affiliate links — protodex.io may earn a commission at no extra cost to you. FDs are capital-guaranteed; market investments are not. Match the instrument to your goal and risk appetite.</p>
+</div>
+
+<section class="content">
+<h2>FD &amp; RD in India 2026 — The Complete Guide</h2>
+
+<p>Fixed deposits and recurring deposits are still the bedrock of Indian household savings — capital-guaranteed, insured up to ₹5 lakh per bank by DICGC, and simple to understand. But the two numbers that actually decide what you take home are routinely misunderstood: the <strong>compounding frequency</strong> the bank uses, and the <strong>tax</strong> on the interest. This calculator uses the real quarterly-compounding method Indian banks apply, lets you add the senior-citizen rate bump, and shows your <strong>post-tax</strong> maturity at your own slab — the number that matters. A ₹1,00,000 FD at 7% for 5 years matures at <strong>₹1,41,478</strong>; a ₹5,000 monthly RD at 7% for the same 5 years builds <strong>₹3.60 lakh</strong> from ₹3 lakh of deposits.</p>
+
+<div class="note"><strong>The tax that erases the headline:</strong> FD and RD interest is taxed at your full slab rate. A 7% FD nets only about <strong>4.9% after a 30% slab</strong> — frequently below inflation, meaning your money loses real purchasing power even while the rupee balance grows. Always look at the post-tax row above, not the advertised rate.</div>
+
+<h2>How Fixed Deposit Maturity Is Calculated</h2>
+
+<p>Indian banks compound FD interest <strong>quarterly</strong> by default. The cumulative-FD maturity is:</p>
+
+<p style="text-align:center;font-size:1.05rem;background:#f1faee;padding:14px;border-radius:8px"><strong>A = P × (1 + r / (4 × 100))<sup>4 × t</sup></strong></p>
+
+<ul>
+<li><strong>P</strong> = principal (the lump sum deposited)</li>
+<li><strong>r</strong> = annual interest rate (%)</li>
+<li><strong>t</strong> = tenure in years; the exponent <strong>4 × t</strong> is the number of quarters</li>
+</ul>
+
+<p>Use the compounding-frequency selector to switch to monthly, half-yearly, annual, or simple interest. Quarterly compounding beats annual on the same rate because interest starts earning interest sooner — over a long FD this gap is real money. A <strong>cumulative</strong> FD reinvests each quarter's interest (maximum maturity); a <strong>non-cumulative</strong> FD pays the interest out and does not compound (steady income, lower final value).</p>
+
+<h2>How Recurring Deposit Maturity Is Calculated</h2>
+
+<p>An RD takes a fixed deposit every month and compounds the running balance quarterly. The bank-standard formula is:</p>
+
+<p style="text-align:center;font-size:1.05rem;background:#f1faee;padding:14px;border-radius:8px"><strong>M = R × [ (1 + i)<sup>n</sup> − 1 ] / [ 1 − (1 + i)<sup>−1/3</sup> ]</strong></p>
+
+<ul>
+<li><strong>R</strong> = fixed monthly instalment</li>
+<li><strong>i</strong> = quarterly rate = annual rate ÷ 400</li>
+<li><strong>n</strong> = number of quarters = months ÷ 3</li>
+</ul>
+
+<p>Because each instalment only starts compounding from the month it is paid in, an RD always earns less than an FD of the same total value and rate — the early-deposited rupees in an FD simply have more time to grow. The RD's advantage is behavioural: it turns monthly income into a disciplined, capital-safe corpus.</p>
+
+<h2>FD vs RD — Which Fits Your Situation</h2>
+
+<table class="guide">
+<thead><tr><th></th><th>Fixed Deposit (FD)</th><th>Recurring Deposit (RD)</th></tr></thead>
+<tbody>
+<tr><td>You invest</td><td>A lump sum, once</td><td>A fixed amount every month</td></tr>
+<tr><td>Best when</td><td>You already have the money (bonus, maturity, sale)</td><td>You save out of monthly salary</td></tr>
+<tr><td>Compounding</td><td>Whole principal from day one</td><td>Each instalment from its own month</td></tr>
+<tr><td>Returns (same rate)</td><td>Higher</td><td>Lower</td></tr>
+<tr><td>Tax on interest</td><td>Slab rate</td><td>Slab rate</td></tr>
+</tbody>
+</table>
+
+<h2>Senior Citizens Get Three Advantages</h2>
+<ul>
+<li><strong>Higher rate:</strong> most banks add 0.25–0.50% (some small finance banks up to 0.75%) over the standard FD rate for depositors aged 60+. Tick the senior box above to add the typical 0.50%.</li>
+<li><strong>Higher TDS threshold:</strong> TDS kicks in only after ₹1,00,000 of interest from a bank in a year (versus ₹50,000 for others), per the Budget 2025 revision.</li>
+<li><strong>Section 80TTB:</strong> a deduction of up to ₹50,000 a year on interest income from deposits — available only to senior citizens, only under the old regime.</li>
+</ul>
+
+<h2>How FD &amp; RD Interest Is Taxed in India (2026)</h2>
+
+<p>Interest from both FDs and RDs is added to your income under <strong>"Income from Other Sources"</strong> and taxed at your slab rate. Two points trip people up:</p>
+
+<table class="guide">
+<thead><tr><th>Item</th><th>Rule in 2026</th></tr></thead>
+<tbody>
+<tr><td>Tax rate on interest</td><td>Your income-tax slab (5% / 10% / 20% / 30%)</td></tr>
+<tr><td>When taxed</td><td>On accrual every financial year, not only at maturity</td></tr>
+<tr><td>TDS threshold (general)</td><td>10% TDS once bank interest exceeds ₹50,000 / year</td></tr>
+<tr><td>TDS threshold (senior)</td><td>10% TDS once interest exceeds ₹1,00,000 / year</td></tr>
+<tr><td>No PAN on file</td><td>TDS deducted at 20%</td></tr>
+<tr><td>Avoid TDS if below taxable limit</td><td>Submit Form 15G (15H for seniors) at the bank</td></tr>
+</tbody>
+</table>
+
+<p><strong>TDS is not an extra tax.</strong> Whatever the bank deducts is credited against your final tax liability — you reconcile it when filing your return. But you still owe tax at your full slab even if no TDS was deducted (e.g. interest under the threshold), so report it. The accrual rule also means a 5-year cumulative FD is taxed yearly on the interest credited, not in one lump at the end.</p>
+
+<h2>The 5-Year Tax-Saving FD — Read the Fine Print</h2>
+<p>A tax-saving FD gives a <strong>Section 80C deduction up to ₹1.5 lakh</strong>, but only under the <strong>old regime</strong>, and locks your money for 5 years with no premature withdrawal or loan against it. The interest is still fully taxable. Under the new regime — the default for most filers from FY 2025-26 — the 80C benefit disappears, so a tax-saving FD becomes just an illiquid regular FD. Confirm which regime you are in before choosing one.</p>
+
+<h2>Common FD &amp; RD Mistakes</h2>
+<ul>
+<li><strong>Comparing pre-tax rates.</strong> A 7.5% small-finance-bank FD and a 7% large-bank FD can land at the same post-tax return once you account for risk and slab. Compare the post-tax row.</li>
+<li><strong>Laddering ignored.</strong> Splitting a large deposit across multiple maturities (a "ladder") gives liquidity and lets you reinvest at higher rates if they rise, instead of locking everything at one rate.</li>
+<li><strong>Forgetting the ₹5 lakh DICGC cap.</strong> Deposit insurance covers only ₹5 lakh per bank per depositor. Spread very large balances across banks.</li>
+<li><strong>Breaking an FD early.</strong> Premature withdrawal usually costs a 0.5–1% penalty on the applicable rate — it can wipe out months of interest.</li>
+<li><strong>Not filing 15G/15H when eligible.</strong> If your income is below the taxable limit, failing to submit the form means TDS is deducted and you must claim a refund later.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>What will ₹1 lakh in an FD become in 5 years at 7%?</h3>
+<p>With quarterly compounding, a ₹1,00,000 FD at 7% for 5 years matures at about ₹1,41,478 — roughly ₹41,478 of interest, before tax. In the 30% slab, the post-tax interest is closer to ₹29,000.</p>
+
+<h3>How much will a ₹5,000 monthly RD give me?</h3>
+<p>A ₹5,000 monthly RD at 7% for 5 years deposits ₹3,00,000 and matures at about ₹3.60 lakh, with roughly ₹59,664 of interest. For 1 year it matures at about ₹62,311. Use the RD mode above to try your own figures.</p>
+
+<h3>Is FD interest compounded monthly or quarterly?</h3>
+<p>Indian banks compound FD interest quarterly by default for cumulative FDs. A few offer monthly compounding; you can model either with the frequency selector. Non-cumulative FDs that pay interest out do not compound at all.</p>
+
+<h3>Are FD and RD safe?</h3>
+<p>Bank FDs and RDs are capital-guaranteed and insured up to ₹5 lakh per bank per depositor by DICGC. They carry no market risk — the trade-off is a lower long-run return than equity, especially after tax and inflation.</p>
+
+<h3>Can I avoid tax on FD interest?</h3>
+<p>You cannot avoid the tax itself — interest is taxable at your slab. You can avoid TDS by submitting Form 15G/15H if your income is below the taxable limit, and senior citizens can claim up to ₹50,000 under Section 80TTB (old regime). Spreading deposits to keep per-bank interest under the TDS threshold only delays, not removes, the tax.</p>
+
+<h3>Does premature FD withdrawal lose interest?</h3>
+<p>Yes. Banks pay interest at the rate applicable for the period the deposit actually stayed, minus a penalty of typically 0.5–1%. Breaking a 5-year FD after one year can earn far less than the booked rate.</p>
+
+<h3>Which gives more — FD or RD?</h3>
+<p>For the same rate and tenure, an FD of a value equal to the RD's total deposits earns more, because the full FD principal compounds from day one while RD instalments compound only from when each is paid. RD wins on discipline and cashflow fit, not on raw return.</p>
+
+</section>
+
+<div class="related" style="background:#fff;padding:20px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)">
+<h3 style="color:#1d3557;font-size:1rem;margin-bottom:10px">Related free calculators</h3>
+<a href="https://ppf-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏦 PPF Calculator India 2026 (7.1% Rate, ₹1.5L Cap, EEE Tax-Free) →</a>
+<a href="https://sip-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📈 SIP Calculator India 2026 (Step-Up, Lumpsum &amp; Real Returns) →</a>
+<a href="https://nps-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧓 NPS Calculator India 2026 (Corpus, Pension &amp; 80CCD(1B) ₹50k Saving) →</a>
+<a href="https://incometax-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧾 Income Tax Calculator India FY 2026-27 (Old vs New Regime + 87A Rebate) →</a>
+<a href="https://emi-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏦 EMI Calculator India 2026 (Home / Personal / Car Loan + Prepayment) →</a>
+<a href="https://ltcg-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📈 LTCG Calculator India 2026 (Equity 12.5% + Debt + Property Indexation) →</a>
+<a href="https://inhandsalary.protodex.io/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💰 In-Hand Salary Calculator India 2026 (Old vs New Regime, FY 2026-27) →</a>
+<a href="https://gratuity.protodex.io/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💼 Gratuity Calculator India 2026 (Payment of Gratuity Act + ₹20 Lakh Exemption) →</a>
+<a href="https://hra.protodex.io/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏠 HRA Exemption Calculator India 2026 (Section 10(13A), Metro / Non-Metro) →</a>
+</div>
+
+<footer>
+<p>Last updated: <strong id="lastmod">2026-06-09</strong> · Built for Indian savers · Not investment advice</p>
+<p>FD and RD returns are illustrative and assume the rate stays constant for the full tenure. Banks may apply different compounding, rounding, or rate slabs; confirm the exact maturity with your bank. Tax treatment reflects provisions applicable for FY 2026-27 — verify with a qualified advisor for your situation.</p>
+<p>© 2026 protodex.io · <a href="https://protodex.io/privacy">Privacy</a> · <a href="https://protodex.io/disclosure">Affiliate disclosure</a></p>
+</footer>
+
+</div>
+
+<script>
+var MODE = "fd";
+
+function fmt(n){
+  return "₹" + Math.round(n).toLocaleString("en-IN");
+}
+
+function setMode(m){
+  MODE = m;
+  document.getElementById("mode_fd").classList.toggle("active", m === "fd");
+  document.getElementById("mode_rd").classList.toggle("active", m === "rd");
+  document.getElementById("fdFreqWrap").style.display = (m === "fd") ? "grid" : "none";
+  if(m === "rd"){
+    document.getElementById("amountLabel").textContent = "Monthly deposit (₹)";
+    document.getElementById("amountHelp").textContent = "The fixed amount you deposit every month.";
+    document.getElementById("modeHint").textContent = "RD: deposit a fixed amount every month. RD interest is compounded quarterly by the bank.";
+    if(document.getElementById("amount").value == "100000") document.getElementById("amount").value = "5000";
+  } else {
+    document.getElementById("amountLabel").textContent = "Deposit amount (₹)";
+    document.getElementById("amountHelp").textContent = "The lump sum you invest in the FD.";
+    document.getElementById("modeHint").textContent = "FD: invest a lump sum once. Switch to RD to deposit a fixed amount every month.";
+    if(document.getElementById("amount").value == "5000") document.getElementById("amount").value = "100000";
+  }
+  calc();
+}
+
+function calc(){
+  var amount = parseFloat(document.getElementById("amount").value) || 0;
+  var rate = parseFloat(document.getElementById("rate").value) || 0;
+  var years = parseInt(document.getElementById("years").value, 10) || 0;
+  var emonths = parseInt(document.getElementById("months").value, 10) || 0;
+  var senior = document.getElementById("senior").checked;
+  var slab = parseFloat(document.getElementById("slab").value) || 0;
+
+  var totalMonths = years * 12 + emonths;
+
+  if(amount < 100){
+    alert("Enter a deposit amount of at least ₹100.");
+    return;
+  }
+  if(rate <= 0 || totalMonths <= 0){
+    alert("Enter a valid positive rate and a tenure of at least 1 month.");
+    return;
+  }
+
+  var effRate = senior ? rate + 0.5 : rate;
+  var rows = "";
+  var invested, maturity;
+
+  if(MODE === "fd"){
+    var f = parseInt(document.getElementById("freq").value, 10); // 0 = simple
+    var t = totalMonths / 12;
+    invested = amount;
+    if(f === 0){
+      maturity = amount * (1 + effRate / 100 * t);
+    } else {
+      maturity = amount * Math.pow(1 + effRate / 100 / f, f * t);
+    }
+    // year-by-year schedule
+    var fullYears = Math.floor(totalMonths / 12);
+    for(var y = 1; y <= fullYears; y++){
+      var val;
+      if(f === 0){ val = amount * (1 + effRate / 100 * y); }
+      else { val = amount * Math.pow(1 + effRate / 100 / f, f * y); }
+      rows += "<tr><td>Y" + y + "</td><td>" + fmt(amount) + "</td><td>" + fmt(val) + "</td><td>" + fmt(val - amount) + "</td></tr>";
+    }
+  } else {
+    // RD: quarterly-compounded bank formula. n = quarters.
+    var i = effRate / 400;
+    var nQ = totalMonths / 3;
+    invested = amount * totalMonths;
+    maturity = amount * (Math.pow(1 + i, nQ) - 1) / (1 - Math.pow(1 + i, -1/3));
+    var fy = Math.floor(totalMonths / 12);
+    for(var yr = 1; yr <= fy; yr++){
+      var m = yr * 12;
+      var inv = amount * m;
+      var val2 = amount * (Math.pow(1 + i, m / 3) - 1) / (1 - Math.pow(1 + i, -1/3));
+      rows += "<tr><td>Y" + yr + "</td><td>" + fmt(inv) + "</td><td>" + fmt(val2) + "</td><td>" + fmt(val2 - inv) + "</td></tr>";
+    }
+  }
+
+  var interest = maturity - invested;
+  var tax = slab > 0 ? interest * slab / 100 : 0;
+  var postTax = maturity - tax;
+
+  var tenureTxt = (years > 0 ? years + " yr" : "") + (emonths > 0 ? " " + emonths + " mo" : "");
+
+  document.getElementById("resultTitle").textContent = (MODE === "fd" ? "Your FD Projection" : "Your RD Projection") + " (" + tenureTxt.trim() + ")";
+  document.getElementById("r_invested_lbl").textContent = (MODE === "fd" ? "Principal invested" : "Total deposited (" + (totalMonths) + " months)");
+  document.getElementById("r_invested").textContent = fmt(invested);
+  document.getElementById("r_rate").textContent = effRate.toFixed(2) + "% p.a." + (senior ? " (incl. +0.50% senior)" : "");
+  document.getElementById("r_interest").textContent = fmt(interest);
+  document.getElementById("r_maturity").textContent = fmt(maturity);
+
+  if(slab > 0){
+    document.getElementById("r_tax_row").style.display = "flex";
+    document.getElementById("r_posttax_row").style.display = "flex";
+    document.getElementById("r_tax").textContent = fmt(tax) + " (" + slab + "% slab)";
+    document.getElementById("r_posttax").textContent = fmt(postTax);
+  } else {
+    document.getElementById("r_tax_row").style.display = "none";
+    document.getElementById("r_posttax_row").style.display = "none";
+  }
+
+  var tdsThresh = senior ? 100000 : 50000;
+  var tdsMsg = "Interest is taxable at your slab rate as Income from Other Sources. ";
+  if(interest > tdsThresh){
+    tdsMsg += "Your total interest (" + fmt(interest) + ") exceeds the ₹" + tdsThresh.toLocaleString("en-IN") + " " + (senior ? "senior-citizen " : "") + "TDS threshold, so the bank will deduct 10% TDS (adjusted against your final tax). ";
+  } else {
+    tdsMsg += "Your interest is below the ₹" + tdsThresh.toLocaleString("en-IN") + " " + (senior ? "senior-citizen " : "") + "TDS threshold, so no TDS is deducted — but the interest is still taxable, so report it. ";
+  }
+  tdsMsg += "Figures assume the rate holds for the full tenure; your bank's rounding may differ slightly.";
+  document.getElementById("tdsNote").textContent = tdsMsg;
+
+  document.getElementById("sch_inv_head").textContent = (MODE === "fd") ? "Principal" : "Deposited (cum.)";
+  document.getElementById("r_schedule").innerHTML = rows;
+  document.getElementById("r_schedule_wrap").style.display = rows ? "block" : "none";
+  document.getElementById("result").classList.add("show");
+}
+
+["amount","rate","years","months","freq","slab"].forEach(function(id){
+  var el = document.getElementById(id);
+  el.addEventListener("keypress", function(e){ if(e.key === "Enter") calc(); });
+  el.addEventListener("change", calc);
+});
+
+// auto-run with defaults on first load
+window.addEventListener("DOMContentLoaded", function(){ calc(); });
+</script>
+
+
+<!-- LF:EMAIL-CAPTURE v1 -->
+<section style="max-width:680px;margin:48px auto 24px;padding:20px 22px;background:#fafbff;border:1px solid #e1e5ee;border-radius:10px;font-family:-apple-system,system-ui,sans-serif">
+  <div style="font-weight:600;font-size:1rem;color:#1a1a2e;margin-bottom:4px">Subscribe for India tax &amp; savings updates</div>
+  <div style="font-size:0.85rem;color:#555;margin-bottom:14px">FD/RD rate changes, TDS rule updates, new calculators, planning tips. No spam. Unsubscribe anytime.</div>
+  <form onsubmit="event.preventDefault(); var f=this; var msg=f.querySelector('.lf_msg'); msg.textContent='Sending…'; fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'b2fb1576-a39b-4683-8ee9-4e152f731113',subject:'India calc newsletter signup ('+location.hostname+')',email:f.email.value,from_name:'protodex.io '+location.hostname,source:location.href})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.textContent='✓ Subscribed. Watch your inbox.';msg.style.color='#16a34a';f.email.value=''}else{msg.textContent='Couldn't subscribe. Email manja316@gmail.com directly.';msg.style.color='#dc2626'}}).catch(function(){msg.textContent='Network error. Try again.';msg.style.color='#dc2626'})" style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid #d4d8e2;border-radius:6px;font-size:0.95rem">
+    <button type="submit" style="padding:10px 22px;background:#1a1a2e;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.9rem">Subscribe</button>
+  </form>
+  <div class="lf_msg" style="margin-top:8px;font-size:0.82rem"></div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e5ee;font-size:0.72rem;color:#888">
+    Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=calc-footer&utm_campaign=india-calcs" target="_blank" rel="noopener" style="color:#666">Claude</a> · <a href="https://protodex.io" style="color:#666">protodex.io</a>
+  </div>
+</section>
+
+</body>
+</html>
