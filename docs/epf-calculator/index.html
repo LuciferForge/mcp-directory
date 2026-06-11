@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EPF &amp; EPS Calculator India 2026 — PF Maturity Corpus, 8.33% Pension Split &amp; Year-by-Year Growth</title>
+<meta name="description" content="Free EPF (PF) and EPS calculator for India 2026. Computes your provident fund retirement corpus at 8.25% interest with the real 8.33%/3.67% employer split, the ₹15,000 EPS cap, annual salary growth, and a separate EPS monthly pension estimate. Year-by-year schedule included.">
+<link rel="canonical" href="https://protodex.io/epf-calculator/">
+<meta property="og:title" content="EPF &amp; EPS Calculator India 2026 — PF Corpus &amp; Pension">
+<meta property="og:description" content="Provident fund corpus calculator with the real employer 8.33% EPS / 3.67% EPF split, ₹15,000 pension cap, 8.25% interest, salary growth, and EPS monthly pension. Built for Indian salaried employees.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://protodex.io/epf-calculator/">
+<meta name="theme-color" content="#1d3557">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "EPF & EPS Calculator India 2026",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
+  "description": "Free EPF (provident fund) and EPS pension calculator for India 2026. Retirement corpus at 8.25% interest with the real employer 8.33%/3.67% split, ₹15,000 EPS cap, annual salary growth, and a monthly pension estimate.",
+  "url": "https://protodex.io/epf-calculator/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is the EPF contribution split between employee and employer in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You contribute 12% of your Basic + DA to EPF. Your employer also contributes 12%, but it is split: 8.33% of wages (capped at 8.33% of ₹15,000 = ₹1,250 a month) goes to the Employees' Pension Scheme (EPS), and the rest — 3.67% if your basic is ₹15,000 or below, or 12% minus ₹1,250 if higher — goes into your EPF account. So on a ₹50,000 basic, you add ₹6,000, your employer adds ₹6,000 of which ₹1,250 goes to EPS pension and ₹4,750 to your EPF balance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the EPF interest rate for 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The EPFO declared an interest rate of 8.25% for FY 2024-25, the latest notified rate. Interest is calculated on your monthly running balance and credited to your account once a year. EPS (the pension portion) does not earn this interest — it funds a defined monthly pension instead, which is why a correct corpus calculation excludes the 8.33% EPS share from the growing balance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the EPS pension portion part of my PF withdrawal corpus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The 8.33% that goes to EPS is not returned as part of your EPF lump sum and does not earn EPF interest. EPS instead pays a monthly pension from age 58, calculated as Pensionable Salary × Pensionable Service ÷ 70, with pensionable salary capped at ₹15,000. The maximum EPS pension is therefore about ₹7,500 a month. Most online PF calculators wrongly add the EPS share to the corpus and overstate your maturity — this one keeps them separate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is EPF tax-free in India in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EPF is an EEE (Exempt-Exempt-Exempt) instrument if you withdraw after 5 years of continuous service: your contribution qualifies for Section 80C, the interest is tax-free, and the maturity is tax-free. Two exceptions: interest on your own contributions above ₹2.5 lakh in a financial year is taxable (Budget 2021), and withdrawing before 5 years of service makes the amount taxable, with 10% TDS if it exceeds ₹50,000 and PAN is on file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I contribute more than 12% to my PF through VPF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Voluntary Provident Fund (VPF) lets you contribute over and above the mandatory 12% of basic, up to 100% of your Basic + DA. VPF earns the same 8.25% EPF interest and the employer is not obliged to match it. It is one of the highest fixed, sovereign-backed returns available to a salaried Indian, but remember the ₹2.5 lakh annual interest-taxability threshold applies to your total employee + VPF contributions combined."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the employer have to contribute on my full basic or only on ₹15,000?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The statutory minimum requires PF only on a wage ceiling of ₹15,000, so some employers cap their 12% contribution at ₹1,800 a month even when your basic is higher. Many companies, however, contribute 12% on your actual basic. This single choice changes your retirement corpus dramatically. Use the 'employer limits PF to ₹15,000' toggle in the calculator to see both scenarios — ask your HR which policy your company follows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much EPS pension will I get at retirement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EPS pension = (Pensionable Salary × Pensionable Service) ÷ 70, where pensionable salary is the average of your last 60 months' wages capped at ₹15,000, and pensionable service is your years in EPS (with a 2-year bonus if you complete 20+ years). With the ₹15,000 cap and 35 years of service the maximum works out to about ₹7,500 a month. Members who opted for pension on higher (uncapped) wages may receive more, subject to ongoing EPFO rules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my EPF when I change jobs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Always transfer your EPF using your Universal Account Number (UAN) rather than withdrawing it. Your UAN stays the same across employers, so the balance and its compounding continue uninterrupted. Withdrawing between jobs resets the 5-year continuous-service clock for tax-free status, breaks compounding, and erodes your retirement corpus. A transfer via the EPFO member portal keeps everything intact."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#f8f9fb}
+.container{max-width:760px;margin:0 auto;padding:24px 16px}
+header{text-align:center;padding:32px 16px 16px;background:linear-gradient(135deg,#1d3557 0%,#457b9d 100%);color:#fff;border-radius:0 0 16px 16px}
+header h1{font-size:1.8rem;margin-bottom:8px;line-height:1.25}
+header p{font-size:1rem;opacity:0.92}
+.badge{display:inline-block;background:#f1c40f;color:#1d3557;padding:4px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;margin-top:8px}
+.calc{background:#fff;padding:28px 24px;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.06);margin-top:-16px;position:relative;z-index:2}
+.calc h2{font-size:1.3rem;margin-bottom:18px;color:#1d3557}
+label{display:block;font-weight:600;margin:14px 0 6px;font-size:0.95rem}
+input[type=number],select{width:100%;padding:12px 14px;border:1.5px solid #d0d6e0;border-radius:8px;font-size:1rem;background:#fff;transition:border-color 0.2s}
+input[type=number]:focus,select:focus{outline:none;border-color:#457b9d}
+.helper{font-size:0.82rem;color:#666;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+.check{display:flex;align-items:center;gap:8px;margin-top:16px;font-weight:600;font-size:0.95rem}
+.check input{width:auto;margin:0}
+button{width:100%;background:#1d3557;color:#fff;padding:14px 20px;border:none;border-radius:8px;font-size:1.05rem;font-weight:700;cursor:pointer;margin-top:20px;transition:background 0.2s}
+button:hover{background:#0d233d}
+.result{margin-top:24px;padding:20px;background:#f1faee;border-left:4px solid #2a9d8f;border-radius:8px;display:none}
+.result.show{display:block}
+.result h3{font-size:1.15rem;margin-bottom:10px;color:#1d3557}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #ccc;font-size:0.95rem}
+.row:last-of-type{border-bottom:none;font-weight:700;font-size:1.1rem;padding-top:12px;margin-top:8px;border-top:2px solid #1d3557}
+.row .lbl{color:#444}
+.row .val{color:#1d3557;font-weight:600}
+.subhead{margin:18px 0 4px;font-weight:700;color:#1d3557;font-size:0.95rem;border-bottom:1px solid #cfe3da;padding-bottom:4px}
+.schedule{margin-top:20px;max-height:340px;overflow-y:auto;border:1px solid #e0e4eb;border-radius:8px}
+.schedule table{width:100%;border-collapse:collapse;font-size:0.88rem}
+.schedule th,.schedule td{padding:8px 10px;border-bottom:1px solid #eef0f4;text-align:right}
+.schedule th{background:#1d3557;color:#fff;position:sticky;top:0;font-weight:600;text-align:right}
+.schedule th:first-child,.schedule td:first-child{text-align:left}
+section.content{background:#fff;padding:28px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+section.content h2{font-size:1.4rem;margin:18px 0 12px;color:#1d3557}
+section.content h2:first-child{margin-top:0}
+section.content h3{font-size:1.1rem;margin:16px 0 8px;color:#2a4d6e}
+section.content p{margin-bottom:12px}
+section.content ul,section.content ol{padding-left:22px;margin-bottom:12px}
+section.content li{margin-bottom:6px}
+table.guide{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.95rem}
+table.guide th,table.guide td{padding:10px 12px;border:1px solid #e0e4eb;text-align:left}
+table.guide th{background:#1d3557;color:#fff;font-weight:600}
+table.guide tr:nth-child(even){background:#f8f9fb}
+.note{background:#fff8e1;border-left:4px solid #f1c40f;padding:14px 18px;margin:14px 0;border-radius:6px;font-size:0.95rem}
+.cta{background:#fff;padding:24px;border-radius:14px;margin-top:24px;text-align:center;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+.cta h3{color:#1d3557;margin-bottom:8px}
+.cta a{display:inline-block;background:#e63946;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px 4px;font-size:0.95rem}
+.cta a.alt{background:#1d3557}
+footer{text-align:center;padding:32px 16px;color:#666;font-size:0.85rem;line-height:1.7}
+footer a{color:#457b9d}
+@media(max-width:520px){
+  header h1{font-size:1.45rem}
+  .calc{padding:22px 18px}
+  section.content{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>EPF &amp; EPS Calculator India 2026</h1>
+<p>Provident fund corpus · Real 8.33% / 3.67% employer split · ₹15,000 EPS cap · 8.25% interest · Monthly pension</p>
+<span class="badge">Correct EPS-excluded corpus · Updated 2026</span>
+</header>
+
+<div class="container">
+
+<div class="calc">
+<h2>Calculate Your PF Corpus &amp; Pension</h2>
+
+<div class="two">
+<div>
+<label for="basic">Current Basic + DA per month (₹) <span style="color:#e63946">*</span></label>
+<input type="number" id="basic" placeholder="e.g., 50000" min="1000" step="1000" value="50000">
+<div class="helper">PF is calculated on Basic + Dearness Allowance, not gross CTC.</div>
+</div>
+
+<div>
+<label for="rate">EPF interest rate (% p.a.)</label>
+<input type="number" id="rate" min="1" max="12" step="0.05" value="8.25">
+<div class="helper">Latest EPFO rate: 8.25% (FY 2024-25).</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="age">Your current age (years) <span style="color:#e63946">*</span></label>
+<input type="number" id="age" min="18" max="57" step="1" value="30">
+<div class="helper">Used to project years until retirement.</div>
+</div>
+
+<div>
+<label for="retage">Retirement age (years)</label>
+<input type="number" id="retage" min="40" max="60" step="1" value="58">
+<div class="helper">EPF/EPS retirement age is 58.</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="growth">Annual salary growth (%)</label>
+<input type="number" id="growth" min="0" max="20" step="0.5" value="5">
+<div class="helper">Average yearly rise in your basic.</div>
+</div>
+
+<div>
+<label for="balance">Current EPF balance (₹)</label>
+<input type="number" id="balance" min="0" step="1000" value="0">
+<div class="helper">Existing PF passbook balance, if any.</div>
+</div>
+</div>
+
+<label for="service">Years already contributing to EPF (for pension)</label>
+<input type="number" id="service" min="0" max="40" step="1" value="0">
+<div class="helper">Past EPS service is added to future years for the pension estimate.</div>
+
+<div class="check">
+<input type="checkbox" id="cap" onchange="calc()">
+<label for="cap" style="margin:0">Employer limits PF to the ₹15,000 statutory wage ceiling (employer pays only ₹1,800/mo)</label>
+</div>
+
+<button onclick="calc()">Calculate EPF &amp; Pension</button>
+
+<div id="result" class="result">
+  <h3 id="resultTitle">Your PF Projection</h3>
+
+  <div class="subhead">This month's contribution</div>
+  <div class="row"><span class="lbl">Your share (12% of basic)</span><span class="val" id="r_emp"></span></div>
+  <div class="row"><span class="lbl">Employer → your EPF</span><span class="val" id="r_erEpf"></span></div>
+  <div class="row"><span class="lbl">Employer → EPS pension (8.33%, ₹1,250 cap)</span><span class="val" id="r_eps"></span></div>
+  <div class="row"><span class="lbl">Total into your EPF balance / month</span><span class="val" id="r_monthly"></span></div>
+
+  <div class="subhead">At retirement</div>
+  <div class="row"><span class="lbl">Total you contributed</span><span class="val" id="r_youPaid"></span></div>
+  <div class="row"><span class="lbl">Employer EPF contributed</span><span class="val" id="r_erPaid"></span></div>
+  <div class="row"><span class="lbl">Interest earned (8.25%)</span><span class="val" id="r_interest"></span></div>
+  <div class="row"><span class="lbl">Estimated EPS monthly pension</span><span class="val" id="r_pension"></span></div>
+  <div class="row"><span class="lbl">EPF retirement corpus (lump sum)</span><span class="val" id="r_corpus"></span></div>
+
+  <div class="schedule" id="r_schedule_wrap" style="display:none">
+    <table>
+      <thead><tr><th>Age</th><th>EPF added</th><th>Interest</th><th>Balance</th></tr></thead>
+      <tbody id="r_schedule"></tbody>
+    </table>
+  </div>
+  <p id="epfNote" style="font-size:0.85rem;color:#666;margin-top:14px"></p>
+</div>
+</div>
+
+<div class="cta">
+<h3>EPF Is Your Debt Anchor — Now Add a Growth Engine</h3>
+<p style="margin-bottom:12px;color:#444">EPF's 8.25% is one of the best risk-free, tax-free returns in India — keep it as your retirement floor. But the EPS pension caps at ~₹7,500/month and won't beat decades of inflation alone. For goals 10+ years out, salaried investors pair EPF with a low-cost equity index SIP. Open a zero-commission demat to start one:</p>
+<a href="https://zerodha.com/open-account?c=VN7717&utm_source=protodex&utm_medium=calculator&utm_campaign=epf_india&utm_content=primary-cta" target="_blank" rel="noopener nofollow sponsored">Open Free Demat on Zerodha →</a>
+<a href="https://app.groww.in/v3cO/mfynf0t8?utm_source=protodex&utm_medium=calculator&utm_campaign=epf_india&utm_content=secondary-cta" target="_blank" rel="noopener nofollow sponsored" class="alt">Compare on Groww →</a>
+<p style="font-size:0.72rem;color:#888;margin-top:12px;font-style:italic">Affiliate links — protodex.io may earn a commission at no extra cost to you. EPF is sovereign-backed and capital-safe; market investments are not. Match the instrument to your goal and risk appetite.</p>
+</div>
+
+<section class="content">
+<h2>EPF &amp; EPS in India 2026 — The Complete Guide</h2>
+
+<p>The Employees' Provident Fund is the single largest retirement asset most salaried Indians will ever build — and the one they understand least. Every month 12% of your Basic + DA leaves your salary, your employer adds another 12%, and the EPFO credits 8.25% interest a year on the pile. Over a 28-year career that quietly compounds into a corpus larger than most people's home. Yet two details decide how big it actually gets, and both are routinely fumbled by the calculators you'll find on bank websites: <strong>how the employer's 12% is split</strong>, and <strong>whether the pension share is counted in your corpus</strong>. This calculator gets both right. A 30-year-old on a ₹50,000 basic, growing 5% a year, retiring at 58, builds an EPF corpus of roughly <strong>₹2.4 crore</strong> — plus a separate EPS pension of about ₹6,400/month — when the maths is done correctly.</p>
+
+<div class="note"><strong>The mistake that inflates every other PF calculator:</strong> the employer's 8.33% goes to the EPS <em>pension</em> pool, which does <em>not</em> earn EPF interest and is <em>not</em> returned as a lump sum. Calculators that add it to your growing balance overstate your maturity by lakhs. This tool routes 8.33% (capped at ₹1,250/month) to a separate pension estimate and compounds only the genuine EPF share.</p>
+
+<h2>How the 12% + 12% Actually Splits</h2>
+
+<p>You contribute a flat <strong>12% of Basic + DA</strong>, and all of it goes into your EPF account. Your employer also contributes 12%, but it is divided:</p>
+
+<table class="guide">
+<thead><tr><th>Component</th><th>Rate</th><th>Where it goes</th></tr></thead>
+<tbody>
+<tr><td>Your contribution</td><td>12% of basic</td><td>Your EPF balance (earns interest)</td></tr>
+<tr><td>Employer → EPS</td><td>8.33% of wages, capped at ₹1,250/mo</td><td>Pension pool (no interest, no lump sum)</td></tr>
+<tr><td>Employer → EPF</td><td>12% minus the EPS share</td><td>Your EPF balance (earns interest)</td></tr>
+</tbody>
+</table>
+
+<p>The EPS cap is the crucial wrinkle. EPS is calculated only on a wage ceiling of <strong>₹15,000</strong>, so the maximum that ever diverts to pension is 8.33% × ₹15,000 = <strong>₹1,250 a month</strong>. If your basic is ₹15,000 or below, the split is the textbook 8.33% / 3.67%. But once your basic crosses ₹15,000 — as most professionals' does — EPS stays frozen at ₹1,250 and <em>everything else</em> of the employer's 12% pours into your interest-earning EPF. On a ₹50,000 basic the employer puts ₹6,000 in, of which only ₹1,250 goes to pension and a healthy ₹4,750 lands in your EPF. The higher your basic, the larger the share of the employer match that actually compounds for you.</p>
+
+<h2>How the Corpus Is Calculated</h2>
+
+<p>Each month the calculator adds your 12% plus the employer's EPF share to the running balance, then applies one-twelfth of the annual 8.25% rate. The EPFO itself computes interest on the monthly running balance and credits it once at year-end; monthly compounding is a very close, slightly conservative approximation. Every 12 months your basic grows by the increment you set, lifting all future contributions. The formula behind a single year, holding salary flat, is the standard future value of a monthly annuity:</p>
+
+<p style="text-align:center;font-size:1.05rem;background:#f1faee;padding:14px;border-radius:8px"><strong>FV = Σ monthly contribution × (1 + i)<sup>months remaining</sup></strong>, &nbsp; i = 8.25% ÷ 12</p>
+
+<p>Because contributions are made every month and each rupee compounds for the rest of your career, the corpus is dominated by the <em>early</em> years — money you contribute at 28 has 30 years to grow, while money you contribute at 55 has almost none. This is why withdrawing your PF during a job switch is so costly: you don't just lose the balance, you lose three decades of compounding on it.</p>
+
+<h2>EPS — Your Monthly Pension After 58</h2>
+
+<p>The pension half of the system is a defined benefit, not a pot of money. From age 58, EPS pays a monthly pension calculated as:</p>
+
+<p style="text-align:center;font-size:1.05rem;background:#f1faee;padding:14px;border-radius:8px"><strong>Monthly Pension = (Pensionable Salary × Pensionable Service) ÷ 70</strong></p>
+
+<ul>
+<li><strong>Pensionable salary</strong> = average of your last 60 months' wages, capped at ₹15,000 for most members.</li>
+<li><strong>Pensionable service</strong> = your total years in EPS, with a <strong>2-year bonus</strong> if you complete 20 or more years.</li>
+</ul>
+
+<p>With the ₹15,000 cap and a full ~35-year career, the maximum standard EPS pension works out to about <strong>₹7,500 a month</strong> — modest, and the reason EPS alone cannot fund retirement. Members who actively opted for pension on higher, uncapped wages may draw more, subject to evolving EPFO and Supreme Court rulings. The calculator shows the capped estimate, which applies to the large majority of employees.</p>
+
+<h2>The Tax Treatment — EPF Is EEE, With Two Catches</h2>
+
+<p>EPF is one of India's few genuinely <strong>EEE (Exempt-Exempt-Exempt)</strong> instruments: your contribution earns a Section 80C deduction, the interest accrues tax-free, and the maturity is tax-free — provided you withdraw after <strong>5 years of continuous service</strong>. Two catches every high earner should know:</p>
+
+<table class="guide">
+<thead><tr><th>Rule</th><th>What it means in 2026</th></tr></thead>
+<tbody>
+<tr><td>₹2.5 lakh interest cap</td><td>Interest on your own contributions above ₹2.5 lakh in a year is taxable (Budget 2021). Affects basics roughly above ₹1.7 lakh/month or heavy VPF.</td></tr>
+<tr><td>Withdrawal before 5 years</td><td>The amount becomes taxable; 10% TDS if it exceeds ₹50,000 and PAN is on file (20% without PAN).</td></tr>
+<tr><td>Section 80C</td><td>Your 12% qualifies under the ₹1.5 lakh 80C limit — but only in the old tax regime.</td></tr>
+<tr><td>Withdrawal after 5 years</td><td>Fully tax-free, including all accrued interest.</td></tr>
+</tbody>
+</table>
+
+<h2>VPF — The Quiet Power Move</h2>
+<p>The <strong>Voluntary Provident Fund</strong> lets you contribute beyond the mandatory 12%, up to 100% of your Basic + DA, at the same 8.25% sovereign-backed, tax-free rate. For a conservative saver it is hard to beat: no market risk, returns far above a bank FD's post-tax yield, and automatic payroll deduction. The only ceiling is the ₹2.5 lakh annual interest-taxability threshold, which counts your employee + VPF contributions together. If you have surplus and a low risk appetite, VPF often beats a tax-saving FD outright.</p>
+
+<h2>Five EPF Mistakes That Cost Lakhs</h2>
+<ul>
+<li><strong>Withdrawing on a job switch.</strong> Transfer via your UAN instead. Withdrawing resets the 5-year tax clock and kills compounding on your largest early balances.</li>
+<li><strong>Assuming the employer pays on full basic.</strong> Many cap PF at the ₹15,000 ceiling (₹1,800/month). Over a career that can mean a corpus smaller by tens of lakhs. Confirm your company's policy.</li>
+<li><strong>Counting EPS in the corpus.</strong> The pension share isn't a lump sum. Plan your retirement number on the EPF corpus plus a realistic ₹3,000–₹7,500 pension, not an inflated single figure.</li>
+<li><strong>Ignoring the ₹2.5 lakh interest cap.</strong> Very high earners and aggressive VPF contributors should model the taxable slice instead of assuming everything is tax-free.</li>
+<li><strong>Never logging into the EPFO portal.</strong> Check that your employer is actually depositing — and that your UAN, KYC and nominee details are correct. Unclaimed and mismatched PF accounts run into thousands of crores.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How much PF will I have at retirement?</h3>
+<p>It depends on your basic, your age, salary growth and whether the employer pays on full basic. As a guide, a 30-year-old on a ₹50,000 basic growing 5% a year, retiring at 58 with full-basic employer PF, builds an EPF corpus of roughly ₹2.4 crore at 8.25%, plus an EPS pension of about ₹6,400/month. If the employer caps PF at ₹15,000, the same corpus is about ₹1.35 crore — showing how much the policy is worth. Enter your own figures above to see your number.</p>
+
+<h3>Does EPS money come back to me as a lump sum?</h3>
+<p>No. EPS funds a monthly pension from age 58, not a withdrawable balance. Only your EPF account (your 12% plus the employer's non-EPS share, with interest) is paid as a lump sum. That is exactly why this calculator reports the two separately.</p>
+
+<h3>What is the EPF interest rate in 2026?</h3>
+<p>8.25% — the rate the EPFO notified for FY 2024-25, the latest declared figure. It is reviewed annually by the Central Board of Trustees, so it can change; update the rate field above if a new rate is announced for your year.</p>
+
+<h3>Is EPF better than PPF?</h3>
+<p>They complement each other. EPF gives you the employer match and a slightly higher 8.25% rate but is tied to employment; PPF is open to everyone, has a fixed 15-year term at 7.1%, and a ₹1.5 lakh annual cap. Salaried savers usually max EPF (often topped with VPF) and add PPF for guaranteed long-term, fully tax-free growth outside their job.</p>
+
+<h3>Can I withdraw EPF before retirement?</h3>
+<p>Partial advances are allowed for specific needs — home purchase or construction, medical emergencies, a child's marriage or education, and certain others — subject to service and limit conditions. Full withdrawal is meant for retirement or two months of unemployment. Withdrawing before 5 years of continuous service makes it taxable.</p>
+
+<h3>What is a UAN and why does it matter?</h3>
+<p>The Universal Account Number is a permanent ID that links all your EPF accounts across every employer. Keeping the same UAN and transferring (not withdrawing) when you change jobs preserves your continuous service, your tax-free status, and uninterrupted compounding.</p>
+
+<h3>Why does my corpus jump when I tick off the ₹15,000 cap?</h3>
+<p>Because if the employer contributes on your actual basic rather than the ₹15,000 ceiling, their EPF share is far larger every month, and that extra money compounds for your entire remaining career. The toggle lets you see exactly how much your company's PF policy is worth to you.</p>
+
+</section>
+
+<div class="related" style="background:#fff;padding:20px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)">
+<h3 style="color:#1d3557;font-size:1rem;margin-bottom:10px">Related free calculators</h3>
+<a href="https://ppf-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏦 PPF Calculator India 2026 (7.1% Rate, ₹1.5L Cap, EEE Tax-Free) →</a>
+<a href="https://nps-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧓 NPS Calculator India 2026 (Corpus, Pension &amp; 80CCD(1B) ₹50k Saving) →</a>
+<a href="https://protodex.io/fd-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏦 FD &amp; RD Calculator India 2026 (Quarterly Compounding, TDS &amp; Post-Tax) →</a>
+<a href="https://sip-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📈 SIP Calculator India 2026 (Step-Up, Lumpsum &amp; Real Returns) →</a>
+<a href="https://protodex.io/inhand-salary-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💰 In-Hand Salary Calculator India 2026 (Old vs New Regime, FY 2026-27) →</a>
+<a href="https://incometax-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧾 Income Tax Calculator India FY 2026-27 (Old vs New Regime + 87A Rebate) →</a>
+<a href="https://gratuity.protodex.io/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💼 Gratuity Calculator India 2026 (Payment of Gratuity Act + ₹20 Lakh Exemption) →</a>
+<a href="https://emi-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏦 EMI Calculator India 2026 (Home / Personal / Car Loan + Prepayment) →</a>
+</div>
+
+<footer>
+<p>Last updated: <strong id="lastmod">2026-06-11</strong> · Built for Indian salaried employees · Not investment advice</p>
+<p>EPF and EPS projections are illustrative and assume the interest rate, contribution rules and salary growth stay constant for the full period. Actual EPFO interest is credited on monthly running balances and the declared rate changes yearly; EPS pension depends on evolving EPFO rules. Confirm your exact figures on the EPFO member portal. Tax treatment reflects provisions applicable for FY 2026-27 — verify with a qualified advisor for your situation.</p>
+<p>© 2026 protodex.io · <a href="https://protodex.io/privacy">Privacy</a> · <a href="https://protodex.io/disclosure">Affiliate disclosure</a></p>
+</footer>
+
+</div>
+
+<script>
+function fmt(n){
+  return "₹" + Math.round(n).toLocaleString("en-IN");
+}
+function fmtL(n){
+  // compact lakh/crore label for big numbers
+  if(n >= 10000000) return "₹" + (n/10000000).toFixed(2) + " Cr";
+  if(n >= 100000) return "₹" + (n/100000).toFixed(2) + " L";
+  return fmt(n);
+}
+
+var EPS_WAGE_CAP = 15000;
+var EPS_MONTHLY_CAP = 1250; // 8.33% of 15000
+
+function calc(){
+  var basic0 = parseFloat(document.getElementById("basic").value) || 0;
+  var rate = parseFloat(document.getElementById("rate").value) || 0;
+  var age = parseInt(document.getElementById("age").value, 10) || 0;
+  var retage = parseInt(document.getElementById("retage").value, 10) || 0;
+  var growth = parseFloat(document.getElementById("growth").value) || 0;
+  var balance = parseFloat(document.getElementById("balance").value) || 0;
+  var pastService = parseInt(document.getElementById("service").value, 10) || 0;
+  var cap = document.getElementById("cap").checked;
+
+  if(basic0 < 1000){ alert("Enter a Basic + DA of at least ₹1,000."); return; }
+  if(retage <= age){ alert("Retirement age must be greater than your current age."); return; }
+  if(rate <= 0){ alert("Enter a valid interest rate."); return; }
+
+  var i = rate / 100 / 12;       // monthly interest
+  var years = retage - age;
+  var basic = basic0;
+
+  var bal = balance;
+  var youPaid = 0, erPaid = 0, rows = "";
+
+  // first-month breakdown (for the contribution panel)
+  function epsShare(b){ return Math.min(b, EPS_WAGE_CAP) * 0.0833; }
+  function erWage(b){ return cap ? EPS_WAGE_CAP : b; }   // wage employer pays 12% on
+  var firstEmp = basic0 * 0.12;
+  var firstEps = epsShare(erWage(basic0));
+  var firstErEpf = erWage(basic0) * 0.12 - firstEps;
+  var firstMonthly = firstEmp + firstErEpf;
+
+  for(var y = 1; y <= years; y++){
+    var startBal = bal;
+    var yearEmp = 0, yearErEpf = 0, yearInterest = 0;
+    var eps = epsShare(erWage(basic));
+    var erWageMonthly = erWage(basic);
+    for(var m = 0; m < 12; m++){
+      var emp = basic * 0.12;
+      var erEpf = erWageMonthly * 0.12 - eps;
+      var add = emp + erEpf;
+      bal += add;
+      var monthInt = bal * i;
+      bal += monthInt;
+      yearEmp += emp; yearErEpf += erEpf; yearInterest += monthInt;
+    }
+    youPaid += yearEmp; erPaid += yearErEpf;
+    var ageAt = age + y;
+    rows += "<tr><td>" + ageAt + "</td><td>" + fmt(yearEmp + yearErEpf) + "</td><td>" + fmt(yearInterest) + "</td><td>" + fmt(bal) + "</td></tr>";
+    basic = basic * (1 + growth / 100);
+  }
+
+  var corpus = bal;
+  var totalInterest = corpus - balance - youPaid - erPaid;
+
+  // EPS pension: pensionable salary capped at 15000; service = past + future, +2 bonus if >=20
+  var totalService = pastService + years;
+  var pensionService = totalService + (totalService >= 20 ? 2 : 0);
+  var pensionableSalary = Math.min(basic0, EPS_WAGE_CAP); // proxy; EPS wage is capped regardless
+  // if uncapped higher-wage option not modelled — use capped (applies to most)
+  var pension = pensionableSalary * pensionService / 70;
+
+  document.getElementById("resultTitle").textContent = "Your PF Projection (age " + age + " → " + retage + ")";
+  document.getElementById("r_emp").textContent = fmt(firstEmp);
+  document.getElementById("r_erEpf").textContent = fmt(firstErEpf);
+  document.getElementById("r_eps").textContent = fmt(firstEps) + (firstEps >= EPS_MONTHLY_CAP - 1 ? " (capped)" : "");
+  document.getElementById("r_monthly").textContent = fmt(firstMonthly);
+
+  document.getElementById("r_youPaid").textContent = fmtL(youPaid);
+  document.getElementById("r_erPaid").textContent = fmtL(erPaid);
+  document.getElementById("r_interest").textContent = fmtL(totalInterest);
+  document.getElementById("r_pension").textContent = fmt(pension) + " /mo";
+  document.getElementById("r_corpus").textContent = fmtL(corpus);
+
+  var note = "EPF corpus excludes the EPS pension share, which does not earn interest or return as a lump sum — it funds the ~" + fmt(pension) + "/month pension shown above. ";
+  if(cap){
+    note += "Employer PF is capped at the ₹15,000 wage ceiling (₹1,800/mo) — untick the box to model employer PF on your full basic. ";
+  } else {
+    note += "Employer PF is modelled on your full basic; tick the box if your company caps it at ₹15,000. ";
+  }
+  note += "Interest assumes a constant " + rate + "% for the whole period; the EPFO declares the rate yearly.";
+  document.getElementById("epfNote").textContent = note;
+
+  document.getElementById("r_schedule").innerHTML = rows;
+  document.getElementById("r_schedule_wrap").style.display = rows ? "block" : "none";
+  document.getElementById("result").classList.add("show");
+}
+
+["basic","rate","age","retage","growth","balance","service"].forEach(function(id){
+  var el = document.getElementById(id);
+  el.addEventListener("keypress", function(e){ if(e.key === "Enter") calc(); });
+  el.addEventListener("change", calc);
+});
+
+window.addEventListener("DOMContentLoaded", function(){ calc(); });
+</script>
+
+
+<!-- LF:EMAIL-CAPTURE v1 -->
+<section style="max-width:680px;margin:48px auto 24px;padding:20px 22px;background:#fafbff;border:1px solid #e1e5ee;border-radius:10px;font-family:-apple-system,system-ui,sans-serif">
+  <div style="font-weight:600;font-size:1rem;color:#1a1a2e;margin-bottom:4px">Subscribe for India tax &amp; savings updates</div>
+  <div style="font-size:0.85rem;color:#555;margin-bottom:14px">EPF/EPS rate changes, PF rule updates, new calculators, planning tips. No spam. Unsubscribe anytime.</div>
+  <form onsubmit="event.preventDefault(); var f=this; var msg=f.querySelector('.lf_msg'); msg.textContent='Sending…'; fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'b2fb1576-a39b-4683-8ee9-4e152f731113',subject:'India calc newsletter signup ('+location.hostname+')',email:f.email.value,from_name:'protodex.io '+location.hostname,source:location.href})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.textContent='✓ Subscribed. Watch your inbox.';msg.style.color='#16a34a';f.email.value=''}else{msg.textContent='Couldn\'t subscribe. Email manja316@gmail.com directly.';msg.style.color='#dc2626'}}).catch(function(){msg.textContent='Network error. Try again.';msg.style.color='#dc2626'})" style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid #d4d8e2;border-radius:6px;font-size:0.95rem">
+    <button type="submit" style="padding:10px 22px;background:#1a1a2e;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.9rem">Subscribe</button>
+  </form>
+  <div class="lf_msg" style="margin-top:8px;font-size:0.82rem"></div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e5ee;font-size:0.72rem;color:#888">
+    Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=calc-footer&utm_campaign=india-calcs" target="_blank" rel="noopener" style="color:#666">Claude</a> · <a href="https://protodex.io" style="color:#666">protodex.io</a>
+  </div>
+</section>
+
+</body>
+</html>
