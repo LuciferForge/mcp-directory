@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>graph-aave-mcp — Other MCP Server | Protodex</title>
-    <meta name="description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
-    <meta property="og:title" content="graph-aave-mcp — Other MCP Server | Protodex">
-    <meta property="og:description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
+    <title>graph-aave-mcp — API Integration MCP Server | Protodex</title>
+    <meta name="description" content="MCP server for querying AAVE V2/V3/V4 lending and governance data via The Graph — 7 chains across 11 subgraphs (Ethereum, Base, Arbitrum, Polygon,...">
+    <meta property="og:title" content="graph-aave-mcp — API Integration MCP Server | Protodex">
+    <meta property="og:description" content="MCP server for querying AAVE V2/V3/V4 lending and governance data via The Graph — 7 chains across 11 subgraphs (Ethereum, Base, Arbitrum, Polygon,...">
     <meta property="og:url" content="https://protodex.io/servers/paulieb14-graph-aave-mcp.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="graph-aave-mcp — Other MCP Server | Protodex">
-    <meta name="twitter:description" content="An MCP server. — 0 stars on GitHub. Browse on Protodex.">
+    <meta name="twitter:title" content="graph-aave-mcp — API Integration MCP Server | Protodex">
+    <meta name="twitter:description" content="MCP server for querying AAVE V2/V3/V4 lending and governance data via The Graph — 7 chains across 11 subgraphs (Ethereum, Base, Arbitrum, Polygon,...">
     <link rel="canonical" href="https://protodex.io/servers/paulieb14-graph-aave-mcp.html">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com;">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -1037,11 +1037,11 @@ footer {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "graph-aave-mcp",
-  "description": "An MCP server.",
+  "description": "MCP server for querying AAVE V2/V3/V4 lending and governance data via The Graph \u2014 7 chains across 11 subgraphs (Ethereum, Base, Arbitrum, Polygon, Optimism, Avalanche, Fantom + Governance V3)",
   "url": "https://github.com/PaulieB14/graph-aave-mcp",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
-  "programmingLanguage": "Unknown"
+  "programmingLanguage": "JavaScript"
 }</script>
 </head>
 <body>
@@ -1060,15 +1060,15 @@ footer {
             <a href="/categories.html">Categories</a>
             <a href="/security.html">Security</a>
             <a href="/blog/">Blog</a>
-            <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
-            <a href="/submit.html" class="nav-cta">Submit Server</a>
+            <a href="/submit.html">Submit</a>
+            <a href="/build.html" class="nav-cta" data-promo="services">Need an MCP server? →</a>
         </nav>
     </div>
 </header>
 
 <div class="container server-detail">
     <div class="breadcrumb">
-        <a href="/">Home</a> / <a href="/category/other.html">Other</a> / graph-aave-mcp
+        <a href="/">Home</a> / <a href="/category/api-integration.html">API Integration</a> / graph-aave-mcp
     </div>
 
     <div class="detail-header">
@@ -1077,17 +1077,21 @@ footer {
     </div>
 
     <div class="detail-meta">
-        <span class="meta-item">★ 0 stars</span>
-        <span class="meta-item">Unknown language</span>
-        <span class="meta-item">📦 Other</span>
-        <span class="meta-item">Updated Unknown</span>
-        <span class="meta-item"><span class="sec-badge sec-yellow">&#9888; Review</span></span>
+        <span class="meta-item">★ 1 stars</span>
+        <span class="meta-item"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</span>
+        <span class="meta-item">🔌 API Integration</span>
+        <span class="meta-item">Updated 1d ago</span>
+        <span class="meta-item"></span>
     </div>
 
-    <div class="detail-desc">An MCP server.</div>
+    <div class="detail-desc">MCP server for querying AAVE V2/V3/V4 lending and governance data via The Graph — 7 chains across 11 subgraphs (Ethereum, Base, Arbitrum, Polygon, Optimism, Avalanche, Fantom + Governance V3)</div>
 
     <a href="https://github.com/PaulieB14/graph-aave-mcp" target="_blank" rel="noopener" class="btn">
         View on GitHub →
+    </a>
+
+    <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=server-page&utm_campaign=mcp-cta&utm_content=paulieb14-graph-aave-mcp" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:8px 16px;background:linear-gradient(135deg,#c96442,#a04e35);color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;border:none">
+        Try with Claude — $10 free →
     </a>
 
     
@@ -1150,56 +1154,64 @@ footer {
 
     <div style="margin-top:40px">
         
+    <div class="detail-section">
+        <h2>README Excerpt</h2>
+        <div class="detail-readme">&lt;div align=&quot;center&quot;&gt; &lt;a href=&quot;https://glama.ai/mcp/servers/@PaulieB14/graph-aave-mcp&quot;&gt; &lt;img width=&quot;380&quot; height=&quot;200&quot; src=&quot;https://glama.ai/mcp/servers/@PaulieB14/graph-aave-mcp/badge&quot; /&gt; &lt;/a&gt; **MCP server for [AAVE](https://aave.com/) V2, V3, and V4 — 50+ tools across 17 Graph subgraphs + the Aave V4 API + V4 Omnigraph (for data the REST API doesn&#x27;t expose).**</div>
+    </div>
         
+    <div class="detail-section">
+        <h2>Tools (20)</h2>
+        <div class="detail-tools"><span class="tool-tag">aave_chain_overview</span><span class="tool-tag">aave_full_stack_analysis</span><span class="tool-tag">aave_governance_overview</span><span class="tool-tag">aave_liquidation_analysis</span><span class="tool-tag">analyze_aave_user</span><span class="tool-tag">compare_aave_rates</span><span class="tool-tag">cross_chain_risk_monitor</span><span class="tool-tag">get_aave_flash_loans</span><span class="tool-tag">get_aave_liquidations</span><span class="tool-tag">get_aave_repays</span><span class="tool-tag">get_aave_reserve</span><span class="tool-tag">get_aave_reserves</span><span class="tool-tag">get_aave_schema</span><span class="tool-tag">get_aave_user_position</span><span class="tool-tag">get_at_risk_positions</span><span class="tool-tag">get_cross_chain_risk_summary</span><span class="tool-tag">get_governance_proposals</span><span class="tool-tag">get_health_factor_history</span><span class="tool-tag">get_proposal_votes</span><span class="tool-tag">get_protocol_risk_stats</span></div>
+    </div>
         
     </div>
 
     
     <div class="related-servers">
-        <h2 class="section-title">Related Other Servers</h2>
+        <h2 class="section-title">Related API Integration Servers</h2>
         <div class="server-grid">
-    <a href="/servers/xpzouying-xiaohongshu-mcp.html" class="server-card">
+    <a href="/servers/n8n-io-n8n.html" class="server-card">
         <div class="server-card-header">
-            <span class="server-card-name">xiaohongshu-mcp</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 12.0K</span></span>
+            <span class="server-card-name">n8n</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 179.1K</span></span>
         </div>
-        <div class="server-card-desc">MCP for xiaohongshu.com</div>
+        <div class="server-card-desc">Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code,...</div>
         <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+            <span class="tag">🔌 API Integration</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
         </div>
     </a>
-    <a href="/servers/xinnan-tech-xiaozhi-esp32-server.html" class="server-card">
+    <a href="/servers/kreuzberg-dev-kreuzberg.html" class="server-card">
         <div class="server-card-header">
-            <span class="server-card-name">xiaozhi-esp32-server</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 8.9K</span></span>
+            <span class="server-card-name">kreuzberg</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 6.7K</span></span>
         </div>
-        <div class="server-card-desc">本项目为xiaozhi-esp32提供后端服务，帮助您快速搭建ESP32设备控制服务器。Backend service for xiaozhi-esp32, helps you quickly build an ESP32...</div>
+        <div class="server-card-desc">A polyglot document intelligence framework with a Rust core. Extract text, metadata, and structured information from...</div>
         <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#F7DF1E"></span>JavaScript</span>
+            <span class="tag">🔌 API Integration</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#DEA584"></span>Rust</span>
         </div>
     </a>
-    <a href="/servers/lauriewired-ghidramcp.html" class="server-card">
+    <a href="/servers/sooperset-mcp-atlassian.html" class="server-card">
         <div class="server-card-header">
-            <span class="server-card-name">GhidraMCP</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 8.0K</span></span>
+            <span class="server-card-name">mcp-atlassian</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 4.6K</span></span>
         </div>
-        <div class="server-card-desc">MCP Server for Ghidra</div>
+        <div class="server-card-desc">MCP server for Atlassian tools (Confluence, Jira)</div>
         <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#B07219"></span>Java</span>
-        </div>
-    </a>
-    <a href="/servers/cursortouch-windows-mcp.html" class="server-card">
-        <div class="server-card-header">
-            <span class="server-card-name">Windows-MCP</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Secure</span><span class="server-card-stars">★ 4.8K</span></span>
-        </div>
-        <div class="server-card-desc">MCP Server for Computer Use in Windows</div>
-        <div class="server-card-footer">
-            <span class="tag">📦 Other</span>
+            <span class="tag">🔌 API Integration</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a>
+    <a href="/servers/openclaw-mcporter.html" class="server-card">
+        <div class="server-card-header">
+            <span class="server-card-name">mcporter</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 4.3K</span></span>
+        </div>
+        <div class="server-card-desc">Call MCPs via TypeScript, masquerading as simple TypeScript API. Or package them as cli.</div>
+        <div class="server-card-footer">
+            <span class="tag">🔌 API Integration</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
         </div>
     </a></div>
     </div>
@@ -1228,10 +1240,18 @@ footer {
                     <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
                     <a href="https://github.com/LuciferForge" target="_blank" rel="noopener">LuciferForge</a>
                 </div>
+                <div class="footer-col">
+                    <h4>For Developers</h4>
+                    <a href="/mcp-quickref.html">MCP Server Builder's Quick Reference</a>
+                    <a href="/mcp-scorecard.html">MCP Production-Readiness Scorecard</a>
+                    <a href="/build.html">Get an MCP server built</a>
+                    <a href="https://manja8.gumroad.com/l/api-connector?utm_source=protodex&utm_medium=footer&utm_campaign=gumroad" target="_blank" rel="noopener" data-promo="gumroad">Build a Connector ($7)</a>
+                    <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=footer&utm_campaign=mcp-directory" target="_blank" rel="noopener">Claude ($10 free credit)</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Protodex. Open source. Updated weekly from GitHub.
+            &copy; 2026 Protodex. Open source. Updated weekly from GitHub. Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=footer-text&utm_campaign=mcp-directory" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Claude</a>.
         </div>
     </div>
 </footer>
