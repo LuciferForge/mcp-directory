@@ -1317,6 +1317,22 @@ GUMROAD_PROMO = GUMROAD_PRODUCTS["api-connector"]  # ← active product (footer)
 # MCP-build service is far higher-EV than a $7 product sale. Points to /build.html.
 SERVICES_CTA = {"url": "/build.html", "cta": "Need an MCP server? →"}
 
+# P1 SEO funnel: contextual link from data-relevant pages -> the dataset landing page.
+# Scoped to topically-relevant categories only (relevant internal linking, not sitewide spam).
+DATA_RELEVANT_CATEGORIES = {"Database", "Data/Analytics"}
+DATASET_CTA = """
+<section class="container" style="margin:8px auto 32px">
+  <a href="/datasets/polymarket-historical.html" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;padding:1.1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(0,212,170,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text)">
+    <span style="font-size:1.5rem">&#128202;</span>
+    <div style="flex:1;min-width:200px">
+      <div style="font-weight:600">Working with market or time-series data?</div>
+      <div style="color:var(--text-dim);font-size:0.85rem;margin-top:2px">The Polymarket Historical Dataset — 18.5M+ price snapshots across 18,600+ prediction markets (CSV + SQLite). Built for backtesting &amp; ML.</div>
+    </div>
+    <span style="background:var(--accent);color:#000;padding:5px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">View dataset &#8594;</span>
+  </a>
+</section>
+"""
+
 
 def html_header(current=""):
     return f"""
@@ -1772,6 +1788,7 @@ def build_category_page(cat_name, cat_servers):
     for i, s in enumerate(sorted_servers, 1):
         rows += server_row_html(s, rank=i)
 
+    dataset_cta = DATASET_CTA if cat_name in DATA_RELEVANT_CATEGORIES else ""
     html = html_head(title, desc, f"/category/{meta['slug']}.html")
     html += html_header()
     html += f"""
@@ -1795,6 +1812,7 @@ def build_category_page(cat_name, cat_servers):
     </table>
     </div>
 </section>
+{dataset_cta}
 """
     html += html_footer()
     return html
@@ -1945,6 +1963,7 @@ def build_server_page(server, related):
     </div>"""
 
     # Topics
+    dataset_cta = DATASET_CTA if cat in DATA_RELEVANT_CATEGORIES else ""
     topics_section = ""
     if topics:
         tags = "".join(f'<span class="tag">{escape(t)}</span>' for t in topics[:15])
@@ -2009,6 +2028,7 @@ def build_server_page(server, related):
     </div>
 
     {related_html}
+    {dataset_cta}
 </div>
 """
     html += html_footer()
