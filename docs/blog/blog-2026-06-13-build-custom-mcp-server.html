@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LexonArchiveBuilder — AI/LLM MCP Server | Protodex</title>
-    <meta name="description" content="LexonArchiveLab ingests mail archives, RFCs, and metadata into a unified, queryable knowledge layer atop LexonGraph, structuring threads, messages, and...">
-    <meta property="og:title" content="LexonArchiveBuilder — AI/LLM MCP Server | Protodex">
-    <meta property="og:description" content="LexonArchiveLab ingests mail archives, RFCs, and metadata into a unified, queryable knowledge layer atop LexonGraph, structuring threads, messages, and...">
-    <meta property="og:url" content="https://protodex.io/servers/alan-jowett-lexonarchivebuilder.html">
+    <title>How to Build a Custom MCP Server (or Hire It Out) — Protodex</title>
+    <meta name="description" content="The Model Context Protocol (MCP) is how AI agents like Claude and Cursor reach the outside world — your database, your API, your internal tools. An MCP...">
+    <meta property="og:title" content="How to Build a Custom MCP Server (or Hire It Out) — Protodex">
+    <meta property="og:description" content="The Model Context Protocol (MCP) is how AI agents like Claude and Cursor reach the outside world — your database, your API, your internal tools. An MCP...">
+    <meta property="og:url" content="https://protodex.io/blog/blog-2026-06-13-build-custom-mcp-server.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="LexonArchiveBuilder — AI/LLM MCP Server | Protodex">
-    <meta name="twitter:description" content="LexonArchiveLab ingests mail archives, RFCs, and metadata into a unified, queryable knowledge layer atop LexonGraph, structuring threads, messages, and...">
-    <link rel="canonical" href="https://protodex.io/servers/alan-jowett-lexonarchivebuilder.html">
+    <meta name="twitter:title" content="How to Build a Custom MCP Server (or Hire It Out) — Protodex">
+    <meta name="twitter:description" content="The Model Context Protocol (MCP) is how AI agents like Claude and Cursor reach the outside world — your database, your API, your internal tools. An MCP...">
+    <link rel="canonical" href="https://protodex.io/blog/blog-2026-06-13-build-custom-mcp-server.html">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com;">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1024,16 +1024,7 @@ footer {
 </style>
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
-    <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "LexonArchiveBuilder",
-  "description": "LexonArchiveLab ingests mail archives, RFCs, and metadata into a unified, queryable knowledge layer atop LexonGraph, structuring threads, messages, and chunks into a coherent semantic fabric accessible through an MCP server.",
-  "url": "https://github.com/Alan-Jowett/LexonArchiveBuilder",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "Any",
-  "programmingLanguage": "Rust"
-}</script>
+    
 </head>
 <body>
 
@@ -1057,158 +1048,64 @@ footer {
     </div>
 </header>
 
-<div class="container server-detail">
-    <div class="breadcrumb">
-        <a href="/">Home</a> / <a href="/category/ai-llm.html">AI/LLM</a> / LexonArchiveBuilder
+<div class="container" style="max-width:760px">
+    <div class="breadcrumb" style="margin-top:24px">
+        <a href="/">Home</a> / <a href="/blog/">Blog</a> / How to Build a Custom MCP Server (or Hir...
     </div>
-
-    <div class="detail-header">
-        <h1 class="detail-title">LexonArchiveBuilder</h1>
-        <div class="detail-repo">Alan-Jowett/LexonArchiveBuilder</div>
-    </div>
-
-    <div class="detail-meta">
-        <span class="meta-item">★ 1 stars</span>
-        <span class="meta-item"><span class="lang-dot" style="background:#DEA584"></span> Rust</span>
-        <span class="meta-item"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-        <span class="meta-item">Updated 4d ago</span>
-        <span class="meta-item"></span>
-    </div>
-
-    <div class="detail-desc">LexonArchiveLab ingests mail archives, RFCs, and metadata into a unified, queryable knowledge layer atop LexonGraph, structuring threads, messages, and chunks into a coherent semantic fabric accessible through an MCP server.</div>
-
-    <a href="https://github.com/Alan-Jowett/LexonArchiveBuilder" target="_blank" rel="noopener" class="btn">
-        View on GitHub →
-    </a>
-
-    <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=server-page&utm_campaign=mcp-cta&utm_content=alan-jowett-lexonarchivebuilder" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:8px 16px;background:linear-gradient(135deg,#c96442,#a04e35);color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;border:none">
-        Try with Claude — $10 free →
-    </a>
-
-    
-    <div class="install-section" style="margin-top:32px">
-        <h2>Quick Install</h2>
-        <p class="install-subtitle">Copy the config for your editor. Some servers may need additional setup — check the README.</p>
-
-        <div class="install-tabs">
-            <button class="install-tab active" onclick="showTab(this, 'claude-desktop-lexonarchivebuilder')">Claude Desktop</button>
-            <button class="install-tab" onclick="showTab(this, 'claude-code-lexonarchivebuilder')">Claude Code</button>
-            <button class="install-tab" onclick="showTab(this, 'cursor-lexonarchivebuilder')">Cursor</button>
+    <article style="margin-top:32px">
+        <h1 style="font-size:2rem;margin-bottom:16px">How to Build a Custom MCP Server (or Hire It Out)</h1>
+        <div style="color:var(--text-muted);margin-bottom:32px;font-size:0.85rem">
+            <span class="tag">mcp</span>, <span class="tag">mcp server</span>, <span class="tag">claude</span>, <span class="tag">ai agents</span>
         </div>
-
-        <div id="claude-desktop-lexonarchivebuilder" class="install-panel active">
-            <p class="install-label">Add to <code>claude_desktop_config.json</code>:</p>
-            <div class="code-block">
-                <pre><code>{
-  &quot;mcpServers&quot;: {
-    &quot;lexonarchivebuilder&quot;: {
-      &quot;command&quot;: &quot;cargo&quot;,
-      &quot;args&quot;: [
-        &quot;run&quot;,
-        &quot;--&quot;,
-        &quot;LexonArchiveBuilder&quot;
-      ]
-    }
-  }
-}</code></pre>
-                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
-            </div>
+        <div class="blog-content" style="line-height:1.8;color:var(--text-muted)">
+            <p>The Model Context Protocol (MCP) is how AI agents like Claude and Cursor reach the outside world — your database, your API, your internal tools. An MCP server is the adapter that exposes those tools to the model. This is a practical guide to building one, and an honest take on when it&#x27;s worth paying someone else to do it.</p>
+<br>
+<h2 style="margin-top:32px;margin-bottom:12px">What an MCP server actually is</h2>
+<br>
+<p>At its core, an MCP server advertises a set of <strong>tools</strong> (functions the model can call) and <strong>resources</strong> (data the model can read), speaks the MCP protocol over stdio or HTTP, and returns structured results the model can reason about. That&#x27;s it. The protocol is the easy part; the value is in wiring it to something real.</p>
+<br>
+<h2 style="margin-top:32px;margin-bottom:12px">Build it yourself: the steps</h2>
+<br>
+<h3 style="margin-top:24px;margin-bottom:8px">1. Pick the SDK</h3>
+<br>
+<p>Use the official Python (<code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:0.85rem">FastMCP</code>) or TypeScript SDK. Both handle the protocol plumbing so you write tools, not transport code.</p>
+<br>
+<h3 style="margin-top:24px;margin-bottom:8px">2. Define tools with tight schemas</h3>
+<br>
+<p>Each tool needs a clear name, a description the model reads, and a typed input schema. Vague schemas are the number-one reason agents call tools wrong. Be specific.</p>
+<br>
+<h3 style="margin-top:24px;margin-bottom:8px">3. Handle auth and secrets properly</h3>
+<br>
+<p>Never hardcode tokens in the server. Load them from environment variables. If your server touches a paid API or production data, this is where most homegrown servers go wrong.</p>
+<br>
+<h3 style="margin-top:24px;margin-bottom:8px">4. Return structured, bounded output</h3>
+<br>
+<p>Return clean JSON, paginate large results, and never dump 10,000 rows into the context window. Good output design is what makes an agent reliable.</p>
+<br>
+<h3 style="margin-top:24px;margin-bottom:8px">5. Test against a real client</h3>
+<br>
+<p>Wire it into Claude or Cursor and watch how the model actually uses it. You&#x27;ll find rough edges no unit test catches.</p>
+<br>
+<p>If you want a reference for what &quot;production-ready&quot; means, the <a href="/mcp-scorecard.html" style="color:var(--accent)">MCP Production-Readiness Scorecard</a> and the <a href="/mcp-quickref.html" style="color:var(--accent)">MCP Server Builder&#x27;s Quick Reference</a> lay out the checklist.</p>
+<br>
+<h2 style="margin-top:32px;margin-bottom:12px">When to hire it out</h2>
+<br>
+<p>Building a toy MCP server is an afternoon. Building one that&#x27;s secure, well-scoped, and reliable against a real API or database — with proper auth, error handling, and output design — is a different job. Hire it out when:</p>
+<br>
+<ul style='padding-left:24px;margin:12px 0'>
+<li>it touches <strong>production data or paid APIs</strong> where mistakes cost money</li>
+<li>you need it <strong>secure and audited</strong>, not just working</li>
+<li>your time is worth more on your actual product than on protocol plumbing</li>
+<li>you need it <strong>done this week</strong>, not whenever you get to it</li>
+</ul>
+<br>
+<p>If that&#x27;s you, Protodex builds production MCP servers to spec — <a href="/build.html" style="color:var(--accent)">get an MCP server built</a>.</p>
+<br>
+<h2 style="margin-top:32px;margin-bottom:12px">Find an existing one first</h2>
+<br>
+<p>Before building anything, check whether it already exists. Protodex indexes 14,000+ MCP servers with security scores — browse <a href="/category/api-integration.html" style="color:var(--accent)">API Integration</a> or <a href="/category/database.html" style="color:var(--accent)">Database</a> servers, or <a href="/" style="color:var(--accent)">search the full directory</a>. The cheapest server to build is the one you don&#x27;t have to.</p>
         </div>
-
-        <div id="claude-code-lexonarchivebuilder" class="install-panel" style="display:none">
-            <p class="install-label">Run in terminal:</p>
-            <div class="code-block">
-                <pre><code>claude mcp add lexonarchivebuilder cargo run -- LexonArchiveBuilder</code></pre>
-                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
-            </div>
-        </div>
-
-        <div id="cursor-lexonarchivebuilder" class="install-panel" style="display:none">
-            <p class="install-label">Add to <code>.cursor/mcp.json</code>:</p>
-            <div class="code-block">
-                <pre><code>{
-  &quot;mcpServers&quot;: {
-    &quot;lexonarchivebuilder&quot;: {
-      &quot;command&quot;: &quot;cargo&quot;,
-      &quot;args&quot;: [
-        &quot;run&quot;,
-        &quot;--&quot;,
-        &quot;LexonArchiveBuilder&quot;
-      ]
-    }
-  }
-}</code></pre>
-                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
-            </div>
-        </div>
-        
-    </div>
-
-
-    <div style="margin-top:40px">
-        
-    <div class="detail-section">
-        <h2>README Excerpt</h2>
-        <div class="detail-readme">&gt; LexonArchiveBuilder weaves mail archives, RFCs, and metadata into a unified, queryable knowledge layer atop LexonGraph, structuring threads, messages, and chunks into a coherent semantic fabric accessible through an MCP server. LexonArchiveBuilder is the application layer built on top of LexonGraph. It exists to prove that LexonGraph works on real data and to provide a practical system for indexing and semantically searching mail archives and technical document collections.</div>
-    </div>
-        
-    <div class="detail-section">
-        <h2>Tools (4)</h2>
-        <div class="detail-tools"><span class="tool-tag">get_document</span><span class="tool-tag">get_email</span><span class="tool-tag">root_id</span><span class="tool-tag">search_chunks</span></div>
-    </div>
-        
-    </div>
-
-    
-    <div class="related-servers">
-        <h2 class="section-title">Related AI/LLM Servers</h2>
-        <div class="server-grid">
-    <a href="/servers/google-gemini-gemini-cli.html" class="server-card">
-        <div class="server-card-header">
-            <span class="server-card-name">gemini-cli</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 97.7K</span></span>
-        </div>
-        <div class="server-card-desc">An open-source AI agent that brings the power of Gemini directly into your terminal.</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
-        </div>
-    </a>
-    <a href="/servers/upstash-context7.html" class="server-card">
-        <div class="server-card-header">
-            <span class="server-card-name">context7</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 49.0K</span></span>
-        </div>
-        <div class="server-card-desc">Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
-        </div>
-    </a>
-    <a href="/servers/berriai-litellm.html" class="server-card">
-        <div class="server-card-header">
-            <span class="server-card-name">litellm</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 43.7K</span></span>
-        </div>
-        <div class="server-card-desc">Python SDK, Proxy Server (AI Gateway) to call 100+ LLM APIs in OpenAI (or native) format, with cost tracking,...</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
-        </div>
-    </a>
-    <a href="/servers/mudler-localai.html" class="server-card">
-        <div class="server-card-header">
-            <span class="server-card-name">LocalAI</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 43.6K</span></span>
-        </div>
-        <div class="server-card-desc"> The free, Open Source alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement, ...</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
-        </div>
-    </a></div>
-    </div>
-    
+    </article>
 </div>
 
 <footer>

@@ -2267,6 +2267,16 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/fd-calculator/")
     urls.append(f"{SITE_URL}/inhand-salary-calculator/")
 
+    # Blog: index + every post (md-generated and orphan HTML) — previously missing,
+    # so ~70 posts were unreachable via sitemap.
+    urls.append(f"{SITE_URL}/blog/")
+    import glob as _glob
+    for bp in sorted(_glob.glob(os.path.join(SITE_DIR, "blog", "*.html"))):
+        name = os.path.basename(bp)
+        if name == "index.html":
+            continue
+        urls.append(f"{SITE_URL}/blog/{name}")
+
     for cat_name in categories:
         meta = CATEGORY_META.get(cat_name, CATEGORY_META["Other"])
         urls.append(f"{SITE_URL}/category/{meta['slug']}.html")
