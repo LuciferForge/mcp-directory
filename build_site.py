@@ -16,6 +16,10 @@ SITE_DIR = os.path.join(os.path.dirname(__file__), "docs")
 DATA_FILE = os.path.join(os.path.dirname(__file__), "mcp_directory.json")
 DOMAIN = "protodex.io"
 SITE_URL = f"https://{DOMAIN}"
+# Google Search Console verification token (meta-tag method).
+# Paste the content="..." value from GSC's "HTML tag" verification here, then rebuild.
+GSC_VERIFICATION = ""
+
 SITE_NAME = "Protodex"
 SITE_TAGLINE = "The MCP Server Index"
 SITE_DESCRIPTION = "Discover {total} Model Context Protocol (MCP) servers with security scores. Search, browse by category, and find the right MCP server for Claude, Cursor, and AI agents."
@@ -1284,6 +1288,7 @@ def html_head(title, description, canonical_path="/", extra_head=""):
     <meta name="twitter:title" content="{escape(title)}">
     <meta name="twitter:description" content="{escape(truncate(description, 155))}">
     <link rel="canonical" href="{escape(canonical)}">
+    {'<meta name="google-site-verification" content="' + GSC_VERIFICATION + '">' if GSC_VERIFICATION else ''}
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com;">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1622,36 +1627,7 @@ document.addEventListener('click', function(e) {
     <!-- Moon Dream banner removed 2026-05-13 — Amazon short URL a.co/d/00cWi9t2 returns HTTP 404.
          Restore after KDP listing is verified. -->
 
-    <!-- Free India financial calculators — boring-idea empire hub -->
-    <div style="display:block;margin:0 auto 1.5rem;max-width:1000px;padding:1.25rem 1.5rem;background:linear-gradient(135deg,rgba(0,212,170,0.08),rgba(123,97,255,0.06));border:1px solid rgba(0,212,170,0.25);border-radius:14px">
-        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.85rem;flex-wrap:wrap">
-            <span style="font-size:1.4rem">&#129518;</span>
-            <div style="flex:1;min-width:200px">
-                <div style="font-weight:700;font-size:1rem;color:var(--text)">Free India Financial Calculators</div>
-                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">FY 2026-27 rules. Built by Protodex. Open-source, no signups.</div>
-            </div>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.65rem">
-            <a href="https://inhandsalary.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem;transition:border-color 0.15s">
-                💰 <strong>In-Hand Salary</strong> — Old vs New regime FY 2026-27
-            </a>
-            <a href="https://hra.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏠 <strong>HRA Exemption</strong> — Section 10(13A), Metro/Non-Metro
-            </a>
-            <a href="https://gratuity.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                💼 <strong>Gratuity</strong> — Payment of Gratuity Act + ₹20L exemption
-            </a>
-            <a href="https://esoptax.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                📈 <strong>ESOP Tax</strong> — Perquisite + LTCG/STCG
-            </a>
-            <a href="https://stampduty.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏗 <strong>Karnataka Stamp Duty</strong> — Bengaluru/Mysuru, 2% reg fee
-            </a>
-            <a href="https://stampdutymaharashtra.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏛️ <strong>Maharashtra Stamp Duty</strong> — Mumbai/Pune, women discount
-            </a>
-        </div>
-    </div>
+    <!-- Free India financial calculators — moved to bottom of page (keep homepage focused on MCP + products) -->
 </section>
 
 <section class="container">
@@ -1721,6 +1697,38 @@ document.addEventListener('click', function(e) {
     <p class="section-subtitle">Top servers by GitHub stars across all categories</p>
     <div class="server-grid">
         {featured}
+    </div>
+</section>
+
+<section class="container">
+    <div style="display:block;margin:0 auto 1.5rem;max-width:1000px;padding:1.25rem 1.5rem;background:linear-gradient(135deg,rgba(0,212,170,0.08),rgba(123,97,255,0.06));border:1px solid rgba(0,212,170,0.25);border-radius:14px">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.85rem;flex-wrap:wrap">
+            <span style="font-size:1.4rem">&#129518;</span>
+            <div style="flex:1;min-width:200px">
+                <div style="font-weight:700;font-size:1rem;color:var(--text)">Free India Financial Calculators</div>
+                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">FY 2026-27 rules. Built by Protodex. Open-source, no signups.</div>
+            </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.65rem">
+            <a href="https://inhandsalary.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem;transition:border-color 0.15s">
+                💰 <strong>In-Hand Salary</strong> — Old vs New regime FY 2026-27
+            </a>
+            <a href="https://hra.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                🏠 <strong>HRA Exemption</strong> — Section 10(13A), Metro/Non-Metro
+            </a>
+            <a href="https://gratuity.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                💼 <strong>Gratuity</strong> — Payment of Gratuity Act + ₹20L exemption
+            </a>
+            <a href="https://esoptax.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                📈 <strong>ESOP Tax</strong> — Perquisite + LTCG/STCG
+            </a>
+            <a href="https://stampduty.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                🏗 <strong>Karnataka Stamp Duty</strong> — Bengaluru/Mysuru, 2% reg fee
+            </a>
+            <a href="https://stampdutymaharashtra.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                🏛️ <strong>Maharashtra Stamp Duty</strong> — Mumbai/Pune, women discount
+            </a>
+        </div>
     </div>
 </section>
 """
