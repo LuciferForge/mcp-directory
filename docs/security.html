@@ -207,16 +207,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     margin-right: auto;
 }
 .hero h1 .gradient {
-    background: linear-gradient(135deg, #00d4aa 0%, #7B61FF 40%, #00d4aa 80%, #FFD93D 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 8s ease-in-out infinite;
-}
-@keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    color: var(--accent);
 }
 .hero p {
     font-size: 1.15rem;
@@ -425,7 +416,7 @@ a.value-prop { color: inherit; }
     box-shadow: var(--shadow-md);
 }
 .cat-card:hover::before { opacity: 1; }
-.cat-icon { font-size: 1.5rem; }
+.cat-icon { display: inline-flex; align-items: center; justify-content: center; height: 28px; }
 .cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
 .cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
 

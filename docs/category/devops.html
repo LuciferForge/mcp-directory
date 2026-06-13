@@ -207,16 +207,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     margin-right: auto;
 }
 .hero h1 .gradient {
-    background: linear-gradient(135deg, #00d4aa 0%, #7B61FF 40%, #00d4aa 80%, #FFD93D 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 8s ease-in-out infinite;
-}
-@keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    color: var(--accent);
 }
 .hero p {
     font-size: 1.15rem;
@@ -425,7 +416,7 @@ a.value-prop { color: inherit; }
     box-shadow: var(--shadow-md);
 }
 .cat-card:hover::before { opacity: 1; }
-.cat-icon { font-size: 1.5rem; }
+.cat-icon { display: inline-flex; align-items: center; justify-content: center; height: 28px; }
 .cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
 .cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
 
@@ -1060,7 +1051,7 @@ footer {
 <div class="page-header">
     <div class="container">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/categories.html">Categories</a> / DevOps</div>
-        <h1>⚙️ DevOps MCP Servers</h1>
+        <h1><span style="display:inline-flex;vertical-align:-6px;margin-right:10px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg></span>DevOps MCP Servers</h1>
         <p>MCP servers for CI/CD, infrastructure management, monitoring, and deployment automation.</p>
     </div>
 </div>
@@ -2031,7 +2022,7 @@ footer {
         <td class="desc-cell">Google cloud platform MCP server with 250+ tools</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">27d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">121</td>
@@ -2047,7 +2038,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#B07219"></span> Java</td>
-        <td style="color:var(--text-dim)">17d ago</td>
+        <td style="color:var(--text-dim)">18d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">123</td>
@@ -3311,7 +3302,7 @@ footer {
         <td class="desc-cell">Read-only MCP server for TheAIgentsCompany — projects, skills, stats</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">26d ago</td>
+        <td style="color:var(--text-dim)">27d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">281</td>
@@ -3719,7 +3710,7 @@ footer {
         <td class="desc-cell">Created from render-examples/mcp-server-typescript template</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">332</td>

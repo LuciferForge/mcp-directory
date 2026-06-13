@@ -207,16 +207,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     margin-right: auto;
 }
 .hero h1 .gradient {
-    background: linear-gradient(135deg, #00d4aa 0%, #7B61FF 40%, #00d4aa 80%, #FFD93D 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 8s ease-in-out infinite;
-}
-@keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    color: var(--accent);
 }
 .hero p {
     font-size: 1.15rem;
@@ -425,7 +416,7 @@ a.value-prop { color: inherit; }
     box-shadow: var(--shadow-md);
 }
 .cat-card:hover::before { opacity: 1; }
-.cat-icon { font-size: 1.5rem; }
+.cat-icon { display: inline-flex; align-items: center; justify-content: center; height: 28px; }
 .cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
 .cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
 
@@ -1060,7 +1051,7 @@ footer {
 <div class="page-header">
     <div class="container">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/categories.html">Categories</a> / API Integration</div>
-        <h1>🔌 API Integration MCP Servers</h1>
+        <h1><span style="display:inline-flex;vertical-align:-6px;margin-right:10px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span>API Integration MCP Servers</h1>
         <p>MCP servers that connect to third-party APIs, webhooks, and external services.</p>
     </div>
 </div>
@@ -1077,7 +1068,7 @@ footer {
         <td style="color:var(--text-dim)">1</td>
         <td class="name-cell"><a href="/servers/n8n-io-n8n.html">n8n</a> </td>
         <td class="desc-cell">Fair-code workflow automation platform with native AI capabilities. Combine...</td>
-        <td class="stars-cell">★ 179.1K</td>
+        <td class="stars-cell">★ 179K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
         <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
@@ -2135,7 +2126,7 @@ footer {
         <td class="desc-cell">Crawl4AI MCP Server: Extract content from web pages, PDFs, Office docs,...</td>
         <td class="stars-cell">★ 38</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">26d ago</td>
+        <td style="color:var(--text-dim)">27d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">134</td>
@@ -2695,7 +2686,7 @@ footer {
         <td class="desc-cell">Research Knowledge Agent — MCP server + REST API + React dashboard for...</td>
         <td class="stars-cell">★ 8</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">26d ago</td>
+        <td style="color:var(--text-dim)">27d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">204</td>
@@ -3343,7 +3334,7 @@ footer {
         <td class="desc-cell">MCP server for Tushare Pro financial data API — A-shares, indices, funds,...</td>
         <td class="stars-cell">★ 3</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">13d ago</td>
+        <td style="color:var(--text-dim)">14d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">285</td>
@@ -4391,7 +4382,7 @@ footer {
         <td class="desc-cell">The first MCP server for Ozon Seller API - Russia&#x27;s largest e-commerce...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">416</td>
@@ -7479,7 +7470,7 @@ footer {
         <td class="desc-cell">This is a test project to run a mcp server on trades api</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">26d ago</td>
+        <td style="color:var(--text-dim)">27d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">802</td>
@@ -7487,7 +7478,7 @@ footer {
         <td class="desc-cell">Homebrew tap for project-brain — markdown-in-git decision-tracking MCP server</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#701516"></span> Ruby</td>
-        <td style="color:var(--text-dim)">26d ago</td>
+        <td style="color:var(--text-dim)">27d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">803</td>
@@ -7495,7 +7486,7 @@ footer {
         <td class="desc-cell">Custom nanobot Docker image with MCP servers and Nextcloud sync</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> Dockerfile</td>
-        <td style="color:var(--text-dim)">26d ago</td>
+        <td style="color:var(--text-dim)">27d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">804</td>
@@ -7503,7 +7494,7 @@ footer {
         <td class="desc-cell">MCP server for WispHub API integration</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">26d ago</td>
+        <td style="color:var(--text-dim)">27d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">805</td>
@@ -7951,7 +7942,7 @@ footer {
         <td class="desc-cell">MCP server for mobile release automation: fastlane (match, snapshot, beta,...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">861</td>
@@ -7959,7 +7950,7 @@ footer {
         <td class="desc-cell">Auto-updated index of MCP servers shipping on GitHub, refreshed every 15 minutes</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">862</td>
@@ -7967,7 +7958,7 @@ footer {
         <td class="desc-cell">MCP Server for OpenList - enables AI agents to manage files via OpenList...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">863</td>
@@ -7975,7 +7966,7 @@ footer {
         <td class="desc-cell">MCP server that receives webhooks from external services and translates them...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">864</td>
@@ -7983,7 +7974,7 @@ footer {
         <td class="desc-cell">TypeScript MCP server for Microsoft Outlook via the Microsoft Graph API</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">865</td>
@@ -8055,7 +8046,7 @@ footer {
         <td class="desc-cell">Turn any API artifact into an MCP server — no MCP expertise required</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">874</td>
@@ -8063,7 +8054,7 @@ footer {
         <td class="desc-cell">Home Assistant integration that imports Apple Health data from Health Auto...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">875</td>
@@ -9063,7 +9054,7 @@ footer {
         <td class="desc-cell">MCP server for controlling a Vestaboard via the Local API</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1000</td>
@@ -9071,7 +9062,7 @@ footer {
         <td class="desc-cell">Standalone Go daemon bridging Homematic / HomeMatic IP CCUs to MQTT (with...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1001</td>
@@ -9079,7 +9070,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1002</td>
@@ -9087,7 +9078,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1003</td>

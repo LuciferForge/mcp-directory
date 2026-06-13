@@ -207,16 +207,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     margin-right: auto;
 }
 .hero h1 .gradient {
-    background: linear-gradient(135deg, #00d4aa 0%, #7B61FF 40%, #00d4aa 80%, #FFD93D 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 8s ease-in-out infinite;
-}
-@keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    color: var(--accent);
 }
 .hero p {
     font-size: 1.15rem;
@@ -425,7 +416,7 @@ a.value-prop { color: inherit; }
     box-shadow: var(--shadow-md);
 }
 .cat-card:hover::before { opacity: 1; }
-.cat-icon { font-size: 1.5rem; }
+.cat-icon { display: inline-flex; align-items: center; justify-content: center; height: 28px; }
 .cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
 .cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
 
@@ -1060,7 +1051,7 @@ footer {
 <div class="page-header">
     <div class="container">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/categories.html">Categories</a> / Search</div>
-        <h1>🔍 Search MCP Servers</h1>
+        <h1><span style="display:inline-flex;vertical-align:-6px;margin-right:10px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>Search MCP Servers</h1>
         <p>MCP servers for web search, semantic search, and information retrieval.</p>
     </div>
 </div>
@@ -1647,7 +1638,7 @@ footer {
         <td class="desc-cell">UniArticles-An MCP (Model Context Protocol) tool that queries and curates...</td>
         <td class="stars-cell">★ 7</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">73</td>
@@ -1823,7 +1814,7 @@ footer {
         <td class="desc-cell">Semantic search MCP server for documents and chat history</td>
         <td class="stars-cell">★ 3</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">95</td>
@@ -2855,7 +2846,7 @@ footer {
         <td class="desc-cell">A  local MCP server that aggregates news and research from multiple sources,...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">26d ago</td>
+        <td style="color:var(--text-dim)">27d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">224</td>
@@ -2863,7 +2854,7 @@ footer {
         <td class="desc-cell">An MCP server for working with Nix derivations, expressions, and flakes</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">26d ago</td>
+        <td style="color:var(--text-dim)">27d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">225</td>
@@ -2935,7 +2926,7 @@ footer {
         <td class="desc-cell">given a paper it extracts the  bibliography and then downloads all the...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">234</td>
@@ -3167,7 +3158,7 @@ footer {
         <td class="desc-cell">Knowledge Base MCP Server</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">263</td>
@@ -3175,7 +3166,7 @@ footer {
         <td class="desc-cell">Basic web search MCP server in Golang</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">264</td>

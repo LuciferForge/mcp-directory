@@ -207,16 +207,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     margin-right: auto;
 }
 .hero h1 .gradient {
-    background: linear-gradient(135deg, #00d4aa 0%, #7B61FF 40%, #00d4aa 80%, #FFD93D 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 8s ease-in-out infinite;
-}
-@keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    color: var(--accent);
 }
 .hero p {
     font-size: 1.15rem;
@@ -425,7 +416,7 @@ a.value-prop { color: inherit; }
     box-shadow: var(--shadow-md);
 }
 .cat-card:hover::before { opacity: 1; }
-.cat-icon { font-size: 1.5rem; }
+.cat-icon { display: inline-flex; align-items: center; justify-content: center; height: 28px; }
 .cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
 .cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
 
@@ -1079,7 +1070,7 @@ footer {
     <div class="detail-meta">
         <span class="meta-item">★ 7 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#A97BFF"></span> Kotlin</span>
-        <span class="meta-item">🌐 Browser/Web</span>
+        <span class="meta-item"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
         <span class="meta-item">Updated 1mo ago</span>
         <span class="meta-item"></span>
     </div>
@@ -1177,7 +1168,7 @@ footer {
         </div>
         <div class="server-card-desc">A collection of MCP servers.</div>
         <div class="server-card-footer">
-            <span class="tag">🌐 Browser/Web</span>
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
             
         </div>
     </a>
@@ -1188,7 +1179,7 @@ footer {
         </div>
         <div class="server-card-desc">🕷️ An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl!</div>
         <div class="server-card-footer">
-            <span class="tag">🌐 Browser/Web</span>
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
         </div>
     </a>
@@ -1199,7 +1190,7 @@ footer {
         </div>
         <div class="server-card-desc">Chrome DevTools for coding agents</div>
         <div class="server-card-footer">
-            <span class="tag">🌐 Browser/Web</span>
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
         </div>
     </a>
@@ -1210,7 +1201,7 @@ footer {
         </div>
         <div class="server-card-desc">Playwright MCP server</div>
         <div class="server-card-footer">
-            <span class="tag">🌐 Browser/Web</span>
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
         </div>
     </a></div>

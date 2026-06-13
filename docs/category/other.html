@@ -207,16 +207,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     margin-right: auto;
 }
 .hero h1 .gradient {
-    background: linear-gradient(135deg, #00d4aa 0%, #7B61FF 40%, #00d4aa 80%, #FFD93D 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 8s ease-in-out infinite;
-}
-@keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    color: var(--accent);
 }
 .hero p {
     font-size: 1.15rem;
@@ -425,7 +416,7 @@ a.value-prop { color: inherit; }
     box-shadow: var(--shadow-md);
 }
 .cat-card:hover::before { opacity: 1; }
-.cat-icon { font-size: 1.5rem; }
+.cat-icon { display: inline-flex; align-items: center; justify-content: center; height: 28px; }
 .cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
 .cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
 
@@ -1060,7 +1051,7 @@ footer {
 <div class="page-header">
     <div class="container">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/categories.html">Categories</a> / Other</div>
-        <h1>📦 Other MCP Servers</h1>
+        <h1><span style="display:inline-flex;vertical-align:-6px;margin-right:10px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>Other MCP Servers</h1>
         <p>MCP servers that don&#x27;t fit neatly into other categories — utilities, experiments, and niche tools.</p>
     </div>
 </div>
@@ -2047,7 +2038,7 @@ footer {
         <td class="desc-cell">python MCP NAVER</td>
         <td class="stars-cell">★ 114</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3mo ago</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">123</td>
@@ -2567,7 +2558,7 @@ footer {
         <td class="desc-cell">A server plugin of MCP for SillyTavern.</td>
         <td class="stars-cell">★ 41</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">188</td>
@@ -3367,7 +3358,7 @@ footer {
         <td class="desc-cell">istio mcp server demo</td>
         <td class="stars-cell">★ 14</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">8mo ago</td>
+        <td style="color:var(--text-dim)">9mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">288</td>
@@ -4439,7 +4430,7 @@ footer {
         <td class="desc-cell">C64 Ultimate MCP Server</td>
         <td class="stars-cell">★ 5</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
-        <td style="color:var(--text-dim)">2mo ago</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">422</td>
@@ -4871,7 +4862,7 @@ footer {
         <td class="desc-cell">Unity runtime inspection toolkit for MCP-based modding and localization...</td>
         <td class="stars-cell">★ 4</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
-        <td style="color:var(--text-dim)">30d ago</td>
+        <td style="color:var(--text-dim)">1mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">476</td>
@@ -4943,7 +4934,7 @@ footer {
         <td class="desc-cell">Apache AGE MCP Server</td>
         <td class="stars-cell">★ 4</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#701516"></span> Ruby</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">485</td>
@@ -5551,7 +5542,7 @@ footer {
         <td class="desc-cell">MCP Server to manage a jellyfin server</td>
         <td class="stars-cell">★ 3</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">561</td>
@@ -6599,7 +6590,7 @@ footer {
         <td class="desc-cell">Instagram MCP server</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">27d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">692</td>
@@ -6615,7 +6606,7 @@ footer {
         <td class="desc-cell">Facebook MCP server</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">27d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">694</td>
@@ -6623,7 +6614,7 @@ footer {
         <td class="desc-cell">IBM cloud MCP SERVER</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">27d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">695</td>
@@ -6631,7 +6622,7 @@ footer {
         <td class="desc-cell">Alibaba cloud MCP server</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">27d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">696</td>
@@ -6823,7 +6814,7 @@ footer {
         <td class="desc-cell">达梦数据库mcp</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">720</td>
@@ -6831,7 +6822,7 @@ footer {
         <td class="desc-cell">Garoon official MCP server</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">721</td>
@@ -6855,7 +6846,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">4d ago</td>
+        <td style="color:var(--text-dim)">5d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">724</td>
@@ -9063,7 +9054,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">23d ago</td>
+        <td style="color:var(--text-dim)">24d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1000</td>
@@ -9223,7 +9214,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">8d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1020</td>
@@ -19655,7 +19646,7 @@ footer {
         <td class="desc-cell">MCP server exposing the Taskweft HTN planner over stdio</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> Elixir</td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2324</td>
@@ -19663,7 +19654,7 @@ footer {
         <td class="desc-cell">My repository for mcp servers I create.</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2325</td>
@@ -19671,7 +19662,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2326</td>
@@ -22847,7 +22838,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2723</td>
@@ -22855,7 +22846,7 @@ footer {
         <td class="desc-cell">Product-ready MCP server for Remotion animation generation</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2724</td>
@@ -22863,7 +22854,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2725</td>
@@ -22871,7 +22862,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2726</td>
@@ -22879,7 +22870,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2727</td>
@@ -22887,7 +22878,7 @@ footer {
         <td class="desc-cell">MCP_server</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2728</td>
@@ -22895,7 +22886,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2729</td>
@@ -22903,7 +22894,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2730</td>
@@ -22911,7 +22902,7 @@ footer {
         <td class="desc-cell">全球海关贸易数据 MCP 服务 — 提供 238 个国家/地区的进出口贸易数据查询能力。</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2731</td>
@@ -23055,7 +23046,7 @@ footer {
         <td class="desc-cell">MCP server for generating, validating, and converting valid X3D content...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2749</td>

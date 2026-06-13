@@ -207,16 +207,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     margin-right: auto;
 }
 .hero h1 .gradient {
-    background: linear-gradient(135deg, #00d4aa 0%, #7B61FF 40%, #00d4aa 80%, #FFD93D 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 8s ease-in-out infinite;
-}
-@keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    color: var(--accent);
 }
 .hero p {
     font-size: 1.15rem;
@@ -425,7 +416,7 @@ a.value-prop { color: inherit; }
     box-shadow: var(--shadow-md);
 }
 .cat-card:hover::before { opacity: 1; }
-.cat-icon { font-size: 1.5rem; }
+.cat-icon { display: inline-flex; align-items: center; justify-content: center; height: 28px; }
 .cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
 .cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
 
@@ -1079,7 +1070,7 @@ footer {
     <div class="detail-meta">
         <span class="meta-item">★ 9 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</span>
-        <span class="meta-item">🤖 AI/LLM</span>
+        <span class="meta-item"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
         <span class="meta-item">Updated 1mo ago</span>
         <span class="meta-item"></span>
     </div>
@@ -1177,7 +1168,7 @@ footer {
         </div>
         <div class="server-card-desc">An open-source AI agent that brings the power of Gemini directly into your terminal.</div>
         <div class="server-card-footer">
-            <span class="tag">🤖 AI/LLM</span>
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
         </div>
     </a>
@@ -1188,7 +1179,7 @@ footer {
         </div>
         <div class="server-card-desc">Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors</div>
         <div class="server-card-footer">
-            <span class="tag">🤖 AI/LLM</span>
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
         </div>
     </a>
@@ -1199,7 +1190,7 @@ footer {
         </div>
         <div class="server-card-desc">Python SDK, Proxy Server (AI Gateway) to call 100+ LLM APIs in OpenAI (or native) format, with cost tracking,...</div>
         <div class="server-card-footer">
-            <span class="tag">🤖 AI/LLM</span>
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
         </div>
     </a>
@@ -1210,7 +1201,7 @@ footer {
         </div>
         <div class="server-card-desc"> The free, Open Source alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement, ...</div>
         <div class="server-card-footer">
-            <span class="tag">🤖 AI/LLM</span>
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
             <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
         </div>
     </a></div>

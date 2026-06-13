@@ -166,6 +166,35 @@ def clean_github_emojis(text):
     return re.sub(r':[a-z0-9_]+:', replace_emoji, text)
 
 
+# Lucide-style monochrome SVG icons per category (replaces emoji for a non-AI-template look)
+CATEGORY_SVG = {
+    "AI/LLM": '<path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>',
+    "Code/Dev Tools": '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+    "API Integration": '<path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/>',
+    "Memory/Knowledge": '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+    "Database": '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>',
+    "Browser/Web": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+    "Security": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
+    "Search": '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+    "DevOps": '<path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/>',
+    "Communication": '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+    "File System": '<path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>',
+    "Data/Analytics": '<line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/>',
+    "Finance": '<line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',
+    "Media": '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M17 7.5h4"/><path d="M17 16.5h4"/>',
+    "Other": '<path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
+}
+
+def cat_icon_svg(cat_name, size=26):
+    """Return an inline Lucide SVG for a category, stroked in its brand color."""
+    meta = CATEGORY_META.get(cat_name, CATEGORY_META["Other"])
+    paths = CATEGORY_SVG.get(cat_name, CATEGORY_SVG["Other"])
+    color = meta.get("color", "#00d4aa")
+    return (f'<svg width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" '
+            f'stroke="{color}" stroke-width="2" stroke-linecap="round" '
+            f'stroke-linejoin="round" aria-hidden="true">{paths}</svg>')
+
+
 def slugify(text):
     """Convert text to URL-safe slug."""
     text = text.lower().strip()
@@ -175,7 +204,11 @@ def slugify(text):
 
 
 def format_stars(stars):
-    """Format star count: 1234 -> 1.2K, 12345 -> 12.3K"""
+    """Format star count: 1234 -> 1.2K, 179100 -> 179K, 2530000 -> 2.5M"""
+    if stars >= 1_000_000:
+        return f"{stars/1_000_000:.1f}M"
+    if stars >= 100_000:
+        return f"{stars/1000:.0f}K"
     if stars >= 1000:
         return f"{stars/1000:.1f}K"
     return str(stars)
@@ -412,16 +445,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     margin-right: auto;
 }
 .hero h1 .gradient {
-    background: linear-gradient(135deg, #00d4aa 0%, #7B61FF 40%, #00d4aa 80%, #FFD93D 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 8s ease-in-out infinite;
-}
-@keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    color: var(--accent);
 }
 .hero p {
     font-size: 1.15rem;
@@ -630,7 +654,7 @@ a.value-prop { color: inherit; }
     box-shadow: var(--shadow-md);
 }
 .cat-card:hover::before { opacity: 1; }
-.cat-icon { font-size: 1.5rem; }
+.cat-icon { display: inline-flex; align-items: center; justify-content: center; height: 28px; }
 .cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
 .cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
 
@@ -1402,7 +1426,7 @@ def server_card_html(server):
         </div>
         <div class="server-card-desc">{desc}</div>
         <div class="server-card-footer">
-            <span class="tag">{cat_meta['icon']} {escape(cat)}</span>
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px">{cat_icon_svg(cat, 12)}</span>{escape(cat)}</span>
             {lang_html}
         </div>
     </a>"""
@@ -1455,7 +1479,7 @@ def build_home(servers, categories):
         cat_cards += f"""
         <a href="/category/{meta['slug']}.html" class="cat-card" style="--cat-color:{meta['color']}">
             <style>.cat-card[style*="{meta['color']}"]::before {{ background: {meta['color']}; }}</style>
-            <span class="cat-icon">{meta['icon']}</span>
+            <span class="cat-icon">{cat_icon_svg(cat_name)}</span>
             <span class="cat-name">{escape(cat_name)}</span>
             <span class="cat-count">{count} servers</span>
         </a>"""
@@ -1480,6 +1504,7 @@ fetch('/search-index.json')
         console.log('Fuse ready');
     });
 
+function _esc(x){return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function doSearch(q) {
     if (!_results) _results = document.getElementById('search-results');
     q = q.trim();
@@ -1490,7 +1515,7 @@ function doSearch(q) {
     var h = '';
     for (var i = 0; i < hits.length; i++) {
         var s = hits[i].item;
-        h += '<a href="/servers/' + s.s + '.html" class="search-result-item"><div><div class="search-result-name">' + (s.n||'') + '</div><div class="search-result-desc">' + (s.d||'').substring(0,80) + '</div></div><span class="search-result-meta">' + (s.st||'') + ' · ' + (s.l||'') + '</span></a>';
+        h += '<a href="/servers/' + encodeURIComponent(s.s) + '.html" class="search-result-item"><div><div class="search-result-name">' + _esc(s.n) + '</div><div class="search-result-desc">' + _esc((s.d||'').substring(0,80)) + '</div></div><span class="search-result-meta">' + _esc(s.st) + ' · ' + _esc(s.l) + '</span></a>';
     }
     _results.innerHTML = h;
     _results.style.display = 'block';
@@ -1560,10 +1585,21 @@ document.addEventListener('click', function(e) {
         <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
             <span style="font-size:1.5rem">&#128202;</span>
             <div style="flex:1;min-width:200px">
-                <div style="font-weight:600;font-size:0.95rem">Polymarket Historical Dataset — 10.8M+ Price Snapshots</div>
-                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">13,900+ markets, 43+ days, 15-min snapshots, orderbook depth. Built by the Protodex team.</div>
+                <div style="font-weight:600;font-size:0.95rem">Polymarket Historical Dataset — 18.5M+ Price Snapshots</div>
+                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">18,400+ markets, 76+ days, 15-min snapshots, orderbook depth. Built by the Protodex team.</div>
             </div>
-            <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">$9 one-time &#8594;</span>
+            <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">$15 one-time &#8594;</span>
+        </div>
+    </a>
+
+    <a href="https://manja8.gumroad.com/l/PolyScope?utm_source=protodex&amp;utm_medium=homepage&amp;utm_campaign=homepage-banner&amp;utm_content=polyscope" target="_blank" rel="noopener" style="display:block;margin:0 auto 1rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(0,212,170,0.12),rgba(123,97,255,0.10));border:1px solid rgba(0,212,170,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
+        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+            <span style="font-size:1.5rem">&#128260;</span>
+            <div style="flex:1;min-width:200px">
+                <div style="font-weight:600;font-size:0.95rem">PolyScope Pro — Weekly Polymarket Data Feed</div>
+                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">The full dataset, refreshed and delivered every week. For teams backtesting or training on live prediction-market data.</div>
+            </div>
+            <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">$29/mo &#8594;</span>
         </div>
     </a>
     <!-- Moon Dream banner removed 2026-05-13 — Amazon short URL a.co/d/00cWi9t2 returns HTTP 404.
@@ -1698,7 +1734,7 @@ def build_categories_index(categories):
         meta = CATEGORY_META.get(cat_name, CATEGORY_META["Other"])
         cards += f"""
         <a href="/category/{meta['slug']}.html" class="cat-card">
-            <span class="cat-icon">{meta['icon']}</span>
+            <span class="cat-icon">{cat_icon_svg(cat_name)}</span>
             <span class="cat-name">{escape(cat_name)}</span>
             <span class="cat-count">{count} servers</span>
         </a>"""
@@ -1741,7 +1777,7 @@ def build_category_page(cat_name, cat_servers):
 <div class="page-header">
     <div class="container">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/categories.html">Categories</a> / {escape(cat_name)}</div>
-        <h1>{meta['icon']} {escape(cat_name)} MCP Servers</h1>
+        <h1><span style="display:inline-flex;vertical-align:-6px;margin-right:10px">{cat_icon_svg(cat_name, 32)}</span>{escape(cat_name)} MCP Servers</h1>
         <p>{escape(desc)}</p>
     </div>
 </div>
@@ -1948,7 +1984,7 @@ def build_server_page(server, related):
     <div class="detail-meta">
         <span class="meta-item">★ {stars:,} stars</span>
         <span class="meta-item">{lang_html or 'Unknown language'}</span>
-        <span class="meta-item">{cat_meta['icon']} {escape(cat)}</span>
+        <span class="meta-item"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px">{cat_icon_svg(cat, 13)}</span>{escape(cat)}</span>
         <span class="meta-item">Updated {updated}</span>
         <span class="meta-item">{security_badge_html(server)}</span>
     </div>
