@@ -1362,6 +1362,7 @@ def html_footer():
                     <a href="/categories.html">Categories</a>
                     <a href="/security.html">Security Scores</a>
                     <a href="/submit.html">Submit a Server</a>
+                    <a href="{DATASET_PATH}">Polymarket Dataset</a>
                 </div>
                 <div class="footer-col">
                     <h4>Project</h4>
@@ -1581,7 +1582,7 @@ document.addEventListener('click', function(e) {
 </section>
 
 <section class="container" style="padding-top:0">
-    <a href="https://manja8.gumroad.com/l/agyjd?utm_source=protodex&amp;utm_medium=homepage&amp;utm_campaign=homepage-banner&amp;utm_content=hero" target="_blank" rel="noopener" style="display:block;margin:0 auto 1rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(0,212,170,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
+    <a href="{DATASET_PATH}" style="display:block;margin:0 auto 1rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(0,212,170,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
         <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
             <span style="font-size:1.5rem">&#128202;</span>
             <div style="flex:1;min-width:200px">
@@ -2114,11 +2115,132 @@ def build_security_page(servers):
     return html
 
 
+DATASET_PATH = "/datasets/polymarket-historical.html"
+
+def build_dataset_page():
+    """P0 revenue SEO asset: buyer-intent landing page for the Polymarket dataset,
+    with schema.org/Dataset (Google Dataset Search) + Product/Offer markup."""
+    import json as _json
+    today = datetime.now().strftime("%Y-%m-%d")
+    page_url = f"{SITE_URL}{DATASET_PATH}"
+    onetime_url = "https://manja8.gumroad.com/l/agyjd?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=onetime"
+    feed_url = "https://manja8.gumroad.com/l/PolyScope?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=polyscope"
+
+    title = "Polymarket Historical Dataset — 18.5M+ Price Snapshots (CSV) | Protodex"
+    desc = ("Download the Polymarket historical dataset: 18.5M+ 15-minute price & orderbook "
+            "snapshots across 18,400+ prediction markets. CSV bundle ($15) or weekly feed ($29/mo). "
+            "Built for backtesting and ML on prediction-market data.")
+
+    keywords = ["polymarket dataset", "polymarket historical data", "prediction market data",
+                "polymarket price history", "prediction market dataset csv", "polymarket api data",
+                "backtesting prediction markets", "polymarket orderbook data", "polymarket csv download"]
+
+    dataset_schema = {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Polymarket Historical Dataset",
+        "alternateName": "Polymarket Price & Orderbook Snapshots",
+        "description": ("18.5M+ price and orderbook snapshots sampled every 15 minutes across "
+                        "18,400+ Polymarket prediction markets over 76+ trading days. Each row "
+                        "includes market, outcome, mid price, best bid/ask, bid/ask depth, spread "
+                        "and a UTC timestamp. Delivered as CSV for backtesting, research and ML "
+                        "training on prediction-market data."),
+        "url": page_url,
+        "sameAs": "https://manja8.gumroad.com/l/agyjd",
+        "keywords": keywords,
+        "license": "https://manja8.gumroad.com/l/agyjd",
+        "isAccessibleForFree": False,
+        "creator": {"@type": "Organization", "name": "Protodex", "url": SITE_URL},
+        "publisher": {"@type": "Organization", "name": "Protodex", "url": SITE_URL},
+        "version": datetime.now().strftime("%Y.%m"),
+        "dateModified": today,
+        "temporalCoverage": "2026-03-29/" + today,
+        "measurementTechnique": "15-minute price and orderbook snapshots via the Polymarket CLOB API",
+        "variableMeasured": ["market question", "outcome (Yes/No)", "mid price", "best bid",
+                             "best ask", "bid depth", "ask depth", "spread", "timestamp (UTC, 15-min)"],
+        "distribution": [
+            {"@type": "DataDownload", "encodingFormat": "text/csv",
+             "contentUrl": "https://manja8.gumroad.com/l/agyjd",
+             "name": "One-time CSV bundle"},
+            {"@type": "DataDownload", "encodingFormat": "text/csv",
+             "contentUrl": "https://manja8.gumroad.com/l/PolyScope",
+             "name": "PolyScope Pro — weekly refreshed feed"},
+        ],
+    }
+
+    product_schema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Polymarket Historical Dataset",
+        "description": desc,
+        "brand": {"@type": "Brand", "name": "Protodex"},
+        "url": page_url,
+        "offers": [
+            {"@type": "Offer", "name": "One-time CSV bundle", "price": "15", "priceCurrency": "USD",
+             "availability": "https://schema.org/InStock", "url": onetime_url},
+            {"@type": "Offer", "name": "PolyScope Pro — weekly feed", "price": "29", "priceCurrency": "USD",
+             "availability": "https://schema.org/InStock", "url": feed_url},
+        ],
+    }
+
+    extra = ('<meta name="keywords" content="' + escape(", ".join(keywords)) + '">\n'
+             '    <script type="application/ld+json">' + _json.dumps(dataset_schema) + '</script>\n'
+             '    <script type="application/ld+json">' + _json.dumps(product_schema) + '</script>')
+
+    html = html_head(title, desc, DATASET_PATH, extra)
+    html += html_header()
+    html += f"""
+<div class="page-header">
+    <div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> / Datasets / Polymarket Historical Dataset</div>
+        <h1>Polymarket Historical Dataset — 18.5M+ Price Snapshots</h1>
+        <p>15-minute price &amp; orderbook snapshots across 18,400+ Polymarket prediction markets, over 76+ trading days. Clean CSV, ready for backtesting and ML. Built and maintained by the Protodex team.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
+            <a href="{onetime_url}" target="_blank" rel="noopener" class="btn" style="background:var(--accent);color:#000;font-weight:700">Get the CSV bundle — $15 one-time →</a>
+            <a href="{feed_url}" target="_blank" rel="noopener" class="btn" style="background:transparent;border:1px solid var(--accent);color:var(--accent)">PolyScope Pro — weekly feed, $29/mo →</a>
+        </div>
+    </div>
+</div>
+<section class="container" style="max-width:900px;margin:0 auto">
+    <div class="stats-bar" style="margin:32px 0">
+        <div class="stat"><div class="stat-num">18.5M+</div><div class="stat-label">Price snapshots</div></div>
+        <div class="stat"><div class="stat-num">18,400+</div><div class="stat-label">Markets</div></div>
+        <div class="stat"><div class="stat-num">76+</div><div class="stat-label">Trading days</div></div>
+        <div class="stat"><div class="stat-num">15-min</div><div class="stat-label">Sampling interval</div></div>
+    </div>
+
+    <h2>What's inside</h2>
+    <p>Every 15 minutes we snapshot the live Polymarket order book and mid price for thousands of active prediction markets. The result is a dense, gap-checked time series you can replay candle-by-candle — not a one-off scrape. Each row carries the market question, the outcome side, mid price, best bid and ask, bid/ask depth, the spread, and a UTC timestamp.</p>
+
+    <h2>What you can build with it</h2>
+    <p>This is the raw material for <strong>backtesting prediction-market strategies</strong>, training models on real order-flow and price dynamics, calibrating election and event forecasts against realized outcomes, and academic or quant research where clean prediction-market history is otherwise hard to source. If you have been trying to pull this from the Polymarket API yourself, this is months of collection already done, deduplicated and aligned.</p>
+
+    <h2>Columns</h2>
+    <p>market question, outcome (Yes/No), mid price, best bid, best ask, bid depth, ask depth, spread, timestamp (UTC, 15-minute interval). Plain CSV — opens in pandas, Excel, DuckDB, or anything that reads a comma.</p>
+
+    <h2>Two ways to buy</h2>
+    <p><strong>CSV bundle — $15 one-time.</strong> The full 18.5M-snapshot history as it stands today, delivered as CSV. Best for a single backtest, a research project, or a model training run. <a href="{onetime_url}" target="_blank" rel="noopener">Get the bundle →</a></p>
+    <p><strong>PolyScope Pro — $29/month.</strong> The same dataset, refreshed and re-delivered every week so your models and dashboards stay current. Best for teams running live backtests or continuously training on fresh prediction-market data. <a href="{feed_url}" target="_blank" rel="noopener">Subscribe to PolyScope Pro →</a></p>
+
+    <h2>FAQ</h2>
+    <p><strong>What format is it?</strong> CSV (UTF-8), one row per market-outcome per 15-minute snapshot.</p>
+    <p><strong>How fresh is the data?</strong> The one-time bundle is current as of purchase; PolyScope Pro refreshes weekly.</p>
+    <p><strong>Can I use it commercially?</strong> Yes — for backtesting, research, and model training. Redistribution of the raw dataset is not permitted.</p>
+    <p><strong>How is it collected?</strong> 15-minute price and order-book snapshots via the Polymarket CLOB API, deduplicated and time-aligned.</p>
+
+    <p style="margin-top:32px;color:var(--text-dim)">Looking for live tooling instead of history? Browse <a href="/category/finance.html">Finance MCP servers</a> and <a href="/category/data-analytics.html">Data &amp; Analytics MCP servers</a>, or <a href="/">explore the full MCP directory</a>.</p>
+</section>
+"""
+    html += html_footer()
+    return html
+
+
 def build_sitemap(servers, categories):
     urls = [f"{SITE_URL}/"]
     urls.append(f"{SITE_URL}/categories.html")
     urls.append(f"{SITE_URL}/submit.html")
     urls.append(f"{SITE_URL}/security.html")
+    urls.append(f"{SITE_URL}{DATASET_PATH}")
     urls.append(f"{SITE_URL}/build.html")
     urls.append(f"{SITE_URL}/mcp-quickref.html")
     urls.append(f"{SITE_URL}/mcp-scorecard.html")
@@ -2465,6 +2587,10 @@ def main():
     # Build submit page
     print("Building submit page...")
     write(os.path.join(SITE_DIR, "submit.html"), build_submit_page())
+
+    # P0 revenue SEO asset: Polymarket dataset landing page (+ Dataset/Product schema)
+    os.makedirs(os.path.join(SITE_DIR, "datasets"), exist_ok=True)
+    write(os.path.join(SITE_DIR, "datasets", "polymarket-historical.html"), build_dataset_page())
 
     # Build security page
     print("Building security page...")
