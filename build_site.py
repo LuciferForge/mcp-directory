@@ -2262,7 +2262,7 @@ def build_dataset_page():
     <p><strong>Can I use it commercially?</strong> Yes — for backtesting, research, and model training. Redistribution of the raw dataset is not permitted.</p>
     <p><strong>How is it collected?</strong> 15-minute price and order-book snapshots via the Polymarket CLOB API, deduplicated and time-aligned.</p>
 
-    <p style="margin-top:32px;color:var(--text-dim)">Looking for live tooling instead of history? Browse <a href="/category/finance.html">Finance MCP servers</a> and <a href="/category/data-analytics.html">Data &amp; Analytics MCP servers</a>, or <a href="/">explore the full MCP directory</a>.</p>
+    <p style="margin-top:32px;color:var(--text-dim)">Looking for live tooling instead of history? Browse <a href="/category/database.html">Database MCP servers</a> and <a href="/category/data-analytics.html">Data &amp; Analytics MCP servers</a>, or <a href="/">explore the full MCP directory</a>.</p>
 </section>
 """
     html += html_footer()
