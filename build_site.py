@@ -18,7 +18,7 @@ DOMAIN = "protodex.io"
 SITE_URL = f"https://{DOMAIN}"
 # Google Search Console verification token (meta-tag method).
 # Paste the content="..." value from GSC's "HTML tag" verification here, then rebuild.
-GSC_VERIFICATION = ""
+GSC_VERIFICATION = "PJCSjofSK_ea6SHzirs5wXdrWYvfZBcz26XlFDIaoUU"
 
 SITE_NAME = "Protodex"
 SITE_TAGLINE = "The MCP Server Index"
