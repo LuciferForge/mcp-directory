@@ -2678,6 +2678,10 @@ def main():
     html_404 += html_footer()
     write(os.path.join(SITE_DIR, "404.html"), html_404)
 
+    # Remove stale orphan pages (servers removed/recategorized since a prior build)
+    print("Pruning orphan pages...")
+    prune_orphans(dry_run=os.environ.get("PRUNE_DRYRUN") == "1")
+
     print(f"\nDone! Generated site in {SITE_DIR}/")
     print(f"  - 1 home page")
     print(f"  - 1 categories index")
@@ -2687,9 +2691,37 @@ def main():
     print(f"\nTotal: {len(seen_slugs) + len(categories) + 5} files")
 
 
+_WRITTEN = set()
+
 def write(path, content):
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
+    _WRITTEN.add(os.path.abspath(path))
+
+
+def prune_orphans(dry_run=False):
+    """Delete stale generated pages in docs/servers and docs/category that were
+    NOT written this build (servers removed/recategorized since a prior run).
+    Safety: only prunes if this build wrote a healthy number of server pages."""
+    written_servers = [p for p in _WRITTEN if os.sep + "servers" + os.sep in p]
+    if len(written_servers) < 1000:
+        print(f"  prune skipped (only {len(written_servers)} server pages written — unsafe)")
+        return []
+    removed = []
+    for sub in ("servers", "category"):
+        d = os.path.join(SITE_DIR, sub)
+        if not os.path.isdir(d):
+            continue
+        for name in os.listdir(d):
+            if not name.endswith(".html"):
+                continue
+            ap = os.path.abspath(os.path.join(d, name))
+            if ap not in _WRITTEN:
+                removed.append(os.path.join(sub, name))
+                if not dry_run:
+                    os.remove(ap)
+    print(f"  prune {'(dry-run) would remove' if dry_run else 'removed'} {len(removed)} orphan page(s)")
+    return removed
 
 
 if __name__ == "__main__":
