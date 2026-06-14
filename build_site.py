@@ -1270,8 +1270,9 @@ footer {
 # HTML Components
 # ─────────────────────────────────────────────
 
-def html_head(title, description, canonical_path="/", extra_head=""):
+def html_head(title, description, canonical_path="/", extra_head="", og_image=""):
     canonical = f"{SITE_URL}{canonical_path}"
+    og_img = og_image or f"{SITE_URL}/og/protodex.png"
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1284,9 +1285,11 @@ def html_head(title, description, canonical_path="/", extra_head=""):
     <meta property="og:url" content="{escape(canonical)}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{SITE_NAME}">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="{escape(og_img)}">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{escape(title)}">
     <meta name="twitter:description" content="{escape(truncate(description, 155))}">
+    <meta name="twitter:image" content="{escape(og_img)}">
     <link rel="canonical" href="{escape(canonical)}">
     {'<meta name="google-site-verification" content="' + GSC_VERIFICATION + '">' if GSC_VERIFICATION else ''}
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com;">
@@ -2215,12 +2218,10 @@ def build_dataset_page():
     }
 
     extra = ('<meta name="keywords" content="' + escape(", ".join(keywords)) + '">\n'
-             '    <meta property="og:image" content="' + img_url + '">\n'
-             '    <meta name="twitter:image" content="' + img_url + '">\n'
              '    <script type="application/ld+json">' + _json.dumps(dataset_schema) + '</script>\n'
              '    <script type="application/ld+json">' + _json.dumps(product_schema) + '</script>')
 
-    html = html_head(title, desc, DATASET_PATH, extra)
+    html = html_head(title, desc, DATASET_PATH, extra, og_image=img_url)
     html += html_header()
     html += f"""
 <div class="page-header">
