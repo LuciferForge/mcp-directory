@@ -2151,6 +2151,7 @@ def build_dataset_page():
     import json as _json
     today = datetime.now().strftime("%Y-%m-%d")
     page_url = f"{SITE_URL}{DATASET_PATH}"
+    img_url = f"{SITE_URL}/og/polymarket-dataset.png"
     onetime_url = "https://manja8.gumroad.com/l/agyjd?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=onetime"
     feed_url = "https://manja8.gumroad.com/l/PolyScope?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=polyscope"
 
@@ -2174,6 +2175,7 @@ def build_dataset_page():
                         "and a UTC timestamp. Delivered as CSV for backtesting, research and ML "
                         "training on prediction-market data."),
         "url": page_url,
+        "image": img_url,
         "sameAs": "https://manja8.gumroad.com/l/agyjd",
         "keywords": keywords,
         "license": "https://manja8.gumroad.com/l/agyjd",
@@ -2201,6 +2203,7 @@ def build_dataset_page():
         "@type": "Product",
         "name": "Polymarket Historical Dataset",
         "description": desc,
+        "image": [img_url],
         "brand": {"@type": "Brand", "name": "Protodex"},
         "url": page_url,
         "offers": [
@@ -2212,6 +2215,8 @@ def build_dataset_page():
     }
 
     extra = ('<meta name="keywords" content="' + escape(", ".join(keywords)) + '">\n'
+             '    <meta property="og:image" content="' + img_url + '">\n'
+             '    <meta name="twitter:image" content="' + img_url + '">\n'
              '    <script type="application/ld+json">' + _json.dumps(dataset_schema) + '</script>\n'
              '    <script type="application/ld+json">' + _json.dumps(product_schema) + '</script>')
 
