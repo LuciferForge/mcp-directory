@@ -9,3 +9,6 @@ campaigns/
 # untracked 2026-06-09 (security): internal/paid, not for public repo
 GROWTH_PLAYBOOK.md
 docs/downloads/cross_signal_dataset.zip
+*.pkl
+*_bypass.bin
+logging_rce_bypass.*

@@ -187,6 +187,12 @@
       "url": "https://github.com/freestylefly/mcp-server-weread"
     },
     {
+      "repo": "kuvasz-uptime/kuvasz",
+      "stars": 529,
+      "description": "Kuvasz (pronounce as [\u02c8kuv\u0252s]) is an open-source uptime and SSL monitoring service, with multiple notification channels, status pages, IAC support via YAML, Prometheus integration, a complete REST API and many more!",
+      "url": "https://github.com/kuvasz-uptime/kuvasz"
+    },
+    {
       "repo": "muthuishere/mcp-server-bash-sdk",
       "stars": 502,
       "description": "Yes Mcp server in bash",
@@ -2023,6 +2029,30 @@
       "url": "https://github.com/amazopic/go-skills"
     },
     {
+      "repo": "fidgetcoding/morgen-mcp",
+      "stars": 2,
+      "description": "MCP server for Morgen Calendar \u2014 natural-language task control for Claude Code via the Morgen API",
+      "url": "https://github.com/fidgetcoding/morgen-mcp"
+    },
+    {
+      "repo": "DaScheife/Sklera-Digital-Signage-MCP-Server",
+      "stars": 2,
+      "description": "MCP Server for sklera Digital Signage API",
+      "url": "https://github.com/DaScheife/Sklera-Digital-Signage-MCP-Server"
+    },
+    {
+      "repo": "DecisionsDev/ibm-odm-management-mcp-server",
+      "stars": 2,
+      "description": "The MCP Server for ODM Management",
+      "url": "https://github.com/DecisionsDev/ibm-odm-management-mcp-server"
+    },
+    {
+      "repo": "Infomaniak/mcp-server-calendar",
+      "stars": 2,
+      "description": "",
+      "url": "https://github.com/Infomaniak/mcp-server-calendar"
+    },
+    {
       "repo": "ninjacazul/hono-mcp-server",
       "stars": 1,
       "description": "\ud83d\udd27 Expose Hono API endpoints as MCP tools, simplifying integration and enhancing your API's functionality.",
@@ -2687,6 +2717,48 @@
       "stars": 1,
       "description": "Per-workspace identity for Claude Code: scope MCP servers, GitHub auth, and git commit identity to the directory you are in.",
       "url": "https://github.com/nrjdalal/inscope"
+    },
+    {
+      "repo": "fidgetcoding/motion-mcp",
+      "stars": 1,
+      "description": "MCP server for Motion calendar \u2014 full calendar event access, availability checking, and task management with natural-language. What Motion's public API should have been!",
+      "url": "https://github.com/fidgetcoding/motion-mcp"
+    },
+    {
+      "repo": "SylphxAI/mcp-server-sdk",
+      "stars": 1,
+      "description": "Pure functional MCP server SDK for Bun - zero dependencies, type-safe, high performance",
+      "url": "https://github.com/SylphxAI/mcp-server-sdk"
+    },
+    {
+      "repo": "metadatacenter/cedar-artifact-rest-mcp",
+      "stars": 1,
+      "description": "MCP server for managing CEDAR artifacts via the CEDAR resource-server REST API (the I/O counterpart to cedar-artifact-mcp)",
+      "url": "https://github.com/metadatacenter/cedar-artifact-rest-mcp"
+    },
+    {
+      "repo": "JimJafar/the-librarian-pi-extension",
+      "stars": 1,
+      "description": "Pi coding-agent package for The Librarian: durable memory + cross-harness session lifecycle over a remote Librarian MCP server.",
+      "url": "https://github.com/JimJafar/the-librarian-pi-extension"
+    },
+    {
+      "repo": "JimJafar/the-librarian-codex-plugin",
+      "stars": 1,
+      "description": "Codex plugin for The Librarian \u2014 durable memory + cross-harness session lifecycle, backed by a remote Librarian MCP server.",
+      "url": "https://github.com/JimJafar/the-librarian-codex-plugin"
+    },
+    {
+      "repo": "JimJafar/the-librarian-claude-plugin",
+      "stars": 1,
+      "description": "Claude Code plugin for The Librarian: memory + session lifecycle over a remote Librarian MCP server. Marketplace-distributable.",
+      "url": "https://github.com/JimJafar/the-librarian-claude-plugin"
+    },
+    {
+      "repo": "Syntelix-AI/kommo-mcp-server",
+      "stars": 1,
+      "description": "MCP server for Kommo CRM integration.",
+      "url": "https://github.com/Syntelix-AI/kommo-mcp-server"
     },
     {
       "repo": "FranklynChimobi/locusts_mcp",
@@ -6143,6 +6215,174 @@
       "stars": 0,
       "description": "",
       "url": "https://github.com/LakshChhabra248/Global-Weather-Intelligence-MCP-Server"
+    },
+    {
+      "repo": "sailingnaturali/currents-mcp",
+      "stars": 0,
+      "description": "MCP server exposing Pacific Northwest tidal-gate slack windows (CHS + NOAA current predictions) to agents",
+      "url": "https://github.com/sailingnaturali/currents-mcp"
+    },
+    {
+      "repo": "brunowinter8192/gh-cli",
+      "stars": 0,
+      "description": "GitHub API MCP server for Claude Code \u2014 search repos, code, issues, PRs, discussions, compare commits, browse releases",
+      "url": "https://github.com/brunowinter8192/gh-cli"
+    },
+    {
+      "repo": "robbiewahl-Vibe-Dev/aftership-mcp",
+      "stars": 0,
+      "description": "MCP server for the AfterShip Tracking and Returns APIs \u2014 exposes shipment + return tools to Claude",
+      "url": "https://github.com/robbiewahl-Vibe-Dev/aftership-mcp"
+    },
+    {
+      "repo": "toshi-bata/HOOPS_AI-MCP",
+      "stars": 0,
+      "description": "HOOPS AI MCP Server and WebAPI",
+      "url": "https://github.com/toshi-bata/HOOPS_AI-MCP"
+    },
+    {
+      "repo": "juanpablo-estrada/wasapi-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/juanpablo-estrada/wasapi-mcp-server"
+    },
+    {
+      "repo": "bigredcoder/universal-mcp-server",
+      "stars": 0,
+      "description": "Universal MCP Server with FastAPI for LLM tool integration",
+      "url": "https://github.com/bigredcoder/universal-mcp-server"
+    },
+    {
+      "repo": "chauhankaveri19/weather-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/chauhankaveri19/weather-mcp-server"
+    },
+    {
+      "repo": "yutamago/tokenless-zendesk-mcp",
+      "stars": 0,
+      "description": "A ZenDesk MCP Server that authorizes without API Token",
+      "url": "https://github.com/yutamago/tokenless-zendesk-mcp"
+    },
+    {
+      "repo": "cmendezs/mcp-nfe-br",
+      "stars": 0,
+      "description": "Model Context Protocol (MCP) server for Brazilian Electronic Invoicing (NF-e / NFC-e, modelo 55/65, schema 4.00). Provides CPF/CNPJ validation tools, with NF-e/NFC-e generation and SEFAZ integration planned.",
+      "url": "https://github.com/cmendezs/mcp-nfe-br"
+    },
+    {
+      "repo": "MKsys1337/gitea-codex-plugin",
+      "stars": 0,
+      "description": "Codex plugin and MCP server for working with Gitea repositories.",
+      "url": "https://github.com/MKsys1337/gitea-codex-plugin"
+    },
+    {
+      "repo": "JimJafar/the-librarian-opencode-plugin",
+      "stars": 0,
+      "description": "opencode plugin for The Librarian: durable memory + cross-harness session lifecycle over a remote Librarian MCP server.",
+      "url": "https://github.com/JimJafar/the-librarian-opencode-plugin"
+    },
+    {
+      "repo": "ruhullasheik/mcpbin",
+      "stars": 0,
+      "description": "A diagnostic MCP server with predictable, documented responses for every protocol feature \u2014 test your MCP client without building throwaway servers.",
+      "url": "https://github.com/ruhullasheik/mcpbin"
+    },
+    {
+      "repo": "nouhailadahmany/github-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/nouhailadahmany/github-mcp-server"
+    },
+    {
+      "repo": "fattahpour/figma-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/fattahpour/figma-mcp-server"
+    },
+    {
+      "repo": "njacobs5074/eventkit-mcp-server",
+      "stars": 0,
+      "description": "Local MCP server exposing macOS Reminders and Calendar via Apple EventKit",
+      "url": "https://github.com/njacobs5074/eventkit-mcp-server"
+    },
+    {
+      "repo": "Mervecaliskann/mcp-github-server",
+      "stars": 0,
+      "description": "A lightweight Model Context Protocol (MCP) server in Python exposing GitHub repository data (stars, language, repo listings) as tools, integrated with Claude Code for natural-language querying via the public GitHub REST API.",
+      "url": "https://github.com/Mervecaliskann/mcp-github-server"
+    },
+    {
+      "repo": "mani24singh/Github-MCP-Server",
+      "stars": 0,
+      "description": "A production-ready GitHub stats server with error handling, streaming HTTP, and Claude Desktop integration",
+      "url": "https://github.com/mani24singh/Github-MCP-Server"
+    },
+    {
+      "repo": "odanree/beacon-mcp",
+      "stars": 0,
+      "description": "MCP server wrapping the Beacon job-search-pipeline API for Claude Code. Drive profile + job pipeline operations conversationally instead of curl+heredoc.",
+      "url": "https://github.com/odanree/beacon-mcp"
+    },
+    {
+      "repo": "fidgetcoding/poolendar",
+      "stars": 0,
+      "description": "Calendar app with jailbroken API + MCP server",
+      "url": "https://github.com/fidgetcoding/poolendar"
+    },
+    {
+      "repo": "abdunur-dev/mcpcraft",
+      "stars": 0,
+      "description": " mcpcraft - Lightweight TypeScript SDK for building MCP servers fast. Zero boilerplate, full type safety, built on the official Model Context Protocol SDK.",
+      "url": "https://github.com/abdunur-dev/mcpcraft"
+    },
+    {
+      "repo": "jeanhaley32/hackrf-proxy",
+      "stars": 0,
+      "description": "Safety-first HTTP proxy + MCP server for a HackRF One SDR. Receive-only by default; deny-by-default gated transmit. GPLv3.",
+      "url": "https://github.com/jeanhaley32/hackrf-proxy"
+    },
+    {
+      "repo": "elliyeen/qaf",
+      "stars": 0,
+      "description": "Word-level Quranic data access layer \u2014 SQLite, REST API, and MCP server",
+      "url": "https://github.com/elliyeen/qaf"
+    },
+    {
+      "repo": "Gabriel-Hong/mcp-gennx",
+      "stars": 0,
+      "description": "MCP server that dynamically generates LLM tools from REST API schemas for structural engineering software",
+      "url": "https://github.com/Gabriel-Hong/mcp-gennx"
+    },
+    {
+      "repo": "nrjdalal/slack-mcp-server",
+      "stars": 0,
+      "description": "A user-token (xoxp) Slack MCP server. Tools mirror the Slack Web API.",
+      "url": "https://github.com/nrjdalal/slack-mcp-server"
+    },
+    {
+      "repo": "justingreenwald8/guesty-mcp-server",
+      "stars": 0,
+      "description": "MCP Server for Guesty PMS integration",
+      "url": "https://github.com/justingreenwald8/guesty-mcp-server"
+    },
+    {
+      "repo": "aleayrees-com/commerce-mcp-server",
+      "stars": 0,
+      "description": "Sanitized MCP-style server foundation for e-commerce catalog, orders and commerce API operations.",
+      "url": "https://github.com/aleayrees-com/commerce-mcp-server"
+    },
+    {
+      "repo": "lmaag182/kicad_mcp_server_ipc",
+      "stars": 0,
+      "description": "MCP server that controls a running KiCad 9+ instance via the official IPC API and kicad-python (kipy).  Board edits appear immediately in the KiCad UI \u2014 no reload required. The server wraps the full Board + Project IPC surface available in kicad-python 0.7.1 (KiCad 10).",
+      "url": "https://github.com/lmaag182/kicad_mcp_server_ipc"
+    },
+    {
+      "repo": "EternityG2/weather-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/EternityG2/weather-mcp-server"
     }
   ],
   "AI/LLM": [
@@ -7665,6 +7905,12 @@
       "url": "https://github.com/ccplugins/awesome-claude-code-plugins"
     },
     {
+      "repo": "awizemann/scarf",
+      "stars": 621,
+      "description": "Native macOS and iOS App for the Hermes AI agent \u2014 multi-window, multi-server (local + remote over SSH). Chat, dashboard, sessions, memory, cron, MCP, and more.",
+      "url": "https://github.com/awizemann/scarf"
+    },
+    {
       "repo": "mondaycom/vibe",
       "stars": 619,
       "description": "\ud83c\udfa8 Vibe Design System - Official monday.com UI resources for application development in React.js",
@@ -8023,6 +8269,12 @@
       "stars": 466,
       "description": "The only general AI agent that does NOT requires extra API key, giving you full control on your local and remote MacOs from Claude Desktop App",
       "url": "https://github.com/baryhuang/mcp-remote-macos-use"
+    },
+    {
+      "repo": "TeleAI-UAGI/telemem",
+      "stars": 466,
+      "description": "TeleMem is a high-performance drop-in replacement for Mem0, featuring semantic deduplication, long-term dialogue memory, and multimodal video reasoning.",
+      "url": "https://github.com/TeleAI-UAGI/telemem"
     },
     {
       "repo": "cordum-io/cordum",
@@ -10419,6 +10671,12 @@
       "url": "https://github.com/atomicstrata/atomicmemory"
     },
     {
+      "repo": "mai-yyy/multi-llm-mcp",
+      "stars": 131,
+      "description": "\u4e00\u4e2a\u8ba9 Claude Code \u8c03\u7528 Codex \u5e72\u6d3b\uff0c\u5e76\u53ef\u4ee5\u540c\u65f6\u8c03\u7528\u591a\u4e2a\u6a21\u578b\uff08GPT\u3001Kimi\u3001DeepSeek \u7b49\uff09\u7684 MCP \u5de5\u5177\u3002",
+      "url": "https://github.com/mai-yyy/multi-llm-mcp"
+    },
+    {
       "repo": "VictoriaMetrics/mcp-victoriametrics",
       "stars": 130,
       "description": "The implementation of Model Context Protocol (MCP) server for VictoriaMetrics",
@@ -10581,6 +10839,12 @@
       "url": "https://github.com/yoloshii/ClawMem"
     },
     {
+      "repo": "clarilayer/clarilayer",
+      "stars": 124,
+      "description": "Stop re-explaining your data to your AI every session. The individual-analyst context layer, delivered over MCP (Claude Code / Cursor / Codex).",
+      "url": "https://github.com/clarilayer/clarilayer"
+    },
+    {
       "repo": "answerlink/MCP-Workspace-Server",
       "stars": 123,
       "description": "\ud83d\ude80 Beyond Filesystem - Complete AI Development Environment - One MCP Server provides full Agent capability stack: web development, code execution, data processing, image generation. No need for multiple tools, configure once. Perfect support for Dify, FastGPT, Cherry Studio.       \u6587\u4ef6\u64cd\u4f5c\u3001Python/Node.js \u4ee3\u7801\u6267\u884c\u3001Web \u5e94\u7528\u4e00\u952e\u90e8\u7f72\uff08\u652f\u6301\u6cdb\u57df\u540d\uff09\u3001Excel \u5904\u7406\u3001\u56fe\u50cf\u751f\u6210\u3002\u5f00\u7bb1\u5373\u7528",
@@ -10597,6 +10861,12 @@
       "stars": 123,
       "description": "A comprehensive security scanner for Model Context Protocol (MCP) servers that detects vulnerabilities and security issues in your MCP server implementations.",
       "url": "https://github.com/kapilduraphe/mcp-watch"
+    },
+    {
+      "repo": "introfini/ZotSeek",
+      "stars": 123,
+      "description": "AI semantic search for Zotero, with a built-in MCP server for AI agents (Claude Code, Codex). Find papers by meaning. 100% local and private.",
+      "url": "https://github.com/introfini/ZotSeek"
     },
     {
       "repo": "dcostenco/prism-mcp",
@@ -11397,6 +11667,12 @@
       "url": "https://github.com/ragieai/ragie-mcp-server"
     },
     {
+      "repo": "tomfunk/fungible",
+      "stars": 87,
+      "description": "Terminal UI for personal finance \u2014 Plaid sync, CSV import, AI assistant, and MCP server",
+      "url": "https://github.com/tomfunk/fungible"
+    },
+    {
       "repo": "PleasePrompto/google-ai-mode-mcp",
       "stars": 86,
       "description": "MCP server for free Google AI Mode search with citations. Query optimization, CAPTCHA handling, multi-agent support. Works with Claude Code, Cursor, Cline, Windsurf.",
@@ -11715,6 +11991,12 @@
       "url": "https://github.com/Eshaan-Nair/ArcRift"
     },
     {
+      "repo": "thebriangao/totem",
+      "stars": 70,
+      "description": "Model Context Protocol server giving Claude (or any MCP client) full read + write access to your Whoop fitness data via the private reverse-engineered iOS API. 47 tools: recovery, sleep, strain, HRV trends, Strength Trainer, journal, Whoop Coach, and smart alarm. TypeScript + zod, auto-refresh Cognito auth.",
+      "url": "https://github.com/thebriangao/totem"
+    },
+    {
       "repo": "xiaotonng/lc2mcp",
       "stars": 69,
       "description": "Convert LangChain tools to FastMCP tools",
@@ -12021,6 +12303,12 @@
       "url": "https://github.com/jsdelivr/globalping-mcp-server"
     },
     {
+      "repo": "jztan/pdf-mcp",
+      "stars": 57,
+      "description": "MCP server that lets Claude Code and other AI agents read large PDFs without hitting context limits. Chunked reading, hybrid search, OCR, table and image extraction, SQLite cache.",
+      "url": "https://github.com/jztan/pdf-mcp"
+    },
+    {
       "repo": "aovestdipaperino/tokensave",
       "stars": 56,
       "description": "The most comprehensive code intelligence MCP server for AI coding agents. 37 tools, 31 languages, 9 agent integrations. Pre-indexed semantic knowledge graphs for instant code understanding \u2014 fewer tokens, fewer tool calls, 100% local.",
@@ -12117,6 +12405,12 @@
       "url": "https://github.com/Subaru486desuwa/micu-image-mcp"
     },
     {
+      "repo": "redhat-data-and-ai/template-mcp-server",
+      "stars": 54,
+      "description": "Production-ready Python template for building MCP servers with FastMCP, FastAPI, OAuth, and OpenShift deployment.",
+      "url": "https://github.com/redhat-data-and-ai/template-mcp-server"
+    },
+    {
       "repo": "xieyuschen/gopls-mcp",
       "stars": 53,
       "description": "MCP server for golang projects development: Expand AI Code Agent ability boundary to have a semantic understanding and determinisic information for golang projects.",
@@ -12199,6 +12493,12 @@
       "stars": 50,
       "description": "Claude Code & Codex plugin for Simulator.Company \u2014 a Go MCP server exposing the platform REST API plus skills for actors, graphs, forms, and financial accounts.",
       "url": "https://github.com/corezoid/simulator-ai-plugin"
+    },
+    {
+      "repo": "norman-finance/norman-mcp-server",
+      "stars": 50,
+      "description": "AI-powered bookkeeping and tax filing automation via MCP for entrepreneurs at the heart of the European economy",
+      "url": "https://github.com/norman-finance/norman-mcp-server"
     },
     {
       "repo": "willibrandon/pixel-mcp",
@@ -12429,6 +12729,12 @@
       "url": "https://github.com/DareDev256/fcpxml-mcp-server"
     },
     {
+      "repo": "drewburchfield/help-scout-mcp-server",
+      "stars": 42,
+      "description": "MCP server for Help Scout - search conversations, threads, and inboxes with AI agents",
+      "url": "https://github.com/drewburchfield/help-scout-mcp-server"
+    },
+    {
       "repo": "zeromicro/mcp-zero",
       "stars": 41,
       "description": "Model Context Protocol (MCP) server for go-zero framework - Generate APIs, RPC services, and models with AI assistance.",
@@ -12571,6 +12877,12 @@
       "stars": 38,
       "description": "Wraps Blockscout APIs and exposes blockchain data by Model Context Protocol",
       "url": "https://github.com/blockscout/mcp-server"
+    },
+    {
+      "repo": "ninetails-io/gnucash-mcp",
+      "stars": 38,
+      "description": "MCP server enabling AI assistants to read and write GnuCash accounting data",
+      "url": "https://github.com/ninetails-io/gnucash-mcp"
     },
     {
       "repo": "varandrew/moor",
@@ -12733,6 +13045,12 @@
       "stars": 33,
       "description": "Tally Prime MCP (Model Context Protocol) Server implementation to feed Tally ERP data to popular LLM like Claude, ChatGPT supporting MCP",
       "url": "https://github.com/dhananjay1405/tally-mcp-server"
+    },
+    {
+      "repo": "mhalder/qdrant-mcp-server",
+      "stars": 33,
+      "description": "MCP server for semantic search using local Qdrant vector database and OpenAI embeddings",
+      "url": "https://github.com/mhalder/qdrant-mcp-server"
     },
     {
       "repo": "bug-ops/mcpls",
@@ -13083,6 +13401,12 @@
       "url": "https://github.com/Riley-Coyote/mnemos"
     },
     {
+      "repo": "fkiene/llmtrim",
+      "stars": 27,
+      "description": "Local proxy that compresses your LLM API requests so you pay less, with no change to the answers. Trims wasted tokens from prompts, history, tool output, and code before they're sent: -31% input / -74% output, measured live. Any provider, no extra model calls. Also an MCP server and embeddable library (Rust, Python, Ruby, Kotlin, Swift).",
+      "url": "https://github.com/fkiene/llmtrim"
+    },
+    {
       "repo": "Qiskit/mcp-servers",
       "stars": 26,
       "description": "A collection of MCP servers to allow LLMs to use the qiskit,qiskit-ibm-runtime library,  qiskit-ibm-transpiler, qiskit-code-assistant service library and others",
@@ -13225,6 +13549,12 @@
       "stars": 25,
       "description": "TVControl by Ferrox Labs \u2014 TradingView MCP System. AI remote control for TradingView Desktop. 88 MCP tools driving symbols, indicators, Pine, snapshots, sweeps, replay, and live chart vision. All local, zero cloud calls.",
       "url": "https://github.com/FerroxLabs/tvcontrol"
+    },
+    {
+      "repo": "ageborn-dev/architect-mcp-server",
+      "stars": 25,
+      "description": "A powerful, self-extending MCP server for dynamic AI tool orchestration. Features sandboxed JS execution, capability-based security, automated rate limiting, marketplace integration, and a built-in monitoring dashboard. Built for the Model Context Protocol (MCP).",
+      "url": "https://github.com/ageborn-dev/architect-mcp-server"
     },
     {
       "repo": "streamnative/streamnative-mcp-server",
@@ -13455,6 +13785,12 @@
       "url": "https://github.com/r266-tech/wechat-local-mcp"
     },
     {
+      "repo": "russellbrenner/jurisd",
+      "stars": 22,
+      "description": "MCP server for Australian and New Zealand legal research. Searches AustLII for case law and legislation, retrieves full-text judgements with paragraph numbers preserved, and supports OCR for scanned PDFs.",
+      "url": "https://github.com/russellbrenner/jurisd"
+    },
+    {
       "repo": "gossipcat-ai/gossipcat-ai",
       "stars": 21,
       "description": "Multi-agent code review mesh \u2014 orchestrates AI agents from multiple providers to review code in parallel, cross-review each other's findings, and build accuracy profiles over time. Agents that catch real bugs get picked more often. Agents that hallucinate get deprioritized. MCP server for Claude Code, Cursor, and other IDEs.",
@@ -13525,6 +13861,12 @@
       "stars": 21,
       "description": "Describe it or draw it \u2014 Kiln makes it real. Open-source MCP server + CLI that lets AI agents (Claude, GPT, any MCP client) design, generate, slice & 3D print \u2014 Bambu Lab, Prusa, Creality, Klipper/Moonraker, OctoPrint, Elegoo & any Marlin printer.",
       "url": "https://github.com/codeofaxel/Kiln"
+    },
+    {
+      "repo": "JUNKDOGE-JOE/after-effects-mcp",
+      "stars": 21,
+      "description": "Agent-driven Adobe After Effects automation. MCP server + CEP plugin enabling Codex/Cursor/Claude Code to drive AE through 30 ae.* tools.",
+      "url": "https://github.com/JUNKDOGE-JOE/after-effects-mcp"
     },
     {
       "repo": "PaulFidika/gmail-mcp-server",
@@ -13693,6 +14035,12 @@
       "stars": 19,
       "description": "Specialized agents, MCP servers, skills, and a visual dashboard for Claude Code. MIT.",
       "url": "https://github.com/claude-dev-suite/claude-dev-suite"
+    },
+    {
+      "repo": "tangcent/maven-indexer-mcp",
+      "stars": 19,
+      "description": "MCP server that indexes local Maven and Gradle caches so AI agents can search classes, implementations, method signatures, and   source code from internal/private Java dependencies.",
+      "url": "https://github.com/tangcent/maven-indexer-mcp"
     },
     {
       "repo": "jolks/mcp-cron",
@@ -14005,6 +14353,18 @@
       "stars": 16,
       "description": "MCP server for multi-session Claude Code coordination via Temporal",
       "url": "https://github.com/vinceblank/agent-tempo"
+    },
+    {
+      "repo": "vfarcic/dot-ai-stack",
+      "stars": 16,
+      "description": "Umbrella Helm chart for the complete dot-ai stack (MCP server, controller, UI)",
+      "url": "https://github.com/vfarcic/dot-ai-stack"
+    },
+    {
+      "repo": "oogunbiyi21/stats-compass-mcp",
+      "stars": 16,
+      "description": "Stats Compass MCP server and utils",
+      "url": "https://github.com/oogunbiyi21/stats-compass-mcp"
     },
     {
       "repo": "agigante80/actual-mcp-server",
@@ -14427,6 +14787,12 @@
       "url": "https://github.com/d-padmanabhan/agent-engineering-handbook"
     },
     {
+      "repo": "arikusi/deepseek-mcp-server",
+      "stars": 13,
+      "description": "MCP Server for DeepSeek API - enables MCP clients to use DeepSeek Chat and Reasoner models",
+      "url": "https://github.com/arikusi/deepseek-mcp-server"
+    },
+    {
       "repo": "prasanthmj/primitive-go-mcp-server",
       "stars": 12,
       "description": "A Go implementation of an MCP (Model Context Protocol) server tools ",
@@ -14607,6 +14973,12 @@
       "url": "https://github.com/Abhigyan-Shekhar/Waggle-mcp"
     },
     {
+      "repo": "Preprompt-ai/preprompt",
+      "stars": 12,
+      "description": "MCP server that intercepts and optimizes prompts in Claude Code + Cursor",
+      "url": "https://github.com/Preprompt-ai/preprompt"
+    },
+    {
       "repo": "ykarapazar/word-mcp-live",
       "stars": 11,
       "description": "The only MCP server that edits Word documents while they're open \u2014 114 tools, live editing, tracked changes, per-action undo",
@@ -14779,6 +15151,18 @@
       "stars": 11,
       "description": "rUvOS \u2014 the agentic operating system. A single static Rust binary that runs as an MCP server, giving Claude Code persistent memory, resumable signed sessions, multi-agent orchestration, a knowledge graph, safety guardrails, and a signed audit trail. Zero Node.js, zero SQLite, zero daemon.",
       "url": "https://github.com/dgdev25/ruvos"
+    },
+    {
+      "repo": "keurcien/auxilia",
+      "stars": 11,
+      "description": "A lightweight web MCP client designed to host your MCP-powered AI assistants. auxilia is designed to only support remote MCP servers.",
+      "url": "https://github.com/keurcien/auxilia"
+    },
+    {
+      "repo": "antonio-mello-ai/mcp-proxmox",
+      "stars": 11,
+      "description": "MCP server for managing Proxmox VE clusters through AI assistants",
+      "url": "https://github.com/antonio-mello-ai/mcp-proxmox"
     },
     {
       "repo": "FGRibreau/mcp-matomo",
@@ -15435,6 +15819,24 @@
       "url": "https://github.com/ousamabenyounes/rtk-mcp"
     },
     {
+      "repo": "dariomba/veldev-servicenow-mcp",
+      "stars": 8,
+      "description": "ServiceNow MCP server by Veldev. Read and write catalog items, UI policies, client scripts, business rules, and script includes from Claude, Cursor, or any MCP client.",
+      "url": "https://github.com/dariomba/veldev-servicenow-mcp"
+    },
+    {
+      "repo": "n2ns/n2n-nexus",
+      "stars": 8,
+      "description": "MCP Server for multi-AI collaboration. Zero-config, local-first. Real-time meetings, project registry & hot failover. Works with Claude, Cursor, VS Code, Zed, Antigravity IDE.",
+      "url": "https://github.com/n2ns/n2n-nexus"
+    },
+    {
+      "repo": "layer1labs/specsmith",
+      "stars": 8,
+      "description": "AEE governance CLI for AI-assisted dev \u2014 WI lifecycle (specsmith wi), preflight gates, multi-agent dispatch, requirements<->test traceability, ESDB, MCP server, compliance, 64 project types (incl. brief-lang v0.14.0), 1558 tests, and 131 skills.",
+      "url": "https://github.com/layer1labs/specsmith"
+    },
+    {
       "repo": "fedosov/agent-sync",
       "stars": 7,
       "description": "Desktop + CLI sync for skills, subagents, and MCP servers across Claude, Cursor, and Codex.",
@@ -16077,6 +16479,12 @@
       "url": "https://github.com/oeo/monkdev"
     },
     {
+      "repo": "tanishqbhattad/rhino-mcp",
+      "stars": 6,
+      "description": "Rhino MCP server- control Rhino 8 with Claude, ChatGPT, Codex or any MCP client. 115 AI tools for 3D modeling, architecture, viewport capture, materials, PDF tracing. Protocol 5: multiplexed, idempotent, cancellable. No .NET SDK needed.",
+      "url": "https://github.com/tanishqbhattad/rhino-mcp"
+    },
+    {
       "repo": "gunbun33/mcp-servers",
       "stars": 5,
       "description": "Production-ready Model Context Protocol (MCP) servers in Python, Go, and Rust for VS Code integration. Enables AI systems to interact with tools via standardized interfaces.",
@@ -16555,6 +16963,30 @@
       "stars": 5,
       "description": "MCP server exposing Open Metaverse Fabric editing tools for AI agents.",
       "url": "https://github.com/PatchedReality/ManifolderMCP"
+    },
+    {
+      "repo": "ruvnet/agent-harness-generator",
+      "stars": 5,
+      "description": "\ud83d\udee0\ufe0f The meta-harness for AI agents \u2014 scaffold your own focused, branded agent harness with its own npx CLI, MCP server, memory, learning loop, and witness-signed releases. Works with Claude Code, Codex, pi.dev, Hermes, OpenClaw, and RVM (hardware-isolated).",
+      "url": "https://github.com/ruvnet/agent-harness-generator"
+    },
+    {
+      "repo": "n2ns/n2n-memory",
+      "stars": 5,
+      "description": "MCP Server for AI memory isolation. Project-local knowledge graph for Claude, Cursor, Windsurf, Antigravity, Augment, Roo Code and more. Privacy-first, Git-friendly.",
+      "url": "https://github.com/n2ns/n2n-memory"
+    },
+    {
+      "repo": "elliotttate/uevr-mcp",
+      "stars": 5,
+      "description": "MCP server giving AI agents live access to any Unreal Engine game via UEVR \u2014 103 tools for object inspection, Lua scripting, VR control, screenshots, physics, materials, animation, input injection, function hooks, and more",
+      "url": "https://github.com/elliotttate/uevr-mcp"
+    },
+    {
+      "repo": "charliee1w/consolidation-memory",
+      "stars": 5,
+      "description": "Local-first persistent memory for AI agents \u2014 store, recall, and consolidate knowledge across sessions using FAISS, SQLite, and any LLM. MCP server for coding agents and any MCP client.",
+      "url": "https://github.com/charliee1w/consolidation-memory"
     },
     {
       "repo": "elliotllliu/agent-shield",
@@ -17197,6 +17629,36 @@
       "stars": 4,
       "description": "MCP server for iMessage - AI-optimized tools for reading and sending messages",
       "url": "https://github.com/cyberpapiii/imessage-max"
+    },
+    {
+      "repo": "UnitVectorY-Labs/mcp-graphql-forge",
+      "stars": 4,
+      "description": "A lightweight, configuration-driven MCP server that exposes curated GraphQL queries as modular tools, enabling intentional API interactions from your agents.",
+      "url": "https://github.com/UnitVectorY-Labs/mcp-graphql-forge"
+    },
+    {
+      "repo": "iksnerd/council-hub",
+      "stars": 4,
+      "description": "Open-source MCP server for coordinating multiple LLM agents in shared rooms with persistent transcripts and semantic search",
+      "url": "https://github.com/iksnerd/council-hub"
+    },
+    {
+      "repo": "IvanKuria/bloxscout",
+      "stars": 4,
+      "description": "Reconnaissance for Roblox game devs and their agents \u2014 open-source MCP server + CLI for Roblox game analytics.",
+      "url": "https://github.com/IvanKuria/bloxscout"
+    },
+    {
+      "repo": "ozgurcd/scrinium",
+      "stars": 4,
+      "description": "A Go MCP server that turns your local llm-wiki into a policy-governed memory layer for AI agents. Enforces structured sessions and write governance, aligning with Karpathy's agent-memory principles.",
+      "url": "https://github.com/ozgurcd/scrinium"
+    },
+    {
+      "repo": "jscott3201/aionforge-memory",
+      "stars": 4,
+      "description": "A Rust-native agentic memory substrate built on the selene-db graph engine: a bi-temporal knowledge graph, hybrid retrieval, and an optional MCP server.",
+      "url": "https://github.com/jscott3201/aionforge-memory"
     },
     {
       "repo": "habibhassansehani/openai-sdk-knowledge-org",
@@ -18277,6 +18739,24 @@
       "stars": 3,
       "description": "Let OpenAI Codex control NI Multisim through a local MCP server for component placement, wiring, screenshots, and saving designs.",
       "url": "https://github.com/fenxin-fx/codex-multisim-mcp"
+    },
+    {
+      "repo": "SinanTufekci/Claude-Code-Antigravity-CLI-MCP-Server",
+      "stars": 3,
+      "description": "MCP bridge that exposes Google's Antigravity CLI (agy) to Claude Code as a sub-agent. Works around the headless agy -p stdout bug by reading the response from agy's own transcript files.",
+      "url": "https://github.com/SinanTufekci/Claude-Code-Antigravity-CLI-MCP-Server"
+    },
+    {
+      "repo": "harmonicabot/harmonica-mcp",
+      "stars": 3,
+      "description": "MCP server for Harmonica deliberation sessions \u2014 create, query, and analyze sessions from any AI agent",
+      "url": "https://github.com/harmonicabot/harmonica-mcp"
+    },
+    {
+      "repo": "deer/music.build",
+      "stars": 3,
+      "description": "MCP server for AI music composition. A typed, immutable music theory library \u2014 pitches, rhythms, harmony, form, transforms. Agents compose incrementally and export to MIDI and LilyPond.",
+      "url": "https://github.com/deer/music.build"
     },
     {
       "repo": "craneoankh/mcp-server-manager",
@@ -20083,6 +20563,72 @@
       "stars": 2,
       "description": "Multi-agent coordination for AI coding fleets \u2014 MCP server, REST API, and CLI over a shared SQLite backbone with atomic task claiming and real-time SSE events.",
       "url": "https://github.com/Wood-Fired-Games/wood-fired-tasks"
+    },
+    {
+      "repo": "WenZhimo/mcp-font-split",
+      "stars": 2,
+      "description": "MCP server wrapping cn-font-split for agent-callable font subsetting (AI-generated)",
+      "url": "https://github.com/WenZhimo/mcp-font-split"
+    },
+    {
+      "repo": "bigl34/inflow-mcp-server",
+      "stars": 2,
+      "description": "MCP server for inFlow Inventory API integration with Claude Code",
+      "url": "https://github.com/bigl34/inflow-mcp-server"
+    },
+    {
+      "repo": "GregNBlack/kanso-protocol",
+      "stars": 2,
+      "description": "Open source design system for Angular \u2014 and any framework via Web Components. W3C DTCG design tokens as a single source of truth for Figma and code; ships an MCP server for AI assistants. \u7c21\u7d20 \u2014 simplicity through elimination of excess.",
+      "url": "https://github.com/GregNBlack/kanso-protocol"
+    },
+    {
+      "repo": "cyanheads/gutenberg-mcp-server",
+      "stars": 2,
+      "description": "Search, browse, and read 75,000+ public-domain books from Project Gutenberg with full plain-text retrieval and offset/limit chunking via MCP. STDIO or Streamable HTTP.",
+      "url": "https://github.com/cyanheads/gutenberg-mcp-server"
+    },
+    {
+      "repo": "ReallyArtificial/engram",
+      "stars": 2,
+      "description": "Agent memory system with retain-recall-reflect loop. Hybrid search, entity resolution, observation synthesis. TypeScript library + MCP server.",
+      "url": "https://github.com/ReallyArtificial/engram"
+    },
+    {
+      "repo": "CatbirdBulwark/claude-mcp-gateway-server",
+      "stars": 2,
+      "description": "High-performance Model Context Protocol (MCP) server gateway for Claude Pro. Seamlessly bridges Claude Web UI with local environments, file systems, and secure execution layers.",
+      "url": "https://github.com/CatbirdBulwark/claude-mcp-gateway-server"
+    },
+    {
+      "repo": "GiraffeTechnology/giraffe-mcp-server",
+      "stars": 2,
+      "description": "Giraffe Agent \u2014 Universal Order Execution Model - MCP Server",
+      "url": "https://github.com/GiraffeTechnology/giraffe-mcp-server"
+    },
+    {
+      "repo": "Brattlof/skillet",
+      "stars": 2,
+      "description": "Package manager for MCP servers, Agent Skills (SKILL.md), and Claude Code commands and hooks. Installs into Claude Code, Cursor, Codex, Gemini CLI, Copilot, and Cline.",
+      "url": "https://github.com/Brattlof/skillet"
+    },
+    {
+      "repo": "RareSense/nova3d-mcp",
+      "stars": 2,
+      "description": "MCP server for Nova3D",
+      "url": "https://github.com/RareSense/nova3d-mcp"
+    },
+    {
+      "repo": "sandraschi/fastsearch-mcp",
+      "stars": 2,
+      "description": "\u26a1 Lightning-fast file search MCP server using NTFS Master File Table - WizFile performance for Claude Desktop",
+      "url": "https://github.com/sandraschi/fastsearch-mcp"
+    },
+    {
+      "repo": "avm-sistemas/my-local-storage-mcp",
+      "stars": 2,
+      "description": "A pragmatic, low-overhead Model Context Protocol (MCP) server that provides Large Language Models (LLMs) with a persistent, local long-term memory.",
+      "url": "https://github.com/avm-sistemas/my-local-storage-mcp"
     },
     {
       "repo": "modelcontextprotocol/agents-wg",
@@ -24217,6 +24763,174 @@
       "stars": 1,
       "description": "Some useful MCP Servers for Yandex AI Studio",
       "url": "https://github.com/yandex-ai-studio/mcp-servers"
+    },
+    {
+      "repo": "annatchijova/vigia-intent-analysis",
+      "stars": 1,
+      "description": "Vig\u00eda: Cognitive Forensics &amp; Intentionality Analysis for SIFT. An MCP server shifting the paradigm from Indicators of Compromise (IoC) to Indicators of Intent (IoI) using Peirce\u2019s semiotics and Gricean linguistics.",
+      "url": "https://github.com/annatchijova/vigia-intent-analysis"
+    },
+    {
+      "repo": "A79-ai/gtm-agentic-chat",
+      "stars": 1,
+      "description": "Self-deployable agentic chat over your CRM, meetings and knowledge base, powered by the AmpUp MCP server + Vercel AI SDK.",
+      "url": "https://github.com/A79-ai/gtm-agentic-chat"
+    },
+    {
+      "repo": "MidbrainAI/midbrain-memory-mcp",
+      "stars": 1,
+      "description": "MCP server + OpenCode plugin for persistent AI memory",
+      "url": "https://github.com/MidbrainAI/midbrain-memory-mcp"
+    },
+    {
+      "repo": "bekservice/Famulor-MCP",
+      "stars": 1,
+      "description": "MCP Server for Famulor Voice Agent Platform - AI-powered phone calling and voice assistant management through ChatGPT, Claude, and other MCP-compatible clients",
+      "url": "https://github.com/bekservice/Famulor-MCP"
+    },
+    {
+      "repo": "kddove85/fred-mcp-server",
+      "stars": 1,
+      "description": "AI Agent to retrieve and interpret data from the Federal Reserve Economic Data (FRED) server",
+      "url": "https://github.com/kddove85/fred-mcp-server"
+    },
+    {
+      "repo": "Surajsharma07/Vynix",
+      "stars": 1,
+      "description": "Vynix \u2014 visual feedback & annotation platform (PHP/Slim backend, React/Vite dashboard, MCP server, embeddable widget)",
+      "url": "https://github.com/Surajsharma07/Vynix"
+    },
+    {
+      "repo": "Frumane/floorp-mcp",
+      "stars": 1,
+      "description": "MCP server to control Floorp & Firefox-based browsers (tabs, read, screenshot, real OS keyboard) \u2014 like Claude in Chrome.",
+      "url": "https://github.com/Frumane/floorp-mcp"
+    },
+    {
+      "repo": "Fasen24-AI/autofuse",
+      "stars": 1,
+      "description": "macOS menu bar SSHFS mount manager with an MCP server \u2014 30+ tools so AI agents can mount, heal, wake and operate your remote machines",
+      "url": "https://github.com/Fasen24-AI/autofuse"
+    },
+    {
+      "repo": "IvanMurzak/Unreal-MCP",
+      "stars": 1,
+      "description": "AI Game Developer for Unreal Engine \u2014 MCP plugin (C++ editor plugin + .NET bridge), unreal-cli, connects Unreal Editor to AI agents via ai-game.dev or a local MCP server",
+      "url": "https://github.com/IvanMurzak/Unreal-MCP"
+    },
+    {
+      "repo": "686f6c61/mcp-zero-trust-layer",
+      "stars": 1,
+      "description": "Open-source, self-hosted Zero Trust policy enforcement layer for MCP servers.",
+      "url": "https://github.com/686f6c61/mcp-zero-trust-layer"
+    },
+    {
+      "repo": "weirdo-adam/zed-mcp-server-redmine",
+      "stars": 1,
+      "description": "Zed extension and standalone MCP server for Redmine, exposing issues, projects, wiki, time entries, attachments, versions, relations, watchers, and checklists to AI agents.",
+      "url": "https://github.com/weirdo-adam/zed-mcp-server-redmine"
+    },
+    {
+      "repo": "crony-io/2d-assets-mcp",
+      "stars": 1,
+      "description": "An MCP (Model Context Protocol) server that generates advanced mock 2D PNG assets for games prototypes \u2014 directly from any MCP-compatible AI client.",
+      "url": "https://github.com/crony-io/2d-assets-mcp"
+    },
+    {
+      "repo": "jernejk/sugarlearning-mcp",
+      "stars": 1,
+      "description": "Unofficial SugarLearning MCP server, CLI tools, and change tracker for AI agent integration",
+      "url": "https://github.com/jernejk/sugarlearning-mcp"
+    },
+    {
+      "repo": "IIQ-Community/mcp-incidentiq",
+      "stars": 1,
+      "description": "MCP server for IncidentIQ - The #1 K-12 service management platform. Enables AI assistants to manage IT tickets, assets, facilities, and more for educational institutions.",
+      "url": "https://github.com/IIQ-Community/mcp-incidentiq"
+    },
+    {
+      "repo": "kent-tokyo/shohei",
+      "stars": 1,
+      "description": "Rust MCP server with 168 security tools for Claude \u2014 DNS/DNSSEC, TLS, email security, OSINT, threat intelligence, supply chain & cloud. 0 API keys.",
+      "url": "https://github.com/kent-tokyo/shohei"
+    },
+    {
+      "repo": "Vorim-AI-Labs/vorim-mcp-server",
+      "stars": 1,
+      "description": "MCP server for Vorim AI \u2014 AI agent identity, permissions, and audit trails. 17 tools for Claude, Cursor, VS Code, and any MCP-compatible client.",
+      "url": "https://github.com/Vorim-AI-Labs/vorim-mcp-server"
+    },
+    {
+      "repo": "AvidGameFan/ImageMCP",
+      "stars": 1,
+      "description": "MCP server allowing an LLM to use ComfyUI to generate images",
+      "url": "https://github.com/AvidGameFan/ImageMCP"
+    },
+    {
+      "repo": "mlava/agent-ready-mcp",
+      "stars": 1,
+      "description": "MCP server for Agent Ready \u2014 scan any URL for AI agent readability against the Vercel Agent Readability Spec, llmstxt.org, and agent protocols (MCP, A2A, agents.json, agent-permissions, UCP, x402). 59 checks with per-check fix guidance.",
+      "url": "https://github.com/mlava/agent-ready-mcp"
+    },
+    {
+      "repo": "michaelkrauty/mcp-docs",
+      "stars": 1,
+      "description": "MCP server for document management \u2014 multi-format extraction, semantic search, OCR, hash-based deduplication",
+      "url": "https://github.com/michaelkrauty/mcp-docs"
+    },
+    {
+      "repo": "jbarket/loom",
+      "stars": 1,
+      "description": "System 3 MCP server \u2014 persistent identity, memory, and self-model for AI agents. Single-file sqlite-vec + fastembed; zero external services.",
+      "url": "https://github.com/jbarket/loom"
+    },
+    {
+      "repo": "Rorogogogo/brainctl",
+      "stars": 1,
+      "description": "One AI setup. Three agents. Zero reconfiguration. A cross-agent command centre for Claude Code, Codex, and Gemini CLI \u2014 CLI + MCP server + drag-and-drop web dashboard.",
+      "url": "https://github.com/Rorogogogo/brainctl"
+    },
+    {
+      "repo": "smartmemory/stratum",
+      "stars": 1,
+      "description": "State machine dispatch server for AI agent workflows. Typed YAML specs, MCP server (stratum-mcp), and Python library (stratum-py) \u2014 postconditions, retries, gates, and auditable execution traces for Claude Code and Codex.",
+      "url": "https://github.com/smartmemory/stratum"
+    },
+    {
+      "repo": "neurarch-ai/neurarch-mcp",
+      "stars": 1,
+      "description": "MCP server exposing a Neurarch model graph to Claude Code, Cursor, Windsurf, and other MCP-aware AI agents.",
+      "url": "https://github.com/neurarch-ai/neurarch-mcp"
+    },
+    {
+      "repo": "Tmalone1250/mantle-mcp",
+      "stars": 1,
+      "description": "Unofficial Mantle MCP Server written in Python",
+      "url": "https://github.com/Tmalone1250/mantle-mcp"
+    },
+    {
+      "repo": "MikeyPetrillo/Agent402",
+      "stars": 1,
+      "description": "Self-hostable MCP server + HTTP API with 1,100+ ready-to-use tools for AI agents. Run free, or charge per call over x402.",
+      "url": "https://github.com/MikeyPetrillo/Agent402"
+    },
+    {
+      "repo": "anttitane/home-server-mcp",
+      "stars": 1,
+      "description": "Model Context Protocol (MCP) Server built in C# and .NET 10 for exposing local Home Assistant sensor data to AI Agents.",
+      "url": "https://github.com/anttitane/home-server-mcp"
+    },
+    {
+      "repo": "clint419/websearch-mcp-server",
+      "stars": 1,
+      "description": "Standalone MCP server for Exa/Parallel free web search. Works with Cursor, Claude Code, Cline, Continue, opencode, and any MCP-compatible AI client.",
+      "url": "https://github.com/clint419/websearch-mcp-server"
+    },
+    {
+      "repo": "hmmroger/simply-feed-mcp",
+      "stars": 1,
+      "description": "A Model Context Protocol (MCP) server for managing and querying RSS/news feeds. This server enables AI assistants to fetch, search, and retrieve information from RSS feeds in real-time.",
+      "url": "https://github.com/hmmroger/simply-feed-mcp"
     },
     {
       "repo": "ViktorBarzin/claude-memory-mcp",
@@ -41737,6 +42451,966 @@
       "stars": 0,
       "description": "MCP server suite wrapping FFmpeg/OTIO \u2014 primitives for AI agents to drive video editing workflows",
       "url": "https://github.com/satoh-y-0323/clipwright"
+    },
+    {
+      "repo": "aihxp/mythify",
+      "stars": 0,
+      "description": "Give any model Mythos-class operational discipline: planning loops, executed verification, and persistent memory via a drop-in protocol, a zero-dependency CLI, and an MCP server.",
+      "url": "https://github.com/aihxp/mythify"
+    },
+    {
+      "repo": "Hortora/engine",
+      "stars": 0,
+      "description": "Hortora garden retrieval engine \u2014 LangChain4j + Qdrant + Ollama + MCP server",
+      "url": "https://github.com/Hortora/engine"
+    },
+    {
+      "repo": "jasondillingham/synology-mcp",
+      "stars": 0,
+      "description": "Synology DSM management MCP server: list/create shared folders (DSM Web API) + read/set NFS exports (SSH). Read/write split from a read-only status MCP.",
+      "url": "https://github.com/jasondillingham/synology-mcp"
+    },
+    {
+      "repo": "MalloyTheDev/aseprite-mcp",
+      "stars": 0,
+      "description": "An extensive Model Context Protocol (MCP) server that drives Aseprite headlessly: draw pixel art, build animations, manage layers/frames/tags/cels/palettes/slices/tilemaps, apply effects, render text, and export to PNG/GIF/sprite sheets. 96 tools.",
+      "url": "https://github.com/MalloyTheDev/aseprite-mcp"
+    },
+    {
+      "repo": "joeyen-atscale/mqo-duckdb-handle-store",
+      "stars": 0,
+      "description": "Result-set handle store for mqo-mcp-server: MemStore default + DuckDB opt-in via Cargo feature",
+      "url": "https://github.com/joeyen-atscale/mqo-duckdb-handle-store"
+    },
+    {
+      "repo": "joeyen-atscale/mqo-mcp",
+      "stars": 0,
+      "description": "AtScale MQO/MCP fleet \u2014 semantic layer query pipeline, MCP server, chart tools (40 crates)",
+      "url": "https://github.com/joeyen-atscale/mqo-mcp"
+    },
+    {
+      "repo": "moaaz01/mcp-weather-server",
+      "stars": 0,
+      "description": "A production-ready MCP weather server built with the official Anthropic FastMCP Python SDK. Demonstrates tools, resources, prompts, and both stdio/Streamable HTTP transports.",
+      "url": "https://github.com/moaaz01/mcp-weather-server"
+    },
+    {
+      "repo": "saeid-rez/bazel-mcp",
+      "stars": 0,
+      "description": "A mcp server that exposes Bazel build system capabilities to AI assistants.",
+      "url": "https://github.com/saeid-rez/bazel-mcp"
+    },
+    {
+      "repo": "musette-cc/musette-mcp",
+      "stars": 0,
+      "description": "AI soigneur for cyclists: an Ien-Vitse-validated nutrition plan + an orderable box, straight from your Strava data in Claude. MCP server.",
+      "url": "https://github.com/musette-cc/musette-mcp"
+    },
+    {
+      "repo": "kaiquetheo-star/TerraPilot",
+      "stars": 0,
+      "description": "AI-driven Autopilot Agent for environmental compliance. Bridges offline-first field data collection with a Human-in-the-Loop (HITL) validation dashboard, powered by Qwen-Agent, MCP Servers, and Alibaba Cloud.",
+      "url": "https://github.com/kaiquetheo-star/TerraPilot"
+    },
+    {
+      "repo": "obs-unified/obs-unified-docs",
+      "stars": 0,
+      "description": "Documentation for obs-unified: SDKs, Agent Action Graph, MCP server, examples, comparison, and production operations.",
+      "url": "https://github.com/obs-unified/obs-unified-docs"
+    },
+    {
+      "repo": "dbru540/d365fo-agent",
+      "stars": 0,
+      "description": "D365 F&O knowledge toolkit and MCP server: SQLite FTS5 AOT index, deterministic X++ generation, validation, linting, and a real-compiler loop for coding agents",
+      "url": "https://github.com/dbru540/d365fo-agent"
+    },
+    {
+      "repo": "sgjlee0520/scrooge",
+      "stars": 0,
+      "description": "Minimize token usage up to ~35x locally. Turn pixels into token-cheap text: PDF\u2192text/markdown (Tesseract OCR) and plot\u2192data digitization, with an MCP server for your AI agent",
+      "url": "https://github.com/sgjlee0520/scrooge"
+    },
+    {
+      "repo": "nahuaque/snulbug",
+      "stars": 0,
+      "description": "Local-dev MCP policy proxy for safely exposing and combining MCP servers",
+      "url": "https://github.com/nahuaque/snulbug"
+    },
+    {
+      "repo": "shayaShav/flatten-mcp",
+      "stars": 0,
+      "description": "Flatten Claude Code sessions: keep every prompt and event verbatim, resume at a lower token count. An MCP server.",
+      "url": "https://github.com/shayaShav/flatten-mcp"
+    },
+    {
+      "repo": "bowlofarugula/texting",
+      "stars": 0,
+      "description": "Text and read iMessages with Claude \u2014 human-in-the-loop, no auto-replies. iMessage MCP server over the openclaw/imsg engine, plus skills. macOS.",
+      "url": "https://github.com/bowlofarugula/texting"
+    },
+    {
+      "repo": "thierrypdamiba/dice-mcp-v2",
+      "stars": 0,
+      "description": "A minimal, well-typed dice-rolling MCP server for ToolBench v2 submission.",
+      "url": "https://github.com/thierrypdamiba/dice-mcp-v2"
+    },
+    {
+      "repo": "ilyafainberg/TotalControl-MCP-Server",
+      "stars": 0,
+      "description": "MCP server that gives an AI agent hardware-level control of a Windows desktop: mouse, keyboard, screen capture, and UI Automation. Built for Microsoft Scout and any MCP-compatible host.",
+      "url": "https://github.com/ilyafainberg/TotalControl-MCP-Server"
+    },
+    {
+      "repo": "OTSkit/OTSkit-MCP",
+      "stars": 0,
+      "description": "OpenTimestamps MCP server \u2014 stamp, upgrade and verify Bitcoin timestamps via AI agents",
+      "url": "https://github.com/OTSkit/OTSkit-MCP"
+    },
+    {
+      "repo": "mnemom/mcp",
+      "stars": 0,
+      "description": "Canonical home for the Mnemom MCP server \u2014 Trust Ratings for AI Agents (manifest, connect URL, auth, docs).",
+      "url": "https://github.com/mnemom/mcp"
+    },
+    {
+      "repo": "rvillemeur/PharoMCP",
+      "stars": 0,
+      "description": "MCP implementation server in Pharo",
+      "url": "https://github.com/rvillemeur/PharoMCP"
+    },
+    {
+      "repo": "promplate/refined-mcp-servers",
+      "stars": 0,
+      "description": "A collection of well-designed MCP servers optimized for LLMs.",
+      "url": "https://github.com/promplate/refined-mcp-servers"
+    },
+    {
+      "repo": "RLASAF12/agent-fuse",
+      "stars": 0,
+      "description": "Financial Circuit Breaker MCP Server \u2014 stops AI agents from burning your budget with hard spending limits",
+      "url": "https://github.com/RLASAF12/agent-fuse"
+    },
+    {
+      "repo": "SplitMyGear/mcp-server-splitmygear",
+      "stars": 0,
+      "description": "MCP Server for SplitMyGear \u2014 search, book, and browse outdoor gear rentals via AI agents",
+      "url": "https://github.com/SplitMyGear/mcp-server-splitmygear"
+    },
+    {
+      "repo": "AllianceGS-Development/centrex-mcp-server",
+      "stars": 0,
+      "description": "MCP server for Centrex Software CRM & LOS API v1",
+      "url": "https://github.com/AllianceGS-Development/centrex-mcp-server"
+    },
+    {
+      "repo": "BK22601/gemini-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/BK22601/gemini-mcp-server"
+    },
+    {
+      "repo": "rajdeepmondaldotcom/whoop-mcp-server",
+      "stars": 0,
+      "description": "Ask your AI anything about your WHOOP data",
+      "url": "https://github.com/rajdeepmondaldotcom/whoop-mcp-server"
+    },
+    {
+      "repo": "jyarbro/EbayMcpServer",
+      "stars": 0,
+      "description": "eBay MCP server for Claude",
+      "url": "https://github.com/jyarbro/EbayMcpServer"
+    },
+    {
+      "repo": "BryceEWatson/stylize-mcp-server",
+      "stars": 0,
+      "description": "AI image stylization MCP server with 5 artistic styles, freemium credit system, and live demo. Built with FastAPI, DALL-E 3, and deployed on GCP Cloud Run.",
+      "url": "https://github.com/BryceEWatson/stylize-mcp-server"
+    },
+    {
+      "repo": "udityamerit/MCP-Server",
+      "stars": 0,
+      "description": "A comprehensive, production-grade guide to Anthropic's Model Context Protocol (MCP). Master server primitives, transport layers, and orchestrate custom AI memory architectures.",
+      "url": "https://github.com/udityamerit/MCP-Server"
+    },
+    {
+      "repo": "blackducksoftware/coverity-mcp-server",
+      "stars": 0,
+      "description": "Coverity MCP Server for doing Coverity scans using a coding agent",
+      "url": "https://github.com/blackducksoftware/coverity-mcp-server"
+    },
+    {
+      "repo": "Yes-Amrit/expense-tracker-mcp-server",
+      "stars": 0,
+      "description": "A FastMCP-powered Expense Tracker server that enables AI assistants to manage personal finance data through structured tools. It supports expense tracking, categorization, budget monitoring, transaction retrieval, and financial insights via a standardized MCP interface, making expense management accessible through natural language interactions.",
+      "url": "https://github.com/Yes-Amrit/expense-tracker-mcp-server"
+    },
+    {
+      "repo": "tdnupe3/mcp-server-coinrailz",
+      "stars": 0,
+      "description": "MCP server exposing 37+ Coin Railz x402 micropayment crypto services to Claude",
+      "url": "https://github.com/tdnupe3/mcp-server-coinrailz"
+    },
+    {
+      "repo": "fluxgit-hq/fluxgit-mcp-server",
+      "stars": 0,
+      "description": "Safety-first MCP server for Git. 22 read-only tools for AI agents; writes exist only as proposals a human approves in the FluxGit desktop app.",
+      "url": "https://github.com/fluxgit-hq/fluxgit-mcp-server"
+    },
+    {
+      "repo": "avnd870/memory-vault-mcp-server",
+      "stars": 0,
+      "description": "MCP server that captures scattered context from meetings, chats, and discussions\u2014unifying it with Jira stories for developers and AI agents.",
+      "url": "https://github.com/avnd870/memory-vault-mcp-server"
+    },
+    {
+      "repo": "HeribertG/Klacks.MCP.Server",
+      "stars": 0,
+      "description": "Model Context Protocol (MCP) server for Klacks Planning System",
+      "url": "https://github.com/HeribertG/Klacks.MCP.Server"
+    },
+    {
+      "repo": "NisargKadam/MCP-Server-Assignment",
+      "stars": 0,
+      "description": "AI AMC : MCP Server assignment",
+      "url": "https://github.com/NisargKadam/MCP-Server-Assignment"
+    },
+    {
+      "repo": "vkmech999/fastapi-mcp-server",
+      "stars": 0,
+      "description": "Turn any FastAPI app into a Claude-compatible MCP server instantly by reading its OpenAPI spec",
+      "url": "https://github.com/vkmech999/fastapi-mcp-server"
+    },
+    {
+      "repo": "code-runner-xx/kb-mcp-server",
+      "stars": 0,
+      "description": "MCP Server wrapping a Supabase pgvector knowledge base (BAAI/bge-m3 embedding) for Claude Desktop / Cursor / Inspector.   Tools + Resources + Prompts. Chinese-first.",
+      "url": "https://github.com/code-runner-xx/kb-mcp-server"
+    },
+    {
+      "repo": "izman48/llm-rl-playground",
+      "stars": 0,
+      "description": "Tiny RL environments + graders + reward-hacking QA for LLMs: a verifiable code track (RLVR) and an open-ended truthfulness track, plus an MCP server. Pure-stdlib core.",
+      "url": "https://github.com/izman48/llm-rl-playground"
+    },
+    {
+      "repo": "MakerViking/mimir",
+      "stars": 0,
+      "description": "Unified local-first memory for AI coding agents \u2014 one SQLite store for memories, docs and code, hybrid BM25+vector search, MCP server",
+      "url": "https://github.com/MakerViking/mimir"
+    },
+    {
+      "repo": "batteryshark/ghidra-lab",
+      "stars": 0,
+      "description": "Home-lab Ghidra: drive one Ghidra Server from your GUI and AI agents over MCP, working the same repositories.",
+      "url": "https://github.com/batteryshark/ghidra-lab"
+    },
+    {
+      "repo": "sandraschi/ittybittyvideos",
+      "stars": 0,
+      "description": "tiny tool, big videos. topic in, video out. no film degree required. webapp, windows app and mcp server for agent use",
+      "url": "https://github.com/sandraschi/ittybittyvideos"
+    },
+    {
+      "repo": "jordanvalnet/code-dev-intel.ts",
+      "stars": 0,
+      "description": "Self-hosted AI code intelligence for TypeScript \u2014 symbol resolution, structural search, duplicate detection, and dependency graphs via MCP server.",
+      "url": "https://github.com/jordanvalnet/code-dev-intel.ts"
+    },
+    {
+      "repo": "jbo-tech/llm-sparring",
+      "stars": 0,
+      "description": "An MCP server that orchestrates sparring sessions between LLMs.",
+      "url": "https://github.com/jbo-tech/llm-sparring"
+    },
+    {
+      "repo": "fabiendupont/mcp-ansible-galaxy",
+      "stars": 0,
+      "description": "MCP server exposing Ansible Galaxy collection input/output contracts",
+      "url": "https://github.com/fabiendupont/mcp-ansible-galaxy"
+    },
+    {
+      "repo": "playforge-coding/scratch4js",
+      "stars": 0,
+      "description": "Edit Scratch .sb3 projects from JavaScript, plus an MCP server!",
+      "url": "https://github.com/playforge-coding/scratch4js"
+    },
+    {
+      "repo": "ominousprophecies/bruno-protocol",
+      "stars": 0,
+      "description": "An open-source, local-first Model Context Protocol (MCP) server built to expose native Bruno API collections (.bru and YAML) as secure, executable tools for AI agents.",
+      "url": "https://github.com/ominousprophecies/bruno-protocol"
+    },
+    {
+      "repo": "blame-today/blame-mcp",
+      "stars": 0,
+      "description": "Remote MCP server for blame.today \u2014 let an agent blame things for you. Anonymous nostr-backed, Cloudflare Worker.",
+      "url": "https://github.com/blame-today/blame-mcp"
+    },
+    {
+      "repo": "redirwin/dotfiles",
+      "stars": 0,
+      "description": "Portable dotfiles for AI coding-agent setup, with personal slash commands, user-scoped skills, and MCP servers. Windows and macOS installers sync prompts and skills into Claude Code, OpenAI Codex, and VS Code/Copilot, and MCP servers into all four plus Cursor.",
+      "url": "https://github.com/redirwin/dotfiles"
+    },
+    {
+      "repo": "UnitVectorY-Labs/mcp-rest-forge",
+      "stars": 0,
+      "description": "A lightweight, configuration-driven MCP server that exposes curated REST queries as modular tools, enabling intentional API interactions from your agents.",
+      "url": "https://github.com/UnitVectorY-Labs/mcp-rest-forge"
+    },
+    {
+      "repo": "EngDawood/modern-emdash-cms",
+      "stars": 0,
+      "description": "Personal portfolio on EmDash CMS \u2014 Astro SSR on Cloudflare Workers, bilingual Arabic/English i18n, MCP server, sandboxed plugins, and integrated task tracker.",
+      "url": "https://github.com/EngDawood/modern-emdash-cms"
+    },
+    {
+      "repo": "albertomarturelo/sii-cli",
+      "stars": 0,
+      "description": "Python CLI + MCP server to automate routine interactions with SII Chile (Servicio de Impuestos Internos) for a single user acting on their own RUT (or an empresa they legally represent).",
+      "url": "https://github.com/albertomarturelo/sii-cli"
+    },
+    {
+      "repo": "creandoaldia/wafle-scraper",
+      "stars": 0,
+      "description": "Universal MCP server for safe web scraping with browser automation",
+      "url": "https://github.com/creandoaldia/wafle-scraper"
+    },
+    {
+      "repo": "alexandernikiforov/mcp-server-fred",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/alexandernikiforov/mcp-server-fred"
+    },
+    {
+      "repo": "oscarzamora/onpe-mcp",
+      "stars": 0,
+      "description": "\ud83d\uddf3\ufe0f MCP server para consultas electorales Peru 2026 y 2021\u2014 lenguaje natural",
+      "url": "https://github.com/oscarzamora/onpe-mcp"
+    },
+    {
+      "repo": "tathagat22/agent-undo",
+      "stars": 0,
+      "description": "Ctrl-Z for AI agents \u2014 a universal reversible side-effect time machine. Rust engine + TypeScript MCP server bridged in-process via NAPI-RS.",
+      "url": "https://github.com/tathagat22/agent-undo"
+    },
+    {
+      "repo": "fabiendupont/mcp-google-workspace",
+      "stars": 0,
+      "description": "MCP server for Google Workspace APIs with per-project safety policies",
+      "url": "https://github.com/fabiendupont/mcp-google-workspace"
+    },
+    {
+      "repo": "hretheum/skillforge",
+      "stars": 0,
+      "description": "Composable skills engine for agent pipelines \u2014 MCP server + CLI",
+      "url": "https://github.com/hretheum/skillforge"
+    },
+    {
+      "repo": "mhaslinsky/ai-web-bridge",
+      "stars": 0,
+      "description": "MCP server that lets Claude Code drive auth-walled web tools through a dedicated Chromium profile. v1 ships an adapter for claude.ai/design.",
+      "url": "https://github.com/mhaslinsky/ai-web-bridge"
+    },
+    {
+      "repo": "digitalgremlin/github-repo-intelligence-mcp",
+      "stars": 0,
+      "description": "A persistent MCP server on Apify that gives AI assistants (Claude, Cursor, Cline, etc.) an opinionated health read on any GitHub repository \u2014 answering \"Is this project actively maintained, slowing down, at risk, or likely abandoned?\" \u2014 backed by transparent, inspectable metrics.",
+      "url": "https://github.com/digitalgremlin/github-repo-intelligence-mcp"
+    },
+    {
+      "repo": "skillim-hub/awesome-israel-ai-skills",
+      "stars": 0,
+      "description": "Awesome list: AI agent skills & MCP servers for Israel",
+      "url": "https://github.com/skillim-hub/awesome-israel-ai-skills"
+    },
+    {
+      "repo": "srwoodsaz/oura-mcp-server",
+      "stars": 0,
+      "description": "ring sync ",
+      "url": "https://github.com/srwoodsaz/oura-mcp-server"
+    },
+    {
+      "repo": "Alec2435/streeteasy-mcp",
+      "stars": 0,
+      "description": "Remote MCP server wrapping the StreetEasy API for NYC rental search",
+      "url": "https://github.com/Alec2435/streeteasy-mcp"
+    },
+    {
+      "repo": "dbru540/d365fo-agent-developer",
+      "stars": 0,
+      "description": "D365 F&O knowledge toolkit and MCP server: SQLite FTS5 AOT index, deterministic X++ generation, validation, linting, and a real-compiler loop for coding agents",
+      "url": "https://github.com/dbru540/d365fo-agent-developer"
+    },
+    {
+      "repo": "Realgagenichols/tollbooth",
+      "stars": 0,
+      "description": "A security gateway for AI agents: a transparent MCP proxy that enforces policy on every tool call and result passing between your MCP client (Claude Code, Claude Desktop, Cursor, custom agents) and its MCP servers.",
+      "url": "https://github.com/Realgagenichols/tollbooth"
+    },
+    {
+      "repo": "yuens1002/bookie",
+      "stars": 0,
+      "description": "MCP server for personal & business double-entry bookkeeping, driven from an LLM (Claude/GPT). No UI.",
+      "url": "https://github.com/yuens1002/bookie"
+    },
+    {
+      "repo": "AdSoares/ai-playbook",
+      "stars": 0,
+      "description": "Curated collection of LLM and agent artifacts: prompts, agents, skills, MCP servers, and evals.",
+      "url": "https://github.com/AdSoares/ai-playbook"
+    },
+    {
+      "repo": "JoasASantos/muster-mcp",
+      "stars": 0,
+      "description": "Rust core + MCP server for running many LLM agents in parallel without blowing your token budget \u2014 hard budget caps, automatic work dedup, and deterministic result merging.",
+      "url": "https://github.com/JoasASantos/muster-mcp"
+    },
+    {
+      "repo": "LevKesha/ai-platform",
+      "stars": 0,
+      "description": "AI Platform POC \u2014 agent-api, rag-service, mcp-server, n8n orchestration on AWS EKS",
+      "url": "https://github.com/LevKesha/ai-platform"
+    },
+    {
+      "repo": "SuperInstance/fleet-mcp-server",
+      "stars": 0,
+      "description": "TypeScript MCP server for fleet-vector-api semantic crate search",
+      "url": "https://github.com/SuperInstance/fleet-mcp-server"
+    },
+    {
+      "repo": "Paul-Orlando/n8n-mcp-server-agentic-rag",
+      "stars": 0,
+      "description": "A reference implementation of a basic MCP server in n8n with agentic RAG over a Pinecone vector store",
+      "url": "https://github.com/Paul-Orlando/n8n-mcp-server-agentic-rag"
+    },
+    {
+      "repo": "bowbozaa/MCP-Server-AI-BANK",
+      "stars": 0,
+      "description": "MOSSES ARMY \u2014 13 AI Military Agents Ecosystem | Claude Code Custom Agents + Flybridge Worker",
+      "url": "https://github.com/bowbozaa/MCP-Server-AI-BANK"
+    },
+    {
+      "repo": "braghettos/krateo-clickhouse-mcp-server-chart",
+      "stars": 0,
+      "description": "ClickHouse MCP server for the Krateo agentic stack, packaged as a composition; published to oci://ghcr.io/braghettos/krateo",
+      "url": "https://github.com/braghettos/krateo-clickhouse-mcp-server-chart"
+    },
+    {
+      "repo": "jspmern/multiple-mcp-server-and-client-example",
+      "stars": 0,
+      "description": "mcp client | local mcp server | remote mcp server | nggrok | openai",
+      "url": "https://github.com/jspmern/multiple-mcp-server-and-client-example"
+    },
+    {
+      "repo": "soumya0x/mcp-server-collection",
+      "stars": 0,
+      "description": "Working MCP server configs for Claude Desktop. No broken installs, no outdated docs.",
+      "url": "https://github.com/soumya0x/mcp-server-collection"
+    },
+    {
+      "repo": "AvaPuschmann/agenticfocus-mcp-server",
+      "stars": 0,
+      "description": "Capacit\u00e9s interaction Agentiques avec Pomodoro Agentic Focus",
+      "url": "https://github.com/AvaPuschmann/agenticfocus-mcp-server"
+    },
+    {
+      "repo": "sittiev/pawndex_mcp_server",
+      "stars": 0,
+      "description": "A Model Context Protocol (MCP) server for PawnDex, the Pawn package index for the SA-MP / open.mp ecosystem.",
+      "url": "https://github.com/sittiev/pawndex_mcp_server"
+    },
+    {
+      "repo": "vibhanshu-mishra/risa3d-mcp-server",
+      "stars": 0,
+      "description": "MCP server for RISA-3D  - connect Claude AI to your structural models",
+      "url": "https://github.com/vibhanshu-mishra/risa3d-mcp-server"
+    },
+    {
+      "repo": "cyanheads/medical-codes-mcp-server",
+      "stars": 0,
+      "description": "Decode, search, validate, and crosswalk US medical codes \u2014 ICD-10-CM, ICD-10-PCS, HCPCS Level II \u2014 over a bundled offline index via MCP. Keyless, deterministic.",
+      "url": "https://github.com/cyanheads/medical-codes-mcp-server"
+    },
+    {
+      "repo": "greyfieldsoftwaresolutions/mcp-server-demo",
+      "stars": 0,
+      "description": "A working Model Context Protocol (MCP) server in Python exposing a company CRM database as agent tools, with a CLI chat agent built on the Anthropic API.",
+      "url": "https://github.com/greyfieldsoftwaresolutions/mcp-server-demo"
+    },
+    {
+      "repo": "IvoBrandao/mcp-servers",
+      "stars": 0,
+      "description": "MCP servers for local AI",
+      "url": "https://github.com/IvoBrandao/mcp-servers"
+    },
+    {
+      "repo": "kovvurisupraj/gmail-mcp-server",
+      "stars": 0,
+      "description": "Production-ready Gmail MCP server for Claude AI \u2014 browser-based OAuth setup, 30 tools, multi-account support",
+      "url": "https://github.com/kovvurisupraj/gmail-mcp-server"
+    },
+    {
+      "repo": "andywoodruff6/voice-io-mcp-server",
+      "stars": 0,
+      "description": "Voice interface layer for MCP agents: speech-to-text and text-to-speech tools on Cloudflare Workers.",
+      "url": "https://github.com/andywoodruff6/voice-io-mcp-server"
+    },
+    {
+      "repo": "js2005happy/luvv-mcp-server",
+      "stars": 0,
+      "description": "\u751f\u4ea7\u7ea7\u5b89\u5168\u5ba1\u8ba1 MCP Server \u2014 \u5c01\u88c5 semgrep + gitleaks\uff0c\u901a\u8fc7 stdio \u534f\u8bae\u4e3a Claude Desktop \u63d0\u4f9b\u4e00\u952e\u4ee3\u7801\u626b\u63cf",
+      "url": "https://github.com/js2005happy/luvv-mcp-server"
+    },
+    {
+      "repo": "Ahmedaltu/memory-mcp-server",
+      "stars": 0,
+      "description": "FastMCP server that bridges Claude Code and Claude.ai by exposing Claude Code project memory files over MCP",
+      "url": "https://github.com/Ahmedaltu/memory-mcp-server"
+    },
+    {
+      "repo": "porto-tools/mcp-server",
+      "stars": 0,
+      "description": "MCP server wrapping the Porto Tools engine for AI agents",
+      "url": "https://github.com/porto-tools/mcp-server"
+    },
+    {
+      "repo": "omniologynow-rgb/mcp-server",
+      "stars": 0,
+      "description": "STDIO MCP proxy for Omniology \u2014 autonomous AI agent contest platform on Solana mainnet",
+      "url": "https://github.com/omniologynow-rgb/mcp-server"
+    },
+    {
+      "repo": "Chinmay-Mahajan/Custom-MCP-Server",
+      "stars": 0,
+      "description": "A from-scratch async MCP server backed by Pinecone Assistant for cloud document RAG.",
+      "url": "https://github.com/Chinmay-Mahajan/Custom-MCP-Server"
+    },
+    {
+      "repo": "upintasingh/mcp-server-ai",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/upintasingh/mcp-server-ai"
+    },
+    {
+      "repo": "michaelrobertsutton/verified-googledocs-mcp",
+      "stars": 0,
+      "description": "A Google Docs MCP server with verified writes: every mutation re-reads the document and returns proof of what changed.",
+      "url": "https://github.com/michaelrobertsutton/verified-googledocs-mcp"
+    },
+    {
+      "repo": "mikekim208/MCP-Server-Assignment",
+      "stars": 0,
+      "description": "MCP-Server-Assignment",
+      "url": "https://github.com/mikekim208/MCP-Server-Assignment"
+    },
+    {
+      "repo": "TheSameAbramovych/qmailing-mcp-server",
+      "stars": 0,
+      "description": "MCP server for QMailing - AI agents read & send email, manage mailboxes, custom domains and webhooks via the QMailing API.",
+      "url": "https://github.com/TheSameAbramovych/qmailing-mcp-server"
+    },
+    {
+      "repo": "ppatel26/uploadthing-mcp",
+      "stars": 0,
+      "description": "MCP server for UploadThing \u2014 deploy as a Cloudflare Worker. Upload files from URLs, list, and delete \u2014 all via natural language from any MCP client.",
+      "url": "https://github.com/ppatel26/uploadthing-mcp"
+    },
+    {
+      "repo": "okeefeco/pyeye-mcp",
+      "stars": 0,
+      "description": "Extensible Python code intelligence MCP server for semantic analysis and navigation",
+      "url": "https://github.com/okeefeco/pyeye-mcp"
+    },
+    {
+      "repo": "commontrace/mcp",
+      "stars": 0,
+      "description": "CommonTrace MCP server \u2014 Model Context Protocol adapter for AI agents",
+      "url": "https://github.com/commontrace/mcp"
+    },
+    {
+      "repo": "ggueret/facto",
+      "stars": 0,
+      "description": "Local MCP server giving AI coding agents live lookups across package registries, code forges, runtimes, and lockfiles",
+      "url": "https://github.com/ggueret/facto"
+    },
+    {
+      "repo": "jimjamscott22/Agent-MCP",
+      "stars": 0,
+      "description": "A local MCP server  in **Python** that discovers, indexes, resolves, and serves `AGENTS.md` / `agents.md` files across multiple project roots.  This server should act as a **project context registry** for coding agents.",
+      "url": "https://github.com/jimjamscott22/Agent-MCP"
+    },
+    {
+      "repo": "GlacierEQ/everything-mcp-server",
+      "stars": 0,
+      "description": "APEX Everything MCP - 7 categories, 50+ tools",
+      "url": "https://github.com/GlacierEQ/everything-mcp-server"
+    },
+    {
+      "repo": "Shaugato/find-evil",
+      "stars": 0,
+      "description": "Stigmergy - autonomous DFIR through stigmergic swarm intelligence. Math decides, a signed ledger records, the LLM only explains. (SANS Find Evil! hackathon - Custom MCP Server.)",
+      "url": "https://github.com/Shaugato/find-evil"
+    },
+    {
+      "repo": "csicetus/knowhub",
+      "stars": 0,
+      "description": "Enterprise multi-tenant AI knowledge base with RAG pipeline.  Hybrid retrieval (pgvector + Elasticsearch BM25) + RRF + Rerank,  MCP Server, Canal binlog sync, RabbitMQ async processing,  Redis cache, Spring Boot 3.5 + Java 17",
+      "url": "https://github.com/csicetus/knowhub"
+    },
+    {
+      "repo": "ouzlifaneyassine1-dot/onyx-engine",
+      "stars": 0,
+      "description": "OnyxEngine - AI-Native Game Engine powered by OpenCode. Glassmorphism UI, 50 animations, 4 themes, MCP server, Godot 4.6.3",
+      "url": "https://github.com/ouzlifaneyassine1-dot/onyx-engine"
+    },
+    {
+      "repo": "mudassirgithub/ddb-explorer-mcp",
+      "stars": 0,
+      "description": "Read-only MCP server for Amazon DynamoDB \u2014 safe exploration, querying, and schema discovery from AI coding assistants (Cursor, Claude, VS Code, Windsurf, Claude Code). No write operations by design.",
+      "url": "https://github.com/mudassirgithub/ddb-explorer-mcp"
+    },
+    {
+      "repo": "agent-ready-ai/agent-ready-poc",
+      "stars": 0,
+      "description": "Proof-of-concept built end-to-end by an autonomous AI agent. Static site on Cloudflare Pages with an MCP server, JSON-LD entity graph, Turnstile-protected contact form via Cloudflare Email Routing,   and three independent quality gates passing. Live at agentreadypoc.com.",
+      "url": "https://github.com/agent-ready-ai/agent-ready-poc"
+    },
+    {
+      "repo": "ItsJennyFiggy/plane-mcp",
+      "stars": 0,
+      "description": "Token-efficient, agent-scoped Go MCP server for self-hosted Plane",
+      "url": "https://github.com/ItsJennyFiggy/plane-mcp"
+    },
+    {
+      "repo": "yksanjo/rights-mcp",
+      "stars": 0,
+      "description": "rights-mcp \u2014 the rights layer for the agent economy. MCP server: AI agents license rights-clean music per-use over x402 + get a verifiable Ed25519 license certificate.",
+      "url": "https://github.com/yksanjo/rights-mcp"
+    },
+    {
+      "repo": "artugrande/celo-mcp",
+      "stars": 0,
+      "description": "Open-source remote MCP server for Celo \u2014 read+write access for any LLM. Unsigned-tx writes (no key custody), ERC-8004 agent identity, x402 payments.",
+      "url": "https://github.com/artugrande/celo-mcp"
+    },
+    {
+      "repo": "RLASAF12/agent-baton",
+      "stars": 0,
+      "description": "Pass structured context between AI coding agents (Claude Code, Cursor, Codex, Cline) \u2014 MCP server + live dashboard",
+      "url": "https://github.com/RLASAF12/agent-baton"
+    },
+    {
+      "repo": "arjun7965/local-pdf-rag-mcp",
+      "stars": 0,
+      "description": "A fully-local MCP server for question-answering over your PDFs. Ask in plain language; Claude retrieves only the relevant passages with page citations. On-device embeddings (sentence-transformers) + ChromaDB \u2014 no API keys, nothing leaves your machine.",
+      "url": "https://github.com/arjun7965/local-pdf-rag-mcp"
+    },
+    {
+      "repo": "apexradius/shopify-admin-mcp",
+      "stars": 0,
+      "description": "MCP server for Shopify Admin API \u2014 gives Claude direct access to your store's products, orders, customers, collections, metafields, themes, and raw GraphQL. By Apex Radius Labs.",
+      "url": "https://github.com/apexradius/shopify-admin-mcp"
+    },
+    {
+      "repo": "ClousAI/claude-code-plugin",
+      "stars": 0,
+      "description": "Clous plugin for Claude Code \u2014 SEC filing intelligence (MCP server + analyst slash-commands)",
+      "url": "https://github.com/ClousAI/claude-code-plugin"
+    },
+    {
+      "repo": "flatout-works/chetter",
+      "stars": 0,
+      "description": "Chetter: self-hosted MCP server and runner fleet for autonomous AI development tasks",
+      "url": "https://github.com/flatout-works/chetter"
+    },
+    {
+      "repo": "gray584321/schwab-mcp",
+      "stars": 0,
+      "description": "Safety-first MCP server for Charles Schwab trading (market data, accounts, and gated order placement).",
+      "url": "https://github.com/gray584321/schwab-mcp"
+    },
+    {
+      "repo": "theromeapp/bookable-by-ai",
+      "stars": 0,
+      "description": "Allow your business to be bookable by AI \u2014 an open-source deterministic MCP booking server (reference: dog daycare).",
+      "url": "https://github.com/theromeapp/bookable-by-ai"
+    },
+    {
+      "repo": "cfregly/claude-perf-tune",
+      "stars": 0,
+      "description": "31 GPU inference profiling and optimization skills for Claude Code, with a bundled MCP server",
+      "url": "https://github.com/cfregly/claude-perf-tune"
+    },
+    {
+      "repo": "codeisalifestyle/mithwire-mcp",
+      "stars": 0,
+      "description": "MCP server that lets AI agents run and manage a fleet of anti-detect browsers \u2014 sessions, profiles, proxies, and fingerprints over the Model Context Protocol.",
+      "url": "https://github.com/codeisalifestyle/mithwire-mcp"
+    },
+    {
+      "repo": "luisitoys12/azuracast-mcp-server",
+      "stars": 0,
+      "description": "MCP Server para AzuraCast - Controla tus estaciones de radio desde cualquier cliente MCP (Claude, n8n, Cursor, etc.)",
+      "url": "https://github.com/luisitoys12/azuracast-mcp-server"
+    },
+    {
+      "repo": "btholath/mcp-annuities-server",
+      "stars": 0,
+      "description": "CCAF study lab: MCP server for retirement annuities data built with FastMCP + Python. Exposes 5 tools, 1 resource, and 3 YAML-driven prompt templates. Wired into Claude Code (stdio transport). Covers CCAF Domains 1-5.",
+      "url": "https://github.com/btholath/mcp-annuities-server"
+    },
+    {
+      "repo": "verigentai/mcp-server",
+      "stars": 0,
+      "description": "MCP server for Verigent \u2014 AI agent verification tools",
+      "url": "https://github.com/verigentai/mcp-server"
+    },
+    {
+      "repo": "ClousAI/Mcp",
+      "stars": 0,
+      "description": "Model Context Protocol server for the Clous API \u2014 49 tools for Claude Code, Cursor, and any MCP client",
+      "url": "https://github.com/ClousAI/Mcp"
+    },
+    {
+      "repo": "yifudiao/fred-mcp",
+      "stars": 0,
+      "description": "Local MCP server for the Federal Reserve Economic Data (FRED) API",
+      "url": "https://github.com/yifudiao/fred-mcp"
+    },
+    {
+      "repo": "tobert/kaibo",
+      "stars": 0,
+      "description": "\u89e3\u5256 \u2014 a stdio MCP server that gives your coding agent grounded, cited second opinions from a team of diverse models.",
+      "url": "https://github.com/tobert/kaibo"
+    },
+    {
+      "repo": "RosenAdvertising/smokeball-mcp",
+      "stars": 0,
+      "description": " MCP server for Smokeball \u2014 full API coverage for law firm practice management.",
+      "url": "https://github.com/RosenAdvertising/smokeball-mcp"
+    },
+    {
+      "repo": "JasonTofte/sanctum-mcp",
+      "stars": 0,
+      "description": "Architecturally-hardened DFIR MCP server \u2014 SANS FIND EVIL! hackathon submission. Autonomous incident response agent with architectural evidence-integrity and prompt-injection defense.",
+      "url": "https://github.com/JasonTofte/sanctum-mcp"
+    },
+    {
+      "repo": "NDDev-it-com/rldyour-codex",
+      "stars": 0,
+      "description": "rldyour AI CLI configuration for Codex: plugin marketplace, system install, MCP servers, hooks, managed agents, runtime validation, and Serena memory.",
+      "url": "https://github.com/NDDev-it-com/rldyour-codex"
+    },
+    {
+      "repo": "arikanatakan/pmcontrols-mcp",
+      "stars": 0,
+      "description": "MCP server exposing pmcontrols (CPM, PERT, crashing, EVM, earned schedule) as validated tools for AI agents.",
+      "url": "https://github.com/arikanatakan/pmcontrols-mcp"
+    },
+    {
+      "repo": "88plug/screen-mcp",
+      "stars": 0,
+      "description": "Eyes and hands on a Linux Wayland desktop: screenshot, click, type, scroll, drag, read any visible app over xdg-desktop-portal. MCP server + drive-screen skill. CPU-only, GNOME/Wayland.",
+      "url": "https://github.com/88plug/screen-mcp"
+    },
+    {
+      "repo": "88plug/searxng-mcp",
+      "stars": 0,
+      "description": "Fast, token-efficient MCP server for SearXNG with stdio, streamable-http, Docker, and rendered fetch support.",
+      "url": "https://github.com/88plug/searxng-mcp"
+    },
+    {
+      "repo": "saidbazyar/sovereign-ai-act-mcp",
+      "stars": 0,
+      "description": "MCP server: classify any AI system under the EU AI Act (Reg (EU) 2024/1689) \u2014 risk tier + binding Articles, verbatim from the law. Tools for Claude/agents.",
+      "url": "https://github.com/saidbazyar/sovereign-ai-act-mcp"
+    },
+    {
+      "repo": "acfstandard/acf-mcp",
+      "stars": 0,
+      "description": "Official ACF\u00ae MCP server \u2014 Agentic Commerce Framework\u00ae governance copilot for AI assistants. 12 tools, 34 resources, 6 prompts. AI Act + GDPR + DDAO compliance.",
+      "url": "https://github.com/acfstandard/acf-mcp"
+    },
+    {
+      "repo": "Amaretto-Software-Labs/ai-admin-api-mcp",
+      "stars": 0,
+      "description": "An Admin API MCP server for OpenAI, Anthropic and more providers. Admin APIs are used to check balances, usage and costs, as well as manage your organization. Now you can do that via agents in ChatGPT, Codex, Claude, and your own agents.",
+      "url": "https://github.com/Amaretto-Software-Labs/ai-admin-api-mcp"
+    },
+    {
+      "repo": "codex-curator/neurainetic-lbrain-harness",
+      "stars": 0,
+      "description": "NeurAInetic LBrain Harness (LBrain) \u2014 AI-native engineering memory on the Lair Protocol: hybrid vector+keyword retrieval, supersession-aware ranking, an MCP server, and an optional encrypted Arweave archive.",
+      "url": "https://github.com/codex-curator/neurainetic-lbrain-harness"
+    },
+    {
+      "repo": "agentmetal/mcp",
+      "stars": 0,
+      "description": "AgentMetal MCP server \u2014 let an AI agent provision Linux VPSes (USDC/x402 or card) over HTTP 402.",
+      "url": "https://github.com/agentmetal/mcp"
+    },
+    {
+      "repo": "goldplatinum11-jpg/mind-ontology",
+      "stars": 0,
+      "description": "Mind Ontology \u2014 portable semantic constitution for AI agents. Local-first context compiler (agentctx) + MCP server.",
+      "url": "https://github.com/goldplatinum11-jpg/mind-ontology"
+    },
+    {
+      "repo": "tushariitr-19/assay",
+      "stars": 0,
+      "description": "Framework-agnostic evaluation harness for Go \u2014 test your MCP servers and AI agents with scored, CI-ready checks.",
+      "url": "https://github.com/tushariitr-19/assay"
+    },
+    {
+      "repo": "lexmourao/cursor-memory-project",
+      "stars": 0,
+      "description": "Persistent memory, retrieval, MCP server, logging, and QA framework for Cursor-based AI-assisted development workflows.",
+      "url": "https://github.com/lexmourao/cursor-memory-project"
+    },
+    {
+      "repo": "btholath/annuities-platform",
+      "stars": 0,
+      "description": "Retirement Services & Annuities platform \u2014 Flask web UI (RetireWise) + FastMCP server wired into Claude Code. Built as a CCAF study lab covering Domains 1\u20135: agentic architecture, MCP integration, Claude Code workflows, prompt engineering, and context management.",
+      "url": "https://github.com/btholath/annuities-platform"
+    },
+    {
+      "repo": "siosig/mcp-chest-memory",
+      "stars": 0,
+      "description": "An MCP server that allows you to leverage knowledge across multiple projects and multiple LLMs, significantly reducing token consumption.",
+      "url": "https://github.com/siosig/mcp-chest-memory"
+    },
+    {
+      "repo": "nouhouari/requ-mcp",
+      "stars": 0,
+      "description": "MCP server to track requirements coverage and its evolution across phases/releases \u2014 pairs with Conductor for e2e tests.",
+      "url": "https://github.com/nouhouari/requ-mcp"
+    },
+    {
+      "repo": "firdawsbenahmed/PFE",
+      "stars": 0,
+      "description": "Multi-tenant FastAPI backend that connects company data (manual or via APIs) to ChatGPT through an MCP server, enabling real-time queries and direct actions such as inventory management and stock operations.",
+      "url": "https://github.com/firdawsbenahmed/PFE"
+    },
+    {
+      "repo": "TMHSDigital/local-ai-mcp",
+      "stars": 0,
+      "description": "Unified MCP server for managing local model runtimes (Ollama, LM Studio, and more): provider-agnostic discovery, lifecycle, hardware-fit, and delegated inference.",
+      "url": "https://github.com/TMHSDigital/local-ai-mcp"
+    },
+    {
+      "repo": "dimitrilaouanis-tech/onyx-mcp",
+      "stars": 0,
+      "description": "Paid MCP server \u2014 33 agent tools across Base + Solana on-chain primitives, captcha OCR, browser automation, and web utility. USDC settlement via x402. No API keys, no signup, agents pay per call.",
+      "url": "https://github.com/dimitrilaouanis-tech/onyx-mcp"
+    },
+    {
+      "repo": "SulimanAbdulrazzaq/maltego-mcp",
+      "stars": 0,
+      "description": "AI-assisted Maltego CE investigation copilot \u2014 MCP server + Claude Code plugin/marketplace. Build .mtgx graphs, run OSINT transforms, score/reason over findings, generate reports.",
+      "url": "https://github.com/SulimanAbdulrazzaq/maltego-mcp"
+    },
+    {
+      "repo": "fxckcode/whisper-stt-mcp",
+      "stars": 0,
+      "description": "MCP server for local high-quality audio transcription using faster-whisper (CTranslate2) with NVIDIA GPU acceleration",
+      "url": "https://github.com/fxckcode/whisper-stt-mcp"
+    },
+    {
+      "repo": "SrihariSr/Pitwall",
+      "stars": 0,
+      "description": "A multi-agent F1 strategy system in Python. Uses specialist Gemini subagents (tyre, gaps, weather, safety car, rivals, Monte Carlo) which consume timing data using a custom MCP server and produce lap-by-lap pit recommendations with natural-language justification. Still under development \ud83d\udea7.",
+      "url": "https://github.com/SrihariSr/Pitwall"
+    },
+    {
+      "repo": "mowen628/sift-mcp",
+      "stars": 0,
+      "description": "Autonomous IR MCP server for SANS SIFT \u2014 live network triage + deep forensics pipeline. Find Evil! hackathon 2026.",
+      "url": "https://github.com/mowen628/sift-mcp"
+    },
+    {
+      "repo": "pezhik/skilltotal",
+      "stars": 0,
+      "description": "Scan AI components (MCP servers, agent skills, npm/PyPI packages) for malware & risky capabilities. Local, deterministic, evidence-anchored. Free & OSS.",
+      "url": "https://github.com/pezhik/skilltotal"
+    },
+    {
+      "repo": "DataViking-Tech/traitprint",
+      "stars": 0,
+      "description": "Local-first career identity vault. MCP server for AI agents. Open-source, pip-installable, no account required.",
+      "url": "https://github.com/DataViking-Tech/traitprint"
+    },
+    {
+      "repo": "ricoaiproject-cmd/engram",
+      "stars": 0,
+      "description": "A shared brain for your AI agents - memory that strengthens with use, fades when idle, and resurfaces by association. Local-first MCP server.",
+      "url": "https://github.com/ricoaiproject-cmd/engram"
+    },
+    {
+      "repo": "sajjadGG/Rehearsal",
+      "stars": 0,
+      "description": "Local end-to-end testing lab for any MCP server: coding agents role-play real users, drive your tools over multiple turns, score runs, and render/interact with MCP Apps ui:// widgets.",
+      "url": "https://github.com/sajjadGG/Rehearsal"
+    },
+    {
+      "repo": "SimonTarara62/capitalcom-mcp-server",
+      "stars": 0,
+      "description": "\ud83e\udd16 MCP Server for Capital.com Open API - Safe LLM-driven trading with FastMCP. 36 tools for market data, account management, and trading operations.",
+      "url": "https://github.com/SimonTarara62/capitalcom-mcp-server"
+    },
+    {
+      "repo": "prime001/humanrail-mcp-server",
+      "stars": 0,
+      "description": "MCP server for HumanRail \u2014 route tasks requiring human judgment to vetted workers from any AI agent",
+      "url": "https://github.com/prime001/humanrail-mcp-server"
+    },
+    {
+      "repo": "technosiveuk-ui/safecall-mcp-server",
+      "stars": 0,
+      "description": "The MCP server embedded with Security Gateway for AI Agents. Inspect, redact, and control tool calls. Inline SDK mode (Go).",
+      "url": "https://github.com/technosiveuk-ui/safecall-mcp-server"
+    },
+    {
+      "repo": "SunNull/roslyn-mcp-server",
+      "stars": 0,
+      "description": "A .NET 11 MCP server exposing Roslyn compiler analysis (16 tools: diagnostics, hover, references, code fixes) to AI coding agents. Works with Reasonix, Claude, Cursor.",
+      "url": "https://github.com/SunNull/roslyn-mcp-server"
+    },
+    {
+      "repo": "Paul-Orlando/pinecone-mcp-server",
+      "stars": 0,
+      "description": "Custom MCP server exposing Pinecone vector search as an agentic-search tool for AI agents. Built with Node.js, TypeScript, and OpenRouter. Deployed on Railway.",
+      "url": "https://github.com/Paul-Orlando/pinecone-mcp-server"
+    },
+    {
+      "repo": "skycandykey1/mcp-sqlite-server",
+      "stars": 0,
+      "description": "Read-only SQLite MCP server (Model Context Protocol) \u2014 safe SQL access for AI agents",
+      "url": "https://github.com/skycandykey1/mcp-sqlite-server"
+    },
+    {
+      "repo": "CruGlobal/flightdeck-mcp-server",
+      "stars": 0,
+      "description": "Model Context Protocol (MCP) server for Flightdeck \u2014 gives AI assistants (Claude, Cursor, etc.) tools to manage projects, work items, cycles, modules and comments over the Flightdeck REST API. Published to npm as @cruglobal/flightdeck-mcp-server.",
+      "url": "https://github.com/CruGlobal/flightdeck-mcp-server"
+    },
+    {
+      "repo": "KostZen/Production-Ready-MCP-Servers-for-Claude-Code",
+      "stars": 0,
+      "description": "Curated list of the best MCP servers for Claude, Cursor, Windsurf and AI agents.",
+      "url": "https://github.com/KostZen/Production-Ready-MCP-Servers-for-Claude-Code"
+    },
+    {
+      "repo": "javeo2022/wordpress-mcp-server",
+      "stars": 0,
+      "description": "Claude Code \u304b\u3089 WordPress \u3092\u64cd\u4f5c\u3059\u308b MCP \u30b5\u30fc\u30d0\u30fc (Python / FastMCP, \u8907\u6570\u30b5\u30a4\u30c8\u5bfe\u5fdc)",
+      "url": "https://github.com/javeo2022/wordpress-mcp-server"
+    },
+    {
+      "repo": "marc-codes-smart/Conductor",
+      "stars": 0,
+      "description": "AI Agent MCP server tool collection.",
+      "url": "https://github.com/marc-codes-smart/Conductor"
     }
   ],
   "Browser/Web": [
@@ -42413,6 +44087,12 @@
       "url": "https://github.com/xlisp/selenium-song-download-mcp-server"
     },
     {
+      "repo": "corralimited/snapdiff-mcp",
+      "stars": 4,
+      "description": "Standalone MCP server for SnapDiff",
+      "url": "https://github.com/corralimited/snapdiff-mcp"
+    },
+    {
       "repo": "LewisChen1219/Meituan-Mcp-Server-WIP",
       "stars": 3,
       "description": "Meituan-Mcp-Server: An MCP server for automated food-ordering via Playwright. | \u57fa\u4e8e MCP \u534f\u8bae\u7684\u7f8e\u56e2\u5916\u5356\u81ea\u52a8\u5316\u52a9\u624b\uff0c\u652f\u6301\u5927\u6a21\u578b\u667a\u80fd\u70b9\u9910\u3002",
@@ -42825,6 +44505,12 @@
       "stars": 1,
       "description": "A lightweight MCP (Model Context Protocol) server built with TypeScript and Express, exposing tools, resources, and prompts over a Streamable HTTP transport with session management.",
       "url": "https://github.com/Mirindra-lan/McpServer"
+    },
+    {
+      "repo": "domdomegg/mcp-install-instructions",
+      "stars": 1,
+      "description": "\ud83d\udccb Generate per-client install instructions for MCP servers",
+      "url": "https://github.com/domdomegg/mcp-install-instructions"
     },
     {
       "repo": "ryanxili/defuddle-mcp",
@@ -44151,6 +45837,108 @@
       "stars": 0,
       "description": "MCP-\u0441\u0435\u0440\u0432\u0435\u0440 \u0434\u043b\u044f Ozon.ru. \u0424\u043e\u0440\u043a eduard256/ozon-mcp-server \u0441 \u043f\u0430\u0442\u0447\u0430\u043c\u0438: headless:false + \u043f\u043e\u043b\u043d\u044b\u0439 chromium (lite headless-shell \u043f\u0430\u043b\u0438\u0442 Variti), details \u0447\u0435\u0440\u0435\u0437 \u043f\u043e\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u0435 fetch (Promise.all \u0434\u0430\u0451\u0442 403).",
       "url": "https://github.com/Pir0manT/ozon-mcp-server"
+    },
+    {
+      "repo": "isyuricunha/mcp-ddg-research",
+      "stars": 0,
+      "description": "Lightweight MCP server for DuckDuckGo search with HTML fallback, safe webpage fetching, caching, and clean text extraction.",
+      "url": "https://github.com/isyuricunha/mcp-ddg-research"
+    },
+    {
+      "repo": "brewek/mcp-server-ggdeals",
+      "stars": 0,
+      "description": "A Model Context Protocol (MCP) server for integrating with gg.deals",
+      "url": "https://github.com/brewek/mcp-server-ggdeals"
+    },
+    {
+      "repo": "jason-bourne-gg/my-mcp-server",
+      "stars": 0,
+      "description": "My MCP server for recuriters",
+      "url": "https://github.com/jason-bourne-gg/my-mcp-server"
+    },
+    {
+      "repo": "zenkeellc/enke-mcp-server",
+      "stars": 0,
+      "description": "A MCP server for https://en.ke URL shortener service.",
+      "url": "https://github.com/zenkeellc/enke-mcp-server"
+    },
+    {
+      "repo": "anilnishad19799/MCP_server",
+      "stars": 0,
+      "description": "This is repo for running MCP server with local database, playwright, local Math tool and agent, mcp-server-fetch  mcp server",
+      "url": "https://github.com/anilnishad19799/MCP_server"
+    },
+    {
+      "repo": "sangyuxiaowu/GenerateChartMcpServer",
+      "stars": 0,
+      "description": "An HTTP MCP server that generates static chart images (bar, horizontal bar, stacked bar, line, pie, bubble) and returns signed image URLs. \u57fa\u4e8e ScottPlot \u7684 HTTP MCP \u56fe\u8868\u751f\u6210\u670d\u52a1\uff0c\u6839\u636e\u8f93\u5165\u6570\u636e\u751f\u6210\u9759\u6001 PNG \u56fe\u7247\u5e76\u8fd4\u56de\u7b7e\u540d\u56fe\u7247 URL",
+      "url": "https://github.com/sangyuxiaowu/GenerateChartMcpServer"
+    },
+    {
+      "repo": "bikker/screenshotink-mcp",
+      "stars": 0,
+      "description": "Screenshot MCP server for Claude, Cursor & AI agents \u2014 capture, batch, compare and audit any web page. Hosted Chromium, no local browser.",
+      "url": "https://github.com/bikker/screenshotink-mcp"
+    },
+    {
+      "repo": "midvash/bible-mcp",
+      "stars": 0,
+      "description": "Free, no-key MCP server for the public Bible API \u2014 read scripture across 35+ public-domain translations in 8 languages from any MCP client. Powers mcp.midvash.com.",
+      "url": "https://github.com/midvash/bible-mcp"
+    },
+    {
+      "repo": "cyanheads/musicbrainz-mcp-server",
+      "stars": 0,
+      "description": "Search artists, releases, recordings, works, and labels; traverse relationships; resolve ISRC/ISWC/barcode; fetch cover art via MCP. STDIO or Streamable HTTP.",
+      "url": "https://github.com/cyanheads/musicbrainz-mcp-server"
+    },
+    {
+      "repo": "TopEase-AI/topease-customs-mcp-server",
+      "stars": 0,
+      "description": "TOPEASE \u6d77\u5173\u8d38\u6613\u6570\u636e MCP server\uff0c\u652f\u6301 stdio \u548c streamable HTTP \u67e5\u8be2\u5168\u7403\u6d77\u5173\u8fdb\u51fa\u53e3\u8bb0\u5f55",
+      "url": "https://github.com/TopEase-AI/topease-customs-mcp-server"
+    },
+    {
+      "repo": "menesekinci/search-mcp",
+      "stars": 0,
+      "description": "Free unlimited Google web search MCP server for AI agents. Uses real Chrome via Kimi WebBridge \u2014 no API keys, no rate limits. 8 IDE/CLI support, one-click setup.",
+      "url": "https://github.com/menesekinci/search-mcp"
+    },
+    {
+      "repo": "achmadya-dev/mcp-core",
+      "stars": 0,
+      "description": "Shared MCP server runtime, types, and env helpers for @achmadya-dev MCP packages",
+      "url": "https://github.com/achmadya-dev/mcp-core"
+    },
+    {
+      "repo": "armaanngupta/cdli-mcp",
+      "stars": 0,
+      "description": "Mirror of my GSoC 2026 work on CDLI MCP Server. Official development occurs on GitLab [https://gitlab.com/cdli/cdli-mcp].",
+      "url": "https://github.com/armaanngupta/cdli-mcp"
+    },
+    {
+      "repo": "Jorge1701/my-go-mcp-server",
+      "stars": 0,
+      "description": "MCP server with some tools",
+      "url": "https://github.com/Jorge1701/my-go-mcp-server"
+    },
+    {
+      "repo": "gotham-os/gotham-browser",
+      "stars": 0,
+      "description": "Browser automation agent for GOTHAM_OS \u2014 self-hosted browser-use OSS, MCP server, research pipeline",
+      "url": "https://github.com/gotham-os/gotham-browser"
+    },
+    {
+      "repo": "LionelHao/prompthub-mcp",
+      "stars": 0,
+      "description": "MCP server for PromptHub \u2014 publish and fetch prompts from Claude Code / Codex.",
+      "url": "https://github.com/LionelHao/prompthub-mcp"
+    },
+    {
+      "repo": "perfectra1n/protondb-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/perfectra1n/protondb-mcp-server"
     }
   ],
   "Memory/Knowledge": [
@@ -44225,6 +46013,12 @@
       "stars": 1131,
       "description": "Grounded Docs MCP Server: Open-Source Alternative to Context7, Nia, and Ref.Tools",
       "url": "https://github.com/arabold/docs-mcp-server"
+    },
+    {
+      "repo": "ZenNotes/zennotes",
+      "stars": 1066,
+      "description": "Keyboard-first local Markdown notes with Vim motions, diagrams, and MCP integration.",
+      "url": "https://github.com/ZenNotes/zennotes"
     },
     {
       "repo": "ref-tools/ref-tools-mcp",
@@ -44803,6 +46597,12 @@
       "url": "https://github.com/kesslerio/attio-mcp-server"
     },
     {
+      "repo": "djayatillake/studybible-mcp",
+      "stars": 67,
+      "description": "Bible study MCP server with Greek/Hebrew lexicons and Fee & Stuart hermeneutics",
+      "url": "https://github.com/djayatillake/studybible-mcp"
+    },
+    {
       "repo": "flexpa/mcp-fhir",
       "stars": 65,
       "description": "A Model Context Protocol implementation for FHIR",
@@ -44927,6 +46727,12 @@
       "stars": 33,
       "description": "enola - MCP Architectural Snapshot Server and Knowledge Graph",
       "url": "https://github.com/enola-labs/enola"
+    },
+    {
+      "repo": "fysh1010/mcp-server-fanqie",
+      "stars": 33,
+      "description": "\u756a\u8304\u5c0f\u8bf4 MCP \u670d\u52a1\u5668 - \u4e3a\u756a\u8304\u5c0f\u8bf4\u63d0\u4f9b Model Context Protocol \u670d\u52a1",
+      "url": "https://github.com/fysh1010/mcp-server-fanqie"
     },
     {
       "repo": "thought2code/mcp-java-sdk-examples",
@@ -45463,6 +47269,12 @@
       "url": "https://github.com/MohamedElashri/cerngitlab-mcp"
     },
     {
+      "repo": "jeffgreendesign/textrawl",
+      "stars": 4,
+      "description": "Turn your documents into agent memory. MCP server with hybrid semantic + keyword search over emails, PDFs, notes, and past conversations. Works with Claude, ChatGPT, Cursor, and any MCP client.",
+      "url": "https://github.com/jeffgreendesign/textrawl"
+    },
+    {
       "repo": "PanseBossuSmecheru/notes-mcp",
       "stars": 3,
       "description": "# Notes MCPAn MCP server that connects with your Apple Notes on macOS. \ud83d\udcd3 This tool allows you to manage your notes efficiently with simple commands. \ud83d\udee0\ufe0f",
@@ -45761,6 +47573,18 @@
       "stars": 2,
       "description": "MCP Server for TqSDK (\u5929\u52e4\u91cf\u5316) - AI-powered futures trading via Model Context Protocol",
       "url": "https://github.com/bytemineur/tqsdk-mcp-server"
+    },
+    {
+      "repo": "sdebruyn/fabric-dw-mcp-cli",
+      "stars": 2,
+      "description": "Python CLI + MCP server for Microsoft Fabric Data Warehouse administration",
+      "url": "https://github.com/sdebruyn/fabric-dw-mcp-cli"
+    },
+    {
+      "repo": "klarlabs-studio/mcp-go",
+      "stars": 2,
+      "description": "A Go framework for building MCP (Model Context Protocol) servers",
+      "url": "https://github.com/klarlabs-studio/mcp-go"
     },
     {
       "repo": "pvliesdonk/markdown-vault-mcp",
@@ -46121,6 +47945,12 @@
       "stars": 1,
       "description": "MCP server for personal knowledge management \u2014 markdown notes, semantic search, wiki links, knowledge graph",
       "url": "https://github.com/michaelkrauty/mcp-notes"
+    },
+    {
+      "repo": "niccellular/mq-mcp-server",
+      "stars": 1,
+      "description": "MacroQuest plugin exposing EverQuest game state and character control via MCP (Model Context Protocol)",
+      "url": "https://github.com/niccellular/mq-mcp-server"
     },
     {
       "repo": "Toyoclara233/registry",
@@ -47567,6 +49397,96 @@
       "stars": 0,
       "description": "A simple and intuitive MCP Server created with TypeScript. MCP stands for Model Context Protocol. ",
       "url": "https://github.com/jamesb97/MCP-Server"
+    },
+    {
+      "repo": "Mireye-Labs/mireye-earth-mcp",
+      "stars": 0,
+      "description": "MCP server for Mireye Earth \u2014 published source of the mireye-mcp PyPI package (snapshot-synced from a private monorepo)",
+      "url": "https://github.com/Mireye-Labs/mireye-earth-mcp"
+    },
+    {
+      "repo": "sbuyevich/demo-dev-context-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/sbuyevich/demo-dev-context-mcp-server"
+    },
+    {
+      "repo": "Dimitrearaujo/mcp-server-python",
+      "stars": 0,
+      "description": "MCP server em Python com tools customizadas para agentes IA \u2014 knowledge base, contexto de neg\u00f3cio e sumariza\u00e7\u00e3o",
+      "url": "https://github.com/Dimitrearaujo/mcp-server-python"
+    },
+    {
+      "repo": "pastarita/coer-nucleus",
+      "stars": 0,
+      "description": "Center of Excellence Reconnaissance \u2014 turn a fuzzy domain interest into a structured talent/ecosystem landscape. Corpus-centered atlas + remote MCP server (Cloudflare Workers) + Claude Code plugin.",
+      "url": "https://github.com/pastarita/coer-nucleus"
+    },
+    {
+      "repo": "openreflect/openreflect-gcp-vertex-memorycore",
+      "stars": 0,
+      "description": "Prototype MCP server for Google Cloud Vertex AI memory infrastructure",
+      "url": "https://github.com/openreflect/openreflect-gcp-vertex-memorycore"
+    },
+    {
+      "repo": "Sayali467/MCP_Server",
+      "stars": 0,
+      "description": "MCP server for gmail n google docs",
+      "url": "https://github.com/Sayali467/MCP_Server"
+    },
+    {
+      "repo": "sabakhan-cpu/MCP_SERVERS",
+      "stars": 0,
+      "description": "Model Context Protocol",
+      "url": "https://github.com/sabakhan-cpu/MCP_SERVERS"
+    },
+    {
+      "repo": "InfiniteInsight/aesthetics-mcp",
+      "stars": 0,
+      "description": "MCP server for 1100+ visual aesthetics from the Aesthetics Wiki. Gives Claude queryable knowledge of named internet aesthetics for design work.",
+      "url": "https://github.com/InfiniteInsight/aesthetics-mcp"
+    },
+    {
+      "repo": "leogallego/ansible-know-mcp",
+      "stars": 0,
+      "description": "Ansible Knowledge MCP Server - module discovery, documentation search, and skill generation for AI agents via the Model Context Protocol.",
+      "url": "https://github.com/leogallego/ansible-know-mcp"
+    },
+    {
+      "repo": "acfstandard/acfstandard-io",
+      "stars": 0,
+      "description": "ACF\u00ae Developer Documentation \u2014 official docs site for the Agentic Commerce Framework standard and the acf-mcp server",
+      "url": "https://github.com/acfstandard/acfstandard-io"
+    },
+    {
+      "repo": "teknoflame/mastodon-mcp-server",
+      "stars": 0,
+      "description": "A Model Context Protocol (MCP) server for Mastodon.",
+      "url": "https://github.com/teknoflame/mastodon-mcp-server"
+    },
+    {
+      "repo": "desper1do/obsidian-mcp-server",
+      "stars": 0,
+      "description": "\u041b\u043e\u043a\u0430\u043b\u044c\u043d\u044b\u0439 MCP-\u0441\u0435\u0440\u0432\u0435\u0440 \u0434\u043b\u044f \u0440\u0430\u0431\u043e\u0442\u044b \u0441 \u0431\u0430\u0437\u043e\u0439 \u0437\u043d\u0430\u043d\u0438\u0439 Obsidian \u0447\u0435\u0440\u0435\u0437 Claude \u0438 \u0434\u0440\u0443\u0433\u0438\u0435 AI-\u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442\u044b",
+      "url": "https://github.com/desper1do/obsidian-mcp-server"
+    },
+    {
+      "repo": "chenmijiang/mcp-docs-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/chenmijiang/mcp-docs-server"
+    },
+    {
+      "repo": "sompol13/mastra-notes-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/sompol13/mastra-notes-mcp-server"
+    },
+    {
+      "repo": "ExpertVagabond/solana-mcp-server",
+      "stars": 0,
+      "description": "Solana MCP server for wallet management, transactions, and program interactions",
+      "url": "https://github.com/ExpertVagabond/solana-mcp-server"
     }
   ],
   "Communication": [
@@ -47953,6 +49873,12 @@
       "stars": 1,
       "description": "Mira API MCP Server Demo Guide for Meltwater Sales Teams  ",
       "url": "https://github.com/mcopelandmw/mira-api-demo"
+    },
+    {
+      "repo": "Infomaniak/mcp-server-kchat",
+      "stars": 1,
+      "description": "",
+      "url": "https://github.com/Infomaniak/mcp-server-kchat"
     },
     {
       "repo": "Dearop/zk-lens",
@@ -48463,6 +50389,30 @@
       "stars": 0,
       "description": "Weekly Product Review to fetch from Google Playstore and the email to draft with the key insights",
       "url": "https://github.com/namratamore1810/MCP-server"
+    },
+    {
+      "repo": "drorkremer/homebrew-m365-mcp",
+      "stars": 0,
+      "description": "Homebrew tap for m365-mcp (MCP server for Microsoft 365)",
+      "url": "https://github.com/drorkremer/homebrew-m365-mcp"
+    },
+    {
+      "repo": "geoffda/email-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/geoffda/email-mcp-server"
+    },
+    {
+      "repo": "BoonieX/telegram-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/BoonieX/telegram-mcp-server"
+    },
+    {
+      "repo": "vijayparmar1992/mcp-server-send-email",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/vijayparmar1992/mcp-server-send-email"
     }
   ],
   "Code/Dev Tools": [
@@ -50123,6 +52073,12 @@
       "url": "https://github.com/ruslanlap/pagespeed-insights-mcp"
     },
     {
+      "repo": "gsong/ccmcp",
+      "stars": 25,
+      "description": "A CLI tool that intelligently discovers, validates, and selects MCP (Model Context Protocol) server configurations for Claude Code.",
+      "url": "https://github.com/gsong/ccmcp"
+    },
+    {
       "repo": "developit/mcp-cmd",
       "stars": 24,
       "description": "CLI for calling successive MCP Server tools",
@@ -50261,6 +52217,12 @@
       "url": "https://github.com/IBM/data-intelligence-mcp-server"
     },
     {
+      "repo": "accordproject/apap",
+      "stars": 17,
+      "description": "Accord Project Agreement Protocol. Agreement Runtime and MCP Server",
+      "url": "https://github.com/accordproject/apap"
+    },
+    {
       "repo": "cyberdione/mcp-tcl-udf-server",
       "stars": 16,
       "description": "Provides a TCL Interpreter with user defined functions (UDF) as an MCP server",
@@ -50313,6 +52275,12 @@
       "stars": 15,
       "description": "Design intelligence engine for AI coding. 120 anti-pattern linter rules, 110 brand DESIGN.md specs, MCP server, 22 commands, 17 IDEs, 17 languages. MIT.",
       "url": "https://github.com/Laith0003/ux-skill"
+    },
+    {
+      "repo": "thousandflowers/skillreaper",
+      "stars": 15,
+      "description": "Evidence-based pruning for your AI-agent stack \u2014 scan, report, and safely prune unused skills/MCP servers/agents using real transcript evidence",
+      "url": "https://github.com/thousandflowers/skillreaper"
     },
     {
       "repo": "dwrtz/mcpterm",
@@ -50475,6 +52443,12 @@
       "stars": 12,
       "description": "OpenClaw MCP Client Plugin - bridges MCP servers into OpenClaw via registerTool",
       "url": "https://github.com/AIWerk/openclaw-mcp-bridge"
+    },
+    {
+      "repo": "jeonghwanko/mimi-seed-sdk",
+      "stars": 12,
+      "description": "Claude Code MCP\ub85c \uc5f0\uacb0\ud558\ub294 \uc778\ub514 \uac1c\ubc1c\uc790 \uc571 \ucd9c\uc2dc \uc790\ub3d9\ud654 \ucf58\uc194 \u2014 CLI + MCP Server (65+ \ub3c4\uad6c)",
+      "url": "https://github.com/jeonghwanko/mimi-seed-sdk"
     },
     {
       "repo": "jbr/cargo-mcp",
@@ -50699,6 +52673,12 @@
       "url": "https://github.com/26zl/cybersec-toolkit"
     },
     {
+      "repo": "thaolst/growth-mcp",
+      "stars": 8,
+      "description": "MCP server for growth marketing - campaign design, retention analysis, churn prediction, A/B testing",
+      "url": "https://github.com/thaolst/growth-mcp"
+    },
+    {
       "repo": "cortesi/mcptool",
       "stars": 7,
       "description": "A versatile command\u2011line utility for connecting to, testing, and probing **MCP** servers from your terminal.",
@@ -50913,6 +52893,12 @@
       "stars": 6,
       "description": "Status: Experimental. This repository provides a reference for the tasks extensions to the MCP protocol, allowing for long-running operations, such as Agent communication, in MCP.",
       "url": "https://github.com/modelcontextprotocol/ext-tasks"
+    },
+    {
+      "repo": "ax-platform/ax-platform-mcp",
+      "stars": 6,
+      "description": "aX \u2014 agent-native collaboration network for long-running agents. Remote MCP server: messaging, tasks, shared context, search, MCP Apps. https://paxai.app",
+      "url": "https://github.com/ax-platform/ax-platform-mcp"
     },
     {
       "repo": "modelcontextprotocol/experimental-ext-variants",
@@ -51227,6 +53213,12 @@
       "url": "https://github.com/fedukhin-sys/1C_EDT_MCP_PUBLIC"
     },
     {
+      "repo": "mozicim/node-code-sandbox-mcp",
+      "stars": 4,
+      "description": "# \ud83d\udc22\ud83d\ude80 Node.js Sandbox MCP ServerThis repository hosts a Node.js server that implements the Model Context Protocol (MCP) for running JavaScript in isolated Docker containers. It allows for on-the-fly npm dependency installation, making it easy to execute code safely and efficiently. ",
+      "url": "https://github.com/mozicim/node-code-sandbox-mcp"
+    },
+    {
       "repo": "clouatre-labs/code-analyze-mcp",
       "stars": 3,
       "description": "MCP server for code analysis using tree-sitter. Structure, semantic, and call graph modes.",
@@ -51447,6 +53439,12 @@
       "stars": 3,
       "description": "JMESPath CLI and MCP server with 460+ extended functions",
       "url": "https://github.com/joshrotenberg/jpx"
+    },
+    {
+      "repo": "marianfoo/arc1-adt-abap-mcp-ext",
+      "stars": 3,
+      "description": "Eclipse plugin that wakes SAP's dormant ADT MCP server and contributes extra read-only ABAP repository tools (search, metadata, find-definition, system info) for Claude Code / Copilot / Cursor / Claude Desktop.",
+      "url": "https://github.com/marianfoo/arc1-adt-abap-mcp-ext"
     },
     {
       "repo": "mo-mostafa-123/fastestmcp",
@@ -51813,6 +53811,12 @@
       "stars": 2,
       "description": "MCP (Model Context Protocol) server for NinjaTrader 8 \u2014 AI-native trading via Claude, Hermes, or any MCP client. Read positions, place orders, get quotes, backtest strategies.",
       "url": "https://github.com/Wendigooor/nt-mcp-server"
+    },
+    {
+      "repo": "elifarley/hug-scm",
+      "stars": 2,
+      "description": "Humane Git wrapper / SCM CLI for safe, memorable commands + workflow automation, Git+Mercurial support, and repo analysis (churn/ownership/co-change). Includes an MCP server.",
+      "url": "https://github.com/elifarley/hug-scm"
     },
     {
       "repo": "1sustgmboab/nexonco-mcp",
@@ -52731,6 +54735,18 @@
       "stars": 1,
       "description": "This repository is used to load carsim into the agent, and it can allow the agent to call the CLI of carsim to carry out the co-simulation of Carsim and matlab. This repository has been tested.If you like this project, please give it a star.",
       "url": "https://github.com/AngelZhaksy/carsim-mcp-Carsim-matlab-mcp-server"
+    },
+    {
+      "repo": "unitz007/aegis",
+      "stars": 1,
+      "description": "Agent trade-execution safety harness: gateway, server-side sizing, dealing-rules clamp, idempotency, pluggable broker, MCP + webhook transports.",
+      "url": "https://github.com/unitz007/aegis"
+    },
+    {
+      "repo": "noahain/Noahain-s-Opencode-Setup",
+      "stars": 1,
+      "description": "AI coding agent configuration for OpenCode. Contains subagent definitions, skill packages, behavioral instructions, and MCP server setup.",
+      "url": "https://github.com/noahain/Noahain-s-Opencode-Setup"
     },
     {
       "repo": "Last-emo-boy/windows-exe-decompiler-mcp-server",
@@ -57123,6 +59139,318 @@
       "stars": 0,
       "description": "MCP server for cross-device opencode workspace sync",
       "url": "https://github.com/severin-ye/opencode-sync-mcp-server"
+    },
+    {
+      "repo": "blasrodri/truth",
+      "stars": 0,
+      "description": "Deterministic fact-checker for AI coding agents \u2014 verify an agent's claims about its own work against the real code, git diff & logs. Local MCP server, cited verdicts, refuses to bluff.",
+      "url": "https://github.com/blasrodri/truth"
+    },
+    {
+      "repo": "sasha-thecornerspore-dev/mcp-command-center",
+      "stars": 0,
+      "description": "Graphical, AI-assisted command center for connecting AI clients to MCP servers across your system (Windows/macOS/Linux).",
+      "url": "https://github.com/sasha-thecornerspore-dev/mcp-command-center"
+    },
+    {
+      "repo": "ktbyers/netmiko_mcp",
+      "stars": 0,
+      "description": "Netmiko MCP Server",
+      "url": "https://github.com/ktbyers/netmiko_mcp"
+    },
+    {
+      "repo": "bowlofarugula/whatsapp",
+      "stars": 0,
+      "description": "Send + read WhatsApp with Claude \u2014 human-in-the-loop, no auto-replies. Thin MCP server over the openclaw/wacli engine (bundled). In-chat pairing-code linking.",
+      "url": "https://github.com/bowlofarugula/whatsapp"
+    },
+    {
+      "repo": "Jemplayer82/mcp-codebase-index-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Jemplayer82/mcp-codebase-index-server"
+    },
+    {
+      "repo": "grat-cellpm/mcp-server-..",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/grat-cellpm/mcp-server-.."
+    },
+    {
+      "repo": "BurhanHussain1/create-mcp-server",
+      "stars": 0,
+      "description": "Generate working Model Context Protocol (MCP) servers from one command \u2014 no boilerplate, TypeScript or Python.",
+      "url": "https://github.com/BurhanHussain1/create-mcp-server"
+    },
+    {
+      "repo": "QTSurfer/mcp-java",
+      "stars": 0,
+      "description": "MCP server for QTSurfer \u2014 exposes backtesting and market data as AI tools over stdio JSON-RPC 2.0. Works with Claude Code, Codex, and any MCP client.",
+      "url": "https://github.com/QTSurfer/mcp-java"
+    },
+    {
+      "repo": "Ryfter/canvas-toolchain",
+      "stars": 0,
+      "description": "AI-assisted course design toolchain for Canvas LMS - Curriculum Intelligence, Canvas Design Studio, and Command & Control MCP servers, with a native installer and plug-in module architecture.",
+      "url": "https://github.com/Ryfter/canvas-toolchain"
+    },
+    {
+      "repo": "reismarcelo/sastre-mcp",
+      "stars": 0,
+      "description": "An MCP server exposing Sastre tasks",
+      "url": "https://github.com/reismarcelo/sastre-mcp"
+    },
+    {
+      "repo": "vhspace/goldenmcp",
+      "stars": 0,
+      "description": "MCP server",
+      "url": "https://github.com/vhspace/goldenmcp"
+    },
+    {
+      "repo": "UnitVectorY-Labs/mcp-tf-provider-docs",
+      "stars": 0,
+      "description": "A configurable MCP server that indexes and serves Terraform/Tofu provider documentation from a local Git repo to power accurate, context-aware code generation.",
+      "url": "https://github.com/UnitVectorY-Labs/mcp-tf-provider-docs"
+    },
+    {
+      "repo": "fernandosegoviadev/shared-context-mcp",
+      "stars": 0,
+      "description": "Generic MCP server to sync and read a private shared-context repository from GitHub",
+      "url": "https://github.com/fernandosegoviadev/shared-context-mcp"
+    },
+    {
+      "repo": "metadatacenter/cedar-cee-mcp",
+      "stars": 0,
+      "description": "MCP server that displays CEDAR templates and instances in a browser via the CEDAR Embeddable Editor, and collects human-populated instances back into the conversation",
+      "url": "https://github.com/metadatacenter/cedar-cee-mcp"
+    },
+    {
+      "repo": "MurtazaRaza/unreal-mcp-plugin",
+      "stars": 0,
+      "description": "A plugin that creates an mcp server for querying in engine bps and player interactions",
+      "url": "https://github.com/MurtazaRaza/unreal-mcp-plugin"
+    },
+    {
+      "repo": "Yiivgeny/barcode-hub",
+      "stars": 0,
+      "description": "Barcode recognition MCP server and API (ZXing-C++ backend)",
+      "url": "https://github.com/Yiivgeny/barcode-hub"
+    },
+    {
+      "repo": "jamesjeffries/unity_custom_mcp",
+      "stars": 0,
+      "description": "End-to-end Model Context Protocol (MCP) server and Unity Editor bridge that lets LLM clients drive the Unity Editor.",
+      "url": "https://github.com/jamesjeffries/unity_custom_mcp"
+    },
+    {
+      "repo": "itamos-technologia/mcp-server-modular",
+      "stars": 0,
+      "description": "No-code tool loading for MCP. Drop a .js file, get a tool. Lazy-load, schema validation, shared context, production-ready.",
+      "url": "https://github.com/itamos-technologia/mcp-server-modular"
+    },
+    {
+      "repo": "aditya29f70/test-remote-mcp-server",
+      "stars": 0,
+      "description": "A test mcp server",
+      "url": "https://github.com/aditya29f70/test-remote-mcp-server"
+    },
+    {
+      "repo": "cyanheads/npi-providers-mcp-server",
+      "stars": 0,
+      "description": "Look up US healthcare providers in the NPPES NPI registry and resolve NUCC specialty codes via MCP. STDIO or Streamable HTTP.",
+      "url": "https://github.com/cyanheads/npi-providers-mcp-server"
+    },
+    {
+      "repo": "shivaabhishek07/test-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/shivaabhishek07/test-mcp-server"
+    },
+    {
+      "repo": "Fonteum/mcp-server",
+      "stars": 0,
+      "description": "Hosted MCP server for source-provenanced US federal healthcare provider data",
+      "url": "https://github.com/Fonteum/mcp-server"
+    },
+    {
+      "repo": "marcuspat/hashicorp-terraform-mcp-server",
+      "stars": 0,
+      "description": "Give LLMs real-time, authoritative access to Terraform Registry docs, module metadata, provider schemas, and HCP Terraform workspace management.",
+      "url": "https://github.com/marcuspat/hashicorp-terraform-mcp-server"
+    },
+    {
+      "repo": "P1tak4s/pixil-skill",
+      "stars": 0,
+      "description": "Claude Code skills for Pixil \u2014 generate images & videos, edit/animate, lip-sync, and branded ads via Pixil's MCP server.",
+      "url": "https://github.com/P1tak4s/pixil-skill"
+    },
+    {
+      "repo": "likhithreddy/fittok",
+      "stars": 0,
+      "description": "fittok \u2014 relevant-code retrieval within a token budget (MCP server + CLI + library)",
+      "url": "https://github.com/likhithreddy/fittok"
+    },
+    {
+      "repo": "inspicere/mcp-defectdojo",
+      "stars": 0,
+      "description": "MCP server for DefectDojo vulnerability management",
+      "url": "https://github.com/inspicere/mcp-defectdojo"
+    },
+    {
+      "repo": "TakuroidX/bitflyer-mcp",
+      "stars": 0,
+      "description": "Read-only MCP server for bitFlyer public market data (ticker, board, executions, health). Safe by design: no API key, no account access.",
+      "url": "https://github.com/TakuroidX/bitflyer-mcp"
+    },
+    {
+      "repo": "odanree/portfolio-drift-mcp",
+      "stars": 0,
+      "description": "MCP server wrapping portfolio-drift-agent \u2014 lets LLM clients (Claude Desktop, Claude Code) audit a portfolio against GitHub conversationally. FastMCP + structured error envelope, 13 fully-mocked tests.",
+      "url": "https://github.com/odanree/portfolio-drift-mcp"
+    },
+    {
+      "repo": "Patent-PreCheck/patent-precheck-mcp",
+      "stars": 0,
+      "description": "Patent PreCheck CLI + MCP server \u2014 run a patentability pre-check on your code from inside Cursor, Claude Code, Codex, and other AI coding agents. No API keys.",
+      "url": "https://github.com/Patent-PreCheck/patent-precheck-mcp"
+    },
+    {
+      "repo": "garland3/mcp-server-template",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/garland3/mcp-server-template"
+    },
+    {
+      "repo": "Mridul006/remote-mcp-server",
+      "stars": 0,
+      "description": "a test remote mcp server",
+      "url": "https://github.com/Mridul006/remote-mcp-server"
+    },
+    {
+      "repo": "astrojones/raisl",
+      "stars": 0,
+      "description": "The repo agent harness as a Claude Code plugin \u2014 a bundled, auto-connecting MCP server (repo_* tools + proxied serena_* code navigation), safety hooks, and generic coding-workflow skills/subagents. Born-harnessed repos for any MCP client.",
+      "url": "https://github.com/astrojones/raisl"
+    },
+    {
+      "repo": "LordFarquaadtheCreator/deviantart-mcp",
+      "stars": 0,
+      "description": "MCP (Model Context Protocol) server for DeviantArt API. Provides tools for browsing, searching, and interacting with DeviantArt content through LLMs.",
+      "url": "https://github.com/LordFarquaadtheCreator/deviantart-mcp"
+    },
+    {
+      "repo": "Gliana-Labs/gliana-mcp-remote",
+      "stars": 0,
+      "description": "Hosted MCP server for GlianaAI \u2014 discovery tools over Streamable HTTP on Cloudflare Workers (mcp.glianalabs.com/mcp).",
+      "url": "https://github.com/Gliana-Labs/gliana-mcp-remote"
+    },
+    {
+      "repo": "jcastilloa/context-distill",
+      "stars": 0,
+      "description": "Go tool that distills verbose command output and retrieves compact code context before it reaches a paid LLM. Three operations \u2014 distill_batch, distill_watch, search_code \u2014 available as a Skill (zero-config), standalone CLI, or MCP server. Supports Ollama and any OpenAI-compatible provider.",
+      "url": "https://github.com/jcastilloa/context-distill"
+    },
+    {
+      "repo": "RosenAdvertising/mycase-mcp",
+      "stars": 0,
+      "description": "MCP server for MyCase \u2014 gives Claude full access to your law firm's MyCase account.",
+      "url": "https://github.com/RosenAdvertising/mycase-mcp"
+    },
+    {
+      "repo": "Lab2A/metalworks",
+      "stars": 0,
+      "description": "Open-source marketing research + Reddit engagement library. Demand reports from real conversations \u2014 library, CLI, MCP server, Claude Code plugin.",
+      "url": "https://github.com/Lab2A/metalworks"
+    },
+    {
+      "repo": "bharm16/unreal-engine-mcp",
+      "stars": 0,
+      "description": "Unreal Engine MCP server (Python + C++ plugin) for AI-driven scene & Blueprint construction \u2014 with connection-seam and placement-primitive architecture refactors",
+      "url": "https://github.com/bharm16/unreal-engine-mcp"
+    },
+    {
+      "repo": "smart-memory/smart-memory-mcp",
+      "stars": 0,
+      "description": "Thin MCP server for SmartMemory \u2014 HTTP client to remote API",
+      "url": "https://github.com/smart-memory/smart-memory-mcp"
+    },
+    {
+      "repo": "jedt3d/lazfpc-mcp",
+      "stars": 0,
+      "description": "The MCP for Lazarus IDE and Free Pascal Compiler and it wrap an LSP with it too. (Pascal Language Server)",
+      "url": "https://github.com/jedt3d/lazfpc-mcp"
+    },
+    {
+      "repo": "DojoGenesis/no-tax-on-tips-mcp",
+      "stars": 0,
+      "description": "MCP server exposing the OBBBA No-Tax-on-Tips federal deduction as gated tools. Informational only; TTOC codes are placeholder slugs pending IRS numeric validation.",
+      "url": "https://github.com/DojoGenesis/no-tax-on-tips-mcp"
+    },
+    {
+      "repo": "simota/ctx",
+      "stars": 0,
+      "description": "Rust CLI/TUI/MCP server for selecting, budgeting, and packaging repository context for AI.",
+      "url": "https://github.com/simota/ctx"
+    },
+    {
+      "repo": "aquila-lab/wonder-plugins",
+      "stars": 0,
+      "description": "Wonder agent plugins for Cursor, Claude Code, and Codex. Connects your IDE to the Wonder MCP server at mcp.wonder.so.",
+      "url": "https://github.com/aquila-lab/wonder-plugins"
+    },
+    {
+      "repo": "print-yuhuan/QQ-MCP-Server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/print-yuhuan/QQ-MCP-Server"
+    },
+    {
+      "repo": "hlgr360/logfile-mcp-server",
+      "stars": 0,
+      "description": "Analyzing access logs from Nexus Repository and nginx reverse proxy. Provides both a web interface for interactive querying and an MCP (Model Context Protocol) server for AI-powered log analysis via VS Code Copilot and other LLM tools.",
+      "url": "https://github.com/hlgr360/logfile-mcp-server"
+    },
+    {
+      "repo": "noorul90/remote-mcp-server",
+      "stars": 0,
+      "description": "simple remote mcp server for test",
+      "url": "https://github.com/noorul90/remote-mcp-server"
+    },
+    {
+      "repo": "Shlokp2707/test_mcp_server",
+      "stars": 0,
+      "description": "test the mcp server",
+      "url": "https://github.com/Shlokp2707/test_mcp_server"
+    },
+    {
+      "repo": "nasimpc/Clinical-Trial-Intelligence-MCP-Server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/nasimpc/Clinical-Trial-Intelligence-MCP-Server"
+    },
+    {
+      "repo": "lvyimu/MCP-Kali-Server",
+      "stars": 0,
+      "description": "MCP Kali Server - AI-assisted penetration testing via MCP protocol. Exposes Kali Linux security tools (nmap, sqlmap, hydra, gobuster, john, nikto, metasploit) to MCP clients with HTTP/stdio transport support.",
+      "url": "https://github.com/lvyimu/MCP-Kali-Server"
+    },
+    {
+      "repo": "anilchaudhary001/mcp-servers-guide",
+      "stars": 0,
+      "description": "Comprehensive guide and examples for creating Model Context Protocol (MCP) servers",
+      "url": "https://github.com/anilchaudhary001/mcp-servers-guide"
+    },
+    {
+      "repo": "Ranjan113/test-remote-mcp-server",
+      "stars": 0,
+      "description": "A test mcp server",
+      "url": "https://github.com/Ranjan113/test-remote-mcp-server"
+    },
+    {
+      "repo": "dominiclynchwoodlands-ui/agentKimi",
+      "stars": 0,
+      "description": "MCP server that runs Kimi K2.7-code (Moonshot AI) as an autonomous coding agent in a bubblewrap-sandboxed git worktree, returning a git diff as ground truth.",
+      "url": "https://github.com/dominiclynchwoodlands-ui/agentKimi"
     }
   ],
   "Other": [
@@ -58585,6 +60913,12 @@
       "url": "https://github.com/localstack/localstack-mcp-server"
     },
     {
+      "repo": "migusdn/KIS_MCP_Server",
+      "stars": 23,
+      "description": "\ud55c\uad6d\ud22c\uc790\uc99d\uad8c mcp server",
+      "url": "https://github.com/migusdn/KIS_MCP_Server"
+    },
+    {
       "repo": "exa-labs/zed-exa-mcp-extension",
       "stars": 22,
       "description": "Zed extension for Exa's MCP server",
@@ -58799,6 +61133,12 @@
       "stars": 16,
       "description": "An implementation of a vulnerable MCP server using mcp-go",
       "url": "https://github.com/BishopFox/otto-support"
+    },
+    {
+      "repo": "JavierusTk/mORMot-MCP-Server",
+      "stars": 16,
+      "description": "Full MCP 2025-06-18 specification implementation for Delphi with mORMot2",
+      "url": "https://github.com/JavierusTk/mORMot-MCP-Server"
     },
     {
       "repo": "BumpyClock/lsp-mcp",
@@ -60043,6 +62383,12 @@
       "url": "https://github.com/easingthemes/aem-mcp-server"
     },
     {
+      "repo": "Jelloeater/activitywatch-mcp-server-py",
+      "stars": 4,
+      "description": "ActivityWatch MCP Server",
+      "url": "https://github.com/Jelloeater/activitywatch-mcp-server-py"
+    },
+    {
       "repo": "D-unn/google-sheets-mcp",
       "stars": 3,
       "description": "Google Sheets MCP Server \ud83d\udcca\ud83e\udd16",
@@ -60473,6 +62819,18 @@
       "stars": 3,
       "description": "",
       "url": "https://github.com/Kiet1308/studio-rust-mcp-server"
+    },
+    {
+      "repo": "WoWSQL/MCP-Server",
+      "stars": 3,
+      "description": "",
+      "url": "https://github.com/WoWSQL/MCP-Server"
+    },
+    {
+      "repo": "AlphaGit/jellyfin-mcp-server",
+      "stars": 3,
+      "description": "MCP Server to manage a jellyfin server",
+      "url": "https://github.com/AlphaGit/jellyfin-mcp-server"
     },
     {
       "repo": "whugeomatics/mcp-protocol",
@@ -61463,6 +63821,24 @@
       "stars": 2,
       "description": "",
       "url": "https://github.com/Anisan/osysHome-MCPServer"
+    },
+    {
+      "repo": "celeryhq/simplified-mcp-server",
+      "stars": 2,
+      "description": "Simplified MCP server",
+      "url": "https://github.com/celeryhq/simplified-mcp-server"
+    },
+    {
+      "repo": "dragonejt/iceberg-mcp-server",
+      "stars": 2,
+      "description": "MCP Server for Apache Iceberg",
+      "url": "https://github.com/dragonejt/iceberg-mcp-server"
+    },
+    {
+      "repo": "PolishDywan/FiveM-MCP-Server",
+      "stars": 2,
+      "description": "Modern MCP (Modular Control Panel) server for FiveM. ",
+      "url": "https://github.com/PolishDywan/FiveM-MCP-Server"
     },
     {
       "repo": "jsboige/jsboige-mcp-servers",
@@ -63275,6 +65651,30 @@
       "stars": 1,
       "description": "Engine-agnostic MCP server shared by Unity-MCP, Godot-MCP and Unreal-MCP",
       "url": "https://github.com/IvanMurzak/GameDev-MCP-Server"
+    },
+    {
+      "repo": "domsinclair/ishmaelphp-mcpserver",
+      "stars": 1,
+      "description": "",
+      "url": "https://github.com/domsinclair/ishmaelphp-mcpserver"
+    },
+    {
+      "repo": "weirdo-adam/redmine-mcp-server",
+      "stars": 1,
+      "description": "Standalone stdio MCP server for Redmine.",
+      "url": "https://github.com/weirdo-adam/redmine-mcp-server"
+    },
+    {
+      "repo": "wvfp/gear-mcp-server",
+      "stars": 1,
+      "description": "",
+      "url": "https://github.com/wvfp/gear-mcp-server"
+    },
+    {
+      "repo": "rabbanyhmm/DnSpyMCP",
+      "stars": 1,
+      "description": "A powerful MCP server for .NET reverse engineering, game hacking, and Il2Cpp dump analysis. Features 31 tools for deep assembly inspection, cross-referencing, network patching, and more.",
+      "url": "https://github.com/rabbanyhmm/DnSpyMCP"
     },
     {
       "repo": "JDNdeveloper/dynalist-mcp",
@@ -74027,6 +76427,558 @@
       "stars": 0,
       "description": "System Bridge MCP Server \u2014 token management, transformation, validation, and evolution",
       "url": "https://github.com/teyepe/systembridge-mcp"
+    },
+    {
+      "repo": "sergeivasilyev2013-web/rsge-mcp-server",
+      "stars": 0,
+      "description": "rsge-mcp-server \u0412\u0430\u0441\u043b\u044c\u0435\u0432 \u0421\u0435\u0440\u0433\u0435\u0439",
+      "url": "https://github.com/sergeivasilyev2013-web/rsge-mcp-server"
+    },
+    {
+      "repo": "GamaTriTunggal/gamavra-mcp",
+      "stars": 0,
+      "description": "MCP server for Gama Ecosystem",
+      "url": "https://github.com/GamaTriTunggal/gamavra-mcp"
+    },
+    {
+      "repo": "stackql/stackql-mcp-swift",
+      "stars": 0,
+      "description": "embedded StackQL MCP server for Swift/macOS",
+      "url": "https://github.com/stackql/stackql-mcp-swift"
+    },
+    {
+      "repo": "stackql/stackql-mcp-kotlin",
+      "stars": 0,
+      "description": "embedded StackQL MCP server for Kotlin/JVM",
+      "url": "https://github.com/stackql/stackql-mcp-kotlin"
+    },
+    {
+      "repo": "stackql/stackql-mcp-go",
+      "stars": 0,
+      "description": "embedded StackQL MCP server for Go",
+      "url": "https://github.com/stackql/stackql-mcp-go"
+    },
+    {
+      "repo": "j3bit/p4mcp-server-rs",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/j3bit/p4mcp-server-rs"
+    },
+    {
+      "repo": "fernando2dias/first-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/fernando2dias/first-mcp-server"
+    },
+    {
+      "repo": "yurilopes/pydoll-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/yurilopes/pydoll-mcp-server"
+    },
+    {
+      "repo": "lucidsoftware/lucid-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/lucidsoftware/lucid-mcp-server"
+    },
+    {
+      "repo": "gits5213/qa-ai-mcp-server-gits",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/gits5213/qa-ai-mcp-server-gits"
+    },
+    {
+      "repo": "mjanicki86/booking-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/mjanicki86/booking-mcp-server"
+    },
+    {
+      "repo": "lucasmetron/serverMCP",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/lucasmetron/serverMCP"
+    },
+    {
+      "repo": "TrustInfra/trustgate-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/TrustInfra/trustgate-mcp-server"
+    },
+    {
+      "repo": "RyanrealAF/BWB-MCP-SERVER",
+      "stars": 0,
+      "description": "Ff",
+      "url": "https://github.com/RyanrealAF/BWB-MCP-SERVER"
+    },
+    {
+      "repo": "aimedialab/risha-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/aimedialab/risha-mcp-server"
+    },
+    {
+      "repo": "kuthoor/commerce_mcp_server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/kuthoor/commerce_mcp_server"
+    },
+    {
+      "repo": "aditya29f70/MCP-Math-Server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/aditya29f70/MCP-Math-Server"
+    },
+    {
+      "repo": "hydrogenium-tri/img-mcp-server",
+      "stars": 0,
+      "description": "An image mcp server completed with go language",
+      "url": "https://github.com/hydrogenium-tri/img-mcp-server"
+    },
+    {
+      "repo": "ai-eifying/hermes-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/ai-eifying/hermes-mcp-server"
+    },
+    {
+      "repo": "Bibash77/FormAutomationMcpServer",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Bibash77/FormAutomationMcpServer"
+    },
+    {
+      "repo": "canonical/ros-mcp-server-snap",
+      "stars": 0,
+      "description": "The ros-mcp-server as a snap",
+      "url": "https://github.com/canonical/ros-mcp-server-snap"
+    },
+    {
+      "repo": "peergynt11-crypto/mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/peergynt11-crypto/mcp-server"
+    },
+    {
+      "repo": "maqa817/MCP_Server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/maqa817/MCP_Server"
+    },
+    {
+      "repo": "DhruvMakani/MCP-server-Lab",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/DhruvMakani/MCP-server-Lab"
+    },
+    {
+      "repo": "parag1912/embedded-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/parag1912/embedded-mcp-server"
+    },
+    {
+      "repo": "stackql/stackql-mcp-rs",
+      "stars": 0,
+      "description": "embedded StackQL MCP server for Rust",
+      "url": "https://github.com/stackql/stackql-mcp-rs"
+    },
+    {
+      "repo": "wropol/AllegroMCP",
+      "stars": 0,
+      "description": "Unofficial Allegro MCP Server",
+      "url": "https://github.com/wropol/AllegroMCP"
+    },
+    {
+      "repo": "mwattenberg/PowerScope_MCP",
+      "stars": 0,
+      "description": "Companion app for PowerScope MCP server. ",
+      "url": "https://github.com/mwattenberg/PowerScope_MCP"
+    },
+    {
+      "repo": "KilianSen/cware-hil-mcp",
+      "stars": 0,
+      "description": "Human in the Loop MCP Server",
+      "url": "https://github.com/KilianSen/cware-hil-mcp"
+    },
+    {
+      "repo": "samujjalm/portfolio-mcp-server",
+      "stars": 0,
+      "description": "MCP server to manage Portfolio and trade information",
+      "url": "https://github.com/samujjalm/portfolio-mcp-server"
+    },
+    {
+      "repo": "alexscespedes/mcp_server_bridge",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/alexscespedes/mcp_server_bridge"
+    },
+    {
+      "repo": "ruslan-zhukouski/AllegroMCP",
+      "stars": 0,
+      "description": "An unofficial Allegro MCP Server",
+      "url": "https://github.com/ruslan-zhukouski/AllegroMCP"
+    },
+    {
+      "repo": "AutomatAI/robotic-workflows-mcp-server",
+      "stars": 0,
+      "description": "MCP server for robotic workflows",
+      "url": "https://github.com/AutomatAI/robotic-workflows-mcp-server"
+    },
+    {
+      "repo": "jacklenzotti/cities-skylines-mcp",
+      "stars": 0,
+      "description": "MCP Server and Bridge for Cities Skylines",
+      "url": "https://github.com/jacklenzotti/cities-skylines-mcp"
+    },
+    {
+      "repo": "matheusgalvao1/travel-planner-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/matheusgalvao1/travel-planner-mcp-server"
+    },
+    {
+      "repo": "10xroadmap/laravel-mcp-server-tool-demo",
+      "stars": 0,
+      "description": "Demonstration of Creating MCP Tool using Laravel",
+      "url": "https://github.com/10xroadmap/laravel-mcp-server-tool-demo"
+    },
+    {
+      "repo": "Infomaniak/mcp-server-contact",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Infomaniak/mcp-server-contact"
+    },
+    {
+      "repo": "vslkumar/splunk-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/vslkumar/splunk-mcp-server"
+    },
+    {
+      "repo": "k-krawczyk/proxmox-mcp-server",
+      "stars": 0,
+      "description": "MCP server exposing Proxmox VE management as tools over stdio",
+      "url": "https://github.com/k-krawczyk/proxmox-mcp-server"
+    },
+    {
+      "repo": "rupinr/mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/rupinr/mcp-server"
+    },
+    {
+      "repo": "vliboras/analog-discovery-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/vliboras/analog-discovery-mcp-server"
+    },
+    {
+      "repo": "Gregarrific/ynab-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Gregarrific/ynab-mcp-server"
+    },
+    {
+      "repo": "Murugappankrishna/Spring-AI-MCP-Server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Murugappankrishna/Spring-AI-MCP-Server"
+    },
+    {
+      "repo": "ncee-dp-tech-sme/gcm-mcp-server",
+      "stars": 0,
+      "description": "gcm-mcp-server",
+      "url": "https://github.com/ncee-dp-tech-sme/gcm-mcp-server"
+    },
+    {
+      "repo": "aniket-limechat/waha-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/aniket-limechat/waha-mcp-server"
+    },
+    {
+      "repo": "lugsresdefala/mcp-server-builder",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/lugsresdefala/mcp-server-builder"
+    },
+    {
+      "repo": "Sayali467/MCP_Server-_Dlk",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Sayali467/MCP_Server-_Dlk"
+    },
+    {
+      "repo": "odirasamuel/sipap-serverlesshandler-mcp",
+      "stars": 0,
+      "description": "MCP server framework",
+      "url": "https://github.com/odirasamuel/sipap-serverlesshandler-mcp"
+    },
+    {
+      "repo": "skyber2016/central-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/skyber2016/central-mcp-server"
+    },
+    {
+      "repo": "Intuit-CA/quickbooks-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Intuit-CA/quickbooks-mcp-server"
+    },
+    {
+      "repo": "huyfm/vnpay-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/huyfm/vnpay-mcp-server"
+    },
+    {
+      "repo": "keremTheDev/geostorm-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/keremTheDev/geostorm-mcp-server"
+    },
+    {
+      "repo": "hetparmar30/Recipe-MCP-Server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/hetparmar30/Recipe-MCP-Server"
+    },
+    {
+      "repo": "ssatama/rescuedogs-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/ssatama/rescuedogs-mcp-server"
+    },
+    {
+      "repo": "sachinchoudhary12321/first_mcp_remote_server",
+      "stars": 0,
+      "description": "made a remote server for practice",
+      "url": "https://github.com/sachinchoudhary12321/first_mcp_remote_server"
+    },
+    {
+      "repo": "bharathmadhesh/healthcare_mcp_server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/bharathmadhesh/healthcare_mcp_server"
+    },
+    {
+      "repo": "JanZugic/mcp-servers",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/JanZugic/mcp-servers"
+    },
+    {
+      "repo": "ghratika/mcp-Server-Ghratika",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/ghratika/mcp-Server-Ghratika"
+    },
+    {
+      "repo": "Rohitb202/MCP-server",
+      "stars": 0,
+      "description": "Remote MCP server for the adding of two number and generate random number",
+      "url": "https://github.com/Rohitb202/MCP-server"
+    },
+    {
+      "repo": "jainlalit1993/mcp-server-assignment",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/jainlalit1993/mcp-server-assignment"
+    },
+    {
+      "repo": "saksham20189575/mcp-server-new",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/saksham20189575/mcp-server-new"
+    },
+    {
+      "repo": "Sowjanyakaki/MCP-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Sowjanyakaki/MCP-server"
+    },
+    {
+      "repo": "HelloWorld-Open/word-mcp-server",
+      "stars": 0,
+      "description": "MCP server for Microsoft Word document manipulation via COM automation (Node.js/TypeScript, Windows)",
+      "url": "https://github.com/HelloWorld-Open/word-mcp-server"
+    },
+    {
+      "repo": "gshikhar2021/template-mcp-server-golang",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/gshikhar2021/template-mcp-server-golang"
+    },
+    {
+      "repo": "kanadb004/expense-tracker-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/kanadb004/expense-tracker-mcp-server"
+    },
+    {
+      "repo": "shakilmunavary/mcpgateway-servers",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/shakilmunavary/mcpgateway-servers"
+    },
+    {
+      "repo": "blueskynoise/bouncer",
+      "stars": 0,
+      "description": "OPA for MCP Servers",
+      "url": "https://github.com/blueskynoise/bouncer"
+    },
+    {
+      "repo": "hearthewind/simple_mcp",
+      "stars": 0,
+      "description": "Skeleton to start implementing any MCP server in Python",
+      "url": "https://github.com/hearthewind/simple_mcp"
+    },
+    {
+      "repo": "supermotoo/snapdiff-drift-demo",
+      "stars": 0,
+      "description": "Demo with a few basic cases for catching UI pitfalls with snapdiff mcp server ",
+      "url": "https://github.com/supermotoo/snapdiff-drift-demo"
+    },
+    {
+      "repo": "ahmadfsbd/mcp-servers",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/ahmadfsbd/mcp-servers"
+    },
+    {
+      "repo": "PineconeLP/minecraft-bot-mcp",
+      "stars": 0,
+      "description": "An MCP server to create and control Minecraft bots via Mineflayer.",
+      "url": "https://github.com/PineconeLP/minecraft-bot-mcp"
+    },
+    {
+      "repo": "imanabu/pacsnode-mcp-py",
+      "stars": 0,
+      "description": "An MCP Server to drive pacsnode. Python based.",
+      "url": "https://github.com/imanabu/pacsnode-mcp-py"
+    },
+    {
+      "repo": "kevinthelago/dependency-graph-mcp-server",
+      "stars": 0,
+      "description": "# Dependency Graph MCP Server",
+      "url": "https://github.com/kevinthelago/dependency-graph-mcp-server"
+    },
+    {
+      "repo": "universokobana/kobana-mcp-servers",
+      "stars": 0,
+      "description": "MCP servers para a Kobana",
+      "url": "https://github.com/universokobana/kobana-mcp-servers"
+    },
+    {
+      "repo": "estrenuo/omnifocus-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/estrenuo/omnifocus-mcp-server"
+    },
+    {
+      "repo": "itsJakeChambers/mcp-servers",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/itsJakeChambers/mcp-servers"
+    },
+    {
+      "repo": "Andykaban/tg-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Andykaban/tg-mcp-server"
+    },
+    {
+      "repo": "Virendrakushwaha/airline-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Virendrakushwaha/airline-mcp-server"
+    },
+    {
+      "repo": "miriam315/teacher-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/miriam315/teacher-mcp-server"
+    },
+    {
+      "repo": "aysenurcftc/ibb_mcp_server_air_quality",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/aysenurcftc/ibb_mcp_server_air_quality"
+    },
+    {
+      "repo": "yv12/MCP--Server-Yash",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/yv12/MCP--Server-Yash"
+    },
+    {
+      "repo": "PAMARCHANA88/VCB-MCP-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/PAMARCHANA88/VCB-MCP-server"
+    },
+    {
+      "repo": "xiaqijun/aipy-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/xiaqijun/aipy-mcp-server"
+    },
+    {
+      "repo": "sshroot23cs/sshroot_mcp_servers",
+      "stars": 0,
+      "description": "sshroot_mcp_servers",
+      "url": "https://github.com/sshroot23cs/sshroot_mcp_servers"
+    },
+    {
+      "repo": "R-Vaishnav-Raj/lightweight-mcp-server-in-c",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/R-Vaishnav-Raj/lightweight-mcp-server-in-c"
+    },
+    {
+      "repo": "SachinMishra-ux/salary-prediction-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/SachinMishra-ux/salary-prediction-mcp-server"
+    },
+    {
+      "repo": "Deepan-CodeBuster/MCP-Server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Deepan-CodeBuster/MCP-Server"
+    },
+    {
+      "repo": "xunwenruo/mcp-zentao-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/xunwenruo/mcp-zentao-server"
+    },
+    {
+      "repo": "QA-Shivam/calculator-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/QA-Shivam/calculator-mcp-server"
+    },
+    {
+      "repo": "R-Vaishnav-Raj/hpe-lightweight-mcp-server-in-c",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/R-Vaishnav-Raj/hpe-lightweight-mcp-server-in-c"
+    },
+    {
+      "repo": "HimanshubhusanRath/ai_mcp_server_examples",
+      "stars": 0,
+      "description": "MCP Server examples",
+      "url": "https://github.com/HimanshubhusanRath/ai_mcp_server_examples"
+    },
+    {
+      "repo": "owncloud/ocis-mcp-server",
+      "stars": 0,
+      "description": "MCP server exposing ownCloud Infinite Scale (oCIS) as 80 AI-accessible tools",
+      "url": "https://github.com/owncloud/ocis-mcp-server"
     }
   ],
   "Database": [
@@ -74509,6 +77461,12 @@
       "stars": 77,
       "description": "A comprehensive Model Context Protocol (MCP) server providing advanced access to the ChEMBL chemical database.",
       "url": "https://github.com/Augmented-Nature/ChEMBL-MCP-Server"
+    },
+    {
+      "repo": "timescale/rsigma",
+      "stars": 75,
+      "description": "A complete Sigma detection toolkit: parser, linter, evaluator, correlation engine, conversion framework, streaming daemon, MCP and LSP servers :crab:",
+      "url": "https://github.com/timescale/rsigma"
     },
     {
       "repo": "wham/github-brain",
@@ -74997,6 +77955,12 @@
       "url": "https://github.com/DLTKShakunVohra/MCPServerForMSSQL"
     },
     {
+      "repo": "gntik-ai/falcone",
+      "stars": 4,
+      "description": "Self-hosted, multi-tenant Backend-as-a-Service for the AI era \u2014 Postgres, document & object storage, identity, serverless functions, event streaming, realtime, durable workflows, and MCP server hosting, all from a single Helm chart for Kubernetes/OpenShift.",
+      "url": "https://github.com/gntik-ai/falcone"
+    },
+    {
       "repo": "youngsu5582/mcp-server-mysql",
       "stars": 3,
       "description": "",
@@ -75091,6 +78055,12 @@
       "stars": 3,
       "description": "Rust foundation library for AI-native apps \u2014 16-provider catalog, async LLM client, MCP server, knowledge graph, local ONNX embedding (44 models), and safety utilities",
       "url": "https://github.com/epicsagas/llm-kernel"
+    },
+    {
+      "repo": "mariusei/file-scanner-mcp",
+      "stars": 3,
+      "description": "MCP server for code structure analysis across 20+ languages. Tree-sitter powered. Works with Claude Code and Claude Desktop.",
+      "url": "https://github.com/mariusei/file-scanner-mcp"
     },
     {
       "repo": "ibuuzm/Equity-Traders",
@@ -75601,6 +78571,18 @@
       "stars": 1,
       "description": "mcp conversational inputs & outputs supabase serv.",
       "url": "https://github.com/santisanti13/postgres-mcp-server"
+    },
+    {
+      "repo": "mambo-wang/CodingHub",
+      "stars": 1,
+      "description": "\u79bb\u7ebf\u90e8\u7f72\u4ec5\u4f9d\u8d56MySQL 8.0+\u548cJDK 17\u7684AI\u5de5\u5177\u53ca\u4f7f\u7528\u7ecf\u9a8c\u5206\u4eab\u7f51\u7ad9\uff0c\u7b80\u6d01\u5b89\u5168\uff0c\u9002\u7528\u4e8e\u4f01\u4e1a\u5185\u90e8\u5c24\u5176\u662f\u7f51\u7edc\u7ba1\u63a7\u4e25\u683c\u7684\u4f01\u4e8b\u4e1a\u5355\u4f4d\u4f7f\u7528\u3002\u63d0\u4f9bMCP Server\uff0c\u53ef\u4f7f\u7528\u4efb\u610f\u667a\u80fd\u4f53\u5bf9\u63a5\u8be5\u7f51\u7ad9\uff0c\u5b9e\u73b0\u4e00\u6b21\u914d\u7f6e\uff0c\u81ea\u52a8\u62c9\u53d6\u3002",
+      "url": "https://github.com/mambo-wang/CodingHub"
+    },
+    {
+      "repo": "MK-986123/server-memory",
+      "stars": 1,
+      "description": "Local-first MCP server for durable agent memory",
+      "url": "https://github.com/MK-986123/server-memory"
     },
     {
       "repo": "sarmadparvez/postgresql-mcp",
@@ -77443,6 +80425,108 @@
       "stars": 0,
       "description": "MCP server over PostgreSQL with OIDC auth (Keycloak), role-based PII masking, query guardrails, and full audit trail.",
       "url": "https://github.com/Suryals/mcp-postgres-oidc"
+    },
+    {
+      "repo": "moaaz01/mcp-sqlite-server",
+      "stars": 0,
+      "description": "SQLite database MCP server - query, manage, and explore SQLite databases through the Model Context Protocol. Run SQL, list tables, get schemas from any AI client.",
+      "url": "https://github.com/moaaz01/mcp-sqlite-server"
+    },
+    {
+      "repo": "meiseayoung/er-diagram-mcp",
+      "stars": 0,
+      "description": "stdio MCP server for AI-assisted database schema design.",
+      "url": "https://github.com/meiseayoung/er-diagram-mcp"
+    },
+    {
+      "repo": "ashmitrrr/dsa-tracker-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/ashmitrrr/dsa-tracker-mcp-server"
+    },
+    {
+      "repo": "steve55808/open-brain",
+      "stars": 0,
+      "description": "Open Brain MCP server \u2014 a mod of OB1 with Microsoft ToDo sync and thought CRUD",
+      "url": "https://github.com/steve55808/open-brain"
+    },
+    {
+      "repo": "jrybacek/windows-sticky-notes-mcp",
+      "stars": 0,
+      "description": "Read-only MCP server that exposes your real Windows Sticky Notes (the live plum.sqlite store) to Codex or Claude desktop and other MCP clients.",
+      "url": "https://github.com/jrybacek/windows-sticky-notes-mcp"
+    },
+    {
+      "repo": "davraf-amuro/dr-mcp-dbschema",
+      "stars": 0,
+      "description": "mcp per recuperare uno schema da microsoft sql server",
+      "url": "https://github.com/davraf-amuro/dr-mcp-dbschema"
+    },
+    {
+      "repo": "cyanheads/sanctions-screening-mcp-server",
+      "stars": 0,
+      "description": "Screen names against the consolidated OFAC, EU, UK, and UN sanctions lists and resolve legal entities against GLEIF, fuzzy-matched offline over a local SQLite + FTS5 mirror. A screening aid, not a compliance determination. MCP server.",
+      "url": "https://github.com/cyanheads/sanctions-screening-mcp-server"
+    },
+    {
+      "repo": "cyanheads/faa-aircraft-registry-mcp-server",
+      "stars": 0,
+      "description": "Offline, keyless MCP server for the US civil aircraft registry \u2014 decode N-numbers to aircraft, engine, status, and owner over an embedded SQLite + FTS5 mirror of the FAA Releasable Aircraft Database.",
+      "url": "https://github.com/cyanheads/faa-aircraft-registry-mcp-server"
+    },
+    {
+      "repo": "cyanheads/faostat-mcp-server",
+      "stars": 0,
+      "description": "UN FAOSTAT global food & agriculture statistics over a local SQLite mirror, via MCP.",
+      "url": "https://github.com/cyanheads/faostat-mcp-server"
+    },
+    {
+      "repo": "denisdasilvarocha/icloud-mcp-server",
+      "stars": 0,
+      "description": "Local-first FastMCP server for iCloud Mail, Calendar, and Contacts: SQLite cache, unified search, smart sync, dashboard tools, and safe calendar writes.",
+      "url": "https://github.com/denisdasilvarocha/icloud-mcp-server"
+    },
+    {
+      "repo": "affanshahid/sql-mcp-server",
+      "stars": 0,
+      "description": "An MCP server for connecting to and running queries on SQL databases. Supports built-in SSH tunneling.",
+      "url": "https://github.com/affanshahid/sql-mcp-server"
+    },
+    {
+      "repo": "jacobNar/libre-office-mcp",
+      "stars": 0,
+      "description": "An MCP server with tools to create documents with Libre Office. Currently supports Libre Office Draw",
+      "url": "https://github.com/jacobNar/libre-office-mcp"
+    },
+    {
+      "repo": "TimothyReynoso/lumnix-saas",
+      "stars": 0,
+      "description": "AI e-commerce research SaaS \u2014 Next.js, Supabase, Stripe billing, 3-tier pricing, RLS security, MCP server with 19 tools",
+      "url": "https://github.com/TimothyReynoso/lumnix-saas"
+    },
+    {
+      "repo": "ilyafainberg/TotalRecall",
+      "stars": 0,
+      "description": "Local, searchable, encrypted index of everything that happens on your computer. 100% on-device, no AI, no telemetry, fully open source. *Optional* local MCP server to query captured data with agents .",
+      "url": "https://github.com/ilyafainberg/TotalRecall"
+    },
+    {
+      "repo": "qiebo/stock-review",
+      "stars": 0,
+      "description": "A\u80a1\u590d\u76d8\u684c\u9762\u5de5\u5177 - Electron + React + TypeScript + SQLite\uff0c\u5e26 MCP server",
+      "url": "https://github.com/qiebo/stock-review"
+    },
+    {
+      "repo": "josephinewoodw/mcp-sql-analyst",
+      "stars": 0,
+      "description": "MCP server giving an LLM safe, read-only, audited access to a SQL database",
+      "url": "https://github.com/josephinewoodw/mcp-sql-analyst"
+    },
+    {
+      "repo": "mayank-nayak/mcp-sports-server",
+      "stars": 0,
+      "description": "MCP server exposing a real 63K-game NBA dataset to LLMs via read-only SQL tools",
+      "url": "https://github.com/mayank-nayak/mcp-sports-server"
     }
   ],
   "Security": [
@@ -77765,6 +80849,12 @@
       "url": "https://github.com/trailofbits/slither-mcp"
     },
     {
+      "repo": "jordanburke/microsoft-todo-mcp-server",
+      "stars": 79,
+      "description": "",
+      "url": "https://github.com/jordanburke/microsoft-todo-mcp-server"
+    },
+    {
       "repo": "modelcontextprotocol/ext-auth",
       "stars": 64,
       "description": "Extensions to authorization",
@@ -77843,6 +80933,12 @@
       "url": "https://github.com/rianvdm/lastfm-mcp"
     },
     {
+      "repo": "MCP-Audit/MCTS",
+      "stars": 27,
+      "description": "MCTS (Model Context Threat Scanner) is a local-first security scanner for MCP servers -- static and live tool discovery, multiple analyzers, auditable risk scores, and JSON, SARIF, and HTML output. For authors and platform teams; CI-ready, no cloud API.",
+      "url": "https://github.com/MCP-Audit/MCTS"
+    },
+    {
       "repo": "tuannvm/oauth-mcp-proxy",
       "stars": 26,
       "description": "OAuth 2.1 authentication library for Go MCP servers",
@@ -77859,6 +80955,12 @@
       "stars": 26,
       "description": "MCP Auth via Reverse Proxy ",
       "url": "https://github.com/famma-ai/mcp-auth"
+    },
+    {
+      "repo": "tyxak/remotepower",
+      "stars": 23,
+      "description": "Server management dashboard, CVE-scanner, patch-mangement, SNMP-polling, monitoring, MCP-server, drift-detection, Proxmox. Basically a swiss-knife! AIO.",
+      "url": "https://github.com/tyxak/remotepower"
     },
     {
       "repo": "shuymn/gh-mcp",
@@ -78173,6 +81275,12 @@
       "url": "https://github.com/autodesk-platform-services/aps-mcp-server-python"
     },
     {
+      "repo": "AhmedLaminou/windows-mcp-server",
+      "stars": 3,
+      "description": "Windows MCP server with 96 local tools for task management, diagnostics, cleanup, hardware/GPU, security, updates, services, networking, Registry, PowerShell, WSL/Hyper-V, printers, and dev workflows. Includes read-only reports, dry-run safeguards, and safer Recycle Bin cleanup",
+      "url": "https://github.com/AhmedLaminou/windows-mcp-server"
+    },
+    {
       "repo": "nunaszek/mcp-streamable-http-server",
       "stars": 2,
       "description": "mcp-streamable-http-server provides a comprehensive development template for building StreamableHttp services with flexible authentication, dynamic service registration, customizable middleware, and easy tool configuration via YAML.",
@@ -78291,6 +81399,12 @@
       "stars": 2,
       "description": "CI-first MCP supply-chain integrity gate + runtime tool-result inspection. Pin an MCP server's tool surface, fail CI on drift, and block poisoned tool results (ANSI/secret-echo/exfil) at runtime.",
       "url": "https://github.com/ernestprovo23/mcp-warden"
+    },
+    {
+      "repo": "dalberto/mcp-ferry",
+      "stars": 2,
+      "description": "Expose local stdio MCP servers at a public, authenticated HTTPS URL via Cloudflare Tunnel + Access Managed OAuth. One tunnel fronts many MCPs.",
+      "url": "https://github.com/dalberto/mcp-ferry"
     },
     {
       "repo": "Betoche57/mcp-firewall",
@@ -78597,6 +81711,18 @@
       "stars": 1,
       "description": "KuCoin Futures MCP Server with Header Authentication",
       "url": "https://github.com/mbrio089/kucoin-mcp-server"
+    },
+    {
+      "repo": "sheepit-ai/sheepit-mcp",
+      "stars": 1,
+      "description": "Sheepit MCP server \u2014 Claude / Cursor / any MCP client drives your Sheepit project (campaigns, flags, experiments, dashboards) from a chat",
+      "url": "https://github.com/sheepit-ai/sheepit-mcp"
+    },
+    {
+      "repo": "joshuaruppe/mcpdx",
+      "stars": 1,
+      "description": "Zero-dependency toolkit for authorized security assessment of Model Context Protocol (MCP) servers: enumerate the attack surface, run passive static audits, and opt-in fuzz tool inputs. JSON/Markdown/SARIF reports. ",
+      "url": "https://github.com/joshuaruppe/mcpdx"
     },
     {
       "repo": "assopollaccio89/personal-mcp",
@@ -80439,6 +83565,126 @@
       "stars": 0,
       "description": "self-hosted MCP server for authenticating with Gmail, gcal, etc...",
       "url": "https://github.com/kpsuperplane/google-mcp-server"
+    },
+    {
+      "repo": "Yarovinsky/gmail-mcp-server",
+      "stars": 0,
+      "description": "A Model Context Protocol (MCP) server for Gmail with configurable OAuth scopes, message search, email reading, labels, drafts, and attachment download support.",
+      "url": "https://github.com/Yarovinsky/gmail-mcp-server"
+    },
+    {
+      "repo": "Avicennasis/porkbun-mcp-server",
+      "stars": 0,
+      "description": "Model Context Protocol server for Porkbun's API v3 \u2014 domains, DNS, DNSSEC, SSL with pluggable audit-log emit on every mutation",
+      "url": "https://github.com/Avicennasis/porkbun-mcp-server"
+    },
+    {
+      "repo": "flint-studios/remote-mcp-server-authless",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/flint-studios/remote-mcp-server-authless"
+    },
+    {
+      "repo": "AviLewis/mcp-security-workshop",
+      "stars": 0,
+      "description": "Hands-on MCP servers & security workshop: build an MCP server by hand, expose it on the network, then attack and harden it (CTF, fake secrets only).",
+      "url": "https://github.com/AviLewis/mcp-security-workshop"
+    },
+    {
+      "repo": "pickjonathan/mcp-gateway-w",
+      "stars": 0,
+      "description": "Multi-tenant MCP gateway runtime \u2014 OAuth-protected per-org MCP endpoint with remote + sandboxed stdio servers. Docs: https://pickjonathan.github.io/mcp-gateway-w/",
+      "url": "https://github.com/pickjonathan/mcp-gateway-w"
+    },
+    {
+      "repo": "leonard-cs/mcp-auth-bridge",
+      "stars": 0,
+      "description": "A FastMCP proxy that wraps a header-auth-only remote MCP server, exposing it via OAuth or no-auth for clients that don't support header authentication.",
+      "url": "https://github.com/leonard-cs/mcp-auth-bridge"
+    },
+    {
+      "repo": "matssun/mcps",
+      "stars": 0,
+      "description": "Apache-2.0 security extension proposal for the Model Context Protocol (MCP). Object-level signing, freshness/replay protection, mTLS transport, delegated authorization, sidecar protection of ordinary MCP servers. Rust workspace; published security audits under docs/security/.",
+      "url": "https://github.com/matssun/mcps"
+    },
+    {
+      "repo": "YousefNabil-SOC/doo-contact-sync",
+      "stars": 0,
+      "description": "Track C HubSpot two-way contact sync connector + MCP server. OAuth 2.0, signature-verified webhooks, sync ledger.",
+      "url": "https://github.com/YousefNabil-SOC/doo-contact-sync"
+    },
+    {
+      "repo": "AKR9634/Recepie_Heirloom_Vault_MCP_Server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/AKR9634/Recepie_Heirloom_Vault_MCP_Server"
+    },
+    {
+      "repo": "cyanheads/attack-surface-mcp-server",
+      "stars": 0,
+      "description": "Passive external attack-surface mapping via MCP: Certificate Transparency subdomains, DNS, TLS, HTTP posture, RDAP/WHOIS, and Shodan. Authorized, defensive use only.",
+      "url": "https://github.com/cyanheads/attack-surface-mcp-server"
+    },
+    {
+      "repo": "joethefisher/outreach-api-mcp",
+      "stars": 0,
+      "description": "Independent MCP server for the Outreach v2 REST API \u2014 prospects, accounts, sequences, templates, snippets, tasks, mailings, audit logs.",
+      "url": "https://github.com/joethefisher/outreach-api-mcp"
+    },
+    {
+      "repo": "sailingnaturali/colregs-mcp",
+      "stars": 0,
+      "description": "MCP server for the navigation rules: queryable rule text plus deterministic required-lights/shapes and compliance checking",
+      "url": "https://github.com/sailingnaturali/colregs-mcp"
+    },
+    {
+      "repo": "AB94-nextleap/AI-Agent-MCP-Server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/AB94-nextleap/AI-Agent-MCP-Server"
+    },
+    {
+      "repo": "JoeLuker/foundry-mcp-server",
+      "stars": 0,
+      "description": "MCP server for Foundry VTT v13 \u2014 direct socket.io connection for document CRUD, embedded documents, chat, dice rolling, and file uploads.",
+      "url": "https://github.com/JoeLuker/foundry-mcp-server"
+    },
+    {
+      "repo": "nouchix/PQC-Khepra-MCP",
+      "stars": 0,
+      "description": "KHEPRA MCP Server \u2014 Sovereign compliance engine with 36,195 STIG/CCI/NIST/CMMC mappings. Air-gappable. Zero token costs. Flat annual licensing. Run ert_scan \u2192 get a Godfather Report with dollar-denominated business impact. The only MCP compliance server that runs on your metal.",
+      "url": "https://github.com/nouchix/PQC-Khepra-MCP"
+    },
+    {
+      "repo": "Aarekaz/raindrop-mcp",
+      "stars": 0,
+      "description": "MCP server for Raindrop.io bookmarks, collections, tags, and highlights over Streamable HTTP.",
+      "url": "https://github.com/Aarekaz/raindrop-mcp"
+    },
+    {
+      "repo": "badarosama/mcp-guard",
+      "stars": 0,
+      "description": "Policy-based authorization middleware for MCP servers. Role-based tool filtering, call enforcement, and audit logging.",
+      "url": "https://github.com/badarosama/mcp-guard"
+    },
+    {
+      "repo": "frankdekker/git-mcp-server",
+      "stars": 0,
+      "description": "MCP server to isolate git clone, push and other authenticated actions",
+      "url": "https://github.com/frankdekker/git-mcp-server"
+    },
+    {
+      "repo": "ianball99/remote-mcp-server-authless",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/ianball99/remote-mcp-server-authless"
+    },
+    {
+      "repo": "h-seo-n/hscan-mcp-server",
+      "stars": 0,
+      "description": "healthhub\uc758 HScan \ucc57\ubd07 \ubc84\uc804\uc758 MCP \uc11c\ubc84",
+      "url": "https://github.com/h-seo-n/hscan-mcp-server"
     }
   ],
   "DevOps": [
@@ -81431,6 +84677,12 @@
       "stars": 1,
       "description": "MCP (Model Context Protocol) server for Bigeye data quality monitoring",
       "url": "https://github.com/bigeyedata/bigeye-mcp-server"
+    },
+    {
+      "repo": "tatavarthitarun/nowsecure-mcp-server",
+      "stars": 1,
+      "description": "MCP server for NowSecure Platform: pull remediation findings and generate clean PDF reports, bypassing the broken UI report renderer.",
+      "url": "https://github.com/tatavarthitarun/nowsecure-mcp-server"
     },
     {
       "repo": "mamaamacrivi/docker-mcp-tutorial",
@@ -82475,6 +85727,66 @@
       "stars": 0,
       "description": "",
       "url": "https://github.com/lucee/extension-mcp-server-docker"
+    },
+    {
+      "repo": "SidneyBissoli/senado-br-mcp-cloudflare",
+      "stars": 0,
+      "description": "MCP server for Brazilian Senate open data running on Cloudflare Workers (37 tools, Streamable HTTP transport)",
+      "url": "https://github.com/SidneyBissoli/senado-br-mcp-cloudflare"
+    },
+    {
+      "repo": "moaaz01/mcp-multi-server-gateway",
+      "stars": 0,
+      "description": "Deploy multiple MCP servers behind a single FastAPI gateway with Streamable HTTP transport. Production-ready setup with Docker, health checks, and monitoring.",
+      "url": "https://github.com/moaaz01/mcp-multi-server-gateway"
+    },
+    {
+      "repo": "PostOakLabs/apexlogics-mcp-worker",
+      "stars": 0,
+      "description": "ApexLogics MCP Server \u2014 Cloudflare Worker",
+      "url": "https://github.com/PostOakLabs/apexlogics-mcp-worker"
+    },
+    {
+      "repo": "ehm-93/audio-mcp",
+      "stars": 0,
+      "description": "mixdown: MCP server that lets a language model design, analyze, and export game sound effects as deterministic synthesis recipes",
+      "url": "https://github.com/ehm-93/audio-mcp"
+    },
+    {
+      "repo": "pgmac/nagios-mcp-chart",
+      "stars": 0,
+      "description": "Docker and Helm chart for the nagios-mcp MCP server on pvek8s",
+      "url": "https://github.com/pgmac/nagios-mcp-chart"
+    },
+    {
+      "repo": "danipradas/mcp-server-python-mqclve6v",
+      "stars": 0,
+      "description": "Created from render-examples/mcp-server-python template",
+      "url": "https://github.com/danipradas/mcp-server-python-mqclve6v"
+    },
+    {
+      "repo": "tio-hashicorp/demo-terraform-mcp-server",
+      "stars": 0,
+      "description": "base terraform config for terraform-mcp-server workflow",
+      "url": "https://github.com/tio-hashicorp/demo-terraform-mcp-server"
+    },
+    {
+      "repo": "luisitoys12/azuracast-mcp-fly",
+      "stars": 0,
+      "description": "MCP Server para AzuraCast deployado en Fly.io - Streamable HTTP + Docker",
+      "url": "https://github.com/luisitoys12/azuracast-mcp-fly"
+    },
+    {
+      "repo": "kirtious/mcp-server-functions",
+      "stars": 0,
+      "description": "Serverless Model Context Protocol (MCP) server architecture built with Azure Functions for local tool triggering and data payload schema processing.",
+      "url": "https://github.com/kirtious/mcp-server-functions"
+    },
+    {
+      "repo": "astrojuanlu/gha-downloader",
+      "stars": 0,
+      "description": "CLI and MCP server to download logs and artifacts from GitHub Actions runs for offline inspection",
+      "url": "https://github.com/astrojuanlu/gha-downloader"
     }
   ],
   "Data/Analytics": [
@@ -82863,6 +86175,12 @@
       "url": "https://github.com/0xArchiveIO/0xarchive-mcp"
     },
     {
+      "repo": "digitalXperiments/fluxito",
+      "stars": 5,
+      "description": "Fluxito is an open-source MCP server and web platform that bridges MCP clients with 15 marketing and analytics platforms. \u2502 It handles the full lifecycle \u2014 Solution Design References, tag manager implementation, audits, cross-platform analysis, native dashboards, scheduled reports, and automations - all through natural language.",
+      "url": "https://github.com/digitalXperiments/fluxito"
+    },
+    {
       "repo": "chrisbrooksbank-parliament/uk-parliament-mcp-lab",
       "stars": 4,
       "description": "parliament open data MCP server. (This repository is no longer actively maintained. Development continued in a fork which contains major improvements and ongoing updates: )",
@@ -82897,6 +86215,12 @@
       "stars": 4,
       "description": "MCP server for the NASA Astrophysics Data System (ADS)",
       "url": "https://github.com/cbyrohl/mcp-server-ads"
+    },
+    {
+      "repo": "CharlesCreativeContent/python-stock-mcp-server",
+      "stars": 4,
+      "description": "Python mcp server that server yesterdays stock data",
+      "url": "https://github.com/CharlesCreativeContent/python-stock-mcp-server"
     },
     {
       "repo": "kludgeworks/mcp-server-rdf",
@@ -83197,6 +86521,12 @@
       "stars": 1,
       "description": "Read-only MCP server for the Africa Multiple Cluster research data (amira dashboard): 18 tools, offline-capable bundled snapshot, citable dashboard links.",
       "url": "https://github.com/AM-Digital-Research-Environment/amira-mcp-server"
+    },
+    {
+      "repo": "yaoyuansh/excel-mcp-server",
+      "stars": 1,
+      "description": "MCP server for live Microsoft Excel automation via Windows COM API. 90+ operations: read, write, format, conditional formatting, charts, tables, shapes, page layout, sheet management. Works directly on your running Excel \u2014 no import/export needed.",
+      "url": "https://github.com/yaoyuansh/excel-mcp-server"
     },
     {
       "repo": "meltforce/FreeReps",
@@ -83995,6 +87325,42 @@
       "stars": 0,
       "description": "Self-contained golf-data skill: pull Arccos/GHIN/18Birdies (login, no DevTools), render strokes-gained report + satellite shot map + PDF; local MCP server for Claude Desktop/Cowork.",
       "url": "https://github.com/chrisdecali/golf-reports"
+    },
+    {
+      "repo": "joeyen-atscale/mqo-demo",
+      "stars": 0,
+      "description": "Ask a plain-English BI question, get a governed Vega-Lite chart \u2014 Claude + AtScale semantic layer + mqo-mcp-server",
+      "url": "https://github.com/joeyen-atscale/mqo-demo"
+    },
+    {
+      "repo": "gnosischain/cerebro-mcp",
+      "stars": 0,
+      "description": "MCP server for cerebro",
+      "url": "https://github.com/gnosischain/cerebro-mcp"
+    },
+    {
+      "repo": "dbru540/powerbi-mcp-designer",
+      "stars": 0,
+      "description": "Local MCP server for Power BI PBIP/PBIR/TMDL modeling and report design automation",
+      "url": "https://github.com/dbru540/powerbi-mcp-designer"
+    },
+    {
+      "repo": "cyanheads/coingecko-mcp-server",
+      "stars": 0,
+      "description": "Market data for 15,000+ cryptocurrencies \u2014 prices, history, trends, and deep coin metadata via CoinGecko.",
+      "url": "https://github.com/cyanheads/coingecko-mcp-server"
+    },
+    {
+      "repo": "Topolo98/powerbi-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/Topolo98/powerbi-mcp-server"
+    },
+    {
+      "repo": "justingreenwald8/guesty-mcp-server-dashboard",
+      "stars": 0,
+      "description": "Interactive luxury dashboard simulation for Justin Greenwald at The Surf Lodge.",
+      "url": "https://github.com/justingreenwald8/guesty-mcp-server-dashboard"
     }
   ],
   "File System": [
@@ -84317,6 +87683,12 @@
       "url": "https://github.com/YuriyEnshin/ConfluenceImportExport"
     },
     {
+      "repo": "Infomaniak/mcp-server-kdrive",
+      "stars": 5,
+      "description": "",
+      "url": "https://github.com/Infomaniak/mcp-server-kdrive"
+    },
+    {
       "repo": "ecator/cs-office-mcp-server",
       "stars": 4,
       "description": "The MCP Server for operating Office files such as Excel,World,PowerPoint,Outlook",
@@ -84561,6 +87933,12 @@
       "stars": 1,
       "description": "AI toolkit server: Copilot native Claude Code bridge with full bi-directional integration, Engram for AI memory, Code-base graph and memory, analytics, command line token savings hook, filesystem mcp.",
       "url": "https://github.com/Installation-0/installation0"
+    },
+    {
+      "repo": "ewanc26/atproto-mcp-server",
+      "stars": 1,
+      "description": "An AT Protocol MCP server for Bluesky and decentralized social web interactions.",
+      "url": "https://github.com/ewanc26/atproto-mcp-server"
     },
     {
       "repo": "vquanghuy/local-rfc",
@@ -85287,6 +88665,30 @@
       "stars": 0,
       "description": "Reference MCP server for the Tezit Protocol -- metadata, access control, and storage orchestration",
       "url": "https://github.com/tezit-protocol/mcp-server"
+    },
+    {
+      "repo": "moaaz01/mcp-file-system-server",
+      "stars": 0,
+      "description": "Secure file system MCP server with sandbox boundaries. Read, write, search, and manage files through the Model Context Protocol with path isolation and security controls.",
+      "url": "https://github.com/moaaz01/mcp-file-system-server"
+    },
+    {
+      "repo": "UnitVectorY-Labs/mcp-vertex-search-snippets",
+      "stars": 0,
+      "description": "A lightweight MCP server that integrates with Vertex AI Search to retrieve configurable snippets and extractive segments for document discovery.",
+      "url": "https://github.com/UnitVectorY-Labs/mcp-vertex-search-snippets"
+    },
+    {
+      "repo": "cygnusyang/omniplan-mcp",
+      "stars": 0,
+      "description": "MCP server for reading OmniPlan (.oplx) and Microsoft Project (.mpp) schedule files",
+      "url": "https://github.com/cygnusyang/omniplan-mcp"
+    },
+    {
+      "repo": "pcfreak30/agents-fileshare-mcp-server",
+      "stars": 0,
+      "description": "",
+      "url": "https://github.com/pcfreak30/agents-fileshare-mcp-server"
     }
   ],
   "Search": [
@@ -86897,6 +90299,30 @@
       "stars": 0,
       "description": "An MCP server for NCBI Datasets command line tools which allows for the searching and fetching of NCBI Taxonomy, Gene, Genome, and Viral data.  Note: this project is not affiliated with NCBI or the NCBI Datasets team.",
       "url": "https://github.com/syntheticgio/ncbi-datasets-mcp-server"
+    },
+    {
+      "repo": "benthomasson/expert-mcp-server",
+      "stars": 0,
+      "description": "MCP server for expert-service knowledge bases",
+      "url": "https://github.com/benthomasson/expert-mcp-server"
+    },
+    {
+      "repo": "brunowinter8192/searxng-cli",
+      "stars": 0,
+      "description": "Web search and URL scraping MCP server for Claude Code \u2014 SearXNG integration with Crawl4AI site crawler (slash command)",
+      "url": "https://github.com/brunowinter8192/searxng-cli"
+    },
+    {
+      "repo": "cyanheads/ourairports-mcp-server",
+      "stars": 0,
+      "description": "Offline MCP server for global aviation reference \u2014 resolve airport codes (IATA/ICAO/GPS/local), search airports, find the nearest by coordinate, and look up runways, navaids, and radio frequencies from the bundled public-domain OurAirports dataset. STDIO or Streamable HTTP.",
+      "url": "https://github.com/cyanheads/ourairports-mcp-server"
+    },
+    {
+      "repo": "sednalabs/google-search-console-mcp",
+      "stars": 0,
+      "description": "Lightweight Rust MCP server for Google Search Console",
+      "url": "https://github.com/sednalabs/google-search-console-mcp"
     }
   ]
 }
