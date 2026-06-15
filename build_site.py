@@ -2280,6 +2280,7 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/mcp-scorecard.html")
     urls.append(f"{SITE_URL}/fd-calculator/")
     urls.append(f"{SITE_URL}/inhand-salary-calculator/")
+    urls.append(f"{SITE_URL}/sukanya-samriddhi-calculator/")
 
     # Blog: index + every post (md-generated and orphan HTML) — previously missing,
     # so ~70 posts were unreachable via sitemap.
