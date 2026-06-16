@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datasets — Prediction-Market &amp; MCP Data | Protodex</title>
+    <meta name="description" content="Downloadable datasets from Protodex: Polymarket historical price &amp; orderbook snapshots and prediction-market signal data. 15-minute resolution, CSV + free samples.">
+    <meta property="og:title" content="Datasets — Prediction-Market &amp; MCP Data | Protodex">
+    <meta property="og:description" content="Downloadable datasets from Protodex: Polymarket historical price &amp; orderbook snapshots and prediction-market signal data.">
+    <meta property="og:url" content="https://protodex.io/datasets/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Protodex">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Datasets — Prediction-Market &amp; MCP Data | Protodex">
+    <meta name="twitter:description" content="Downloadable datasets from Protodex: Polymarket historical price &amp; orderbook snapshots and prediction-market signal data.">
+    <link rel="canonical" href="https://protodex.io/datasets/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Protodex Datasets",
+      "url": "https://protodex.io/datasets/",
+      "description": "Downloadable prediction-market and MCP datasets from Protodex.",
+      "hasPart": [
+        {
+          "@type": "Dataset",
+          "name": "Polymarket Historical Prices",
+          "url": "https://protodex.io/datasets/polymarket-historical.html",
+          "description": "15-minute price and orderbook snapshots across Polymarket prediction markets.",
+          "license": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ]
+    }
+    </script>
+    <style>
+:root {
+    --bg: #06060a;
+    --bg-card: #0f0f14;
+    --bg-card-hover: #16161d;
+    --border: #1e1e2a;
+    --border-hover: #2d2d3f;
+    --text: #f0f0f5;
+    --text-muted: #8888a0;
+    --text-dim: #55556a;
+    --accent: #2DD9E0;
+    --accent-hover: #1FC2C9;
+    --accent-glow: rgba(45, 217, 224, 0.15);
+    --accent-soft: rgba(45, 217, 224, 0.06);
+    --accent2: #7B61FF;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    --radius: 10px;
+    --radius-lg: 16px;
+    --max-w: 1100px;
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,0.5);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); }
+.wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+header.site {
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+}
+header.site .wrap { display: flex; align-items: center; gap: 12px; }
+header.site .logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
+header.site nav { margin-left: auto; display: flex; gap: 22px; font-size: 0.9rem; }
+header.site nav a { color: var(--text-muted); font-weight: 500; }
+header.site nav a:hover { color: var(--text); }
+.hero { padding: 72px 0 40px; text-align: center; }
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    background: linear-gradient(120deg, var(--text), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 640px; margin: 18px auto 0; }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+    padding: 24px 0 80px;
+}
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+.card .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-glow);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-bottom: 14px;
+    align-self: flex-start;
+}
+.card h2 { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; }
+.card p { color: var(--text-muted); margin: 10px 0 18px; font-size: 0.95rem; }
+.card .stats { display: flex; gap: 18px; margin-bottom: 20px; flex-wrap: wrap; }
+.card .stat .num { font-family: var(--mono); font-weight: 600; color: var(--text); }
+.card .stat .lbl { display: block; font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+.card .cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #06060a;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 11px 18px;
+    border-radius: var(--radius);
+    align-self: flex-start;
+    transition: background 0.18s ease;
+}
+.card .cta:hover { background: var(--accent-hover); color: #06060a; }
+.card.soon { opacity: 0.7; }
+.card.soon .cta { background: transparent; color: var(--text-muted); border: 1px solid var(--border); cursor: default; }
+footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text-dim); font-size: 0.85rem; text-align: center; }
+    </style>
+</head>
+<body>
+    <header class="site">
+        <div class="wrap">
+            <span class="logo">⚡ Protodex</span>
+            <nav>
+                <a href="https://protodex.io/">MCP Directory</a>
+                <a href="https://protodex.io/datasets/">Datasets</a>
+                <a href="https://protodex.io/blog/">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <section class="hero">
+            <h1>Datasets</h1>
+            <p>Clean, downloadable data from the prediction-market and MCP ecosystem. 15-minute resolution, CSV format, free samples on every set.</p>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <span class="tag">Prediction Markets</span>
+                <h2>Polymarket Historical Prices</h2>
+                <p>15-minute price &amp; orderbook snapshots across Polymarket prediction markets. The full history behind the crash-recovery and calibration studies.</p>
+                <div class="stats">
+                    <div class="stat"><span class="num">18.5M+</span><span class="lbl">Price snapshots</span></div>
+                    <div class="stat"><span class="num">18,400+</span><span class="lbl">Markets</span></div>
+                    <div class="stat"><span class="num">15-min</span><span class="lbl">Resolution</span></div>
+                </div>
+                <a class="cta" href="https://protodex.io/datasets/polymarket-historical.html">View dataset →</a>
+            </article>
+
+            <article class="card soon">
+                <span class="tag">Crypto Signals</span>
+                <h2>Crypto Cross-Signal Dataset</h2>
+                <p>BTC/ETH/SOL spot moves aligned with Polymarket crypto-probability snapshots — for cross-asset signal research.</p>
+                <div class="stats">
+                    <div class="stat"><span class="num">Hugging Face</span><span class="lbl">Hosted</span></div>
+                    <div class="stat"><span class="num">CC-BY-4.0</span><span class="lbl">License</span></div>
+                </div>
+                <a class="cta" href="https://huggingface.co/datasets/manja316/crypto-prediction-market-signals">View on Hugging Face →</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">Protodex · the largest index of MCP servers · datasets refreshed from a 24/7 collection pipeline</div>
+    </footer>
+
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</body>
+</html>

@@ -2278,6 +2278,7 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/categories.html")
     urls.append(f"{SITE_URL}/submit.html")
     urls.append(f"{SITE_URL}/security.html")
+    urls.append(f"{SITE_URL}/datasets/")
     urls.append(f"{SITE_URL}{DATASET_PATH}")
     urls.append(f"{SITE_URL}/build.html")
     urls.append(f"{SITE_URL}/mcp-quickref.html")
