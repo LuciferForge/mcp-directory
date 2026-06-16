@@ -193,7 +193,7 @@ def cat_icon_svg(cat_name, size=26):
     """Return an inline Lucide SVG for a category, stroked in its brand color."""
     meta = CATEGORY_META.get(cat_name, CATEGORY_META["Other"])
     paths = CATEGORY_SVG.get(cat_name, CATEGORY_SVG["Other"])
-    color = meta.get("color", "#00d4aa")
+    color = meta.get("color", "#2DD9E0")
     return (f'<svg width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" '
             f'stroke="{color}" stroke-width="2" stroke-linecap="round" '
             f'stroke-linejoin="round" aria-hidden="true">{paths}</svg>')
@@ -272,12 +272,12 @@ CSS = """
     --text: #f0f0f5;
     --text-muted: #8888a0;
     --text-dim: #55556a;
-    --accent: #00d4aa;
-    --accent-hover: #00b894;
-    --accent-glow: rgba(0, 212, 170, 0.15);
-    --accent-soft: rgba(0, 212, 170, 0.06);
+    --accent: #2DD9E0;
+    --accent-hover: #1FC2C9;
+    --accent-glow: rgba(45, 217, 224, 0.15);
+    --accent-soft: rgba(45, 217, 224, 0.06);
     --accent2: #7B61FF;
-    --green: #00d4aa;
+    --green: #2DD9E0;
     --yellow: #FFD93D;
     --blue: #5B8DEF;
     --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -394,7 +394,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     transform: translateX(-50%);
     width: 1000px;
     height: 800px;
-    background: radial-gradient(ellipse at center, rgba(0, 212, 170, 0.08) 0%, rgba(123, 97, 255, 0.04) 40%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(45, 217, 224, 0.08) 0%, rgba(123, 97, 255, 0.04) 40%, transparent 70%);
     pointer-events: none;
 }
 .hero::after {
@@ -405,8 +405,8 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     right: 0;
     bottom: 0;
     background-image:
-        linear-gradient(rgba(0, 212, 170, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 170, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(45, 217, 224, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 217, 224, 0.03) 1px, transparent 1px);
     background-size: 48px 48px;
     pointer-events: none;
     mask-image: radial-gradient(ellipse at center, black 20%, transparent 65%);
@@ -419,7 +419,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     gap: 8px;
     padding: 6px 16px;
     background: var(--accent-soft);
-    border: 1px solid rgba(0, 212, 170, 0.2);
+    border: 1px solid rgba(45, 217, 224, 0.2);
     border-radius: 100px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -488,7 +488,8 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     border: 1px solid var(--border);
     border-radius: 14px;
     color: var(--text);
-    font-size: 1rem;
+    font-family: var(--mono);
+    font-size: 0.95rem;
     font-weight: 500;
     outline: none;
     transition: all 0.2s;
@@ -504,8 +505,10 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     left: 18px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-dim);
-    font-size: 1rem;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 1.05rem;
     pointer-events: none;
 }
 .search-results {
@@ -560,8 +563,9 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
 }
 .stat:hover { border-color: var(--border-hover); transform: translateY(-1px); }
 .stat-num {
+    font-family: var(--mono);
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text);
     letter-spacing: -1px;
     line-height: 1.2;
@@ -680,11 +684,11 @@ a.value-prop { color: inherit; }
     gap: 10px;
 }
 .server-card:hover {
-    border-color: rgba(0, 212, 170, 0.3);
+    border-color: rgba(45, 217, 224, 0.3);
     background: var(--bg-card-hover);
     text-decoration: none;
     transform: translateY(-2px);
-    box-shadow: 0 4px 24px rgba(0, 212, 170, 0.06), 0 0 0 1px rgba(0, 212, 170, 0.1);
+    box-shadow: 0 4px 24px rgba(45, 217, 224, 0.06), 0 0 0 1px rgba(45, 217, 224, 0.1);
 }
 .server-card-header {
     display: flex;
@@ -1330,7 +1334,7 @@ SERVICES_CTA = {"url": "/build.html", "cta": "Need an MCP server? →"}
 DATA_RELEVANT_CATEGORIES = {"Database", "Data/Analytics"}
 DATASET_CTA = """
 <section class="container" style="margin:8px auto 32px">
-  <a href="/datasets/polymarket-historical.html" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;padding:1.1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(0,212,170,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text)">
+  <a href="/datasets/polymarket-historical.html" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;padding:1.1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(45,217,224,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text)">
     <span style="font-size:1.5rem">&#128202;</span>
     <div style="flex:1;min-width:200px">
       <div style="font-weight:600">Working with market or time-series data?</div>
@@ -1347,7 +1351,7 @@ def html_header(current=""):
 <header>
     <div class="container">
         <a href="/" class="logo">
-            <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#00d4aa"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+            <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
             <div class="logo-text">
                 <span class="logo-name"><span class="lo-proto">proto</span><span class="lo-dex">dex</span></span>
                 <span class="logo-tagline">MCP Server Index</span>
@@ -1374,7 +1378,7 @@ def html_footer():
         <div class="footer-inner">
             <div class="footer-brand">
                 <a href="/" class="logo">
-                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#00d4aa"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
                     <span>Proto</span>dex
                 </a>
                 <p>The largest index of MCP servers. Helping developers find the right tools for AI-powered workflows.</p>
@@ -1561,8 +1565,8 @@ document.addEventListener('click', function(e) {
         <h1>Find the right <span class="gradient">MCP server</span> in seconds</h1>
         <p>Stop scrolling through GitHub. Search {total:,}+ Model Context Protocol servers with security scores, organized by category, language, and popularity.</p>
         <div class="search-wrap">
-            <span class="search-icon">&#128269;</span>
-            <input type="text" id="search-input" placeholder="Search servers... e.g. postgres, slack, stripe, browser" autocomplete="off" oninput="doSearch(this.value)">
+            <span class="search-icon">&#10095;</span>
+            <input type="text" id="search-input" placeholder="search servers &mdash; postgres, slack, stripe, browser" autocomplete="off" oninput="doSearch(this.value)">
             <div id="search-results" class="search-results"></div>
         </div>
         <div class="search-chips">
@@ -1606,7 +1610,7 @@ document.addEventListener('click', function(e) {
 </section>
 
 <section class="container" style="padding-top:0">
-    <a href="{DATASET_PATH}" style="display:block;margin:0 auto 1rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(0,212,170,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
+    <a href="{DATASET_PATH}" style="display:block;margin:0 auto 1rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(45,217,224,0.10));border:1px solid rgba(123,97,255,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
         <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
             <span style="font-size:1.5rem">&#128202;</span>
             <div style="flex:1;min-width:200px">
@@ -1617,7 +1621,7 @@ document.addEventListener('click', function(e) {
         </div>
     </a>
 
-    <a href="https://manja8.gumroad.com/l/PolyScope?utm_source=protodex&amp;utm_medium=homepage&amp;utm_campaign=homepage-banner&amp;utm_content=polyscope" target="_blank" rel="noopener" style="display:block;margin:0 auto 1rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(0,212,170,0.12),rgba(123,97,255,0.10));border:1px solid rgba(0,212,170,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
+    <a href="https://manja8.gumroad.com/l/PolyScope?utm_source=protodex&amp;utm_medium=homepage&amp;utm_campaign=homepage-banner&amp;utm_content=polyscope" target="_blank" rel="noopener" style="display:block;margin:0 auto 1rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(123,97,255,0.10));border:1px solid rgba(45,217,224,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
         <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
             <span style="font-size:1.5rem">&#128260;</span>
             <div style="flex:1;min-width:200px">
@@ -1704,7 +1708,7 @@ document.addEventListener('click', function(e) {
 </section>
 
 <section class="container">
-    <div style="display:block;margin:0 auto 1.5rem;max-width:1000px;padding:1.25rem 1.5rem;background:linear-gradient(135deg,rgba(0,212,170,0.08),rgba(123,97,255,0.06));border:1px solid rgba(0,212,170,0.25);border-radius:14px">
+    <div style="display:block;margin:0 auto 1.5rem;max-width:1000px;padding:1.25rem 1.5rem;background:linear-gradient(135deg,rgba(45,217,224,0.08),rgba(123,97,255,0.06));border:1px solid rgba(45,217,224,0.25);border-radius:14px">
         <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.85rem;flex-wrap:wrap">
             <span style="font-size:1.4rem">&#129518;</span>
             <div style="flex:1;min-width:200px">

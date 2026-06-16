@@ -33,12 +33,12 @@
     --text: #f0f0f5;
     --text-muted: #8888a0;
     --text-dim: #55556a;
-    --accent: #00d4aa;
-    --accent-hover: #00b894;
-    --accent-glow: rgba(0, 212, 170, 0.15);
-    --accent-soft: rgba(0, 212, 170, 0.06);
+    --accent: #2DD9E0;
+    --accent-hover: #1FC2C9;
+    --accent-glow: rgba(45, 217, 224, 0.15);
+    --accent-soft: rgba(45, 217, 224, 0.06);
     --accent2: #7B61FF;
-    --green: #00d4aa;
+    --green: #2DD9E0;
     --yellow: #FFD93D;
     --blue: #5B8DEF;
     --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -155,7 +155,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     transform: translateX(-50%);
     width: 1000px;
     height: 800px;
-    background: radial-gradient(ellipse at center, rgba(0, 212, 170, 0.08) 0%, rgba(123, 97, 255, 0.04) 40%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(45, 217, 224, 0.08) 0%, rgba(123, 97, 255, 0.04) 40%, transparent 70%);
     pointer-events: none;
 }
 .hero::after {
@@ -166,8 +166,8 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     right: 0;
     bottom: 0;
     background-image:
-        linear-gradient(rgba(0, 212, 170, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 170, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(45, 217, 224, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 217, 224, 0.03) 1px, transparent 1px);
     background-size: 48px 48px;
     pointer-events: none;
     mask-image: radial-gradient(ellipse at center, black 20%, transparent 65%);
@@ -180,7 +180,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     gap: 8px;
     padding: 6px 16px;
     background: var(--accent-soft);
-    border: 1px solid rgba(0, 212, 170, 0.2);
+    border: 1px solid rgba(45, 217, 224, 0.2);
     border-radius: 100px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -249,7 +249,8 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     border: 1px solid var(--border);
     border-radius: 14px;
     color: var(--text);
-    font-size: 1rem;
+    font-family: var(--mono);
+    font-size: 0.95rem;
     font-weight: 500;
     outline: none;
     transition: all 0.2s;
@@ -265,8 +266,10 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     left: 18px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-dim);
-    font-size: 1rem;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 1.05rem;
     pointer-events: none;
 }
 .search-results {
@@ -321,8 +324,9 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
 }
 .stat:hover { border-color: var(--border-hover); transform: translateY(-1px); }
 .stat-num {
+    font-family: var(--mono);
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text);
     letter-spacing: -1px;
     line-height: 1.2;
@@ -441,11 +445,11 @@ a.value-prop { color: inherit; }
     gap: 10px;
 }
 .server-card:hover {
-    border-color: rgba(0, 212, 170, 0.3);
+    border-color: rgba(45, 217, 224, 0.3);
     background: var(--bg-card-hover);
     text-decoration: none;
     transform: translateY(-2px);
-    box-shadow: 0 4px 24px rgba(0, 212, 170, 0.06), 0 0 0 1px rgba(0, 212, 170, 0.1);
+    box-shadow: 0 4px 24px rgba(45, 217, 224, 0.06), 0 0 0 1px rgba(45, 217, 224, 0.1);
 }
 .server-card-header {
     display: flex;
@@ -1043,7 +1047,7 @@ footer {
 <header>
     <div class="container">
         <a href="/" class="logo">
-            <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#00d4aa"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+            <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
             <div class="logo-text">
                 <span class="logo-name"><span class="lo-proto">proto</span><span class="lo-dex">dex</span></span>
                 <span class="logo-tagline">MCP Server Index</span>
@@ -1074,7 +1078,7 @@ footer {
         <span class="meta-item">★ 5 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#89E051"></span> Shell</span>
         <span class="meta-item"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>Code/Dev Tools</span>
-        <span class="meta-item">Updated 29d ago</span>
+        <span class="meta-item">Updated 30d ago</span>
         <span class="meta-item"></span>
     </div>
 
@@ -1221,7 +1225,7 @@ footer {
         <div class="footer-inner">
             <div class="footer-brand">
                 <a href="/" class="logo">
-                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#00d4aa"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
                     <span>Proto</span>dex
                 </a>
                 <p>The largest index of MCP servers. Helping developers find the right tools for AI-powered workflows.</p>

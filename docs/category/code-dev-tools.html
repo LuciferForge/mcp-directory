@@ -33,12 +33,12 @@
     --text: #f0f0f5;
     --text-muted: #8888a0;
     --text-dim: #55556a;
-    --accent: #00d4aa;
-    --accent-hover: #00b894;
-    --accent-glow: rgba(0, 212, 170, 0.15);
-    --accent-soft: rgba(0, 212, 170, 0.06);
+    --accent: #2DD9E0;
+    --accent-hover: #1FC2C9;
+    --accent-glow: rgba(45, 217, 224, 0.15);
+    --accent-soft: rgba(45, 217, 224, 0.06);
     --accent2: #7B61FF;
-    --green: #00d4aa;
+    --green: #2DD9E0;
     --yellow: #FFD93D;
     --blue: #5B8DEF;
     --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -155,7 +155,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     transform: translateX(-50%);
     width: 1000px;
     height: 800px;
-    background: radial-gradient(ellipse at center, rgba(0, 212, 170, 0.08) 0%, rgba(123, 97, 255, 0.04) 40%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(45, 217, 224, 0.08) 0%, rgba(123, 97, 255, 0.04) 40%, transparent 70%);
     pointer-events: none;
 }
 .hero::after {
@@ -166,8 +166,8 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     right: 0;
     bottom: 0;
     background-image:
-        linear-gradient(rgba(0, 212, 170, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 170, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(45, 217, 224, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 217, 224, 0.03) 1px, transparent 1px);
     background-size: 48px 48px;
     pointer-events: none;
     mask-image: radial-gradient(ellipse at center, black 20%, transparent 65%);
@@ -180,7 +180,7 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     gap: 8px;
     padding: 6px 16px;
     background: var(--accent-soft);
-    border: 1px solid rgba(0, 212, 170, 0.2);
+    border: 1px solid rgba(45, 217, 224, 0.2);
     border-radius: 100px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -249,7 +249,8 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     border: 1px solid var(--border);
     border-radius: 14px;
     color: var(--text);
-    font-size: 1rem;
+    font-family: var(--mono);
+    font-size: 0.95rem;
     font-weight: 500;
     outline: none;
     transition: all 0.2s;
@@ -265,8 +266,10 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     left: 18px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-dim);
-    font-size: 1rem;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 1.05rem;
     pointer-events: none;
 }
 .search-results {
@@ -321,8 +324,9 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
 }
 .stat:hover { border-color: var(--border-hover); transform: translateY(-1px); }
 .stat-num {
+    font-family: var(--mono);
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text);
     letter-spacing: -1px;
     line-height: 1.2;
@@ -441,11 +445,11 @@ a.value-prop { color: inherit; }
     gap: 10px;
 }
 .server-card:hover {
-    border-color: rgba(0, 212, 170, 0.3);
+    border-color: rgba(45, 217, 224, 0.3);
     background: var(--bg-card-hover);
     text-decoration: none;
     transform: translateY(-2px);
-    box-shadow: 0 4px 24px rgba(0, 212, 170, 0.06), 0 0 0 1px rgba(0, 212, 170, 0.1);
+    box-shadow: 0 4px 24px rgba(45, 217, 224, 0.06), 0 0 0 1px rgba(45, 217, 224, 0.1);
 }
 .server-card-header {
     display: flex;
@@ -1034,7 +1038,7 @@ footer {
 <header>
     <div class="container">
         <a href="/" class="logo">
-            <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#00d4aa"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+            <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
             <div class="logo-text">
                 <span class="logo-name"><span class="lo-proto">proto</span><span class="lo-dex">dex</span></span>
                 <span class="logo-tagline">MCP Server Index</span>
@@ -1897,7 +1901,7 @@ footer {
         <td class="desc-cell">gemini antigravity 2.0 cli google terminal ai agent tool agy migration guide...</td>
         <td class="stars-cell">★ 218</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">22d ago</td>
+        <td style="color:var(--text-dim)">23d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">105</td>
@@ -3609,7 +3613,7 @@ footer {
         <td class="desc-cell">ArcKit Enterprise Architecture Toolkit - Codex CLI Extension with skills,...</td>
         <td class="stars-cell">★ 14</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">22d ago</td>
+        <td style="color:var(--text-dim)">23d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">319</td>
@@ -4617,7 +4621,7 @@ footer {
         <td class="desc-cell">🔊 Pronounce developer jargon out loud. 540+ entries (kubectl, GIF, JSON,...</td>
         <td class="stars-cell">★ 5</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#89E051"></span> Shell</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">445</td>
@@ -5449,7 +5453,7 @@ footer {
         <td class="desc-cell">Agent-optimized git data MCP server — structured change manifests and full...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">549</td>
@@ -5465,7 +5469,7 @@ footer {
         <td class="desc-cell">Kimi (Moonshot AI) Coding Plan API usage quota tracker — CLI + MCP Server +...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">22d ago</td>
+        <td style="color:var(--text-dim)">23d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">551</td>
@@ -5841,7 +5845,7 @@ footer {
         <td class="desc-cell">An MCP server for Swagger/OpenAPI definitions: connects to a Swagger spec...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">598</td>
@@ -6569,7 +6573,7 @@ footer {
         <td class="desc-cell">73-tool MCP server for Clay. 1,100+ enrichment providers, waterfall...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">22d ago</td>
+        <td style="color:var(--text-dim)">23d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">689</td>
@@ -6577,7 +6581,7 @@ footer {
         <td class="desc-cell">MCP server wrapping MiniMax AI as autonomous code executor for Claude Code</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">22d ago</td>
+        <td style="color:var(--text-dim)">23d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">690</td>
@@ -6593,7 +6597,7 @@ footer {
         <td class="desc-cell">📞 CLI to call your claude.ai-configured MCP servers, reusing the Claude Code...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">22d ago</td>
+        <td style="color:var(--text-dim)">23d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">692</td>
@@ -6793,7 +6797,7 @@ footer {
         <td class="desc-cell">Cucumber Framework for Testing</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">7d ago</td>
+        <td style="color:var(--text-dim)">8d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">717</td>
@@ -10393,7 +10397,7 @@ footer {
         <td class="desc-cell">Agent-friendly CLI and MCP server for TickTick and Dida365</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1167</td>
@@ -10401,7 +10405,7 @@ footer {
         <td class="desc-cell">My global opencode configuration — skills, plugins, MCP servers, and themes.</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1168</td>
@@ -10409,7 +10413,7 @@ footer {
         <td class="desc-cell">Bridge Claude Code MCP servers, skills, and slash commands into Codex.</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1169</td>
@@ -10417,7 +10421,7 @@ footer {
         <td class="desc-cell">MCP server exposing the TypeScript language server (tsgo) — type-aware...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1170</td>
@@ -10425,7 +10429,7 @@ footer {
         <td class="desc-cell">An Obsidian plugin that embeds Claude Code directly inside your vault:...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1171</td>
@@ -10433,7 +10437,7 @@ footer {
         <td class="desc-cell">pbw is a Windows-native C#/.NET desktop automation toolkit with a JSON CLI...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1172</td>
@@ -10441,7 +10445,7 @@ footer {
         <td class="desc-cell">A clean TypeScript Streamable HTTP MCP server for Cocos Creator.</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1173</td>
@@ -10465,7 +10469,7 @@ footer {
         <td class="desc-cell">Tabletop RPG dice roller for Go: library, roll CLI, and dice-mcp server for...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1176</td>
@@ -10969,7 +10973,7 @@ footer {
         <td class="desc-cell">ENCODE library and MCP server</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">22d ago</td>
+        <td style="color:var(--text-dim)">23d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1239</td>
@@ -10977,7 +10981,7 @@ footer {
         <td class="desc-cell">MCP server for the RegIntel API — structured regulatory data across 41...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">22d ago</td>
+        <td style="color:var(--text-dim)">23d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1240</td>
@@ -13238,7 +13242,7 @@ footer {
         <div class="footer-inner">
             <div class="footer-brand">
                 <a href="/" class="logo">
-                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#00d4aa"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
                     <span>Proto</span>dex
                 </a>
                 <p>The largest index of MCP servers. Helping developers find the right tools for AI-powered workflows.</p>
