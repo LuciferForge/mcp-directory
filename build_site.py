@@ -2164,6 +2164,7 @@ def build_dataset_page():
     img_url = f"{SITE_URL}/og/polymarket-dataset.png"
     onetime_url = "https://manja8.gumroad.com/l/agyjd?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=onetime"
     feed_url = "https://manja8.gumroad.com/l/PolyScope?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=polyscope"
+    toolkit_url = "https://manja8.gumroad.com/l/polymarket-quant-toolkit?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=toolkit"
 
     title = "Polymarket Historical Dataset — 18.5M+ Price Snapshots (CSV) | Protodex"
     desc = ("Download the Polymarket historical dataset: 18.5M+ 15-minute price & orderbook "
@@ -2221,6 +2222,8 @@ def build_dataset_page():
              "availability": "https://schema.org/InStock", "url": onetime_url},
             {"@type": "Offer", "name": "PolyScope Pro — weekly feed", "price": "29", "priceCurrency": "USD",
              "availability": "https://schema.org/InStock", "url": feed_url},
+            {"@type": "Offer", "name": "Quant Toolkit — dataset + analysis notebook", "price": "49", "priceCurrency": "USD",
+             "availability": "https://schema.org/InStock", "url": toolkit_url},
         ],
     }
 
@@ -2238,6 +2241,7 @@ def build_dataset_page():
         <p>15-minute price &amp; orderbook snapshots across 18,400+ Polymarket prediction markets, over 76+ trading days. Clean CSV, ready for backtesting and ML. Built and maintained by the Protodex team.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
             <a href="{onetime_url}" target="_blank" rel="noopener" class="btn" style="background:var(--accent);color:#000;font-weight:700">Get the CSV bundle — $15 one-time →</a>
+            <a href="{toolkit_url}" target="_blank" rel="noopener" class="btn" style="background:transparent;border:1px solid var(--accent);color:var(--accent)">Quant Toolkit — data + notebook, $49 →</a>
             <a href="{feed_url}" target="_blank" rel="noopener" class="btn" style="background:transparent;border:1px solid var(--accent);color:var(--accent)">PolyScope Pro — weekly feed, $29/mo →</a>
         </div>
     </div>
@@ -2259,8 +2263,9 @@ def build_dataset_page():
     <h2>Columns</h2>
     <p>market question, outcome (Yes/No), mid price, best bid, best ask, bid depth, ask depth, spread, timestamp (UTC, 15-minute interval). Plain CSV — opens in pandas, Excel, DuckDB, or anything that reads a comma.</p>
 
-    <h2>Two ways to buy</h2>
+    <h2>Three ways to buy</h2>
     <p><strong>CSV bundle — $15 one-time.</strong> The full 18.5M-snapshot history as it stands today, delivered as CSV. Best for a single backtest, a research project, or a model training run. <a href="{onetime_url}" target="_blank" rel="noopener">Get the bundle →</a></p>
+    <p><strong>Quant Toolkit — $49.</strong> The full dataset bundled with a tested Jupyter notebook that turns it into answers: a market-calibration analysis with significance testing, an honest crash-recovery backtest, and a tool that extracts the market-implied BTC distribution from the strike ladder and flags arbitrage. For quants and researchers who want signal, not just CSVs. <a href="{toolkit_url}" target="_blank" rel="noopener">Get the Quant Toolkit →</a></p>
     <p><strong>PolyScope Pro — $29/month.</strong> The same dataset, refreshed and re-delivered every week so your models and dashboards stay current. Best for teams running live backtests or continuously training on fresh prediction-market data. <a href="{feed_url}" target="_blank" rel="noopener">Subscribe to PolyScope Pro →</a></p>
 
     <h2>FAQ</h2>
