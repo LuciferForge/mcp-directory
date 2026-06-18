@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LTCG Calculator India 2026 — Capital Gains Tax After Budget 2024 (12.5% Equity &amp; Property, ₹1.25L Exemption, Indexation Grandfathering)</title>
+<meta name="description" content="Free capital gains tax calculator for India 2026 with the post-Budget-2024 rules: 12.5% LTCG on equity above the ₹1.25 lakh exemption, 12.5% on property/gold without indexation, and the grandfathering option (lower of 12.5% no-index vs 20% with indexation) for assets bought before 23 July 2024. Handles STCG, the CII indexation table, and the 4% cess most tools skip.">
+<link rel="canonical" href="https://protodex.io/ltcg-calculator/">
+<meta property="og:title" content="LTCG Calculator India 2026 — Capital Gains Tax After Budget 2024 (12.5%, ₹1.25L Exemption, Grandfathering)">
+<meta property="og:description" content="Compute your long-term &amp; short-term capital gains tax under the new 12.5% regime, with the ₹1.25L equity exemption, the indexation grandfathering choice for pre-23-July-2024 property, and the CII table.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://protodex.io/ltcg-calculator/">
+<meta name="theme-color" content="#1d3557">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💹</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "LTCG Capital Gains Calculator India 2026",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
+  "description": "Free capital gains tax calculator for India 2026 with post-Budget-2024 rules: 12.5% LTCG on equity above ₹1.25 lakh, 12.5% on property/gold without indexation, the grandfathering option for assets bought before 23 July 2024, STCG, the CII indexation table and 4% cess.",
+  "url": "https://protodex.io/ltcg-calculator/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the LTCG tax rate in India in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After Budget 2024 (effective 23 July 2024), long-term capital gains are taxed at a flat 12.5% for almost every asset class. Listed equity and equity mutual funds pay 12.5% on gains above a ₹1.25 lakh annual exemption. Property, land, gold, unlisted shares and other assets pay 12.5% without indexation. Before this, equity LTCG was 10% (above ₹1 lakh) and property LTCG was 20% with indexation. A health-and-education cess of 4% applies on top of the tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the holding period for long-term capital gains?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Budget 2024 simplified holding periods to just two buckets. Listed securities — equity shares, equity mutual funds, listed bonds — are long-term if held for more than 12 months. All other assets — property, land, gold, jewellery, unlisted shares — are long-term if held for more than 24 months. The earlier 36-month category was removed. Anything held for less than these periods is a short-term capital asset."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is indexation still available on property in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only as a grandfathered option. For land or buildings acquired before 23 July 2024, a resident individual or HUF may choose the lower of two computations: (a) 12.5% on the gain without indexation, or (b) 20% on the gain after applying Cost Inflation Index (CII) indexation. You pay whichever is lower. For property acquired on or after 23 July 2024, indexation is gone entirely — only the flat 12.5% applies. This calculator runs both computations for pre-cutoff property and shows you which is cheaper."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the ₹1.25 lakh exemption on capital gains?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Long-term capital gains from listed equity shares and equity-oriented mutual funds are exempt up to ₹1,25,000 per financial year (raised from ₹1,00,000 in Budget 2024). Only the gain above ₹1.25 lakh is taxed at 12.5%. This exemption applies only to equity LTCG — it does not apply to property, gold, debt funds or short-term gains."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the short-term capital gains (STCG) tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For listed equity and equity mutual funds (STT paid) sold within 12 months, STCG is taxed at 20% (raised from 15% in Budget 2024). For all other assets — property, gold, unlisted shares — short-term gains are added to your total income and taxed at your normal slab rate. Debt mutual funds bought on or after 1 April 2023 are always taxed at slab rate regardless of holding period."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is capital gain on debt mutual funds taxed now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Debt mutual funds purchased on or after 1 April 2023 no longer get any long-term benefit or indexation — the entire gain is added to your income and taxed at your slab rate, whatever the holding period. Units bought before 1 April 2023 retain the old treatment for gains up to 22 July 2024 and then move to 12.5% without indexation for long-term holdings. Most new debt-fund investors are simply taxed at slab."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is indexed cost of acquisition calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indexed cost = original cost × (Cost Inflation Index of the year of sale ÷ CII of the year of purchase). The CII is notified by the CBDT each year with base year 2001-02 = 100. For example, an asset bought in FY 2015-16 (CII 254) and sold in FY 2025-26 (CII 376) has its cost multiplied by 376/254 ≈ 1.48. Indexation only matters for the grandfathered 20% option on pre-23-July-2024 property and gold; the new 12.5% regime ignores it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the 4% cess apply to capital gains tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A Health and Education Cess of 4% is charged on the capital gains tax amount (and any applicable surcharge). So an effective LTCG rate of 12.5% becomes 13% after cess, and a 20% STCG on equity becomes 20.8%. High-income taxpayers may also face a surcharge, which on most capital gains is capped at 15%. This calculator shows both the base tax and the tax including the 4% cess."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#f8f9fb}
+.container{max-width:760px;margin:0 auto;padding:24px 16px}
+header{text-align:center;padding:32px 16px 16px;background:linear-gradient(135deg,#1d3557 0%,#457b9d 100%);color:#fff;border-radius:0 0 16px 16px}
+header h1{font-size:1.8rem;margin-bottom:8px;line-height:1.25}
+header p{font-size:1rem;opacity:0.92}
+.badge{display:inline-block;background:#f1c40f;color:#1d3557;padding:4px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;margin-top:8px}
+.calc{background:#fff;padding:28px 24px;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.06);margin-top:-16px;position:relative;z-index:2}
+.calc h2{font-size:1.3rem;margin-bottom:18px;color:#1d3557}
+label{display:block;font-weight:600;margin:14px 0 6px;font-size:0.95rem}
+input[type=number],input[type=date],select{width:100%;padding:12px 14px;border:1.5px solid #d0d6e0;border-radius:8px;font-size:1rem;background:#fff;transition:border-color 0.2s}
+input:focus,select:focus{outline:none;border-color:#457b9d}
+.helper{font-size:0.82rem;color:#666;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+button{width:100%;background:#1d3557;color:#fff;padding:14px 20px;border:none;border-radius:8px;font-size:1.05rem;font-weight:700;cursor:pointer;margin-top:20px;transition:background 0.2s}
+button:hover{background:#0d233d}
+.result{margin-top:24px;padding:20px;background:#f1faee;border-left:4px solid #2a9d8f;border-radius:8px;display:none}
+.result.show{display:block}
+.result h3{font-size:1.15rem;margin-bottom:10px;color:#1d3557}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #ccc;font-size:0.95rem}
+.row:last-of-type{border-bottom:none;font-weight:700;font-size:1.1rem;padding-top:12px;margin-top:8px;border-top:2px solid #1d3557}
+.row .lbl{color:#444}
+.row .val{color:#1d3557;font-weight:600}
+.elig{padding:12px 14px;border-radius:8px;font-size:0.9rem;margin-bottom:14px;font-weight:600}
+.elig.ok{background:#e7f6ee;border-left:4px solid #2a9d8f;color:#15663f}
+.elig.warn{background:#fff4e5;border-left:4px solid #e67e22;color:#8a4b00}
+.compare{margin-top:18px;border:1px solid #e0e4eb;border-radius:8px;overflow:hidden}
+.compare table{width:100%;border-collapse:collapse;font-size:0.88rem}
+.compare th,.compare td{padding:9px 11px;border-bottom:1px solid #eef0f4;text-align:right}
+.compare th{background:#1d3557;color:#fff;font-weight:600;text-align:right}
+.compare th:first-child,.compare td:first-child{text-align:left}
+.compare tr.win td{background:#e7f6ee;font-weight:700}
+section.content{background:#fff;padding:28px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+section.content h2{font-size:1.4rem;margin:18px 0 12px;color:#1d3557}
+section.content h2:first-child{margin-top:0}
+section.content h3{font-size:1.1rem;margin:16px 0 8px;color:#2a4d6e}
+section.content p{margin-bottom:12px}
+section.content ul,section.content ol{padding-left:22px;margin-bottom:12px}
+section.content li{margin-bottom:6px}
+table.guide{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.95rem}
+table.guide th,table.guide td{padding:10px 12px;border:1px solid #e0e4eb;text-align:left}
+table.guide th{background:#1d3557;color:#fff;font-weight:600}
+table.guide tr:nth-child(even){background:#f8f9fb}
+.note{background:#fff8e1;border-left:4px solid #f1c40f;padding:14px 18px;margin:14px 0;border-radius:6px;font-size:0.95rem}
+.cta{background:#fff;padding:24px;border-radius:14px;margin-top:24px;text-align:center;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+.cta h3{color:#1d3557;margin-bottom:8px}
+.cta a{display:inline-block;background:#e63946;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px 4px;font-size:0.95rem}
+.cta a.alt{background:#1d3557}
+footer{text-align:center;padding:32px 16px;color:#666;font-size:0.85rem;line-height:1.7}
+footer a{color:#457b9d}
+@media(max-width:520px){
+  header h1{font-size:1.45rem}
+  .calc{padding:22px 18px}
+  section.content{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>LTCG Calculator India 2026</h1>
+<p>Capital gains tax after Budget 2024 · 12.5% equity &amp; property · ₹1.25L exemption · indexation grandfathering</p>
+<span class="badge">Post-23-July-2024 rules · STCG &amp; LTCG · CII indexation</span>
+</header>
+
+<div class="container">
+
+<div class="calc">
+<h2>Calculate Your Capital Gains Tax</h2>
+
+<label for="asset">Asset type</label>
+<select id="asset">
+  <option value="equity" selected>Listed equity / equity mutual fund (STT paid)</option>
+  <option value="property">Property / land / building</option>
+  <option value="gold">Gold, jewellery, unlisted shares, other assets</option>
+  <option value="debtmf">Debt mutual fund (bought on/after 1 Apr 2023)</option>
+</select>
+<div class="helper">Different assets have different holding periods and rates after Budget 2024.</div>
+
+<div class="two">
+<div>
+<label for="buyval">Purchase value (₹) <span style="color:#e63946">*</span></label>
+<input type="number" id="buyval" placeholder="e.g., 500000" min="0" step="1000" value="500000">
+<div class="helper">Total cost of acquisition (incl. brokerage/stamp).</div>
+</div>
+<div>
+<label for="sellval">Sale value (₹) <span style="color:#e63946">*</span></label>
+<input type="number" id="sellval" placeholder="e.g., 800000" min="0" step="1000" value="800000">
+<div class="helper">Net sale consideration after selling expenses.</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="buydate">Purchase date</label>
+<input type="date" id="buydate" value="2022-01-10">
+</div>
+<div>
+<label for="selldate">Sale date</label>
+<input type="date" id="selldate" value="2026-02-10">
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="slab">Your income tax slab</label>
+<select id="slab">
+  <option value="0">0% — within basic exemption</option>
+  <option value="5">5%</option>
+  <option value="20">20%</option>
+  <option value="30" selected>30%</option>
+</select>
+<div class="helper">Used for short-term gains on property/gold &amp; debt funds.</div>
+</div>
+<div>
+<label for="cess">Add 4% health &amp; education cess?</label>
+<select id="cess">
+  <option value="yes" selected>Yes — show tax with 4% cess</option>
+  <option value="no">No — base tax only</option>
+</select>
+<div class="helper">Cess applies on the capital-gains tax amount.</div>
+</div>
+</div>
+
+<button onclick="calc()">Calculate Capital Gains Tax</button>
+
+<div id="result" class="result">
+  <div id="eligBox" class="elig ok"></div>
+  <h3 id="resultTitle">Your Capital Gains Tax</h3>
+  <div class="row"><span class="lbl">Sale value</span><span class="val" id="r_sale"></span></div>
+  <div class="row"><span class="lbl" id="r_cost_lbl">Cost of acquisition</span><span class="val" id="r_cost"></span></div>
+  <div class="row"><span class="lbl" id="r_gain_lbl">Capital gain</span><span class="val" id="r_gain"></span></div>
+  <div class="row" id="r_exempt_row" style="display:none"><span class="lbl">Less: ₹1.25L equity exemption</span><span class="val" id="r_exempt"></span></div>
+  <div class="row"><span class="lbl" id="r_tax_lbl">Capital gains tax</span><span class="val" id="r_tax"></span></div>
+
+  <div class="compare" id="r_compare_wrap" style="display:none">
+    <table>
+      <thead><tr><th>Computation</th><th>Taxable gain</th><th>Rate</th><th>Tax</th></tr></thead>
+      <tbody id="r_compare"></tbody>
+    </table>
+  </div>
+  <p id="gNote" style="font-size:0.85rem;color:#666;margin-top:14px"></p>
+</div>
+</div>
+
+<div class="cta">
+<h3>Booked a Big Gain? Reinvest It Tax-Smart</h3>
+<p style="margin-bottom:12px;color:#444">A 12.5% LTCG hit still leaves the bulk of your gain working for you — provided you redeploy it instead of letting it idle. Harvest the ₹1.25L equity exemption every year, and keep new money in low-cost index funds or ELSS. Open a zero-commission account and put the proceeds back to work:</p>
+<a href="https://app.groww.in/v3cO/mfynf0t8?utm_source=protodex&utm_medium=calculator&utm_campaign=ltcg_india&utm_content=primary-cta" target="_blank" rel="noopener nofollow sponsored">Start a SIP on Groww →</a>
+<a href="https://zerodha.com/open-account?c=VN7717&utm_source=protodex&utm_medium=calculator&utm_campaign=ltcg_india&utm_content=secondary-cta" target="_blank" rel="noopener nofollow sponsored" class="alt">Open Free Demat on Zerodha →</a>
+<p style="font-size:0.72rem;color:#888;margin-top:12px;font-style:italic">Affiliate links — protodex.io may earn a commission at no extra cost to you. Match the instrument to your goal and risk appetite; market investments are not capital-guaranteed.</p>
+</div>
+
+<section class="content">
+<h2>Capital Gains Tax in India 2026 — The Complete Guide</h2>
+
+<p><strong>Budget 2024 rewrote India's capital gains rules</strong> with effect from <strong>23 July 2024</strong>, and 2026 is the first full year everyone files under them. The changes are large: equity long-term gains jumped from 10% to <strong>12.5%</strong> (with the exemption raised from ₹1 lakh to <strong>₹1.25 lakh</strong>), equity short-term gains rose from 15% to <strong>20%</strong>, holding periods were collapsed into just two buckets, and — the biggest shock for property owners — <strong>indexation was abolished</strong> in favour of a flat 12.5% rate, softened only by a grandfathering option for older assets. This calculator applies the exact post-Budget-2024 logic, including the indexation choice most tools silently drop.</p>
+
+<div class="note"><strong>The thing most LTCG calculators get wrong:</strong> for land or buildings <em>acquired before 23 July 2024</em>, a resident individual or HUF can pay the <strong>lower</strong> of (a) 12.5% without indexation or (b) 20% with CII indexation. Many calculators only show the new 12.5% figure and never compare it to the old indexed 20% — which is often cheaper for assets held a long time through high inflation. This tool runs <em>both</em> and tells you which to claim.</p>
+
+<h2>The Two Holding-Period Buckets</h2>
+
+<table class="guide">
+<thead><tr><th>Asset</th><th>Long-term if held</th><th>LTCG rate (2026)</th><th>STCG rate (2026)</th></tr></thead>
+<tbody>
+<tr><td>Listed equity &amp; equity MF (STT paid)</td><td>&gt; 12 months</td><td>12.5% above ₹1.25L</td><td>20%</td></tr>
+<tr><td>Property / land / building</td><td>&gt; 24 months</td><td>12.5% (no indexation)*</td><td>Slab rate</td></tr>
+<tr><td>Gold, jewellery, unlisted shares</td><td>&gt; 24 months</td><td>12.5% (no indexation)</td><td>Slab rate</td></tr>
+<tr><td>Debt MF (bought on/after 1 Apr 2023)</td><td>—</td><td>Slab rate (no LT benefit)</td><td>Slab rate</td></tr>
+</tbody>
+</table>
+<p style="font-size:0.85rem;color:#666">*Grandfathering: property/land acquired before 23 July 2024 may instead use 20% with indexation if that is lower (resident individuals/HUF only).</p>
+
+<h2>How Capital Gains Tax Is Calculated</h2>
+
+<p style="text-align:center;font-size:1.05rem;background:#f1faee;padding:14px;border-radius:8px"><strong>Tax = (Sale − Cost − Exemption) × Rate × (1 + 4% cess)</strong></p>
+
+<ul>
+<li><strong>Equity LTCG:</strong> tax = (gain − ₹1,25,000) × 12.5%. Only the gain above the exemption is taxed; the exemption resets each financial year.</li>
+<li><strong>Equity STCG:</strong> tax = gain × 20% (no ₹1.25L exemption on short-term gains).</li>
+<li><strong>Property/gold LTCG (post-cutoff):</strong> tax = gain × 12.5%, with no indexation.</li>
+<li><strong>Property LTCG (pre-cutoff):</strong> lower of [gain × 12.5%] and [(sale − indexed cost) × 20%].</li>
+<li><strong>Short-term property/gold &amp; all debt-fund gains:</strong> added to income, taxed at your slab.</li>
+</ul>
+
+<div class="note"><strong>Worked example — equity:</strong> You buy ₹5,00,000 of an equity fund and sell for ₹8,00,000 after 18 months. The ₹3,00,000 gain is long-term. Subtract the ₹1,25,000 exemption → ₹1,75,000 taxable → 12.5% = <strong>₹21,875</strong>, or <strong>₹22,750</strong> with the 4% cess. Under the old 10% rule it would have been ₹20,000 — the new regime costs a bit more, but the higher ₹1.25L exemption helps smaller gains.</div>
+
+<div class="note"><strong>Worked example — property (grandfathering):</strong> You bought a flat for ₹20,00,000 in FY 2015-16 (CII 254) and sell it for ₹50,00,000 in FY 2025-26 (CII 376). <em>New rule:</em> ₹30,00,000 gain × 12.5% = ₹3,75,000. <em>Old rule:</em> indexed cost = 20,00,000 × 376/254 = ₹29,60,630, gain = ₹20,39,370 × 20% = ₹4,07,874. You pay the lower — <strong>₹3,75,000</strong> under the new regime. Held longer through higher inflation, the old indexed 20% can flip to being cheaper, which is exactly why the comparison matters.</div>
+
+<h2>Cost Inflation Index (CII) — Used for the Indexation Option</h2>
+
+<p>Indexed cost = original cost × (CII of sale year ÷ CII of purchase year). The CBDT notifies the CII each year, base year 2001-02 = 100. It only matters for the grandfathered 20% computation on pre-23-July-2024 property and gold.</p>
+
+<table class="guide">
+<thead><tr><th>Financial year</th><th>CII</th><th>Financial year</th><th>CII</th></tr></thead>
+<tbody>
+<tr><td>2015-16</td><td>254</td><td>2021-22</td><td>317</td></tr>
+<tr><td>2016-17</td><td>264</td><td>2022-23</td><td>331</td></tr>
+<tr><td>2017-18</td><td>272</td><td>2023-24</td><td>348</td></tr>
+<tr><td>2018-19</td><td>280</td><td>2024-25</td><td>363</td></tr>
+<tr><td>2019-20</td><td>289</td><td>2025-26</td><td>376</td></tr>
+<tr><td>2020-21</td><td>301</td><td>2026-27</td><td>pending notification</td></tr>
+</tbody>
+</table>
+
+<h2>What Changed in Budget 2024</h2>
+
+<table class="guide">
+<thead><tr><th>Item</th><th>Before 23 Jul 2024</th><th>After 23 Jul 2024</th></tr></thead>
+<tbody>
+<tr><td>Equity LTCG rate</td><td>10%</td><td>12.5%</td></tr>
+<tr><td>Equity LTCG exemption</td><td>₹1,00,000</td><td>₹1,25,000</td></tr>
+<tr><td>Equity STCG rate</td><td>15%</td><td>20%</td></tr>
+<tr><td>Property/gold LTCG</td><td>20% with indexation</td><td>12.5% without indexation*</td></tr>
+<tr><td>Holding period (other assets)</td><td>24 or 36 months</td><td>24 months (unified)</td></tr>
+<tr><td>Holding period (listed)</td><td>12 months</td><td>12 months (unchanged)</td></tr>
+</tbody>
+</table>
+<p style="font-size:0.85rem;color:#666">*Pre-23-July-2024 property/land retains the option of 20%-with-indexation if lower, for resident individuals/HUF.</p>
+
+<h2>Common Capital Gains Mistakes to Avoid</h2>
+<ul>
+<li><strong>Forgetting the grandfathering choice.</strong> On older property, always compare 12.5%-no-index against 20%-with-index and claim the lower.</li>
+<li><strong>Applying the ₹1.25L exemption to property or gold.</strong> It is an <em>equity-only</em> exemption.</li>
+<li><strong>Using the old 10% / 15% equity rates.</strong> Sales on or after 23 July 2024 use 12.5% / 20%.</li>
+<li><strong>Expecting indexation on new debt funds.</strong> Debt MF bought on/after 1 April 2023 is taxed at slab, full stop.</li>
+<li><strong>Ignoring the 4% cess.</strong> Effective LTCG is 13%, not 12.5%, once cess is added.</li>
+<li><strong>Missing the holding-period cutoff by days.</strong> 12 months for listed, 24 for the rest — a few days short flips you to higher short-term rates.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>What is the LTCG tax rate in India in 2026?</h3>
+<p>A flat 12.5% on most assets after Budget 2024. Equity LTCG is 12.5% above a ₹1.25 lakh exemption; property and gold are 12.5% without indexation. Add 4% cess on the tax.</p>
+
+<h3>Is indexation gone for property?</h3>
+<p>For property bought on/after 23 July 2024, yes. For property bought before that date, a resident individual/HUF can still opt for 20% with indexation if it works out lower than 12.5% without.</p>
+
+<h3>What is the short-term capital gains rate on shares?</h3>
+<p>20% for listed equity and equity mutual funds sold within 12 months (up from 15%). For other assets, short-term gains are taxed at your slab rate.</p>
+
+<h3>Does the ₹1.25 lakh exemption apply to all gains?</h3>
+<p>No — only to long-term gains from listed equity shares and equity mutual funds. Property, gold, debt funds and short-term gains get no such exemption.</p>
+
+<h3>How are debt mutual funds taxed now?</h3>
+<p>Units bought on or after 1 April 2023 are always taxed at your slab rate with no indexation, regardless of how long you hold them.</p>
+
+<h3>Is there a surcharge on capital gains?</h3>
+<p>High-income taxpayers may face a surcharge, but the surcharge on most capital gains is capped at 15%. The 4% health-and-education cess applies on top of tax plus any surcharge.</p>
+
+</section>
+
+<div class="related" style="background:#fff;padding:20px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)">
+<h3 style="color:#1d3557;font-size:1rem;margin-bottom:10px">Related free calculators</h3>
+<a href="https://esoptax.protodex.io/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📈 ESOP Tax Calculator India 2026 (Perquisite + LTCG/STCG on Shares) →</a>
+<a href="https://protodex.io/nsc-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📜 NSC Calculator India 2026 (7.7%, Annual Compounding, 80C Reinvestment) →</a>
+<a href="https://protodex.io/fd-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏦 FD &amp; RD Calculator India 2026 (Quarterly Compounding, TDS &amp; Post-Tax) →</a>
+<a href="https://incometax-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧾 Income Tax Calculator India FY 2026-27 (Old vs New Regime + 87A Rebate) →</a>
+<a href="https://protodex.io/inhand-salary-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💰 In-Hand Salary Calculator India 2026 (Old vs New Regime, FY 2026-27) →</a>
+<a href="https://protodex.io/sukanya-samriddhi-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">👧 Sukanya Samriddhi (SSY) Calculator 2026 (8.2%, 21-Year Maturity, EEE) →</a>
+</div>
+
+<footer>
+<p>Last updated: <strong id="lastmod">2026-06-18</strong> · Built for Indian investors · Not financial or tax advice</p>
+<p>Figures are illustrative and based on the capital gains provisions as amended by the Finance (No. 2) Act, 2024, effective 23 July 2024, and the Cost Inflation Index notified by the CBDT (base year 2001-02 = 100). Surcharge, residential-status nuances, set-off of capital losses, exemptions under sections 54/54F/54EC, and the treatment of units bought before 1 April 2023 can change the final figure. Verify your position with a qualified tax advisor before filing.</p>
+<p>© 2026 protodex.io · <a href="https://protodex.io/privacy">Privacy</a> · <a href="https://protodex.io/disclosure">Affiliate disclosure</a></p>
+</footer>
+
+</div>
+
+<script>
+function fmt(n){
+  return "₹" + Math.round(n).toLocaleString("en-IN");
+}
+
+// CBDT Cost Inflation Index, keyed by FY start year (base 2001-02 = 100).
+var CII = {
+  2001:100,2002:105,2003:109,2004:113,2005:117,2006:122,2007:129,2008:137,
+  2009:148,2010:167,2011:184,2012:200,2013:220,2014:240,2015:254,2016:264,
+  2017:272,2018:280,2019:289,2020:301,2021:317,2022:331,2023:348,2024:363,2025:376
+};
+var LATEST_CII_YEAR = 2025; // FY 2025-26 = 376; 2026-27 not yet notified
+
+// FY start-year for a date: April-or-later -> that calendar year, else previous.
+function fyStart(d){
+  return (d.getMonth() >= 3) ? d.getFullYear() : d.getFullYear() - 1;
+}
+function ciiFor(yr){
+  if(CII[yr] != null) return CII[yr];
+  if(yr > LATEST_CII_YEAR) return CII[LATEST_CII_YEAR]; // use latest notified until next CII
+  return CII[2001];
+}
+function monthsBetween(a, b){
+  return (b.getFullYear() - a.getFullYear()) * 12 + (b.getMonth() - a.getMonth()) - (b.getDate() < a.getDate() ? 1 : 0);
+}
+
+var CUTOFF = new Date(2024, 6, 23); // 23 July 2024
+
+function calc(){
+  var asset = document.getElementById("asset").value;
+  var buyval = parseFloat(document.getElementById("buyval").value) || 0;
+  var sellval = parseFloat(document.getElementById("sellval").value) || 0;
+  var slab = parseFloat(document.getElementById("slab").value) || 0;
+  var cess = document.getElementById("cess").value === "yes";
+  var buyd = new Date(document.getElementById("buydate").value);
+  var selld = new Date(document.getElementById("selldate").value);
+
+  if(sellval <= 0 || buyval < 0 || isNaN(buyd) || isNaN(selld)){
+    alert("Enter purchase value, sale value and both dates.");
+    return;
+  }
+  if(selld <= buyd){
+    alert("Sale date must be after the purchase date.");
+    return;
+  }
+
+  var gain = sellval - buyval;
+  var months = monthsBetween(buyd, selld);
+  var cessMul = cess ? 1.04 : 1;
+
+  // long-term thresholds
+  var ltThreshold = (asset === "equity") ? 12 : 24;
+  var isLong = months > ltThreshold;
+  var compareRows = "";
+  var showCompare = false;
+  var showExempt = false;
+  var exemptAmt = 0;
+  var tax = 0, taxableGain = gain, rateLabel = "", costShown = buyval;
+  var termWord = isLong ? "long-term" : "short-term";
+
+  if(gain <= 0){
+    // capital loss
+    document.getElementById("resultTitle").textContent = "Capital Loss — No Tax";
+    document.getElementById("r_sale").textContent = fmt(sellval);
+    document.getElementById("r_cost_lbl").textContent = "Cost of acquisition";
+    document.getElementById("r_cost").textContent = fmt(buyval);
+    document.getElementById("r_gain_lbl").textContent = (termWord==="long-term"?"Long-term":"Short-term") + " capital loss";
+    document.getElementById("r_gain").textContent = fmt(gain);
+    document.getElementById("r_exempt_row").style.display = "none";
+    document.getElementById("r_tax_lbl").textContent = "Capital gains tax";
+    document.getElementById("r_tax").textContent = fmt(0);
+    document.getElementById("r_compare_wrap").style.display = "none";
+    var eb0 = document.getElementById("eligBox");
+    eb0.className = "elig warn";
+    eb0.textContent = "You have a " + termWord + " capital loss of " + fmt(Math.abs(gain)) + ". No tax due; this loss may be set off against other capital gains or carried forward up to 8 years.";
+    document.getElementById("gNote").textContent = "Holding period " + months + " months (" + termWord + "). Capital losses don't attract tax — declare them to set off or carry forward.";
+    document.getElementById("result").classList.add("show");
+    return;
+  }
+
+  if(asset === "debtmf"){
+    // always slab rate
+    tax = gain * (slab/100);
+    rateLabel = slab + "% slab";
+    document.getElementById("r_cost_lbl").textContent = "Cost of acquisition";
+    document.getElementById("r_gain_lbl").textContent = "Gain (taxed at slab)";
+  } else if(asset === "equity"){
+    if(isLong){
+      exemptAmt = Math.min(gain, 125000);
+      showExempt = true;
+      taxableGain = gain - exemptAmt;
+      tax = taxableGain * 0.125;
+      rateLabel = "12.5% LTCG";
+    } else {
+      taxableGain = gain;
+      tax = gain * 0.20;
+      rateLabel = "20% STCG";
+    }
+    document.getElementById("r_gain_lbl").textContent = (isLong?"Long-term":"Short-term") + " capital gain";
+  } else {
+    // property / gold
+    if(isLong){
+      var newTax = gain * 0.125;
+      var preCutoff = buyd < CUTOFF;
+      if(preCutoff){
+        var byr = fyStart(buyd), syr = fyStart(selld);
+        var indexedCost = buyval * (ciiFor(syr) / ciiFor(byr));
+        var oldGain = Math.max(0, sellval - indexedCost);
+        var oldTax = oldGain * 0.20;
+        showCompare = true;
+        var newWin = newTax <= oldTax;
+        compareRows =
+          '<tr' + (newWin?' class="win"':'') + '><td>New: 12.5% no indexation</td><td>' + fmt(gain) + '</td><td>12.5%</td><td>' + fmt(newTax) + '</td></tr>' +
+          '<tr' + (!newWin?' class="win"':'') + '><td>Old: 20% with indexation (CII ' + ciiFor(byr) + '→' + ciiFor(syr) + ')</td><td>' + fmt(oldGain) + '</td><td>20%</td><td>' + fmt(oldTax) + '</td></tr>';
+        if(newWin){ tax = newTax; rateLabel = "12.5% (no indexation)"; taxableGain = gain; }
+        else { tax = oldTax; rateLabel = "20% (indexed)"; taxableGain = oldGain; costShown = indexedCost; }
+      } else {
+        tax = newTax; rateLabel = "12.5% (no indexation)"; taxableGain = gain;
+      }
+      document.getElementById("r_gain_lbl").textContent = "Long-term capital gain";
+    } else {
+      taxableGain = gain;
+      tax = gain * (slab/100);
+      rateLabel = slab + "% slab (STCG)";
+      document.getElementById("r_gain_lbl").textContent = "Short-term capital gain";
+    }
+  }
+
+  var taxWithCess = tax * cessMul;
+
+  document.getElementById("resultTitle").textContent = "Your Capital Gains Tax (" + termWord + ")";
+  document.getElementById("r_sale").textContent = fmt(sellval);
+  document.getElementById("r_cost_lbl").textContent = (costShown !== buyval) ? "Indexed cost of acquisition" : "Cost of acquisition";
+  document.getElementById("r_cost").textContent = fmt(costShown);
+  document.getElementById("r_gain").textContent = fmt(gain);
+
+  if(showExempt){
+    document.getElementById("r_exempt_row").style.display = "flex";
+    document.getElementById("r_exempt").textContent = "− " + fmt(exemptAmt);
+  } else {
+    document.getElementById("r_exempt_row").style.display = "none";
+  }
+
+  document.getElementById("r_tax_lbl").textContent = "Tax @ " + rateLabel + (cess ? " + 4% cess" : "");
+  document.getElementById("r_tax").textContent = fmt(taxWithCess);
+
+  if(showCompare){
+    document.getElementById("r_compare").innerHTML = compareRows;
+    document.getElementById("r_compare_wrap").style.display = "block";
+  } else {
+    document.getElementById("r_compare_wrap").style.display = "none";
+  }
+
+  var eb = document.getElementById("eligBox");
+  eb.className = "elig ok";
+  eb.textContent = "✓ " + termWord.charAt(0).toUpperCase() + termWord.slice(1) + " gain of " + fmt(gain) +
+    " over " + months + " months → tax " + fmt(taxWithCess) + (cess ? " (incl. 4% cess)" : "") + " at " + rateLabel + ".";
+
+  var note = "Holding period " + months + " months — " + termWord + " (threshold " + ltThreshold + " months for this asset). ";
+  if(asset === "equity" && isLong){
+    note += "₹1,25,000 of the equity gain is exempt; only " + fmt(taxableGain) + " is taxed at 12.5%. ";
+  }
+  if(showCompare){
+    note += "Because the property was acquired before 23 July 2024, you may pick the lower of 12.5%-no-index and 20%-indexed — shown above. ";
+  }
+  if(asset === "debtmf"){
+    note += "Debt funds bought on/after 1 Apr 2023 are always taxed at your slab rate, with no indexation or LTCG benefit. ";
+  }
+  note += cess ? "Figure includes the 4% health & education cess." : "Cess of 4% is not included (toggle it on for the effective rate).";
+  document.getElementById("gNote").textContent = note;
+
+  document.getElementById("result").classList.add("show");
+}
+
+["asset","buyval","sellval","buydate","selldate","slab","cess"].forEach(function(id){
+  var el = document.getElementById(id);
+  el.addEventListener("keypress", function(e){ if(e.key === "Enter") calc(); });
+  el.addEventListener("change", calc);
+});
+
+// auto-run with defaults on first load
+window.addEventListener("DOMContentLoaded", function(){ calc(); });
+</script>
+
+
+<!-- LF:EMAIL-CAPTURE v1 -->
+<section style="max-width:680px;margin:48px auto 24px;padding:20px 22px;background:#fafbff;border:1px solid #e1e5ee;border-radius:10px;font-family:-apple-system,system-ui,sans-serif">
+  <div style="font-weight:600;font-size:1rem;color:#1a1a2e;margin-bottom:4px">Subscribe for India tax &amp; investing updates</div>
+  <div style="font-size:0.85rem;color:#555;margin-bottom:14px">Capital gains rule changes, CII notifications, 80C updates, new calculators, planning tips. No spam. Unsubscribe anytime.</div>
+  <form onsubmit="event.preventDefault(); var f=this; var msg=f.querySelector('.lf_msg'); msg.textContent='Sending…'; fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'b2fb1576-a39b-4683-8ee9-4e152f731113',subject:'India calc newsletter signup ('+location.hostname+')',email:f.email.value,from_name:'protodex.io '+location.hostname,source:location.href})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.textContent='✓ Subscribed. Watch your inbox.';msg.style.color='#16a34a';f.email.value=''}else{msg.textContent='Couldn’t subscribe. Email manja316@gmail.com directly.';msg.style.color='#dc2626'}}).catch(function(){msg.textContent='Network error. Try again.';msg.style.color='#dc2626'})" style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid #d4d8e2;border-radius:6px;font-size:0.95rem">
+    <button type="submit" style="padding:10px 22px;background:#1a1a2e;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.9rem">Subscribe</button>
+  </form>
+  <div class="lf_msg" style="margin-top:8px;font-size:0.82rem"></div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e5ee;font-size:0.72rem;color:#888">
+    Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=calc-footer&utm_campaign=india-calcs" target="_blank" rel="noopener" style="color:#666">Claude</a> · <a href="https://protodex.io" style="color:#666">protodex.io</a>
+  </div>
+</section>
+
+</body>
+</html>
