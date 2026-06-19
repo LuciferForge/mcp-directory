@@ -1735,6 +1735,9 @@ document.addEventListener('click', function(e) {
             <a href="https://protodex.io/ltcg-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 💹 <strong>LTCG / Capital Gains</strong> — Budget 2024: 12.5%, ₹1.25L exemption, indexation
             </a>
+            <a href="https://protodex.io/hra-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                🏠 <strong>HRA Exemption</strong> — least-of-three, metro vs non-metro, old-regime only
+            </a>
             <a href="https://stampduty.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 🏗 <strong>Karnataka Stamp Duty</strong> — Bengaluru/Mysuru, 2% reg fee
             </a>
@@ -2301,6 +2304,7 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/gratuity-calculator/")
     urls.append(f"{SITE_URL}/nsc-calculator/")
     urls.append(f"{SITE_URL}/ltcg-calculator/")
+    urls.append(f"{SITE_URL}/hra-calculator/")
 
     # Blog: index + every post (md-generated and orphan HTML) — previously missing,
     # so ~70 posts were unreachable via sitemap.

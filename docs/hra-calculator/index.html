@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HRA Calculator India 2026 — House Rent Allowance Exemption (Section 10(13A), Metro vs Non-Metro, Old vs New Regime)</title>
+<meta name="description" content="Free HRA exemption calculator for India 2026. Computes the Section 10(13A) exemption as the least of: actual HRA received, 50%/40% of basic+DA (metro/non-metro), and rent paid minus 10% of salary. Flags that HRA exemption applies only under the old tax regime — not the new default regime most calculators forget — and shows your taxable HRA and tax saved.">
+<link rel="canonical" href="https://protodex.io/hra-calculator/">
+<meta property="og:title" content="HRA Calculator India 2026 — House Rent Allowance Exemption (Metro vs Non-Metro, Old vs New Regime)">
+<meta property="og:description" content="Compute your House Rent Allowance exemption under Section 10(13A) with the least-of-three rule, metro toggle, and the old-vs-new-regime catch most HRA calculators miss.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://protodex.io/hra-calculator/">
+<meta name="theme-color" content="#1d3557">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "HRA Exemption Calculator India 2026",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
+  "description": "Free House Rent Allowance (HRA) exemption calculator for India 2026 under Section 10(13A): least of actual HRA, 50%/40% of basic+DA for metro/non-metro, and rent minus 10% of salary. Flags that HRA exemption applies only in the old tax regime and computes taxable HRA and tax saved.",
+  "url": "https://protodex.io/hra-calculator/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is HRA exemption calculated in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under Section 10(13A), the HRA exemption is the LEAST of three amounts: (1) the actual HRA you received from your employer, (2) 50% of your salary (basic + dearness allowance) if you live in a metro city — Delhi, Mumbai, Kolkata or Chennai — or 40% if you live anywhere else, and (3) the rent you actually paid minus 10% of your salary. Whichever of these three is smallest is your exempt HRA; the remainder of the HRA you received is added to your taxable income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I claim HRA exemption under the new tax regime in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The HRA exemption under Section 10(13A) is available only under the OLD tax regime. The new tax regime — which is the default from FY 2023-24 onwards — removes the HRA exemption entirely, along with most other deductions and exemptions. If you are a salaried taxpayer who pays significant rent, you must specifically opt for the old regime to claim HRA. This is the single biggest mistake people make in 2026: they assume HRA is exempt automatically, but under the default new regime the entire HRA is taxable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which cities count as metro for HRA — and is Bangalore, Pune or Hyderabad a metro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For HRA purposes, only four cities are treated as metros: Delhi, Mumbai, Kolkata and Chennai. In these you get the 50% of basic+DA limit. Every other city — including Bangalore, Pune, Hyderabad, Ahmedabad, Gurgaon, Noida and all Tier-2/Tier-3 towns — is non-metro and uses the lower 40% limit. This is a common confusion: large IT cities like Bangalore and Hyderabad are NOT metros for income-tax HRA, even though they are major urban centres."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What counts as salary for HRA exemption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For HRA, salary means basic salary plus dearness allowance (DA) that forms part of retirement benefits, plus any commission received as a fixed percentage of turnover. It does NOT include other allowances, bonuses, overtime, or perquisites. So when the rule says 50%/40% of salary or 10% of salary, it is 50%/40%/10% of (basic + DA + commission), not of your gross CTC. Using gross salary by mistake inflates the exemption and can trigger a tax notice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a PAN of my landlord to claim HRA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if your annual rent exceeds ₹1,00,000 (i.e. about ₹8,333 per month), you must report your landlord's PAN to your employer to claim the HRA exemption. If the landlord has no PAN, you need a signed declaration from them. You should also keep rent receipts and, ideally, proof of payment by bank transfer. Paying rent in cash without receipts to a family member is the most heavily scrutinised HRA claim — keep clean records."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I claim HRA if I live in my own house or pay no rent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. HRA exemption is only for rent actually paid for accommodation you occupy but do not own. If you live in your own house, or stay rent-free with parents and pay nothing, there is no exemption — the entire HRA is taxable. However, you CAN pay genuine rent to your parents (if they own the home) and claim HRA, provided the rent is real, transferred to them, declared as their income, and supported by receipts. The arrangement must be bona fide, not a paper transaction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I claim both HRA and a home loan deduction at the same time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in genuine situations. You can claim HRA on rent paid for the house you live in and, simultaneously, claim home-loan interest (Section 24) and principal (Section 80C) on a different property — for example if you own a house in one city but work and rent in another, or if your owned home is let out or genuinely too far to commute from. Both claims are allowed under the old regime as long as each is real and documented. Claiming HRA while living in the very house you have a home loan on, however, is not permitted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much tax does HRA actually save me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your tax saving equals the exempt HRA amount multiplied by your marginal tax rate (plus 4% cess). For example, if your HRA exemption works out to ₹1,56,000 and you are in the 30% slab, you save roughly ₹1,56,000 × 30% × 1.04 = about ₹48,672 in tax for the year. The saving only materialises if you are on the old regime; if you are on the new regime the exemption is zero, so the comparison is really old-regime-with-HRA versus new-regime — run both before deciding which regime to pick."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#f8f9fb}
+.container{max-width:760px;margin:0 auto;padding:24px 16px}
+header{text-align:center;padding:32px 16px 16px;background:linear-gradient(135deg,#1d3557 0%,#457b9d 100%);color:#fff;border-radius:0 0 16px 16px}
+header h1{font-size:1.8rem;margin-bottom:8px;line-height:1.25}
+header p{font-size:1rem;opacity:0.92}
+.badge{display:inline-block;background:#f1c40f;color:#1d3557;padding:4px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;margin-top:8px}
+.calc{background:#fff;padding:28px 24px;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.06);margin-top:-16px;position:relative;z-index:2}
+.calc h2{font-size:1.3rem;margin-bottom:18px;color:#1d3557}
+label{display:block;font-weight:600;margin:14px 0 6px;font-size:0.95rem}
+input[type=number],input[type=date],select{width:100%;padding:12px 14px;border:1.5px solid #d0d6e0;border-radius:8px;font-size:1rem;background:#fff;transition:border-color 0.2s}
+input:focus,select:focus{outline:none;border-color:#457b9d}
+.helper{font-size:0.82rem;color:#666;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+button{width:100%;background:#1d3557;color:#fff;padding:14px 20px;border:none;border-radius:8px;font-size:1.05rem;font-weight:700;cursor:pointer;margin-top:20px;transition:background 0.2s}
+button:hover{background:#0d233d}
+.result{margin-top:24px;padding:20px;background:#f1faee;border-left:4px solid #2a9d8f;border-radius:8px;display:none}
+.result.show{display:block}
+.result h3{font-size:1.15rem;margin-bottom:10px;color:#1d3557}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #ccc;font-size:0.95rem}
+.row:last-of-type{border-bottom:none;font-weight:700;font-size:1.1rem;padding-top:12px;margin-top:8px;border-top:2px solid #1d3557}
+.row .lbl{color:#444}
+.row .val{color:#1d3557;font-weight:600}
+.elig{padding:12px 14px;border-radius:8px;font-size:0.9rem;margin-bottom:14px;font-weight:600}
+.elig.ok{background:#e7f6ee;border-left:4px solid #2a9d8f;color:#15663f}
+.elig.warn{background:#fff4e5;border-left:4px solid #e67e22;color:#8a4b00}
+.compare{margin-top:18px;border:1px solid #e0e4eb;border-radius:8px;overflow:hidden}
+.compare table{width:100%;border-collapse:collapse;font-size:0.88rem}
+.compare th,.compare td{padding:9px 11px;border-bottom:1px solid #eef0f4;text-align:right}
+.compare th{background:#1d3557;color:#fff;font-weight:600;text-align:right}
+.compare th:first-child,.compare td:first-child{text-align:left}
+.compare tr.win td{background:#e7f6ee;font-weight:700}
+section.content{background:#fff;padding:28px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+section.content h2{font-size:1.4rem;margin:18px 0 12px;color:#1d3557}
+section.content h2:first-child{margin-top:0}
+section.content h3{font-size:1.1rem;margin:16px 0 8px;color:#2a4d6e}
+section.content p{margin-bottom:12px}
+section.content ul,section.content ol{padding-left:22px;margin-bottom:12px}
+section.content li{margin-bottom:6px}
+table.guide{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.95rem}
+table.guide th,table.guide td{padding:10px 12px;border:1px solid #e0e4eb;text-align:left}
+table.guide th{background:#1d3557;color:#fff;font-weight:600}
+table.guide tr:nth-child(even){background:#f8f9fb}
+.note{background:#fff8e1;border-left:4px solid #f1c40f;padding:14px 18px;margin:14px 0;border-radius:6px;font-size:0.95rem}
+.cta{background:#fff;padding:24px;border-radius:14px;margin-top:24px;text-align:center;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+.cta h3{color:#1d3557;margin-bottom:8px}
+.cta a{display:inline-block;background:#e63946;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px 4px;font-size:0.95rem}
+.cta a.alt{background:#1d3557}
+footer{text-align:center;padding:32px 16px;color:#666;font-size:0.85rem;line-height:1.7}
+footer a{color:#457b9d}
+@media(max-width:520px){
+  header h1{font-size:1.45rem}
+  .calc{padding:22px 18px}
+  section.content{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>HRA Calculator India 2026</h1>
+<p>House Rent Allowance exemption · Section 10(13A) · least-of-three rule · metro vs non-metro</p>
+<span class="badge">Old-regime only · FY 2026-27 · landlord-PAN aware</span>
+</header>
+
+<div class="container">
+
+<div class="calc">
+<h2>Calculate Your HRA Exemption</h2>
+
+<div class="two">
+<div>
+<label for="basic">Basic salary + DA (per month, ₹) <span style="color:#e63946">*</span></label>
+<input type="number" id="basic" placeholder="e.g., 50000" min="0" step="1000" value="50000">
+<div class="helper">Basic + dearness allowance only — not gross CTC.</div>
+</div>
+<div>
+<label for="hra">HRA received (per month, ₹) <span style="color:#e63946">*</span></label>
+<input type="number" id="hra" placeholder="e.g., 20000" min="0" step="1000" value="20000">
+<div class="helper">The HRA component on your payslip.</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="rent">Rent paid (per month, ₹) <span style="color:#e63946">*</span></label>
+<input type="number" id="rent" placeholder="e.g., 18000" min="0" step="1000" value="18000">
+<div class="helper">Actual rent you pay your landlord.</div>
+</div>
+<div>
+<label for="city">City type</label>
+<select id="city">
+  <option value="metro" selected>Metro — Delhi, Mumbai, Kolkata, Chennai (50%)</option>
+  <option value="nonmetro">Non-metro — Bangalore, Pune, Hyderabad, all others (40%)</option>
+</select>
+<div class="helper">Only those 4 cities are metros for HRA.</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="regime">Tax regime</label>
+<select id="regime">
+  <option value="old" selected>Old regime — HRA exemption allowed</option>
+  <option value="new">New regime (default) — no HRA exemption</option>
+</select>
+<div class="helper">HRA is exempt only under the old regime.</div>
+</div>
+<div>
+<label for="slab">Your income tax slab</label>
+<select id="slab">
+  <option value="0">0% — within basic exemption</option>
+  <option value="5">5%</option>
+  <option value="20">20%</option>
+  <option value="30" selected>30%</option>
+</select>
+<div class="helper">Used to estimate the tax you save.</div>
+</div>
+</div>
+
+<button onclick="calc()">Calculate HRA Exemption</button>
+
+<div id="result" class="result">
+  <div id="eligBox" class="elig ok"></div>
+  <h3 id="resultTitle">Your HRA Exemption (Annual)</h3>
+
+  <div class="compare" id="r_compare_wrap">
+    <table>
+      <thead><tr><th>The three limits (annual)</th><th>Amount</th></tr></thead>
+      <tbody id="r_compare"></tbody>
+    </table>
+  </div>
+
+  <div class="row" style="margin-top:14px"><span class="lbl">HRA received (annual)</span><span class="val" id="r_hra"></span></div>
+  <div class="row"><span class="lbl">Exempt HRA (least of three)</span><span class="val" id="r_exempt"></span></div>
+  <div class="row"><span class="lbl">Taxable HRA</span><span class="val" id="r_taxable"></span></div>
+  <div class="row"><span class="lbl" id="r_saved_lbl">Approx. tax saved (incl. 4% cess)</span><span class="val" id="r_saved"></span></div>
+  <p id="gNote" style="font-size:0.85rem;color:#666;margin-top:14px"></p>
+</div>
+</div>
+
+<div class="cta">
+<h3>Paying Rent? Don't Leave the HRA Saving on the Table</h3>
+<p style="margin-bottom:12px;color:#444">If your HRA exemption is large, the old regime can beat the new one despite its higher slabs — run both before you lock your regime for the year. Park the tax you save into a low-cost index SIP or ELSS so it compounds instead of sitting idle. Open a zero-commission account and put the saving to work:</p>
+<a href="https://app.groww.in/v3cO/mfynf0t8?utm_source=protodex&utm_medium=calculator&utm_campaign=hra_india&utm_content=primary-cta" target="_blank" rel="noopener nofollow sponsored">Start a SIP on Groww →</a>
+<a href="https://zerodha.com/open-account?c=VN7717&utm_source=protodex&utm_medium=calculator&utm_campaign=hra_india&utm_content=secondary-cta" target="_blank" rel="noopener nofollow sponsored" class="alt">Open Free Demat on Zerodha →</a>
+<p style="font-size:0.72rem;color:#888;margin-top:12px;font-style:italic">Affiliate links — protodex.io may earn a commission at no extra cost to you. Match the instrument to your goal and risk appetite; market investments are not capital-guaranteed.</p>
+</div>
+
+<section class="content">
+<h2>HRA Exemption in India 2026 — The Complete Guide</h2>
+
+<p><strong>House Rent Allowance (HRA)</strong> is one of the most valuable exemptions a salaried Indian can claim — but in 2026 it comes with a trap that catches lakhs of people every year: <strong>HRA exemption exists only under the old tax regime</strong>. The new regime, which has been the <em>default</em> since FY 2023-24, strips HRA out entirely. So before you celebrate a tax saving, you have to be on the old regime to get it at all. This calculator computes your exemption with the exact Section 10(13A) "least of three" rule, applies the right metro or non-metro percentage, and shows you what you actually save — and it warns you, loudly, if you've picked the regime where the saving is zero.</p>
+
+<div class="note"><strong>The thing most HRA calculators get wrong:</strong> they quietly assume you're on the old regime and show you a juicy exemption — even though most salaried taxpayers are now defaulted into the new regime where HRA is worth nothing. They also use <em>gross salary</em> instead of <em>basic + DA</em>, which inflates the exemption. This tool uses basic+DA for the percentages and makes the regime choice explicit, so the number you see is the number you can actually claim.</p>
+
+<h2>The Section 10(13A) "Least of Three" Rule</h2>
+
+<p>Your exempt HRA is the <strong>smallest</strong> of these three figures, computed for the year:</p>
+
+<table class="guide">
+<thead><tr><th>#</th><th>Limit</th><th>Formula</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Actual HRA received</td><td>The HRA on your payslip × 12</td></tr>
+<tr><td>2</td><td>Metro / non-metro cap</td><td>50% (metro) or 40% (non-metro) of (basic + DA)</td></tr>
+<tr><td>3</td><td>Rent over threshold</td><td>Rent paid − 10% of (basic + DA)</td></tr>
+</tbody>
+</table>
+
+<p>Whichever is lowest is exempt; the rest of the HRA you received is added to your taxable salary. In practice, limit 3 (rent minus 10% of salary) is the binding one for most renters — your exemption is effectively capped by how much rent you actually pay.</p>
+
+<h2>How HRA Exemption Is Calculated</h2>
+
+<p style="text-align:center;font-size:1.05rem;background:#f1faee;padding:14px;border-radius:8px"><strong>Exempt HRA = min( Actual HRA, 50%/40% of Basic+DA, Rent − 10% of Basic+DA )</strong></p>
+
+<ul>
+<li><strong>Salary</strong> for every percentage here means <strong>basic + DA</strong> (and commission as a fixed % of turnover, if any) — never gross CTC.</li>
+<li><strong>Metro</strong> (Delhi, Mumbai, Kolkata, Chennai) uses 50%; <strong>everywhere else</strong> uses 40%.</li>
+<li><strong>Taxable HRA</strong> = HRA received − exempt HRA. This is added to your income and taxed at your slab.</li>
+<li><strong>Tax saved</strong> ≈ exempt HRA × your slab rate × 1.04 (cess) — but only if you're on the <strong>old regime</strong>.</li>
+</ul>
+
+<div class="note"><strong>Worked example:</strong> You earn <strong>₹50,000/month</strong> basic+DA (₹6,00,000/yr), receive <strong>₹20,000/month</strong> HRA (₹2,40,000/yr), pay <strong>₹18,000/month</strong> rent (₹2,16,000/yr), and live in a <strong>metro</strong>. The three limits are: (1) actual HRA = ₹2,40,000; (2) 50% of ₹6,00,000 = ₹3,00,000; (3) ₹2,16,000 − 10% of ₹6,00,000 = ₹2,16,000 − ₹60,000 = ₹1,56,000. The least is <strong>₹1,56,000</strong>, so that much is exempt, ₹84,000 of HRA stays taxable, and at the 30% slab you save about <strong>₹48,672</strong> for the year (with 4% cess).</div>
+
+<h2>Metro vs Non-Metro — Which Cities Qualify</h2>
+
+<table class="guide">
+<thead><tr><th>City type</th><th>Cities</th><th>Salary % limit</th></tr></thead>
+<tbody>
+<tr><td>Metro</td><td>Delhi, Mumbai, Kolkata, Chennai</td><td>50% of basic + DA</td></tr>
+<tr><td>Non-metro</td><td>Bangalore, Pune, Hyderabad, Ahmedabad, Gurgaon, Noida, and every other city/town</td><td>40% of basic + DA</td></tr>
+</tbody>
+</table>
+<p style="font-size:0.85rem;color:#666">Note the surprise: Bangalore, Pune and Hyderabad are <strong>not</strong> metros for HRA, despite being major IT hubs. The four-metro list is fixed by income-tax rules, not by city size.</p>
+
+<h2>Old Regime vs New Regime — Why It Decides Everything</h2>
+
+<table class="guide">
+<thead><tr><th>Feature</th><th>Old regime</th><th>New regime (default)</th></tr></thead>
+<tbody>
+<tr><td>HRA exemption (10(13A))</td><td>✅ Allowed</td><td>❌ Not allowed</td></tr>
+<tr><td>80C, 80D, home-loan interest</td><td>✅ Allowed</td><td>❌ Mostly not allowed</td></tr>
+<tr><td>Slab rates</td><td>Higher</td><td>Lower</td></tr>
+<tr><td>Default if you do nothing</td><td>No</td><td>Yes</td></tr>
+</tbody>
+</table>
+<p>If you pay meaningful rent, the HRA exemption can swing the decision toward the old regime even though its slab rates are higher. The only way to know is to compute your tax both ways — old-regime-with-HRA-and-deductions versus new-regime-with-lower-slabs — and pick the lower. Use our <a href="https://protodex.io/inhand-salary-calculator/" style="color:#457b9d">in-hand salary calculator</a> and <a href="https://incometax-india.pages.dev/" style="color:#457b9d">income tax calculator</a> to compare both regimes side by side.</p>
+
+<h2>Documents You Need to Claim HRA</h2>
+<ul>
+<li><strong>Rent receipts</strong> for the year (monthly or quarterly), signed by the landlord.</li>
+<li><strong>Landlord's PAN</strong> if your annual rent exceeds ₹1,00,000 — or a signed no-PAN declaration.</li>
+<li><strong>Proof of payment</strong> — bank transfer/UPI is far safer than cash.</li>
+<li>A <strong>rent agreement</strong> is strongly recommended, especially if you rent from a relative.</li>
+</ul>
+
+<h2>Common HRA Mistakes to Avoid</h2>
+<ul>
+<li><strong>Claiming HRA on the new regime.</strong> It's worth zero there — switch to old regime first or the exemption vanishes.</li>
+<li><strong>Using gross salary instead of basic + DA.</strong> The 50%/40%/10% are on basic+DA only; using CTC over-claims.</li>
+<li><strong>Treating Bangalore/Pune/Hyderabad as metros.</strong> They're non-metro (40%), not 50%.</li>
+<li><strong>No landlord PAN over ₹1 lakh rent.</strong> Missing it can get the whole claim disallowed.</li>
+<li><strong>Paying cash rent to family with no receipts.</strong> The most-audited HRA claim — keep it genuine and documented.</li>
+<li><strong>Claiming HRA while living in your own home-loan house.</strong> Not allowed; HRA needs rent actually paid on a home you don't own.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How is HRA exemption calculated?</h3>
+<p>It's the least of three: actual HRA received, 50% (metro) or 40% (non-metro) of basic+DA, and rent paid minus 10% of basic+DA. The smallest of the three is exempt.</p>
+
+<h3>Can I claim HRA under the new tax regime?</h3>
+<p>No. HRA exemption is an old-regime benefit only. The default new regime removes it, so the entire HRA becomes taxable unless you opt for the old regime.</p>
+
+<h3>Is Bangalore a metro for HRA?</h3>
+<p>No. Only Delhi, Mumbai, Kolkata and Chennai are metros (50%). Bangalore, Pune, Hyderabad and all other cities are non-metro (40%).</p>
+
+<h3>What is "salary" for HRA?</h3>
+<p>Basic salary + dearness allowance (forming part of retirement benefits) + commission as a fixed % of turnover. Not gross CTC, not other allowances.</p>
+
+<h3>Do I need my landlord's PAN?</h3>
+<p>Yes, if annual rent exceeds ₹1,00,000. Otherwise a self-declaration may be accepted, but PAN is the safe path.</p>
+
+<h3>Can I claim HRA and a home loan together?</h3>
+<p>Yes, in genuine cases — e.g. you rent where you work and own (with a loan) a house elsewhere. Both are allowed under the old regime when each is real and documented.</p>
+
+</section>
+
+<div class="related" style="background:#fff;padding:20px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)">
+<h3 style="color:#1d3557;font-size:1rem;margin-bottom:10px">Related free calculators</h3>
+<a href="https://protodex.io/inhand-salary-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💰 In-Hand Salary Calculator India 2026 (Old vs New Regime, FY 2026-27) →</a>
+<a href="https://incometax-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧾 Income Tax Calculator India FY 2026-27 (Old vs New Regime + 87A Rebate) →</a>
+<a href="https://protodex.io/ltcg-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💹 LTCG Calculator India 2026 (Capital Gains After Budget 2024) →</a>
+<a href="https://protodex.io/epf-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏦 EPF Calculator India 2026 (8.25%, Employer + Employee Split) →</a>
+<a href="https://protodex.io/gratuity-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🎁 Gratuity Calculator India 2026 (15/26 Formula, ₹20L Cap) →</a>
+<a href="https://protodex.io/nsc-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📜 NSC Calculator India 2026 (7.7%, Annual Compounding, 80C) →</a>
+</div>
+
+<footer>
+<p>Last updated: <strong id="lastmod">2026-06-19</strong> · Built for Indian taxpayers · Not financial or tax advice</p>
+<p>Figures are illustrative and based on House Rent Allowance provisions under Section 10(13A) of the Income-tax Act and Rule 2A. The HRA exemption applies only under the old tax regime; the new regime (default from FY 2023-24) does not allow it. "Salary" means basic + dearness allowance forming part of retirement benefits plus commission as a fixed percentage of turnover. Mid-year changes in salary, rent or city require period-wise computation. Verify your position with a qualified tax advisor before filing.</p>
+<p>© 2026 protodex.io · <a href="https://protodex.io/privacy">Privacy</a> · <a href="https://protodex.io/disclosure">Affiliate disclosure</a></p>
+</footer>
+
+</div>
+
+<script>
+function fmt(n){
+  return "₹" + Math.round(n).toLocaleString("en-IN");
+}
+
+function calc(){
+  var basicM = parseFloat(document.getElementById("basic").value) || 0;
+  var hraM = parseFloat(document.getElementById("hra").value) || 0;
+  var rentM = parseFloat(document.getElementById("rent").value) || 0;
+  var metro = document.getElementById("city").value === "metro";
+  var regime = document.getElementById("regime").value;
+  var slab = parseFloat(document.getElementById("slab").value) || 0;
+
+  if(basicM <= 0 || hraM < 0 || rentM < 0){
+    alert("Enter your monthly basic+DA, HRA received and rent paid.");
+    return;
+  }
+
+  var salary = basicM * 12;
+  var hraReceived = hraM * 12;
+  var rentPaid = rentM * 12;
+  var pct = metro ? 0.5 : 0.4;
+
+  var c1 = hraReceived;                              // actual HRA
+  var c2 = pct * salary;                             // 50%/40% of basic+DA
+  var c3 = Math.max(0, rentPaid - 0.10 * salary);    // rent − 10% of salary
+
+  var exempt = Math.min(c1, c2, c3);
+  var taxable = Math.max(0, hraReceived - exempt);
+
+  // which limit bound the exemption
+  var bound = (exempt === c1) ? "actual HRA received"
+            : (exempt === c3) ? "rent paid minus 10% of salary"
+            : (metro ? "50% of basic+DA (metro cap)" : "40% of basic+DA (non-metro cap)");
+
+  var newRegime = (regime === "new");
+  // Under new regime the exemption is not available — nothing is exempt.
+  var effectiveExempt = newRegime ? 0 : exempt;
+  var effectiveTaxable = newRegime ? hraReceived : taxable;
+  var taxSaved = effectiveExempt * (slab/100) * 1.04;
+
+  // comparison table — all three limits, winner highlighted
+  function rowFor(label, amt, isWin){
+    return '<tr' + (isWin?' class="win"':'') + '><td>' + label + '</td><td>' + fmt(amt) + '</td></tr>';
+  }
+  var rows =
+    rowFor("1. Actual HRA received", c1, !newRegime && exempt===c1) +
+    rowFor("2. " + (metro?"50% (metro)":"40% (non-metro)") + " of basic+DA", c2, !newRegime && exempt===c2 && exempt!==c1) +
+    rowFor("3. Rent paid − 10% of basic+DA", c3, !newRegime && exempt===c3 && exempt!==c1 && exempt!==c2);
+  document.getElementById("r_compare").innerHTML = rows;
+
+  document.getElementById("r_hra").textContent = fmt(hraReceived);
+  document.getElementById("r_exempt").textContent = fmt(effectiveExempt);
+  document.getElementById("r_taxable").textContent = fmt(effectiveTaxable);
+  document.getElementById("r_saved").textContent = fmt(taxSaved);
+
+  var eb = document.getElementById("eligBox");
+  if(newRegime){
+    eb.className = "elig warn";
+    eb.textContent = "⚠ You're on the NEW regime — HRA exemption is ₹0 and your full HRA of " + fmt(hraReceived) +
+      " is taxable. Under the OLD regime you could have exempted " + fmt(exempt) + " (saving ~" +
+      fmt(exempt*(slab/100)*1.04) + "). Compare both regimes before you decide.";
+  } else {
+    eb.className = "elig ok";
+    eb.textContent = "✓ Exempt HRA " + fmt(exempt) + " (bound by " + bound + "). " +
+      fmt(taxable) + " stays taxable; you save about " + fmt(taxSaved) + " at the " + slab + "% slab.";
+  }
+
+  var note = newRegime
+    ? "HRA exemption under Section 10(13A) is an old-regime-only benefit. The three limits above are shown for comparison, but on the new regime none of your HRA is exempt."
+    : "Your exemption is the least of the three limits — here bound by " + bound + ". Tax saved ≈ exempt HRA × " + slab + "% slab × 1.04 (cess). " +
+      ((rentPaid <= 0.10*salary) ? "Note: your rent is below 10% of salary, so limit 3 is zero — no HRA is exempt. " : "") +
+      "Annual rent above ₹1,00,000 needs your landlord's PAN.";
+  document.getElementById("gNote").textContent = note;
+
+  document.getElementById("result").classList.add("show");
+}
+
+["basic","hra","rent","city","regime","slab"].forEach(function(id){
+  var el = document.getElementById(id);
+  el.addEventListener("keypress", function(e){ if(e.key === "Enter") calc(); });
+  el.addEventListener("change", calc);
+});
+
+// auto-run with defaults on first load
+window.addEventListener("DOMContentLoaded", function(){ calc(); });
+</script>
+
+
+<!-- LF:EMAIL-CAPTURE v1 -->
+<section style="max-width:680px;margin:48px auto 24px;padding:20px 22px;background:#fafbff;border:1px solid #e1e5ee;border-radius:10px;font-family:-apple-system,system-ui,sans-serif">
+  <div style="font-weight:600;font-size:1rem;color:#1a1a2e;margin-bottom:4px">Subscribe for India tax &amp; investing updates</div>
+  <div style="font-size:0.85rem;color:#555;margin-bottom:14px">HRA &amp; regime changes, 80C updates, new calculators, planning tips. No spam. Unsubscribe anytime.</div>
+  <form onsubmit="event.preventDefault(); var f=this; var msg=f.querySelector('.lf_msg'); msg.textContent='Sending…'; fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'b2fb1576-a39b-4683-8ee9-4e152f731113',subject:'India calc newsletter signup ('+location.hostname+')',email:f.email.value,from_name:'protodex.io '+location.hostname,source:location.href})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.textContent='✓ Subscribed. Watch your inbox.';msg.style.color='#16a34a';f.email.value=''}else{msg.textContent='Couldn’t subscribe. Email manja316@gmail.com directly.';msg.style.color='#dc2626'}}).catch(function(){msg.textContent='Network error. Try again.';msg.style.color='#dc2626'})" style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid #d4d8e2;border-radius:6px;font-size:0.95rem">
+    <button type="submit" style="padding:10px 22px;background:#1a1a2e;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.9rem">Subscribe</button>
+  </form>
+  <div class="lf_msg" style="margin-top:8px;font-size:0.82rem"></div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e5ee;font-size:0.72rem;color:#888">
+    Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=calc-footer&utm_campaign=india-calcs" target="_blank" rel="noopener" style="color:#666">Claude</a> · <a href="https://protodex.io" style="color:#666">protodex.io</a>
+  </div>
+</section>
+
+</body>
+</html>
