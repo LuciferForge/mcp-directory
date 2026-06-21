@@ -371,6 +371,25 @@ a.value-prop { color: inherit; }
     color: var(--text-muted);
     line-height: 1.5;
 }
+.cred-band {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    flex-wrap: wrap; margin: 0 auto 28px; padding: 11px 22px; max-width: 720px;
+    background: var(--accent-soft); border: 1px solid rgba(45,217,224,0.22);
+    border-radius: 100px; font-size: 0.9rem; color: var(--text-muted); text-align: center;
+}
+.cred-grow { font-family: var(--mono); font-weight: 700; color: var(--accent); }
+.works-with { text-align: center; margin: 0 auto 72px; }
+.ww-label {
+    display: block; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--text-dim); margin-bottom: 16px; font-weight: 700;
+}
+.ww-logos { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.ww-logos span {
+    font-family: var(--mono); font-weight: 600; color: var(--text-muted);
+    font-size: 1.05rem; opacity: 0.8; transition: opacity 0.2s, color 0.2s;
+}
+.ww-logos span:hover { opacity: 1; color: var(--text); }
+.value-prop-icon svg { display: inline-block; }
 
 /* Section titles */
 .section-title {
@@ -2053,7 +2072,7 @@ footer {
         <td class="desc-cell">自动化流量分析 mcp 工具</td>
         <td class="stars-cell">★ 116</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">5d ago</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">124</td>
@@ -2605,7 +2624,7 @@ footer {
         <td class="desc-cell">A server plugin of MCP for SillyTavern.</td>
         <td class="stars-cell">★ 41</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">193</td>
@@ -2653,7 +2672,7 @@ footer {
         <td class="desc-cell">An MCP server application that sends various types of messages to the WeCom...</td>
         <td class="stars-cell">★ 37</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">2mo ago</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">199</td>
@@ -4701,7 +4720,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 5</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">17d ago</td>
+        <td style="color:var(--text-dim)">18d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">455</td>
@@ -5029,7 +5048,7 @@ footer {
         <td class="desc-cell">Apache AGE MCP Server</td>
         <td class="stars-cell">★ 4</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#701516"></span> Ruby</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">496</td>
@@ -5037,7 +5056,7 @@ footer {
         <td class="desc-cell">Axon MCP Server for SkySpark Axon Scripting</td>
         <td class="stars-cell">★ 4</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">497</td>
@@ -5653,7 +5672,7 @@ footer {
         <td class="desc-cell">MCP Server to manage a jellyfin server</td>
         <td class="stars-cell">★ 3</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">8d ago</td>
+        <td style="color:var(--text-dim)">9d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">574</td>
@@ -6813,7 +6832,7 @@ footer {
         <td class="desc-cell">元典开放平台 MCP Server 是面向法律与企业数据场景的标准化 MCP...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">719</td>
@@ -6837,7 +6856,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">27d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">722</td>
@@ -6933,7 +6952,7 @@ footer {
         <td class="desc-cell">达梦数据库mcp</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">734</td>
@@ -6941,7 +6960,7 @@ footer {
         <td class="desc-cell">Garoon official MCP server</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">735</td>
@@ -6965,7 +6984,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">738</td>
@@ -7013,7 +7032,7 @@ footer {
         <td class="desc-cell">my-server-mcp</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">5d ago</td>
+        <td style="color:var(--text-dim)">6d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">744</td>
@@ -8301,7 +8320,7 @@ footer {
         <td class="desc-cell">Official SDK of the EoF MCP Studio App for macOS</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">905</td>
@@ -9381,7 +9400,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">15d ago</td>
+        <td style="color:var(--text-dim)">16d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1040</td>
@@ -9597,7 +9616,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1067</td>
@@ -19949,7 +19968,7 @@ footer {
         <td class="desc-cell">MCP server exposing the Taskweft HTN planner over stdio</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> Elixir</td>
-        <td style="color:var(--text-dim)">27d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2361</td>
@@ -19957,7 +19976,7 @@ footer {
         <td class="desc-cell">My repository for mcp servers I create.</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">27d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2362</td>
@@ -19965,7 +19984,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">27d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2363</td>
@@ -23117,7 +23136,7 @@ footer {
         <td class="desc-cell">MCP server that calculates sum and product of numbers</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2757</td>
@@ -23125,7 +23144,7 @@ footer {
         <td class="desc-cell">MCP server for YNAB (You Need A Budget) — budgets, accounts, categories,...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2758</td>
@@ -23133,7 +23152,7 @@ footer {
         <td class="desc-cell">MCP server providing 23 tools for Taiwan transport queries via TDX (rail /...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F05138"></span> Swift</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2759</td>
@@ -23141,7 +23160,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2760</td>
@@ -23149,7 +23168,7 @@ footer {
         <td class="desc-cell">Product-ready MCP server for Remotion animation generation</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2761</td>
@@ -23157,7 +23176,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2762</td>
@@ -23165,7 +23184,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2763</td>
@@ -23173,7 +23192,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2764</td>
@@ -23181,7 +23200,7 @@ footer {
         <td class="desc-cell">MCP_server</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2765</td>
@@ -23189,7 +23208,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2766</td>
@@ -23197,7 +23216,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2767</td>
@@ -23205,7 +23224,7 @@ footer {
         <td class="desc-cell">全球海关贸易数据 MCP 服务 — 提供 238 个国家/地区的进出口贸易数据查询能力。</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2768</td>
@@ -23349,7 +23368,7 @@ footer {
         <td class="desc-cell">MCP server for generating, validating, and converting valid X3D content...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">2786</td>
@@ -26405,7 +26424,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">3168</td>
@@ -26413,7 +26432,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">3169</td>
@@ -26421,7 +26440,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">3170</td>
@@ -26429,7 +26448,7 @@ footer {
         <td class="desc-cell">论文分析mcp，调用多模态大模型实现对论文中的图片进行分析，并通过脚本批量提取论文中的数据点等功能</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F34B7D"></span> C++</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">3171</td>
@@ -26437,7 +26456,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">3172</td>

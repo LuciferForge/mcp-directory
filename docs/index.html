@@ -371,6 +371,25 @@ a.value-prop { color: inherit; }
     color: var(--text-muted);
     line-height: 1.5;
 }
+.cred-band {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    flex-wrap: wrap; margin: 0 auto 28px; padding: 11px 22px; max-width: 720px;
+    background: var(--accent-soft); border: 1px solid rgba(45,217,224,0.22);
+    border-radius: 100px; font-size: 0.9rem; color: var(--text-muted); text-align: center;
+}
+.cred-grow { font-family: var(--mono); font-weight: 700; color: var(--accent); }
+.works-with { text-align: center; margin: 0 auto 72px; }
+.ww-label {
+    display: block; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--text-dim); margin-bottom: 16px; font-weight: 700;
+}
+.ww-logos { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.ww-logos span {
+    font-family: var(--mono); font-weight: 600; color: var(--text-muted);
+    font-size: 1.05rem; opacity: 0.8; transition: opacity 0.2s, color 0.2s;
+}
+.ww-logos span:hover { opacity: 1; color: var(--text); }
+.value-prop-icon svg { display: inline-block; }
 
 /* Section titles */
 .section-title {
@@ -1057,9 +1076,9 @@ footer {
 
 <section class="hero">
     <div class="container hero-content">
-        <div class="hero-badge"><span class="pulse"></span> Updated weekly &middot; 16,400 servers indexed</div>
-        <h1>Find the right <span class="gradient">MCP server</span> in seconds</h1>
-        <p>Stop scrolling through GitHub. Search 16,400+ Model Context Protocol servers with security scores, organized by category, language, and popularity.</p>
+        <div class="hero-badge"><span class="pulse"></span> The MCP registry &middot; updated weekly &middot; 16,400 servers</div>
+        <h1>The trusted registry for <span class="gradient">MCP servers</span></h1>
+        <p>16,400 Model Context Protocol servers &mdash; indexed, ranked, and screened, refreshed from GitHub every week. Stop trusting random repos. Find, vet, and ship the right server with confidence.</p>
         <div class="search-wrap">
             <span class="search-icon">&#10095;</span>
             <input type="text" id="search-input" placeholder="search servers &mdash; postgres, slack, stripe, browser" autocomplete="off" oninput="doSearch(this.value)">
@@ -1101,6 +1120,39 @@ footer {
         <div class="stat">
             <div class="stat-num">2.6M</div>
             <div class="stat-label">Total Stars</div>
+        </div>
+    </div>
+
+    <div class="cred-band">
+        <span class="cred-grow">&#9650; +1,093% MoM</span>
+        <span>the fastest-growing MCP index &mdash; re-indexed and screened every week</span>
+    </div>
+    <div class="works-with">
+        <span class="ww-label">Works with every MCP client</span>
+        <div class="ww-logos">
+            <span>Claude</span><span>Cursor</span><span>Cline</span><span>Windsurf</span><span>VS&nbsp;Code</span><span>Zed</span>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="section-title">Why builders trust protodex</h2>
+    <p class="section-subtitle">The MCP ecosystem moves fast and most of it is unvetted. We make it safe to choose.</p>
+    <div class="value-props">
+        <div class="value-prop">
+            <div class="value-prop-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <h3>Security-screened</h3>
+            <p>We run servers through static analysis and surface risk signals &mdash; so you can vet a server before you wire it into your agent, not after.</p>
+        </div>
+        <div class="value-prop">
+            <div class="value-prop-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></div>
+            <h3>Always current</h3>
+            <p>Re-indexed from GitHub every week. Stars, activity, and brand-new servers stay fresh &mdash; no dead links, no abandoned repos passed off as live.</p>
+        </div>
+        <div class="value-prop">
+            <div class="value-prop-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+            <h3>Find by intent</h3>
+            <p>Search by what you're building, not exact names. Filter 16,400 servers by category, language, and popularity to land on the right one fast.</p>
         </div>
     </div>
 </section>
