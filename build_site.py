@@ -1471,7 +1471,7 @@ def security_badge_html(server):
     """Return HTML for security badge, or empty string if no score."""
     band = server.get("security_band", "")
     if band == "green":
-        return '<span class="sec-badge sec-green">&#10003; Secure</span>'
+        return '<span class="sec-badge sec-green">&#10003; Clean</span>'
     elif band == "yellow":
         return '<span class="sec-badge sec-yellow">&#9888; Review</span>'
     elif band == "red":
