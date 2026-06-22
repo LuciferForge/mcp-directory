@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST Calculator for Freelancers India 2026 — Export of Services (LUT 0%), Domestic 18%, CGST/SGST vs IGST &amp; ₹20L Registration Threshold</title>
+<meta name="description" content="Free GST calculator built for Indian freelancers, consultants and creators 2026. Handles export of services to foreign clients (zero-rated 0% with LUT), domestic 18% GST with CGST/SGST vs IGST split, add-GST vs reverse-GST, and the ₹20 lakh (₹10L special-state) registration threshold most calculators get wrong.">
+<link rel="canonical" href="https://protodex.io/gst-calculator/">
+<meta property="og:title" content="GST Calculator for Freelancers India 2026 — Export of Services 0% (LUT), Domestic 18%, ₹20L Threshold">
+<meta property="og:description" content="Work out GST on freelance &amp; consulting income: foreign clients are zero-rated (0%) with an LUT, Indian clients pay 18% split as CGST/SGST or IGST. Add or remove GST, and check if you even cross the ₹20 lakh registration limit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://protodex.io/gst-calculator/">
+<meta name="theme-color" content="#1d3557">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧾</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "GST Calculator for Freelancers India 2026",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
+  "description": "Free GST calculator for Indian freelancers and consultants 2026: export of services zero-rated (0% with LUT), domestic 18% GST with CGST/SGST or IGST split, add vs reverse GST, and the ₹20 lakh registration threshold.",
+  "url": "https://protodex.io/gst-calculator/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do freelancers in India have to charge GST to foreign clients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually no GST is collected. Services supplied to a client outside India, paid for in convertible foreign exchange, qualify as an 'export of services' and are zero-rated under the IGST Act. If you file a Letter of Undertaking (LUT) on the GST portal, you bill the foreign client at 0% — no GST is added to the invoice at all. Without an LUT you must charge 18% IGST and then claim a refund. So the foreign client never really bears Indian GST; the LUT route just avoids the cash-flow hit of paying and reclaiming it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "At what income do freelancers need to register for GST?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For service providers the aggregate-turnover threshold is ₹20 lakh per financial year (₹10 lakh in the special-category states of Manipur, Mizoram, Nagaland and Tripura). The widely-quoted ₹40 lakh limit applies only to suppliers of goods, not services — this is the single most common mistake freelancers make. Note that anyone making inter-state taxable supplies or supplying through an e-commerce operator may need to register regardless of turnover, and many freelancers register voluntarily to claim input tax credit or to file an LUT for exports."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the GST rate on freelance and professional services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most professional, consulting, IT, design, writing and freelance services are taxed at the standard 18% GST rate. A few categories sit at 5% or 12%, but for the typical knowledge-worker freelancer the rate is 18%. For an Indian client in your own state this 18% is split as 9% CGST + 9% SGST; for a client in another state it is charged as 18% IGST. For a foreign client it is 0% (zero-rated) when treated as an export of services."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between CGST, SGST and IGST?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When you and your client are in the same state, the 18% GST is split into Central GST (CGST 9%) and State GST (SGST 9%). When the client is in a different Indian state, the whole 18% is charged as Integrated GST (IGST) instead, which the centre later apportions to the destination state. The total tax is identical at 18% — only the heads it is booked under change. Exports of services are inter-state supplies but are zero-rated, so no IGST is actually collected when you have an LUT."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an LUT and why do exporting freelancers need one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Letter of Undertaking (LUT) is a declaration filed on the GST portal (form GST RFD-11) that lets you export services without paying IGST upfront. It is valid for one financial year and must be renewed each year. With a valid LUT you invoice foreign clients at 0% GST. Without it, you are legally required to charge 18% IGST on export invoices and then file for a refund — locking up working capital for months. For any freelancer with overseas clients, filing the LUT at the start of each financial year is essential."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I remove GST from an inclusive amount?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If a figure already includes GST, the base value is amount ÷ (1 + rate). At 18% that is amount ÷ 1.18. For example, ₹1,18,000 inclusive of 18% GST breaks into a ₹1,00,000 base and ₹18,000 GST. This 'reverse GST' calculation matters when a client gives you a fixed all-in budget and you need to know your actual pre-tax earnings. This calculator does both directions — add GST to a quote, or strip GST out of an inclusive amount."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the GST composition scheme good for freelancers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Service providers with turnover up to ₹50 lakh can opt for the composition scheme and pay a flat 6% (3% CGST + 3% SGST) on turnover, with simpler quarterly returns. The trade-offs: you cannot claim input tax credit, you cannot make inter-state supplies, you cannot supply through e-commerce operators, and you cannot charge GST separately on your invoices (you absorb it). For exporters it is unsuitable because exports are inter-state. For a domestic-only freelancer with few input costs it can reduce compliance, but most freelancers stay on the regular scheme to keep the export and ITC options open."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does GST apply to income earned through Upwork, Fiverr or Contra?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the end client is outside India and you are paid in foreign currency, the work is an export of services and is zero-rated (0% with an LUT) even when routed through a platform. What matters is who the recipient of the service is and how you are paid, not the platform. Platform fees the foreign marketplace charges you may themselves attract GST under reverse charge in some cases. Keep your FIRC/FIRA or bank foreign-inward-remittance advice as proof of export — it is required to support the zero-rating and any refund."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#f8f9fb}
+.container{max-width:760px;margin:0 auto;padding:24px 16px}
+header{text-align:center;padding:32px 16px 16px;background:linear-gradient(135deg,#1d3557 0%,#457b9d 100%);color:#fff;border-radius:0 0 16px 16px}
+header h1{font-size:1.8rem;margin-bottom:8px;line-height:1.25}
+header p{font-size:1rem;opacity:0.92}
+.badge{display:inline-block;background:#f1c40f;color:#1d3557;padding:4px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;margin-top:8px}
+.calc{background:#fff;padding:28px 24px;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.06);margin-top:-16px;position:relative;z-index:2}
+.calc h2{font-size:1.3rem;margin-bottom:18px;color:#1d3557}
+label{display:block;font-weight:600;margin:14px 0 6px;font-size:0.95rem}
+input[type=number],input[type=date],select{width:100%;padding:12px 14px;border:1.5px solid #d0d6e0;border-radius:8px;font-size:1rem;background:#fff;transition:border-color 0.2s}
+input:focus,select:focus{outline:none;border-color:#457b9d}
+.helper{font-size:0.82rem;color:#666;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+button{width:100%;background:#1d3557;color:#fff;padding:14px 20px;border:none;border-radius:8px;font-size:1.05rem;font-weight:700;cursor:pointer;margin-top:20px;transition:background 0.2s}
+button:hover{background:#0d233d}
+.result{margin-top:24px;padding:20px;background:#f1faee;border-left:4px solid #2a9d8f;border-radius:8px;display:none}
+.result.show{display:block}
+.result h3{font-size:1.15rem;margin-bottom:10px;color:#1d3557}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #ccc;font-size:0.95rem}
+.row:last-of-type{border-bottom:none;font-weight:700;font-size:1.1rem;padding-top:12px;margin-top:8px;border-top:2px solid #1d3557}
+.row .lbl{color:#444}
+.row .val{color:#1d3557;font-weight:600}
+.elig{padding:12px 14px;border-radius:8px;font-size:0.9rem;margin-bottom:14px;font-weight:600}
+.elig.ok{background:#e7f6ee;border-left:4px solid #2a9d8f;color:#15663f}
+.elig.warn{background:#fff4e5;border-left:4px solid #e67e22;color:#8a4b00}
+.elig.info{background:#e8f0fe;border-left:4px solid #4285f4;color:#174ea6}
+section.content{background:#fff;padding:28px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+section.content h2{font-size:1.4rem;margin:18px 0 12px;color:#1d3557}
+section.content h2:first-child{margin-top:0}
+section.content h3{font-size:1.1rem;margin:16px 0 8px;color:#2a4d6e}
+section.content p{margin-bottom:12px}
+section.content ul,section.content ol{padding-left:22px;margin-bottom:12px}
+section.content li{margin-bottom:6px}
+table.guide{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.95rem}
+table.guide th,table.guide td{padding:10px 12px;border:1px solid #e0e4eb;text-align:left}
+table.guide th{background:#1d3557;color:#fff;font-weight:600}
+table.guide tr:nth-child(even){background:#f8f9fb}
+.note{background:#fff8e1;border-left:4px solid #f1c40f;padding:14px 18px;margin:14px 0;border-radius:6px;font-size:0.95rem}
+.cta{background:#fff;padding:24px;border-radius:14px;margin-top:24px;text-align:center;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+.cta h3{color:#1d3557;margin-bottom:8px}
+.cta a{display:inline-block;background:#e63946;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px 4px;font-size:0.95rem}
+.cta a.alt{background:#1d3557}
+footer{text-align:center;padding:32px 16px;color:#666;font-size:0.85rem;line-height:1.7}
+footer a{color:#457b9d}
+@media(max-width:520px){
+  header h1{font-size:1.45rem}
+  .calc{padding:22px 18px}
+  section.content{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>GST Calculator for Freelancers India 2026</h1>
+<p>Export of services 0% (with LUT) · domestic 18% CGST/SGST or IGST · add or reverse GST · ₹20L registration check</p>
+<span class="badge">Built for consultants, creators &amp; remote freelancers</span>
+</header>
+
+<div class="container">
+
+<div class="calc">
+<h2>Calculate GST on Your Invoice</h2>
+
+<label for="client">Who is your client?</label>
+<select id="client">
+  <option value="foreign" selected>Foreign client — export of services (paid in foreign currency)</option>
+  <option value="intra">Indian client — same state as you (CGST + SGST)</option>
+  <option value="inter">Indian client — different state (IGST)</option>
+</select>
+<div class="helper">Export of services to a client outside India is zero-rated; Indian clients attract 18% split by location.</div>
+
+<div id="lutWrap">
+<label for="lut">Have you filed an LUT for this financial year?</label>
+<select id="lut">
+  <option value="yes" selected>Yes — LUT filed (export at 0% GST)</option>
+  <option value="no">No LUT — must charge 18% IGST, then claim refund</option>
+</select>
+<div class="helper">A Letter of Undertaking (form RFD-11) lets you export without paying IGST upfront. Renew every FY.</div>
+</div>
+
+<div class="two">
+<div>
+<label for="amount">Invoice / service amount (₹) <span style="color:#e63946">*</span></label>
+<input type="number" id="amount" placeholder="e.g., 100000" min="0" step="1000" value="100000">
+<div class="helper">Your professional fee for the work.</div>
+</div>
+<div>
+<label for="rate">GST rate</label>
+<select id="rate">
+  <option value="18" selected>18% — most professional/freelance services</option>
+  <option value="12">12%</option>
+  <option value="5">5%</option>
+  <option value="28">28%</option>
+  <option value="0">0% — exempt service</option>
+</select>
+<div class="helper">Consulting, IT, design, writing → almost always 18%.</div>
+</div>
+</div>
+
+<label for="dir">Is the amount above…</label>
+<select id="dir">
+  <option value="add" selected>Exclusive of GST — add GST on top (find total to bill)</option>
+  <option value="remove">Inclusive of GST — strip GST out (find pre-tax fee)</option>
+</select>
+<div class="helper">Use "inclusive" when a client gives a fixed all-in budget and you need your real earnings.</div>
+
+<button onclick="calc()">Calculate GST</button>
+
+<div id="result" class="result">
+  <div id="eligBox" class="elig ok"></div>
+  <h3 id="resultTitle">GST Breakdown</h3>
+  <div class="row"><span class="lbl" id="r_base_lbl">Taxable value (base fee)</span><span class="val" id="r_base"></span></div>
+  <div class="row" id="r_cgst_row" style="display:none"><span class="lbl" id="r_cgst_lbl">CGST @ 9%</span><span class="val" id="r_cgst"></span></div>
+  <div class="row" id="r_sgst_row" style="display:none"><span class="lbl" id="r_sgst_lbl">SGST @ 9%</span><span class="val" id="r_sgst"></span></div>
+  <div class="row" id="r_igst_row" style="display:none"><span class="lbl" id="r_igst_lbl">IGST @ 18%</span><span class="val" id="r_igst"></span></div>
+  <div class="row"><span class="lbl" id="r_total_lbl">Total invoice amount</span><span class="val" id="r_total"></span></div>
+  <p id="gNote" style="font-size:0.85rem;color:#666;margin-top:14px"></p>
+</div>
+</div>
+
+<div class="calc" style="margin-top:20px">
+<h2>Do You Even Need to Register for GST?</h2>
+<div class="two">
+<div>
+<label for="turnover">Your expected annual turnover (₹)</label>
+<input type="number" id="turnover" placeholder="e.g., 1800000" min="0" step="50000" value="1800000">
+<div class="helper">Total gross receipts in the financial year (all clients).</div>
+</div>
+<div>
+<label for="state">Which state are you in?</label>
+<select id="state">
+  <option value="normal" selected>Normal state (threshold ₹20 lakh)</option>
+  <option value="special">Special category (Manipur/Mizoram/Nagaland/Tripura — ₹10 lakh)</option>
+</select>
+<div class="helper">Services threshold is ₹20L — NOT the ₹40L goods limit.</div>
+</div>
+</div>
+<button onclick="checkReg()">Check Registration Requirement</button>
+<div id="regResult" class="result">
+  <div id="regBox" class="elig ok"></div>
+  <p id="regNote" style="font-size:0.85rem;color:#666"></p>
+</div>
+</div>
+
+<div class="cta">
+<h3>Keep More of What You Earn Abroad</h3>
+<p style="margin-bottom:12px;color:#444">Exporting freelancers lose the most money on two things: charging GST they never needed to (no LUT filed), and bleeding 3–5% on every foreign payout to bad FX and wire fees. File your LUT each April, and route foreign client payments through a low-markup account instead of a standard SWIFT wire:</p>
+<a href="https://wise.com/invite/dic/?utm_source=protodex&utm_medium=calculator&utm_campaign=gst_freelancer&utm_content=primary-cta" target="_blank" rel="noopener nofollow sponsored">Get Paid by Foreign Clients with Wise →</a>
+<a href="https://zerodha.com/open-account?c=VN7717&utm_source=protodex&utm_medium=calculator&utm_campaign=gst_freelancer&utm_content=secondary-cta" target="_blank" rel="noopener nofollow sponsored" class="alt">Park Your Profits — Open a Demat →</a>
+<p style="font-size:0.72rem;color:#888;margin-top:12px;font-style:italic">Affiliate links — protodex.io may earn a commission at no extra cost to you. This tool is educational, not tax advice; GST rules have many exceptions. Verify your specific position with a CA before invoicing.</p>
+</div>
+
+<section class="content">
+<h2>GST for Freelancers in India 2026 — The Complete Guide</h2>
+
+<p><strong>GST trips up freelancers more than any other tax</strong>, because the rules that matter most to a remote knowledge-worker — the export-of-services zero-rating, the LUT, and the ₹20 lakh services threshold — are exactly the rules generic "18% GST calculator" tools ignore. This calculator is built for the freelance reality: most of your clients may be foreign (zero-rated), some are Indian (18%, split by location), and you genuinely need to know whether you must register at all. Here is everything that actually applies to you.</p>
+
+<div class="note"><strong>The thing most GST calculators get wrong for freelancers:</strong> they assume every invoice carries 18%. But if your client is outside India and pays in foreign currency, the work is an <em>export of services</em> — zero-rated. With a Letter of Undertaking on file you bill them at <strong>0%</strong>. Charging a US or EU client 18% GST is a common, costly mistake. This tool defaults to the export case because that is where the real money leaks.</p>
+
+<h2>The Three Situations You'll Actually Face</h2>
+
+<table class="guide">
+<thead><tr><th>Client</th><th>Tax treatment</th><th>What you charge</th></tr></thead>
+<tbody>
+<tr><td>Foreign client (export of services, paid in forex)</td><td>Zero-rated</td><td>0% with LUT · 18% IGST then refund without LUT</td></tr>
+<tr><td>Indian client, same state as you</td><td>Intra-state</td><td>18% = 9% CGST + 9% SGST</td></tr>
+<tr><td>Indian client, different state</td><td>Inter-state</td><td>18% IGST</td></tr>
+</tbody>
+</table>
+
+<h2>Export of Services — Getting the Zero-Rating Right</h2>
+<p>Under section 2(6) of the IGST Act, your supply is an "export of services" — and therefore zero-rated — when all of these hold:</p>
+<ul>
+<li>The supplier (you) is located in India.</li>
+<li>The recipient (your client) is located outside India.</li>
+<li>The place of supply is outside India.</li>
+<li>Payment is received in convertible foreign exchange (or INR where the RBI permits).</li>
+<li>You and the client are not merely two establishments of the same person.</li>
+</ul>
+<p>When these are met you have two legal routes: <strong>(a) file an LUT</strong> and invoice at 0% GST, or <strong>(b) pay 18% IGST and claim a refund</strong>. Route (a) is almost always better — it avoids locking up 18% of every invoice for months. Keep your <strong>FIRC/FIRA</strong> (foreign inward remittance certificate/advice) from the bank as proof; it is required to support the zero-rating.</p>
+
+<div class="note"><strong>Worked example — foreign client with LUT:</strong> You bill a US client $1,200 (≈₹1,00,000). With an LUT on file, GST = <strong>₹0</strong>. You invoice and collect ₹1,00,000. Without an LUT you would have to add 18% IGST = ₹18,000, collect ₹1,18,000, deposit the ₹18,000 with the government, and then file for a refund months later. Same end result, far worse cash flow — which is why the LUT is non-negotiable for exporters.</div>
+
+<h2>Domestic Clients — CGST/SGST vs IGST</h2>
+<p>For an Indian client the rate is the same 18%; only the heads differ. If the client is in <strong>your own state</strong>, it splits into 9% CGST + 9% SGST. If the client is in a <strong>different state</strong>, the whole 18% is charged as IGST. The total tax the client pays is identical — the split just decides which government gets which share.</p>
+
+<div class="note"><strong>Worked example — domestic, same state:</strong> You bill an Indian client in your state ₹1,00,000 + 18% GST. That is ₹9,000 CGST + ₹9,000 SGST = ₹18,000 GST, for a ₹1,18,000 total invoice. If the client were in another state, you would instead show ₹18,000 IGST — same ₹1,18,000 total.</div>
+
+<h2>The ₹20 Lakh Registration Threshold (Not ₹40 Lakh)</h2>
+<p>You must register for GST once your <strong>aggregate turnover</strong> in a financial year crosses <strong>₹20 lakh</strong> (<strong>₹10 lakh</strong> in Manipur, Mizoram, Nagaland and Tripura). The ₹40 lakh figure you may have heard applies <em>only to suppliers of goods</em> — not services. Aggregate turnover includes your exempt and export turnover, computed PAN-India.</p>
+<div class="note"><strong>Watch out:</strong> some freelancers must register regardless of turnover — for example if they make certain inter-state taxable supplies, or supply through an e-commerce operator. Many also register voluntarily below ₹20L specifically to file an LUT and claim input tax credit. If your clients are foreign, you generally need registration to file the LUT in the first place.</p>
+
+<h2>Add GST vs Reverse (Remove) GST</h2>
+<p><strong>Add GST</strong> (exclusive): you quote a fee and add tax on top → total = fee × (1 + rate). <strong>Reverse GST</strong> (inclusive): a client gives you an all-in number and you back out the tax → base = amount ÷ (1 + rate), GST = amount − base. At 18%, ₹1,18,000 inclusive splits into ₹1,00,000 base + ₹18,000 GST. Use the inclusive mode whenever a budget is fixed and you need your true pre-tax earnings.</p>
+
+<h2>The Composition Scheme — Usually Not for Exporters</h2>
+<p>Service providers up to ₹50 lakh turnover may opt for a flat <strong>6% composition rate</strong> (3% CGST + 3% SGST) with simpler quarterly returns. But you cannot claim input tax credit, cannot make inter-state supplies, cannot sell through e-commerce operators, and cannot charge GST separately on invoices. Because exports are inter-state supplies, <strong>composition is unsuitable for anyone with foreign clients</strong>. It can occasionally suit a purely-domestic freelancer with few input costs, but most stay on the regular scheme to keep export and ITC options open.</p>
+
+<h2>Common GST Mistakes Freelancers Make</h2>
+<ul>
+<li><strong>Charging foreign clients 18% GST.</strong> Exports are zero-rated — bill at 0% with an LUT.</li>
+<li><strong>Forgetting to renew the LUT every April.</strong> It lapses each financial year; an expired LUT means you owe IGST.</li>
+<li><strong>Assuming the threshold is ₹40 lakh.</strong> For services it is ₹20 lakh (₹10 lakh in special states).</li>
+<li><strong>Not keeping FIRC/FIRA.</strong> Without proof of foreign remittance you cannot defend the export zero-rating or claim refunds.</li>
+<li><strong>Picking composition while exporting.</strong> Composition blocks inter-state supply, so it kills your export treatment.</li>
+<li><strong>Mixing up CGST/SGST and IGST.</strong> Same total, but the wrong heads on an invoice cause reconciliation headaches for the client.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Do I charge GST to foreign clients?</h3>
+<p>No — services to a client outside India, paid in foreign currency, are zero-rated. With an LUT you bill at 0%; without one you charge 18% IGST and reclaim it. Either way the foreign client does not bear Indian GST.</p>
+
+<h3>When must a freelancer register for GST?</h3>
+<p>Once aggregate turnover crosses ₹20 lakh in a financial year (₹10 lakh in Manipur, Mizoram, Nagaland, Tripura). The ₹40 lakh limit is for goods, not services. Some inter-state or e-commerce situations require registration regardless of turnover.</p>
+
+<h3>What GST rate applies to my services?</h3>
+<p>Most professional, IT, design, writing and consulting services are 18%. For a same-state client that is 9% CGST + 9% SGST; for another state it is 18% IGST; for a foreign client it is 0% (zero-rated).</p>
+
+<h3>What is an LUT?</h3>
+<p>A Letter of Undertaking (form RFD-11) filed on the GST portal that lets you export services without paying IGST upfront. It is valid for one financial year and must be renewed annually.</p>
+
+<h3>How do I remove GST from an inclusive amount?</h3>
+<p>Base = amount ÷ (1 + rate). At 18%, divide by 1.18. The difference between the inclusive amount and the base is the GST.</p>
+
+<h3>Is the composition scheme good for me?</h3>
+<p>Only if you are purely domestic with low input costs. Composition (6% flat) blocks inter-state supply, so it is unsuitable for anyone exporting to foreign clients.</p>
+
+</section>
+
+<div class="related" style="background:#fff;padding:20px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)">
+<h3 style="color:#1d3557;font-size:1rem;margin-bottom:10px">Related free calculators</h3>
+<a href="https://incometax-india.pages.dev/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧾 Income Tax Calculator India FY 2026-27 (Old vs New Regime + 87A Rebate) →</a>
+<a href="https://protodex.io/inhand-salary-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💰 In-Hand Salary Calculator India 2026 (Old vs New Regime, FY 2026-27) →</a>
+<a href="https://protodex.io/ltcg-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💹 LTCG Calculator India 2026 (Capital Gains After Budget 2024, ₹1.25L Exemption) →</a>
+<a href="https://protodex.io/hra-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏠 HRA Calculator India 2026 (Exemption, Metro vs Non-Metro, Old vs New Regime) →</a>
+<a href="https://protodex.io/fd-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏦 FD &amp; RD Calculator India 2026 (Quarterly Compounding, TDS &amp; Post-Tax) →</a>
+<a href="https://protodex.io/nsc-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📜 NSC Calculator India 2026 (7.7%, Annual Compounding, 80C Reinvestment) →</a>
+</div>
+
+<footer>
+<p>Last updated: <strong id="lastmod">2026-06-22</strong> · Built for Indian freelancers &amp; consultants · Not financial or tax advice</p>
+<p>Figures are illustrative and based on the GST law as in force in 2026, including the IGST Act provisions on export of services and the CGST/SGST/IGST framework. Rates, thresholds, the place-of-supply rules, reverse-charge situations, input tax credit eligibility and refund procedures have many exceptions and change with notifications. Verify your specific position with a qualified GST practitioner or chartered accountant before invoicing or filing.</p>
+<p>© 2026 protodex.io · <a href="https://protodex.io/privacy">Privacy</a> · <a href="https://protodex.io/disclosure">Affiliate disclosure</a></p>
+</footer>
+
+</div>
+
+<script>
+function fmt(n){
+  return "₹" + Math.round(n).toLocaleString("en-IN");
+}
+
+function calc(){
+  var client = document.getElementById("client").value;
+  var lut = document.getElementById("lut").value;
+  var amount = parseFloat(document.getElementById("amount").value) || 0;
+  var rate = parseFloat(document.getElementById("rate").value);
+  var dir = document.getElementById("dir").value;
+
+  if(amount <= 0){
+    alert("Enter the invoice / service amount.");
+    return;
+  }
+
+  // Effective rate: foreign export with LUT (or exempt) => 0%
+  var effRate = rate;
+  var exportWithLut = (client === "foreign" && lut === "yes");
+  var exportNoLut = (client === "foreign" && lut === "no");
+  if(exportWithLut) effRate = 0;
+  if(exportNoLut) effRate = 18; // export without LUT => 18% IGST (refundable)
+
+  var base, gst, total;
+  if(dir === "add"){
+    base = amount;
+    gst = base * effRate / 100;
+    total = base + gst;
+  } else {
+    base = amount / (1 + effRate / 100);
+    gst = amount - base;
+    total = amount;
+  }
+
+  // reset rows
+  ["r_cgst_row","r_sgst_row","r_igst_row"].forEach(function(id){ document.getElementById(id).style.display = "none"; });
+
+  var headline = "", eligClass = "ok", note = "";
+
+  if(client === "intra"){
+    var half = gst / 2;
+    document.getElementById("r_cgst_lbl").textContent = "CGST @ " + (effRate/2) + "%";
+    document.getElementById("r_cgst").textContent = fmt(half);
+    document.getElementById("r_sgst_lbl").textContent = "SGST @ " + (effRate/2) + "%";
+    document.getElementById("r_sgst").textContent = fmt(half);
+    document.getElementById("r_cgst_row").style.display = "flex";
+    document.getElementById("r_sgst_row").style.display = "flex";
+    headline = "✓ Same-state Indian client: " + effRate + "% GST split as " + (effRate/2) + "% CGST + " + (effRate/2) + "% SGST = " + fmt(gst) + ". Bill " + fmt(total) + ".";
+    note = "Intra-state supply. The total tax is " + effRate + "%; it is only split into central and state heads on your invoice.";
+  } else if(client === "inter"){
+    document.getElementById("r_igst_lbl").textContent = "IGST @ " + effRate + "%";
+    document.getElementById("r_igst").textContent = fmt(gst);
+    document.getElementById("r_igst_row").style.display = "flex";
+    headline = "✓ Different-state Indian client: " + effRate + "% IGST = " + fmt(gst) + ". Bill " + fmt(total) + ".";
+    note = "Inter-state supply, charged wholly as IGST. Same total as a same-state invoice — only the heads differ.";
+  } else if(exportWithLut){
+    eligClass = "ok";
+    headline = "✓ Export of services with LUT — zero-rated at 0%. No GST. Invoice the foreign client " + fmt(base) + ".";
+    note = "With your LUT on file you bill at 0% GST. Keep the FIRC/FIRA from your bank as proof the payment came in foreign exchange.";
+  } else { // exportNoLut
+    document.getElementById("r_igst_lbl").textContent = "IGST @ 18% (refundable)";
+    document.getElementById("r_igst").textContent = fmt(gst);
+    document.getElementById("r_igst_row").style.display = "flex";
+    eligClass = "warn";
+    headline = "⚠ Export without an LUT: you must charge 18% IGST = " + fmt(gst) + ", deposit it, then claim a refund. File an LUT to bill at 0% instead.";
+    note = "Legally you collect " + fmt(total) + ", pay the " + fmt(gst) + " IGST to the government and reclaim it later — months of locked working capital. Filing an LUT (form RFD-11) removes this entirely.";
+  }
+
+  document.getElementById("r_base_lbl").textContent = (dir === "add") ? "Taxable value (your fee)" : "Pre-GST base fee (extracted)";
+  document.getElementById("r_base").textContent = fmt(base);
+  document.getElementById("r_total_lbl").textContent = (effRate === 0) ? "Invoice amount (0% GST)" : "Total invoice amount";
+  document.getElementById("r_total").textContent = fmt(total);
+
+  var eb = document.getElementById("eligBox");
+  eb.className = "elig " + eligClass;
+  eb.textContent = headline;
+
+  if(dir === "remove"){
+    note += " You entered " + fmt(amount) + " as a GST-inclusive figure; your real pre-tax earning is " + fmt(base) + ".";
+  }
+  document.getElementById("gNote").textContent = note;
+
+  document.getElementById("resultTitle").textContent = "GST Breakdown" + (effRate === 0 ? " (Zero-Rated)" : " (" + effRate + "%)");
+  document.getElementById("result").classList.add("show");
+}
+
+function checkReg(){
+  var turnover = parseFloat(document.getElementById("turnover").value) || 0;
+  var threshold = (document.getElementById("state").value === "special") ? 1000000 : 2000000;
+  var rb = document.getElementById("regBox");
+  var note = "";
+  if(turnover >= threshold){
+    rb.className = "elig warn";
+    rb.textContent = "⚠ Turnover " + fmt(turnover) + " is at/above the " + fmt(threshold) + " services threshold — GST registration is mandatory.";
+    note = "Register within 30 days of crossing the limit. Once registered, file an LUT if you have foreign clients so you can export at 0%.";
+  } else {
+    rb.className = "elig ok";
+    rb.textContent = "✓ Turnover " + fmt(turnover) + " is below the " + fmt(threshold) + " services threshold — registration is not mandatory on turnover alone.";
+    note = "But you may still need (or want) to register: inter-state taxable supply, supply via e-commerce operators, or voluntary registration to file an LUT and claim input tax credit. The ₹40 lakh limit you may have seen applies to goods, not services.";
+  }
+  document.getElementById("regNote").textContent = note;
+  document.getElementById("regResult").classList.add("show");
+}
+
+// Show/hide the LUT question based on client type
+function toggleLut(){
+  document.getElementById("lutWrap").style.display =
+    (document.getElementById("client").value === "foreign") ? "block" : "none";
+}
+
+document.getElementById("client").addEventListener("change", function(){ toggleLut(); calc(); });
+
+["client","lut","amount","rate","dir"].forEach(function(id){
+  var el = document.getElementById(id);
+  el.addEventListener("keypress", function(e){ if(e.key === "Enter") calc(); });
+  el.addEventListener("change", calc);
+});
+["turnover","state"].forEach(function(id){
+  document.getElementById(id).addEventListener("keypress", function(e){ if(e.key === "Enter") checkReg(); });
+});
+
+// auto-run with defaults on first load
+window.addEventListener("DOMContentLoaded", function(){ toggleLut(); calc(); checkReg(); });
+</script>
+
+
+<!-- LF:EMAIL-CAPTURE v1 -->
+<section style="max-width:680px;margin:48px auto 24px;padding:20px 22px;background:#fafbff;border:1px solid #e1e5ee;border-radius:10px;font-family:-apple-system,system-ui,sans-serif">
+  <div style="font-weight:600;font-size:1rem;color:#1a1a2e;margin-bottom:4px">Subscribe for India tax &amp; freelancer finance updates</div>
+  <div style="font-size:0.85rem;color:#555;margin-bottom:14px">GST &amp; LUT deadlines, threshold changes, export-of-services rulings, new calculators, planning tips. No spam. Unsubscribe anytime.</div>
+  <form onsubmit="event.preventDefault(); var f=this; var msg=f.querySelector('.lf_msg'); msg.textContent='Sending…'; fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'b2fb1576-a39b-4683-8ee9-4e152f731113',subject:'India calc newsletter signup ('+location.hostname+')',email:f.email.value,from_name:'protodex.io '+location.hostname,source:location.href})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.textContent='✓ Subscribed. Watch your inbox.';msg.style.color='#16a34a';f.email.value=''}else{msg.textContent='Couldn’t subscribe. Email manja316@gmail.com directly.';msg.style.color='#dc2626'}}).catch(function(){msg.textContent='Network error. Try again.';msg.style.color='#dc2626'})" style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid #d4d8e2;border-radius:6px;font-size:0.95rem">
+    <button type="submit" style="padding:10px 22px;background:#1a1a2e;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.9rem">Subscribe</button>
+  </form>
+  <div class="lf_msg" style="margin-top:8px;font-size:0.82rem"></div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e5ee;font-size:0.72rem;color:#888">
+    Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=calc-footer&utm_campaign=india-calcs" target="_blank" rel="noopener" style="color:#666">Claude</a> · <a href="https://protodex.io" style="color:#666">protodex.io</a>
+  </div>
+</section>
+
+</body>
+</html>
