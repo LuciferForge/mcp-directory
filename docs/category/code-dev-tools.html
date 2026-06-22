@@ -234,6 +234,33 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     align-items: center;
     gap: 6px;
 }
+.hero-grid { display: flex; align-items: center; gap: 48px; max-width: 1080px; margin: 0 auto; }
+.hero-left { flex: 1 1 0; min-width: 0; text-align: left; }
+.hero-right { flex: 0 0 376px; max-width: 376px; }
+.hero-left h1 { margin-left: 0; margin-right: 0; max-width: none; font-size: 3.1rem; }
+.hero-left p { margin-left: 0; margin-right: 0; max-width: 470px; }
+.hero-left .search-wrap { margin-left: 0; margin-right: 0; max-width: 470px; }
+.hero-left .search-chips { justify-content: flex-start; }
+.hero-left .hero-sub { justify-content: flex-start; margin-left: 0; }
+.hero-cta { display: flex; gap: 12px; margin-top: 22px; }
+.preview-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+.preview-head { font-family: var(--mono); font-size: 0.8rem; color: var(--text-muted); padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.preview-head .pp { color: var(--accent); font-weight: 700; }
+.preview-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 14px; border-bottom: 1px solid var(--border); text-decoration: none; }
+a.preview-row:hover { text-decoration: none; }
+.preview-row:last-child { border-bottom: none; }
+.preview-row:hover { background: var(--bg-card-hover); }
+.preview-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.preview-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); margin-top: 2px; }
+.preview-stars { font-family: var(--mono); font-size: 0.78rem; color: var(--yellow); white-space: nowrap; }
+.preview-cap { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); text-align: center; margin-top: 8px; }
+@media (max-width: 880px) {
+    .hero-grid { flex-direction: column; gap: 32px; }
+    .hero-right { flex-basis: auto; max-width: 480px; width: 100%; }
+    .hero-left { text-align: center; }
+    .hero-left h1, .hero-left p, .hero-left .search-wrap { margin-left: auto; margin-right: auto; }
+    .hero-left .search-chips, .hero-left .hero-sub, .hero-cta { justify-content: center; }
+}
 
 /* Search */
 .search-wrap {
@@ -1144,7 +1171,7 @@ footer {
         <td class="desc-cell">Programmatic access to Google NotebookLM — via command-line interface (CLI),...</td>
         <td class="stars-cell">★ 4.8K</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">8</td>
@@ -1472,7 +1499,7 @@ footer {
         <td class="desc-cell">Universal content reader MCP Server for 10+ platforms</td>
         <td class="stars-cell">★ 922</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">25d ago</td>
+        <td style="color:var(--text-dim)">26d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">49</td>
@@ -1552,7 +1579,7 @@ footer {
         <td class="desc-cell">Unofficial API for Yahoo Finance with CLI, MCP and Agent Skill</td>
         <td class="stars-cell">★ 731</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> HTML</td>
-        <td style="color:var(--text-dim)">22d ago</td>
+        <td style="color:var(--text-dim)">23d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">59</td>
@@ -1920,7 +1947,7 @@ footer {
         <td class="desc-cell">gemini antigravity 2.0 cli google terminal ai agent tool agy migration guide...</td>
         <td class="stars-cell">★ 218</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">105</td>
@@ -2280,7 +2307,7 @@ footer {
         <td class="desc-cell">MCP server for Shodan — search internet-connected devices, IP...</td>
         <td class="stars-cell">★ 134</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">17d ago</td>
+        <td style="color:var(--text-dim)">18d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">150</td>
@@ -3256,7 +3283,7 @@ footer {
         <td class="desc-cell">token-ninja routes deterministic shell commands locally — zero LLM calls,...</td>
         <td class="stars-cell">★ 28</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">272</td>
@@ -3280,7 +3307,7 @@ footer {
         <td class="desc-cell">Shortcuts + MCP  = ♥️</td>
         <td class="stars-cell">★ 28</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F05138"></span> Swift</td>
-        <td style="color:var(--text-dim)">15d ago</td>
+        <td style="color:var(--text-dim)">16d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">275</td>
@@ -3512,7 +3539,7 @@ footer {
         <td class="desc-cell">The Go framework for building MCP servers. Your struct tags are your schema.</td>
         <td class="stars-cell">★ 17</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">304</td>
@@ -3672,7 +3699,7 @@ footer {
         <td class="desc-cell">ArcKit Enterprise Architecture Toolkit - Codex CLI Extension with skills,...</td>
         <td class="stars-cell">★ 14</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">324</td>
@@ -4064,7 +4091,7 @@ footer {
         <td class="desc-cell">Professional Serial Port Debugging Assistant with Modbus, PLC, CAN, I2C/SPI...</td>
         <td class="stars-cell">★ 9</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">373</td>
@@ -4216,7 +4243,7 @@ footer {
         <td class="desc-cell">MCP server for java. Deep introspection and REPL out of the box</td>
         <td class="stars-cell">★ 7</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#B07219"></span> Java</td>
-        <td style="color:var(--text-dim)">3mo ago</td>
+        <td style="color:var(--text-dim)">4mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">392</td>
@@ -4312,7 +4339,7 @@ footer {
         <td class="desc-cell">MCP server for MetaTrader 5 — compile, backtest &amp; optimize MQL5 EAs on macOS...</td>
         <td class="stars-cell">★ 7</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
-        <td style="color:var(--text-dim)">27d ago</td>
+        <td style="color:var(--text-dim)">28d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">404</td>
@@ -4368,7 +4395,7 @@ footer {
         <td class="desc-cell">C# based Model Context Procotol (MCP) Server for ADO.NET ODBC provider </td>
         <td class="stars-cell">★ 6</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
-        <td style="color:var(--text-dim)">2mo ago</td>
+        <td style="color:var(--text-dim)">3mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">411</td>
@@ -4760,7 +4787,7 @@ footer {
         <td class="desc-cell">CLI bridge that wraps MCP servers as bash-invokable commands, recovering...</td>
         <td class="stars-cell">★ 5</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">460</td>
@@ -4904,7 +4931,7 @@ footer {
         <td class="desc-cell">IBKR MCP server for TWS and IB Gateway: local Go CLI, stdio MCP server, and...</td>
         <td class="stars-cell">★ 4</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">478</td>
@@ -4912,7 +4939,7 @@ footer {
         <td class="desc-cell">MCP server plugin for 1C:Enterprise Development Tools — 89 MCP tools for...</td>
         <td class="stars-cell">★ 4</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#B07219"></span> Java</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">479</td>
@@ -5048,7 +5075,7 @@ footer {
         <td class="desc-cell">ReactiveUI ecosystem guidance MCP server for AI-assisted code generation,...</td>
         <td class="stars-cell">★ 3</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">496</td>
@@ -5056,7 +5083,7 @@ footer {
         <td class="desc-cell">与UE-Editor-MCPServer配套使用的Skills</td>
         <td class="stars-cell">★ 3</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">497</td>
@@ -5232,7 +5259,7 @@ footer {
         <td class="desc-cell">Eclipse plugin that wakes SAP&#x27;s dormant ADT MCP server and contributes extra...</td>
         <td class="stars-cell">★ 3</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#B07219"></span> Java</td>
-        <td style="color:var(--text-dim)">8d ago</td>
+        <td style="color:var(--text-dim)">9d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">519</td>
@@ -5256,7 +5283,7 @@ footer {
         <td class="desc-cell">TypeScript MCP server for AI-powered refactoring. Rename symbols, extract...</td>
         <td class="stars-cell">★ 3</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">4d ago</td>
+        <td style="color:var(--text-dim)">5d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">522</td>
@@ -5456,7 +5483,7 @@ footer {
         <td class="desc-cell">QLExpress MCP Server is an implementation of the QLExpress expression...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#B07219"></span> Java</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">547</td>
@@ -5608,7 +5635,7 @@ footer {
         <td class="desc-cell">Kimi (Moonshot AI) Coding Plan API usage quota tracker — CLI + MCP Server +...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">566</td>
@@ -5688,7 +5715,7 @@ footer {
         <td class="desc-cell">Unified deep thinking MCP server combining sequential, Shannon, and...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">576</td>
@@ -5696,7 +5723,7 @@ footer {
         <td class="desc-cell">An intelligent agent project based on deepcode cli dedicated to MCP server...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#178600"></span> C#</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">577</td>
@@ -5704,7 +5731,7 @@ footer {
         <td class="desc-cell">Lightweight MCP server for SSH and local terminal access</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">578</td>
@@ -5712,7 +5739,7 @@ footer {
         <td class="desc-cell">MCP server that gives AI coding assistants production-grade engineering...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">579</td>
@@ -6776,7 +6803,7 @@ footer {
         <td class="desc-cell">73-tool MCP server for Clay. 1,100+ enrichment providers, waterfall...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">712</td>
@@ -6784,7 +6811,7 @@ footer {
         <td class="desc-cell">MCP server wrapping MiniMax AI as autonomous code executor for Claude Code</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">713</td>
@@ -6800,7 +6827,7 @@ footer {
         <td class="desc-cell">📞 CLI to call your claude.ai-configured MCP servers, reusing the Claude Code...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">715</td>
@@ -6976,7 +7003,7 @@ footer {
         <td class="desc-cell">Drive ATAK (Android Team Awareness Kit) and its plugins over adb without...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">737</td>
@@ -6984,7 +7011,7 @@ footer {
         <td class="desc-cell">SSH MCP server — persistent sessions, SFTP, system monitoring, and log...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">738</td>
@@ -6992,7 +7019,7 @@ footer {
         <td class="desc-cell">Provider- and language-agnostic static linter for MCP tool definitions,...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">739</td>
@@ -7000,7 +7027,7 @@ footer {
         <td class="desc-cell">Cucumber Framework for Testing</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">13d ago</td>
+        <td style="color:var(--text-dim)">14d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">740</td>
@@ -11296,7 +11323,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">29d ago</td>
+        <td style="color:var(--text-dim)">30d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1277</td>
@@ -11304,7 +11331,7 @@ footer {
         <td class="desc-cell">ENCODE library and MCP server</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1278</td>
@@ -11312,7 +11339,7 @@ footer {
         <td class="desc-cell">MCP server for the RegIntel API — structured regulatory data across 41...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1279</td>
@@ -11448,7 +11475,7 @@ footer {
         <td class="desc-cell">This repository consists code for an MCP server created for tracking monthly...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1296</td>
@@ -12000,7 +12027,7 @@ footer {
         <td class="desc-cell">MCP server for v33 Systematic — systematic crypto trading strategy data and...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">22d ago</td>
+        <td style="color:var(--text-dim)">23d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1365</td>
@@ -12696,7 +12723,7 @@ footer {
         <td class="desc-cell">A test MCP server</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">15d ago</td>
+        <td style="color:var(--text-dim)">16d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1452</td>
@@ -12704,7 +12731,7 @@ footer {
         <td class="desc-cell">AI-powered CLI, MCP servers, and Skills for StartupOS financial management...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1453</td>
@@ -12712,7 +12739,7 @@ footer {
         <td class="desc-cell">A tmux-like collaborative terminal manager with built-in MCP server support.</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#DEA584"></span> Rust</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1454</td>
@@ -12720,7 +12747,7 @@ footer {
         <td class="desc-cell">Themed Claude Code statusline — identity, branch, cwd, model, context bar,...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#89E051"></span> Shell</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1455</td>
@@ -12728,7 +12755,7 @@ footer {
         <td class="desc-cell">The official client for the CELLO protocol — MCP server and native adapters...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1456</td>
@@ -12736,7 +12763,7 @@ footer {
         <td class="desc-cell">Tmux-based MCP server for interactive Claude-code usage in a git workspace</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#00ADD8"></span> Go</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1457</td>
@@ -12744,7 +12771,7 @@ footer {
         <td class="desc-cell">MCP server and Claude Code plugin for photo to TikTok, Instagram Reels,...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1458</td>
@@ -12752,7 +12779,7 @@ footer {
         <td class="desc-cell">YAML → FortiSOAR playbook compiler + reference store, Svelte editor, MCP server</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1459</td>
@@ -12768,7 +12795,7 @@ footer {
         <td class="desc-cell">A production-grade Proxmox VM control plane with a native MCP server and a...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1461</td>
@@ -13880,7 +13907,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">4d ago</td>
+        <td style="color:var(--text-dim)">5d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1600</td>
@@ -13888,7 +13915,7 @@ footer {
         <td class="desc-cell">A simple MCP server implementation that provides basic mathematical tools...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">4d ago</td>
+        <td style="color:var(--text-dim)">5d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1601</td>
@@ -13896,7 +13923,7 @@ footer {
         <td class="desc-cell">A case study/experiment for building an MCP server that can provide...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">4d ago</td>
+        <td style="color:var(--text-dim)">5d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1602</td>
@@ -14088,7 +14115,7 @@ footer {
         <td class="desc-cell">MCP server for the ExploitIQ vulnerability analysis platform. Provides...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">3d ago</td>
+        <td style="color:var(--text-dim)">4d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1626</td>
@@ -14440,7 +14467,7 @@ footer {
         <td class="desc-cell">Dokobot MCP 服务器 - MCP wrapper for Dokobot CLI</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">2d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1670</td>
@@ -14448,7 +14475,7 @@ footer {
         <td class="desc-cell">MCP server plugin — exposes all CLI commands as MCP tools</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">2d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1671</td>
@@ -14456,7 +14483,7 @@ footer {
         <td class="desc-cell">a remote mcp server to that helps to track expense </td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">2d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1672</td>
@@ -14464,7 +14491,7 @@ footer {
         <td class="desc-cell"></td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">2d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">1673</td>
@@ -14608,7 +14635,7 @@ footer {
         <td class="desc-cell">GPU-accelerated speech-to-text MCP server — let Claude Code transcribe...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
         </tbody>
     </table>

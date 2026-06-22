@@ -234,6 +234,33 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     align-items: center;
     gap: 6px;
 }
+.hero-grid { display: flex; align-items: center; gap: 48px; max-width: 1080px; margin: 0 auto; }
+.hero-left { flex: 1 1 0; min-width: 0; text-align: left; }
+.hero-right { flex: 0 0 376px; max-width: 376px; }
+.hero-left h1 { margin-left: 0; margin-right: 0; max-width: none; font-size: 3.1rem; }
+.hero-left p { margin-left: 0; margin-right: 0; max-width: 470px; }
+.hero-left .search-wrap { margin-left: 0; margin-right: 0; max-width: 470px; }
+.hero-left .search-chips { justify-content: flex-start; }
+.hero-left .hero-sub { justify-content: flex-start; margin-left: 0; }
+.hero-cta { display: flex; gap: 12px; margin-top: 22px; }
+.preview-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+.preview-head { font-family: var(--mono); font-size: 0.8rem; color: var(--text-muted); padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.preview-head .pp { color: var(--accent); font-weight: 700; }
+.preview-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 14px; border-bottom: 1px solid var(--border); text-decoration: none; }
+a.preview-row:hover { text-decoration: none; }
+.preview-row:last-child { border-bottom: none; }
+.preview-row:hover { background: var(--bg-card-hover); }
+.preview-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.preview-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); margin-top: 2px; }
+.preview-stars { font-family: var(--mono); font-size: 0.78rem; color: var(--yellow); white-space: nowrap; }
+.preview-cap { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); text-align: center; margin-top: 8px; }
+@media (max-width: 880px) {
+    .hero-grid { flex-direction: column; gap: 32px; }
+    .hero-right { flex-basis: auto; max-width: 480px; width: 100%; }
+    .hero-left { text-align: center; }
+    .hero-left h1, .hero-left p, .hero-left .search-wrap { margin-left: auto; margin-right: auto; }
+    .hero-left .search-chips, .hero-left .hero-sub, .hero-cta { justify-content: center; }
+}
 
 /* Search */
 .search-wrap {
@@ -1416,7 +1443,7 @@ footer {
         <td class="desc-cell">MCP server for VirusTotal API — analyze URLs, files, IPs, and domains with...</td>
         <td class="stars-cell">★ 131</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">21d ago</td>
+        <td style="color:var(--text-dim)">22d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">42</td>
@@ -1480,7 +1507,7 @@ footer {
         <td class="desc-cell">高德地图MCP Server，支持stdio, sse和streamable-http</td>
         <td class="stars-cell">★ 104</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">1mo ago</td>
+        <td style="color:var(--text-dim)">2mo ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">50</td>
@@ -1840,7 +1867,7 @@ footer {
         <td class="desc-cell">MCP Server for blockchain interactions with Web DApp for secure transaction...</td>
         <td class="stars-cell">★ 10</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">95</td>
@@ -1928,7 +1955,7 @@ footer {
         <td class="desc-cell">Connect any GenAI tool to your intervals.icu data — includes MCP server,...</td>
         <td class="stars-cell">★ 6</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">106</td>
@@ -2056,7 +2083,7 @@ footer {
         <td class="desc-cell">Webex MCP Server for Bot Functionality</td>
         <td class="stars-cell">★ 3</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">122</td>
@@ -2176,7 +2203,7 @@ footer {
         <td class="desc-cell">Search and explore 1.8M+ US nonprofits, fetch Form 990 financials, and...</td>
         <td class="stars-cell">★ 2</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">19d ago</td>
+        <td style="color:var(--text-dim)">20d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">137</td>
@@ -2520,7 +2547,7 @@ footer {
         <td class="desc-cell">MCP server for RedirHub — AI-powered URL redirect management and link...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">21d ago</td>
+        <td style="color:var(--text-dim)">22d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">180</td>
@@ -2576,7 +2603,7 @@ footer {
         <td class="desc-cell">Authenticated fetch() from MCP servers, proxied through your signed-in...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">187</td>
@@ -2592,7 +2619,7 @@ footer {
         <td class="desc-cell">A lightweight MCP (Model Context Protocol) server built with TypeScript and...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">11d ago</td>
+        <td style="color:var(--text-dim)">12d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">189</td>
@@ -2672,7 +2699,7 @@ footer {
         <td class="desc-cell">MCP tools for Chrome &amp; Edge — CDP recording, screenshots, and mobile device...</td>
         <td class="stars-cell">★ 1</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">1d ago</td>
+        <td style="color:var(--text-dim)">2d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">199</td>
@@ -3888,7 +3915,7 @@ footer {
         <td class="desc-cell">Safe Streets Pittsburgh MCP Server</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">351</td>
@@ -3896,7 +3923,7 @@ footer {
         <td class="desc-cell">Open-source MCP server for World Cup 2026 player stats — FBref + Understat</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"></td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">352</td>
@@ -3904,7 +3931,7 @@ footer {
         <td class="desc-cell">Zillow MCP server — search listings, fetch property details, Zestimate...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">353</td>
@@ -3912,7 +3939,7 @@ footer {
         <td class="desc-cell">Redfin MCP server — search listings, fetch property details, market reports,...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">354</td>
@@ -3920,7 +3947,7 @@ footer {
         <td class="desc-cell">MCP server for Ethereum RPC calls with round-robin RPC pool and health checks</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">28d ago</td>
+        <td style="color:var(--text-dim)">29d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">355</td>
@@ -4344,7 +4371,7 @@ footer {
         <td class="desc-cell">Data Commons MCP server for https://datacommons.org</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3572A5"></span> Python</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">408</td>
@@ -4352,7 +4379,7 @@ footer {
         <td class="desc-cell">Local always-on server for SnapStack: receives browser captures and serves...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">409</td>
@@ -4360,7 +4387,7 @@ footer {
         <td class="desc-cell">MCP server for LinkIT360 Ticketing-Infra (create &amp; list infra tickets via...</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#3178C6"></span> TypeScript</td>
-        <td style="color:var(--text-dim)">12d ago</td>
+        <td style="color:var(--text-dim)">13d ago</td>
     </tr>
     <tr>
         <td style="color:var(--text-dim)">410</td>
@@ -4856,7 +4883,7 @@ footer {
         <td class="desc-cell">Personal portfolio website for Chaitanya Ponnapati</td>
         <td class="stars-cell">★ 0</td>
         <td class="lang-cell"><span class="lang-dot" style="background:#6B7280"></span> CSS</td>
-        <td style="color:var(--text-dim)">today</td>
+        <td style="color:var(--text-dim)">1d ago</td>
     </tr>
         </tbody>
     </table>

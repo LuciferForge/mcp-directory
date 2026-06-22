@@ -473,6 +473,33 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     align-items: center;
     gap: 6px;
 }
+.hero-grid { display: flex; align-items: center; gap: 48px; max-width: 1080px; margin: 0 auto; }
+.hero-left { flex: 1 1 0; min-width: 0; text-align: left; }
+.hero-right { flex: 0 0 376px; max-width: 376px; }
+.hero-left h1 { margin-left: 0; margin-right: 0; max-width: none; font-size: 3.1rem; }
+.hero-left p { margin-left: 0; margin-right: 0; max-width: 470px; }
+.hero-left .search-wrap { margin-left: 0; margin-right: 0; max-width: 470px; }
+.hero-left .search-chips { justify-content: flex-start; }
+.hero-left .hero-sub { justify-content: flex-start; margin-left: 0; }
+.hero-cta { display: flex; gap: 12px; margin-top: 22px; }
+.preview-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+.preview-head { font-family: var(--mono); font-size: 0.8rem; color: var(--text-muted); padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.preview-head .pp { color: var(--accent); font-weight: 700; }
+.preview-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 14px; border-bottom: 1px solid var(--border); text-decoration: none; }
+a.preview-row:hover { text-decoration: none; }
+.preview-row:last-child { border-bottom: none; }
+.preview-row:hover { background: var(--bg-card-hover); }
+.preview-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.preview-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); margin-top: 2px; }
+.preview-stars { font-family: var(--mono); font-size: 0.78rem; color: var(--yellow); white-space: nowrap; }
+.preview-cap { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); text-align: center; margin-top: 8px; }
+@media (max-width: 880px) {
+    .hero-grid { flex-direction: column; gap: 32px; }
+    .hero-right { flex-basis: auto; max-width: 480px; width: 100%; }
+    .hero-left { text-align: center; }
+    .hero-left h1, .hero-left p, .hero-left .search-wrap { margin-left: auto; margin-right: auto; }
+    .hero-left .search-chips, .hero-left .hero-sub, .hero-cta { justify-content: center; }
+}
 
 /* Search */
 .search-wrap {
@@ -1575,11 +1602,31 @@ document.addEventListener('click', function(e) {
 </script>
 """
 
+    preview_rows = ""
+    for s in top_servers[:4]:
+        pcat = s.get("category", "Other")
+        plang = s.get("language", "") or "—"
+        preview_rows += (
+            f'<a href="/servers/{slugify(s["repo"].replace("/", "-"))}.html" class="preview-row">'
+            f'<div><div class="preview-name">{escape(s["name"])}</div>'
+            f'<div class="preview-meta">{escape(pcat)} &middot; {escape(plang)}</div></div>'
+            f'<span class="preview-stars">&#9733; {format_stars(s.get("stars", 0))}</span></a>'
+        )
+    preview_panel = (
+        f'<div class="preview-panel"><div class="preview-head">'
+        f'<span class="pp">&#10095;</span> most starred '
+        f'<span style="color:var(--text-dim)">&middot; {total:,} indexed</span></div>'
+        f'{preview_rows}</div>'
+        f'<div class="preview-cap">live &middot; real servers from the index</div>'
+    )
+
     html = html_head(title, desc, "/")
     html += html_header("home")
     html += f"""
 <section class="hero">
     <div class="container hero-content">
+        <div class="hero-grid">
+        <div class="hero-left">
         <div class="hero-badge"><span class="pulse"></span> The MCP registry &middot; updated weekly &middot; {total:,} servers</div>
         <h1>The trusted registry for <span class="gradient">MCP servers</span></h1>
         <p>{total:,} Model Context Protocol servers &mdash; indexed, ranked, and screened, refreshed from GitHub every week. Stop trusting random repos. Find, vet, and ship the right server with confidence.</p>
@@ -1598,11 +1645,18 @@ document.addEventListener('click', function(e) {
             <a class="chip" onclick="var i=document.getElementById('search-input');i.value='memory';i.focus();doSearch('memory');return false;" href="#">memory</a>
             <a class="chip" onclick="var i=document.getElementById('search-input');i.value='filesystem';i.focus();doSearch('filesystem');return false;" href="#">filesystem</a>
         </div>
+        <div class="hero-cta">
+            <a class="btn" href="#" onclick="document.getElementById('search-input').focus();return false;">Explore servers</a>
+            <a class="btn btn-outline" href="/categories.html">Browse categories</a>
+        </div>
         <div class="hero-sub">
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> {format_stars(total_stars)} total stars</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> {langs} languages</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> {len(categories)} categories</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Security scored</span>
+        </div>
+        </div>
+        <div class="hero-right">{preview_panel}</div>
         </div>
     </div>
 </section>
