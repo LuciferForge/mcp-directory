@@ -393,10 +393,15 @@ def scrape(fetch_readmes=True, readme_batch_size=50):
 
         try:
             conn.execute("""
-                INSERT OR REPLACE INTO servers
+                INSERT INTO servers
                 (repo, name, description, stars, language, topics, tools, category,
                  last_updated, scraped_at, readme_excerpt, url)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(repo) DO UPDATE SET
+                  name=excluded.name, description=excluded.description, stars=excluded.stars,
+                  language=excluded.language, topics=excluded.topics, tools=excluded.tools,
+                  category=excluded.category, last_updated=excluded.last_updated,
+                  scraped_at=excluded.scraped_at, readme_excerpt=excluded.readme_excerpt, url=excluded.url
             """, (
                 full_name, name, desc, stars, language, topics, tools_str, category,
                 last_updated, datetime.now(timezone.utc).isoformat(), readme_excerpt, url,
