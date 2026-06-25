@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advance Tax Calculator for Freelancers &amp; Professionals India 2026 — Quarterly Installments, 234B/234C Interest &amp; 44ADA Single-Payment Rule</title>
+<meta name="description" content="Free advance tax calculator for Indian freelancers, consultants and professionals FY 2026-27. Works out your quarterly installments (15 Jun / 15 Sep / 15 Dec / 15 Mar), estimates section 234B and 234C interest on any shortfall, handles TDS already deducted, and applies the Section 44ADA single-installment-by-15-March concession. Old &amp; new regime.">
+<link rel="canonical" href="https://protodex.io/advance-tax-calculator/">
+<meta property="og:title" content="Advance Tax Calculator India 2026 — Quarterly Installments, 234B/234C Interest &amp; 44ADA Rule">
+<meta property="og:description" content="See exactly how much advance tax to pay by 15 Jun / Sep / Dec / Mar, the 234C interest if you pay short, and the 44ADA one-shot concession. Built for freelancers with lumpy income.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://protodex.io/advance-tax-calculator/">
+<meta name="theme-color" content="#1d3557">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📅</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Advance Tax Calculator for Freelancers India 2026",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
+  "description": "Free advance tax calculator for Indian freelancers and professionals FY 2026-27: quarterly installment schedule (15 Jun / 15 Sep / 15 Dec / 15 Mar), section 234B and 234C interest on shortfall, TDS adjustment, Section 44ADA single-installment concession, old and new regime.",
+  "url": "https://protodex.io/advance-tax-calculator/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who has to pay advance tax in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anyone whose total income-tax liability for the year, after subtracting TDS, is ₹10,000 or more must pay advance tax. For freelancers and professionals this is very common, because clients often deduct only 10% TDS under section 194J while your actual slab rate is higher, leaving a balance that must be paid in advance during the year. Resident senior citizens (60+) with no business or professional income are exempt from advance tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the advance tax due dates for FY 2026-27?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Advance tax is paid in four installments: at least 15% of your total tax by 15 June, 45% (cumulative) by 15 September, 75% by 15 December, and 100% by 15 March. These are cumulative targets, not equal quarters — by 15 December you should have paid three-quarters of the whole year's tax. Professionals opting for Section 44ADA presumptive taxation are an exception and may pay the entire 100% in a single installment by 15 March."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is section 234C interest and how is it calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Section 234C is interest for deferment — paying an installment short or late. It is charged at 1% per month for three months on the shortfall at each of the first three due dates (15 Jun, 15 Sep, 15 Dec) and 1% for one month on the 15 March shortfall. There is a built-in tolerance for the first two installments: no 234C if you have paid at least 12% by 15 June and 36% by 15 September (instead of the headline 15% and 45%). The shortfall is measured against your assessed tax, i.e. total tax minus TDS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is section 234B interest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Section 234B is interest for non-payment or under-payment of advance tax for the year as a whole. If the total advance tax you paid by 31 March is less than 90% of your assessed tax (total tax minus TDS), interest of 1% per month is charged on the shortfall from 1 April of the assessment year until you actually pay the balance — typically when you file your return. So filing late while owing tax keeps the 234B meter running at 1% a month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does TDS count towards my advance tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Any TDS already deducted by your clients (commonly 10% under section 194J for professional fees) is subtracted from your total tax before working out advance tax. You only pay advance tax on the balance — your 'assessed tax'. If TDS alone covers 90%+ of your liability you owe little or no advance tax, and any excess TDS is refunded when you file. This calculator deducts your expected TDS automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Section 44ADA change advance tax for freelancers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Professionals who opt for presumptive taxation under Section 44ADA (declaring 50% of gross receipts as income) get a major concession: they can pay 100% of their advance tax in a single installment by 15 March, instead of the four-installment 15/45/75/100 schedule. No 234C interest applies to the June, September and December dates as long as the full amount is paid by 15 March. Miss 15 March and ordinary 234B/234C interest applies. This calculator switches to the single-installment view when you mark yourself as a 44ADA professional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I pay all my advance tax in March instead of quarterly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unless you are a 44ADA professional, paying everything in March means you missed the June, September and December installments. You will owe section 234C interest at 1% per month on each missed installment's shortfall — roughly 3% on the 15% June target, 3% on the 45% September target and 3% on the 75% December target — even though you paid in full by 15 March. For lumpy freelance income it is usually cheaper to pay each installment as your invoices land than to wait and absorb the deferment interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I avoid advance tax if my income is unpredictable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You cannot avoid it, but you can estimate conservatively and true-up. Pay each installment on your best estimate of full-year income; if a large invoice lands late, top up the next installment to bring your cumulative payment back to the required percentage. The 234C tolerance (12% by June, 36% by September) gives some slack for genuinely uncertain early-year income. Keeping the tax you set aside in a liquid instrument rather than a current account at least earns a return while you wait for the due date."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#f8f9fb}
+.container{max-width:760px;margin:0 auto;padding:24px 16px}
+header{text-align:center;padding:32px 16px 16px;background:linear-gradient(135deg,#1d3557 0%,#457b9d 100%);color:#fff;border-radius:0 0 16px 16px}
+header h1{font-size:1.8rem;margin-bottom:8px;line-height:1.25}
+header p{font-size:1rem;opacity:0.92}
+.badge{display:inline-block;background:#f1c40f;color:#1d3557;padding:4px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;margin-top:8px}
+.calc{background:#fff;padding:28px 24px;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.06);margin-top:-16px;position:relative;z-index:2}
+.calc h2{font-size:1.3rem;margin-bottom:18px;color:#1d3557}
+label{display:block;font-weight:600;margin:14px 0 6px;font-size:0.95rem}
+input[type=number],input[type=date],select{width:100%;padding:12px 14px;border:1.5px solid #d0d6e0;border-radius:8px;font-size:1rem;background:#fff;transition:border-color 0.2s}
+input:focus,select:focus{outline:none;border-color:#457b9d}
+.helper{font-size:0.82rem;color:#666;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+button{width:100%;background:#1d3557;color:#fff;padding:14px 20px;border:none;border-radius:8px;font-size:1.05rem;font-weight:700;cursor:pointer;margin-top:20px;transition:background 0.2s}
+button:hover{background:#0d233d}
+.result{margin-top:24px;padding:20px;background:#f1faee;border-left:4px solid #2a9d8f;border-radius:8px;display:none}
+.result.show{display:block}
+.result h3{font-size:1.15rem;margin-bottom:10px;color:#1d3557}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #ccc;font-size:0.95rem}
+.row:last-of-type{border-bottom:none;font-weight:700;font-size:1.1rem;padding-top:12px;margin-top:8px;border-top:2px solid #1d3557}
+.row .lbl{color:#444}
+.row .val{color:#1d3557;font-weight:600}
+.elig{padding:12px 14px;border-radius:8px;font-size:0.9rem;margin-bottom:14px;font-weight:600}
+.elig.ok{background:#e7f6ee;border-left:4px solid #2a9d8f;color:#15663f}
+.elig.warn{background:#fff4e5;border-left:4px solid #e67e22;color:#8a4b00}
+.elig.info{background:#e8f0fe;border-left:4px solid #4285f4;color:#174ea6}
+.sched{width:100%;border-collapse:collapse;margin:16px 0 4px;font-size:0.9rem}
+.sched th,.sched td{padding:9px 10px;border:1px solid #d8dde6;text-align:right}
+.sched th{background:#1d3557;color:#fff;font-weight:600;text-align:right}
+.sched th:first-child,.sched td:first-child{text-align:left}
+.sched tr.due td{background:#fff8e1;font-weight:700;color:#8a4b00}
+.sched tr.paid td{background:#e7f6ee}
+.intbox{margin-top:14px}
+section.content{background:#fff;padding:28px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+section.content h2{font-size:1.4rem;margin:18px 0 12px;color:#1d3557}
+section.content h2:first-child{margin-top:0}
+section.content h3{font-size:1.1rem;margin:16px 0 8px;color:#2a4d6e}
+section.content p{margin-bottom:12px}
+section.content ul,section.content ol{padding-left:22px;margin-bottom:12px}
+section.content li{margin-bottom:6px}
+table.guide{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.95rem}
+table.guide th,table.guide td{padding:10px 12px;border:1px solid #e0e4eb;text-align:left}
+table.guide th{background:#1d3557;color:#fff;font-weight:600}
+table.guide tr:nth-child(even){background:#f8f9fb}
+.note{background:#fff8e1;border-left:4px solid #f1c40f;padding:14px 18px;margin:14px 0;border-radius:6px;font-size:0.95rem}
+.cta{background:#fff;padding:24px;border-radius:14px;margin-top:24px;text-align:center;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+.cta h3{color:#1d3557;margin-bottom:8px}
+.cta a{display:inline-block;background:#e63946;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px 4px;font-size:0.95rem}
+.cta a.alt{background:#1d3557}
+footer{text-align:center;padding:32px 16px;color:#666;font-size:0.85rem;line-height:1.7}
+footer a{color:#457b9d}
+@media(max-width:520px){
+  header h1{font-size:1.45rem}
+  .calc{padding:22px 18px}
+  section.content{padding:22px 18px}
+  .sched th,.sched td{padding:7px 6px;font-size:0.82rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Advance Tax Calculator for Freelancers 2026</h1>
+<p>Quarterly installments · 234B/234C interest · TDS adjustment · 44ADA single-payment rule · old vs new regime</p>
+<span class="badge">FY 2026-27 · built for lumpy freelance income</span>
+</header>
+
+<div class="container">
+
+<div class="calc">
+<h2>Work Out Your Advance Tax</h2>
+
+<div class="two">
+<div>
+<label for="income">Estimated total taxable income this year (₹) <span style="color:#e63946">*</span></label>
+<input type="number" id="income" placeholder="e.g., 2000000" min="0" step="50000" value="2000000">
+<div class="helper">Your best full-year estimate. For 44ADA, use 50% of receipts.</div>
+</div>
+<div>
+<label for="regime">Tax regime</label>
+<select id="regime">
+  <option value="new" selected>New regime (default — lower slabs, no 80C)</option>
+  <option value="old">Old regime (claim 80C/80D etc.)</option>
+</select>
+<div class="helper">New regime is default from FY 2023-24.</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="tds">TDS expected this year (₹) <span style="color:#888">optional</span></label>
+<input type="number" id="tds" placeholder="e.g., 120000" min="0" step="5000" value="120000">
+<div class="helper">Tax clients withhold (often 10% u/s 194J). Reduces advance tax.</div>
+</div>
+<div>
+<label for="ded80">Old-regime deductions (₹) <span style="color:#888">80C/80D…</span></label>
+<input type="number" id="ded80" placeholder="e.g., 150000" min="0" step="10000" value="0">
+<div class="helper">Used only when old regime is selected.</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="paid">Advance tax already paid so far (₹) <span style="color:#888">optional</span></label>
+<input type="number" id="paid" placeholder="e.g., 0" min="0" step="5000" value="0">
+<div class="helper">Sum of challans paid this year (excludes TDS).</div>
+</div>
+<div>
+<label for="asof">Which installment are you planning for?</label>
+<select id="asof">
+  <option value="jun" selected>15 June (1st — 15%)</option>
+  <option value="sep">15 September (2nd — 45%)</option>
+  <option value="dec">15 December (3rd — 75%)</option>
+  <option value="mar">15 March (4th — 100%)</option>
+  <option value="after">Year already ended (31 Mar passed)</option>
+</select>
+<div class="helper">Sets which cumulative target applies right now.</div>
+</div>
+</div>
+
+<label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+  <input type="checkbox" id="is44ada" style="width:auto;margin:0">
+  <span>I'm a Section 44ADA professional (pay 100% in one shot by 15 March)</span>
+</label>
+<div class="helper">Freelancers/consultants on presumptive taxation skip the quarterly schedule.</div>
+
+<button onclick="calc()">Calculate Advance Tax</button>
+
+<div id="result" class="result">
+  <div id="eligBox" class="elig ok"></div>
+  <h3 id="resultTitle">Your Advance Tax Position</h3>
+  <div class="row"><span class="lbl">Total income tax + 4% cess</span><span class="val" id="r_tax"></span></div>
+  <div class="row" id="r_tds_row" style="display:none"><span class="lbl">− TDS expected</span><span class="val" id="r_tds"></span></div>
+  <div class="row"><span class="lbl">Assessed tax (advance-tax base)</span><span class="val" id="r_assessed"></span></div>
+  <div class="row" id="r_paid_row" style="display:none"><span class="lbl">− Advance tax already paid</span><span class="val" id="r_paid"></span></div>
+  <div class="row"><span class="lbl" id="r_due_lbl">Pay now by next due date</span><span class="val" id="r_due"></span></div>
+
+  <div id="schedWrap" style="margin-top:18px">
+    <div style="font-weight:700;color:#1d3557;margin-bottom:6px;font-size:0.95rem">Installment schedule</div>
+    <table class="sched">
+      <thead><tr><th>Due date</th><th>Cumulative %</th><th>Cumulative ₹</th><th>This installment ₹</th></tr></thead>
+      <tbody id="schedBody"></tbody>
+    </table>
+  </div>
+
+  <div id="intBox" class="elig info intbox" style="display:none"></div>
+  <p id="tNote" style="font-size:0.85rem;color:#666;margin-top:14px"></p>
+</div>
+</div>
+
+<div class="cta">
+<h3>Don't Let Your Tax Float Sit Idle</h3>
+<p style="margin-bottom:12px;color:#444">Advance tax means parking money for months before a due date. Two leaks freelancers ignore: FX markup on foreign client payouts, and the tax set-aside earning 0% in a current account. Route foreign payments through a low-markup account, and keep the installment money in a liquid instrument until the date it's due:</p>
+<a href="https://wise.com/invite/dic/?utm_source=protodex&utm_medium=calculator&utm_campaign=advance_tax_freelancer&utm_content=primary-cta" target="_blank" rel="noopener nofollow sponsored">Get Paid by Foreign Clients with Wise →</a>
+<a href="https://zerodha.com/open-account?c=VN7717&utm_source=protodex&utm_medium=calculator&utm_campaign=advance_tax_freelancer&utm_content=secondary-cta" target="_blank" rel="noopener nofollow sponsored" class="alt">Park Your Tax Float — Open a Demat →</a>
+<p style="font-size:0.72rem;color:#888;margin-top:12px;font-style:italic">Affiliate links — protodex.io may earn a commission at no extra cost to you. This tool is educational, not tax advice; advance-tax, interest and slab rules have exceptions and marginal-relief adjustments not modelled here. Confirm your specific position with a CA before paying.</p>
+</div>
+
+<section class="content">
+<h2>Advance Tax for Freelancers in India 2026 — The Complete Guide</h2>
+
+<p><strong>Advance tax is the rule that catches almost every Indian freelancer off guard.</strong> Salaried employees never think about it because their employer deducts TDS on the full salary each month. But a freelancer or consultant earns lumpy, irregular income, clients usually deduct only 10% TDS under section 194J, and the rest of the tax has to be paid <em>during</em> the year — in four installments — not in a lump at filing time. Pay it late and you quietly rack up interest under sections 234B and 234C at 1% a month. This calculator works out your full-year tax, subtracts the TDS your clients withhold, builds your 15 Jun / 15 Sep / 15 Dec / 15 Mar schedule, and estimates the interest if you've fallen behind.</p>
+
+<div class="note"><strong>The rule in one line:</strong> if your tax after TDS is ₹10,000 or more for the year, you must pay advance tax — 15% by 15 June, 45% by 15 September, 75% by 15 December, 100% by 15 March. Miss an installment and 234C interest applies even if you later pay in full.</div>
+
+<h2>Who Must Pay Advance Tax</h2>
+<p>Anyone whose <strong>total tax liability after TDS is ₹10,000 or more</strong> in the financial year. For freelancers this is the norm: a client paying ₹20 lakh deducts ₹2 lakh TDS (10% u/s 194J), but if your actual slab liability is ₹3 lakh, the ₹1 lakh balance is advance tax you owe during the year. The only common exemption is for <strong>resident senior citizens (60+) with no business or professional income</strong> — they are spared advance tax entirely.</p>
+
+<h2>The Four Installment Due Dates (FY 2026-27)</h2>
+<p>Advance tax is paid against <strong>cumulative</strong> targets, not equal quarters:</p>
+<table class="guide">
+<thead><tr><th>Due date</th><th>Cumulative advance tax payable</th></tr></thead>
+<tbody>
+<tr><td>15 June 2026</td><td>At least 15% of total tax</td></tr>
+<tr><td>15 September 2026</td><td>At least 45% (cumulative)</td></tr>
+<tr><td>15 December 2026</td><td>At least 75% (cumulative)</td></tr>
+<tr><td>15 March 2027</td><td>100% of total tax</td></tr>
+</tbody>
+</table>
+<p>By 15 December you should already have paid three-quarters of the whole year's tax — a common surprise for those who assume advance tax is back-loaded. The percentages apply to your <strong>assessed tax</strong>: total income tax (with 4% cess) minus the TDS your clients deduct.</p>
+
+<h2>Section 234C — Interest for Paying an Installment Short</h2>
+<p>Section 234C is the "deferment" interest. If you pay less than the required cumulative amount by a due date, interest of <strong>1% per month</strong> is charged on the shortfall:</p>
+<ul>
+<li><strong>15 Jun, 15 Sep, 15 Dec shortfalls:</strong> 1% × 3 months each.</li>
+<li><strong>15 Mar shortfall:</strong> 1% × 1 month.</li>
+</ul>
+<p>There is a built-in tolerance for the first two installments: <strong>no 234C if you've paid at least 12% by 15 June and 36% by 15 September</strong> (instead of the headline 15% and 45%). This is exactly why dumping all your tax in March is expensive — you still owe roughly 3% + 3% + 3% on the June, September and December targets you skipped, even though you cleared the full bill by 15 March.</p>
+
+<div class="note"><strong>Worked example:</strong> Assessed tax = ₹2,00,000, paid in full only on 15 March. 234C is charged on the shortfall at each earlier date, measured against the 234C tolerance targets (12% by Jun, 36% by Sep, 75% by Dec): 15 Jun (12% = ₹24,000 × 1% × 3 = ₹720), 15 Sep (36% = ₹72,000 × 1% × 3 = ₹2,160), 15 Dec (75% = ₹1,50,000 × 1% × 3 = ₹4,500). Total 234C ≈ <strong>₹7,380</strong> — purely for waiting. Paying each installment on time costs ₹0.</div>
+
+<h2>Section 234B — Interest for Under-Paying the Year</h2>
+<p>Section 234B is the bigger-picture penalty. If your <strong>total advance tax paid by 31 March is under 90% of assessed tax</strong>, interest of 1% per month runs on the shortfall from <strong>1 April of the assessment year until you actually pay</strong> — usually at return filing. File in July owing tax and you've added four months of 234B at 1% a month. Unlike 234C (capped at the few months between due dates), 234B keeps running until the balance is cleared, so a freelancer who ignores advance tax and settles up only at filing pays both.</p>
+
+<h2>The Section 44ADA Shortcut for Professionals</h2>
+<p>If you opt for <strong>Section 44ADA presumptive taxation</strong> (declaring 50% of gross receipts as income — see our <a href="https://protodex.io/44ada-calculator/" style="color:#457b9d">44ADA calculator</a>), you get a real concession: <strong>pay 100% of advance tax in a single installment by 15 March</strong>. No 234C on the June, September and December dates as long as the full amount lands by 15 March. Tick the 44ADA box above and this calculator collapses the schedule to that one date. Miss it, though, and ordinary 234B/234C interest applies.</p>
+
+<h2>How TDS Fits In</h2>
+<p>TDS your clients deduct is <strong>not extra tax</strong> — it's a prepayment. It comes off your total tax first, and advance tax applies only to the balance (your assessed tax). If your TDS already covers 90%+ of your liability, you may owe little or no advance tax, and any excess TDS is refunded when you file. The catch for freelancers: 194J TDS is a flat 10%, but your marginal rate is often 20–30%, so TDS rarely covers the whole bill — the gap is what advance tax exists to collect on time.</p>
+
+<h2>Common Advance-Tax Mistakes Freelancers Make</h2>
+<ul>
+<li><strong>Treating it as a year-end payment.</strong> It's four installments starting 15 June; waiting triggers 234C.</li>
+<li><strong>Assuming TDS = your full tax.</strong> 194J withholds 10%; your slab is usually higher.</li>
+<li><strong>Forgetting the 15 December 75% target.</strong> Three-quarters of the year's tax is due before the year is even over.</li>
+<li><strong>Mixing up 234B and 234C.</strong> 234C is per-missed-installment (capped); 234B runs from April until you pay.</li>
+<li><strong>Not using the 44ADA single-installment route.</strong> If you qualify, one 15 March payment beats juggling four dates.</li>
+<li><strong>Under-estimating a late big invoice.</strong> True-up the next installment so your cumulative % stays on target.</li>
+</ul>
+
+<h2>Advance Tax, Income Tax and GST Are Three Different Things</h2>
+<p>Keep them separate: <strong>advance tax</strong> is just the <em>timing</em> of your income-tax payment (this page). <strong>Income tax</strong> is the amount itself — if you're on presumptive taxation, size it with the <a href="https://protodex.io/44ada-calculator/" style="color:#457b9d">44ADA calculator</a>. <strong>GST</strong> is a separate indirect tax on your invoices with its own threshold and export rules — handle it with the <a href="https://protodex.io/gst-calculator/" style="color:#457b9d">GST calculator for freelancers</a>. This calculator only schedules the income-tax payment across the year and flags the interest if you fall behind.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Who has to pay advance tax?</h3>
+<p>Anyone whose tax after TDS is ₹10,000 or more for the year. Resident senior citizens with no business/professional income are exempt.</p>
+
+<h3>What are the due dates?</h3>
+<p>15% by 15 June, 45% by 15 September, 75% by 15 December, 100% by 15 March — cumulative targets on your assessed tax.</p>
+
+<h3>How is 234C interest calculated?</h3>
+<p>1% per month for 3 months on the shortfall at each of the first three dates, and 1% for 1 month on the 15 March shortfall, with a 12%/36% tolerance for the June and September installments.</p>
+
+<h3>What is 234B interest?</h3>
+<p>1% per month on the shortfall, from 1 April until you pay, if advance tax paid by 31 March is under 90% of assessed tax.</p>
+
+<h3>Does TDS reduce advance tax?</h3>
+<p>Yes — TDS comes off your total tax first; advance tax applies only to the balance.</p>
+
+<h3>What's the 44ADA advance-tax benefit?</h3>
+<p>Presumptive professionals can pay 100% in one installment by 15 March, with no 234C on the earlier dates if paid in full by then.</p>
+
+</section>
+
+<div class="related" style="background:#fff;padding:20px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)">
+<h3 style="color:#1d3557;font-size:1rem;margin-bottom:10px">Related free calculators</h3>
+<a href="https://protodex.io/44ada-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📑 Section 44ADA Presumptive Tax Calculator (50% Income, ₹75L Limit) →</a>
+<a href="https://protodex.io/gst-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧾 GST Calculator for Freelancers (Export of Services 0% with LUT, ₹20L Threshold) →</a>
+<a href="https://protodex.io/inhand-salary-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💰 In-Hand Salary Calculator (CTC → Take-Home, New Regime) →</a>
+<a href="https://protodex.io/ltcg-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📈 LTCG Capital Gains Tax Calculator (Stocks, MF, Property) →</a>
+</div>
+
+<footer>
+<p><strong>Advance Tax Calculator for Freelancers &amp; Professionals India (FY 2026-27)</strong></p>
+<p>Schedules your 15 Jun / 15 Sep / 15 Dec / 15 Mar installments, estimates section 234B/234C interest, adjusts for TDS, and applies the Section 44ADA single-installment concession. Educational tool, not tax advice — confirm with a CA.</p>
+<p style="margin-top:10px"><a href="https://protodex.io/">← protodex.io free India calculators</a></p>
+</footer>
+
+</div>
+
+<script>
+function fmt(n){
+  return "₹" + Math.round(n).toLocaleString("en-IN");
+}
+
+// Income tax (before TDS) on a taxable income, incl. surcharge + 4% cess.
+function incomeTax(ti, regime){
+  ti = Math.max(0, ti);
+  var tax = 0;
+  if(regime === "new"){
+    // FY 2026-27 new-regime slabs (Budget 2025 structure)
+    var sl = [[400000,0],[800000,0.05],[1200000,0.10],[1600000,0.15],[2000000,0.20],[2400000,0.25],[Infinity,0.30]];
+    var prev = 0;
+    for(var i=0;i<sl.length;i++){
+      if(ti > prev){
+        tax += (Math.min(ti, sl[i][0]) - prev) * sl[i][1];
+        prev = sl[i][0];
+      } else break;
+    }
+    // 87A rebate: total income up to 12L => tax nil
+    if(ti <= 1200000) tax = 0;
+  } else {
+    // Old-regime slabs (below-60 individual)
+    var so = [[250000,0],[500000,0.05],[1000000,0.20],[Infinity,0.30]];
+    var p2 = 0;
+    for(var j=0;j<so.length;j++){
+      if(ti > p2){
+        tax += (Math.min(ti, so[j][0]) - p2) * so[j][1];
+        p2 = so[j][0];
+      } else break;
+    }
+    // 87A rebate: total income up to 5L => tax nil
+    if(ti <= 500000) tax = 0;
+  }
+  // Surcharge on income tax (simplified; marginal relief ignored)
+  var sur = 0;
+  if(ti > 20000000) sur = (regime === "new") ? 0.25 : 0.37; // >2Cr
+  else if(ti > 10000000) sur = 0.15; // 1-2Cr
+  else if(ti > 5000000) sur = 0.10;  // 50L-1Cr
+  if(regime === "new" && sur > 0.25) sur = 0.25;
+  var withSur = tax * (1 + sur);
+  // 4% health & education cess
+  return withSur * 1.04;
+}
+
+function calc(){
+  var income = parseFloat(document.getElementById("income").value) || 0;
+  var regime = document.getElementById("regime").value;
+  var tds = parseFloat(document.getElementById("tds").value) || 0;
+  var ded80 = parseFloat(document.getElementById("ded80").value) || 0;
+  var paid = parseFloat(document.getElementById("paid").value) || 0;
+  var asof = document.getElementById("asof").value;
+  var is44ada = document.getElementById("is44ada").checked;
+
+  if(income <= 0){
+    alert("Enter your estimated total taxable income for the year.");
+    return;
+  }
+
+  var dedApplied = (regime === "old") ? Math.min(ded80, income) : 0;
+  var ti = Math.max(0, income - dedApplied);
+  var totalTax = incomeTax(ti, regime);
+  var assessed = Math.max(0, totalTax - tds);   // advance-tax base
+  var liable = assessed >= 10000;               // advance tax obligation arises
+
+  // Eligibility banner
+  var eb = document.getElementById("eligBox");
+  if(!liable){
+    eb.className = "elig ok";
+    eb.textContent = "✓ Your tax after TDS is " + fmt(assessed) + " — below the ₹10,000 advance-tax threshold. No advance tax is due; pay any balance as self-assessment tax when you file.";
+  } else if(is44ada){
+    eb.className = "elig info";
+    eb.textContent = "ℹ As a Section 44ADA professional you skip the quarterly schedule — pay the entire " + fmt(assessed) + " in ONE installment by 15 March. No 234C on the earlier dates if paid in full by then.";
+  } else {
+    eb.className = "elig warn";
+    eb.textContent = "⚠ Advance tax applies — assessed tax of " + fmt(assessed) + " must be paid across four installments (15 Jun / Sep / Dec / Mar). Falling behind triggers 234C interest at 1%/month.";
+  }
+
+  // Top rows
+  document.getElementById("r_tax").textContent = fmt(totalTax);
+  var tdsRow = document.getElementById("r_tds_row");
+  if(tds > 0){ tdsRow.style.display = "flex"; document.getElementById("r_tds").textContent = "−" + fmt(tds); }
+  else tdsRow.style.display = "none";
+  document.getElementById("r_assessed").textContent = fmt(assessed);
+  var paidRow = document.getElementById("r_paid_row");
+  if(paid > 0){ paidRow.style.display = "flex"; document.getElementById("r_paid").textContent = "−" + fmt(paid); }
+  else paidRow.style.display = "none";
+
+  // Installment schedule (cumulative targets)
+  var stages = [
+    {key:"jun", label:"15 Jun 2026", pct:0.15, tol:0.12, months:3},
+    {key:"sep", label:"15 Sep 2026", pct:0.45, tol:0.36, months:3},
+    {key:"dec", label:"15 Dec 2026", pct:0.75, tol:0.75, months:3},
+    {key:"mar", label:"15 Mar 2027", pct:1.00, tol:1.00, months:1}
+  ];
+  var body = document.getElementById("schedBody");
+  body.innerHTML = "";
+  var schedWrap = document.getElementById("schedWrap");
+
+  var dueNow = 0;
+  var dueLabel = "";
+  if(!liable){
+    schedWrap.style.display = "none";
+  } else if(is44ada){
+    // collapse to single installment
+    schedWrap.style.display = "block";
+    var prevC = 0;
+    var rowsA = "";
+    rowsA += "<tr class='due'><td>15 Mar 2027 (single)</td><td>100%</td><td>" + fmt(assessed) + "</td><td>" + fmt(Math.max(0, assessed - paid)) + "</td></tr>";
+    body.innerHTML = rowsA;
+    dueNow = Math.max(0, assessed - paid);
+    dueLabel = "Pay by 15 March (44ADA single installment)";
+  } else {
+    schedWrap.style.display = "block";
+    var prevCum = 0;
+    var orderIdx = {jun:0, sep:1, dec:2, mar:3, after:4};
+    var nowIdx = orderIdx[asof];
+    var rows = "";
+    for(var s=0;s<stages.length;s++){
+      var st = stages[s];
+      var cum = assessed * st.pct;
+      var incr = cum - prevCum;
+      prevCum = cum;
+      var cls = "";
+      if(nowIdx <= s && nowIdx < 4){ // this and future installments still open; mark the current one
+        if(nowIdx === s) cls = "due";
+      } else {
+        cls = "paid"; // past due dates (assumed should-have-been-paid)
+      }
+      rows += "<tr class='" + cls + "'><td>" + st.label + "</td><td>" + Math.round(st.pct*100) + "%</td><td>" + fmt(cum) + "</td><td>" + fmt(incr) + "</td></tr>";
+    }
+    body.innerHTML = rows;
+
+    // Amount to pay right now = bring cumulative paid up to the current installment's target
+    if(asof === "after"){
+      dueNow = Math.max(0, assessed - paid);
+      dueLabel = "Balance now payable (year ended)";
+    } else {
+      var target = assessed * stages[nowIdx].pct;
+      dueNow = Math.max(0, target - paid);
+      dueLabel = "Pay now by " + stages[nowIdx].label.replace(" 2026","").replace(" 2027","");
+    }
+  }
+  document.getElementById("r_due_lbl").textContent = liable ? dueLabel : "Advance tax due";
+  document.getElementById("r_due").textContent = fmt(liable ? dueNow : 0);
+
+  // Interest estimate (234C deferment + 234B shortfall), only when behind / year-end
+  var ibox = document.getElementById("intBox");
+  var int234c = 0, int234b = 0, showInt = false;
+  if(liable && !is44ada){
+    var nowIdx2 = {jun:0, sep:1, dec:2, mar:3, after:4}[asof];
+    // 234C: for each due date already passed, shortfall vs tolerance target * 1% * months
+    // We treat "paid" as the amount paid to date, applied against the most recent passed installment.
+    var passed = (asof === "after") ? 4 : nowIdx2; // number of installments whose date has passed
+    for(var p=0;p<Math.min(passed,4);p++){
+      var stg = stages[p];
+      var tolTarget = assessed * stg.tol;
+      var short = Math.max(0, tolTarget - paid);
+      if(short > 0){
+        int234c += short * 0.01 * stg.months;
+        showInt = true;
+      }
+    }
+    // 234B: only meaningful once year has ended — paid < 90% of assessed
+    if(asof === "after" && paid < 0.9 * assessed){
+      // estimate 3 months Apr-Jun until filing (user can pay sooner)
+      int234b = Math.max(0, assessed - paid) * 0.01 * 3;
+      showInt = true;
+    }
+  }
+  if(showInt){
+    ibox.style.display = "block";
+    ibox.className = "elig warn intbox";
+    var msg = "Estimated interest for being behind: ";
+    var parts = [];
+    if(int234c > 0) parts.push("234C ≈ " + fmt(int234c) + " (deferment, 1%/mo on missed installments)");
+    if(int234b > 0) parts.push("234B ≈ " + fmt(int234b) + " (3 mo Apr–Jun on the >10% shortfall, runs until you pay)");
+    ibox.textContent = "⚠ " + msg + parts.join("  +  ") + ". Total ≈ " + fmt(int234c + int234b) + ". Paying each installment on time avoids this entirely.";
+  } else {
+    ibox.style.display = "none";
+  }
+
+  // Note
+  var note = "";
+  if(!liable){
+    note = "Tax after TDS is under ₹10,000 — advance tax is not required. Pay any small balance as self-assessment tax when you file your return (ITR-3 or ITR-4).";
+  } else if(is44ada){
+    note = "44ADA route: one payment of " + fmt(Math.max(0, assessed - paid)) + " by 15 March clears your advance tax with no 234C on the earlier dates. File ITR-4.";
+  } else if(int234c + int234b > 0){
+    note = "You appear behind on the schedule. Top up to " + fmt(dueNow) + " by the current due date to stop further 234C from accruing on this installment.";
+  } else {
+    note = "On track. Pay " + fmt(dueNow) + " by " + dueLabel.replace("Pay now by ","") + " to keep your cumulative payment at the required percentage and avoid any 234B/234C interest.";
+  }
+  document.getElementById("tNote").textContent = note;
+  document.getElementById("resultTitle").textContent = "Your Advance Tax Position (" + (regime==="new"?"New":"Old") + " Regime)";
+  document.getElementById("result").classList.add("show");
+}
+
+["income","regime","tds","ded80","paid","asof","is44ada"].forEach(function(id){
+  var el = document.getElementById(id);
+  el.addEventListener("keypress", function(e){ if(e.key === "Enter") calc(); });
+  el.addEventListener("change", calc);
+});
+
+window.addEventListener("DOMContentLoaded", calc);
+</script>
+
+
+<!-- LF:EMAIL-CAPTURE v1 -->
+<section style="max-width:680px;margin:48px auto 24px;padding:20px 22px;background:#fafbff;border:1px solid #e1e5ee;border-radius:10px;font-family:-apple-system,system-ui,sans-serif">
+  <div style="font-weight:600;font-size:1rem;color:#1a1a2e;margin-bottom:4px">Subscribe for India tax &amp; freelancer finance updates</div>
+  <div style="font-size:0.85rem;color:#555;margin-bottom:14px">Advance-tax due dates, 234B/234C rule changes, presumptive-limit updates, regime changes, new calculators. No spam. Unsubscribe anytime.</div>
+  <form onsubmit="event.preventDefault(); var f=this; var msg=f.querySelector('.lf_msg'); msg.textContent='Sending…'; fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'b2fb1576-a39b-4683-8ee9-4e152f731113',subject:'India calc newsletter signup ('+location.hostname+')',email:f.email.value,from_name:'protodex.io '+location.hostname,source:location.href})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.textContent='✓ Subscribed. Watch your inbox.';msg.style.color='#16a34a';f.email.value=''}else{msg.textContent='Couldn’t subscribe. Email manja316@gmail.com directly.';msg.style.color='#dc2626'}}).catch(function(){msg.textContent='Network error. Try again.';msg.style.color='#dc2626'})" style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid #d4d8e2;border-radius:6px;font-size:0.95rem">
+    <button type="submit" style="padding:10px 22px;background:#1a1a2e;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.9rem">Subscribe</button>
+  </form>
+  <div class="lf_msg" style="margin-top:8px;font-size:0.82rem"></div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e5ee;font-size:0.72rem;color:#888">
+    Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=calc-footer&utm_campaign=india-calcs" target="_blank" rel="noopener" style="color:#666">Claude</a> · <a href="https://protodex.io" style="color:#666">protodex.io</a>
+  </div>
+</section>
+
+</body>
+</html>

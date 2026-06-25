@@ -1847,6 +1847,9 @@ document.addEventListener('click', function(e) {
             <a href="https://protodex.io/44ada-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 📑 <strong>Section 44ADA Presumptive Tax</strong> — declare 50%, ₹75L limit, advance tax by 15 Mar
             </a>
+            <a href="https://protodex.io/advance-tax-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                📅 <strong>Advance Tax for Freelancers</strong> — 15 Jun/Sep/Dec/Mar installments, 234B/234C interest, 44ADA single-pay
+            </a>
             <a href="https://protodex.io/hra-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 🏠 <strong>HRA Exemption</strong> — least-of-three, metro vs non-metro, old-regime only
             </a>
@@ -2418,6 +2421,7 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/ltcg-calculator/")
     urls.append(f"{SITE_URL}/gst-calculator/")
     urls.append(f"{SITE_URL}/44ada-calculator/")
+    urls.append(f"{SITE_URL}/advance-tax-calculator/")
     urls.append(f"{SITE_URL}/hra-calculator/")
 
     # Blog: index + every post (md-generated and orphan HTML) — previously missing,
