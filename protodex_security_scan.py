@@ -252,8 +252,9 @@ def main():
         total_findings += result["total"]
         high_findings += result["high"]
 
-        # Mark as scanned
-        conn.execute("UPDATE servers SET security_scanned = 1 WHERE repo = ?", (repo,))
+        # Mark as scanned + record band (red=high severity, yellow=medium, green=clean)
+        band = "red" if result["high"] > 0 else ("yellow" if result["medium"] > 0 else "green")
+        conn.execute("UPDATE servers SET security_scanned = 1, security_band = ? WHERE repo = ?", (band, repo))
         conn.commit()
 
         # Cleanup

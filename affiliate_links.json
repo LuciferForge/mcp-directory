@@ -1,0 +1,45 @@
+{
+  "_note": "Replace each url with your actual affiliate URL once signed up. Keys must match those in affiliate_recommendations.DEFAULT_CONFIG. The 'url' field accepts the full referral link from the affiliate program. The 'name', 'blurb', 'category_match' fields are optional overrides; falls back to defaults if omitted.",
+  "_signup_links": {
+    "mongodb": "https://www.mongodb.com/community/champions/program/cloud-bonus",
+    "digitalocean": "https://www.digitalocean.com/referral-program",
+    "linode": "https://www.linode.com/lp/refer-a-friend/",
+    "hostinger": "https://www.hostinger.com/affiliates",
+    "notion": "https://www.notion.com/affiliates (or via Impact platform)",
+    "jetbrains": "https://www.jetbrains.com/store/affiliates/",
+    "cloudflare": "https://www.cloudflare.com/partners/",
+    "razorpay": "https://razorpay.com/affiliate-program/",
+    "polar": "https://polar.sh/dashboard (search for partner program)",
+    "webflow": "https://webflow.com/affiliates"
+  },
+  "mongodb": {
+    "url": "https://www.mongodb.com/cloud/atlas/register"
+  },
+  "digitalocean": {
+    "url": "https://www.digitalocean.com/"
+  },
+  "linode": {
+    "url": "https://www.linode.com/"
+  },
+  "hostinger": {
+    "url": "https://www.hostinger.com/"
+  },
+  "notion": {
+    "url": "https://www.notion.com/"
+  },
+  "jetbrains": {
+    "url": "https://www.jetbrains.com/store/"
+  },
+  "cloudflare": {
+    "url": "https://www.cloudflare.com/products/workers/"
+  },
+  "razorpay": {
+    "url": "https://razorpay.com/"
+  },
+  "polar": {
+    "url": "https://polar.sh/"
+  },
+  "webflow": {
+    "url": "https://webflow.com/"
+  }
+}
