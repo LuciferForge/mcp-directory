@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDS Calculator &amp; Rate Chart India 2026 — Section 194J / 194C / 194H / 194I / 192, No-PAN 20%, Threshold &amp; Freelancer Refund</title>
+<meta name="description" content="Free TDS calculator and rate chart for India FY 2026-27. Pick the section (194J professional 10%, 194C contractor 1%/2%, 194H commission 2%, 194I rent 2%/10%, 194A interest 10%, 194Q goods 0.1%, 194O e-commerce 0.1%, 194 dividend 10%), enter the payment, and get the TDS to deduct, the net payout, the section threshold below which no TDS applies, the no-PAN 20% (206AA) rate, and — for freelancers — how much of the 194J 10% deduction comes back as a refund.">
+<link rel="canonical" href="https://protodex.io/tds-calculator/">
+<meta property="og:title" content="TDS Calculator &amp; Rate Chart India 2026 — Section-wise Rates, No-PAN 20% &amp; Freelancer Refund">
+<meta property="og:description" content="Work out TDS for any section in seconds: rate, threshold, no-PAN 20%, net payout. Plus the gap freelancers miss — 194J withholds a flat 10% on gross, but your real tax is often lower, so a chunk is refundable.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://protodex.io/tds-calculator/">
+<meta name="theme-color" content="#1d3557">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "TDS Calculator & Rate Chart India 2026",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
+  "description": "Free section-wise TDS calculator for India FY 2026-27: 194J professional fees (10%), 194C contractor (1%/2%), 194H commission (2%), 194I rent (2%/10%), 194A interest (10%), 194Q purchase of goods (0.1%), 194O e-commerce (0.1%), 194 dividend (10%), 192 salary. Applies the section threshold, the no-PAN 20% rate under 206AA, computes TDS and net payout, and shows freelancers how much 194J TDS is refundable.",
+  "url": "https://protodex.io/tds-calculator/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the TDS rate on professional fees under section 194J in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TDS under section 194J on professional fees, royalty and most fees for professional services is 10%. A lower 2% rate applies to fees for technical services, call-centre operators, and royalty for sale/distribution of cinematographic films. No TDS is deducted if the aggregate payment to a person in the financial year does not exceed 50,000 rupees (this threshold was raised from 30,000 in Budget 2025, effective FY 2025-26). If the payee has not given a PAN, the rate jumps to 20% under section 206AA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the TDS rate under section 194C for contractors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Section 194C TDS on payments to contractors and sub-contractors is 1% when the payee is an individual or HUF, and 2% when the payee is any other entity (company, firm, etc.). No TDS applies if a single payment is 30,000 rupees or less AND the aggregate of all payments to that contractor in the year is 1,00,000 rupees or less. The moment either limit is crossed, TDS applies on the whole amount. Without a PAN the rate becomes 20%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to TDS if the payee does not have a PAN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under section 206AA, if the deductee fails to furnish a valid PAN, TDS must be deducted at the higher of (a) the rate specified in the relevant section, (b) the rate in force, or (c) 20%. In practice this means most no-PAN payments are taxed at a flat 20% instead of the usual 1%, 2% or 10%. Note that section 206AB — the higher rate for non-filers of income-tax returns — was omitted by the Finance Act 2025 with effect from 1 April 2025, so from FY 2025-26 only the no-PAN rule under 206AA increases the rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is TDS deducted from my freelance income my final tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. TDS is only a prepayment of tax, not a separate or final tax. When a client deducts 10% under section 194J, that 10% is taken on your gross receipts, but your actual income tax is computed on your net or presumptive income. A freelancer on Section 44ADA is taxed on just 50% of receipts, so the real tax is often well below the 10% withheld — the difference is refunded when you file your return. The TDS shows up in your Form 26AS and AIS and is adjusted against your total tax; any excess comes back as a refund, and any shortfall is paid as advance tax or self-assessment tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the TDS rate on rent under section 194I in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Section 194I applies when a business or professional (required to get a tax audit) pays rent. The rate is 2% on rent for plant, machinery or equipment, and 10% on rent for land, building, furniture or fittings. From FY 2025-26 the threshold is 50,000 rupees per month (i.e. it applies only when monthly rent exceeds 50,000); this replaced the old single annual limit of 2,40,000 rupees. Individuals and HUFs not under tax audit instead deduct TDS under section 194-IB at 2% if monthly rent exceeds 50,000 rupees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the TDS threshold — when does TDS not apply?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each section has its own threshold below which no TDS is deducted. Common FY 2026-27 limits: 194J professional fees 50,000 rupees/year; 194C contractors 30,000 single or 1,00,000 aggregate; 194H commission 20,000; 194I rent 50,000/month; 194A bank interest 50,000 (1,00,000 for senior citizens); 194 dividend 10,000; 194Q purchase of goods above 50,00,000; 194O e-commerce 5,00,000. Below the threshold the deductor pays you the full amount with no TDS. The calculator above checks the threshold for the section you pick before computing any TDS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the TDS rate on commission and brokerage under 194H?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TDS on commission or brokerage under section 194H is 2%. This was reduced from 5% to 2% with effect from 1 October 2024 by the Finance Act 2024. No TDS is deducted if the aggregate commission paid in the year does not exceed 20,000 rupees (raised from 15,000 in Budget 2025). Without a PAN the rate is 20%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I claim back excess TDS deducted from my income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You claim TDS back by filing your income-tax return. First confirm the deducted TDS appears in your Form 26AS and Annual Information Statement (AIS) — these are the government's record of tax credited against your PAN. When you file ITR-3 or ITR-4, the total TDS is set off against your computed tax liability; if the TDS exceeds your actual tax, the balance is refunded to your bank account, usually within a few weeks of processing. If TDS is missing from 26AS, ask the deductor to file or correct their TDS return, because you can only claim what is reflected against your PAN."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#f8f9fb}
+.container{max-width:760px;margin:0 auto;padding:24px 16px}
+header{text-align:center;padding:32px 16px 16px;background:linear-gradient(135deg,#1d3557 0%,#457b9d 100%);color:#fff;border-radius:0 0 16px 16px}
+header h1{font-size:1.8rem;margin-bottom:8px;line-height:1.25}
+header p{font-size:1rem;opacity:0.92}
+.badge{display:inline-block;background:#f1c40f;color:#1d3557;padding:4px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;margin-top:8px}
+.calc{background:#fff;padding:28px 24px;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.06);margin-top:-16px;position:relative;z-index:2}
+.calc h2{font-size:1.3rem;margin-bottom:18px;color:#1d3557}
+label{display:block;font-weight:600;margin:14px 0 6px;font-size:0.95rem}
+input[type=number],input[type=date],select{width:100%;padding:12px 14px;border:1.5px solid #d0d6e0;border-radius:8px;font-size:1rem;background:#fff;transition:border-color 0.2s}
+input:focus,select:focus{outline:none;border-color:#457b9d}
+.helper{font-size:0.82rem;color:#666;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+button{width:100%;background:#1d3557;color:#fff;padding:14px 20px;border:none;border-radius:8px;font-size:1.05rem;font-weight:700;cursor:pointer;margin-top:20px;transition:background 0.2s}
+button:hover{background:#0d233d}
+.result{margin-top:24px;padding:20px;background:#f1faee;border-left:4px solid #2a9d8f;border-radius:8px;display:none}
+.result.show{display:block}
+.result h3{font-size:1.15rem;margin-bottom:10px;color:#1d3557}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #ccc;font-size:0.95rem}
+.row:last-of-type{border-bottom:none;font-weight:700;font-size:1.1rem;padding-top:12px;margin-top:8px;border-top:2px solid #1d3557}
+.row .lbl{color:#444}
+.row .val{color:#1d3557;font-weight:600}
+.elig{padding:12px 14px;border-radius:8px;font-size:0.9rem;margin-bottom:14px;font-weight:600}
+.elig.ok{background:#e7f6ee;border-left:4px solid #2a9d8f;color:#15663f}
+.elig.warn{background:#fff4e5;border-left:4px solid #e67e22;color:#8a4b00}
+.elig.info{background:#e8f0fe;border-left:4px solid #4285f4;color:#174ea6}
+.refundbox{margin-top:14px}
+section.content{background:#fff;padding:28px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+section.content h2{font-size:1.4rem;margin:18px 0 12px;color:#1d3557}
+section.content h2:first-child{margin-top:0}
+section.content h3{font-size:1.1rem;margin:16px 0 8px;color:#2a4d6e}
+section.content p{margin-bottom:12px}
+section.content ul,section.content ol{padding-left:22px;margin-bottom:12px}
+section.content li{margin-bottom:6px}
+table.guide{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.92rem}
+table.guide th,table.guide td{padding:10px 12px;border:1px solid #e0e4eb;text-align:left}
+table.guide th{background:#1d3557;color:#fff;font-weight:600}
+table.guide tr:nth-child(even){background:#f8f9fb}
+.note{background:#fff8e1;border-left:4px solid #f1c40f;padding:14px 18px;margin:14px 0;border-radius:6px;font-size:0.95rem}
+.cta{background:#fff;padding:24px;border-radius:14px;margin-top:24px;text-align:center;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+.cta h3{color:#1d3557;margin-bottom:8px}
+.cta a{display:inline-block;background:#e63946;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px 4px;font-size:0.95rem}
+.cta a.alt{background:#1d3557}
+footer{text-align:center;padding:32px 16px;color:#666;font-size:0.85rem;line-height:1.7}
+footer a{color:#457b9d}
+@media(max-width:520px){
+  header h1{font-size:1.45rem}
+  .calc{padding:22px 18px}
+  section.content{padding:22px 18px}
+  table.guide th,table.guide td{padding:7px 6px;font-size:0.82rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>TDS Calculator &amp; Rate Chart 2026</h1>
+<p>Section-wise rates · threshold check · no-PAN 20% · net payout · freelancer refund gap</p>
+<span class="badge">FY 2026-27 · 194J / 194C / 194H / 194I / 194A / 194Q / 194O / 194 / 192</span>
+</header>
+
+<div class="container">
+
+<div class="calc">
+<h2>Calculate TDS for Any Section</h2>
+
+<div class="two">
+<div>
+<label for="section">TDS section / payment type <span style="color:#e63946">*</span></label>
+<select id="section">
+  <option value="194J" selected>194J — Professional / consultancy fees (10%)</option>
+  <option value="194JT">194J — Technical services / call-centre (2%)</option>
+  <option value="194C">194C — Contractor / sub-contractor (1% or 2%)</option>
+  <option value="194H">194H — Commission / brokerage (2%)</option>
+  <option value="194IB">194I — Rent: land / building / furniture (10%)</option>
+  <option value="194IP">194I — Rent: plant / machinery / equipment (2%)</option>
+  <option value="194A">194A — Interest other than securities (10%)</option>
+  <option value="194">194 — Dividend (10%)</option>
+  <option value="194Q">194Q — Purchase of goods (0.1%)</option>
+  <option value="194O">194O — E-commerce participant payout (0.1%)</option>
+  <option value="194D">194D — Insurance commission (2%)</option>
+  <option value="192">192 — Salary (at your slab rate)</option>
+</select>
+<div class="helper">Pick the section your client/deductor is using. Hover the chart below for thresholds.</div>
+</div>
+<div>
+<label for="amount">Payment amount (₹) <span style="color:#e63946">*</span></label>
+<input type="number" id="amount" placeholder="e.g., 200000" min="0" step="5000" value="200000">
+<div class="helper" id="amtHelper">Gross amount before TDS. For 194I, enter the monthly rent.</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="payee">Payee type</label>
+<select id="payee">
+  <option value="ind" selected>Individual / HUF</option>
+  <option value="other">Company / firm / other</option>
+</select>
+<div class="helper">Matters for 194C: 1% (individual/HUF) vs 2% (others).</div>
+</div>
+<div>
+<label for="pan">Has the payee given a valid PAN?</label>
+<select id="pan">
+  <option value="yes" selected>Yes — normal section rate</option>
+  <option value="no">No PAN — 20% under 206AA</option>
+</select>
+<div class="helper">No PAN ⇒ TDS at the higher of section rate or 20%.</div>
+</div>
+</div>
+
+<div id="salaryWrap" class="two" style="display:none">
+<div>
+<label for="salTax">Estimated annual income tax on salary (₹)</label>
+<input type="number" id="salTax" placeholder="e.g., 150000" min="0" step="5000" value="150000">
+<div class="helper">For 192, TDS = your tax ÷ 12 each month. Use our in-hand calculator to size the tax.</div>
+</div>
+<div></div>
+</div>
+
+<button onclick="calc()">Calculate TDS</button>
+
+<div id="result" class="result">
+  <div id="eligBox" class="elig ok"></div>
+  <h3 id="resultTitle">TDS Computation</h3>
+  <div class="row"><span class="lbl">Section</span><span class="val" id="r_section"></span></div>
+  <div class="row"><span class="lbl">Applicable TDS rate</span><span class="val" id="r_rate"></span></div>
+  <div class="row"><span class="lbl">Payment amount</span><span class="val" id="r_amount"></span></div>
+  <div class="row"><span class="lbl">TDS to deduct</span><span class="val" id="r_tds"></span></div>
+  <div class="row"><span class="lbl">Net amount payable to payee</span><span class="val" id="r_net"></span></div>
+
+  <div id="refundBox" class="elig info refundbox" style="display:none"></div>
+  <p id="tNote" style="font-size:0.85rem;color:#666;margin-top:14px"></p>
+</div>
+</div>
+
+<div class="cta">
+<h3>The TDS That's Sitting in the Government's Account</h3>
+<p style="margin-bottom:12px;color:#444">Every rupee of TDS is your money parked with the tax department until you file and claim it. Two things make that float more expensive than it looks: FX markup eating into foreign client payouts before TDS even applies, and the refund itself earning you nothing while you wait. Cut the FX leak on the way in, and keep your tax set-aside in something liquid:</p>
+<a href="https://wise.com/invite/dic/?utm_source=protodex&utm_medium=calculator&utm_campaign=tds_calculator&utm_content=primary-cta" target="_blank" rel="noopener nofollow sponsored">Get Paid by Foreign Clients with Wise →</a>
+<a href="https://zerodha.com/open-account?c=VN7717&utm_source=protodex&utm_medium=calculator&utm_campaign=tds_calculator&utm_content=secondary-cta" target="_blank" rel="noopener nofollow sponsored" class="alt">Park Your Refund Float — Open a Demat →</a>
+<p style="font-size:0.72rem;color:#888;margin-top:12px;font-style:italic">Affiliate links — protodex.io may earn a commission at no extra cost to you. This tool is educational, not tax advice; TDS rates, thresholds, surcharge, cess on non-resident payments and DTAA relief have exceptions not modelled here. Confirm your specific case with a CA.</p>
+</div>
+
+<section class="content">
+<h2>TDS in India 2026 — Rates, Thresholds and the Refund Most People Forget</h2>
+
+<p><strong>TDS (Tax Deducted at Source) is not a separate tax — it's a prepayment of your income tax, collected by whoever pays you.</strong> When a client pays a freelancer, a tenant pays rent, a bank pays interest or a company pays a contractor, the payer deducts a slice and deposits it against your PAN. You then claim that slice back against your final tax bill when you file your return. The two questions everyone actually has are: <em>"how much TDS should be deducted?"</em> (the deductor's view) and <em>"how much of it comes back to me?"</em> (the receiver's view). This calculator answers both — it applies the correct section rate, checks the threshold below which no TDS is due, bumps the rate to 20% if there's no PAN, and for professional fees shows how much of the 194J deduction is genuinely refundable.</p>
+
+<div class="note"><strong>The rule in one line:</strong> TDS rate × payment = tax prepaid in your name. It is adjusted against your real tax when you file — excess is refunded, shortfall is topped up via <a href="https://protodex.io/advance-tax-calculator/" style="color:#457b9d">advance tax</a>. TDS is never your final liability.</div>
+
+<h2>TDS Rate Chart FY 2026-27 (Resident Payments)</h2>
+<table class="guide">
+<thead><tr><th>Section</th><th>Nature of payment</th><th>Rate</th><th>No-TDS threshold</th></tr></thead>
+<tbody>
+<tr><td>192</td><td>Salary</td><td>Average slab rate</td><td>Basic exemption</td></tr>
+<tr><td>194</td><td>Dividend</td><td>10%</td><td>₹10,000/yr</td></tr>
+<tr><td>194A</td><td>Interest (other than securities)</td><td>10%</td><td>₹50,000 bank (₹1,00,000 senior); ₹10,000 other</td></tr>
+<tr><td>194C</td><td>Contractor / sub-contractor</td><td>1% indiv/HUF · 2% others</td><td>₹30,000 single / ₹1,00,000 aggregate</td></tr>
+<tr><td>194D</td><td>Insurance commission</td><td>2%</td><td>₹20,000/yr</td></tr>
+<tr><td>194H</td><td>Commission / brokerage</td><td>2%</td><td>₹20,000/yr</td></tr>
+<tr><td>194I</td><td>Rent — plant &amp; machinery</td><td>2%</td><td>₹50,000/month</td></tr>
+<tr><td>194I</td><td>Rent — land / building / furniture</td><td>10%</td><td>₹50,000/month</td></tr>
+<tr><td>194J</td><td>Professional / consultancy fees</td><td>10%</td><td>₹50,000/yr</td></tr>
+<tr><td>194J</td><td>Technical services / call-centre / film royalty</td><td>2%</td><td>₹50,000/yr</td></tr>
+<tr><td>194O</td><td>E-commerce participant payout</td><td>0.1%</td><td>₹5,00,000/yr (indiv/HUF)</td></tr>
+<tr><td>194Q</td><td>Purchase of goods</td><td>0.1%</td><td>Above ₹50,00,000/yr</td></tr>
+<tr><td>206AA</td><td><strong>No PAN furnished</strong></td><td><strong>20%</strong> (higher of rate or 20%)</td><td>—</td></tr>
+</tbody>
+</table>
+<p style="font-size:0.85rem;color:#666">Rates above are for <strong>resident</strong> payees and reflect the Finance Act 2024/2025 changes. Non-resident payments (section 195) carry their own rates plus surcharge and cess, subject to DTAA relief — not modelled here.</p>
+
+<h2>What Budget 2024 &amp; 2025 Changed</h2>
+<ul>
+<li><strong>194H commission cut from 5% → 2%</strong> (w.e.f. 1 Oct 2024), and <strong>194D insurance commission 5% → 2%</strong>.</li>
+<li><strong>194-IB rent by individuals cut 5% → 2%</strong> (w.e.f. 1 Oct 2024).</li>
+<li><strong>194O e-commerce cut 1% → 0.1%</strong>.</li>
+<li><strong>194J professional threshold raised ₹30,000 → ₹50,000</strong> (FY 2025-26).</li>
+<li><strong>194H threshold raised ₹15,000 → ₹20,000</strong>; <strong>194 dividend ₹5,000 → ₹10,000</strong>; <strong>194I rent moved to ₹50,000/month</strong> (from ₹2,40,000/year).</li>
+<li><strong>Section 206AB (higher rate for non-filers) was omitted</strong> w.e.f. 1 April 2025 — so from FY 2025-26 only the no-PAN rule (206AA, 20%) raises the rate. Many older calculators still apply 206AB; this one does not.</li>
+</ul>
+
+<h2>The No-PAN Trap: Section 206AA</h2>
+<p>If the payee does not furnish a valid PAN, section 206AA forces TDS at the <strong>higher of the section rate or 20%</strong>. So a contractor who should face 1% suddenly faces 20%, and a professional's 10% becomes 20%. The deducted amount is still creditable, but if the PAN is wrong it may not show up in the payee's Form 26AS at all — meaning they cannot claim it. Always collect and verify the PAN before making a payment that attracts TDS.</p>
+
+<h2>For Freelancers: The 194J 10% Is Almost Never Your Real Tax</h2>
+<p>This is the single most misunderstood point about TDS, and it's why freelancers feel "over-taxed." Section 194J withholds a flat <strong>10% on your gross receipts</strong>. But your income tax is computed on your <em>income</em>, not your gross. If you opt for <a href="https://protodex.io/44ada-calculator/" style="color:#457b9d">Section 44ADA presumptive taxation</a>, only <strong>50% of receipts</strong> is treated as income — and after the new-regime rebate (nil tax up to ₹12 lakh of income), a large part of the 10% TDS comes straight back.</p>
+
+<div class="note"><strong>Worked example:</strong> A freelancer bills ₹20,00,000. Clients deduct <strong>₹2,00,000</strong> TDS at 10% under 194J. Under 44ADA, taxable income = 50% = ₹10,00,000. New-regime tax on ₹10 lakh after the §87A rebate (nil up to ₹12 lakh) ≈ <strong>₹0</strong>. So nearly the <strong>entire ₹2,00,000 is refundable</strong> — but only after the return is filed and processed. That's lakhs of your cash sitting with the department for months. The fix isn't to dodge TDS (you can't), it's to file early and, if eligible, submit a <strong>Form 13 lower-deduction certificate</strong> so clients withhold less up front.</p></div>
+
+<h2>How to Claim TDS Back</h2>
+<ol>
+<li><strong>Check Form 26AS &amp; AIS</strong> on the income-tax portal — the TDS must be reflected against your PAN. You can only claim what's there.</li>
+<li><strong>If TDS is missing,</strong> ask the deductor to file/correct their quarterly TDS return (Form 26Q). Until they do, you can't claim it.</li>
+<li><strong>File ITR-3 or ITR-4</strong> (presumptive). Total TDS is set off against your computed tax.</li>
+<li><strong>Excess is refunded</strong> to your pre-validated bank account, usually within weeks of processing; shortfall is paid as self-assessment tax.</li>
+<li><strong>Avoid the wait next year</strong> with a Form 13 lower/nil-deduction certificate if your TDS routinely exceeds your tax.</li>
+</ol>
+
+<h2>TDS, Advance Tax and GST Are Three Different Things</h2>
+<p>Keep them straight: <strong>TDS</strong> (this page) is tax your payers prepay on your behalf and you reconcile at filing. <strong>Advance tax</strong> is the rest of your income tax that TDS didn't cover, paid by you in installments through the year — size it with the <a href="https://protodex.io/advance-tax-calculator/" style="color:#457b9d">advance tax calculator</a>. <strong>GST</strong> is a separate indirect tax on your invoices with its own threshold and export rules — handle it with the <a href="https://protodex.io/gst-calculator/" style="color:#457b9d">GST calculator for freelancers</a>. TDS is income-tax timing; GST is a different tax entirely.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>What is the TDS rate on professional fees (194J)?</h3>
+<p>10% on professional/consultancy fees, 2% on technical services and call-centre work, with a ₹50,000/year threshold below which no TDS applies. 20% if no PAN.</p>
+
+<h3>What is the 194C contractor TDS rate?</h3>
+<p>1% for individual/HUF payees, 2% for others. No TDS if a single payment ≤ ₹30,000 and the yearly aggregate ≤ ₹1,00,000.</p>
+
+<h3>What rate applies with no PAN?</h3>
+<p>Section 206AA charges the higher of the section rate or 20% — usually a flat 20%.</p>
+
+<h3>Is TDS my final tax?</h3>
+<p>No. It's a prepayment adjusted against your actual tax when you file; excess is refunded, shortfall is topped up.</p>
+
+<h3>What's the rent TDS rate under 194I?</h3>
+<p>2% on plant/machinery, 10% on land/building/furniture, applicable when monthly rent exceeds ₹50,000.</p>
+
+<h3>Did 194H change?</h3>
+<p>Yes — commission/brokerage TDS dropped from 5% to 2% on 1 October 2024, with the threshold raised to ₹20,000/year.</p>
+
+<h3>How do I get excess TDS refunded?</h3>
+<p>Confirm it's in your Form 26AS/AIS, then file ITR-3/ITR-4 — the excess over your actual tax is refunded to your bank account.</p>
+
+</section>
+
+<div class="related" style="background:#fff;padding:20px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)">
+<h3 style="color:#1d3557;font-size:1rem;margin-bottom:10px">Related free calculators</h3>
+<a href="https://protodex.io/advance-tax-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📅 Advance Tax Calculator (Quarterly Installments, 234B/234C Interest) →</a>
+<a href="https://protodex.io/44ada-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📑 Section 44ADA Presumptive Tax Calculator (50% Income, ₹75L Limit) →</a>
+<a href="https://protodex.io/gst-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧾 GST Calculator for Freelancers (Export of Services 0% with LUT) →</a>
+<a href="https://protodex.io/inhand-salary-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💰 In-Hand Salary Calculator (CTC → Take-Home, New Regime) →</a>
+</div>
+
+<footer>
+<p><strong>TDS Calculator &amp; Rate Chart India (FY 2026-27)</strong></p>
+<p>Section-wise TDS rates (194J / 194C / 194H / 194I / 194A / 194Q / 194O / 194 / 192), threshold checks, the no-PAN 20% rule under 206AA, net-payout computation and the freelancer 194J refund gap. Educational tool, not tax advice — confirm with a CA.</p>
+<p style="margin-top:10px"><a href="https://protodex.io/">← protodex.io free India calculators</a></p>
+</footer>
+
+</div>
+
+<script>
+function fmt(n){
+  return "₹" + Math.round(n).toLocaleString("en-IN");
+}
+function pct(r){
+  return (r*100).toLocaleString("en-IN",{maximumFractionDigits:2}) + "%";
+}
+
+// Section meta: rate (resident, PAN available), threshold, label, threshold note.
+var SECTIONS = {
+  "194J":  {rate:0.10, label:"194J — Professional fees", thr:50000, thrType:"year", thrTxt:"₹50,000/year aggregate"},
+  "194JT": {rate:0.02, label:"194J — Technical services", thr:50000, thrType:"year", thrTxt:"₹50,000/year aggregate"},
+  "194C":  {rate:null, label:"194C — Contractor", thr:30000, thrAgg:100000, thrType:"contract", thrTxt:"₹30,000 single / ₹1,00,000 aggregate"},
+  "194H":  {rate:0.02, label:"194H — Commission/brokerage", thr:20000, thrType:"year", thrTxt:"₹20,000/year"},
+  "194IB": {rate:0.10, label:"194I — Rent (land/building)", thr:50000, thrType:"month", thrTxt:"₹50,000/month"},
+  "194IP": {rate:0.02, label:"194I — Rent (plant/machinery)", thr:50000, thrType:"month", thrTxt:"₹50,000/month"},
+  "194A":  {rate:0.10, label:"194A — Interest", thr:50000, thrType:"year", thrTxt:"₹50,000 bank (₹10,000 other)"},
+  "194":   {rate:0.10, label:"194 — Dividend", thr:10000, thrType:"year", thrTxt:"₹10,000/year"},
+  "194Q":  {rate:0.001, label:"194Q — Purchase of goods", thr:5000000, thrType:"yearAbove", thrTxt:"on value above ₹50,00,000"},
+  "194O":  {rate:0.001, label:"194O — E-commerce payout", thr:500000, thrType:"year", thrTxt:"₹5,00,000/year (indiv/HUF)"},
+  "194D":  {rate:0.02, label:"194D — Insurance commission", thr:20000, thrType:"year", thrTxt:"₹20,000/year"},
+  "192":   {rate:null, label:"192 — Salary", thr:0, thrType:"salary", thrTxt:"basic exemption"}
+};
+
+function syncUI(){
+  var s = document.getElementById("section").value;
+  document.getElementById("salaryWrap").style.display = (s === "192") ? "grid" : "none";
+  var ah = document.getElementById("amtHelper");
+  if(s === "194IB" || s === "194IP") ah.textContent = "Enter the MONTHLY rent (threshold is ₹50,000/month).";
+  else if(s === "192") ah.textContent = "Enter monthly salary; TDS is your annual tax ÷ 12.";
+  else if(s === "194Q") ah.textContent = "Enter the total purchase value for the year (TDS on the part above ₹50L).";
+  else ah.textContent = "Gross amount before TDS.";
+}
+
+function calc(){
+  var key = document.getElementById("section").value;
+  var amount = parseFloat(document.getElementById("amount").value) || 0;
+  var payee = document.getElementById("payee").value;
+  var hasPan = document.getElementById("pan").value === "yes";
+  var meta = SECTIONS[key];
+
+  if(amount <= 0 && key !== "192"){
+    alert("Enter the payment amount.");
+    return;
+  }
+
+  var eb = document.getElementById("eligBox");
+  var refundBox = document.getElementById("refundBox");
+  refundBox.style.display = "none";
+
+  // --- Salary (192) special path ---
+  if(key === "192"){
+    var salTax = parseFloat(document.getElementById("salTax").value) || 0;
+    var monthlyTds = salTax / 12;
+    eb.className = "elig info";
+    eb.textContent = "ℹ Salary TDS under 192 is your full-year tax spread evenly: " + fmt(salTax) + " ÷ 12 = " + fmt(monthlyTds) + " withheld each month. There is no flat rate — it's your average slab rate.";
+    document.getElementById("r_section").textContent = "192 — Salary";
+    document.getElementById("r_rate").textContent = "Average slab rate";
+    document.getElementById("r_amount").textContent = "Annual tax: " + fmt(salTax);
+    document.getElementById("r_tds").textContent = fmt(monthlyTds) + " / month";
+    document.getElementById("r_net").textContent = "Monthly salary − " + fmt(monthlyTds);
+    document.getElementById("tNote").textContent = "Employers recompute this each month as your declared investments and income change. Size the annual tax with the in-hand salary calculator, then divide by the months remaining in the year.";
+    document.getElementById("resultTitle").textContent = "Salary TDS (Section 192)";
+    document.getElementById("result").classList.add("show");
+    return;
+  }
+
+  // --- Threshold check ---
+  var belowThreshold = false;
+  var taxableBase = amount;
+  if(meta.thrType === "year" || meta.thrType === "month"){
+    if(amount <= meta.thr) belowThreshold = true;
+  } else if(meta.thrType === "contract"){
+    // 194C: below if single <= 30k AND aggregate (we treat 'amount' as aggregate/this payment) <= 1L
+    if(amount <= meta.thr) belowThreshold = true; // single payment small
+  } else if(meta.thrType === "yearAbove"){
+    // 194Q: TDS only on the part above 50L
+    taxableBase = Math.max(0, amount - meta.thr);
+    if(taxableBase <= 0) belowThreshold = true;
+  }
+
+  // --- Rate selection ---
+  var rate;
+  if(key === "194C"){
+    rate = (payee === "ind") ? 0.01 : 0.02;
+  } else {
+    rate = meta.rate;
+  }
+  var rateNote = "";
+  if(!hasPan){
+    if(rate < 0.20){ rate = 0.20; rateNote = " (raised to 20% — no PAN, §206AA)"; }
+    else rateNote = " (no PAN — already ≥20%)";
+  }
+
+  var tds = belowThreshold ? 0 : taxableBase * rate;
+  var net = amount - tds;
+
+  // Eligibility / threshold banner
+  if(belowThreshold){
+    eb.className = "elig ok";
+    if(meta.thrType === "yearAbove"){
+      eb.textContent = "✓ Below the 194Q trigger — purchase value " + fmt(amount) + " does not exceed ₹50,00,000, so no TDS is deducted. Pay the full amount.";
+    } else {
+      eb.textContent = "✓ Below the " + key.replace(/[A-Z]+$/,'') + " threshold (" + meta.thrTxt + "). No TDS is deducted — the full " + fmt(amount) + " is paid out.";
+    }
+  } else if(!hasPan){
+    eb.className = "elig warn";
+    eb.textContent = "⚠ No PAN furnished — section 206AA forces TDS at the higher of the section rate or 20%. " + fmt(tds) + " is withheld. Collect a valid PAN to drop back to the normal rate and ensure it shows in Form 26AS.";
+  } else {
+    eb.className = "elig info";
+    eb.textContent = "ℹ TDS of " + fmt(tds) + " is deducted at " + pct(rate) + " and deposited against the payee's PAN. They claim it back against their final tax when filing.";
+  }
+
+  // Result rows
+  document.getElementById("r_section").textContent = meta.label;
+  document.getElementById("r_rate").textContent = belowThreshold ? "0% (below threshold)" : (pct(rate) + rateNote);
+  document.getElementById("r_amount").textContent = fmt(amount) + (meta.thrType === "yearAbove" && !belowThreshold ? "  (TDS on " + fmt(taxableBase) + " above ₹50L)" : "");
+  document.getElementById("r_tds").textContent = fmt(tds);
+  document.getElementById("r_net").textContent = fmt(net);
+
+  // Freelancer refund insight for 194J professional fees
+  if((key === "194J") && !belowThreshold && tds > 0){
+    // Assume this is an annual gross; under 44ADA, taxable = 50%, new-regime tax (rebate to 12L) ~ 0 up to 24L gross
+    var presumptiveIncome = amount * 0.5;
+    var estTax = newRegimeTax(presumptiveIncome);
+    var refundable = Math.max(0, tds - estTax);
+    if(amount >= 100000){ // only show for a meaningful annual-scale figure
+      refundBox.style.display = "block";
+      refundBox.className = "elig info refundbox";
+      if(refundable > 0){
+        refundBox.textContent = "💡 If this ₹" + Math.round(amount).toLocaleString("en-IN") + " is your yearly 194J receipts and you opt for 44ADA: taxable income = 50% = " + fmt(presumptiveIncome) + ", new-regime tax ≈ " + fmt(estTax) + ". So about " + fmt(refundable) + " of the " + fmt(tds) + " TDS is REFUNDABLE — it's your cash parked with the department until you file. Consider a Form 13 lower-deduction certificate.";
+      } else {
+        refundBox.textContent = "💡 At this income level your actual tax (≈" + fmt(estTax) + " under 44ADA) exceeds the " + fmt(tds) + " TDS, so the 194J withholding doesn't cover your bill — you'll owe the balance as advance tax. Size it with the advance tax calculator.";
+      }
+    }
+  }
+
+  // Note
+  var note = "";
+  if(belowThreshold){
+    note = "No TDS this time, but track the running total — once the yearly aggregate crosses " + meta.thrTxt.split("(")[0].trim() + ", TDS applies on the whole amount, not just the excess (except 194Q, which is only on the part above ₹50L).";
+  } else if(key === "194C"){
+    note = "194C rate is " + pct(rate) + " because the payee is " + (payee==="ind"?"an individual/HUF":"a company/firm/other") + ". Remember: the threshold is breached if a single bill exceeds ₹30,000 OR yearly total exceeds ₹1,00,000.";
+  } else {
+    note = "The deductor must deposit this TDS by the 7th of the next month and file a quarterly return so it reflects in the payee's Form 26AS. The payee claims it at filing — excess over actual tax is refunded.";
+  }
+  document.getElementById("tNote").textContent = note;
+  document.getElementById("resultTitle").textContent = "TDS Computation — " + key.replace(/[A-Z]+$/,'');
+  document.getElementById("result").classList.add("show");
+}
+
+// New-regime FY 2026-27 tax incl. 4% cess, with §87A rebate to ₹12L income.
+function newRegimeTax(ti){
+  ti = Math.max(0, ti);
+  if(ti <= 1200000) return 0; // 87A rebate makes tax nil up to 12L taxable income
+  var sl = [[400000,0],[800000,0.05],[1200000,0.10],[1600000,0.15],[2000000,0.20],[2400000,0.25],[Infinity,0.30]];
+  var tax = 0, prev = 0;
+  for(var i=0;i<sl.length;i++){
+    if(ti > prev){ tax += (Math.min(ti, sl[i][0]) - prev) * sl[i][1]; prev = sl[i][0]; }
+    else break;
+  }
+  return tax * 1.04;
+}
+
+document.getElementById("section").addEventListener("change", function(){ syncUI(); calc(); });
+["amount","payee","pan","salTax"].forEach(function(id){
+  var el = document.getElementById(id);
+  el.addEventListener("keypress", function(e){ if(e.key === "Enter") calc(); });
+  el.addEventListener("change", calc);
+});
+
+window.addEventListener("DOMContentLoaded", function(){ syncUI(); calc(); });
+</script>
+
+
+<!-- LF:EMAIL-CAPTURE v1 -->
+<section style="max-width:680px;margin:48px auto 24px;padding:20px 22px;background:#fafbff;border:1px solid #e1e5ee;border-radius:10px;font-family:-apple-system,system-ui,sans-serif">
+  <div style="font-weight:600;font-size:1rem;color:#1a1a2e;margin-bottom:4px">Subscribe for India tax &amp; freelancer finance updates</div>
+  <div style="font-size:0.85rem;color:#555;margin-bottom:14px">TDS rate changes, threshold revisions, presumptive-limit updates, regime changes, new calculators. No spam. Unsubscribe anytime.</div>
+  <form onsubmit="event.preventDefault(); var f=this; var msg=f.querySelector('.lf_msg'); msg.textContent='Sending…'; fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'b2fb1576-a39b-4683-8ee9-4e152f731113',subject:'India calc newsletter signup ('+location.hostname+')',email:f.email.value,from_name:'protodex.io '+location.hostname,source:location.href})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.textContent='✓ Subscribed. Watch your inbox.';msg.style.color='#16a34a';f.email.value=''}else{msg.textContent='Couldn’t subscribe. Email manja316@gmail.com directly.';msg.style.color='#dc2626'}}).catch(function(){msg.textContent='Network error. Try again.';msg.style.color='#dc2626'})" style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid #d4d8e2;border-radius:6px;font-size:0.95rem">
+    <button type="submit" style="padding:10px 22px;background:#1a1a2e;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.9rem">Subscribe</button>
+  </form>
+  <div class="lf_msg" style="margin-top:8px;font-size:0.82rem"></div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e5ee;font-size:0.72rem;color:#888">
+    Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=calc-footer&utm_campaign=india-calcs" target="_blank" rel="noopener" style="color:#666">Claude</a> · <a href="https://protodex.io" style="color:#666">protodex.io</a>
+  </div>
+</section>
+
+</body>
+</html>

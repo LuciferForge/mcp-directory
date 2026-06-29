@@ -1720,21 +1720,21 @@ document.addEventListener('click', function(e) {
         <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
             <span style="font-size:1.5rem">&#128202;</span>
             <div style="flex:1;min-width:200px">
-                <div style="font-weight:600;font-size:0.95rem">Polymarket Historical Dataset — 18.5M+ Price Snapshots</div>
-                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">18,400+ markets, 76+ days, 15-min snapshots, orderbook depth. Built by the Protodex team.</div>
+                <div style="font-weight:600;font-size:0.95rem">Polymarket Historical Dataset — 17.3M+ Price Snapshots</div>
+                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">20,500+ markets, 85+ days, 15-min price snapshots. Built by the Protodex team.</div>
             </div>
-            <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">$49 one-time &#8594;</span>
+            <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">$19 one-time &#8594;</span>
         </div>
     </a>
 
-    <a href="https://manja8.gumroad.com/l/PolyScope?utm_source=protodex&amp;utm_medium=homepage&amp;utm_campaign=homepage-banner&amp;utm_content=polyscope" target="_blank" rel="noopener" style="display:block;margin:0 auto 1rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(123,97,255,0.10));border:1px solid rgba(45,217,224,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
+    <a href="https://manja8.gumroad.com/l/polymarket-feed?utm_source=protodex&amp;utm_medium=homepage&amp;utm_campaign=homepage-banner&amp;utm_content=feed" target="_blank" rel="noopener" style="display:block;margin:0 auto 1rem;max-width:800px;padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(123,97,255,0.10));border:1px solid rgba(45,217,224,0.25);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color 0.2s">
         <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
             <span style="font-size:1.5rem">&#128260;</span>
             <div style="flex:1;min-width:200px">
-                <div style="font-weight:600;font-size:0.95rem">PolyScope Pro — Weekly Polymarket Data Feed</div>
+                <div style="font-weight:600;font-size:0.95rem">Polymarket Live Data Feed — Auto-Refreshed Weekly</div>
                 <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">The full dataset, refreshed and delivered every week. For teams backtesting or training on live prediction-market data.</div>
             </div>
-            <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">$29/mo &#8594;</span>
+            <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">$19/mo &#8594;</span>
         </div>
     </a>
     <!-- Moon Dream banner removed 2026-05-13 — Amazon short URL a.co/d/00cWi9t2 returns HTTP 404.
@@ -1849,6 +1849,9 @@ document.addEventListener('click', function(e) {
             </a>
             <a href="https://protodex.io/advance-tax-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 📅 <strong>Advance Tax for Freelancers</strong> — 15 Jun/Sep/Dec/Mar installments, 234B/234C interest, 44ADA single-pay
+            </a>
+            <a href="https://protodex.io/tds-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                ✂️ <strong>TDS Calculator &amp; Rate Chart</strong> — 194J/194C/194H/194I rates, no-PAN 20%, threshold, freelancer refund
             </a>
             <a href="https://protodex.io/hra-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 🏠 <strong>HRA Exemption</strong> — least-of-three, metro vs non-metro, old-regime only
@@ -2283,13 +2286,15 @@ def build_dataset_page():
     today = datetime.now().strftime("%Y-%m-%d")
     page_url = f"{SITE_URL}{DATASET_PATH}"
     img_url = f"{SITE_URL}/og/polymarket-dataset.png"
-    onetime_url = "https://manja8.gumroad.com/l/agyjd?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=onetime"
-    feed_url = "https://manja8.gumroad.com/l/PolyScope?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=polyscope"
-    toolkit_url = "https://manja8.gumroad.com/l/polymarket-quant-toolkit?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=toolkit"
+    dataset_url = "https://manja8.gumroad.com/l/polymarket-quant-toolkit?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=dataset"
+    feed_url = "https://manja8.gumroad.com/l/polymarket-feed?utm_source=protodex&utm_medium=dataset-page&utm_campaign=dataset-lp&utm_content=feed"
+    # Back-compat aliases (both point to the single $19 dataset now)
+    onetime_url = dataset_url
+    toolkit_url = dataset_url
 
-    title = "Polymarket Historical Dataset — 18.5M+ Price Snapshots (CSV) | Protodex"
+    title = "Polymarket Historical Dataset — 17.3M+ Price Snapshots (CSV) | Protodex"
     desc = ("Download the Polymarket historical dataset: 18.5M+ 15-minute price & orderbook "
-            "snapshots across 18,400+ prediction markets. CSV bundle ($49) or weekly feed ($29/mo). "
+            "snapshots across 18,400+ prediction markets. Full dataset ($19) or weekly auto-refresh feed ($19/mo). "
             "Built for backtesting and ML on prediction-market data.")
 
     keywords = ["polymarket dataset", "polymarket historical data", "prediction market data",
@@ -2308,9 +2313,9 @@ def build_dataset_page():
                         "training on prediction-market data."),
         "url": page_url,
         "image": img_url,
-        "sameAs": "https://manja8.gumroad.com/l/agyjd",
+        "sameAs": "https://manja8.gumroad.com/l/polymarket-quant-toolkit",
         "keywords": keywords,
-        "license": "https://manja8.gumroad.com/l/agyjd",
+        "license": "https://manja8.gumroad.com/l/polymarket-quant-toolkit",
         "isAccessibleForFree": False,
         "creator": {"@type": "Organization", "name": "Protodex", "url": SITE_URL},
         "publisher": {"@type": "Organization", "name": "Protodex", "url": SITE_URL},
@@ -2322,11 +2327,11 @@ def build_dataset_page():
                              "best ask", "bid depth", "ask depth", "spread", "timestamp (UTC, 15-min)"],
         "distribution": [
             {"@type": "DataDownload", "encodingFormat": "text/csv",
-             "contentUrl": "https://manja8.gumroad.com/l/agyjd",
-             "name": "One-time CSV bundle"},
+             "contentUrl": "https://manja8.gumroad.com/l/polymarket-quant-toolkit",
+             "name": "Full dataset — one-time ($19)"},
             {"@type": "DataDownload", "encodingFormat": "text/csv",
-             "contentUrl": "https://manja8.gumroad.com/l/PolyScope",
-             "name": "PolyScope Pro — weekly refreshed feed"},
+             "contentUrl": "https://manja8.gumroad.com/l/polymarket-feed",
+             "name": "Weekly auto-refresh feed ($19/mo)"},
         ],
     }
 
@@ -2339,12 +2344,10 @@ def build_dataset_page():
         "brand": {"@type": "Brand", "name": "Protodex"},
         "url": page_url,
         "offers": [
-            {"@type": "Offer", "name": "One-time CSV bundle", "price": "49", "priceCurrency": "USD",
-             "availability": "https://schema.org/InStock", "url": onetime_url},
-            {"@type": "Offer", "name": "PolyScope Pro — weekly feed", "price": "29", "priceCurrency": "USD",
+            {"@type": "Offer", "name": "Full dataset — one-time", "price": "19", "priceCurrency": "USD",
+             "availability": "https://schema.org/InStock", "url": dataset_url},
+            {"@type": "Offer", "name": "Weekly auto-refresh feed", "price": "19", "priceCurrency": "USD",
              "availability": "https://schema.org/InStock", "url": feed_url},
-            {"@type": "Offer", "name": "Quant Toolkit — dataset + analysis notebook", "price": "49", "priceCurrency": "USD",
-             "availability": "https://schema.org/InStock", "url": toolkit_url},
         ],
     }
 
@@ -2358,12 +2361,11 @@ def build_dataset_page():
 <div class="page-header">
     <div class="container">
         <div class="breadcrumb"><a href="/">Home</a> / Datasets / Polymarket Historical Dataset</div>
-        <h1>Polymarket Historical Dataset — 18.5M+ Price Snapshots</h1>
+        <h1>Polymarket Historical Dataset — 17.3M+ Price Snapshots</h1>
         <p>15-minute price &amp; orderbook snapshots across 18,400+ Polymarket prediction markets, over 76+ trading days. Clean CSV, ready for backtesting and ML. Built and maintained by the Protodex team.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
-            <a href="{onetime_url}" target="_blank" rel="noopener" class="btn" style="background:var(--accent);color:#000;font-weight:700">Get the CSV bundle — $49 one-time →</a>
-            <a href="{toolkit_url}" target="_blank" rel="noopener" class="btn" style="background:transparent;border:1px solid var(--accent);color:var(--accent)">Quant Toolkit — data + notebook, $49 →</a>
-            <a href="{feed_url}" target="_blank" rel="noopener" class="btn" style="background:transparent;border:1px solid var(--accent);color:var(--accent)">PolyScope Pro — weekly feed, $29/mo →</a>
+            <a href="{dataset_url}" target="_blank" rel="noopener" class="btn" style="background:var(--accent);color:#000;font-weight:700">Get the full dataset — $19 one-time →</a>
+            <a href="{feed_url}" target="_blank" rel="noopener" class="btn" style="background:transparent;border:1px solid var(--accent);color:var(--accent)">Weekly auto-refresh feed — $19/mo →</a>
         </div>
     </div>
 </div>
@@ -2384,14 +2386,13 @@ def build_dataset_page():
     <h2>Columns</h2>
     <p>market question, outcome (Yes/No), mid price, best bid, best ask, bid depth, ask depth, spread, timestamp (UTC, 15-minute interval). Plain CSV — opens in pandas, Excel, DuckDB, or anything that reads a comma.</p>
 
-    <h2>Three ways to buy</h2>
-    <p><strong>CSV bundle — $49 one-time.</strong> The full 18.5M-snapshot history as it stands today, delivered as CSV. Best for a single backtest, a research project, or a model training run. <a href="{onetime_url}" target="_blank" rel="noopener">Get the bundle →</a></p>
-    <p><strong>Quant Toolkit — $49.</strong> The full dataset bundled with a tested Jupyter notebook that turns it into answers: a market-calibration analysis with significance testing, an honest crash-recovery backtest, and a tool that extracts the market-implied BTC distribution from the strike ladder and flags arbitrage. For quants and researchers who want signal, not just CSVs. <a href="{toolkit_url}" target="_blank" rel="noopener">Get the Quant Toolkit →</a></p>
-    <p><strong>PolyScope Pro — $29/month.</strong> The same dataset, refreshed and re-delivered every week so your models and dashboards stay current. Best for teams running live backtests or continuously training on fresh prediction-market data. <a href="{feed_url}" target="_blank" rel="noopener">Subscribe to PolyScope Pro →</a></p>
+    <h2>Two ways to buy</h2>
+    <p><strong>Full dataset — $19 one-time.</strong> The complete 18.5M-snapshot history as it stands today, delivered as CSV. Best for a single backtest, a research project, or a model training run. <a href="{dataset_url}" target="_blank" rel="noopener">Get the dataset →</a></p>
+    <p><strong>Weekly auto-refresh feed — $19/month.</strong> The same dataset, refreshed and re-delivered every week so your models and dashboards stay current — you never scrape or re-download. Best for teams running live backtests or continuously training on fresh prediction-market data. <a href="{feed_url}" target="_blank" rel="noopener">Subscribe to the feed →</a></p>
 
     <h2>FAQ</h2>
     <p><strong>What format is it?</strong> CSV (UTF-8), one row per market-outcome per 15-minute snapshot.</p>
-    <p><strong>How fresh is the data?</strong> The one-time bundle is current as of purchase; PolyScope Pro refreshes weekly.</p>
+    <p><strong>How fresh is the data?</strong> The one-time dataset is current as of purchase; the weekly auto-refresh feed updates every week.</p>
     <p><strong>Can I use it commercially?</strong> Yes — for backtesting, research, and model training. Redistribution of the raw dataset is not permitted.</p>
     <p><strong>How is it collected?</strong> 15-minute price and order-book snapshots via the Polymarket CLOB API, deduplicated and time-aligned.</p>
 
@@ -2422,6 +2423,7 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/gst-calculator/")
     urls.append(f"{SITE_URL}/44ada-calculator/")
     urls.append(f"{SITE_URL}/advance-tax-calculator/")
+    urls.append(f"{SITE_URL}/tds-calculator/")
     urls.append(f"{SITE_URL}/hra-calculator/")
 
     # Blog: index + every post (md-generated and orphan HTML) — previously missing,
