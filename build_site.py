@@ -1838,6 +1838,9 @@ document.addEventListener('click', function(e) {
             <a href="https://protodex.io/nsc-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 📜 <strong>NSC</strong> — 7.7%, annual compounding, 80C reinvestment
             </a>
+            <a href="https://protodex.io/scss-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                👴 <strong>SCSS (Senior Citizens)</strong> — 8.2%, quarterly income, ₹30L cap, TDS / Form 15H
+            </a>
             <a href="https://protodex.io/ltcg-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 💹 <strong>LTCG / Capital Gains</strong> — Budget 2024: 12.5%, ₹1.25L exemption, indexation
             </a>
@@ -2419,6 +2422,7 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/epf-calculator/")
     urls.append(f"{SITE_URL}/gratuity-calculator/")
     urls.append(f"{SITE_URL}/nsc-calculator/")
+    urls.append(f"{SITE_URL}/scss-calculator/")
     urls.append(f"{SITE_URL}/ltcg-calculator/")
     urls.append(f"{SITE_URL}/gst-calculator/")
     urls.append(f"{SITE_URL}/44ada-calculator/")

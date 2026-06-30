@@ -107,7 +107,7 @@ def post_top_volume():
         f"<p>Polymarket runs <strong>{fmt_int(len(markets))}</strong> active prediction markets right now. "
         f"This is the top 20 by dollar volume — the markets where money actually flows, sorted by their "
         f"current outstanding liquidity. The full dataset behind this list — every 15-minute price tick, "
-        f"order book depth, and category mapping for all {fmt_int(len(markets))} markets — is in our "
+        f"reported liquidity, and category mapping for all {fmt_int(len(markets))} markets — is in our "
         f"<a href=\"{gumroad(slug, 'inline')}\">Polymarket historical dataset</a>.</p>"
     )
     body = f"""
@@ -155,7 +155,7 @@ def post_spreads():
     title = f"Polymarket Liquidity Map — Where the Real Order Flow Sits ({today})"
     slug = f"polymarket-liquidity-map-{today}"
     description = (
-        "30 deepest-liquidity Polymarket markets ranked by standing book size. Where you can move "
+        "The 30 Polymarket markets with the highest reported liquidity — where you can move "
         "real position without paying the spread."
     )
     rows_html = "\n".join(
@@ -170,17 +170,17 @@ def post_spreads():
         for i, m in enumerate(by_liq)
     )
     body = f"""
-    <p>Most prediction-market screeners rank by volume. Volume tells you what already happened; liquidity tells you what you can do <em>now</em>. These are the 30 Polymarket markets with the deepest standing order books — the markets where you can place a $1K position and barely move the mid.</p>
+    <p>Most prediction-market screeners rank by volume. Volume tells you what already happened; liquidity tells you what you can do <em>now</em>. These are the 30 Polymarket markets with the highest reported liquidity — the markets where you can place a $1K position and barely move the mid.</p>
 
     <h2>Top 30 Markets by Liquidity</h2>
     <table class="poly-table">
       <thead><tr><th>#</th><th>Market</th><th>Category</th><th>Liquidity</th><th>Volume</th></tr></thead>
       <tbody>{rows_html}</tbody>
     </table>
-    <p class="caption">Liquidity = sum of resting orders within 5¢ of mid on both sides. Captured {today} from the Protodex dataset.</p>
+    <p class="caption">Liquidity = Polymarket's reported liquidity figure (Gamma API). Captured {today} from the Protodex dataset.</p>
 
     <h2>Volume / Liquidity Ratio — A Cleaner Signal</h2>
-    <p>A high volume-to-liquidity ratio means the market is being traded faster than market makers can replenish — a sign of fresh information. A low ratio means the order book is full but no one's hitting it — typical of stale or boring markets. The full dataset (with 15-minute orderbook snapshots) lets you watch this ratio over time. <a href="{gumroad(slug, 'inline')}">Get the dataset →</a></p>
+    <p>A high volume-to-liquidity ratio means the market is being traded faster than market makers can replenish — a sign of fresh information. A low ratio means liquidity is sitting idle but no one's hitting it — typical of stale or boring markets. The full dataset (with 15-minute price snapshots) lets you watch this ratio over time. <a href="{gumroad(slug, 'inline')}">Get the dataset →</a></p>
 
     <h2>Practical Takeaway</h2>
     <ul>
@@ -233,7 +233,7 @@ def post_category(category="politics"):
     <h2>Why {cap_cat} Markets Are Worth Watching</h2>
     <p>{cap_cat} markets typically have the deepest informed-trader pool on Polymarket — partisans, journalists, lobbyists, and professional speculators all converge on the same handful of high-stakes contracts. That density makes prices unusually informative compared to retail-dominated categories like entertainment or weather.</p>
 
-    <p>If you want to backtest a strategy on this category, the full historical dataset has 15-minute price snapshots and orderbook depth for every {cap_cat.lower()} market in this list. <a href="{gumroad(slug, 'inline')}">Get the dataset →</a></p>
+    <p>If you want to backtest a strategy on this category, the full historical dataset has 15-minute price snapshots and reported liquidity for every {cap_cat.lower()} market in this list. <a href="{gumroad(slug, 'inline')}">Get the dataset →</a></p>
     """
     return title, slug, description, body
 
@@ -324,7 +324,7 @@ footer{{border-top:1px solid var(--border);padding:32px 24px;text-align:center;c
 {body}
 <div class="cta-card">
     <h3>&#128202; The Full Polymarket Historical Dataset</h3>
-    <p>15.0M+ price snapshots across 18,100+ prediction markets. 15-minute frequency, orderbook depth, 74+ days of data, updated weekly. Use the same source data behind this post for your own backtests, models, and research.</p>
+    <p>17.3M+ price snapshots across 20,500+ prediction markets. 15-minute frequency, 85+ days of data, updated weekly. Use the same source data behind this post for your own backtests, models, and research.</p>
     <a href="{cta_link}" target="_blank" rel="noopener" class="cta-btn">Get the dataset &#8594;</a>
 </div>
 </article>
