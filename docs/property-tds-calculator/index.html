@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDS on Property Purchase Calculator India 2026 — 1% Section 194-IA, Form 26QB, ₹50 Lakh Threshold, No-PAN 20% &amp; NRI Seller Trap</title>
+<meta name="description" content="Free TDS-on-property calculator for India 2026 under Section 194-IA. Computes the 1% TDS on the higher of sale price or stamp-duty value, checks the ₹50 lakh threshold correctly (full value, not the excess), the no-PAN 20% rule, the joint-buyer 26QB split, late-deposit interest and the ₹200/day 234E fee — and flags the NRI-seller trap where 194-IA does NOT apply.">
+<link rel="canonical" href="https://protodex.io/property-tds-calculator/">
+<meta property="og:title" content="TDS on Property Purchase Calculator India 2026 — 1% Section 194-IA &amp; Form 26QB">
+<meta property="og:description" content="Compute the 1% property TDS on the higher of consideration or stamp-duty value, with the ₹50L threshold, no-PAN 20%, joint-buyer 26QB split, late interest &amp; the NRI-seller 195 trap most calculators miss.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://protodex.io/property-tds-calculator/">
+<meta name="theme-color" content="#1d3557">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏘️</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "TDS on Property Purchase Calculator India 2026",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
+  "description": "Free Section 194-IA TDS-on-property calculator for India 2026. Computes the 1% TDS on the higher of sale consideration or stamp-duty value, applies the ₹50 lakh threshold to the full value, the no-PAN 20% rule, the joint-buyer Form 26QB split, late-deposit interest and the 234E ₹200/day fee, and flags the NRI-seller trap.",
+  "url": "https://protodex.io/property-tds-calculator/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much TDS is deducted on property purchase in India in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under Section 194-IA the buyer must deduct 1% TDS on the sale of immovable property (other than agricultural land) when the sale consideration or the stamp-duty value is ₹50 lakh or more. Since 1 October 2024 the 1% is computed on the HIGHER of the sale consideration and the stamp-duty (SDV) value. Example: a flat sold for ₹80 lakh with an ₹85 lakh stamp-duty value attracts 1% of ₹85 lakh = ₹85,000 TDS, deposited by the buyer via Form 26QB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the ₹50 lakh TDS threshold applied on the full value or only the amount above ₹50 lakh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On the FULL value. This is the single most common mistake. Once the consideration (or stamp-duty value) is ₹50 lakh or more, 1% TDS applies to the entire amount, not just the portion above ₹50 lakh. A ₹60 lakh property has TDS of 1% × ₹60,00,000 = ₹60,000, not 1% of ₹10 lakh. Below ₹50 lakh there is no 194-IA TDS at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Form 26QB and when must it be filed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Form 26QB is the challan-cum-statement the buyer files to report and deposit property TDS under Section 194-IA. It must be filed and the TDS deposited within 30 days from the end of the month in which the payment/deduction was made. After filing, the buyer downloads Form 16B from TRACES and gives it to the seller as proof of TDS credit. No TAN is required — the buyer uses their PAN. For a joint purchase, a separate 26QB is filed for each buyer-seller combination."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What TDS applies if the property seller is an NRI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Section 194-IA does NOT apply to an NRI seller. Instead the buyer must deduct TDS under Section 195, which is far higher: on a long-term capital gain (property held over 24 months) the rate is 12.5% (for transfers on or after 23 July 2024) plus surcharge and 4% cess; short-term gains are taxed at the seller's slab. The buyer also needs a TAN and files Form 27Q, not 26QB. Deducting only 1% on an NRI seller is a serious default that leaves the buyer liable for the shortfall plus interest. Get the seller's residential status in writing before closing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the seller does not provide a PAN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under Section 206AA, if the seller does not furnish a valid PAN the TDS rate jumps from 1% to 20%. On a ₹60 lakh property that is ₹12,00,000 instead of ₹60,000. Always collect and verify the seller's PAN (and your own) before filing Form 26QB — both PANs are mandatory fields on the form."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is property TDS split when there are joint buyers or joint sellers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 1% is on the total transaction, but it is reported per buyer-seller pair. If two buyers purchase from one seller, each buyer files a separate Form 26QB for their share of the consideration and deducts 1% on that share; the shares must add up to the full price. Two buyers and two sellers means four 26QB filings. The ₹50 lakh threshold is tested on the total property value, not on each buyer's share — so a ₹90 lakh flat bought 50:50 still triggers TDS even though each share is ₹45 lakh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the penalties for late deduction or late deposit of property TDS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three separate charges can apply. Interest under Section 201: 1% per month for late deduction and 1.5% per month (or part of a month) from the date of deduction to the date of deposit. A late-filing fee under Section 234E of ₹200 per day of delay in filing Form 26QB, capped at the TDS amount. And a possible penalty under Section 271H of ₹10,000 to ₹1,00,000 for not filing. Because the 26QB deadline is only 30 days, these add up quickly — this calculator estimates the 201 interest and the 234E fee for the months you enter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does property TDS apply to under-construction flats and instalment payments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. For an under-construction property bought in instalments, TDS is deducted on each instalment at the time of payment or credit, whichever is earlier, once the total agreement value is ₹50 lakh or more. You file a Form 26QB for each instalment. The threshold is judged on the total consideration, so even a small first instalment attracts 1% TDS if the overall deal is ₹50 lakh or above."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#f8f9fb}
+.container{max-width:760px;margin:0 auto;padding:24px 16px}
+header{text-align:center;padding:32px 16px 16px;background:linear-gradient(135deg,#1d3557 0%,#457b9d 100%);color:#fff;border-radius:0 0 16px 16px}
+header h1{font-size:1.8rem;margin-bottom:8px;line-height:1.25}
+header p{font-size:1rem;opacity:0.92}
+.badge{display:inline-block;background:#f1c40f;color:#1d3557;padding:4px 10px;border-radius:12px;font-size:0.78rem;font-weight:700;margin-top:8px}
+.calc{background:#fff;padding:28px 24px;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.06);margin-top:-16px;position:relative;z-index:2}
+.calc h2{font-size:1.3rem;margin-bottom:18px;color:#1d3557}
+label{display:block;font-weight:600;margin:14px 0 6px;font-size:0.95rem}
+input[type=number],select{width:100%;padding:12px 14px;border:1.5px solid #d0d6e0;border-radius:8px;font-size:1rem;background:#fff;transition:border-color 0.2s}
+input[type=number]:focus,select:focus{outline:none;border-color:#457b9d}
+.helper{font-size:0.82rem;color:#666;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+button{width:100%;background:#1d3557;color:#fff;padding:14px 20px;border:none;border-radius:8px;font-size:1.05rem;font-weight:700;cursor:pointer;margin-top:20px;transition:background 0.2s}
+button:hover{background:#0d233d}
+.result{margin-top:24px;padding:20px;background:#f1faee;border-left:4px solid #2a9d8f;border-radius:8px;display:none}
+.result.show{display:block}
+.result h3{font-size:1.15rem;margin-bottom:10px;color:#1d3557}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #ccc;font-size:0.95rem}
+.row:last-of-type{border-bottom:none;font-weight:700;font-size:1.1rem;padding-top:12px;margin-top:8px;border-top:2px solid #1d3557}
+.row .lbl{color:#444}
+.row .val{color:#1d3557;font-weight:600}
+.elig{padding:12px 14px;border-radius:8px;font-size:0.9rem;margin-bottom:14px;font-weight:600}
+.elig.ok{background:#e7f6ee;border-left:4px solid #2a9d8f;color:#15663f}
+.elig.warn{background:#fdecea;border-left:4px solid #e63946;color:#8a1c1c}
+.elig.none{background:#eef2f7;border-left:4px solid #457b9d;color:#1d3557}
+.schedule{margin-top:20px;border:1px solid #e0e4eb;border-radius:8px;overflow:hidden}
+.schedule table{width:100%;border-collapse:collapse;font-size:0.88rem}
+.schedule th,.schedule td{padding:8px 10px;border-bottom:1px solid #eef0f4;text-align:right}
+.schedule th{background:#1d3557;color:#fff;font-weight:600;text-align:right}
+.schedule th:first-child,.schedule td:first-child{text-align:left}
+.schedule tr.cur td{background:#fff8e1;font-weight:700}
+section.content{background:#fff;padding:28px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+section.content h2{font-size:1.4rem;margin:18px 0 12px;color:#1d3557}
+section.content h2:first-child{margin-top:0}
+section.content h3{font-size:1.1rem;margin:16px 0 8px;color:#2a4d6e}
+section.content p{margin-bottom:12px}
+section.content ul,section.content ol{padding-left:22px;margin-bottom:12px}
+section.content li{margin-bottom:6px}
+table.guide{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.95rem}
+table.guide th,table.guide td{padding:10px 12px;border:1px solid #e0e4eb;text-align:left}
+table.guide th{background:#1d3557;color:#fff;font-weight:600}
+table.guide tr:nth-child(even){background:#f8f9fb}
+.note{background:#fff8e1;border-left:4px solid #f1c40f;padding:14px 18px;margin:14px 0;border-radius:6px;font-size:0.95rem}
+.cta{background:#fff;padding:24px;border-radius:14px;margin-top:24px;text-align:center;box-shadow:0 2px 14px rgba(0,0,0,0.04)}
+.cta h3{color:#1d3557;margin-bottom:8px}
+.cta a{display:inline-block;background:#e63946;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px 4px;font-size:0.95rem}
+.cta a.alt{background:#1d3557}
+footer{text-align:center;padding:32px 16px;color:#666;font-size:0.85rem;line-height:1.7}
+footer a{color:#457b9d}
+@media(max-width:520px){
+  header h1{font-size:1.45rem}
+  .calc{padding:22px 18px}
+  section.content{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>TDS on Property Purchase Calculator India 2026</h1>
+<p>1% Section 194-IA · Form 26QB · ₹50 lakh threshold · no-PAN 20% · NRI-seller check</p>
+<span class="badge">1% on higher of price or stamp-duty value · buyer deducts</span>
+</header>
+
+<div class="container">
+
+<div class="calc">
+<h2>Calculate Your Property TDS (194-IA)</h2>
+
+<div class="two">
+<div>
+<label for="price">Sale consideration (₹) <span style="color:#e63946">*</span></label>
+<input type="number" id="price" placeholder="e.g., 8000000" min="0" step="100000" value="8000000">
+<div class="helper">Total agreement value you are paying the seller.</div>
+</div>
+
+<div>
+<label for="sdv">Stamp-duty value (₹)</label>
+<input type="number" id="sdv" placeholder="same as price if unknown" min="0" step="100000" value="8000000">
+<div class="helper">Circle/ready-reckoner value. TDS is on the higher of the two (w.e.f. 01-10-2024).</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="seller">Seller's residential status</label>
+<select id="seller">
+  <option value="resident" selected>Resident Indian</option>
+  <option value="nri">NRI / foreign resident</option>
+</select>
+<div class="helper">NRI seller ⇒ Section 195, NOT 194-IA (much higher TDS).</div>
+</div>
+
+<div>
+<label for="pan">Seller has a valid PAN?</label>
+<select id="pan">
+  <option value="yes" selected>Yes</option>
+  <option value="no">No — 206AA 20% applies</option>
+</select>
+<div class="helper">No PAN pushes resident TDS from 1% to 20%.</div>
+</div>
+</div>
+
+<div class="two">
+<div>
+<label for="share">Your ownership share (%)</label>
+<input type="number" id="share" min="1" max="100" step="1" value="100">
+<div class="helper">Each joint buyer files a separate Form 26QB for their share.</div>
+</div>
+
+<div>
+<label for="delay">Months late in depositing (optional)</label>
+<input type="number" id="delay" min="0" max="60" step="1" value="0">
+<div class="helper">Estimates 1.5%/month interest + ₹200/day 234E fee.</div>
+</div>
+</div>
+
+<button onclick="calc()">Calculate Property TDS</button>
+
+<div id="result" class="result">
+  <div id="eligBox" class="elig ok"></div>
+  <h3 id="resultTitle">Your Property TDS</h3>
+  <div class="row"><span class="lbl">TDS base (higher of price / SDV)</span><span class="val" id="r_base"></span></div>
+  <div class="row"><span class="lbl">Applicable TDS rate</span><span class="val" id="r_rate"></span></div>
+  <div class="row"><span class="lbl">Your share of consideration</span><span class="val" id="r_share"></span></div>
+  <div class="row"><span class="lbl">Net amount payable to seller (your share)</span><span class="val" id="r_net"></span></div>
+  <div class="row"><span class="lbl">TDS you deduct &amp; deposit (26QB)</span><span class="val" id="r_tds"></span></div>
+
+  <div class="schedule" id="r_schedule_wrap" style="display:none">
+    <table>
+      <thead><tr><th>Component</th><th>Rate / basis</th><th>Amount</th></tr></thead>
+      <tbody id="r_schedule"></tbody>
+    </table>
+  </div>
+  <p id="gNote" style="font-size:0.85rem;color:#666;margin-top:14px"></p>
+</div>
+</div>
+
+<div class="cta">
+<h3>Filed the 26QB? Now Put the Rest of Your Money to Work</h3>
+<p style="margin-bottom:12px;color:#444">A property is a large, illiquid, single bet. Once the deal closes, the smart move is to keep an emergency and diversification buffer in liquid, low-cost instruments rather than pouring everything into one address. Start a zero-commission index SIP or park the surplus in a demat account:</p>
+<a href="https://app.groww.in/v3cO/mfynf0t8?utm_source=protodex&utm_medium=calculator&utm_campaign=property_tds_india&utm_content=primary-cta" target="_blank" rel="noopener nofollow sponsored">Start a SIP on Groww →</a>
+<a href="https://zerodha.com/open-account?c=VN7717&utm_source=protodex&utm_medium=calculator&utm_campaign=property_tds_india&utm_content=secondary-cta" target="_blank" rel="noopener nofollow sponsored" class="alt">Open Free Demat on Zerodha →</a>
+<p style="font-size:0.72rem;color:#888;margin-top:12px;font-style:italic">Affiliate links — protodex.io may earn a commission at no extra cost to you. Match the instrument to your goal and risk appetite; market investments are not capital-guaranteed.</p>
+</div>
+
+<section class="content">
+<h2>TDS on Property Purchase in India 2026 — The Complete Guide</h2>
+
+<p>When you buy immovable property in India — a flat, house, commercial unit or plot (other than agricultural land) — for <strong>₹50 lakh or more</strong>, you the <em>buyer</em> are legally required to deduct <strong>1% TDS</strong> from the payment to the seller and deposit it with the government under <strong>Section 194-IA</strong>. It is one of the most misunderstood compliances in Indian real estate: the seller often assumes they'll get the full price, and the buyer often forgets they are the one on the hook. This calculator applies the exact rules — the correct threshold, the higher-of-price-or-stamp-duty base introduced in October 2024, the no-PAN 20% rule, the joint-buyer Form 26QB split, and the interest and fees for missing the 30-day deadline — and it flags the single most expensive mistake: assuming 1% when the seller is an NRI.</p>
+
+<div class="note"><strong>The rule most property-TDS calculators get wrong:</strong> once the value is ₹50 lakh or more, the 1% applies to the <em>entire</em> consideration, <strong>not</strong> just the portion above ₹50 lakh. A ₹60 lakh flat has ₹60,000 of TDS, not ₹10,000. And since <strong>1 October 2024</strong> the 1% is computed on the <strong>higher of the sale consideration and the stamp-duty (circle-rate) value</strong> — so if your agreement is ₹80 lakh but the ready-reckoner value is ₹85 lakh, TDS is 1% of ₹85 lakh.</p>
+
+<h2>How Property TDS Is Calculated</h2>
+
+<p style="text-align:center;font-size:1.05rem;background:#f1faee;padding:14px;border-radius:8px"><strong>TDS = max(Sale Consideration, Stamp-Duty Value) × 1%</strong><br><span style="font-size:0.9rem">…only if that value is ₹50,00,000 or more, and the seller is a resident with a valid PAN.</span></p>
+
+<ul>
+<li><strong>Base</strong> = the higher of what you pay and the property's stamp-duty/circle-rate value (w.e.f. 01-10-2024).</li>
+<li><strong>Rate</strong> = 1% for a resident seller with a PAN; <strong>20%</strong> if the seller has no PAN (Section 206AA).</li>
+<li><strong>Threshold</strong> = ₹50 lakh, tested on the <em>total</em> property value — but once crossed, TDS is on the full amount.</li>
+<li><strong>Who deducts</strong> = the buyer, using their own PAN (no TAN needed), via Form 26QB.</li>
+</ul>
+
+<div class="note"><strong>Worked example:</strong> You buy a flat for ₹80,00,000; the stamp-duty value is ₹85,00,000. TDS base = ₹85,00,000. TDS = 1% = <strong>₹85,000</strong>. You pay the seller ₹79,15,000 and deposit ₹85,000 via Form 26QB within 30 days from month-end, then hand the seller Form 16B from TRACES. If the seller had no PAN, the TDS would be 20% of ₹85,00,000 = ₹17,00,000.</div>
+
+<h2>The NRI-Seller Trap — Section 195, Not 194-IA</h2>
+
+<p>If the seller is a <strong>non-resident (NRI)</strong>, Section 194-IA does <strong>not</strong> apply at all. You must instead deduct TDS under <strong>Section 195</strong>, at the seller's <em>capital-gains</em> rate — for a long-term gain (property held over 24 months) that is <strong>12.5%</strong> for transfers on or after 23 July 2024, <em>plus surcharge and 4% cess</em>; short-term gains are taxed at slab rates. You also need a <strong>TAN</strong> and file <strong>Form 27Q</strong>, not 26QB. Deducting a casual 1% on an NRI sale is a costly default: the department can recover the shortfall, interest and penalty from <em>you</em>, the buyer. Always get the seller's residential status in writing, and if the seller has a lower-deduction certificate under Section 197, apply that rate instead.</p>
+
+<h2>Form 26QB — Filing and Deadlines</h2>
+
+<table class="guide">
+<thead><tr><th>Item</th><th>2026 position</th></tr></thead>
+<tbody>
+<tr><td>Section</td><td>194-IA (resident seller); 195 for NRI seller</td></tr>
+<tr><td>Rate</td><td>1% (resident + PAN); 20% (no PAN); CG rate under 195 for NRI</td></tr>
+<tr><td>Threshold</td><td>₹50 lakh — on total value; once crossed, TDS on full amount</td></tr>
+<tr><td>Base (from 01-10-2024)</td><td>Higher of sale consideration and stamp-duty value</td></tr>
+<tr><td>Who deducts</td><td>Buyer, using PAN (no TAN for 194-IA)</td></tr>
+<tr><td>Form &amp; deadline</td><td>Form 26QB within 30 days from end of month of payment</td></tr>
+<tr><td>Certificate to seller</td><td>Form 16B, downloaded from TRACES after 26QB is processed</td></tr>
+<tr><td>Joint buyers/sellers</td><td>One 26QB per buyer-seller pair, split by share</td></tr>
+</tbody>
+</table>
+
+<h2>Penalties for Getting It Wrong</h2>
+
+<table class="guide">
+<thead><tr><th>Default</th><th>Charge</th></tr></thead>
+<tbody>
+<tr><td>Late deduction (Sec 201)</td><td>1% per month from due date of deduction to actual deduction</td></tr>
+<tr><td>Late deposit (Sec 201)</td><td>1.5% per month (or part) from deduction date to deposit date</td></tr>
+<tr><td>Late filing of 26QB (Sec 234E)</td><td>₹200 per day of delay, capped at the TDS amount</td></tr>
+<tr><td>Non-filing (Sec 271H)</td><td>Penalty ₹10,000 to ₹1,00,000</td></tr>
+</tbody>
+</table>
+
+<p>Because the 26QB window is only 30 days, these compound fast. The calculator above estimates the 201 interest (1.5%/month) and the 234E ₹200/day fee for the number of months you enter, so you can see the real cost of a slipped deadline.</p>
+
+<h2>Joint Buyers and Instalments</h2>
+
+<p>For a <strong>joint purchase</strong>, the 1% is on the total price but is reported per buyer-seller pair. Two buyers of one flat file two separate Form 26QBs, each deducting 1% on their share; the shares must total the full consideration. The ₹50 lakh threshold is judged on the whole property value, so a ₹90 lakh flat bought 50:50 still attracts TDS even though each ₹45 lakh share is below ₹50 lakh. For an <strong>under-construction</strong> property paid in instalments, deduct 1% on each instalment at payment, and file a 26QB for each, once the total agreement value is ₹50 lakh or more.</p>
+
+<h2>Common Property-TDS Mistakes to Avoid</h2>
+<ul>
+<li><strong>Taxing only the excess over ₹50 lakh.</strong> TDS is on the full value once the threshold is crossed.</li>
+<li><strong>Using the agreement value when the circle rate is higher.</strong> Since 01-10-2024, TDS is on the higher of the two.</li>
+<li><strong>Deducting 1% from an NRI seller.</strong> That's Section 195 territory — much higher, needs a TAN and Form 27Q.</li>
+<li><strong>Filing one 26QB for joint buyers.</strong> Each buyer-seller pair needs its own form.</li>
+<li><strong>Missing the 30-day deadline.</strong> 1.5%/month interest plus ₹200/day fee add up quickly.</li>
+<li><strong>Not collecting the seller's PAN.</strong> No PAN means 20% TDS under 206AA.</li>
+<li><strong>Forgetting Form 16B.</strong> The seller needs it to claim the TDS credit; issue it from TRACES.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is TDS on property 1% of the full value or only above ₹50 lakh?</h3>
+<p>Of the full value. Once the price or stamp-duty value is ₹50 lakh or more, 1% applies to the entire consideration, not just the part exceeding ₹50 lakh.</p>
+
+<h3>Who deducts and deposits the property TDS — buyer or seller?</h3>
+<p>The buyer. You deduct 1% from the payment, deposit it via Form 26QB using your PAN (no TAN needed), and give the seller Form 16B.</p>
+
+<h3>What is the due date for Form 26QB?</h3>
+<p>Within 30 days from the end of the month in which the payment or credit was made.</p>
+
+<h3>What if my seller is an NRI?</h3>
+<p>Section 194-IA does not apply. Deduct under Section 195 at the capital-gains rate (12.5% + surcharge + cess for long-term, from 23-07-2024), obtain a TAN and file Form 27Q. Do not deduct just 1%.</p>
+
+<h3>What if the seller has no PAN?</h3>
+<p>The rate rises to 20% under Section 206AA for a resident seller. Always collect a valid PAN before filing.</p>
+
+<h3>Does property TDS apply below ₹50 lakh?</h3>
+<p>No. There is no 194-IA TDS if both the consideration and the stamp-duty value are under ₹50 lakh.</p>
+
+</section>
+
+<div class="related" style="background:#fff;padding:20px 24px;border-radius:14px;margin-top:24px;box-shadow:0 2px 14px rgba(0,0,0,0.04)">
+<h3 style="color:#1d3557;font-size:1rem;margin-bottom:10px">Related free calculators</h3>
+<a href="https://protodex.io/tds-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">✂️ TDS Calculator &amp; Rate Chart India 2026 (194J / 194C / 194H / 194I, No-PAN 20%, Freelancer Refund) →</a>
+<a href="https://protodex.io/ltcg-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💹 LTCG / Capital Gains Calculator India 2026 (Budget 2024: 12.5%, ₹1.25L Exemption, Indexation) →</a>
+<a href="https://protodex.io/advance-tax-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📅 Advance Tax Calculator India 2026 (Quarterly 15/45/75/100%, 234B &amp; 234C Interest) →</a>
+<a href="https://protodex.io/hra-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🏠 HRA Calculator India 2026 (Exemption, Metro vs Non-Metro, Old vs New Regime) →</a>
+<a href="https://protodex.io/nsc-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">📜 NSC Calculator India 2026 (7.7%, Annual Compounding, 80C Reinvestment) →</a>
+<a href="https://protodex.io/gst-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">🧾 GST Calculator for Freelancers India 2026 (Export 0% with LUT, Domestic 18%, ₹20L Threshold) →</a>
+<a href="https://protodex.io/scss-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">👴 SCSS Calculator India 2026 (8.2% Senior Citizen Savings, Quarterly Income, ₹30L Cap) →</a>
+<a href="https://protodex.io/inhand-salary-calculator/" style="display:block;padding:10px 14px;background:#f1faee;border-radius:8px;text-decoration:none;color:#1d3557;margin:6px 0;font-weight:500;font-size:0.93rem;border-left:3px solid #2a9d8f">💰 In-Hand Salary Calculator India 2026 (Old vs New Regime, FY 2026-27) →</a>
+</div>
+
+<footer>
+<p>Last updated: <strong id="lastmod">2026-07-01</strong> · Built for Indian home-buyers · Not financial or tax advice</p>
+<p>Property-TDS figures are illustrative and based on Section 194-IA of the Income-tax Act, the 1% rate, the ₹50 lakh threshold, and the higher-of-consideration-or-stamp-duty-value rule effective 1 October 2024. NRI-seller transactions fall under Section 195 at capital-gains rates plus surcharge and cess and require a TAN and Form 27Q. Interest, fees and penalties depend on the exact dates involved. Confirm the current rules and your seller's residential status, and file Form 26QB via the TIN/Income-tax portal; verify your position with a qualified tax advisor before deducting.</p>
+<p>© 2026 protodex.io · <a href="https://protodex.io/privacy">Privacy</a> · <a href="https://protodex.io/disclosure">Affiliate disclosure</a></p>
+</footer>
+
+</div>
+
+<script>
+function fmt(n){
+  return "₹" + Math.round(n).toLocaleString("en-IN");
+}
+var THRESHOLD = 5000000; // ₹50 lakh
+
+function calc(){
+  var price = parseFloat(document.getElementById("price").value) || 0;
+  var sdv = parseFloat(document.getElementById("sdv").value) || 0;
+  var seller = document.getElementById("seller").value;
+  var hasPan = document.getElementById("pan").value === "yes";
+  var share = parseFloat(document.getElementById("share").value) || 100;
+  var delay = parseFloat(document.getElementById("delay").value) || 0;
+
+  if(price <= 0){
+    alert("Enter the sale consideration (what you are paying the seller).");
+    return;
+  }
+  if(sdv <= 0) sdv = price;
+  if(share < 1) share = 100; if(share > 100) share = 100;
+
+  var base = Math.max(price, sdv);          // higher of price / stamp-duty value
+  var shareFrac = share / 100;
+  var myConsideration = price * shareFrac;  // buyer pays their share of the actual price
+  var myBase = base * shareFrac;            // TDS computed on their share of the base
+
+  var eligBox = document.getElementById("eligBox");
+  var rateLabel, tds, rows = "", note = "";
+
+  // Threshold tested on TOTAL property value, not the share.
+  if(base < THRESHOLD){
+    rateLabel = "0% — below ₹50 lakh";
+    tds = 0;
+    document.getElementById("r_schedule_wrap").style.display = "none";
+    eligBox.className = "elig none";
+    eligBox.textContent = "No 194-IA TDS: the higher of price and stamp-duty value (" + fmt(base) +
+      ") is below the ₹50,00,000 threshold. Nothing to deduct.";
+    note = "Section 194-IA applies only when the property value is ₹50 lakh or more. Both your price (" +
+      fmt(price) + ") and stamp-duty value (" + fmt(sdv) + ") are under the threshold, so no property TDS is deducted.";
+  } else if(seller === "nri"){
+    // 195 territory — estimate LTCG 12.5% + 4% cess (surcharge ignored for simplicity, flagged).
+    var nriRate = 12.5, cess = 4;
+    var effRate = nriRate * (1 + cess/100); // 13.0% incl cess, before surcharge
+    tds = myBase * (effRate/100);
+    rateLabel = "~" + effRate.toFixed(1) + "% (Sec 195, LTCG)";
+    eligBox.className = "elig warn";
+    eligBox.innerHTML = "⚠ NRI seller — Section 194-IA does NOT apply. Deduct under <strong>Section 195</strong> at the capital-gains rate (≈12.5% + 4% cess + any surcharge for long-term, from 23-07-2024), get a <strong>TAN</strong> and file <strong>Form 27Q</strong>, not 26QB. The figure below is a long-term estimate excluding surcharge — confirm with a CA.";
+    rows += "<tr><td>TDS base (your share)</td><td>higher of price/SDV × " + share + "%</td><td>" + fmt(myBase) + "</td></tr>";
+    rows += "<tr><td>LTCG rate (post 23-07-2024)</td><td>12.5%</td><td>" + fmt(myBase*0.125) + "</td></tr>";
+    rows += "<tr class='cur'><td>+ 4% health &amp; education cess</td><td>on the tax</td><td>" + fmt(tds) + " total</td></tr>";
+    document.getElementById("r_schedule").innerHTML = rows;
+    document.getElementById("r_schedule_wrap").style.display = "block";
+    note = "For an NRI seller the buyer withholds capital-gains tax under Section 195, far above 1%. Short-term gains (held ≤24 months) are taxed at the seller's slab, not 12.5%. Surcharge (up to 15% on the tax for large gains) is NOT included here. A seller with a Section 197 lower-deduction certificate can reduce this — apply that certificate's rate.";
+  } else {
+    // Resident: 1% (or 20% no PAN) on the higher-of base, on the buyer's share.
+    var rate = hasPan ? 1 : 20;
+    tds = myBase * (rate/100);
+    rateLabel = rate + "%" + (hasPan ? " (resident + PAN)" : " (no PAN, 206AA)");
+    rows += "<tr><td>TDS base (your share)</td><td>max(price, SDV) × " + share + "%</td><td>" + fmt(myBase) + "</td></tr>";
+    rows += "<tr class='cur'><td>TDS @ " + rate + "%</td><td>" + (hasPan ? "194-IA" : "206AA no-PAN") + "</td><td>" + fmt(tds) + "</td></tr>";
+
+    // Late deposit interest (201, 1.5%/month) + 234E fee (₹200/day, capped at TDS)
+    if(delay > 0){
+      var interest = tds * 0.015 * delay;
+      var feeRaw = 200 * Math.round(delay * 30.4);
+      var fee = Math.min(feeRaw, tds);
+      rows += "<tr><td>Late-deposit interest (Sec 201)</td><td>1.5% × " + delay + " mo</td><td>" + fmt(interest) + "</td></tr>";
+      rows += "<tr><td>Late-filing fee (Sec 234E)</td><td>₹200/day, cap = TDS</td><td>" + fmt(fee) + "</td></tr>";
+      note = "Delay penalties assume the TDS was deducted on time but deposited/26QB filed " + delay +
+        " month(s) late: interest " + fmt(interest) + " (1.5%/mo) + 234E fee " + fmt(fee) +
+        " (₹200/day capped at the TDS). Total extra cost ≈ " + fmt(interest + fee) + ".";
+    }
+    document.getElementById("r_schedule").innerHTML = rows;
+    document.getElementById("r_schedule_wrap").style.display = "block";
+
+    eligBox.className = "elig ok";
+    eligBox.textContent = "✓ Deduct " + fmt(tds) + " (" + rate + "% of " + fmt(myBase) +
+      ") and deposit it via Form 26QB within 30 days from month-end, then issue Form 16B to the seller.";
+    if(!note) note = "TDS is 1% of the higher of the sale price and the stamp-duty value (" + fmt(base) +
+      "), on your " + share + "% share. The full ₹50 lakh threshold is met on the total value, so 1% applies to the whole amount — not just the part above ₹50 lakh. No TAN is needed for 194-IA; you file 26QB under your PAN.";
+  }
+
+  document.getElementById("r_base").textContent = fmt(myBase);
+  document.getElementById("r_rate").textContent = rateLabel;
+  document.getElementById("r_share").textContent = fmt(myConsideration) + " (" + share + "%)";
+  document.getElementById("r_net").textContent = fmt(Math.max(0, myConsideration - tds));
+  document.getElementById("r_tds").textContent = fmt(tds);
+  document.getElementById("gNote").textContent = note;
+  document.getElementById("result").classList.add("show");
+}
+
+["price","sdv","seller","pan","share","delay"].forEach(function(id){
+  var el = document.getElementById(id);
+  el.addEventListener("keypress", function(e){ if(e.key === "Enter") calc(); });
+  el.addEventListener("change", calc);
+});
+
+window.addEventListener("DOMContentLoaded", function(){ calc(); });
+</script>
+
+
+<!-- LF:EMAIL-CAPTURE v1 -->
+<section style="max-width:680px;margin:48px auto 24px;padding:20px 22px;background:#fafbff;border:1px solid #e1e5ee;border-radius:10px;font-family:-apple-system,system-ui,sans-serif">
+  <div style="font-weight:600;font-size:1rem;color:#1a1a2e;margin-bottom:4px">Subscribe for India tax &amp; property updates</div>
+  <div style="font-size:0.85rem;color:#555;margin-bottom:14px">TDS rule changes, stamp-duty &amp; capital-gains updates, new calculators, planning tips. No spam. Unsubscribe anytime.</div>
+  <form onsubmit="event.preventDefault(); var f=this; var msg=f.querySelector('.lf_msg'); msg.textContent='Sending…'; fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'b2fb1576-a39b-4683-8ee9-4e152f731113',subject:'India calc newsletter signup ('+location.hostname+')',email:f.email.value,from_name:'protodex.io '+location.hostname,source:location.href})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.textContent='✓ Subscribed. Watch your inbox.';msg.style.color='#16a34a';f.email.value=''}else{msg.textContent='Couldn’t subscribe. Email manja316@gmail.com directly.';msg.style.color='#dc2626'}}).catch(function(){msg.textContent='Network error. Try again.';msg.style.color='#dc2626'})" style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid #d4d8e2;border-radius:6px;font-size:0.95rem">
+    <button type="submit" style="padding:10px 22px;background:#1a1a2e;color:#fff;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.9rem">Subscribe</button>
+  </form>
+  <div class="lf_msg" style="margin-top:8px;font-size:0.82rem"></div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e1e5ee;font-size:0.72rem;color:#888">
+    Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=calc-footer&utm_campaign=india-calcs" target="_blank" rel="noopener" style="color:#666">Claude</a> · <a href="https://protodex.io" style="color:#666">protodex.io</a>
+  </div>
+</section>
+
+</body>
+</html>

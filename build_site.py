@@ -1856,6 +1856,9 @@ document.addEventListener('click', function(e) {
             <a href="https://protodex.io/tds-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 ✂️ <strong>TDS Calculator &amp; Rate Chart</strong> — 194J/194C/194H/194I rates, no-PAN 20%, threshold, freelancer refund
             </a>
+            <a href="https://protodex.io/property-tds-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                🏘️ <strong>TDS on Property Purchase</strong> — 1% Section 194-IA, Form 26QB, ₹50L threshold, no-PAN 20%, NRI-seller trap
+            </a>
             <a href="https://protodex.io/hra-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 🏠 <strong>HRA Exemption</strong> — least-of-three, metro vs non-metro, old-regime only
             </a>
@@ -2428,6 +2431,7 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/44ada-calculator/")
     urls.append(f"{SITE_URL}/advance-tax-calculator/")
     urls.append(f"{SITE_URL}/tds-calculator/")
+    urls.append(f"{SITE_URL}/property-tds-calculator/")
     urls.append(f"{SITE_URL}/hra-calculator/")
 
     # Blog: index + every post (md-generated and orphan HTML) — previously missing,
