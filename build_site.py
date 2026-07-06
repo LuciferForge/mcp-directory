@@ -1844,6 +1844,9 @@ document.addEventListener('click', function(e) {
             <a href="https://protodex.io/ltcg-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 💹 <strong>LTCG / Capital Gains</strong> — Budget 2024: 12.5%, ₹1.25L exemption, indexation
             </a>
+            <a href="https://protodex.io/swp-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
+                💸 <strong>SWP (Systematic Withdrawal)</strong> — corpus longevity, LTCG on gains only, SWP vs FD
+            </a>
             <a href="https://protodex.io/gst-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
                 🧾 <strong>GST for Freelancers</strong> — export 0% (LUT), domestic 18%, ₹20L threshold
             </a>
@@ -2433,6 +2436,8 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/tds-calculator/")
     urls.append(f"{SITE_URL}/property-tds-calculator/")
     urls.append(f"{SITE_URL}/hra-calculator/")
+    urls.append(f"{SITE_URL}/home-loan-eligibility-calculator/")
+    urls.append(f"{SITE_URL}/swp-calculator/")
 
     # Blog: index + every post (md-generated and orphan HTML) — previously missing,
     # so ~70 posts were unreachable via sitemap.
