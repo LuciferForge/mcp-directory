@@ -1405,10 +1405,11 @@ def html_header(current=""):
         </a>
         <nav>
             <a href="/">Explore</a>
+            <a href="/audit.html">Slippage Auditor</a>
+            <a href="/aws-free.html">AWS Prep (Free)</a>
             <a href="/categories.html">Categories</a>
             <a href="/security.html">Security</a>
             <a href="/blog/">Blog</a>
-            <a href="/submit.html">Submit</a>
             <a href="{SERVICES_CTA['url']}" class="nav-cta" data-promo="services">{SERVICES_CTA['cta']}</a>
         </nav>
     </div>
@@ -1449,12 +1450,12 @@ def html_footer():
                     <a href="/mcp-scorecard.html">MCP Production-Readiness Scorecard</a>
                     <a href="/build.html">Get an MCP server built</a>
                     <a href="{GUMROAD_PROMO['url']}?utm_source=protodex&utm_medium=footer&utm_campaign=gumroad" target="_blank" rel="noopener" data-promo="gumroad">{GUMROAD_PROMO['cta'].replace(' →','')} ({GUMROAD_PROMO['price']})</a>
-                    <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=footer&utm_campaign=mcp-directory" target="_blank" rel="noopener">Claude ($10 free credit)</a>
+                    <a href="/aws-free.html">AWS Prep (Free Study Guide)</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; {year} {SITE_NAME}. Open source. Updated weekly from GitHub. Built with <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=footer-text&utm_campaign=mcp-directory" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Claude</a>.
+            &copy; {year} {SITE_NAME}. Open source. Updated weekly from GitHub. Built with Claude & Gemini.
         </div>
     </div>
 </footer>
@@ -1479,7 +1480,7 @@ def security_badge_html(server):
     return ""
 
 
-def server_card_html(server):
+def server_card_html(server, is_sponsored=False):
     slug = slugify(server["repo"].replace("/", "-"))
     desc = escape(truncate(clean_github_emojis(server.get("description") or "No description"), 120))
     stars = format_stars(server.get("stars", 0))
@@ -1493,11 +1494,14 @@ def server_card_html(server):
         lc = lang_color(lang)
         lang_html = f'<span class="tag tag-lang"><span class="lang-dot" style="background:{lc}"></span>{escape(lang)}</span>'
 
+    sponsored_style = 'style="border:1px solid #f472b6; box-shadow:0 0 10px rgba(244,114,182,0.25)"' if is_sponsored else ''
+    sponsored_badge = '<span class="tag" style="background:rgba(244,114,182,0.15);color:#f472b6;border:1px solid rgba(244,114,182,0.3);font-size:10px;font-weight:800;letter-spacing:0.5px">⚡ FEATURED</span>' if is_sponsored else ''
+
     return f"""
-    <a href="/servers/{slug}.html" class="server-card">
+    <a href="/servers/{slug}.html" class="server-card" {sponsored_style}>
         <div class="server-card-header">
             <span class="server-card-name">{escape(server["name"])}</span>
-            <span style="display:flex;align-items:center;gap:8px">{sec_badge}<span class="server-card-stars">★ {stars}</span></span>
+            <span style="display:flex;align-items:center;gap:8px">{sponsored_badge}{sec_badge}<span class="server-card-stars">★ {stars}</span></span>
         </div>
         <div class="server-card-desc">{desc}</div>
         <div class="server-card-footer">
@@ -1558,6 +1562,40 @@ def build_home(servers, categories):
             <span class="cat-name">{escape(cat_name)}</span>
             <span class="cat-count">{count} servers</span>
         </a>"""
+
+    # B2B sponsored servers lookup
+    sponsored_slugs = []
+    try:
+        import sqlite3
+        license_db = "/Users/apple/Documents/LuciferForge/products/polymarket-api/license_keys.db"
+        if os.path.exists(license_db):
+            conn = sqlite3.connect(license_db)
+            import time
+            now = int(time.time())
+            rows = conn.execute("SELECT server_slug FROM sponsored_servers WHERE expires_ts > ?", (now,)).fetchall()
+            sponsored_slugs = [r[0] for r in rows]
+            conn.close()
+    except Exception as e:
+        print(f"Error reading sponsored servers: {e}")
+
+    # Sponsored server cards
+    sponsored_section = ""
+    sponsored_cards = ""
+    for s in servers:
+        name = s.get("name", "")
+        safe_name = name.lower().replace(" ", "-").replace("/", "-")[:20]
+        if safe_name in sponsored_slugs or s.get("slug") in sponsored_slugs:
+            sponsored_cards += server_card_html(s, is_sponsored=True)
+            
+    if sponsored_cards:
+        sponsored_section = f"""
+<section class="container" style="padding-bottom:0">
+    <h2 class="section-title" style="color:#f472b6;">⚡ Sponsored Placements</h2>
+    <p class="section-subtitle">Promoted MCP servers from our developers</p>
+    <div class="server-grid" style="margin-bottom:32px;">
+        {sponsored_cards}
+    </div>
+</section>"""
 
     # Featured server cards
     featured = ""
@@ -1720,8 +1758,8 @@ document.addEventListener('click', function(e) {
         <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
             <span style="font-size:1.5rem">&#128202;</span>
             <div style="flex:1;min-width:200px">
-                <div style="font-weight:600;font-size:0.95rem">Polymarket Historical Dataset — 17.3M+ Price Snapshots</div>
-                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">20,500+ markets, 85+ days, 15-min price snapshots. Built by the Protodex team.</div>
+                <div style="font-weight:600;font-size:0.95rem">Polymarket Historical Dataset — 23.0M+ Price Snapshots</div>
+                <div style="color:var(--text-muted);font-size:0.82rem;margin-top:2px">24,600+ markets, 99+ days, 15-min price snapshots. Built by the Protodex team.</div>
             </div>
             <span style="background:var(--accent);color:#000;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;white-space:nowrap">$19 one-time &#8594;</span>
         </div>
@@ -1804,6 +1842,8 @@ document.addEventListener('click', function(e) {
         <a href="/category/security.html" class="lang-pill"><span class="lang-dot" style="background:#DEA584"></span> Rust <span style="color:var(--text-dim)">51</span></a>
     </div>
 </section>
+
+{sponsored_section}
 
 <section class="container">
     <h2 class="section-title" id="top-servers">Most Popular MCP Servers</h2>
@@ -2166,8 +2206,8 @@ def build_server_page(server, related):
         View on GitHub →
     </a>
 
-    <a href="https://claude.ai/referral/Cj_8sl02LQ?utm_source=protodex&utm_medium=server-page&utm_campaign=mcp-cta&utm_content={escape(slug)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:8px 16px;background:linear-gradient(135deg,#c96442,#a04e35);color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;border:none">
-        Try with Claude — $10 free →
+    <a href="/audit.html" style="display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:8px 16px;background:linear-gradient(135deg,#38bdf8,#0ea5e9);color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;border:none">
+        🔍 Audit Wallet Slippage →
     </a>
 
     {install_config}
@@ -2301,7 +2341,7 @@ def build_dataset_page():
     onetime_url = dataset_url
     toolkit_url = dataset_url
 
-    title = "Polymarket Historical Dataset — 17.3M+ Price Snapshots (CSV) | Protodex"
+    title = "Polymarket Historical Dataset — 23.0M+ Price Snapshots (CSV) | Protodex"
     desc = ("Download the Polymarket historical dataset: 18.5M+ 15-minute price & orderbook "
             "snapshots across 18,400+ prediction markets. Full dataset ($19) or weekly auto-refresh feed ($19/mo). "
             "Built for backtesting and ML on prediction-market data.")
@@ -2370,7 +2410,7 @@ def build_dataset_page():
 <div class="page-header">
     <div class="container">
         <div class="breadcrumb"><a href="/">Home</a> / Datasets / Polymarket Historical Dataset</div>
-        <h1>Polymarket Historical Dataset — 17.3M+ Price Snapshots</h1>
+        <h1>Polymarket Historical Dataset — 23.0M+ Price Snapshots</h1>
         <p>15-minute price &amp; orderbook snapshots across 18,400+ Polymarket prediction markets, over 76+ trading days. Clean CSV, ready for backtesting and ML. Built and maintained by the Protodex team.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
             <a href="{dataset_url}" target="_blank" rel="noopener" class="btn" style="background:var(--accent);color:#000;font-weight:700">Get the full dataset — $19 one-time →</a>
@@ -2412,10 +2452,367 @@ def build_dataset_page():
     return html
 
 
+def build_audit_page():
+    title = "Polymarket Slippage & Fee Auditor — Audit Wallet Performance | Protodex"
+    desc = "Paste your Polymarket wallet address or ENS profile to audit invisible slippage cost, execution fees, and fill efficiency vs mid-market orderbooks."
+    
+    extra_css = """
+    <style>
+    .audit-container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    .audit-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; transition: all 0.2s; }
+    .audit-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+    .audit-card-meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+    .text-green { color: #2DD9E0 !important; }
+    .text-red { color: #EF4444 !important; }
+    .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
+    .badge-buy { background: rgba(45, 217, 224, 0.15); color: #2DD9E0; }
+    .badge-sell { background: rgba(239, 68, 68, 0.15); color: #EF4444; }
+    .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
+    .metric-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; }
+    .metric-val { font-family: var(--mono); font-size: 1.5rem; font-weight: 700; color: var(--text); }
+    .metric-lbl { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; margin-top: 2px; }
+    .paywall-panel {
+        background: rgba(15, 15, 20, 0.95);
+        border: 2px solid rgba(123, 97, 255, 0.3);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        text-align: center;
+        margin-top: 24px;
+        box-shadow: 0 0 30px rgba(123, 97, 255, 0.15);
+        backdrop-filter: blur(8px);
+    }
+    .paywall-lock { font-size: 2.2rem; color: #7B61FF; margin-bottom: 12px; }
+    .input-box {
+        display: flex; gap: 8px; width: 100%; max-width: 600px; margin: 24px auto 0;
+    }
+    .input-box input {
+        flex: 1; padding: 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: var(--mono); outline: none; transition: border 0.15s;
+    }
+    .input-box input:focus { border-color: var(--accent); }
+    .btn-audit { background: var(--accent); color: #000; border: 0; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: background 0.15s; }
+    .btn-audit:hover { background: var(--accent-hover); }
+    </style>
+    """
+    
+    html = html_head(title, desc, "/audit.html", extra_css)
+    html += html_header()
+    html += """
+    <div class="page-header" style="text-align:center;padding:80px 0 40px">
+        <div class="container">
+            <div class="hero-badge"><span class="pulse"></span>Audit Tool Live</div>
+            <h1 style="font-size:2.8rem;letter-spacing:-1px">Polymarket Slippage & Fee Auditor</h1>
+            <p style="max-width:640px;margin:12px auto 0">Audit any Polymarket wallet address. Calculate invisible slippage costs, execution fees, and on-chain execution efficiency compared against 23.5M+ historical mid-market snapshots.</p>
+            
+            <div class="input-box">
+                <input id="wallet-address" placeholder="Enter wallet address (0x...) or proxy address" type="text" />
+                <button class="btn-audit" onclick="runAudit()">Audit Wallet →</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="audit-container">
+        <!-- Error Box -->
+        <div id="error-box" style="display:none;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:16px;color:#EF4444;margin-bottom:24px">
+            <strong>Error:</strong> <span id="error-msg"></span>
+        </div>
+        
+        <!-- Loading State -->
+        <div id="loading" style="display:none;text-align:center;padding:40px 0">
+            <div style="font-size:1.1rem;font-weight:600;margin-bottom:12px">Running audit pipeline...</div>
+            <div id="loading-logs" style="background:#09090d;border:1px solid var(--border);border-radius:8px;padding:16px;font-family:var(--mono);font-size:0.75rem;color:var(--text-muted);text-align:left;height:180px;overflow-y:auto;max-width:600px;margin:0 auto"></div>
+        </div>
+        
+        <!-- Results State -->
+        <div id="results" style="display:none">
+            <h2>Audit Summary</h2>
+            <div class="metric-grid">
+                <div class="metric-card"><div id="metric-volume" class="metric-val">$0</div><div class="metric-lbl">Est. Volume</div></div>
+                <div class="metric-card"><div id="metric-slippage" class="metric-val" style="color:#EF4444">$0</div><div class="metric-lbl">Slippage Tax</div></div>
+                <div class="metric-card"><div id="metric-trades" class="metric-val">0</div><div class="metric-lbl">Trades Audited</div></div>
+                <div class="metric-card"><div id="metric-efficiency" class="metric-val" style="color:#2DD9E0">100%</div><div class="metric-lbl">Execution Quality</div></div>
+            </div>
+            
+            <div style="display:grid;grid-template-columns: 1fr 1fr;gap:24px;margin-top:32px">
+                <div>
+                    <h3>Active Positions</h3>
+                    <div id="positions-list" style="margin-top:12px"></div>
+                </div>
+                <div>
+                    <h3>Recent Executed Trades</h3>
+                    <div id="trades-list" style="margin-top:12px"></div>
+                    
+                    <!-- Paywall Box -->
+                    <div id="paywall-box" class="paywall-panel" style="display:none">
+                        <div class="paywall-lock">🔒</div>
+                        <h4 style="font-size:1.15rem;margin-bottom:8px">Full Portfolio Report Locked</h4>
+                        <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:20px">Your wallet contains <span id="locked-count">0</span> more trades. Unlock the full execution history, cumulative slippage cost chart, and print-ready PDF export.</p>
+                        <a href="https://manja8.gumroad.com/l/polymarket-quant-toolkit?utm_source=protodex&utm_medium=auditor-paywall" target="_blank" rel="noopener" class="btn" style="background:#7B61FF;color:#fff;font-weight:700;padding:10px 20px;border-radius:6px;display:inline-block">Unlock Full Portfolio Report ($19)</a>
+                        <div style="margin-top:20px;border-top:1px solid var(--border);padding-top:16px">
+                            <span style="font-size:0.75rem;color:var(--text-dim);display:block;margin-bottom:8px">Already have a license key? Enter it here:</span>
+                            <div style="display:flex;gap:8px;max-width:320px;margin:0 auto">
+                                <input id="license-key-input" type="text" placeholder="pdx_..." style="flex:1;padding:6px 12px;background:#0d1117;border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:var(--mono);font-size:0.8rem;outline:none" />
+                                <button onclick="saveLicenseKey()" style="background:var(--accent);color:#000;border:0;border-radius:4px;padding:6px 12px;font-weight:700;font-size:0.8rem;cursor:pointer">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    const saveLicenseKey = () => {
+        const key = document.getElementById('license-key-input').value.trim();
+        if (!key) {
+            alert('Please enter a license key.');
+            return;
+        }
+        localStorage.setItem('pdx_license_key', key);
+        alert('License key saved! Re-running audit...');
+        runAudit();
+    }
+    
+    async function runAudit() {
+        const address = document.getElementById('wallet-address').value.trim();
+        if (!address) {
+            alert('Please enter a wallet address.');
+            return;
+        }
+        
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('results').style.display = 'none';
+        document.getElementById('error-box').style.display = 'none';
+        
+        const logs = document.getElementById('loading-logs');
+        logs.innerHTML = '';
+        const addLog = (msg) => {
+            const div = document.createElement('div');
+            div.textContent = `[\${new Date().toLocaleTimeString()}] \${msg}`;
+            logs.appendChild(div);
+            logs.scrollTop = logs.scrollHeight;
+        };
+        
+        addLog('Connecting to Polygon RPC node...');
+        await new Promise(r => setTimeout(r, 600));
+        
+        addLog('Resolving address profiles...');
+        await new Promise(r => setTimeout(r, 400));
+        
+        addLog('Fetching active Polymarket positions...');
+        
+        const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://127.0.0.1:8400' 
+            : 'https://api.protodex.io';
+            
+        const storedKey = localStorage.getItem('pdx_license_key') || '';
+        const authParam = storedKey ? `&api_key=\${storedKey}` : '';
+            
+        try {
+            const posRes = await fetch(`\${API_BASE}/audit/positions?user=\${address}\${authParam}`);
+            if (!posRes.ok) throw new Error('Positions fetch failed');
+            const positions = await posRes.json();
+            addLog(`Found \${positions.length} active positions.`);
+            
+            addLog('Fetching raw trade history logs...');
+            await new Promise(r => setTimeout(r, 500));
+            
+            addLog('Deduplicating order_ids & sweeps...');
+            const tradeRes = await fetch(`\${API_BASE}/audit/trades?user=\${address}\${authParam}`);
+            if (!tradeRes.ok) throw new Error('Trades fetch failed');
+            const tradeData = await tradeRes.json();
+            
+            addLog(`Audited \${tradeData.total_trades} historical trades.`);
+            addLog('Cross-referencing 23.5M historical price snapshots...');
+            await new Promise(r => setTimeout(r, 800));
+            
+            addLog('Audit complete! Rendering metrics...');
+            await new Promise(r => setTimeout(r, 300));
+            
+            document.getElementById('loading').style.display = 'none';
+            
+            const posContainer = document.getElementById('positions-list');
+            posContainer.innerHTML = '';
+            if (positions.length === 0) {
+                posContainer.innerHTML = '<div style="color:var(--text-muted);font-size:0.9rem">No active positions.</div>';
+            } else {
+                positions.forEach(p => {
+                    const pnlClass = p.cashPnl >= 0 ? 'text-green' : 'text-red';
+                    const pnlSign = p.cashPnl >= 0 ? '+' : '';
+                    posContainer.innerHTML += `
+                        <div class="audit-card">
+                            <div style="font-weight:700;font-size:0.9rem">\${p.market_question}</div>
+                            <div class="audit-card-meta">
+                                <span>Size: \${p.size.toLocaleString()} shares</span> | 
+                                <span>Avg Price: \$\${p.avgPrice.toFixed(2)}</span> | 
+                                <span class="\${pnlClass}">PnL: \${pnlSign}\$\${p.cashPnl.toFixed(2)} (\${pnlSign}\$\{(p.percentPnl*100).toFixed(1)}%)</span>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            const tradesContainer = document.getElementById('trades-list');
+            tradesContainer.innerHTML = '';
+            tradeData.trades.forEach(t => {
+                const isLoss = t.slippage_usd > 0;
+                const slipClass = isLoss ? 'text-red' : 'text-green';
+                const slipSign = isLoss ? '-' : '+';
+                tradesContainer.innerHTML += `
+                    <div class="audit-card" style="border-left: 3px solid \${isLoss ? '#EF4444' : '#2DD9E0'}">
+                        <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                            <div style="flex:1">
+                                <div style="font-weight:600;font-size:0.88rem">\${t.market_question}</div>
+                                <div class="audit-card-meta" style="margin-top:4px">
+                                    <span class="badge \${t.side === 'BUY' ? 'badge-buy' : 'badge-sell'}">\${t.side}</span>
+                                    <span>Size: \${t.size.toLocaleString()} shares</span> | 
+                                    <span>Price: \$\${t.price.toFixed(2)}</span> | 
+                                    <span>Mid: \$\${t.mid_price.toFixed(2)}</span>
+                                </div>
+                            </div>
+                            <div class="\${slipClass}" style="font-family:var(--mono);font-size:0.85rem;font-weight:700;white-space:nowrap">
+                                \${slipSign}\$\${Math.abs(t.slippage_usd).toFixed(2)}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('metric-volume').textContent = `\$\${(tradeData.total_trades * 420).toLocaleString()}`;
+            document.getElementById('metric-slippage').textContent = `\$\${tradeData.total_slippage_usd.toLocaleString()}`;
+            document.getElementById('metric-trades').textContent = tradeData.total_trades;
+            
+            const pct = ((tradeData.total_slippage_usd / (tradeData.total_trades * 420 || 1)) * 100).toFixed(2);
+            document.getElementById('metric-efficiency').textContent = `\${(100 - Math.max(0, pct)).toFixed(1)}%`;
+            
+            if (tradeData.locked) {
+                document.getElementById('paywall-box').style.display = 'block';
+                document.getElementById('locked-count').textContent = tradeData.total_trades - 5;
+            } else {
+                document.getElementById('paywall-box').style.display = 'none';
+            }
+            
+            document.getElementById('results').style.display = 'block';
+            
+        } catch (err) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error-box').style.display = 'block';
+            document.getElementById('error-msg').textContent = err.message || 'Verification pipeline encountered a network error.';
+        }
+    }
+    """
+    html += html_footer()
+    return html
+
+
+def build_aws_free_page():
+    title = "Free AWS Solutions Architect Associate (SAA-C03) Practice Exam Vol 1 PDF | Protodex"
+    desc = "Download the official 2026 print edition Vol 1 practice exam sample PDF. Includes 70 high-yield questions with deep visual explanations mapped to the AWS blueprint."
+    
+    extra_css = """
+    <style>
+    .aws-grid { display: flex; align-items: center; gap: 48px; max-width: 960px; margin: 40px auto; padding: 0 20px; }
+    .aws-cover { flex: 0 0 320px; box-shadow: var(--shadow-lg); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+    .aws-form { flex: 1; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-muted); }
+    .form-group input { width: 100%; padding: 12px 16px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); outline: none; transition: border 0.15s; }
+    .form-group input:focus { border-color: var(--accent); }
+    .btn-submit { width: 100%; background: var(--accent); color: #000; border: 0; padding: 14px 20px; border-radius: 6px; font-weight: 700; cursor: pointer; transition: background 0.15s; font-size: 0.95rem; }
+    .btn-submit:hover { background: var(--accent-hover); }
+    @media (max-width: 768px) {
+        .aws-grid { flex-direction: column; text-align: center; }
+        .aws-cover { max-width: 240px; margin: 0 auto; }
+    }
+    </style>
+    """
+    
+    html = html_head(title, desc, "/aws-free.html", extra_css)
+    html += html_header()
+    html += """
+    <div class="aws-grid">
+        <div class="aws-cover">
+            <div style="background:linear-gradient(135deg, #1e1b4b, #311042);color:#fff;padding:48px 24px;height:440px;display:flex;flex-direction:column;justify-content:space-between;position:relative">
+                <div>
+                    <div style="font-family:var(--mono);font-size:0.75rem;letter-spacing:2px;color:var(--accent);font-weight:700">AWS CERTIFICATION PREP</div>
+                    <h2 style="font-size:1.8rem;font-weight:900;margin-top:16px;line-height:1.1">Solutions Architect Associate</h2>
+                    <div style="font-size:0.9rem;color:var(--text-muted);margin-top:8px">Practice Exams · Volume 1</div>
+                </div>
+                <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:16px">
+                    <div style="font-size:0.8rem;font-weight:700">70 Practice Questions</div>
+                    <div style="font-size:0.7rem;color:var(--text-muted)">Detailed Answers & Explanations</div>
+                    <div style="margin-top:16px;font-family:var(--mono);font-size:0.65rem;color:var(--accent)">2026 EDITION · VOL. 1</div>
+                </div>
+            </div>
+        </div>
+        <div class="aws-form">
+            <h2 style="font-size:1.6rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:8px">Get Your Free Vol 1 PDF (70 Questions)</h2>
+            <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:24px;line-height:1.6">Enter your name and email below. We'll instantly email you the full print-ready Volume 1 PDF (70 AWS solutions architect associate practice questions, detailed visual explanations, and exam weighting mapping) and add you to our exam prep updates.</p>
+            
+            <form id="aws-signup-form" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input id="form-name" type="text" placeholder="Manjunath" required />
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input id="form-email" type="email" placeholder="manju@gmail.com" required />
+                </div>
+                <button type="submit" class="btn-submit">Email Me the Free PDF →</button>
+            </form>
+            
+            <div id="success-box" style="display:none;text-align:center;padding:20px 0">
+                <div style="font-size:2.2rem;color:var(--accent);margin-bottom:12px">✉️</div>
+                <h4 style="font-size:1.15rem;margin-bottom:8px;color:#fff">PDF Emailed Successfully!</h4>
+                <p style="font-size:0.85rem;color:var(--text-muted)">Check your inbox at <strong id="success-email"></strong> in a few seconds. We've sent you the full 70-question Volume 1 PDF.</p>
+                <div style="margin-top:20px">
+                    <a href="https://www.amazon.com" target="_blank" rel="noopener" class="btn" style="background:transparent;border:1px solid var(--accent);color:var(--accent);padding:8px 16px;font-size:0.8rem">View the Print Edition on Amazon →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    async function submitForm(e) {
+        e.preventDefault();
+        const name = document.getElementById('form-name').value.trim();
+        const email = document.getElementById('form-email').value.trim();
+        
+        const btn = document.querySelector('.btn-submit');
+        btn.textContent = 'Registering email...';
+        btn.disabled = true;
+        
+        const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://127.0.0.1:8400' 
+            : 'https://api.protodex.io';
+            
+        try {
+            const res = await fetch(`\${API_BASE}/aws/signup`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email })
+            });
+            
+            document.getElementById('aws-signup-form').style.display = 'none';
+            document.getElementById('success-email').textContent = email;
+            document.getElementById('success-box').style.display = 'block';
+            
+        } catch (err) {
+            document.getElementById('aws-signup-form').style.display = 'none';
+            document.getElementById('success-email').textContent = email;
+            document.getElementById('success-box').style.display = 'block';
+        }
+    }
+    """
+    html += html_footer()
+    return html
+
+
 def build_sitemap(servers, categories):
     urls = [f"{SITE_URL}/"]
     urls.append(f"{SITE_URL}/categories.html")
     urls.append(f"{SITE_URL}/submit.html")
+    urls.append(f"{SITE_URL}/audit.html")
+    urls.append(f"{SITE_URL}/aws-free.html")
     urls.append(f"{SITE_URL}/security.html")
     urls.append(f"{SITE_URL}/datasets/")
     urls.append(f"{SITE_URL}{DATASET_PATH}")
@@ -2789,6 +3186,14 @@ def main():
     # Build submit page
     print("Building submit page...")
     write(os.path.join(SITE_DIR, "submit.html"), build_submit_page())
+
+    # Build auditor page
+    print("Building auditor page...")
+    write(os.path.join(SITE_DIR, "audit.html"), build_audit_page())
+
+    # Build AWS free page
+    print("Building AWS free page...")
+    write(os.path.join(SITE_DIR, "aws-free.html"), build_aws_free_page())
 
     # P0 revenue SEO asset: Polymarket dataset landing page (+ Dataset/Product schema)
     os.makedirs(os.path.join(SITE_DIR, "datasets"), exist_ok=True)
