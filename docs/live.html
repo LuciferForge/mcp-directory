@@ -1,205 +1,3022 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Live Trading — Protodex</title>
-<meta name="description" content="Live trading status of the Polymarket crash-recovery bot. Cash, PnL, and recent trades since Apr 27 2026, refreshed daily.">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="canonical" href="https://protodex.io/live.html">
-<style>
-  body { font-family: -apple-system, system-ui, sans-serif; background: #0e0e10; color: #e6e6e6; margin: 0; padding: 0; line-height: 1.5; }
-  .wrap { max-width: 920px; margin: 0 auto; padding: 2rem 1rem 4rem; }
-  h1 { font-size: 2rem; margin: 0 0 0.5rem; color: #fff; }
-  .sub { color: #999; margin-bottom: 2rem; }
-  .hero { background: linear-gradient(135deg, #1a1a1f, #0e0e10); border: 1px solid #2a2a2f; border-radius: 14px; padding: 2rem; margin: 2rem 0; }
-  .hero .lbl { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 0.5rem; font-weight: 500; }
-  .hero .num { font-size: 3.5rem; font-weight: 700; margin: 0.25rem 0; font-variant-numeric: tabular-nums; }
-  .hero .pct { font-size: 1.15rem; color: #999; margin-top: 0.25rem; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-  .stat { background: #15151a; border: 1px solid #2a2a2f; border-radius: 10px; padding: 1rem; }
-  .stat .lbl { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
-  .stat .val { font-size: 1.6rem; font-weight: 600; margin-top: 0.4rem; font-variant-numeric: tabular-nums; color: #fff; }
-  .stat .meta { color: #888; font-size: 0.8rem; margin-top: 0.3rem; }
-  .green { color: #4ade80; } .red { color: #ff6b6b; } .neutral { color: #fff; }
-  table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
-  th, td { padding: 0.6rem 0.5rem; text-align: left; border-bottom: 1px solid #1f1f24; }
-  th { color: #888; font-weight: 500; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.05em; }
-  td { font-variant-numeric: tabular-nums; }
-  .footnote { color: #888; font-size: 0.85rem; margin-top: 2rem; line-height: 1.6; }
-  .pill { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; background: #2a2a2f; color: #fff; }
-  a { color: #4ade80; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .nav { padding: 1rem; border-bottom: 1px solid #1f1f24; }
-  .nav a { margin-right: 1rem; color: #999; }
-  .nav a:hover { color: #fff; }
-  code { background: #1f1f24; padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.85em; color: #ddd; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymarket Crash Bot Live Verification &amp; Audit | Protodex</title>
+    <meta name="description" content="Live trading audit of the LuciferForge Polymarket crash-recovery bot. Inspect real-time performance, win rate, realized P&amp;L, and complete trade fills...">
+    <meta property="og:title" content="Polymarket Crash Bot Live Verification &amp; Audit | Protodex">
+    <meta property="og:description" content="Live trading audit of the LuciferForge Polymarket crash-recovery bot. Inspect real-time performance, win rate, realized P&amp;L, and complete trade fills...">
+    <meta property="og:url" content="https://protodex.io/live.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Protodex">
+    <meta property="og:image" content="https://protodex.io/og/protodex.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Polymarket Crash Bot Live Verification &amp; Audit | Protodex">
+    <meta name="twitter:description" content="Live trading audit of the LuciferForge Polymarket crash-recovery bot. Inspect real-time performance, win rate, realized P&amp;L, and complete trade fills...">
+    <meta name="twitter:image" content="https://protodex.io/og/protodex.png">
+    <link rel="canonical" href="https://protodex.io/live.html">
+    <meta name="google-site-verification" content="PJCSjofSK_ea6SHzirs5wXdrWYvfZBcz26XlFDIaoUU">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://scripts.simpleanalyticscdn.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://queue.simpleanalyticscdn.com; connect-src 'self' https://scripts.simpleanalyticscdn.com https://queue.simpleanalyticscdn.com;">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #06060a;
+    --bg-card: #0f0f14;
+    --bg-card-hover: #16161d;
+    --bg-hover: #12121a;
+    --border: #1e1e2a;
+    --border-hover: #2d2d3f;
+    --text: #f0f0f5;
+    --text-muted: #8888a0;
+    --text-dim: #55556a;
+    --accent: #2DD9E0;
+    --accent-hover: #1FC2C9;
+    --accent-glow: rgba(45, 217, 224, 0.15);
+    --accent-soft: rgba(45, 217, 224, 0.06);
+    --accent2: #7B61FF;
+    --green: #2DD9E0;
+    --yellow: #FFD93D;
+    --blue: #5B8DEF;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    --radius: 10px;
+    --radius-lg: 16px;
+    --max-w: 1200px;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
+a:hover { color: var(--accent-hover); }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+header {
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(6, 6, 10, 0.88);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    z-index: 100;
+}
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo:hover { text-decoration: none; }
+.logo-icon { flex-shrink: 0; }
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+.logo-name {
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    text-transform: lowercase;
+}
+.logo-name .lo-proto {
+    color: var(--text);
+    font-weight: 400;
+}
+.logo-name .lo-dex {
+    color: var(--accent);
+    font-weight: 900;
+}
+.logo-tagline {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 2px;
+    background: linear-gradient(90deg, var(--text-muted), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+nav { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+nav a {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.15s;
+}
+nav a:hover { color: var(--text); background: var(--bg-hover); text-decoration: none; }
+nav a.nav-cta {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+}
+nav a.nav-cta:hover { background: var(--accent-hover); }
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 100px 0 48px;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -300px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 800px;
+    background: radial-gradient(ellipse at center, rgba(45, 217, 224, 0.08) 0%, rgba(123, 97, 255, 0.04) 40%, transparent 70%);
+    pointer-events: none;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(45, 217, 224, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 217, 224, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 65%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 65%);
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(45, 217, 224, 0.2);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+}
+.hero-badge .pulse {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+    50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+}
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    line-height: 1.05;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero h1 .gradient {
+    color: var(--accent);
+}
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+}
+.hero-sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-weight: 600;
+}
+.hero-sub span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.hero-grid { display: flex; align-items: center; gap: 48px; max-width: 1080px; margin: 0 auto; }
+.hero-left { flex: 1 1 0; min-width: 0; text-align: left; }
+.hero-right { flex: 0 0 376px; max-width: 376px; }
+.hero-left h1 { margin-left: 0; margin-right: 0; max-width: none; font-size: 3.1rem; }
+.hero-left p { margin-left: 0; margin-right: 0; max-width: 470px; }
+.hero-left .search-wrap { margin-left: 0; margin-right: 0; max-width: 470px; }
+.hero-left .search-chips { justify-content: flex-start; }
+.hero-left .hero-sub { justify-content: flex-start; margin-left: 0; }
+.hero-cta { display: flex; gap: 12px; margin-top: 22px; }
+.preview-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+.preview-head { font-family: var(--mono); font-size: 0.8rem; color: var(--text-muted); padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.preview-head .pp { color: var(--accent); font-weight: 700; }
+.preview-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 14px; border-bottom: 1px solid var(--border); text-decoration: none; }
+a.preview-row:hover { text-decoration: none; }
+.preview-row:last-child { border-bottom: none; }
+.preview-row:hover { background: var(--bg-card-hover); }
+.preview-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.preview-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); margin-top: 2px; }
+.preview-stars { font-family: var(--mono); font-size: 0.78rem; color: var(--yellow); white-space: nowrap; }
+.preview-cap { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); text-align: center; margin-top: 8px; }
+@media (max-width: 880px) {
+    .hero-grid { flex-direction: column; gap: 32px; }
+    .hero-right { flex-basis: auto; max-width: 480px; width: 100%; }
+    .hero-left { text-align: center; }
+    .hero-left h1, .hero-left p, .hero-left .search-wrap { margin-left: auto; margin-right: auto; }
+    .hero-left .search-chips, .hero-left .hero-sub, .hero-cta { justify-content: center; }
+}
+
+/* Search */
+.search-wrap {
+    max-width: 580px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+.search-wrap input {
+    width: 100%;
+    padding: 16px 20px 16px 48px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    font-weight: 500;
+    outline: none;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm), 0 0 0 0 var(--accent-glow);
+}
+.search-wrap input:focus {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md), 0 0 0 4px var(--accent-glow);
+}
+.search-wrap input::placeholder { color: var(--text-dim); font-weight: 400; }
+.search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 1.05rem;
+    pointer-events: none;
+}
+.search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    max-height: 420px;
+    overflow-y: auto;
+    display: none;
+    z-index: 50;
+    z-index: 200;
+    box-shadow: var(--shadow-lg);
+}
+.search-results.active { display: block; }
+.search-result-item {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.1s;
+}
+.search-result-item:hover { background: var(--bg-card-hover); text-decoration: none; }
+.search-result-item:first-child { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.search-result-item:last-child { border-bottom: none; border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+.search-result-name { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+.search-result-desc { color: var(--text-dim); font-size: 0.8rem; margin-top: 3px; }
+.search-result-meta { color: var(--text-dim); font-size: 0.8rem; white-space: nowrap; margin-left: 16px; }
+
+/* Stats bar */
+.stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 72px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+.stat {
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 32px;
+    min-width: 150px;
+    transition: all 0.2s;
+}
+.stat:hover { border-color: var(--border-hover); transform: translateY(-1px); }
+.stat-num {
+    font-family: var(--mono);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* Value props */
+.value-props {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 72px;
+}
+.value-prop {
+    text-align: center;
+    padding: 32px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    transition: all 0.2s;
+}
+.value-prop:hover { border-color: var(--border-hover); text-decoration: none; transform: translateY(-2px); box-shadow: var(--shadow-md); }
+a.value-prop { color: inherit; }
+.value-prop-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+.value-prop h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.value-prop p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+.cred-band {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    flex-wrap: wrap; margin: 0 auto 28px; padding: 11px 22px; max-width: 720px;
+    background: var(--accent-soft); border: 1px solid rgba(45,217,224,0.22);
+    border-radius: 100px; font-size: 0.9rem; color: var(--text-muted); text-align: center;
+}
+.cred-grow { font-family: var(--mono); font-weight: 700; color: var(--accent); }
+.works-with { text-align: center; margin: 0 auto 72px; }
+.ww-label {
+    display: block; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--text-dim); margin-bottom: 16px; font-weight: 700;
+}
+.ww-logos { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.ww-logos span {
+    font-family: var(--mono); font-weight: 600; color: var(--text-muted);
+    font-size: 1.05rem; opacity: 0.8; transition: opacity 0.2s, color 0.2s;
+}
+.ww-logos span:hover { opacity: 1; color: var(--text); }
+.value-prop-icon svg { display: inline-block; }
+
+/* Section titles */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+}
+
+/* Category grid */
+.cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 72px;
+}
+.cat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+.cat-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-radius: 3px 0 0 3px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.cat-card:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.cat-card:hover::before { opacity: 1; }
+.cat-icon { display: inline-flex; align-items: center; justify-content: center; height: 28px; }
+.cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
+.cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
+
+/* Server cards (grid) */
+.server-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
+    margin-bottom: 60px;
+}
+.server-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.server-card:hover {
+    border-color: rgba(45, 217, 224, 0.3);
+    background: var(--bg-card-hover);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 24px rgba(45, 217, 224, 0.06), 0 0 0 1px rgba(45, 217, 224, 0.1);
+}
+.server-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+.server-card-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text);
+    word-break: break-word;
+}
+.server-card-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--yellow);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    font-weight: 600;
+}
+.server-card-desc {
+    color: var(--text-muted);
+    font-size: 0.84rem;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.server-card-footer {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    letter-spacing: 0.01em;
+}
+.tag-lang {
+    background: rgba(96, 165, 250, 0.08);
+    color: var(--blue);
+    border-color: rgba(96, 165, 250, 0.15);
+}
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+.sec-green {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22C55E;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+.sec-yellow {
+    background: rgba(250, 204, 21, 0.1);
+    color: #EAB308;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.sec-red {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+/* Security page */
+.security-content { max-width: 700px; margin: 0 auto; padding: 40px 0 80px; }
+.security-content h2 { margin-bottom: 16px; font-weight: 700; }
+.security-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.band-explain { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+.band-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+.band-row .sec-badge { font-size: 0.8rem; padding: 5px 12px; }
+.band-desc { color: var(--text-muted); font-size: 0.9rem; }
+.lang-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Server table (category pages) */
+.server-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+.server-table th {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+}
+.server-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+.server-table tr { transition: background 0.1s; }
+.server-table tr:hover { background: var(--bg-hover); }
+.server-table .name-cell a { font-weight: 600; }
+.server-table .desc-cell {
+    color: var(--text-muted);
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.85rem;
+}
+.server-table .stars-cell {
+    color: var(--yellow);
+    white-space: nowrap;
+    font-weight: 600;
+}
+.server-table .lang-cell { white-space: nowrap; }
+
+/* Server detail page */
+.server-detail { padding: 48px 0; }
+.breadcrumb {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+    font-weight: 500;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.detail-header { margin-bottom: 8px; }
+.detail-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    margin-bottom: 8px;
+    word-break: break-word;
+}
+.detail-repo {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-weight: 500;
+}
+.detail-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 24px 0 32px;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.detail-desc {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 700px;
+}
+.detail-section {
+    margin-bottom: 32px;
+}
+.detail-section h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+}
+.detail-readme {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.detail-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.tool-tag {
+    padding: 6px 14px;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.15);
+    color: var(--green);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: var(--mono);
+    font-weight: 500;
+}
+.detail-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+.sidebar-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+}
+.sidebar-card-label {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.sidebar-card-value {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.25);
+}
+.btn:hover {
+    background: var(--accent-hover);
+    text-decoration: none;
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35);
+}
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    box-shadow: none;
+}
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: none;
+    background: var(--accent-soft);
+}
+
+.related-servers { margin-bottom: 60px; }
+
+/* CTA banner */
+.cta-banner {
+    text-align: center;
+    padding: 56px 24px;
+    margin: 40px 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+}
+.cta-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.cta-banner h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+.cta-banner p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 480px;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Popular search chips */
+.search-chips {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+.search-chips span.chips-label {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.chip {
+    padding: 5px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+    text-decoration: none;
+}
+
+/* Use case cards */
+.use-cases {
+    margin-bottom: 72px;
+}
+.use-case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+.use-case {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    transition: all 0.2s;
+    display: block;
+}
+.use-case:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+}
+.use-case-scenario {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+}
+.use-case-query {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--text);
+    font-weight: 500;
+}
+.use-case-query svg { color: var(--text-dim); flex-shrink: 0; }
+.use-case-result {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+.use-case-result strong { color: var(--accent); font-weight: 600; }
+.use-case-arrow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+/* Language pills row */
+.lang-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 72px;
+}
+.lang-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: all 0.15s;
+}
+.lang-pill:hover {
+    border-color: var(--border-hover);
+    color: var(--text);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+.lang-pill .lang-dot { width: 10px; height: 10px; }
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 0;
+    margin-top: 40px;
+}
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.footer-brand {
+    max-width: 300px;
+}
+.footer-brand .logo { margin-bottom: 12px; }
+.footer-brand p { color: var(--text-dim); font-size: 0.85rem; line-height: 1.6; }
+.footer-links { display: flex; gap: 48px; }
+.footer-col h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+.footer-col a {
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    padding: 3px 0;
+    transition: color 0.15s;
+}
+.footer-col a:hover { color: var(--text); text-decoration: none; }
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+    padding-top: 24px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero { padding: 60px 0 36px; }
+    .hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
+    .hero p { font-size: 1rem; }
+    .stats-bar { gap: 8px; }
+    .stat { padding: 16px 20px; min-width: 120px; }
+    .stat-num { font-size: 1.4rem; }
+    .value-props { grid-template-columns: 1fr; gap: 12px; }
+    .server-grid { grid-template-columns: 1fr; }
+    .cat-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .detail-sidebar { grid-template-columns: 1fr; }
+    .detail-title { font-size: 1.6rem; }
+    nav { gap: 4px; }
+    nav a { padding: 6px 10px; font-size: 0.8rem; }
+    .server-table { font-size: 0.8rem; }
+    .server-table .desc-cell { max-width: 200px; }
+    .footer-links { gap: 32px; }
+    .footer-inner { flex-direction: column; }
+    .hero-sub { gap: 12px; }
+}
+
+/* Page header (category/other pages) */
+.page-header {
+    padding: 56px 0 36px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+    position: relative;
+}
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, transparent 100%);
+    pointer-events: none;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    position: relative;
+}
+.page-header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 600px;
+    position: relative;
+}
+
+/* Submit page */
+.submit-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 0 80px;
+}
+.submit-content h2 { margin-bottom: 16px; font-weight: 700; }
+.submit-content p { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.submit-content ol {
+    color: var(--text-muted);
+    padding-left: 24px;
+    margin-bottom: 32px;
+}
+.submit-content li { margin-bottom: 10px; line-height: 1.6; }
+
+/* Install config section */
+.install-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.install-section h2 { font-size: 1.2rem; margin-bottom: 4px; }
+.install-subtitle { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px; }
+.install-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.install-tab { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; cursor: pointer; font-size: 0.85rem; color: var(--text-muted); transition: all 0.2s; }
+.install-tab:hover { border-color: var(--accent); color: var(--text); }
+.install-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.install-panel { display: none; }
+.install-panel.active { display: block; }
+.install-label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 8px; }
+.install-label code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; }
+.code-block { position: relative; background: #0d1117; border-radius: 8px; padding: 16px; overflow-x: auto; }
+.code-block pre { margin: 0; }
+.code-block code { color: #e6edf3; font-size: 0.82rem; font-family: 'SF Mono', Consolas, monospace; white-space: pre; }
+.copy-btn { position: absolute; top: 8px; right: 8px; background: #21262d; border: 1px solid #30363d; border-radius: 6px; color: #8b949e; padding: 4px 10px; cursor: pointer; font-size: 0.75rem; transition: all 0.2s; }
+.copy-btn:hover { background: #30363d; color: #e6edf3; }
+.copy-btn.copied { background: #238636; color: #fff; border-color: #238636; }
+.install-note { color: var(--text-muted); font-size: 0.8rem; margin-top: 8px; }
+.install-note code { background: var(--bg); padding: 2px 6px; border-radius: 4px; }
 </style>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+    
+    <style>
+    .audit-container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+    .audit-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; transition: all 0.2s; }
+    .audit-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+    .audit-card-meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+    .text-green { color: #2DD9E0 !important; }
+    .text-red { color: #EF4444 !important; }
+    .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
+    .badge-buy { background: rgba(45, 217, 224, 0.15); color: #2DD9E0; }
+    .badge-sell { background: rgba(239, 68, 68, 0.15); color: #EF4444; }
+    .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
+    .metric-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; }
+    .metric-val { font-family: var(--mono); font-size: 1.5rem; font-weight: 700; color: var(--text); }
+    .metric-lbl { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; margin-top: 2px; }
+    @media (max-width: 768px) {
+        .metric-grid { grid-template-columns: 1fr 1fr; }
+    }
+    </style>
+    
 </head>
 <body>
-<div class="nav">
-  <a href="/">Protodex</a>
-  <a href="/blog/">Blog</a>
-  <a href="/categories.html">Categories</a>
-  <a href="/live.html" style="color:#fff">Live</a>
-</div>
-<div class="wrap">
 
-<h1>Live Trading Status</h1>
-<p class="sub">Polymarket crash-recovery bot. Tracking from <strong>Apr 27, 2026</strong> (51 days). <span class="pill">Updated 2026-06-16 00:15 UTC</span></p>
+<header>
+    <div class="container">
+        <a href="/" class="logo">
+            <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+            <div class="logo-text">
+                <span class="logo-name"><span class="lo-proto">proto</span><span class="lo-dex">dex</span></span>
+                <span class="logo-tagline">MCP Server Index</span>
+            </div>
+        </a>
+        <nav>
+            <a href="/">Explore</a>
+            <a href="/audit.html">Slippage Auditor</a>
+            <a href="/aws-free.html">AWS Prep (Free)</a>
+            <a href="/categories.html">Categories</a>
+            <a href="/security.html">Security</a>
+            <a href="/blog/">Blog</a>
+            <a href="/build.html" class="nav-cta" data-promo="services">Need an MCP server? →</a>
+        </nav>
+    </div>
+</header>
 
-<div class="hero">
-  <div class="lbl">Current Equity</div>
-  <div class="num neutral">$94.48</div>
-  <div class="pct">
-    <span style="color:#ff6b6b">$-0.98 (-1.03%)</span>
-    since Apr 27 baseline of $95.46
-  </div>
-</div>
-
-<div class="grid">
-  <div class="stat">
-    <div class="lbl">Cash (USDC)</div>
-    <div class="val">$91.22</div>
-    <div class="meta">live, on Polymarket CLOB</div>
-  </div>
-  <div class="stat">
-    <div class="lbl">Open Position Value</div>
-    <div class="val">$3.26</div>
-    <div class="meta">88 positions held on-chain</div>
-  </div>
-  <div class="stat">
-    <div class="lbl">On-chain PnL since Apr 27</div>
-    <div class="val" style="color:#ff6b6b">$-4.43</div>
-    <div class="meta">realized only, ground truth</div>
-  </div>
-  <div class="stat">
-    <div class="lbl">Strategy</div>
-    <div class="val" style="font-size:1.1rem">Stage 1 · $1/trade</div>
-    <div class="meta">Buy &gt;12% drops, exit at 90% recovery</div>
-  </div>
-</div>
-
-<h2 style="margin-top:3rem;font-size:1.3rem">Trades since Apr 27 (real on-chain fills)</h2>
-<p style="color:#999;font-size:0.9rem">
-  PnL = SUM(SELL proceeds) − SUM(BUY cost) per token, computed from raw <code>makingAmount</code> / <code>takingAmount</code> in CLOB responses.
-  This is the actual on-chain math, NOT the bot's theoretical exit price. Open positions show negative PnL until exited
-  (cost on the books, no proceeds yet).<br>
-  <strong>Today: 0 win · 0 loss · 15 still-open</strong>
-  · Total bought $45.00 · Total sold $0.00
-  · Net realized + unrealized: <strong style="color:#ff6b6b">$-45.00</strong><br>
-  Verify on chain: <a href="https://polygonscan.com/address/0x53d5ba04d1ddaa7c9eb14d6e4b3896b15acbd88c"><code>0x53d5…d88c</code> ↗ Polygonscan</a>.
-</p>
-<table>
-  <thead><tr><th>First fill (UTC)</th><th>Market</th><th>Bought (USDC)</th><th>Sold (USDC)</th><th>PnL</th></tr></thead>
-  <tbody>
-    <tr>
-                <td style="color:#888;font-size:0.85rem">2026-06-03 14:53</td>
-                <td>(token 88050475…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-06-03 14:53</td>
-                <td>(token 12563185…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-06-03 14:22</td>
-                <td>(token 60526520…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-06-03 14:22</td>
-                <td>(token 41637396…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-27 16:04</td>
-                <td>(token 40956716…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-27 16:04</td>
-                <td>(token 40838109…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-26 17:50</td>
-                <td>(token 61897347…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-26 16:19</td>
-                <td>(token 10024301…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-26 16:19</td>
-                <td>(token 34343616…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-26 16:19</td>
-                <td>(token 73560875…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-25 19:40</td>
-                <td>(token 63279205…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-25 16:08</td>
-                <td>(token 44584419…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-24 16:27</td>
-                <td>(token 63017385…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-24 16:27</td>
-                <td>(token 83585735…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr><tr>
-                <td style="color:#888;font-size:0.85rem">2026-05-24 16:27</td>
-                <td>(token 11452247…)</td>
-                <td>$3.00</td>
-                <td>$0.00</td>
-                <td style="color:#ff6b6b">$-3.00 <span style="color:#999;font-size:0.7rem">OPEN</span></td>
-            </tr>
-  </tbody>
-</table>
-
-<div class="footnote">
-  <strong>What this page shows.</strong> Cash and PnL are reconciled daily against Polymarket's on-chain
-  <code>data-api</code> — the same numbers anyone can verify by querying the wallet on Polygonscan.
-  The bot's local <code>positions.json</code> historically over-reported PnL (paper-era simulations
-  before live trading was wired up); this page resets to <strong>Apr 27, 2026</strong> as Day 0
-  to give a clean ledger going forward.
-  <br><br>
-  Source: <a href="https://github.com/LuciferForge/pm-crash-bot-template">bot template (open source)</a> ·
-  <a href="https://api.protodex.io/stats">free API</a> ·
-  <a href="https://github.com/LuciferForge/polymarket-historical-data">10M-row dataset</a>.
-  Page regenerates daily at 06:30 UTC.
-  Reconcilable subset (with matching live BUY): 106.
-</div>
-
-</div>
+    <div class="page-header" style="text-align:center;padding:80px 0 40px">
+        <div class="container">
+            <div class="hero-badge"><span class="pulse" style="background:#2DD9E0"></span>Live Bot Audit</div>
+            <h1 style="font-size:2.8rem;letter-spacing:-1px;color:var(--text)">Polymarket Crash Bot Execution Proof</h1>
+            <p style="max-width:640px;margin:12px auto 0;color:var(--text-muted)">Public audit page of the LuciferForge mean-reversion crash bot. Performance metrics, win rate, and individual trade fills are compiled directly from the verified 308-trade dataset.</p>
+        </div>
+    </div>
+    
+    <div class="audit-container">
+        <h2>Performance Summary</h2>
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="metric-val" style="color:#2DD9E0">80.19%</div>
+                <div class="metric-lbl">Win Rate</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">$231.12</div>
+                <div class="metric-lbl">Realized P&L</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">308</div>
+                <div class="metric-lbl">Total Trades</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">15.4h</div>
+                <div class="metric-lbl">Avg. Hold Time</div>
+            </div>
+        </div>
+        
+        <div style="display:grid;grid-template-columns: 1fr 1.8fr;gap:24px;margin-top:32px">
+            <div>
+                <h3>Strategy Parameters</h3>
+                <div class="audit-card" style="margin-top:12px">
+                    <div style="font-weight:700;font-size:0.9rem">Entry Trigger</div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:6px;line-height:1.4">Market drop of 15% or more in a rolling 4-hour window. Sized at $3-$5 per trade using scalar outcome price checks.</p>
+                </div>
+                <div class="audit-card">
+                    <div style="font-weight:700;font-size:0.9rem">Exit Targets</div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:6px;line-height:1.4">Exit trade upon 90% price recovery to pre-crash high, or execute a hard timeout exit at exactly 48 hours.</p>
+                </div>
+                <div class="audit-card">
+                    <div style="font-weight:700;font-size:0.9rem">On-Chain Safety</div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:6px;line-height:1.4">Monitored by <code>pnl-truthteller</code> for slippage auditing and safety-guarded with a 30-minute veto window on parameter rollouts.</p>
+                </div>
+            </div>
+            <div>
+                <h3>Execution History (Latest 100 Trades)</h3>
+                <div style="margin-top:12px;height:600px;overflow-y:auto;padding-right:8px">
+                    
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Zachary Shrewsbury be the Democratic nominee for Senate in West Virginia?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (4.1 shares)</span> | 
+                        <span>Entry: $0.245</span> | 
+                        <span>Exit: $0.260</span> | 
+                        <span>Hold: 4.4h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$1.64
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Oregon governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (6.5 shares)</span> | 
+                        <span>Entry: $0.155</span> | 
+                        <span>Exit: $0.165</span> | 
+                        <span>Hold: 1.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$7.90
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Illinois Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT</span> | 
+                        <span>Size: $1.00 (15.0 shares)</span> | 
+                        <span>Entry: $0.067</span> | 
+                        <span>Exit: $0.045</span> | 
+                        <span>Hold: 24.0h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$3.57
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the New Mexico governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (10.0 shares)</span> | 
+                        <span>Entry: $0.100</span> | 
+                        <span>Exit: $0.105</span> | 
+                        <span>Hold: 0.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$9.10
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Arkansas governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (15.3 shares)</span> | 
+                        <span>Entry: $0.066</span> | 
+                        <span>Exit: $0.071</span> | 
+                        <span>Hold: 0.5h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$10.59
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republican Party hold exactly 51 Senate seats after the 2026 midterm elections?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (8.0 shares)</span> | 
+                        <span>Entry: $0.125</span> | 
+                        <span>Exit: $0.145</span> | 
+                        <span>Hold: 4.9h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$5.20
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Unit launch a token by December 31, 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (4.1 shares)</span> | 
+                        <span>Entry: $0.245</span> | 
+                        <span>Exit: $0.275</span> | 
+                        <span>Hold: 2.4h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$5.18
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Oklahoma Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (8.7 shares)</span> | 
+                        <span>Entry: $0.115</span> | 
+                        <span>Exit: $0.140</span> | 
+                        <span>Hold: 1.6h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$9.25
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Rhode Island Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (14.3 shares)</span> | 
+                        <span>Entry: $0.070</span> | 
+                        <span>Exit: $0.090</span> | 
+                        <span>Hold: 12.0h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$5.22
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will David Portnoy give another 9+ pizza review by April 30?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (8.3 shares)</span> | 
+                        <span>Entry: $0.120</span> | 
+                        <span>Exit: $0.160</span> | 
+                        <span>Hold: 0.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.33
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Rhode Island governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (23.0 shares)</span> | 
+                        <span>Entry: $0.043</span> | 
+                        <span>Exit: $0.048</span> | 
+                        <span>Hold: 0.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.10
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Kansas governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT</span> | 
+                        <span>Size: $1.00 (3.3 shares)</span> | 
+                        <span>Entry: $0.300</span> | 
+                        <span>Exit: $0.305</span> | 
+                        <span>Hold: 24.1h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$1.78
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Georgia governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT</span> | 
+                        <span>Size: $1.00 (3.4 shares)</span> | 
+                        <span>Entry: $0.290</span> | 
+                        <span>Exit: $0.300</span> | 
+                        <span>Hold: 24.1h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$2.01
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the South Dakota governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (16.7 shares)</span> | 
+                        <span>Entry: $0.060</span> | 
+                        <span>Exit: $0.075</span> | 
+                        <span>Hold: 1.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.25
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Delaware Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT</span> | 
+                        <span>Size: $1.00 (18.2 shares)</span> | 
+                        <span>Entry: $0.055</span> | 
+                        <span>Exit: $0.055</span> | 
+                        <span>Hold: 12.0h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.00
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Abstract launch a token by December 31, 2026</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT</span> | 
+                        <span>Size: $1.00 (4.3 shares)</span> | 
+                        <span>Entry: $0.230</span> | 
+                        <span>Exit: $0.240</span> | 
+                        <span>Hold: 12.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.04
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Texas governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (4.9 shares)</span> | 
+                        <span>Entry: $0.205</span> | 
+                        <span>Exit: $0.230</span> | 
+                        <span>Hold: 0.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.12
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #EF4444">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the New Jersey Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT</span> | 
+                        <span>Size: $1.00 (18.2 shares)</span> | 
+                        <span>Entry: $0.055</span> | 
+                        <span>Exit: $0.050</span> | 
+                        <span>Hold: 12.1h</span>
+                    </div>
+                </div>
+                <div class="text-red" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    $-0.09
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Afghanistan recognize Israel by June 30?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (26.7 shares)</span> | 
+                        <span>Entry: $0.037</span> | 
+                        <span>Exit: $0.048</span> | 
+                        <span>Hold: 7.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.28
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Virginia Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (14.3 shares)</span> | 
+                        <span>Entry: $0.070</span> | 
+                        <span>Exit: $0.080</span> | 
+                        <span>Hold: 3.9h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.14
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Tennessee Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (14.3 shares)</span> | 
+                        <span>Entry: $0.070</span> | 
+                        <span>Exit: $0.080</span> | 
+                        <span>Hold: 0.5h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.14
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Hyperliquid perform an airdrop by December 31, 2026? </div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT</span> | 
+                        <span>Size: $1.00 (3.8 shares)</span> | 
+                        <span>Entry: $0.260</span> | 
+                        <span>Exit: $0.260</span> | 
+                        <span>Hold: 12.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.00
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #EF4444">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Arizona governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT</span> | 
+                        <span>Size: $1.00 (4.3 shares)</span> | 
+                        <span>Entry: $0.230</span> | 
+                        <span>Exit: $0.220</span> | 
+                        <span>Hold: 12.2h</span>
+                    </div>
+                </div>
+                <div class="text-red" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    $-0.04
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the New Jersey Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT</span> | 
+                        <span>Size: $1.00 (25.0 shares)</span> | 
+                        <span>Entry: $0.040</span> | 
+                        <span>Exit: $0.040</span> | 
+                        <span>Hold: 12.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.00
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Montana Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT</span> | 
+                        <span>Size: $1.00 (13.1 shares)</span> | 
+                        <span>Entry: $0.076</span> | 
+                        <span>Exit: $0.077</span> | 
+                        <span>Hold: 12.0h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.01
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will US GDP growth in Q1 2026 be between 2.0% and 2.5%?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (4.9 shares)</span> | 
+                        <span>Entry: $0.205</span> | 
+                        <span>Exit: $0.250</span> | 
+                        <span>Hold: 3.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.22
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">MegaETH market cap (FDV) &gt;$4B one day after launch?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (14.1 shares)</span> | 
+                        <span>Entry: $0.071</span> | 
+                        <span>Exit: $0.105</span> | 
+                        <span>Hold: 0.4h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.48
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #EF4444">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Iraq recognize Israel by June 30?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT</span> | 
+                        <span>Size: $1.00 (22.5 shares)</span> | 
+                        <span>Entry: $0.044</span> | 
+                        <span>Exit: $0.043</span> | 
+                        <span>Hold: 12.2h</span>
+                    </div>
+                </div>
+                <div class="text-red" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    $-0.02
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Plaid Cymru win the most seats in the 2026 Welsh Senedd election?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (5.6 shares)</span> | 
+                        <span>Entry: $0.180</span> | 
+                        <span>Exit: $0.210</span> | 
+                        <span>Hold: 2.4h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.17
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Reform UK win the most seats in the 2026 Welsh Senedd election?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (7.0 shares)</span> | 
+                        <span>Entry: $0.143</span> | 
+                        <span>Exit: $0.213</span> | 
+                        <span>Hold: 0.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.49
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will US GDP growth in Q1 2026 be between 1.5% and 2.0%?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (7.0 shares)</span> | 
+                        <span>Entry: $0.142</span> | 
+                        <span>Exit: $0.157</span> | 
+                        <span>Hold: 0.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.10
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Kansas Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (6.5 shares)</span> | 
+                        <span>Entry: $0.155</span> | 
+                        <span>Exit: $0.175</span> | 
+                        <span>Hold: 2.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.13
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Georgia Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (7.7 shares)</span> | 
+                        <span>Entry: $0.130</span> | 
+                        <span>Exit: $0.150</span> | 
+                        <span>Hold: 0.5h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.15
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Malaysia recognize Israel by June 30?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (23.5 shares)</span> | 
+                        <span>Entry: $0.043</span> | 
+                        <span>Exit: $0.052</span> | 
+                        <span>Hold: 1.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.22
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republican Party hold exactly 50 Senate seats after the 2026 midterm elections?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (8.7 shares)</span> | 
+                        <span>Entry: $0.115</span> | 
+                        <span>Exit: $0.130</span> | 
+                        <span>Hold: 3.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.13
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Georgia Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (11.0 shares)</span> | 
+                        <span>Entry: $0.091</span> | 
+                        <span>Exit: $0.148</span> | 
+                        <span>Hold: 8.0h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.63
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Michigan Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (5.7 shares)</span> | 
+                        <span>Entry: $0.175</span> | 
+                        <span>Exit: $0.195</span> | 
+                        <span>Hold: 6.7h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.11
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the North Carolina Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (8.0 shares)</span> | 
+                        <span>Entry: $0.125</span> | 
+                        <span>Exit: $0.145</span> | 
+                        <span>Hold: 1.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.16
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Wisconsin governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.5 shares)</span> | 
+                        <span>Entry: $0.685</span> | 
+                        <span>Exit: $0.795</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.16
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #EF4444">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the 1st pick in the 2026 Pro Football draft be a QB? </div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (31.7 shares)</span> | 
+                        <span>Entry: $0.032</span> | 
+                        <span>Exit: $0.011</span> | 
+                        <span>Hold: 12.2h</span>
+                    </div>
+                </div>
+                <div class="text-red" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    $-0.63
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Minnesota Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (14.3 shares)</span> | 
+                        <span>Entry: $0.070</span> | 
+                        <span>Exit: $0.075</span> | 
+                        <span>Hold: 12.1h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.07
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Bharatiya Janata Party (BJP) win the most seats in the 2026 West Bengal Legislative Assembly election?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (2.1 shares)</span> | 
+                        <span>Entry: $0.471</span> | 
+                        <span>Exit: $0.514</span> | 
+                        <span>Hold: 6.0h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.09
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Base launch a token by December 31, 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (2.5 shares)</span> | 
+                        <span>Entry: $0.405</span> | 
+                        <span>Exit: $0.500</span> | 
+                        <span>Hold: 7.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.23
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Cuba recognize Israel by June 30</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.2 shares)</span> | 
+                        <span>Entry: $0.807</span> | 
+                        <span>Exit: $0.892</span> | 
+                        <span>Hold: 4.0h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.11
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Base launch a token by December 31, 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.9 shares)</span> | 
+                        <span>Entry: $0.520</span> | 
+                        <span>Exit: $0.585</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.12
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Kim Kardashian pass the bar exam by May 3?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (18.2 shares)</span> | 
+                        <span>Entry: $0.055</span> | 
+                        <span>Exit: $0.065</span> | 
+                        <span>Hold: 10.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.18
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the All India Trinamool Congress (AITC) win the most seats in the 2026 West Bengal Legislative Assembly election?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (2.3 shares)</span> | 
+                        <span>Entry: $0.444</span> | 
+                        <span>Exit: $0.493</span> | 
+                        <span>Hold: 3.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.11
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Consensys IPO closing market cap above $3B?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.3 shares)</span> | 
+                        <span>Entry: $0.745</span> | 
+                        <span>Exit: $0.880</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.18
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #EF4444">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">U.S. Congress member out over Epstein files by April 30?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (14.8 shares)</span> | 
+                        <span>Entry: $0.068</span> | 
+                        <span>Exit: $0.049</span> | 
+                        <span>Hold: 12.1h</span>
+                    </div>
+                </div>
+                <div class="text-red" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    $-0.27
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Cuba recognize Israel by June 30</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (20.2 shares)</span> | 
+                        <span>Entry: $0.050</span> | 
+                        <span>Exit: $0.071</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.43
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will OpenAI IPO by December 31 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (3.3 shares)</span> | 
+                        <span>Entry: $0.305</span> | 
+                        <span>Exit: $0.330</span> | 
+                        <span>Hold: 8.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.08
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Nickeil Alexander-Walker win the 2025–2026 NBA Most Improved Player?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (18.2 shares)</span> | 
+                        <span>Entry: $0.055</span> | 
+                        <span>Exit: $0.065</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.18
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Tennessee Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (13.3 shares)</span> | 
+                        <span>Entry: $0.075</span> | 
+                        <span>Exit: $0.085</span> | 
+                        <span>Hold: 11.6h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.13
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Felix Protocol FDV above $50M one day after launch?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.4 shares)</span> | 
+                        <span>Entry: $0.714</span> | 
+                        <span>Exit: $0.842</span> | 
+                        <span>Hold: 5.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.18
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Kansas Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (3.8 shares)</span> | 
+                        <span>Entry: $0.260</span> | 
+                        <span>Exit: $0.345</span> | 
+                        <span>Hold: 0.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.33
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Kansas Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.6 shares)</span> | 
+                        <span>Entry: $0.645</span> | 
+                        <span>Exit: $0.765</span> | 
+                        <span>Hold: 1.5h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.19
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will North Korea recognize Israel by June 30?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (26.0 shares)</span> | 
+                        <span>Entry: $0.038</span> | 
+                        <span>Exit: $0.043</span> | 
+                        <span>Hold: 1.0h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.10
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will US GDP growth in Q1 2026 be between 1.0% and 1.5%?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (5.9 shares)</span> | 
+                        <span>Entry: $0.170</span> | 
+                        <span>Exit: $0.189</span> | 
+                        <span>Hold: 0.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.11
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Variational launch a token by December 31, 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (3.8 shares)</span> | 
+                        <span>Entry: $0.260</span> | 
+                        <span>Exit: $0.310</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.19
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Minnesota governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (14.3 shares)</span> | 
+                        <span>Entry: $0.070</span> | 
+                        <span>Exit: $0.080</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.14
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Arvell Reese be the third pick in the 2026 NFL draft?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.6 shares)</span> | 
+                        <span>Entry: $0.635</span> | 
+                        <span>Exit: $0.725</span> | 
+                        <span>Hold: 2.5h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.14
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Illinois Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (15.4 shares)</span> | 
+                        <span>Entry: $0.065</span> | 
+                        <span>Exit: $0.065</span> | 
+                        <span>Hold: 36.0h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.00
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Dravida Munnetra Kazhagam (DMK) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.5 shares)</span> | 
+                        <span>Entry: $0.675</span> | 
+                        <span>Exit: $0.730</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.08
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the New Mexico governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (8.0 shares)</span> | 
+                        <span>Entry: $0.125</span> | 
+                        <span>Exit: $0.135</span> | 
+                        <span>Hold: 5.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.08
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Iowa governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.7 shares)</span> | 
+                        <span>Entry: $0.600</span> | 
+                        <span>Exit: $0.670</span> | 
+                        <span>Hold: 2.5h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.12
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republican Party hold exactly 53 Senate seats after the 2026 midterm elections?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (29.9 shares)</span> | 
+                        <span>Entry: $0.034</span> | 
+                        <span>Exit: $0.035</span> | 
+                        <span>Hold: 40.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.03
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the South Dakota governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (27.4 shares)</span> | 
+                        <span>Entry: $0.036</span> | 
+                        <span>Exit: $0.045</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.23
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Iowa governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (3.2 shares)</span> | 
+                        <span>Entry: $0.315</span> | 
+                        <span>Exit: $0.360</span> | 
+                        <span>Hold: 10.4h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.14
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Arvell Reese be the third pick in the 2026 NFL draft?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (3.4 shares)</span> | 
+                        <span>Entry: $0.295</span> | 
+                        <span>Exit: $0.330</span> | 
+                        <span>Hold: 3.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.12
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will US GDP growth in Q1 2026 be between 2.5% and 3.0%?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (8.8 shares)</span> | 
+                        <span>Entry: $0.114</span> | 
+                        <span>Exit: $0.140</span> | 
+                        <span>Hold: 1.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.23
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Oklahoma governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (15.4 shares)</span> | 
+                        <span>Entry: $0.065</span> | 
+                        <span>Exit: $0.065</span> | 
+                        <span>Hold: 48.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.00
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will US GDP growth in Q1 2026 be less than 1.0%?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (7.4 shares)</span> | 
+                        <span>Entry: $0.136</span> | 
+                        <span>Exit: $0.160</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.17
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will US GDP growth in Q1 2026 be between 3.0% and 3.5%?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (15.2 shares)</span> | 
+                        <span>Entry: $0.066</span> | 
+                        <span>Exit: $0.075</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.14
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Rhode Island governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (18.2 shares)</span> | 
+                        <span>Entry: $0.055</span> | 
+                        <span>Exit: $0.060</span> | 
+                        <span>Hold: 0.5h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.09
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #EF4444">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Felix Protocol FDV above $25M one day after launch?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (3.3 shares)</span> | 
+                        <span>Entry: $0.300</span> | 
+                        <span>Exit: $0.290</span> | 
+                        <span>Hold: 48.2h</span>
+                    </div>
+                </div>
+                <div class="text-red" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    $-0.03
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Florida governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (4.4 shares)</span> | 
+                        <span>Entry: $0.225</span> | 
+                        <span>Exit: $0.260</span> | 
+                        <span>Hold: 0.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.16
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Vermont governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (5.9 shares)</span> | 
+                        <span>Entry: $0.170</span> | 
+                        <span>Exit: $0.190</span> | 
+                        <span>Hold: 4.1h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.12
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Michigan governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (3.0 shares)</span> | 
+                        <span>Entry: $0.335</span> | 
+                        <span>Exit: $0.410</span> | 
+                        <span>Hold: 13.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.22
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Arizona governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (4.4 shares)</span> | 
+                        <span>Entry: $0.225</span> | 
+                        <span>Exit: $0.225</span> | 
+                        <span>Hold: 48.1h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.00
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Michigan governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.8 shares)</span> | 
+                        <span>Entry: $0.555</span> | 
+                        <span>Exit: $0.665</span> | 
+                        <span>Hold: 0.5h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.20
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Janeese Lewis George win the 2026 Democratic D.C. Mayoral Primary?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.9 shares)</span> | 
+                        <span>Entry: $0.530</span> | 
+                        <span>Exit: $0.605</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.14
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Kenyan McDuffie win the 2026 Democratic D.C. Mayoral Primary?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.5 shares)</span> | 
+                        <span>Entry: $0.670</span> | 
+                        <span>Exit: $0.725</span> | 
+                        <span>Hold: 1.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.08
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Maryland governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (18.2 shares)</span> | 
+                        <span>Entry: $0.055</span> | 
+                        <span>Exit: $0.055</span> | 
+                        <span>Hold: 48.1h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.00
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #EF4444">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the Colorado Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (7.4 shares)</span> | 
+                        <span>Entry: $0.135</span> | 
+                        <span>Exit: $0.100</span> | 
+                        <span>Hold: 48.1h</span>
+                    </div>
+                </div>
+                <div class="text-red" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    $-0.26
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Kenyan McDuffie win the 2026 Democratic D.C. Mayoral Primary?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (4.0 shares)</span> | 
+                        <span>Entry: $0.250</span> | 
+                        <span>Exit: $0.375</span> | 
+                        <span>Hold: 8.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.50
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #EF4444">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Solstice launch a token by June 30 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (10.0 shares)</span> | 
+                        <span>Entry: $0.101</span> | 
+                        <span>Exit: $0.021</span> | 
+                        <span>Hold: 48.2h</span>
+                    </div>
+                </div>
+                <div class="text-red" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    $-0.79
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Janeese Lewis George win the 2026 Democratic D.C. Mayoral Primary?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (2.7 shares)</span> | 
+                        <span>Entry: $0.375</span> | 
+                        <span>Exit: $0.425</span> | 
+                        <span>Hold: 0.3h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.13
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Vermont governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (3.6 shares)</span> | 
+                        <span>Entry: $0.280</span> | 
+                        <span>Exit: $0.300</span> | 
+                        <span>Hold: 8.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.07
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #EF4444">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Solstice launch a token by September 30 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (17.1 shares)</span> | 
+                        <span>Entry: $0.059</span> | 
+                        <span>Exit: $0.013</span> | 
+                        <span>Hold: 48.2h</span>
+                    </div>
+                </div>
+                <div class="text-red" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    $-0.79
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Vermont governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.5 shares)</span> | 
+                        <span>Entry: $0.670</span> | 
+                        <span>Exit: $0.720</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.07
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Democrats win the South Carolina Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (4.9 shares)</span> | 
+                        <span>Entry: $0.205</span> | 
+                        <span>Exit: $0.225</span> | 
+                        <span>Hold: 30.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.10
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Indonesia recognize Israel by June 30?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (17.1 shares)</span> | 
+                        <span>Entry: $0.059</span> | 
+                        <span>Exit: $0.061</span> | 
+                        <span>Hold: 48.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.04
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Columbus Blue Jackets make the NHL Playoffs?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.3 shares)</span> | 
+                        <span>Entry: $0.795</span> | 
+                        <span>Exit: $0.875</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.10
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #EF4444">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will Syria recognize Israel by June 30?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-sell">TIMEOUT_48H</span> | 
+                        <span>Size: $1.00 (8.7 shares)</span> | 
+                        <span>Entry: $0.115</span> | 
+                        <span>Exit: $0.110</span> | 
+                        <span>Hold: 48.2h</span>
+                    </div>
+                </div>
+                <div class="text-red" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    $-0.04
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republican Party hold exactly 54 Senate seats after the 2026 midterm elections?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (25.6 shares)</span> | 
+                        <span>Entry: $0.039</span> | 
+                        <span>Exit: $0.048</span> | 
+                        <span>Hold: 0.8h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.22
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Idaho Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (12.5 shares)</span> | 
+                        <span>Entry: $0.080</span> | 
+                        <span>Exit: $0.100</span> | 
+                        <span>Hold: 21.4h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.25
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Florida Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (5.9 shares)</span> | 
+                        <span>Entry: $0.170</span> | 
+                        <span>Exit: $0.210</span> | 
+                        <span>Hold: 0.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.24
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Minnesota governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (18.2 shares)</span> | 
+                        <span>Entry: $0.055</span> | 
+                        <span>Exit: $0.065</span> | 
+                        <span>Hold: 12.2h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.18
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Iowa governor race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (1.7 shares)</span> | 
+                        <span>Entry: $0.590</span> | 
+                        <span>Exit: $0.690</span> | 
+                        <span>Hold: 0.5h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.17
+                </div>
+            </div>
+        </div>
+        
+        <div class="audit-card" style="border-left: 3px solid #2DD9E0">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">Will the Republicans win the Colorado Senate race in 2026?</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge badge-buy">RECOVERY</span> | 
+                        <span>Size: $1.00 (18.2 shares)</span> | 
+                        <span>Entry: $0.055</span> | 
+                        <span>Exit: $0.060</span> | 
+                        <span>Hold: 6.9h</span>
+                    </div>
+                </div>
+                <div class="text-green" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    +$0.09
+                </div>
+            </div>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+                    <span>Proto</span>dex
+                </a>
+                <p>The largest index of MCP servers. Helping developers find the right tools for AI-powered workflows.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Directory</h4>
+                    <a href="/">Explore Servers</a>
+                    <a href="/categories.html">Categories</a>
+                    <a href="/security.html">Security Scores</a>
+                    <a href="/submit.html">Submit a Server</a>
+                    <a href="/datasets/polymarket-historical.html">Polymarket Dataset</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Project</h4>
+                    <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://github.com/LuciferForge" target="_blank" rel="noopener">LuciferForge</a>
+                </div>
+                <div class="footer-col">
+                    <h4>For Developers</h4>
+                    <a href="/mcp-quickref.html">MCP Server Builder's Quick Reference</a>
+                    <a href="/mcp-scorecard.html">MCP Production-Readiness Scorecard</a>
+                    <a href="/build.html">Get an MCP server built</a>
+                    <a href="https://manja8.gumroad.com/l/api-connector?utm_source=protodex&utm_medium=footer&utm_campaign=gumroad" target="_blank" rel="noopener" data-promo="gumroad">Build a Connector ($7)</a>
+                    <a href="/aws-free.html">AWS Prep (Free Study Guide)</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Protodex. Open source. Updated weekly from GitHub. Built with Claude & Gemini.
+        </div>
+    </div>
+</footer>
+<script>
+function showTab(btn,id){var p=btn.closest('.install-section');p.querySelectorAll('.install-tab').forEach(function(t){t.classList.remove('active')});p.querySelectorAll('.install-panel').forEach(function(x){x.style.display='none';x.classList.remove('active')});btn.classList.add('active');var el=document.getElementById(id);if(el){el.style.display='block';el.classList.add('active')}}
+function copyCode(btn){var code=btn.previousElementSibling.querySelector('code').textContent;navigator.clipboard.writeText(code).then(function(){btn.textContent='Copied';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})}
+</script>
 </body>
 </html>

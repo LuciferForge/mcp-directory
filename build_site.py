@@ -2807,12 +2807,176 @@ def build_aws_free_page():
     return html
 
 
+def build_live_page():
+    title = "Polymarket Crash Bot Live Verification & Audit | Protodex"
+    desc = "Live trading audit of the LuciferForge Polymarket crash-recovery bot. Inspect real-time performance, win rate, realized P&L, and complete trade fills history."
+
+    extra_css = """
+    <style>
+    .audit-container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+    .audit-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; transition: all 0.2s; }
+    .audit-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+    .audit-card-meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+    .text-green { color: #2DD9E0 !important; }
+    .text-red { color: #EF4444 !important; }
+    .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
+    .badge-buy { background: rgba(45, 217, 224, 0.15); color: #2DD9E0; }
+    .badge-sell { background: rgba(239, 68, 68, 0.15); color: #EF4444; }
+    .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
+    .metric-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; }
+    .metric-val { font-family: var(--mono); font-size: 1.5rem; font-weight: 700; color: var(--text); }
+    .metric-lbl { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; margin-top: 2px; }
+    @media (max-width: 768px) {
+        .metric-grid { grid-template-columns: 1fr 1fr; }
+    }
+    </style>
+    """
+
+    import csv
+    trades_path = "/Users/apple/Documents/LuciferForge/products/cross-signal-data/data/crashes_v1.csv"
+    trades = []
+    total_pnl = 0.0
+    wins = 0
+    losses = 0
+    total_volume = 0.0
+    total_hold_hours = 0.0
+    
+    if os.path.exists(trades_path):
+        with open(trades_path, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                pnl = float(row["pnl_usd"])
+                size = float(row["size_usd"])
+                hold = float(row["hold_hours"])
+                is_prof = int(row["is_profitable"])
+                
+                trades.append({
+                    "trade_id": row["trade_id"],
+                    "market_id": row["market_id"],
+                    "question": row["question"],
+                    "outcome_label": row["outcome_label"],
+                    "entry_time": row["entry_time"],
+                    "exit_time": row["exit_time"],
+                    "entry_price": float(row["entry_price"]),
+                    "exit_price": float(row["exit_price"]),
+                    "pre_crash_high": float(row["pre_crash_high"]),
+                    "drop_pct": float(row["drop_pct"]),
+                    "size_usd": size,
+                    "shares": float(row["shares"]),
+                    "hold_hours": hold,
+                    "pnl_usd": pnl,
+                    "is_profitable": is_prof,
+                    "exit_reason": row["exit_reason"]
+                })
+                total_pnl += pnl
+                total_volume += size
+                total_hold_hours += hold
+                if is_prof == 1:
+                    wins += 1
+                else:
+                    losses += 1
+
+    count = len(trades)
+    win_rate = (wins / count * 100) if count else 0
+    avg_hold = (total_hold_hours / count) if count else 0
+    
+    # Sort trades descending by entry_time to show latest first
+    trades.sort(key=lambda x: x["entry_time"], reverse=True)
+    
+    table_rows = ""
+    for t in trades[:100]:
+        pnl_class = "text-green" if t["pnl_usd"] >= 0 else "text-red"
+        pnl_sign = "+" if t["pnl_usd"] >= 0 else ""
+        reason_badge = "badge-buy" if t["exit_reason"] == "RECOVERY" else "badge-sell"
+        
+        table_rows += f"""
+        <div class="audit-card" style="border-left: 3px solid {'#2DD9E0' if t['pnl_usd'] >= 0 else '#EF4444'}">
+            <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
+                <div style="flex:1">
+                    <div style="font-weight:700;font-size:0.9rem;color:var(--text)">{escape(t['question'])}</div>
+                    <div class="audit-card-meta" style="margin-top:6px">
+                        <span class="badge {reason_badge}">{t['exit_reason']}</span> | 
+                        <span>Size: ${t['size_usd']:.2f} ({t['shares']:.1f} shares)</span> | 
+                        <span>Entry: ${t['entry_price']:.3f}</span> | 
+                        <span>Exit: ${t['exit_price']:.3f}</span> | 
+                        <span>Hold: {t['hold_hours']:.1f}h</span>
+                    </div>
+                </div>
+                <div class="{pnl_class}" style="font-family:var(--mono);font-size:0.9rem;font-weight:700;white-space:nowrap">
+                    {pnl_sign}${t['pnl_usd']:.2f}
+                </div>
+            </div>
+        </div>
+        """
+
+    html = html_head(title, desc, "/live.html", extra_css)
+    html += html_header()
+    html += f"""
+    <div class="page-header" style="text-align:center;padding:80px 0 40px">
+        <div class="container">
+            <div class="hero-badge"><span class="pulse" style="background:#2DD9E0"></span>Live Bot Audit</div>
+            <h1 style="font-size:2.8rem;letter-spacing:-1px;color:var(--text)">Polymarket Crash Bot Execution Proof</h1>
+            <p style="max-width:640px;margin:12px auto 0;color:var(--text-muted)">Public audit page of the LuciferForge mean-reversion crash bot. Performance metrics, win rate, and individual trade fills are compiled directly from the verified 308-trade dataset.</p>
+        </div>
+    </div>
+    
+    <div class="audit-container">
+        <h2>Performance Summary</h2>
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="metric-val" style="color:#2DD9E0">{win_rate:.2f}%</div>
+                <div class="metric-lbl">Win Rate</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">${total_pnl:.2f}</div>
+                <div class="metric-lbl">Realized P&L</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">{count}</div>
+                <div class="metric-lbl">Total Trades</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">{avg_hold:.1f}h</div>
+                <div class="metric-lbl">Avg. Hold Time</div>
+            </div>
+        </div>
+        
+        <div style="display:grid;grid-template-columns: 1fr 1.8fr;gap:24px;margin-top:32px">
+            <div>
+                <h3>Strategy Parameters</h3>
+                <div class="audit-card" style="margin-top:12px">
+                    <div style="font-weight:700;font-size:0.9rem">Entry Trigger</div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:6px;line-height:1.4">Market drop of 15% or more in a rolling 4-hour window. Sized at $3-$5 per trade using scalar outcome price checks.</p>
+                </div>
+                <div class="audit-card">
+                    <div style="font-weight:700;font-size:0.9rem">Exit Targets</div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:6px;line-height:1.4">Exit trade upon 90% price recovery to pre-crash high, or execute a hard timeout exit at exactly 48 hours.</p>
+                </div>
+                <div class="audit-card">
+                    <div style="font-weight:700;font-size:0.9rem">On-Chain Safety</div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:6px;line-height:1.4">Monitored by <code>pnl-truthteller</code> for slippage auditing and safety-guarded with a 30-minute veto window on parameter rollouts.</p>
+                </div>
+            </div>
+            <div>
+                <h3>Execution History (Latest 100 Trades)</h3>
+                <div style="margin-top:12px;height:600px;overflow-y:auto;padding-right:8px">
+                    {table_rows}
+                </div>
+            </div>
+        </div>
+    </div>
+    """
+    html += html_footer()
+    return html
+
+
 def build_sitemap(servers, categories):
     urls = [f"{SITE_URL}/"]
     urls.append(f"{SITE_URL}/categories.html")
     urls.append(f"{SITE_URL}/submit.html")
     urls.append(f"{SITE_URL}/audit.html")
     urls.append(f"{SITE_URL}/aws-free.html")
+    urls.append(f"{SITE_URL}/live.html")
     urls.append(f"{SITE_URL}/security.html")
     urls.append(f"{SITE_URL}/datasets/")
     urls.append(f"{SITE_URL}{DATASET_PATH}")
@@ -3194,6 +3358,10 @@ def main():
     # Build AWS free page
     print("Building AWS free page...")
     write(os.path.join(SITE_DIR, "aws-free.html"), build_aws_free_page())
+
+    # Build live trading proof page
+    print("Building live page...")
+    write(os.path.join(SITE_DIR, "live.html"), build_live_page())
 
     # P0 revenue SEO asset: Polymarket dataset landing page (+ Dataset/Product schema)
     os.makedirs(os.path.join(SITE_DIR, "datasets"), exist_ok=True)
