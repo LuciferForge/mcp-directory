@@ -2546,7 +2546,10 @@ def build_audit_page():
                         <div class="paywall-lock">🔒</div>
                         <h4 style="font-size:1.15rem;margin-bottom:8px">Full Portfolio Report Locked</h4>
                         <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:20px">Your wallet contains <span id="locked-count">0</span> more trades. Unlock the full execution history, cumulative slippage cost chart, and print-ready PDF export.</p>
-                        <a href="https://manja8.gumroad.com/l/polymarket-quant-toolkit?utm_source=protodex&utm_medium=auditor-paywall" target="_blank" rel="noopener" class="btn" style="background:#7B61FF;color:#fff;font-weight:700;padding:10px 20px;border-radius:6px;display:inline-block">Unlock Full Portfolio Report ($19)</a>
+                        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:12px">
+                            <a href="https://polar.sh/luciferforge?utm_source=protodex&utm_medium=auditor-paywall" target="_blank" rel="noopener" class="btn" style="background:#7B61FF;color:#fff;font-weight:700;padding:10px 20px;border-radius:6px;display:inline-block">Subscribe via Polar.sh ($19/mo)</a>
+                            <a href="https://manja8.gumroad.com/l/polymarket-quant-toolkit?utm_source=protodex&utm_medium=auditor-paywall" target="_blank" rel="noopener" class="btn" style="background:rgba(255,255,255,0.1);color:#fff;font-weight:700;padding:10px 20px;border-radius:6px;display:inline-block">Buy on Gumroad ($19)</a>
+                        </div>
                         <div style="margin-top:20px;border-top:1px solid var(--border);padding-top:16px">
                             <span style="font-size:0.75rem;color:var(--text-dim);display:block;margin-bottom:8px">Already have a license key? Enter it here:</span>
                             <div style="display:flex;gap:8px;max-width:320px;margin:0 auto">
