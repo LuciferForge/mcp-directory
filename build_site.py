@@ -3460,3 +3460,10 @@ def prune_orphans(dry_run=False):
 
 if __name__ == "__main__":
     main()
+    import sys
+    sys.path.insert(0, "/Users/apple/Documents/LuciferForge/distribution")
+    try:
+        import rss_feed_generator
+        rss_feed_generator.build_rss_pipeline()
+    except Exception as e:
+        print(f"RSS Feed Generation warning: {e}")

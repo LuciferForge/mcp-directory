@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0">
+  <channel>
+    <title>Protodex — Polymarket Data &amp; Quant Intelligence</title>
+    <link>https://protodex.io</link>
+    <description>Real-time dataset releases, prediction market analytics, and AI agent intelligence.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Jul 2026 10:25:48 +0000</lastBuildDate>
+    <item>
+      <title>Blog Nanobot Guide</title>
+      <link>https://protodex.io/blog/blog-nanobot-guide.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-nanobot-guide.html</guid>
+      <description>nanobot just crossed 39K stars on GitHub. It&amp;#x27;s from HKU&amp;#x27;s Data Science lab and it positions itself as the &amp;quot;ultra-lightweight personal AI agent.&amp;quot; I...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog Mcp Playwright</title>
+      <link>https://protodex.io/blog/blog-mcp-playwright.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-playwright.html</guid>
+      <description>Microsoft&amp;#x27;s Playwright MCP server gives your AI assistant a real browser. Not a screenshot parser — actual browser control. Navigate pages, fill forms,...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog Mcp Database Guide</title>
+      <link>https://protodex.io/blog/blog-mcp-database-guide.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-database-guide.html</guid>
+      <description>Your AI assistant can now query your database directly. No more copy-pasting SQL results into chat. But there are 183 database MCP servers — which one...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog Mcp Context7</title>
+      <link>https://protodex.io/blog/blog-mcp-context7.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-context7.html</guid>
+      <description>Every AI coding assistant has the same problem: stale training data. You ask Claude to help with Next.js 15 and it gives you Next.js 13 patterns. You...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog Mcp Browser Comparison</title>
+      <link>https://protodex.io/blog/blog-mcp-browser-comparison.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-browser-comparison.html</guid>
+      <description>There are 87 browser/web MCP servers on [Protodex](https://protodex.io/category/browser-web.html). I tested the top 5 to figure out when to use each...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog Ai Agent Comparison</title>
+      <link>https://protodex.io/blog/blog-ai-agent-comparison.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-ai-agent-comparison.html</guid>
+      <description>There are now 7+ open-source AI coding agents with 30K+ stars each. I&amp;#x27;ve used all of them on real projects. Here&amp;#x27;s when each one makes sense.   The...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog 2026 07 20 Polymarket Market Movers</title>
+      <link>https://protodex.io/blog/blog-2026-07-20-polymarket-market-movers.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-2026-07-20-polymarket-market-movers.html</guid>
+      <description>The biggest moves across Polymarket this week, pulled from a live dataset of **22,683,786 price snapshots** across **27,487 markets** (updated every 15...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog 2026 07 13 Polymarket Market Movers</title>
+      <link>https://protodex.io/blog/blog-2026-07-13-polymarket-market-movers.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-2026-07-13-polymarket-market-movers.html</guid>
+      <description>The biggest moves across Polymarket this week, pulled from a live dataset of **21,143,246 price snapshots** across **26,078 markets** (updated every 15...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog 2026 07 06 Polymarket Market Movers</title>
+      <link>https://protodex.io/blog/blog-2026-07-06-polymarket-market-movers.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-2026-07-06-polymarket-market-movers.html</guid>
+      <description>The biggest moves across Polymarket this week, pulled from a live dataset of **20,174,776 price snapshots** across **24,845 markets** (updated every 15...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog 2026 06 29 Polymarket Market Movers</title>
+      <link>https://protodex.io/blog/blog-2026-06-29-polymarket-market-movers.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-29-polymarket-market-movers.html</guid>
+      <description>The biggest moves across Polymarket this week, pulled from a live dataset of **18,791,542 price snapshots** across **22,627 markets** (updated every 15...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog 2026 06 22 Polymarket Market Movers</title>
+      <link>https://protodex.io/blog/blog-2026-06-22-polymarket-market-movers.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-22-polymarket-market-movers.html</guid>
+      <description>The biggest moves across Polymarket this week, pulled from a live dataset of **17,464,228 price snapshots** across **20,878 markets** (updated every 15...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog 2026 06 17 Can You Beat Polymarket</title>
+      <link>https://protodex.io/blog/blog-2026-06-17-can-you-beat-polymarket.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-17-can-you-beat-polymarket.html</guid>
+      <description>Prediction markets feel beatable. The prices are just crowd guesses, right? I pulled 18.7M price snapshots across 18,600+ Polymarket markets and tested...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog 2026 06 16 Polymarket Market Movers</title>
+      <link>https://protodex.io/blog/blog-2026-06-16-polymarket-market-movers.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-16-polymarket-market-movers.html</guid>
+      <description>The biggest moves across Polymarket this week, pulled from a live dataset of **16,412,836 price snapshots** across **19,467 markets** (updated every 15...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog 2026 06 13 Polymarket Historical Data</title>
+      <link>https://protodex.io/blog/blog-2026-06-13-polymarket-historical-data.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-13-polymarket-historical-data.html</guid>
+      <description>You want Polymarket price history — for a backtest, a research paper, a model, or just to understand how a market moved. There are two real paths: pull...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog 2026 06 13 Polymarket Data Machine Learning</title>
+      <link>https://protodex.io/blog/blog-2026-06-13-polymarket-data-machine-learning.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-13-polymarket-data-machine-learning.html</guid>
+      <description>Prediction markets are a rare thing in machine learning: a continuous, real-money probability estimate with a hard ground-truth label at the end. Every...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog 2026 06 13 Build Custom Mcp Server</title>
+      <link>https://protodex.io/blog/blog-2026-06-13-build-custom-mcp-server.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-13-build-custom-mcp-server.html</guid>
+      <description>The Model Context Protocol (MCP) is how AI agents like Claude and Cursor reach the outside world — your database, your API, your internal tools. An MCP...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Blog 2026 06 13 Backtest Polymarket Strategy</title>
+      <link>https://protodex.io/blog/blog-2026-06-13-backtest-polymarket-strategy.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-13-backtest-polymarket-strategy.html</guid>
+      <description>If you trade on Polymarket, the difference between a hunch and an edge is whether you&amp;#x27;ve tested it against history. A backtest replays your rules over...</description>
+      <pubDate>Fri, 24 Jul 2026 08:10:44 +0000</pubDate>
+    </item>
+    <item>
+      <title>Weekly 2026 07 24</title>
+      <link>https://protodex.io/blog/weekly-2026-07-24.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/weekly-2026-07-24.html</guid>
+      <description>MCP Server Weekly: 20 New Servers Discovered</description>
+      <pubDate>Fri, 24 Jul 2026 07:12:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>Weekly 2026 07 23</title>
+      <link>https://protodex.io/blog/weekly-2026-07-23.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/weekly-2026-07-23.html</guid>
+      <description>MCP Server Weekly: 20 New Servers Discovered</description>
+      <pubDate>Thu, 23 Jul 2026 00:39:29 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
