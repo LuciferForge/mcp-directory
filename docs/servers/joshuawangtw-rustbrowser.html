@@ -1203,7 +1203,7 @@ footer {
         
     <div class="detail-section">
         <h2>README Excerpt</h2>
-        <div class="detail-readme">&gt; 為 LLM(Claude)設計的輕量網頁內容萃取器 —— 不是瀏覽器,而是「省 token 的撈取管線」。 讓 AI agent 抓取網路資料時,**不必啟動 Chrome**。Chrome 會渲染 DOM、執行 JS、載入圖片/CSS/字型/廣告/追蹤腳本——這些對「讀取內容」毫無幫助,只消耗 CPU、記憶體與時間。 更糟的是 token:一個典型網頁原始 HTML 常 100~300 KB,塞滿標籤與 inline script,但真正有用的正文往往只有 3~8 KB。把整包 HTML 餵給 LLM,token 直接爆炸。 RustBrowser 用一條精簡管線解決這件事: ``` URL → 輕量 HTTP 抓取(無瀏覽器引擎)</div>
+        <div class="detail-readme">&gt; 為 LLM(Claude)設計的輕量網頁內容萃取器 —— 不是瀏覽器,而是「省 token 的撈取管線」。 讓 AI agent 抓取網路資料時,<strong>不必啟動 Chrome</strong>。Chrome 會渲染 DOM、執行 JS、載入圖片/CSS/字型/廣告/追蹤腳本——這些對「讀取內容」毫無幫助,只消耗 CPU、記憶體與時間。 更糟的是 token:一個典型網頁原始 HTML 常 100~300 KB,塞滿標籤與 inline script,但真正有用的正文往往只有 3~8 KB。把整包 HTML 餵給 LLM,token 直接爆炸。 RustBrowser 用一條精簡管線解決這件事: ``` URL → 輕量 HTTP 抓取(無瀏覽器引擎)</div>
     </div>
         
     <div class="detail-section">
