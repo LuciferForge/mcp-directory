@@ -3263,10 +3263,12 @@ def markdown_to_html(md):
             if not in_list:
                 html_lines.append("<ul style='padding-left:24px;margin:12px 0'>")
                 in_list = True
-            # Handle bold and code in list items
+            # Handle bold, code, and links in list items
             item = escape(line.strip()[2:])
             item = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', item)
             item = re.sub(r'`(.+?)`', r'<code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:0.85rem">\1</code>', item)
+            item = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">\1</a>', item)
+            item = re.sub(r'(?<!href=")(?<!href=\')(https?://manja8\.gumroad\.com/l/[a-zA-Z0-9_-]+)', r'<a href="\1" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">\1</a>', item)
             html_lines.append(f"<li>{item}</li>")
             continue
         elif in_list and line.strip() == "":
@@ -3277,7 +3279,8 @@ def markdown_to_html(md):
         processed = escape(line)
         processed = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', processed)
         processed = re.sub(r'`(.+?)`', r'<code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:0.85rem">\1</code>', processed)
-        processed = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" style="color:var(--accent)">\1</a>', processed)
+        processed = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">\1</a>', processed)
+        processed = re.sub(r'(?<!href=")(?<!href=\')(https?://manja8\.gumroad\.com/l/[a-zA-Z0-9_-]+)', r'<a href="\1" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">\1</a>', processed)
 
         if line.strip() == "":
             html_lines.append("<br>")
