@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protodex — RSS Feed & Content Stream</title>
+    <meta name="description" content="Subscribe to Protodex RSS feed for real-time Polymarket datasets, prediction market analytics, and AI agent guides.">
+    <link rel="alternate" type="application/rss+xml" title="Protodex RSS Feed" href="https://protodex.io/feed.xml">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #06060a;
+            --bg-card: #0f0f14;
+            --border: #1e1e2a;
+            --text: #f0f0f5;
+            --text-muted: #8888a0;
+            --accent: #2DD9E0;
+            --accent2: #7B61FF;
+            --font: 'Inter', -apple-system, sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+        }
+        header {
+            background: linear-gradient(135deg, rgba(45, 217, 224, 0.12), rgba(123, 97, 255, 0.10));
+            border: 1px solid rgba(45, 217, 224, 0.25);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text), var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        .rss-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-family: var(--mono);
+            font-size: 0.88rem;
+        }
+        .rss-url {
+            color: var(--accent);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .copy-btn {
+            background: var(--accent);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: var(--font);
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+        .copy-btn:hover {
+            opacity: 0.9;
+        }
+        .feed-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .feed-card:hover {
+            border-color: var(--accent);
+        }
+        .feed-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .feed-card-title a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        .feed-card-title a:hover {
+            color: var(--accent);
+        }
+        .feed-card-meta {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .feed-card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .feed-read-btn {
+            display: inline-block;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+        .feed-read-btn:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📡 Protodex Content Stream & RSS</h1>
+            <p class="subtitle">Real-time prediction market analytics, quant dataset releases, and AI agent intelligence.</p>
+            <div class="rss-box">
+                <span class="rss-url" id="rssUrl">https://protodex.io/feed.xml</span>
+                <button class="copy-btn" onclick="copyRssUrl()">Copy RSS Feed URL</button>
+            </div>
+        </header>
+
+        <main>
+            
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-2026-07-06-polymarket-market-movers.html" target="_blank" rel="noopener">Polymarket Market Movers — Week of 2026-07-06</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 09:51:52 +0000</div>
+            <p class="feed-card-desc">The biggest moves across Polymarket this week, pulled from a live dataset of &lt;strong&gt;20,174,776 price snapshots&lt;/strong&gt; across &lt;strong&gt;24,845 markets&lt;/strong&gt; (updated every 15...</p>
+            <a href="https://protodex.io/blog/blog-2026-07-06-polymarket-market-movers.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-2026-06-29-polymarket-market-movers.html" target="_blank" rel="noopener">Polymarket Market Movers — Week of 2026-06-29</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 09:51:52 +0000</div>
+            <p class="feed-card-desc">The biggest moves across Polymarket this week, pulled from a live dataset of &lt;strong&gt;18,791,542 price snapshots&lt;/strong&gt; across &lt;strong&gt;22,627 markets&lt;/strong&gt; (updated every 15...</p>
+            <a href="https://protodex.io/blog/blog-2026-06-29-polymarket-market-movers.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-2026-07-13-polymarket-market-movers.html" target="_blank" rel="noopener">Polymarket Market Movers — Week of 2026-07-13</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 09:51:52 +0000</div>
+            <p class="feed-card-desc">The biggest moves across Polymarket this week, pulled from a live dataset of &lt;strong&gt;21,143,246 price snapshots&lt;/strong&gt; across &lt;strong&gt;26,078 markets&lt;/strong&gt; (updated every 15...</p>
+            <a href="https://protodex.io/blog/blog-2026-07-13-polymarket-market-movers.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-2026-06-16-polymarket-market-movers.html" target="_blank" rel="noopener">Polymarket Market Movers — Week of 2026-06-16</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 09:51:52 +0000</div>
+            <p class="feed-card-desc">The biggest moves across Polymarket this week, pulled from a live dataset of &lt;strong&gt;16,412,836 price snapshots&lt;/strong&gt; across &lt;strong&gt;19,467 markets&lt;/strong&gt; (updated every 15...</p>
+            <a href="https://protodex.io/blog/blog-2026-06-16-polymarket-market-movers.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-2026-06-22-polymarket-market-movers.html" target="_blank" rel="noopener">Polymarket Market Movers — Week of 2026-06-22</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 09:51:52 +0000</div>
+            <p class="feed-card-desc">The biggest moves across Polymarket this week, pulled from a live dataset of &lt;strong&gt;17,464,228 price snapshots&lt;/strong&gt; across &lt;strong&gt;20,878 markets&lt;/strong&gt; (updated every 15...</p>
+            <a href="https://protodex.io/blog/blog-2026-06-22-polymarket-market-movers.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-2026-07-20-polymarket-market-movers.html" target="_blank" rel="noopener">Polymarket Market Movers — Week of 2026-07-20</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 09:51:52 +0000</div>
+            <p class="feed-card-desc">The biggest moves across Polymarket this week, pulled from a live dataset of &lt;strong&gt;22,683,786 price snapshots&lt;/strong&gt; across &lt;strong&gt;27,487 markets&lt;/strong&gt; (updated every 15...</p>
+            <a href="https://protodex.io/blog/blog-2026-07-20-polymarket-market-movers.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-nanobot-guide.html" target="_blank" rel="noopener">nanobot: The 39K-Star AI Agent That Does What Claude Code Does in 99% Less Code</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 09:48:24 +0000</div>
+            <p class="feed-card-desc">nanobot just crossed 39K stars on GitHub. It&amp;#x27;s from HKU&amp;#x27;s Data Science lab and it positions itself as the &amp;quot;ultra-lightweight personal AI agent.&amp;quot; I...</p>
+            <a href="https://protodex.io/blog/blog-nanobot-guide.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-mcp-browser-comparison.html" target="_blank" rel="noopener">I Tested 5 Browser MCP Servers — Here&amp;#x27;s Which One to Use for Your Project</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 09:48:24 +0000</div>
+            <p class="feed-card-desc">There are 87 browser/web MCP servers on &lt;a href=</p>
+            <a href="https://protodex.io/blog/blog-mcp-browser-comparison.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-mcp-playwright.html" target="_blank" rel="noopener">Playwright MCP Server — Let Your AI Control a Real Browser (29K Stars)</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 00:44:22 +0000</div>
+            <p class="feed-card-desc">Microsoft&amp;#x27;s Playwright MCP server gives your AI assistant a real browser. Not a screenshot parser — actual browser control. Navigate pages, fill forms,...</p>
+            <a href="https://protodex.io/blog/blog-mcp-playwright.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-mcp-database-guide.html" target="_blank" rel="noopener">Which Database MCP Server Should You Use? I Compared the Top 6</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 00:44:22 +0000</div>
+            <p class="feed-card-desc">Your AI assistant can now query your database directly. No more copy-pasting SQL results into chat. But there are 183 database MCP servers — which one...</p>
+            <a href="https://protodex.io/blog/blog-mcp-database-guide.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-mcp-context7.html" target="_blank" rel="noopener">How to Use Context7 MCP Server — Up-to-Date Docs for Every Library in Your AI Editor</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 00:44:22 +0000</div>
+            <p class="feed-card-desc">Every AI coding assistant has the same problem: stale training data. You ask Claude to help with Next.js 15 and it gives you Next.js 13 patterns. You...</p>
+            <a href="https://protodex.io/blog/blog-mcp-context7.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-ai-agent-comparison.html" target="_blank" rel="noopener">Claude Code vs Goose vs nanobot vs pi-mono — Which AI Coding Agent Should You Use?</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 00:44:22 +0000</div>
+            <p class="feed-card-desc">There are now 7+ open-source AI coding agents with 30K+ stars each. I&amp;#x27;ve used all of them on real projects. Here&amp;#x27;s when each one makes sense.   The...</p>
+            <a href="https://protodex.io/blog/blog-ai-agent-comparison.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-2026-06-17-can-you-beat-polymarket.html" target="_blank" rel="noopener">I analyzed 932 resolved Polymarket markets — can you actually beat them?</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 00:44:22 +0000</div>
+            <p class="feed-card-desc">Prediction markets feel beatable. The prices are just crowd guesses, right? I pulled 18.7M price snapshots across 18,600+ Polymarket markets and tested...</p>
+            <a href="https://protodex.io/blog/blog-2026-06-17-can-you-beat-polymarket.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-2026-06-13-polymarket-historical-data.html" target="_blank" rel="noopener">Where to Get Polymarket Historical Data (API vs CSV Dataset)</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 00:44:22 +0000</div>
+            <p class="feed-card-desc">You want Polymarket price history — for a backtest, a research paper, a model, or just to understand how a market moved. There are two real paths: pull...</p>
+            <a href="https://protodex.io/blog/blog-2026-06-13-polymarket-historical-data.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-2026-06-13-polymarket-data-machine-learning.html" target="_blank" rel="noopener">Using Polymarket Data for Machine Learning Models</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 00:44:22 +0000</div>
+            <p class="feed-card-desc">Prediction markets are a rare thing in machine learning: a continuous, real-money probability estimate with a hard ground-truth label at the end. Every...</p>
+            <a href="https://protodex.io/blog/blog-2026-06-13-polymarket-data-machine-learning.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-2026-06-13-build-custom-mcp-server.html" target="_blank" rel="noopener">How to Build a Custom MCP Server (or Hire It Out)</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 00:44:22 +0000</div>
+            <p class="feed-card-desc">The Model Context Protocol (MCP) is how AI agents like Claude and Cursor reach the outside world — your database, your API, your internal tools. An MCP...</p>
+            <a href="https://protodex.io/blog/blog-2026-06-13-build-custom-mcp-server.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/blog-2026-06-13-backtest-polymarket-strategy.html" target="_blank" rel="noopener">How to Backtest a Polymarket Trading Strategy (Step by Step)</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 00:44:22 +0000</div>
+            <p class="feed-card-desc">If you trade on Polymarket, the difference between a hunch and an edge is whether you&amp;#x27;ve tested it against history. A backtest replays your rules over...</p>
+            <a href="https://protodex.io/blog/blog-2026-06-13-backtest-polymarket-strategy.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/weekly-2026-07-25.html" target="_blank" rel="noopener">MCP Server Weekly: 20 New Servers Discovered</a>
+            </h2>
+            <div class="feed-card-meta">Published: Sat, 25 Jul 2026 00:40:00 +0000</div>
+            <p class="feed-card-desc">MCP Server Weekly: 20 New Servers Discovered</p>
+            <a href="https://protodex.io/blog/weekly-2026-07-25.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+
+        <article class="feed-card">
+            <h2 class="feed-card-title">
+                <a href="https://protodex.io/blog/weekly-2026-07-24.html" target="_blank" rel="noopener">MCP Server Weekly: 20 New Servers Discovered</a>
+            </h2>
+            <div class="feed-card-meta">Published: Fri, 24 Jul 2026 07:12:17 +0000</div>
+            <p class="feed-card-desc">MCP Server Weekly: 20 New Servers Discovered</p>
+            <a href="https://protodex.io/blog/weekly-2026-07-24.html" target="_blank" rel="noopener" class="feed-read-btn">Read full post →</a>
+        </article>
+        
+        </main>
+
+        <footer>
+            &copy; 2026 <a href="https://protodex.io">Protodex.io</a> &middot; Built for developers & quant traders.
+        </footer>
+    </div>
+
+    <script>
+        function copyRssUrl() {
+            const url = document.getElementById('rssUrl').innerText;
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.innerText = 'Copied! ✓';
+                setTimeout(() => btn.innerText = 'Copy RSS Feed URL', 2000);
+            });
+        }
+    </script>
+</body>
+</html>
