@@ -1137,7 +1137,7 @@ footer {
 <br>
 <h2 style="margin-top:32px;margin-bottom:12px">The data you need</h2>
 <br>
-<p>Training needs density and history: enough snapshots, across enough markets, with order-book detail — not just a sparse price line. The <a href="/datasets/polymarket-historical.html" style="color:var(--accent)">Polymarket Historical Dataset</a> is purpose-built for this: 18.5M+ rows of price + depth at a 15-minute cadence across 18,400+ markets, each row carrying mid, best bid/ask, depth, spread, and a UTC timestamp, with the market&#x27;s final outcome available as your target.</p>
+<p>Training needs density and history: enough snapshots, across enough markets, with order-book detail — not just a sparse price line. The <a href="/datasets/polymarket-historical.html" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Polymarket Historical Dataset</a> is purpose-built for this: 18.5M+ rows of price + depth at a 15-minute cadence across 18,400+ markets, each row carrying mid, best bid/ask, depth, spread, and a UTC timestamp, with the market&#x27;s final outcome available as your target.</p>
 <br>
 <p>It&#x27;s CSV, so the path into a model is short:</p>
 <br>
@@ -1151,11 +1151,11 @@ df[&quot;book_imbalance&quot;] = df[&quot;bid_depth&quot;] / (df[&quot;bid_depth
 <br>
 <h2 style="margin-top:32px;margin-bottom:12px">Avoid the classic leakage trap</h2>
 <br>
-<p>Because every market resolves, it&#x27;s tempting to use information from late in a market&#x27;s life to predict earlier prices. Don&#x27;t. Split by market and by time, and make sure features at time *t* only use data available at *t*. The same discipline applies whether you&#x27;re training a model or <a href="/blog/blog-2026-06-13-backtest-polymarket-strategy.html" style="color:var(--accent)">backtesting a trading strategy</a>.</p>
+<p>Because every market resolves, it&#x27;s tempting to use information from late in a market&#x27;s life to predict earlier prices. Don&#x27;t. Split by market and by time, and make sure features at time *t* only use data available at *t*. The same discipline applies whether you&#x27;re training a model or <a href="/blog/blog-2026-06-13-backtest-polymarket-strategy.html" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">backtesting a trading strategy</a>.</p>
 <br>
 <h2 style="margin-top:32px;margin-bottom:12px">Start with clean data</h2>
 <br>
-<p>The modeling is the fun part; sourcing months of aligned, gap-checked history is the grind. Skip it — grab the <a href="/datasets/polymarket-historical.html" style="color:var(--accent)">Polymarket Historical Dataset</a> ($15 one-time, or a $29/mo refreshed feed for continuous training) and spend your time on features, not collectors.</p>
+<p>The modeling is the fun part; sourcing months of aligned, gap-checked history is the grind. Skip it — grab the <a href="/datasets/polymarket-historical.html" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Polymarket Historical Dataset</a> ($15 one-time, or a $29/mo refreshed feed for continuous training) and spend your time on features, not collectors.</p>
         </div>
     </article>
 </div>

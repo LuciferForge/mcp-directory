@@ -1203,7 +1203,7 @@ footer {
         
     <div class="detail-section">
         <h2>README Excerpt</h2>
-        <div class="detail-readme">&gt; Claude Code に <strong>海馬（hippocampus）</strong> を足す MCP server。 &gt; 全部覚える代わりに、<strong>特異性が高い瞬間だけ</strong> を長期記憶化する surprise-aware memory store。 ```bash cargo install claude-hippo hippo serve  # MCP stdio server, ready for Claude Code ``` --- | 軸 | claude-hippo | 既存 | |---|---|---| | <strong>Surprise-based selection</strong> | embedding outlier + engagement + explicit signal を合成して `surprise_score` を毎回計算、recall でこれを使った時間減衰込み ranking。「あの時の重要な決定」が長期セッションで薄まらない | ❌ ない |</div>
+        <div class="detail-readme">&gt; Claude Code に **海馬（hippocampus）** を足す MCP server。 &gt; 全部覚える代わりに、**特異性が高い瞬間だけ** を長期記憶化する surprise-aware memory store。 ```bash cargo install claude-hippo hippo serve  # MCP stdio server, ready for Claude Code ``` --- | 軸 | claude-hippo | 既存 | |---|---|---| | **Surprise-based selection** | embedding outlier + engagement + explicit signal を合成して `surprise_score` を毎回計算、recall でこれを使った時間減衰込み ranking。「あの時の重要な決定」が長期セッションで薄まらない | ❌ ない |</div>
     </div>
         
         
