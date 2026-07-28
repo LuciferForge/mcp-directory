@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protodex Alpha Stream | Sub-10ms Prediction Market Telemetry &amp; Institutional Datasets</title>
+    <meta name="description" content="Sub-10ms WebSocket crash feeds, 27,000,000+ historical price snapshots, and Parquet data pipelines for quantitative hedge funds and prediction market traders.">
+    <meta property="og:title" content="Protodex Alpha Stream | Institutional Prediction Market Data">
+    <meta property="og:description" content="Sub-10ms WebSocket crash feeds and 27M+ historical price snapshots for quant funds and market makers.">
+    <meta property="og:url" content="https://protodex.io/alpha.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://protodex.io/og/protodex.png">
+    <link rel="canonical" href="https://protodex.io/alpha.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #06060a;
+    --bg-card: #0f0f14;
+    --bg-card-hover: #16161d;
+    --bg-hover: #12121a;
+    --border: #1e1e2a;
+    --border-hover: #2d2d3f;
+    --text: #f0f0f5;
+    --text-muted: #8888a0;
+    --text-dim: #55556a;
+    --accent: #2DD9E0;
+    --accent-hover: #1FC2C9;
+    --accent-glow: rgba(45, 217, 224, 0.15);
+    --accent-soft: rgba(45, 217, 224, 0.06);
+    --accent2: #7B61FF;
+    --green: #2DD9E0;
+    --yellow: #FFD93D;
+    --blue: #5B8DEF;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --radius: 10px;
+    --radius-lg: 16px;
+    --max-w: 1200px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header */
+header {
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(6, 6, 10, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 100;
+}
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+}
+.logo-name {
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.5px;
+}
+.logo-name .lo-proto { color: var(--text); }
+.logo-name .lo-dex { color: var(--accent); }
+.logo-tagline {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: var(--mono);
+    margin-left: 4px;
+}
+nav { display: flex; align-items: center; gap: 24px; }
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+nav a:hover { color: var(--text); }
+nav a.nav-cta {
+    background: var(--accent);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    font-weight: 600;
+}
+nav a.nav-cta:hover { background: var(--accent-hover); }
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 90px 0 50px;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 700px;
+    background: radial-gradient(ellipse at center, rgba(45, 217, 224, 0.12) 0%, rgba(123, 97, 255, 0.05) 45%, transparent 70%);
+    pointer-events: none;
+}
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(45, 217, 224, 0.3);
+    color: var(--accent);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    font-family: var(--mono);
+}
+.pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 217, 224, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(45, 217, 224, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 217, 224, 0); }
+}
+.hero h1 {
+    font-size: 3.4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+}
+.hero h1 span {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 720px;
+    margin: 0 auto 36px;
+}
+
+/* Stats Overview Grid */
+.grid-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    text-align: left;
+}
+.stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+.stat-val { font-size: 1.8rem; font-weight: 800; font-family: var(--mono); color: var(--text); }
+.stat-val.accent { color: var(--accent); }
+.stat-val.purple { color: var(--accent2); }
+.stat-sub { font-size: 0.75rem; color: var(--text-dim); margin-top: 4px; }
+
+/* Quant Terminal Code Box */
+.terminal-section {
+    margin: 60px 0;
+}
+.terminal-box {
+    background: #09090e;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+.terminal-header {
+    background: #111118;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+}
+.terminal-dots { display: flex; gap: 8px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red { background: #FF5F56; }
+.dot.yellow { background: #FFBD2E; }
+.dot.green { background: #27C93F; }
+.terminal-title { font-family: var(--mono); font-size: 0.8rem; color: var(--text-muted); }
+.terminal-body {
+    padding: 24px;
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: #e0e0f0;
+    overflow-x: auto;
+}
+.token.key { color: #2DD9E0; }
+.token.string { color: #A6E22E; }
+.token.number { color: #AE81FF; }
+
+/* Pricing Cards */
+.pricing-section { padding: 60px 0; text-align: center; }
+.pricing-section h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -1px; }
+.pricing-section p { color: var(--text-muted); margin-bottom: 48px; }
+.pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 960px; margin: 0 auto; }
+.price-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    text-align: left;
+    position: relative;
+    transition: transform 0.2s, border-color 0.2s;
+}
+.price-card:hover { transform: translateY(-4px); border-color: var(--border-hover); }
+.price-card.featured {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, rgba(45, 217, 224, 0.05) 0%, var(--bg-card) 100%);
+}
+.price-badge {
+    position: absolute;
+    top: -14px;
+    right: 32px;
+    background: var(--accent);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+.price-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+.price-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; min-height: 40px; }
+.price-num { font-size: 3rem; font-weight: 900; font-family: var(--mono); color: var(--text); }
+.price-num span { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
+.price-features { list-style: none; margin: 32px 0; }
+.price-features li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text); margin-bottom: 12px; }
+.price-features li::before { content: "✓"; color: var(--accent); font-weight: 800; }
+.btn-price {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.btn-price.primary { background: var(--accent); color: #000; }
+.btn-price.primary:hover { background: var(--accent-hover); }
+.btn-price.secondary { background: var(--border); color: var(--text); }
+.btn-price.secondary:hover { background: var(--border-hover); }
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+footer a { color: var(--text-muted); text-decoration: none; }
+footer a:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="/" class="logo">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+            <div class="logo-text">
+                <span class="logo-name"><span class="lo-proto">proto</span><span class="lo-dex">dex</span></span>
+                <span class="logo-tagline">ALPHA STREAM</span>
+            </div>
+        </a>
+        <nav>
+            <a href="/">Explore</a>
+            <a href="/live.html">Live Audit</a>
+            <a href="/alpha.html" style="color:var(--accent)">Alpha Stream</a>
+            <a href="#pricing" class="nav-cta">Get Access →</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge"><span class="pulse"></span>Sub-10ms Live Telemetry Node Active</div>
+        <h1>Institutional <span>Prediction Market</span> Alpha Stream</h1>
+        <p>Ultra low-latency WebSocket crash feeds, L3 orderbook snapshots, and 27,000,000+ historical price records engineered for quantitative hedge funds and automated market makers.</p>
+
+        <div class="grid-stats">
+            <div class="stat-card">
+                <div class="stat-label">Historical Snapshots</div>
+                <div class="stat-val accent">27.2M+</div>
+                <div class="stat-sub">Indexed in S3/Parquet</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">WebSocket Latency</div>
+                <div class="stat-val accent">&lt;10ms</div>
+                <div class="stat-sub">Sub-second crash detection</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Indexed Markets</div>
+                <div class="stat-val purple">28,937</div>
+                <div class="stat-sub">Polymarket &amp; Kalshi</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Mean Reversion Alpha</div>
+                <div class="stat-val accent">+6.6%</div>
+                <div class="stat-sub">Avg 15m bounce post-crash</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container terminal-section">
+    <div class="terminal-box">
+        <div class="terminal-header">
+            <div class="terminal-dots">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="terminal-title">wss://api.protodex.io/ws/crashes (Real-Time Alpha Event Stream)</div>
+        </div>
+        <div class="terminal-body">
+            <pre><code>{
+  <span class="token key">"event"</span>: <span class="token string">"CRASH_DETECTED"</span>,
+  <span class="token key">"timestamp"</span>: <span class="token number">1785160800</span>,
+  <span class="token key">"market_id"</span>: <span class="token string">"3001579"</span>,
+  <span class="token key">"question"</span>: <span class="token string">"Will the price of Bitcoin be above $66,000 on July 27?"</span>,
+  <span class="token key">"category"</span>: <span class="token string">"crypto"</span>,
+  <span class="token key">"price_high_4h"</span>: <span class="token number">0.145</span>,
+  <span class="token key">"price_current"</span>: <span class="token number">0.065</span>,
+  <span class="token key">"drop_pct"</span>: <span class="token number">0.5517</span>,
+  <span class="token key">"historical_mean_reversion_prob"</span>: <span class="token number">0.8019</span>,
+  <span class="token key">"expected_15m_bounce_pct"</span>: <span class="token number">0.066</span>
+}</code></pre>
+        </div>
+    </div>
+</div>
+
+<section class="pricing-section" id="pricing">
+    <div class="container">
+        <h2>Institutional Access &amp; API Licensing</h2>
+        <p>Direct low-latency WebSocket node connections and full S3/Parquet historical dataset downloads.</p>
+
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="price-title">Pro Quant Tier</div>
+                <div class="price-desc">Designed for active prediction market traders, bots, and individual quants.</div>
+                <div class="price-num">$249 <span>/ month</span></div>
+                <ul class="price-features">
+                    <li>50,000 requests / day rate limit</li>
+                    <li>Full access to `/crashes` endpoint</li>
+                    <li>Sub-45ms WebSocket stream access</li>
+                    <li>Standard email technical support</li>
+                    <li>`polymarket-mcp-pro` CLI &amp; SDK access</li>
+                </ul>
+                <a href="https://polar.sh/LuciferForge" class="btn-price secondary">Subscribe Pro ($249/mo)</a>
+            </div>
+
+            <div class="price-card featured">
+                <div class="price-badge">Most Popular</div>
+                <div class="price-title">Institutional Fund Tier</div>
+                <div class="price-desc">For quantitative hedge funds, prop trading firms, and liquidity providers.</div>
+                <div class="price-num">$2,500 <span>/ month</span></div>
+                <ul class="price-features">
+                    <li>Unlimited API rate limits</li>
+                    <li>Dedicated &lt;10ms WebSocket streaming node</li>
+                    <li>Full 27M+ snapshot S3/Parquet raw downloads</li>
+                    <li>L3 orderbook depth &amp; liquidity metrics</li>
+                    <li>1-on-1 Dedicated Quant Integration Support</li>
+                </ul>
+                <a href="mailto:LuciferForge@proton.me?subject=Institutional%20Alpha%20Stream%20Inquiry" class="btn-price primary">Request Institutional Access →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Protodex &middot; Built by <a href="https://github.com/LuciferForge">LuciferForge</a> &middot; <a href="/live.html">Live Audit</a> &middot; <a href="/alpha.html">Alpha Stream</a> &middot; <a href="/privacy.html">Privacy</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
