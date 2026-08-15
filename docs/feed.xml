@@ -5,146 +5,146 @@
     <link>https://protodex.io</link>
     <description>Real-time dataset releases, prediction market analytics, and AI agent intelligence.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Aug 2026 07:49:36 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2026 21:51:29 +0000</lastBuildDate>
     <item>
       <title>nanobot: The 39K-Star AI Agent That Does What Claude Code Does in 99% Less Code</title>
       <link>https://protodex.io/blog/blog-nanobot-guide.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-nanobot-guide.html</guid>
       <description>nanobot just crossed 39K stars on GitHub. It&amp;#x27;s from HKU&amp;#x27;s Data Science lab and it positions itself as the &amp;quot;ultra-lightweight personal AI agent.&amp;quot; I...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Playwright MCP Server — Let Your AI Control a Real Browser (29K Stars)</title>
       <link>https://protodex.io/blog/blog-mcp-playwright.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-playwright.html</guid>
       <description>Microsoft&amp;#x27;s Playwright MCP server gives your AI assistant a real browser. Not a screenshot parser — actual browser control. Navigate pages, fill forms,...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Which Database MCP Server Should You Use? I Compared the Top 6</title>
       <link>https://protodex.io/blog/blog-mcp-database-guide.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-database-guide.html</guid>
       <description>Your AI assistant can now query your database directly. No more copy-pasting SQL results into chat. But there are 183 database MCP servers — which one...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>How to Use Context7 MCP Server — Up-to-Date Docs for Every Library in Your AI Editor</title>
       <link>https://protodex.io/blog/blog-mcp-context7.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-context7.html</guid>
       <description>Every AI coding assistant has the same problem: stale training data. You ask Claude to help with Next.js 15 and it gives you Next.js 13 patterns. You...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>I Tested 5 Browser MCP Servers — Here&amp;#x27;s Which One to Use for Your Project</title>
       <link>https://protodex.io/blog/blog-mcp-browser-comparison.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-browser-comparison.html</guid>
       <description>There are 87 browser/web MCP servers on [Protodex](https://protodex.io/category/browser-web.html). I tested the top 5 to figure out when to use each...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Claude Code vs Goose vs nanobot vs pi-mono — Which AI Coding Agent Should You Use?</title>
       <link>https://protodex.io/blog/blog-ai-agent-comparison.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-ai-agent-comparison.html</guid>
       <description>There are now 7+ open-source AI coding agents with 30K+ stars each. I&amp;#x27;ve used all of them on real projects. Here&amp;#x27;s when each one makes sense.   The...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Polymarket Market Movers — Week of 2026-08-10</title>
       <link>https://protodex.io/blog/blog-2026-08-10-polymarket-market-movers.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-08-10-polymarket-market-movers.html</guid>
       <description>The biggest moves across Polymarket this week, pulled from a live dataset of **27,141,460 price snapshots** across **32,040 markets** (updated every 15...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Polymarket Market Movers — Week of 2026-08-03</title>
       <link>https://protodex.io/blog/blog-2026-08-03-polymarket-market-movers.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-08-03-polymarket-market-movers.html</guid>
       <description>The biggest moves across Polymarket this week, pulled from a live dataset of **25,494,310 price snapshots** across **30,441 markets** (updated every 15...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Polymarket Market Movers — Week of 2026-07-27</title>
       <link>https://protodex.io/blog/blog-2026-07-27-polymarket-market-movers.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-07-27-polymarket-market-movers.html</guid>
       <description>The biggest moves across Polymarket this week, pulled from a live dataset of **23,867,128 price snapshots** across **28,689 markets** (updated every 15...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Polymarket Market Movers — Week of 2026-07-20</title>
       <link>https://protodex.io/blog/blog-2026-07-20-polymarket-market-movers.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-07-20-polymarket-market-movers.html</guid>
       <description>The biggest moves across Polymarket this week, pulled from a live dataset of **22,683,786 price snapshots** across **27,487 markets** (updated every 15...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Polymarket Market Movers — Week of 2026-07-13</title>
       <link>https://protodex.io/blog/blog-2026-07-13-polymarket-market-movers.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-07-13-polymarket-market-movers.html</guid>
       <description>The biggest moves across Polymarket this week, pulled from a live dataset of **21,143,246 price snapshots** across **26,078 markets** (updated every 15...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Polymarket Market Movers — Week of 2026-07-06</title>
       <link>https://protodex.io/blog/blog-2026-07-06-polymarket-market-movers.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-07-06-polymarket-market-movers.html</guid>
       <description>The biggest moves across Polymarket this week, pulled from a live dataset of **20,174,776 price snapshots** across **24,845 markets** (updated every 15...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Polymarket Market Movers — Week of 2026-06-29</title>
       <link>https://protodex.io/blog/blog-2026-06-29-polymarket-market-movers.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-29-polymarket-market-movers.html</guid>
       <description>The biggest moves across Polymarket this week, pulled from a live dataset of **18,791,542 price snapshots** across **22,627 markets** (updated every 15...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Polymarket Market Movers — Week of 2026-06-22</title>
       <link>https://protodex.io/blog/blog-2026-06-22-polymarket-market-movers.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-22-polymarket-market-movers.html</guid>
       <description>The biggest moves across Polymarket this week, pulled from a live dataset of **17,464,228 price snapshots** across **20,878 markets** (updated every 15...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>I analyzed 932 resolved Polymarket markets — can you actually beat them?</title>
       <link>https://protodex.io/blog/blog-2026-06-17-can-you-beat-polymarket.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-17-can-you-beat-polymarket.html</guid>
       <description>Prediction markets feel beatable. The prices are just crowd guesses, right? I pulled 18.7M price snapshots across 18,600+ Polymarket markets and tested...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Polymarket Market Movers — Week of 2026-06-16</title>
       <link>https://protodex.io/blog/blog-2026-06-16-polymarket-market-movers.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-16-polymarket-market-movers.html</guid>
       <description>The biggest moves across Polymarket this week, pulled from a live dataset of **16,412,836 price snapshots** across **19,467 markets** (updated every 15...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Where to Get Polymarket Historical Data (API vs CSV Dataset)</title>
       <link>https://protodex.io/blog/blog-2026-06-13-polymarket-historical-data.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-13-polymarket-historical-data.html</guid>
       <description>You want Polymarket price history — for a backtest, a research paper, a model, or just to understand how a market moved. There are two real paths: pull...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>Using Polymarket Data for Machine Learning Models</title>
       <link>https://protodex.io/blog/blog-2026-06-13-polymarket-data-machine-learning.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-13-polymarket-data-machine-learning.html</guid>
       <description>Prediction markets are a rare thing in machine learning: a continuous, real-money probability estimate with a hard ground-truth label at the end. Every...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>How to Build a Custom MCP Server (or Hire It Out)</title>
       <link>https://protodex.io/blog/blog-2026-06-13-build-custom-mcp-server.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-13-build-custom-mcp-server.html</guid>
       <description>The Model Context Protocol (MCP) is how AI agents like Claude and Cursor reach the outside world — your database, your API, your internal tools. An MCP...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
     <item>
       <title>How to Backtest a Polymarket Trading Strategy (Step by Step)</title>
       <link>https://protodex.io/blog/blog-2026-06-13-backtest-polymarket-strategy.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-2026-06-13-backtest-polymarket-strategy.html</guid>
       <description>If you trade on Polymarket, the difference between a hunch and an edge is whether you&amp;#x27;ve tested it against history. A backtest replays your rules over...</description>
-      <pubDate>Sat, 15 Aug 2026 07:49:35 +0000</pubDate>
+      <pubDate>Sat, 15 Aug 2026 21:51:27 +0000</pubDate>
     </item>
   </channel>
 </rss>
