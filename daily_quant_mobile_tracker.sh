@@ -14,6 +14,9 @@ echo "=== EXECUTING DAILY QUANT MOBILE TRACKER [$(date)] ==="
 # 1. Run 48h Trade & Daily Performance Audit
 /Library/Frameworks/Python.framework/Versions/3.10/bin/python3 /Users/apple/Documents/ZeroLag/audit_2day_trades.py
 
+# 2. Run Polymarket Auto-Claim & Payout Redeemer
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3 /Users/apple/Documents/products/news-orderbook-arbitrage/polymarket_auto_redeemer.py
+
 # 2. Extract Audit Results
 AUDIT_FILE="/Users/apple/Documents/ZeroLag/trade_audit_48h.json"
 
