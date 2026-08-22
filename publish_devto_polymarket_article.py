@@ -4,17 +4,26 @@ Dev.to Polymarket Promotional Article Publisher:
 Publishes an SEO-rich technical article to Dev.to via the Dev.to API key to drive organic developer traffic to the Polymarket Data API & Dataset.
 """
 
+import os
+import json
+import requests
+from datetime import datetime, timezone
 from dotenv import load_dotenv
+
 load_dotenv('/Users/apple/Documents/Zero_fks/.env')
 
-DEVTO_API_KEY = os.getenv("DEVTO_API_KEY", "Ef8LhxnJjnmpEwMef2LWMpUR")
+DEVTO_API_KEY = os.getenv("DEVTO_API_KEY")
 DEVTO_API_URL = "https://dev.to/api/articles"
 
-ARTICLE_MARKDOWN = """---
-title: Building a Sub-10ms Quantitative Prediction Market Arbitrage & Data Engine with Python
+today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+article_title = f"Building a Sub-10ms Quantitative Prediction Market Arbitrage & Data Engine ({today_str})"
+canonical_link = f"https://protodex.io/blog/polymarket-top-volume-{today_str}.html"
+
+ARTICLE_MARKDOWN = f"""---
+title: {article_title}
 published: true
 tags: python, crypto, web3, finance
-canonical_url: https://protodex.io/blog/polymarket-top-volume-2026-08-15.html
+canonical_url: {canonical_link}
 description: A technical breakdown of prediction market microstructure, orderbook stream interception, and 15-minute price tick historical dataset analysis on Polymarket.
 ---
 
@@ -33,7 +42,7 @@ import requests
 
 def fetch_high_volume_markets(min_volume=50000):
     url = "https://gamma-api.polymarket.com/markets"
-    params = {"active": "true", "closed": "false", "limit": 200, "order": "volume:desc"}
+    params = {{"active": "true", "closed": "false", "limit": 200, "order": "volume:desc"}}
     r = requests.get(url, params=params)
     markets = r.json() if r.status_code == 200 else []
     
@@ -45,7 +54,7 @@ def fetch_high_volume_markets(min_volume=50000):
 
 ### 2. Near-Expiry Probability Convergence Strategy
 
-Binary outcome markets resolving in $< 48\text{ hours}$ frequently experience orderbook dislocations where winning outcome shares trade at **$0.92 – $0.94** despite a $> 99\%$ certainty.
+Binary outcome markets resolving in $< 48$ hours frequently experience orderbook dislocations where winning outcome shares trade at **$0.92 – $0.94** despite a $> 99\%$ certainty.
 
 By identifying these near-resolution probability locks, quantitative algorithms can capture a **6.3% to 8.7% net ROI** per trade with near-zero duration exposure.
 
@@ -70,7 +79,7 @@ def publish_article():
     
     payload = {
         "article": {
-            "title": "Building a Sub-10ms Quantitative Prediction Market Arbitrage & Data Engine with Python",
+            "title": article_title,
             "published": True,
             "body_markdown": ARTICLE_MARKDOWN,
             "tags": ["python", "crypto", "web3", "finance"]
@@ -84,7 +93,7 @@ def publish_article():
         print("  ✅ SUCCESS! Published Live on Dev.to!")
         print(f"  URL: {data.get('url')}")
     else:
-        print(f"  ❌ Error publishing to Dev.to: {r.text}")
+        print(f"  ❌ Response: {r.status_code} - {r.text}")
 
 if __name__ == "__main__":
     publish_article()

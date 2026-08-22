@@ -6,8 +6,13 @@ if [ -f "$ENV_FILE" ]; then
     set +a
 fi
 
-BOT_TOKEN="${TELEGRAM_BOT_TOKEN:-8876734134:AAHJz7LoeAJi8fnIa1v5ZgsGgsG9d7undas}"
-CHAT_ID="${TELEGRAM_CHAT_ID:-257190241}"
+BOT_TOKEN="${TELEGRAM_BOT_TOKEN}"
+CHAT_ID="${TELEGRAM_CHAT_ID}"
+
+if [ -z "$BOT_TOKEN" ] || [ -z "$CHAT_ID" ]; then
+    echo "⚠️ TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not set. Skipping Telegram notification."
+    exit 0
+fi
 
 echo "=== EXECUTING DAILY QUANT MOBILE TRACKER [$(date)] ==="
 
