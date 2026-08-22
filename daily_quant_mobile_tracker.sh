@@ -31,12 +31,30 @@ else
     VOLUME="92093.14"
 fi
 
-MESSAGE="🤖 *QUANT MOBILE PERFORMANCE & SPOT VAULT REPORT* 📊%0A📅 Date: $(date +'%Y-%m-%d')%0A%0A💰 *Current Wallet Equity:* \$${EQUITY} USDT%0A📉 *Net Equity Change:* \$${NET_CHANGE} USDT%0A🏆 *Spot Auto-Vault Target (\$1,000):* ${VAULT_PCT}%%0A%0A📊 *Trades (48h):* ${TRADES} Trades%0A🌐 *Traded Volume:* \$${VOLUME} USDT%0A%0A🧠 *Genius Strategy Status:*%0A• Vol Surge: >= 2.5x 20-MA%0A• VWAP Guard: <= 0.8%%0A• RSI Zone: 45 - 65%0A• 1% Risk Sizing: Active (\$1.48)%0A• Single PID Lock: Active (PID 56110)%0A• Auto Spot Vault: Trigger at \$1,000%0A%0A📱 *View Live Mobile Dashboard:*%0Ahttps://protodex.io/quant-dashboard.html"
+MESSAGE="🤖 QUANT MOBILE PERFORMANCE & SPOT VAULT REPORT 📊
+📅 Date: $(date +'%Y-%m-%d')
+
+💰 Current Wallet Equity: $${EQUITY} USDT
+📉 Net Equity Change: $${NET_CHANGE} USDT
+🏆 Spot Auto-Vault Target ($1,000): ${VAULT_PCT}%
+
+📊 Trades (48h): ${TRADES} Trades
+🌐 Traded Volume: $${VOLUME} USDT
+
+🧠 Genius Strategy Status:
+• Vol Surge: >= 2.5x 20-MA
+• VWAP Guard: <= 0.8%
+• RSI Zone: 45 - 65
+• 1% Risk Sizing: Active ($1.48)
+• Single PID Lock: Active (PID 56110)
+• Auto Spot Vault: Trigger at $1,000
+
+📱 View Live Mobile Dashboard:
+https://protodex.io/quant-dashboard.html"
 
 # Send to Telegram
 curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
-  -d "chat_id=${CHAT_ID}" \
-  -d "text=${MESSAGE}" \
-  -d "parse_mode=Markdown"
+  --data-urlencode "chat_id=${CHAT_ID}" \
+  --data-urlencode "text=${MESSAGE}"
 
 echo "✅ Telegram daily quant update dispatched successfully!"
