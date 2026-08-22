@@ -1,5 +1,5 @@
-# Load credentials from .env if available
-ENV_FILE="/Users/apple/Documents/ZeroLag/.env"
+# Load credentials from Zero_fks .env
+ENV_FILE="/Users/apple/Documents/Zero_fks/.env"
 if [ -f "$ENV_FILE" ]; then
     set -a
     source "$ENV_FILE" 2>/dev/null || true
