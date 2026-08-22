@@ -100,18 +100,19 @@
 
   function updateView() {
     pdxPersonaName.innerText = activePersona.name;
-    const waText = encodeURIComponent(`Hi ${activePersona.name}! I found you on Protodex!`);
-    const waUrl = `https://api.whatsapp.com/send?text=${waText}`;
+    const directAgentUrl = activePersona.link;
+    const waText = encodeURIComponent(`Hi ${activePersona.name}! I want to start a 1-on-1 chat with you via Protodex.`);
+    const waShareUrl = `https://api.whatsapp.com/send?text=${waText}`;
     
     pdxBody.innerHTML = `
       <div class="pdx-msg">
         ${activePersona.greeting}
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;">
-          <a href="${waUrl}" target="_blank" class="pdx-wa-btn">
-            💬 Chat with ${activePersona.name} on WhatsApp (Instant / No Login Needed)
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;">
+          <a href="${directAgentUrl}" target="_blank" class="pdx-wa-btn">
+            ⚡ Open 1-on-1 Direct Chat with ${activePersona.name} (Instant / No Login Needed)
           </a>
-          <a href="${activePersona.link}" target="_blank" style="display:block;padding:8px;color:#A0A5BA;font-size:11px;text-align:center;text-decoration:underline;">
-            Or open Meta AI Studio page
+          <a href="${waShareUrl}" target="_blank" style="display:block;padding:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;color:#25D366;font-size:12px;text-align:center;text-decoration:none;font-weight:700;">
+            📲 Or Share ${activePersona.name} to WhatsApp Contact
           </a>
         </div>
       </div>
