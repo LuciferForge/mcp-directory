@@ -1,7 +1,9 @@
 # Load credentials from .env if available
 ENV_FILE="/Users/apple/Documents/ZeroLag/.env"
 if [ -f "$ENV_FILE" ]; then
-    export $(grep -v '^#' "$ENV_FILE" | xargs)
+    set -a
+    source "$ENV_FILE" 2>/dev/null || true
+    set +a
 fi
 
 BOT_TOKEN="${TELEGRAM_BOT_TOKEN:-8876734134:AAHJz7LoeAJi8fnIa1v5ZgsGgsG9d7undas}"
