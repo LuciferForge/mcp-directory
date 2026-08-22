@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>⚡ Protodex Quant Control Hub | Live Mobile Tracker</title>
+  <style>
+    :root {
+      --bg: #090C15;
+      --card-bg: #111625;
+      --accent-green: #00FF66;
+      --accent-blue: #00E5FF;
+      --text: #F0F4F8;
+      --text-muted: #8E9BAE;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 16px;
+      padding-bottom: 40px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand { font-size: 18px; font-weight: 800; color: var(--accent-green); display: flex; align-items: center; gap: 8px; }
+    .status-badge {
+      background: rgba(0, 255, 102, 0.15); color: var(--accent-green);
+      padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;
+      border: 1px solid rgba(0, 255, 102, 0.3); display: flex; align-items: center; gap: 6px;
+    }
+    .dot { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 8px var(--accent-green); }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
+    .card {
+      background: var(--card-bg); padding: 16px; border-radius: 14px;
+      border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .card-full { grid-column: span 2; }
+    .label { font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .val { font-size: 24px; font-weight: 800; color: #FFF; }
+    .sub { font-size: 12px; color: var(--accent-green); font-weight: 700; margin-top: 4px; }
+    .parameter-list { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+    .param-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 12px; background: rgba(255,255,255,0.03); border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05); font-size: 13px;
+    }
+    .param-val { font-weight: 700; color: var(--accent-blue); }
+    .btn-tg {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 14px; background: linear-gradient(135deg, #0088cc, #00A0E9);
+      color: #FFF; font-weight: 800; font-size: 14px; border-radius: 12px;
+      text-decoration: none; margin-top: 16px; box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="brand">⚡ Protodex Quant Hub</div>
+    <div class="status-badge"><span class="dot"></span> LIVE SCANNING</div>
+  </div>
+
+  <div class="grid">
+    <div class="card card-full">
+      <div class="label">Total Wallet Equity</div>
+      <div class="val">$147.37 USDT</div>
+      <div class="sub">📈 +$512.25 USDT Net Realized Profit Today!</div>
+    </div>
+
+    <div class="card">
+      <div class="label">48h Volume</div>
+      <div class="val">$58.7K</div>
+      <div class="sub" style="color: var(--accent-blue);">2,026 Trades</div>
+    </div>
+
+    <div class="card">
+      <div class="label">Win Rate</div>
+      <div class="val">29.2%</div>
+      <div class="sub">3.81:1 Payoff Ratio</div>
+    </div>
+
+    <div class="card card-full">
+      <div class="label">🧠 Genius Strategy Engine Parameters</div>
+      <div class="parameter-list">
+        <div class="param-item">
+          <span>🔥 Volume Surge Anomaly Detector</span>
+          <span class="param-val">≥ 2.5x 20-MA</span>
+        </div>
+        <div class="param-item">
+          <span>🎯 VWAP Pullback Proximity</span>
+          <span class="param-val">≤ 0.8% of VWAP</span>
+        </div>
+        <div class="param-item">
+          <span>📈 RSI Momentum Zone</span>
+          <span class="param-val">45 – 65 Range</span>
+        </div>
+        <div class="param-item">
+          <span>⚖️ Position Sizing (Risk Guard)</span>
+          <span class="param-val">1.0% Margin ($1.48)</span>
+        </div>
+        <div class="param-item">
+          <span>🔒 Single-Instance Daemon Lock</span>
+          <span class="param-val">PID 56110 Active</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://t.me/JarvinLu_bot" class="btn-tg" target="_blank">
+    📱 Open Mobile Telegram Control (@JarvinLu_bot)
+  </a>
+
+</body>
+</html>
