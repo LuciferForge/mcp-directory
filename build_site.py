@@ -1368,8 +1368,11 @@ GUMROAD_PRODUCTS = {
     "skills-pack":     {"url": "https://manja8.gumroad.com/l/dhnzd",
                          "cta": "Claude Skills Pack →", "price": "$99",
                          "pitch": "Production-grade Claude Code skills"},
+    "polymarket-dataset": {"url": "https://manja8.gumroad.com/l/polymarket-quant-toolkit",
+                           "cta": "Polymarket 23M+ Dataset →", "price": "$19",
+                           "pitch": "Over 23 Million 15-minute price snapshots across 24,600+ prediction markets"},
 }
-GUMROAD_PROMO = GUMROAD_PRODUCTS["api-connector"]  # ← active product (footer)
+GUMROAD_PROMO = GUMROAD_PRODUCTS["polymarket-dataset"]  # ← active product (footer & promos)
 
 # Primary site-wide CTA. At 864 MCP-dev visitors/mo, lead-gen for a $1,500
 # MCP-build service is far higher-EV than a $7 product sale. Points to /build.html.

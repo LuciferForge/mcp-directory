@@ -43,7 +43,7 @@ DATA_DIR = Path("/Users/apple/Documents/LuciferForge/products/polymarket-data")
 DB_PATH = DATA_DIR / "market_universe.db"
 MARKETS_CSV = DATA_DIR / "markets.csv"
 
-GUMROAD_BASE = "https://manja8.gumroad.com/l/polymarket-data"
+GUMROAD_BASE = "https://manja8.gumroad.com/l/polymarket-quant-toolkit"
 
 
 def fmt_int(n):
