@@ -5,48 +5,55 @@
     <link>https://protodex.io</link>
     <description>Real-time dataset releases, prediction market analytics, and AI agent intelligence.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Aug 2026 00:54:35 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2026 03:38:42 +0000</lastBuildDate>
     <item>
       <title>nanobot: The 39K-Star AI Agent That Does What Claude Code Does in 99% Less Code</title>
       <link>https://protodex.io/blog/blog-nanobot-guide.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-nanobot-guide.html</guid>
       <description>nanobot just crossed 39K stars on GitHub. It&amp;#x27;s from HKU&amp;#x27;s Data Science lab and it positions itself as the &amp;quot;ultra-lightweight personal AI agent.&amp;quot; I...</description>
-      <pubDate>Sun, 30 Aug 2026 00:54:24 +0000</pubDate>
+      <pubDate>Sun, 30 Aug 2026 03:38:22 +0000</pubDate>
     </item>
     <item>
       <title>Playwright MCP Server — Let Your AI Control a Real Browser (29K Stars)</title>
       <link>https://protodex.io/blog/blog-mcp-playwright.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-playwright.html</guid>
       <description>Microsoft&amp;#x27;s Playwright MCP server gives your AI assistant a real browser. Not a screenshot parser — actual browser control. Navigate pages, fill forms,...</description>
-      <pubDate>Sun, 30 Aug 2026 00:54:24 +0000</pubDate>
+      <pubDate>Sun, 30 Aug 2026 03:38:22 +0000</pubDate>
     </item>
     <item>
       <title>Which Database MCP Server Should You Use? I Compared the Top 6</title>
       <link>https://protodex.io/blog/blog-mcp-database-guide.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-database-guide.html</guid>
       <description>Your AI assistant can now query your database directly. No more copy-pasting SQL results into chat. But there are 183 database MCP servers — which one...</description>
-      <pubDate>Sun, 30 Aug 2026 00:54:24 +0000</pubDate>
+      <pubDate>Sun, 30 Aug 2026 03:38:21 +0000</pubDate>
     </item>
     <item>
       <title>How to Use Context7 MCP Server — Up-to-Date Docs for Every Library in Your AI Editor</title>
       <link>https://protodex.io/blog/blog-mcp-context7.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-context7.html</guid>
       <description>Every AI coding assistant has the same problem: stale training data. You ask Claude to help with Next.js 15 and it gives you Next.js 13 patterns. You...</description>
-      <pubDate>Sun, 30 Aug 2026 00:54:24 +0000</pubDate>
+      <pubDate>Sun, 30 Aug 2026 03:38:21 +0000</pubDate>
     </item>
     <item>
       <title>I Tested 5 Browser MCP Servers — Here&amp;#x27;s Which One to Use for Your Project</title>
       <link>https://protodex.io/blog/blog-mcp-browser-comparison.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-mcp-browser-comparison.html</guid>
       <description>There are 87 browser/web MCP servers on [Protodex](https://protodex.io/category/browser-web.html). I tested the top 5 to figure out when to use each...</description>
-      <pubDate>Sun, 30 Aug 2026 00:54:24 +0000</pubDate>
+      <pubDate>Sun, 30 Aug 2026 03:38:21 +0000</pubDate>
     </item>
     <item>
       <title>Claude Code vs Goose vs nanobot vs pi-mono — Which AI Coding Agent Should You Use?</title>
       <link>https://protodex.io/blog/blog-ai-agent-comparison.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/blog-ai-agent-comparison.html</guid>
       <description>There are now 7+ open-source AI coding agents with 30K+ stars each. I&amp;#x27;ve used all of them on real projects. Here&amp;#x27;s when each one makes sense.   The...</description>
-      <pubDate>Sun, 30 Aug 2026 00:54:24 +0000</pubDate>
+      <pubDate>Sun, 30 Aug 2026 03:38:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>Polymarket Politics Markets — Top 15 Right Now (2026-08-30)</title>
+      <link>https://protodex.io/blog/polymarket-politics-snapshot-2026-08-30.html</link>
+      <guid isPermaLink="true">https://protodex.io/blog/polymarket-politics-snapshot-2026-08-30.html</guid>
+      <description>The top 15 politics prediction markets on Polymarket by volume — with current category-level dollar flow and the dataset behind it.</description>
+      <pubDate>Sun, 30 Aug 2026 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>MCP Server Weekly: 20 New Servers Discovered</title>
@@ -137,13 +144,6 @@
       <link>https://protodex.io/blog/polymarket-politics-snapshot-2026-08-20.html</link>
       <guid isPermaLink="true">https://protodex.io/blog/polymarket-politics-snapshot-2026-08-20.html</guid>
       <description>The top 15 politics prediction markets on Polymarket by volume — with current category-level dollar flow and the dataset behind it.</description>
-      <pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>MCP Server Weekly: 20 New Servers Discovered</title>
-      <link>https://protodex.io/blog/weekly-2026-08-20.html</link>
-      <guid isPermaLink="true">https://protodex.io/blog/weekly-2026-08-20.html</guid>
-      <description>MCP Server Weekly: 20 New Servers Discovered</description>
       <pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
     </item>
   </channel>
