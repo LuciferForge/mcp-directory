@@ -38889,10 +38889,10 @@
       "url": "https://github.com/Excaliber9271/asterdex-mcp-server"
     },
     {
-      "repo": "sushilckatoch/x-twitter-scraper",
-      "stars": 0,
-      "description": "Scrape tweets, media, and follower data from X (Twitter) using AI coding agents with real-time access to the Xquik platform and MCP server integration.",
-      "url": "https://github.com/sushilckatoch/x-twitter-scraper"
+      "repo": "Xquik-dev/x-twitter-scraper",
+      "stars": 126,
+      "description": "Tweet search, profile timelines, follower export, media download, monitors, webhooks, MCP, SDKs, and posting automation through Xquik.",
+      "url": "https://github.com/Xquik-dev/x-twitter-scraper"
     },
     {
       "repo": "iambilliefan/gia-mcp-server",
