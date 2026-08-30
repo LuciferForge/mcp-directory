@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-03-20T15:30:11.817129+00:00",
-  "total_servers": 5274,
+  "total_servers": 5275,
   "scrape_duration_seconds": 677.5,
   "source_breakdown": {
     "topic_search": 3677,
@@ -134188,6 +134188,29 @@
       "source": [
         "hub"
       ]
+    },
+    {
+      "name": "agentservices-api",
+      "repo_url": "https://github.com/vbkotecha/agentservices-api",
+      "description": "x402-paid crypto/market data APIs with 37 MCP tools \u2014 BTC indicators, DeFi stats, macro data. USDC micropayments on Base.",
+      "stars": 53,
+      "language": "TypeScript",
+      "topics": [
+        "mcp",
+        "mcp-server",
+        "x402",
+        "crypto",
+        "api",
+        "ai-agents",
+        "usdc",
+        "base",
+        "payments",
+        "defi"
+      ],
+      "category": "Data/Analytics",
+      "category_confidence": 0.9,
+      "homepage": "https://agentservices.to",
+      "license": "MIT"
     }
   ],
   "scoring": {
