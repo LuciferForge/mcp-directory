@@ -2025,7 +2025,9 @@ def generate_install_config(name, repo, lang):
         pip_note = ""
     elif lang == "Python":
         command = "uvx"
-        pkg = repo_name.lower().replace("_", "-")
+        # Repository slugs do not always match published PyPI distributions.
+        python_packages = {"jacobiusmakes/parlay-api-mcp": "parlayapi-mcp"}
+        pkg = python_packages.get(repo.lower(), repo_name.lower().replace("_", "-"))
         args_str = f'"{pkg}"'
         pip_note = f'<p class="install-note">Or install with pip: <code>pip install {pkg}</code></p>'
     elif lang == "Go":
