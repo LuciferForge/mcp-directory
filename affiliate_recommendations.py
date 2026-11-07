@@ -23,67 +23,80 @@ CONFIG_PATH = Path(__file__).parent / "affiliate_links.json"
 # Default config (placeholder — overridden by affiliate_links.json if it exists)
 DEFAULT_CONFIG = {
     "_note": "Replace each url with your actual affiliate URL once signed up. Without a referral code, link sends traffic but earns $0.",
-    "mongodb": {
-        "name": "MongoDB Atlas",
-        "url": "https://www.mongodb.com/cloud/atlas/register",
-        "blurb": "Cloud DB for your MCP server's data. Free tier covers most prototypes.",
-        "category_match": ["Database", "data", "Search & Knowledge"],
+    "neon": {
+        "name": "Neon Serverless Postgres",
+        "url": "https://neon.tech/",
+        "blurb": "Instant serverless Postgres database with autoscaling & branching. Free tier includes 0.5 GB storage.",
+        "category_match": ["Database", "data", "SQL", "Postgres"],
     },
-    "digitalocean": {
-        "name": "DigitalOcean",
-        "url": "https://www.digitalocean.com/",
-        "blurb": "Deploy your MCP server on a $6/mo droplet. New users get $200 credit.",
-        "category_match": ["Cloud Platforms", "Infrastructure", "DevOps"],
+    "supabase": {
+        "name": "Supabase Postgres & Auth",
+        "url": "https://supabase.com/",
+        "blurb": "The open-source Firebase alternative. Postgres database, Auth, instant APIs, and Realtime subscriptions.",
+        "category_match": ["Database", "data", "API Integration", "Backend"],
     },
-    "linode": {
-        "name": "Linode (Akamai)",
-        "url": "https://www.linode.com/",
-        "blurb": "Alternative to DigitalOcean. $5/mo plans, $100 credit for new accounts.",
-        "category_match": ["Cloud Platforms", "Infrastructure", "DevOps"],
+    "upstash": {
+        "name": "Upstash Serverless",
+        "url": "https://upstash.com/",
+        "blurb": "Serverless Redis, Vector database, and QStash for LLM rate-limiting, agent memory, and RAG.",
+        "category_match": ["Memory/Knowledge", "Database", "Search", "RAG"],
     },
-    "hostinger": {
-        "name": "Hostinger",
-        "url": "https://www.hostinger.com/",
-        "blurb": "Cheap hosting + free domain for your MCP server's landing page.",
-        "category_match": ["Cloud Platforms", "Infrastructure"],
+    "browserless": {
+        "name": "Browserless.io",
+        "url": "https://www.browserless.io/",
+        "blurb": "Headless Chrome & Playwright in the cloud. Dedicated remote browser endpoints for scraping MCPs.",
+        "category_match": ["Browser/Web", "Scraping", "Playwright", "Puppeteer"],
     },
-    "notion": {
-        "name": "Notion",
-        "url": "https://www.notion.com/",
-        "blurb": "Plug your Claude into your team's Notion workspace.",
-        "category_match": ["Productivity", "Knowledge", "Communication"],
+    "brightdata": {
+        "name": "Bright Data Scraping Cloud",
+        "url": "https://brightdata.com/",
+        "blurb": "Enterprise proxy network and automated web unlocking for high-volume browser & extraction agents.",
+        "category_match": ["Browser/Web", "Scraping", "Data/Analytics"],
     },
-    "jetbrains": {
-        "name": "JetBrains All Products Pack",
-        "url": "https://www.jetbrains.com/store/",
-        "blurb": "IDEs + AI assistant. The dev tools your MCP server author probably uses.",
-        "category_match": ["Developer Tools", "AI/LLM"],
+    "runpod": {
+        "name": "RunPod Serverless & GPU",
+        "url": "https://www.runpod.io/",
+        "blurb": "Deploy remote MCP Docker containers, vLLM models, and serverless GPU workers with sub-second startup.",
+        "category_match": ["AI/LLM", "DevOps", "Infrastructure"],
+    },
+    "cursor": {
+        "name": "Cursor AI Code Editor",
+        "url": "https://www.cursor.com/",
+        "blurb": "The AI-first code editor with native support for Model Context Protocol (MCP) server plugins.",
+        "category_match": ["Code/Dev Tools", "Developer Tools", "AI/LLM"],
     },
     "cloudflare": {
         "name": "Cloudflare Workers + R2",
         "url": "https://www.cloudflare.com/products/workers/",
-        "blurb": "Edge-deploy your MCP server globally. Generous free tier.",
+        "blurb": "Deploy your MCP server as a global Remote MCP SSE endpoint on Cloudflare's serverless edge.",
         "category_match": ["Cloud Platforms", "Infrastructure", "DevOps"],
     },
-    "razorpay": {
-        "name": "Razorpay (India)",
-        "url": "https://razorpay.com/",
-        "blurb": "Charge your MCP customers in INR. India-focused payment gateway.",
-        "category_match": ["Finance", "Payments", "Commerce"],
+    "digitalocean": {
+        "name": "DigitalOcean Droplets",
+        "url": "https://www.digitalocean.com/",
+        "blurb": "Deploy Dockerized MCP servers on a $4/mo droplet. New accounts receive $200 in free cloud credit.",
+        "category_match": ["Cloud Platforms", "Infrastructure", "DevOps"],
     },
-    "polar": {
-        "name": "Polar.sh",
-        "url": "https://polar.sh/",
-        "blurb": "Charge subscriptions for your MCP server. License keys auto-issued.",
-        "category_match": ["Finance", "Payments", "Developer Tools"],
+    "clawguard": {
+        "name": "ClawGuard Prompt-Shield Pro",
+        "url": "https://manja8.gumroad.com/l/rogmt",
+        "blurb": "Sub-1ms AI security middleware. Defends autonomous agents against prompt injection and unauthorized tool calls.",
+        "category_match": ["Security", "AI/LLM", "Governance"],
     },
-    "webflow": {
-        "name": "Webflow",
-        "url": "https://webflow.com/",
-        "blurb": "Build a marketing site for your MCP server without writing CSS.",
-        "category_match": ["Productivity", "Design"],
+    "sponsor_mcp": {
+        "name": "Sponsor This MCP Server",
+        "url": "https://manja8.gumroad.com/l/sponsor_mcp",
+        "blurb": "Are you the author of an MCP server? Feature your tool at the top of Protodex for 30,000+ developers.",
+        "category_match": ["Code/Dev Tools", "API Integration", "AI/LLM", "Database"],
+    },
+    "polymarket_dataset": {
+        "name": "Polymarket 23M+ Quant Dataset ($19)",
+        "url": "https://manja8.gumroad.com/l/polymarket-quant-toolkit",
+        "blurb": "18,400+ prediction markets, 15-min price & orderbook snapshots. Clean CSV for backtesting AI trading agents.",
+        "category_match": ["Finance", "Data/Analytics", "Database", "AI/LLM"],
     },
 }
+
 
 
 def _load_config() -> dict:

@@ -1,45 +1,89 @@
 {
-  "_note": "Replace each url with your actual affiliate URL once signed up. Keys must match those in affiliate_recommendations.DEFAULT_CONFIG. The 'url' field accepts the full referral link from the affiliate program. The 'name', 'blurb', 'category_match' fields are optional overrides; falls back to defaults if omitted.",
+  "_note": "Affiliate partner directory for protodex.io. Update referral URLs with your affiliate IDs. Keys without explicit category_match fall back to defaults in affiliate_recommendations.py.",
   "_signup_links": {
-    "mongodb": "https://www.mongodb.com/community/champions/program/cloud-bonus",
+    "neon": "https://neon.tech/affiliates (or via Rewardful)",
+    "supabase": "https://supabase.com/partners",
+    "upstash": "https://upstash.com/",
+    "browserless": "https://www.browserless.io/",
+    "brightdata": "https://brightdata.com/cp/affiliate",
+    "runpod": "https://www.runpod.io/affiliates",
+    "cursor": "https://www.cursor.com/",
     "digitalocean": "https://www.digitalocean.com/referral-program",
-    "linode": "https://www.linode.com/lp/refer-a-friend/",
-    "hostinger": "https://www.hostinger.com/affiliates",
-    "notion": "https://www.notion.com/affiliates (or via Impact platform)",
-    "jetbrains": "https://www.jetbrains.com/store/affiliates/",
     "cloudflare": "https://www.cloudflare.com/partners/",
-    "razorpay": "https://razorpay.com/affiliate-program/",
-    "polar": "https://polar.sh/dashboard (search for partner program)",
-    "webflow": "https://webflow.com/affiliates"
+    "clawguard": "https://manja8.gumroad.com/l/rogmt",
+    "sponsor_mcp": "https://manja8.gumroad.com/l/sponsor_mcp"
   },
-  "mongodb": {
-    "url": "https://www.mongodb.com/cloud/atlas/register"
+  "neon": {
+    "name": "Neon Serverless Postgres",
+    "url": "https://neon.tech/",
+    "blurb": "Instant serverless Postgres database with autoscaling & branching. Free tier includes 0.5 GB storage.",
+    "category_match": ["Database", "data", "SQL", "Postgres"]
   },
-  "digitalocean": {
-    "url": "https://www.digitalocean.com/"
+  "supabase": {
+    "name": "Supabase Postgres & Auth",
+    "url": "https://supabase.com/",
+    "blurb": "The open-source Firebase alternative. Postgres database, Auth, instant APIs, and Realtime subscriptions.",
+    "category_match": ["Database", "data", "API Integration", "Backend"]
   },
-  "linode": {
-    "url": "https://www.linode.com/"
+  "upstash": {
+    "name": "Upstash Serverless",
+    "url": "https://upstash.com/",
+    "blurb": "Serverless Redis, Vector database, and QStash for LLM rate-limiting, agent memory, and RAG.",
+    "category_match": ["Memory/Knowledge", "Database", "Search", "RAG"]
   },
-  "hostinger": {
-    "url": "https://www.hostinger.com/"
+  "browserless": {
+    "name": "Browserless.io",
+    "url": "https://www.browserless.io/",
+    "blurb": "Headless Chrome & Playwright in the cloud. Dedicated remote browser endpoints for scraping MCPs.",
+    "category_match": ["Browser/Web", "Scraping", "Playwright", "Puppeteer"]
   },
-  "notion": {
-    "url": "https://www.notion.com/"
+  "brightdata": {
+    "name": "Bright Data Scraping Cloud",
+    "url": "https://brightdata.com/",
+    "blurb": "Enterprise proxy network and automated web unlocking for high-volume browser & extraction agents.",
+    "category_match": ["Browser/Web", "Scraping", "Data/Analytics"]
   },
-  "jetbrains": {
-    "url": "https://www.jetbrains.com/store/"
+  "runpod": {
+    "name": "RunPod Serverless & GPU",
+    "url": "https://www.runpod.io/",
+    "blurb": "Deploy remote MCP Docker containers, vLLM models, and serverless GPU workers with sub-second startup.",
+    "category_match": ["AI/LLM", "DevOps", "Infrastructure"]
+  },
+  "cursor": {
+    "name": "Cursor AI Code Editor",
+    "url": "https://www.cursor.com/",
+    "blurb": "The AI-first code editor with native support for Model Context Protocol (MCP) server plugins.",
+    "category_match": ["Code/Dev Tools", "Developer Tools", "AI/LLM"]
   },
   "cloudflare": {
-    "url": "https://www.cloudflare.com/products/workers/"
+    "name": "Cloudflare Workers + R2",
+    "url": "https://www.cloudflare.com/products/workers/",
+    "blurb": "Deploy your MCP server as a global Remote MCP SSE endpoint on Cloudflare's serverless edge.",
+    "category_match": ["Cloud Platforms", "Infrastructure", "DevOps"]
   },
-  "razorpay": {
-    "url": "https://razorpay.com/"
+  "digitalocean": {
+    "name": "DigitalOcean Droplets",
+    "url": "https://www.digitalocean.com/",
+    "blurb": "Deploy Dockerized MCP servers on a $4/mo droplet. New accounts receive $200 in free cloud credit.",
+    "category_match": ["Cloud Platforms", "Infrastructure", "DevOps"]
   },
-  "polar": {
-    "url": "https://polar.sh/"
+  "clawguard": {
+    "name": "ClawGuard Prompt-Shield Pro",
+    "url": "https://manja8.gumroad.com/l/rogmt",
+    "blurb": "Sub-1ms AI security middleware. Defends autonomous agents against prompt injection and unauthorized tool calls.",
+    "category_match": ["Security", "AI/LLM", "Governance"]
   },
-  "webflow": {
-    "url": "https://webflow.com/"
+  "sponsor_mcp": {
+    "name": "Sponsor This MCP Server",
+    "url": "https://manja8.gumroad.com/l/sponsor_mcp",
+    "blurb": "Are you the author of an MCP server? Feature your tool at the top of Protodex for 30,000+ developers.",
+    "category_match": ["Code/Dev Tools", "API Integration", "AI/LLM", "Database"]
+  },
+  "polymarket_dataset": {
+    "name": "Polymarket 23M+ Quant Dataset ($19)",
+    "url": "https://manja8.gumroad.com/l/polymarket-quant-toolkit",
+    "blurb": "18,400+ prediction markets, 15-min price & orderbook snapshots. Clean CSV for backtesting AI trading agents.",
+    "category_match": ["Finance", "Data/Analytics", "Database", "AI/LLM"]
   }
 }
+
