@@ -14,7 +14,7 @@ import urllib.parse
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-GUMROAD_TOKEN = "mYyVRrUmgHcLLSfSeVvaVp0jaKEsVPnShjU33vD_nbg"
+GUMROAD_TOKEN = os.environ.get("GUMROAD_ACCESS_TOKEN", "")
 PROTODEX_DIR = os.path.dirname(os.path.abspath(__file__))
 LEDGER_FILE = os.path.join(PROTODEX_DIR, "sales_ledger.json")
 SPONSORS_FILE = os.path.join(PROTODEX_DIR, "sponsored_servers.json")

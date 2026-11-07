@@ -7,7 +7,7 @@ Queries live Gumroad API using cursor pagination to inspect ALL published produc
 import requests
 import json
 
-GUMROAD_TOKEN = "mYyVRrUmgHcLLSfSeVvaVp0jaKEsVPnShjU33vD_nbg"
+GUMROAD_TOKEN = os.environ.get("GUMROAD_ACCESS_TOKEN", "")
 
 def audit_gumroad():
     print("=== GUMROAD LIVE SALES & PRODUCTS AUDIT ===")
