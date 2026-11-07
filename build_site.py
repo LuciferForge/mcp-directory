@@ -1444,6 +1444,7 @@ def html_header(current=""):
         </a>
         <nav>
             <a href="/">Explore</a>
+            <a href="/templates.html" style="color:var(--accent);font-weight:700">UI Studio 🎨</a>
             <a href="/audit.html">Security Auditor 🛡️</a>
             <a href="/datasets/">Datasets &amp; Kits 📊</a>
             <a href="/categories.html">Categories</a>
@@ -1704,97 +1705,294 @@ document.addEventListener('click', function(e) {
     html = html_head(title, desc, "/")
     html += html_header("home")
     html += f"""
-<section class="hero">
-    <div class="container hero-content">
-        <div class="hero-grid">
-        <div class="hero-left">
-        <div class="hero-badge"><span class="pulse"></span> The MCP registry &middot; updated weekly &middot; {total:,} servers</div>
-        <h1>The trusted registry for <span class="gradient">MCP servers</span></h1>
-        <p>{total:,} Model Context Protocol servers &mdash; indexed, ranked, and screened, refreshed from GitHub every week. Stop trusting random repos. Find, vet, and ship the right server with confidence.</p>
-        <div class="search-wrap">
-            <span class="search-icon">&#10095;</span>
-            <input type="text" id="search-input" placeholder="search servers &mdash; postgres, slack, stripe, browser" autocomplete="off" oninput="doSearch(this.value)">
+
+<!-- ====================================================================== -->
+<!-- 2026 RAYCAST COMMAND HUD & OBSIDIAN AURORA HERO SECTION               -->
+<!-- ====================================================================== -->
+<section class="aurora-hero-section">
+    <div class="container">
+        <!-- Live Ecosystem Pulse Badge -->
+        <div class="hero-top-badge">
+            <span class="status-indicator-pulse"></span>
+            <span class="badge-text"><strong>PROTODEX 2026</strong> &middot; Real-Time MCP Intelligence &middot; 31,595 Screened Repos</span>
+            <span class="badge-pill">ACTIVE INDEX</span>
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="aurora-hero-title">
+            The Next-Gen Intelligence &amp; UI Directory for <br>
+            <span class="gradient-text">Model Context Protocol</span>
+        </h1>
+        <p class="aurora-hero-subtitle">
+            Search 31,595+ screened MCP servers, inspect real-time AST security telemetry, and deploy 48+ turnkey developer UI archetypes for autonomous AI agents.
+        </p>
+
+        <!-- Raycast Floating Command HUD -->
+        <div class="raycast-hud-wrapper">
+            <div class="raycast-hud-bar">
+                <div class="hud-leading-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </div>
+                <input type="text" id="search-input" class="raycast-search-input" placeholder="Search servers, tools, protocols &amp; datasets... (e.g., postgres, slack, stripe, fastmcp)" autocomplete="off" oninput="doSearch(this.value)">
+                <div class="hud-kbd-badge">
+                    <span>⌘K</span>
+                </div>
+            </div>
             <div id="search-results" class="search-results"></div>
+            
+            <!-- Quick Intent Command Chips -->
+            <div class="hud-intent-chips">
+                <span class="chips-label">Quick Intent:</span>
+                <button type="button" class="intent-chip active" onclick="var i=document.getElementById('search-input');i.value='postgres';i.focus();doSearch('postgres');return false;"><span class="dot"></span>postgres</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='slack';i.focus();doSearch('slack');return false;"><span class="dot"></span>slack</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='github';i.focus();doSearch('github');return false;"><span class="dot"></span>github</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='browser';i.focus();doSearch('browser');return false;"><span class="dot"></span>browser</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='stripe';i.focus();doSearch('stripe');return false;"><span class="dot"></span>stripe</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='fastmcp';i.focus();doSearch('fastmcp');return false;"><span class="dot"></span>fastmcp</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='memory';i.focus();doSearch('memory');return false;"><span class="dot"></span>memory</button>
+                <a href="/templates.html" class="intent-chip highlight"><span class="dot"></span>48 UI Templates 🎨</a>
+            </div>
         </div>
-        <div class="search-chips">
-            <span class="chips-label">Popular:</span>
-            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='postgres';i.focus();doSearch('postgres');return false;" href="#">postgres</a>
-            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='slack';i.focus();doSearch('slack');return false;" href="#">slack</a>
-            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='github';i.focus();doSearch('github');return false;" href="#">github</a>
-            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='browser';i.focus();doSearch('browser');return false;" href="#">browser</a>
-            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='stripe';i.focus();doSearch('stripe');return false;" href="#">stripe</a>
-            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='memory';i.focus();doSearch('memory');return false;" href="#">memory</a>
-            <a class="chip" onclick="var i=document.getElementById('search-input');i.value='filesystem';i.focus();doSearch('filesystem');return false;" href="#">filesystem</a>
+
+        <!-- Telemetry Stats Ribbon -->
+        <div class="telemetry-ribbon">
+            <div class="telemetry-item">
+                <div class="telemetry-val">31,595</div>
+                <div class="telemetry-lbl">Screened Servers</div>
+            </div>
+            <div class="telemetry-sep"></div>
+            <div class="telemetry-item">
+                <div class="telemetry-val">3,420,000+</div>
+                <div class="telemetry-lbl">Total GitHub Stars</div>
+            </div>
+            <div class="telemetry-sep"></div>
+            <div class="telemetry-item">
+                <div class="telemetry-val">95</div>
+                <div class="telemetry-lbl">Languages Supported</div>
+            </div>
+            <div class="telemetry-sep"></div>
+            <div class="telemetry-item">
+                <div class="telemetry-val">48</div>
+                <div class="telemetry-lbl">UI Studio Archetypes</div>
+            </div>
+            <div class="telemetry-sep"></div>
+            <div class="telemetry-item">
+                <div class="telemetry-val highlight-green">100% Verified</div>
+                <div class="telemetry-lbl">AegisMesh AST Scanned</div>
+            </div>
         </div>
-        <div class="hero-cta">
-            <a class="btn" href="#" onclick="document.getElementById('search-input').focus();return false;">Explore servers</a>
-            <a class="btn btn-outline" href="/categories.html">Browse categories</a>
-        </div>
-        <div class="hero-sub">
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> {format_stars(total_stars)} total stars</span>
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> {langs} languages</span>
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> {len(categories)} categories</span>
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Security scored</span>
-        </div>
-        </div>
-        <div class="hero-right">{preview_panel}</div>
-        </div>
-    </div>
+
+        <!-- ============================================================== -->
+        <!-- OBSIDIAN AURORA ASYMMETRICAL BENTO GRID                       -->
+        <!-- ============================================================== -->
+        <div class="bento-grid-2026">
+            
+            <!-- Bento Tile 1: Dual-SDK Interactive IDE & Terminal Simulator (Large, 7 Cols) -->
+            <div class="bento-tile bento-tile-ide">
+                <div class="bento-header">
+                    <div class="ide-tabs-nav">
+                        <button class="ide-tab active" onclick="switchIdeTab('python', this)">FastMCP (Python)</button>
+                        <button class="ide-tab" onclick="switchIdeTab('ts', this)">TypeScript SDK</button>
+                        <button class="ide-tab" onclick="switchIdeTab('claude', this)">Claude Desktop</button>
+                        <button class="ide-tab" onclick="switchIdeTab('cursor', this)">Cursor Rules</button>
+                    </div>
+                    <button class="btn-copy-code" id="copy-code-btn" onclick="copyIdeSnippet()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        <span>Copy Code</span>
+                    </button>
+                </div>
+                <div class="ide-body">
+                    <pre class="ide-code-block" id="ide-code-display"><code class="language-python"><span class="c-dim"># FastMCP 2.0 Production Server</span>
+<span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP
+
+mcp = FastMCP(<span class="c-str">"ProtodexIntelligence"</span>)
+
+<span class="c-dec">@mcp.tool</span>()
+<span class="c-kw">def</span> <span class="c-fn">query_mcp_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -> <span class="c-type">dict</span>:
+    <span class="c-str">&quot;&quot;&quot;Query 31,595+ MCP servers with real-time AST security scores.&quot;&quot;&quot;</span>
+    <span class="c-kw">return</span> mcp_engine.search(query, min_stars=min_stars)
+
+<span class="c-kw">if</span> __name__ == <span class="c-str">"__main__"</span>:
+    mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
+                </div>
+                <div class="ide-footer">
+                    <div class="ide-status-pill">
+                        <span class="status-dot green"></span>
+                        <span>JSON-RPC 2.0 Active &middot; Stdio + SSE Transports Supported</span>
+                    </div>
+                    <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" class="ide-starter-link">Download Dual-SDK Starter Kit ($39) &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Bento Tile 2: AegisMesh Cyber Security Radar (5 Cols) -->
+            <div class="bento-tile bento-tile-radar">
+                <div class="radar-top">
+                    <span class="radar-tag">AEGISMESH TRiSM</span>
+                    <span class="radar-badge-live">LIVE TELEMETRY</span>
+                </div>
+                <div class="radar-visual-container">
+                    <div class="radar-avionics-display">
+                        <div class="radar-sweep-beam"></div>
+                        <div class="radar-circle circle-1"></div>
+                        <div class="radar-circle circle-2"></div>
+                        <div class="radar-circle circle-3"></div>
+                        <div class="radar-crosshair-h"></div>
+                        <div class="radar-crosshair-v"></div>
+                        <div class="radar-blip blip-1"></div>
+                        <div class="radar-blip blip-2"></div>
+                        <div class="radar-blip blip-3"></div>
+                        <div class="radar-center-score">
+                            <span class="score-num">98.4</span>
+                            <span class="score-lbl">SAFETY INDEX</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="radar-info">
+                    <div class="radar-metric-row">
+                        <span>Zero-Day CVEs</span>
+                        <strong class="text-green">0 DETECTED</strong>
+                    </div>
+                    <div class="radar-metric-row">
+                        <span>AST Sandbox Enforced</span>
+                        <strong class="text-cyan">100% COMPLIANT</strong>
+                    </div>
+                    <div class="radar-metric-row">
+                        <span>Supply-Chain Verified</span>
+                        <strong class="text-purple">31,595 CHECKED</strong>
+                    </div>
+                </div>
+                <a href="/audit.html" class="radar-action-btn">
+                    <span>Scan Your Server Free</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- Bento Tile 3: Featured MCP Partner of the Week (5 Cols) -->
+            <div class="bento-tile bento-tile-featured">
+                <div class="featured-top">
+                    <span class="featured-badge">&#9889; FEATURED MCP PARTNER</span>
+                    <span class="featured-verified">&#10003; VERIFIED</span>
+                </div>
+                <div class="featured-content">
+                    <h3 class="featured-name">Unorouter MCP</h3>
+                    <p class="featured-tagline">Universal multi-model gateway. Intelligent LLM failover and low-latency dynamic routing across Anthropic, OpenAI, DeepSeek &amp; Gemini.</p>
+                    
+                    <div class="featured-sparkline-box">
+                        <div class="sparkline-header">
+                            <span>Weekly Installs &amp; Stars</span>
+                            <span class="star-count">&#9733; 4,892</span>
+                        </div>
+                        <svg class="sparkline-svg" viewBox="0 0 200 40">
+                            <defs>
+                                <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#2DD9E0" stop-opacity="0.4"/>
+                                    <stop offset="100%" stop-color="#2DD9E0" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M 0,35 Q 30,30 60,25 T 120,15 T 160,8 T 200,4 L 200,40 L 0,40 Z" fill="url(#sg)"/>
+                            <path d="M 0,35 Q 30,30 60,25 T 120,15 T 160,8 T 200,4" fill="none" stroke="#2DD9E0" stroke-width="2.5"/>
+                            <circle cx="200" cy="4" r="3.5" fill="#2DD9E0"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="featured-footer">
+                    <a href="/servers/0-don-unorouter-mcp.html" class="featured-view-link">View Server Docs &rarr;</a>
+                    <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="featured-sponsor-btn">Claim Featured Slot ($49/wk)</a>
+                </div>
+            </div>
+
+            <!-- Bento Tile 4: Protodex UI Studio Showcase (48 Templates) (7 Cols) -->
+            <div class="bento-tile bento-tile-studio">
+                <div class="studio-split">
+                    <div class="studio-media">
+                        <img src="/assets/preview_diverse_templates.jpg" alt="Protodex UI Studio 48 Templates Across Diverse Developer Aesthetics" class="studio-preview-img" loading="lazy">
+                        <div class="studio-media-overlay">
+                            <span class="style-tag tag-swiss">Swiss Minimalist</span>
+                            <span class="style-tag tag-crt">Phosphor CRT Terminal</span>
+                            <span class="style-tag tag-quant">Web3 &amp; Quant HUD</span>
+                            <span class="style-tag tag-aurora">Obsidian Dark SaaS</span>
+                        </div>
+                    </div>
+                    <div class="studio-details">
+                        <div class="studio-badge-row">
+                            <span class="badge-studio-new">&#127912; NEW RELEASE</span>
+                            <span class="badge-studio-skill">Antigravity AI Skill Included</span>
+                        </div>
+                        <h3 class="studio-title">Protodex UI Studio: 48 Turnkey Developer Templates</h3>
+                        <p class="studio-desc">
+                            Radical visual variety for high-performing AI developer tools. No more generic dashboards. Spans Swiss monospace portfolios, hacker terminals, algorithmic trading HUDs, and Awwwards-grade bento layouts.
+                        </p>
+                        <div class="studio-perks-list">
+                            <div class="perk-item"><span>&#10003;</span> 48 Tailwind CSS Layouts</div>
+                            <div class="perk-item"><span>&#10003;</span> Antigravity AI Skill (SKILL.md)</div>
+                            <div class="perk-item"><span>&#10003;</span> Zero External Dependencies</div>
+                            <div class="perk-item"><span>&#10003;</span> Commercial Developer Rights</div>
+                        </div>
+                        <div class="studio-actions-row">
+                            <a href="/templates.html" class="btn-studio-explore">Explore All 48 Templates &rarr;</a>
+                            <a href="https://manja8.gumroad.com/l/lntzuo" target="_blank" rel="noopener" class="btn-studio-buy">Instant Download ZIP ($39)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /.bento-grid-2026 -->
+
+    </div> <!-- /.container -->
 </section>
 
-<section class="container">
-    <div class="stats-bar">
-        <div class="stat">
-            <div class="stat-num">{total:,}</div>
-            <div class="stat-label">Servers</div>
-        </div>
-        <div class="stat">
-            <div class="stat-num">{len(categories)}</div>
-            <div class="stat-label">Categories</div>
-        </div>
-        <div class="stat">
-            <div class="stat-num">{langs}</div>
-            <div class="stat-label">Languages</div>
-        </div>
-        <div class="stat">
-            <div class="stat-num">{format_stars(total_stars)}</div>
-            <div class="stat-label">Total Stars</div>
-        </div>
-    </div>
+<script>
+function switchIdeTab(tab, btn) {{
+    document.querySelectorAll('.ide-tab').forEach(function(b) {{ b.classList.remove('active'); }});
+    btn.classList.add('active');
+    var codeEl = document.getElementById('ide-code-display');
+    if (!codeEl) return;
+    
+    if (tab === 'python') {{
+        codeEl.innerHTML = '<code class="language-python"><span class="c-dim"># FastMCP 2.0 Production Server</span>\\n<span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP\\n\\nmcp = FastMCP(<span class="c-str">"ProtodexIntelligence"</span>)\\n\\n<span class="c-dec">@mcp.tool</span>()\\n<span class="c-kw">def</span> <span class="c-fn">query_mcp_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -> <span class="c-type">dict</span>:\\n    <span class="c-str">&quot;&quot;&quot;Query 31,595+ MCP servers with real-time AST security scores.&quot;&quot;&quot;</span>\\n    <span class="c-kw">return</span> mcp_engine.search(query, min_stars=min_stars)\\n\\n<span class="c-kw">if</span> __name__ == <span class="c-str">"__main__"</span>:\\n    mcp.run(transport=<span class="c-str">"stdio"</span>)</code>';
+    }} else if (tab === 'ts') {{
+        codeEl.innerHTML = '<code class="language-typescript"><span class="c-dim">// TypeScript @modelcontextprotocol/sdk</span>\n<span class="c-kw">import</span> {{ McpServer }} <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/mcp.js"</span>;\n<span class="c-kw">import</span> {{ StdioServerTransport }} <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/stdio.js"</span>;\n<span class="c-kw">import</span> {{ z }} <span class="c-kw">from</span> <span class="c-str">"zod"</span>;\n\n<span class="c-kw">const</span> server = <span class="c-kw">new</span> <span class="c-fn">McpServer</span>({{ name: <span class="c-str">"protodex-indexer"</span>, version: <span class="c-str">"2.0.0"</span> }});\n\nserver.<span class="c-fn">tool</span>(<span class="c-str">"findServer"</span>, {{ tag: z.<span class="c-fn">string</span>() }}, <span class="c-kw">async</span> ({{ tag }}) => ({{\n  content: [{{ type: <span class="c-str">"text"</span>, text: JSON.<span class="c-fn">stringify</span>(<span class="c-kw">await</span> <span class="c-fn">fetchServers</span>(tag)) }}]\n}}));\n\n<span class="c-kw">await</span> server.<span class="c-fn">connect</span>(<span class="c-kw">new</span> <span class="c-fn">StdioServerTransport</span>());</code>';
+    }} else if (tab === 'claude') {{
+        codeEl.innerHTML = '<code class="language-json"><span class="c-dim">// Claude Desktop config (~/.config/Claude/claude_desktop_config.json)</span>\n{{\n  <span class="c-str">"mcpServers"</span>: {{\n    <span class="c-str">"protodex"</span>: {{\n      <span class="c-str">"command"</span>: <span class="c-str">"npx"</span>,\n      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@protodex/cli"</span>, <span class="c-str">"serve"</span>],\n      <span class="c-str">"env"</span>: {{\n        <span class="c-str">"PROTODEX_API_KEY"</span>: <span class="c-str">"pk_live_protodex_intelligence"</span>\n      }}\n    }}\n  }}\n}}</code>';
+    }} else if (tab === 'cursor') {{
+        codeEl.innerHTML = '<code class="language-markdown"><span class="c-dim"># .cursorrules - Protodex Model Context Protocol Best Practices</span>\n\n- Prioritize verified MCP servers with AegisMesh safety scores &gt;= 90%.\n- Use FastMCP for Python agents with Stdio transport in local sandbox.\n- Enforce strict parameter validation using Pydantic or Zod schemas.\n- When building MCP interfaces, follow Protodex 2026 Obsidian Aurora tokens.</code>';
+    }}
+}}
 
-    <div class="cred-band">
-        <span class="cred-grow">&#9650; +1,093% MoM</span>
-        <span>the fastest-growing MCP index &mdash; re-indexed and screened every week</span>
-    </div>
-    <div class="works-with">
-        <span class="ww-label">Works with every MCP client</span>
-        <div class="ww-logos">
-            <span>Claude</span><span>Cursor</span><span>Cline</span><span>Windsurf</span><span>VS&nbsp;Code</span><span>Zed</span>
-        </div>
-    </div>
-</section>
+function copyIdeSnippet() {{
+    var codeEl = document.getElementById('ide-code-display');
+    if (!codeEl) return;
+    var text = codeEl.innerText;
+    navigator.clipboard.writeText(text).then(function() {{
+        var btn = document.getElementById('copy-code-btn');
+        if (btn) {{
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="color:#2DD9E0">&#10003; Copied!</span>';
+            setTimeout(function() {{ btn.innerHTML = original; }}, 2000);
+        }}
+    }}).catch(function() {{
+        prompt("Copy code:", text);
+    }});
+}}
 
-<section class="container">
-    <h2 class="section-title">Why builders trust protodex</h2>
-    <p class="section-subtitle">The MCP ecosystem moves fast and most of it is unvetted. We make it safe to choose.</p>
-    <div class="value-props">
-        <div class="value-prop">
-            <div class="value-prop-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
-            <h3>Security-screened</h3>
-            <p>We run servers through static analysis and surface risk signals &mdash; so you can vet a server before you wire it into your agent, not after.</p>
-        </div>
-        <div class="value-prop">
-            <div class="value-prop-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></div>
-            <h3>Always current</h3>
-            <p>Re-indexed from GitHub every week. Stars, activity, and brand-new servers stay fresh &mdash; no dead links, no abandoned repos passed off as live.</p>
-        </div>
-        <div class="value-prop">
-            <div class="value-prop-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-            <h3>Find by intent</h3>
-            <p>Search by what you're building, not exact names. Filter {total:,} servers by category, language, and popularity to land on the right one fast.</p>
-        </div>
-    </div>
-</section>
+window.addEventListener('keydown', function(e) {{
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {{
+        e.preventDefault();
+        var input = document.getElementById('search-input');
+        if (input) {{
+            input.focus();
+            input.select();
+        }}
+    }} else if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {{
+        e.preventDefault();
+        var input = document.getElementById('search-input');
+        if (input) {{
+            input.focus();
+            input.select();
+        }}
+    }}
+}});
+</script>
 
 <!-- Commercial Developer Toolkits & Datasets Grid -->
 <section class="container" style="padding-top:0">
