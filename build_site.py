@@ -8,7 +8,8 @@ import json
 import os
 import re
 import math
-from datetime import datetime
+from datetime import datetime, timezone
+from pathlib import Path
 from html import escape
 from urllib.parse import quote
 
@@ -1571,18 +1572,20 @@ def build_home(servers, categories):
             <span class="cat-count">{count} servers</span>
         </a>"""
 
-    # B2B sponsored servers lookup
+    # B2B sponsored servers lookup from local sponsored_servers.json
     sponsored_slugs = []
     try:
-        import sqlite3
-        license_db = "/Users/apple/Documents/LuciferForge/products/polymarket-api/license_keys.db"
-        if os.path.exists(license_db):
-            conn = sqlite3.connect(license_db)
-            import time
-            now = int(time.time())
-            rows = conn.execute("SELECT server_slug FROM sponsored_servers WHERE expires_ts > ?", (now,)).fetchall()
-            sponsored_slugs = [r[0] for r in rows]
-            conn.close()
+        sponsors_file = Path(__file__).parent / "sponsored_servers.json"
+        if sponsors_file.exists():
+            with open(sponsors_file, "r", encoding="utf-8") as sf:
+                sponsors_data = json.load(sf)
+                now_iso = datetime.now(timezone.utc).isoformat()
+                for item in sponsors_data:
+                    exp = item.get("expires_at", "")
+                    if not exp or exp > now_iso:
+                        slug_val = item.get("server_slug", "").lower()
+                        if slug_val:
+                            sponsored_slugs.append(slug_val)
     except Exception as e:
         print(f"Error reading sponsored servers: {e}")
 

@@ -1,0 +1,13 @@
+[
+  {
+    "server_slug": "n8n-io-n8n",
+    "name": "n8n (Workflow Automation)",
+    "repo": "n8n-io/n8n",
+    "category": "API Integration",
+    "language": "TypeScript",
+    "stars": 179100,
+    "description": "Enterprise workflow automation platform with native AI agent connectors and 400+ integration nodes.",
+    "sponsor_label": "Official Ecosystem Sponsor",
+    "expires_at": "2026-12-31T23:59:59Z"
+  }
+]
