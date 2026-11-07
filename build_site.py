@@ -296,7 +296,13 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: var(--font);
-    background: var(--bg);
+    background-color: #06070c;
+    background-image: 
+        radial-gradient(ellipse 90% 55% at 50% -20%, rgba(45, 217, 224, 0.16), transparent 70%),
+        radial-gradient(ellipse 70% 45% at 90% 20%, rgba(123, 97, 255, 0.14), transparent 60%),
+        radial-gradient(ellipse 60% 40% at 10% 45%, rgba(255, 217, 61, 0.06), transparent 60%),
+        radial-gradient(ellipse 80% 50% at 50% 85%, rgba(45, 217, 224, 0.08), transparent 70%);
+    background-attachment: fixed;
     color: var(--text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -450,7 +456,11 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     margin-right: auto;
 }
 .hero h1 .gradient {
-    color: var(--accent);
+    background: linear-gradient(135deg, #2DD9E0 0%, #A78BFA 45%, #FBBF24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 18px rgba(45, 217, 224, 0.25));
 }
 .hero p {
     font-size: 1.15rem;
@@ -512,20 +522,21 @@ a.preview-row:hover { text-decoration: none; }
 .search-wrap input {
     width: 100%;
     padding: 16px 20px 16px 48px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(13, 15, 24, 0.82);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(45, 217, 224, 0.32);
     border-radius: 14px;
     color: var(--text);
     font-family: var(--mono);
     font-size: 0.95rem;
     font-weight: 500;
     outline: none;
-    transition: all 0.2s;
-    box-shadow: var(--shadow-sm), 0 0 0 0 var(--accent-glow);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 16px rgba(45, 217, 224, 0.12);
 }
 .search-wrap input:focus {
-    border-color: var(--accent);
-    box-shadow: var(--shadow-md), 0 0 0 4px var(--accent-glow);
+    border-color: #2DD9E0;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5), 0 0 32px rgba(45, 217, 224, 0.35);
 }
 .search-wrap input::placeholder { color: var(--text-dim); font-weight: 400; }
 .search-icon {
@@ -679,16 +690,18 @@ a.value-prop { color: inherit; }
     margin-bottom: 72px;
 }
 .cat-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(14, 16, 25, 0.72);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius);
     padding: 20px;
-    transition: all 0.2s;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
     gap: 8px;
     position: relative;
     overflow: hidden;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 .cat-card::before {
     content: '';
@@ -698,17 +711,18 @@ a.value-prop { color: inherit; }
     bottom: 0;
     width: 3px;
     border-radius: 3px 0 0 3px;
-    opacity: 0;
-    transition: opacity 0.2s;
+    opacity: 0.85;
+    box-shadow: 0 0 10px currentColor;
+    transition: opacity 0.2s, width 0.2s;
 }
 .cat-card:hover {
-    border-color: var(--border-hover);
-    background: var(--bg-card-hover);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(20, 24, 38, 0.85);
     text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 12px 32px rgba(0, 0, 0, 0.45);
 }
-.cat-card:hover::before { opacity: 1; }
+.cat-card:hover::before { opacity: 1; width: 5px; }
 .cat-icon { display: inline-flex; align-items: center; justify-content: center; height: 28px; }
 .cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
 .cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
@@ -721,21 +735,23 @@ a.value-prop { color: inherit; }
     margin-bottom: 60px;
 }
 .server-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(14, 16, 25, 0.72);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius);
     padding: 20px;
-    transition: all 0.2s;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
     gap: 10px;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 .server-card:hover {
-    border-color: rgba(45, 217, 224, 0.3);
-    background: var(--bg-card-hover);
+    border-color: rgba(45, 217, 224, 0.45);
+    background: rgba(20, 24, 38, 0.85);
     text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 24px rgba(45, 217, 224, 0.06), 0 0 0 1px rgba(45, 217, 224, 0.1);
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.18), 0 12px 36px rgba(45, 217, 224, 0.15);
 }
 .server-card-header {
     display: flex;
@@ -1349,6 +1365,7 @@ def html_head(title, description, canonical_path="/", extra_head="", og_image=""
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>{CSS}</style>
+    <link rel="stylesheet" href="/assets/protodex-vibrant.css">
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
     {extra_head}
@@ -1398,6 +1415,21 @@ DATASET_CTA = """
 </section>
 """
 
+COMMERCIAL_SERVER_CALLOUT = """
+<div class="protodex-commercial-callout">
+    <div class="callout-icon">⚡</div>
+    <div class="callout-text">
+        <div class="callout-title">Building Production MCP Agents? <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">PRO TOOLKITS</span></div>
+        <div class="callout-desc">Get the <strong>Complete 31,500+ MCP Ecosystem Dataset</strong> ($29) or the <strong>FastMCP + TypeScript Starter Kit</strong> ($39) with turnkey Docker &amp; Cloudflare deployment.</div>
+    </div>
+    <div class="callout-actions">
+        <a href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener" class="callout-btn-primary">Get Dataset ($29) →</a>
+        <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" class="callout-btn-secondary">Get Starter Kit ($39) →</a>
+        <a href="/datasets/" class="callout-btn-secondary">Browse All Kits →</a>
+    </div>
+</div>
+"""
+
 
 def html_header(current=""):
     return f"""
@@ -1413,7 +1445,7 @@ def html_header(current=""):
         <nav>
             <a href="/">Explore</a>
             <a href="/audit.html">Security Auditor 🛡️</a>
-            <a href="/datasets/polymarket-historical.html">Datasets 📊</a>
+            <a href="/datasets/">Datasets &amp; Kits 📊</a>
             <a href="/categories.html">Categories</a>
             <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener">Promote Server ⚡</a>
             <a href="/blog/">Blog</a>
@@ -1764,8 +1796,18 @@ document.addEventListener('click', function(e) {
     </div>
 </section>
 
+<!-- Commercial Developer Toolkits & Datasets Grid -->
 <section class="container" style="padding-top:0">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1rem;margin:0 auto 1.5rem;max-width:1080px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+        <div>
+            <h2 class="section-title" style="margin-bottom:4px">Developer Datasets &amp; Quant Suites</h2>
+            <p style="color:var(--text-muted);font-size:0.88rem;margin:0">Turnkey production data, automated trading bots, and developer starter kits</p>
+        </div>
+        <a href="/datasets/" style="font-weight:700;font-size:0.88rem;color:var(--accent)">View All Toolkits &rarr;</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem;margin:0 auto 2.5rem">
+        <!-- 1. Sponsor MCP -->
         <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(123,97,255,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
             <span style="font-size:1.8rem">&#9889;</span>
             <div style="flex:1">
@@ -1775,6 +1817,27 @@ document.addEventListener('click', function(e) {
             <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49/wk &rarr;</span>
         </a>
 
+        <!-- 2. MCP Ecosystem Dataset -->
+        <a href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(34,197,94,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
+            <span style="font-size:1.8rem">&#128451;&#65039;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">The 31,500+ MCP Dataset <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">NEW</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Full ecosystem catalog in SQLite, CSV &amp; JSON with stars, repos, and security flags.</div>
+            </div>
+            <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$29 &rarr;</span>
+        </a>
+
+        <!-- 3. Production MCP Starter Kit -->
+        <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(45,217,224,0.08));border:1px solid rgba(123,97,255,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(123,97,255,0.05)">
+            <span style="font-size:1.8rem">&#9881;&#65039;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">MCP Server Starter Kit <span style="background:rgba(123,97,255,0.2);color:#7B61FF;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">DUAL-SDK</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Python FastMCP + TypeScript boilerplate. Stdio &amp; SSE transports, Docker &amp; Cloudflare.</div>
+            </div>
+            <span style="background:#7B61FF;color:#fff;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
+        </a>
+
+        <!-- 4. Polymarket Dataset -->
         <a href="/datasets/polymarket-historical.html" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(255,217,61,0.12),rgba(45,217,224,0.08));border:1px solid rgba(255,217,61,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(255,217,61,0.05)">
             <span style="font-size:1.8rem">&#128202;</span>
             <div style="flex:1">
@@ -1784,13 +1847,24 @@ document.addEventListener('click', function(e) {
             <span style="background:#FFD93D;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$19 &rarr;</span>
         </a>
 
-        <a href="/audit.html" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(45,217,224,0.08));border:1px solid rgba(123,97,255,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(123,97,255,0.05)">
-            <span style="font-size:1.8rem">&#128737;&#65039;</span>
+        <!-- 5. TheBull Algo Trading Suite -->
+        <a href="https://manja8.gumroad.com/l/woatyl" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(34,197,94,0.12),rgba(45,217,224,0.08));border:1px solid rgba(34,197,94,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(34,197,94,0.05)">
+            <span style="font-size:1.8rem">&#128002;</span>
             <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">AegisMesh Security Auditor <span style="background:rgba(34,197,94,0.15);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">FREE</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Scan your MCP server repository for prompt injections, shell leaks &amp; EU AI Act compliance.</div>
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">TheBull Algo Trading Suite <span style="background:rgba(34,197,94,0.2);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">3 BOTS</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Binance Futures, Delta Perpetuals &amp; Dhan HQ NSE bots. 100-pt scoring &amp; 1-click launchers.</div>
             </div>
-            <span style="background:#7B61FF;color:#fff;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">Run Audit &rarr;</span>
+            <span style="background:#22C55E;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49 &rarr;</span>
+        </a>
+
+        <!-- 6. Solana DEX Arbitrage Engine -->
+        <a href="https://manja8.gumroad.com/l/vvwwwp" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(255,217,61,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
+            <span style="font-size:1.8rem">&#9889;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Solana DEX Arbitrage &amp; Sniper <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">JITO MEV</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Raydium, DLMM, Jito atomic bundler with anti-rug security filter &amp; Jupiter sniper.</div>
+            </div>
+            <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
         </a>
     </div>
 </section>
@@ -2218,11 +2292,13 @@ def build_server_page(server, related):
         View on GitHub →
     </a>
 
-    <a href="/audit.html" style="display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:8px 16px;background:linear-gradient(135deg,#38bdf8,#0ea5e9);color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;border:none">
-        🔍 Audit Wallet Slippage →
+    <a href="/audit.html" style="display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:8px 16px;background:linear-gradient(135deg,rgba(123,97,255,0.25),rgba(45,217,224,0.2));border:1px solid rgba(123,97,255,0.4);color:var(--text);text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;box-shadow:0 0 16px rgba(123,97,255,0.15)">
+        🛡️ Security &amp; TRiSM Audit →
     </a>
 
     {install_config}
+
+    {COMMERCIAL_SERVER_CALLOUT}
 
     <div style="margin-top:40px">
         {readme_section}
@@ -2272,6 +2348,95 @@ def build_submit_page():
     </div>
 </div>
 """
+    html += html_footer()
+    return html
+
+
+def build_pricing_page():
+    title = f"Sponsor & Advertise on Protodex — Reach 31,500+ MCP Developers"
+    desc = "Feature your MCP server, developer tool, or AI API at the top of Protodex. Reaching 30,000+ AI engineers building for Claude, Cursor, and autonomous agents."
+
+    extra_css = """
+    <style>
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 48px auto; max-width: 1100px; }
+    .tier { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 28px; display: flex; flex-direction: column; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: all 0.22s ease; }
+    .tier:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 40px rgba(45, 217, 224, 0.15); }
+    .tier.featured { border-color: var(--accent); background: linear-gradient(180deg, rgba(45, 217, 224, 0.08) 0%, rgba(14, 17, 28, 0.95) 100%); box-shadow: 0 0 30px rgba(45, 217, 224, 0.2); }
+    .tier-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--accent), #7B61FF); color: #000; font-size: 0.72rem; font-weight: 800; padding: 4px 14px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .tier-name { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .tier-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; line-height: 1.5; min-height: 40px; }
+    .tier-price { font-size: 2.5rem; font-weight: 900; color: var(--accent); display: flex; align-items: baseline; gap: 4px; margin-bottom: 24px; font-family: var(--mono); }
+    .tier-price span { font-size: 0.9rem; color: var(--text-dim); font-weight: 500; }
+    .tier-features { list-style: none; padding: 0; margin: 0 0 32px 0; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .tier-features li { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--text); }
+    .tier-features li svg { color: var(--green); flex-shrink: 0; }
+    .tier-btn { display: block; text-align: center; padding: 12px 20px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .tier-btn-primary { background: var(--accent); color: #000; box-shadow: 0 0 20px rgba(45, 217, 224, 0.35); }
+    .tier-btn-primary:hover { background: #45e3ea; box-shadow: 0 0 30px rgba(45, 217, 224, 0.6); color: #000; }
+    .tier-btn-secondary { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15); color: #fff; }
+    .tier-btn-secondary:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+    @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+    </style>
+    """
+
+    html = html_head(title, desc, "/pricing.html", extra_css)
+    html += html_header("pricing")
+    html += f"""
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-badge"><span class="pulse"></span> 31,595+ Indexed Servers &bull; 25,000+ Monthly Developers</div>
+            <h1>Put Your MCP Server in Front of <span class="gradient">Active AI Engineers</span></h1>
+            <p>Protodex is the definitive open index of Model Context Protocol (MCP) servers. Showcase your infrastructure, tools, and developer platforms to builders configuring Claude Desktop, Cursor, and autonomous agents.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="pricing-grid">
+            <!-- Tier 1 -->
+            <div class="tier featured">
+                <div class="tier-badge">Most Popular</div>
+                <div class="tier-name">Featured MCP Listing</div>
+                <div class="tier-desc">Pin your server to the top of Protodex with a glowing Verified Sponsor badge.</div>
+                <div class="tier-price">$49 <span>/ week</span></div>
+                <ul class="tier-features">
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Top slot on Homepage &amp; category directory</li>
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Glowing 'Featured' badge &amp; priority indexing</li>
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Direct traffic to your GitHub or landing page</li>
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Instant auto-activation via Gumroad webhook</li>
+                </ul>
+                <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="tier-btn tier-btn-primary">Sponsor for $49/wk &rarr;</a>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="tier">
+                <div class="tier-name">Showcase Partner</div>
+                <div class="tier-desc">Permanent front-page developer callout for enterprise tooling and AI developer platforms.</div>
+                <div class="tier-price">$99 <span>/ month</span></div>
+                <ul class="tier-features">
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Dedicated Commercial Showcase Card</li>
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Permanent inclusion in developer toolkits</li>
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Social shoutout on Protodex dev feed</li>
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Custom CTA and tracked conversion link</li>
+                </ul>
+                <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="tier-btn tier-btn-secondary">Book Showcase Slot &rarr;</a>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="tier">
+                <div class="tier-name">Security &amp; TRiSM Audit</div>
+                <div class="tier-desc">Comprehensive vulnerability, prompt injection, and EU AI Act compliance audit.</div>
+                <div class="tier-price">$499 <span>/ audit</span></div>
+                <ul class="tier-features">
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Complete static &amp; dynamic pen test</li>
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> AegisMesh TRiSM Certification Badge</li>
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Shell escape &amp; egress security validation</li>
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Executive report PDF for enterprise buyers</li>
+                </ul>
+                <a href="/audit.html" class="tier-btn tier-btn-secondary">Request Security Audit &rarr;</a>
+            </div>
+        </div>
+    </div>
+    """
     html += html_footer()
     return html
 
@@ -3489,6 +3654,10 @@ def main():
     # Build submit page
     print("Building submit page...")
     write(os.path.join(SITE_DIR, "submit.html"), build_submit_page())
+
+    # Build pricing & sponsorship page
+    print("Building pricing page...")
+    write(os.path.join(SITE_DIR, "pricing.html"), build_pricing_page())
 
     # Build auditor page
     print("Building auditor page...")

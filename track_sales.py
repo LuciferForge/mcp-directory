@@ -104,12 +104,25 @@ def check_and_process_sales():
 
     ledger["processed_sales"] = list(processed_ids)
     save_ledger(ledger)
+    return len(new_sales)
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] == '--loop':
+    args = sys.argv[1:]
+    build_if_changed = '--build-if-changed' in args
+
+    if '--loop' in args:
         print("Starting continuous sales polling daemon (every 15 min)...")
         while True:
-            check_and_process_sales()
+            new_count = check_and_process_sales()
+            if new_count and build_if_changed:
+                import subprocess
+                print("🚀 New sales processed! Rebuilding site...")
+                subprocess.run([sys.executable, "build_site.py"])
             time.sleep(900)
     else:
-        check_and_process_sales()
+        new_count = check_and_process_sales()
+        if new_count and build_if_changed:
+            import subprocess
+            print("🚀 New sales processed! Rebuilding site...")
+            subprocess.run([sys.executable, "build_site.py"])
+

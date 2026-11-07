@@ -1,0 +1,482 @@
+/* ==========================================================================
+   Protodex Vibrant Aurora 2.0 — 2026 Design System Architecture
+   Bleeding-Edge Developer Directory & Commercial Toolkits Aesthetic
+   ========================================================================== */
+
+:root {
+    /* Deep Obsidian & Canvas */
+    --bg: #050609;
+    --bg-canvas: #050609;
+    --bg-surface: rgba(11, 14, 24, 0.74);
+    --bg-card: rgba(11, 14, 24, 0.74);
+    --bg-card-hover: rgba(18, 23, 39, 0.90);
+    --bg-card-active: rgba(24, 30, 52, 0.96);
+    --bg-hover: rgba(45, 217, 224, 0.08);
+    --bg-subtle: rgba(255, 255, 255, 0.03);
+    
+    /* Specular & Glass Borders */
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(45, 217, 224, 0.45);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-glass-hover: rgba(45, 217, 224, 0.45);
+    --border-specular: inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
+    --border-specular-active: inset 0 1px 0 0 rgba(255, 255, 255, 0.28);
+    
+    /* Vibrant Brand Palette */
+    --accent: #2DD9E0;
+    --accent-hover: #1FC2C9;
+    --cyan: #2DD9E0;
+    --cyan-glow: rgba(45, 217, 224, 0.28);
+    --cyan-soft: rgba(45, 217, 224, 0.08);
+    --accent2: #8B5CF6;
+    --violet: #8B5CF6;
+    --violet-glow: rgba(139, 92, 246, 0.28);
+    --yellow: #F59E0B;
+    --amber: #F59E0B;
+    --amber-glow: rgba(245, 158, 11, 0.25);
+    --green: #10B981;
+    --emerald: #10B981;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
+    --red: #EF4444;
+    --crimson: #EF4444;
+    
+    /* Typography Tokens */
+    --text: #F8FAFC;
+    --text-primary: #F8FAFC;
+    --text-muted: #94A3B8;
+    --text-dim: #64748B;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+    
+    /* Layout Metrics */
+    --radius-sm: 8px;
+    --radius: 12px;
+    --radius-lg: 18px;
+    --radius-pill: 9999px;
+    --max-w: 1220px;
+    --spring-curve: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Reset & Vibrant Canvas */
+html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
+body {
+    background-color: var(--bg-canvas) !important;
+    background-image: 
+        radial-gradient(ellipse 90% 55% at 50% -15%, rgba(45, 217, 224, 0.16) 0%, transparent 70%),
+        radial-gradient(ellipse 75% 50% at 85% 20%, rgba(139, 92, 246, 0.14) 0%, transparent 60%),
+        radial-gradient(ellipse 65% 45% at 15% 45%, rgba(245, 158, 11, 0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 50% at 50% 85%, rgba(45, 217, 224, 0.09) 0%, transparent 70%),
+        radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 32px 32px !important;
+    background-attachment: fixed !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font) !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    min-height: 100vh;
+}
+
+/* ─── Frosted Glass Header Navigation ────────────────────────────────── */
+header {
+    border-bottom: 1px solid var(--border-glass) !important;
+    padding: 14px 0 !important;
+    position: sticky !important;
+    top: 0 !important;
+    background: rgba(5, 6, 9, 0.84) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    z-index: 100 !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+nav {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+nav a {
+    color: var(--text-muted) !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    padding: 7px 14px !important;
+    border-radius: var(--radius-sm) !important;
+    transition: all 0.2s var(--spring-curve) !important;
+    border: 1px solid transparent !important;
+    text-decoration: none !important;
+}
+
+nav a:hover {
+    color: #fff !important;
+    background: rgba(45, 217, 224, 0.1) !important;
+    border-color: rgba(45, 217, 224, 0.25) !important;
+    box-shadow: 0 0 12px rgba(45, 217, 224, 0.15) !important;
+}
+
+nav a.nav-cta {
+    background: linear-gradient(135deg, #2DD9E0 0%, #1FC2C9 100%) !important;
+    color: #000 !important;
+    font-weight: 700 !important;
+    border: none !important;
+    box-shadow: 0 0 18px rgba(45, 217, 224, 0.35) !important;
+}
+
+nav a.nav-cta:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 0 26px rgba(45, 217, 224, 0.55) !important;
+    background: linear-gradient(135deg, #3ef0f7 0%, #2DD9E0 100%) !important;
+}
+
+/* ─── Cyber Command Palette Search HUD ────────────────────────────────── */
+.search-wrap {
+    position: relative;
+    max-width: 620px;
+    margin: 0 auto;
+    z-index: 20;
+}
+
+.search-wrap input {
+    width: 100%;
+    padding: 16px 56px 16px 48px;
+    background: rgba(11, 14, 24, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(45, 217, 224, 0.32);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    outline: none;
+    box-shadow: var(--border-specular), 0 8px 32px rgba(0, 0, 0, 0.45);
+    transition: all 0.24s var(--spring-curve);
+}
+
+.search-wrap input:focus {
+    border-color: var(--cyan);
+    box-shadow: var(--border-specular-active), 0 0 35px var(--cyan-glow), 0 12px 40px rgba(0, 0, 0, 0.6);
+    background: rgba(15, 20, 35, 0.95);
+}
+
+.search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cyan);
+    font-family: var(--mono);
+    font-weight: 800;
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.hud-kbd {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+/* ─── Glassmorphism 2.0 Cards & Specular Refraction ───────────────────── */
+.server-card, 
+.card, 
+.cat-card, 
+.category-card, 
+.metric-card, 
+.finding-card, 
+.detail-section,
+.detail-readme {
+    background: var(--bg-surface) !important;
+    backdrop-filter: blur(16px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: var(--border-specular), 0 8px 32px rgba(0, 0, 0, 0.35) !important;
+    transition: all 0.22s var(--spring-curve) !important;
+    position: relative;
+}
+
+.server-card:hover, 
+.cat-card:hover, 
+.category-card:hover,
+.finding-card:hover {
+    border-color: var(--border-glass-hover) !important;
+    background: var(--bg-card-hover) !important;
+    box-shadow: var(--border-specular-active), 0 16px 48px -8px var(--cyan-glow) !important;
+    transform: translateY(-3px) scale(1.008) !important;
+    text-decoration: none !important;
+}
+
+/* ─── Security Telemetry Badges ───────────────────────────────────────── */
+.tag, 
+.tool-tag, 
+.chip, 
+.meta-item {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--text-muted) !important;
+    font-size: 0.8rem !important;
+    transition: all 0.15s ease !important;
+}
+
+.tag:hover, 
+.tool-tag:hover, 
+.chip:hover {
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+    background: var(--cyan-soft) !important;
+}
+
+.sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 9px;
+    border-radius: var(--radius-sm);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--mono);
+}
+
+.sec-badge.sec-clean, .sec-clean {
+    background: rgba(16, 185, 129, 0.14) !important;
+    border: 1px solid rgba(16, 185, 129, 0.35) !important;
+    color: var(--emerald) !important;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.2) !important;
+}
+
+.sec-badge.sec-warn, .sec-warn {
+    background: rgba(245, 158, 11, 0.14) !important;
+    border: 1px solid rgba(245, 158, 11, 0.35) !important;
+    color: var(--amber) !important;
+}
+
+.sec-badge.sec-risk, .sec-risk {
+    background: rgba(239, 68, 68, 0.14) !important;
+    border: 1px solid rgba(239, 68, 68, 0.35) !important;
+    color: var(--crimson) !important;
+}
+
+/* ─── Primary and Gradient Buttons ────────────────────────────────────── */
+.btn {
+    background: linear-gradient(135deg, #2DD9E0, #1FC2C9) !important;
+    color: #000 !important;
+    font-weight: 700 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 10px 20px !important;
+    font-size: 0.92rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    box-shadow: 0 4px 18px rgba(45, 217, 224, 0.3) !important;
+    transition: all 0.2s var(--spring-curve) !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+}
+
+.btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 26px rgba(45, 217, 224, 0.5) !important;
+    color: #000 !important;
+}
+
+/* ─── High-Converting Commercial Callout Banner ───────────────────────── */
+.protodex-commercial-callout {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    margin: 36px 0;
+    background: linear-gradient(135deg, rgba(45, 217, 224, 0.12) 0%, rgba(139, 92, 246, 0.10) 100%);
+    border: 1px solid rgba(45, 217, 224, 0.35);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--border-specular), 0 12px 40px rgba(45, 217, 224, 0.12);
+    position: relative;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.protodex-commercial-callout::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+}
+
+.protodex-commercial-callout .callout-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+}
+
+.protodex-commercial-callout .callout-text {
+    flex: 1;
+    min-width: 260px;
+}
+
+.protodex-commercial-callout .callout-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.protodex-commercial-callout .callout-desc {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-top: 4px;
+    line-height: 1.5;
+}
+
+.protodex-commercial-callout .callout-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.protodex-commercial-callout .callout-btn-primary {
+    background: var(--accent);
+    color: #000;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-size: 0.86rem;
+    text-decoration: none;
+    box-shadow: 0 0 16px rgba(45, 217, 224, 0.35);
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.protodex-commercial-callout .callout-btn-primary:hover {
+    background: #45e3ea;
+    box-shadow: 0 0 24px rgba(45, 217, 224, 0.55);
+    transform: translateY(-1px);
+}
+
+.protodex-commercial-callout .callout-btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.86rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.protodex-commercial-callout .callout-btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--cyan-soft);
+}
+
+/* ─── Pricing Featured Tier Radiant Halo ─────────────────────────────── */
+.tier.featured {
+    border-color: var(--cyan) !important;
+    background: linear-gradient(180deg, rgba(45, 217, 224, 0.1) 0%, rgba(11, 14, 24, 0.95) 100%) !important;
+    box-shadow: var(--border-specular-active), 0 0 50px rgba(45, 217, 224, 0.25) !important;
+    transform: scale(1.02);
+}
+
+/* ─── Mission Control Cyber-HUD Terminal (audit.html) ─────────────────── */
+.terminal-window {
+    background: #07090E !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: var(--radius-lg) !important;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6) !important;
+    position: relative;
+}
+
+.terminal-window::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.terminal-body {
+    padding: 18px 22px !important;
+    font-family: var(--mono) !important;
+    font-size: 0.84rem !important;
+    color: #A5B4FC !important;
+    height: 200px !important;
+    overflow-y: auto !important;
+    line-height: 1.65 !important;
+    position: relative;
+    z-index: 3;
+}
+
+/* ─── Radar Pulse Keyframes ──────────────────────────────────────────── */
+@keyframes radar-ping {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.hero-badge .pulse {
+    width: 8px !important;
+    height: 8px !important;
+    background: var(--emerald) !important;
+    border-radius: 50% !important;
+    animation: radar-ping 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+}
+
+/* ─── Footer modern touches ───────────────────────────────────────────── */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: rgba(5, 6, 9, 0.95) !important;
+    padding: 60px 0 40px !important;
+    margin-top: 80px !important;
+}
+
+footer .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+footer .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 24px;
+    color: var(--text-dim);
+    font-size: 0.82rem;
+    text-align: center;
+}

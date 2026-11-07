@@ -1,0 +1,42 @@
+name: Sync Gumroad Sales & Active Sponsors
+
+on:
+  schedule:
+    # Run every 30 minutes 24/7 in GitHub cloud
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-sales:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Sales Tracker & Build Site if Changed
+        env:
+          GUMROAD_TOKEN: ${{ secrets.GUMROAD_TOKEN || 'mYyVRrUmgHcLLSfSeVvaVp0jaKEsVPnShjU33vD_nbg' }}
+        run: |
+          python track_sales.py --build-if-changed
+
+      - name: Commit & Push Changes
+        run: |
+          git config user.name 'Protodex Sales Bot'
+          git config user.email 'bot@protodex.io'
+          if [[ -n $(git status --porcelain sales_ledger.json sponsored_servers.json docs/index.html) ]]; then
+            git add sales_ledger.json sponsored_servers.json docs/index.html
+            git commit -m "chore: auto-sync Gumroad sales and active sponsors [skip ci]"
+            git push origin master
+          else
+            echo "No sales or sponsor changes detected."
+          fi
