@@ -161,12 +161,13 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text
                 <span class="logo-tagline">MCP Server Index</span>
             </div>
         </a>
-                <nav>
+        <nav>
             <a href="/">Explore</a>
-            <a href="/audit.html">Security Auditor 🛡️</a>
-            <a href="/datasets/">Datasets &amp; Kits 📊</a>
+            <a href="/templates.html" style="color:var(--accent);font-weight:700">UI Studio 🎨</a>
+            <a href="/audit.html">Security 🛡️</a>
+            <a href="/datasets/">Datasets 📊</a>
             <a href="/categories.html">Categories</a>
-            <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener">Promote Server ⚡</a>
+            <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener">Promote ⚡</a>
             <a href="/blog/">Blog</a>
             <a href="/build.html" class="nav-cta" data-promo="services">Need an MCP server? →</a>
         </nav>
@@ -179,7 +180,7 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text
             <p>Production datasets, algorithmic trading engines, and enterprise developer kits. Turnkey downloads with full source code and commercial rights.</p>
         </section>
 
-        <section class="grid">
+                <section class="grid">
             <!-- 1. Polymarket Quant Dataset -->
             <article class="card">
                 <span class="tag" style="color:#FFD93D;background:rgba(255,217,61,0.1);border-color:rgba(255,217,61,0.25)">Bestseller · Quant Finance</span>
@@ -192,11 +193,59 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text
                 </div>
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
                     <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#FFD93D">$19</span>
-                    <a class="cta" href="https://protodex.io/datasets/polymarket-historical.html" style="background:#FFD93D;color:#000">View &amp; Download →</a>
+                    <a class="cta" href="https://protodex.io/datasets/polymarket-historical.html" style="background:#FFD93D;color:#000">View &amp; Download &rarr;</a>
                 </div>
             </article>
 
-            <!-- 2. MCP Ecosystem Dataset -->
+            <!-- 2. TheBull Crypto Quant Suite (Separated Crypto) -->
+            <article class="card">
+                <span class="tag" style="color:#22C55E;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.25)">Crypto Quant · 5 Strategies</span>
+                <h2>TheBull Crypto Quantitative Trading Suite</h2>
+                <p>Institutional automated trading bots for Binance Futures, Delta Exchange Perpetuals &amp; Hyperliquid. 5 strategies: Delta-Neutral Funding Arbitrage, L2 Orderbook Sniper, Multi-TF Trend Breakout, Bollinger Grid, and Liquidation Hunter.</p>
+                <div class="stats">
+                    <div class="stat"><span class="num">Binance+Delta</span><span class="lbl">Exchanges</span></div>
+                    <div class="stat"><span class="num">5 Strategies</span><span class="lbl">Funding/Grid/Sniper</span></div>
+                    <div class="stat"><span class="num">1-Click</span><span class="lbl">Windows + Docker</span></div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
+                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#22C55E">$49</span>
+                    <a class="cta" href="https://manja8.gumroad.com/l/woatyl" target="_blank" rel="noopener" style="background:#22C55E;color:#000">Get Crypto Suite ($49) &rarr;</a>
+                </div>
+            </article>
+
+            <!-- 3. Mindful Algo & Dhan HQ Indian Suite (Separated Dhan/NSE) -->
+            <article class="card">
+                <span class="tag" style="color:#F59E0B;background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.25)">Indian F&amp;O · &#8377;0 Overnight Risk</span>
+                <h2>Mindful Algo &amp; Dhan HQ Indian Markets F&amp;O Suite</h2>
+                <p>Complete automated options trading architecture for NSE Nifty 50 and BSE Sensex. 11 Mindfluential production strategies, Cherry-Picked Top 3 Setup, 3.6x capital multiplier, and native Dhan HQ API / webhook integration.</p>
+                <div class="stats">
+                    <div class="stat"><span class="num">11 Algos</span><span class="lbl">Buyers &amp; Spreads</span></div>
+                    <div class="stat"><span class="num">&#8377;0 Overnight</span><span class="lbl">100% Intraday Flat</span></div>
+                    <div class="stat"><span class="num">Dhan HQ</span><span class="lbl">Python SDK</span></div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
+                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#F59E0B">$49</span>
+                    <a class="cta" href="https://manja8.gumroad.com/l/lqzroy" target="_blank" rel="noopener" style="background:#F59E0B;color:#000">Get Indian F&amp;O Suite ($49) &rarr;</a>
+                </div>
+            </article>
+
+            <!-- 4. Polymarket Prediction Trading Strategies Bundle (Multi-Risk Tiers) -->
+            <article class="card">
+                <span class="tag" style="color:#A78BFA;background:rgba(167,139,250,0.1);border-color:rgba(167,139,250,0.25)">Prediction Markets · 3 Risk Tiers</span>
+                <h2>Polymarket Prediction Trading Strategies Bundle</h2>
+                <p>Multi-risk algorithmic bundle for Polymarket: Low-Risk Binary Outcome Arbitrage (Yes+No&lt;$0.985), Medium-Risk Liquidity Provider &amp; Market Making Rebates, and High-Alpha Fast-News / Whale-Tracking Snipers.</p>
+                <div class="stats">
+                    <div class="stat"><span class="num">3 Risk Tiers</span><span class="lbl">Low / Med / High</span></div>
+                    <div class="stat"><span class="num">Parity Arb</span><span class="lbl">Delta-Neutral</span></div>
+                    <div class="stat"><span class="num">Whale Tracker</span><span class="lbl">Top 50 Wallets</span></div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
+                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#A78BFA">$39</span>
+                    <a class="cta" href="https://manja8.gumroad.com/l/ntdiq" target="_blank" rel="noopener" style="background:#A78BFA;color:#000">Get Polymarket Bundle ($39) &rarr;</a>
+                </div>
+            </article>
+
+            <!-- 5. MCP Ecosystem Dataset -->
             <article class="card">
                 <span class="tag">AI Infrastructure · Ecosystem Data</span>
                 <h2>The 31,500+ MCP Server Dataset</h2>
@@ -208,11 +257,11 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text
                 </div>
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
                     <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:var(--accent)">$29</span>
-                    <a class="cta" href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener">Buy on Gumroad ($29) →</a>
+                    <a class="cta" href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener">Buy on Gumroad ($29) &rarr;</a>
                 </div>
             </article>
 
-            <!-- 3. Production MCP Server Starter Kit -->
+            <!-- 6. Production MCP Server Starter Kit -->
             <article class="card">
                 <span class="tag" style="color:#7B61FF;background:rgba(123,97,255,0.1);border-color:rgba(123,97,255,0.25)">Developer Toolkit · Dual Stack</span>
                 <h2>Production MCP Server Starter Kit</h2>
@@ -224,27 +273,11 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text
                 </div>
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
                     <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#7B61FF">$39</span>
-                    <a class="cta" href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" style="background:#7B61FF;color:#fff">Get Starter Kit ($39) →</a>
+                    <a class="cta" href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" style="background:#7B61FF;color:#fff">Get Starter Kit ($39) &rarr;</a>
                 </div>
             </article>
 
-            <!-- 4. TheBull Algo Trading Suite -->
-            <article class="card">
-                <span class="tag" style="color:#22C55E;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.25)">Quantitative Trading · 3 Bots</span>
-                <h2>TheBull Multi-Exchange Algo Trading Suite</h2>
-                <p>Commercial-grade automated trading bots for Binance USDT Futures, Delta Exchange Perpetuals, and Dhan HQ (NSE Equities). 100-point momentum scoring, dynamic ATR risk sizing &amp; 1-click launchers.</p>
-                <div class="stats">
-                    <div class="stat"><span class="num">3 Engines</span><span class="lbl">Binance, Delta, Dhan</span></div>
-                    <div class="stat"><span class="num">ATR Risk</span><span class="lbl">Dynamic Stops</span></div>
-                    <div class="stat"><span class="num">1-Click</span><span class="lbl">Launchers (.bat/.sh)</span></div>
-                </div>
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
-                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#22C55E">$49</span>
-                    <a class="cta" href="https://manja8.gumroad.com/l/woatyl" target="_blank" rel="noopener" style="background:#22C55E;color:#000">Get Trading Suite ($49) →</a>
-                </div>
-            </article>
-
-            <!-- 5. Solana DEX Arbitrage & Sniper -->
+            <!-- 7. Solana DEX Arbitrage & Sniper -->
             <article class="card">
                 <span class="tag" style="color:#2DD9E0;background:rgba(45,217,224,0.1);border-color:rgba(45,217,224,0.25)">Solana MEV · Automated Execution</span>
                 <h2>Solana DEX Arbitrage &amp; Momentum Sniper</h2>
@@ -256,55 +289,7 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text
                 </div>
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
                     <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:var(--accent)">$39</span>
-                    <a class="cta" href="https://manja8.gumroad.com/l/vvwwwp" target="_blank" rel="noopener">Get Solana Suite ($39) →</a>
-                </div>
-            </article>
-
-            <!-- 6. Enterprise Stripe EU E-Invoicing Engine -->
-            <article class="card">
-                <span class="tag" style="color:#5B8DEF;background:rgba(91,141,239,0.1);border-color:rgba(91,141,239,0.25)">Enterprise B2B · EU Mandate</span>
-                <h2>Enterprise Stripe EU E-Invoicing Engine</h2>
-                <p>Turnkey FastAPI microservice that intercepts Stripe webhook events and produces EN 16931-compliant Factur-X 1.0 &amp; ZUGFeRD 2.2 XML. Essential for French PDP 2026 and German B2B E-Rechnung laws.</p>
-                <div class="stats">
-                    <div class="stat"><span class="num">EN 16931</span><span class="lbl">Factur-X / ZUGFeRD</span></div>
-                    <div class="stat"><span class="num">Stripe</span><span class="lbl">Webhook Interceptor</span></div>
-                    <div class="stat"><span class="num">Docker</span><span class="lbl">Turnkey Container</span></div>
-                </div>
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
-                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#5B8DEF">$79</span>
-                    <a class="cta" href="https://manja8.gumroad.com/l/jussar" target="_blank" rel="noopener" style="background:#5B8DEF;color:#000">Get Engine ($79) →</a>
-                </div>
-            </article>
-
-            <!-- 7. ClawGuard Prompt-Shield Middleware Pro -->
-            <article class="card">
-                <span class="tag" style="color:#E02D7B;background:rgba(224,45,123,0.1);border-color:rgba(224,45,123,0.25)">AI Security · Agent TRiSM</span>
-                <h2>ClawGuard Prompt-Shield Middleware Pro</h2>
-                <p>Sub-1ms AI security middleware and tool firewall. Defends autonomous agents and MCP hosts against indirect prompt injection, tool jailbreaks, SSRF, and sensitive data leakage.</p>
-                <div class="stats">
-                    <div class="stat"><span class="num">&lt; 1ms</span><span class="lbl">Latency overhead</span></div>
-                    <div class="stat"><span class="num">TRiSM</span><span class="lbl">OWASP LLM Top 10</span></div>
-                    <div class="stat"><span class="num">Plug &amp; Play</span><span class="lbl">Python &amp; TS middleware</span></div>
-                </div>
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
-                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#E02D7B">$29</span>
-                    <a class="cta" href="https://manja8.gumroad.com/l/rogmt" target="_blank" rel="noopener" style="background:#E02D7B;color:#fff">Get ClawGuard ($29) →</a>
-                </div>
-            </article>
-
-            <!-- 8. AegisMesh MCP Security Auditor (Free) -->
-            <article class="card">
-                <span class="tag" style="color:#22C55E;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.25)">Free Security Tool</span>
-                <h2>AegisMesh MCP Security Auditor</h2>
-                <p>Interactive web auditor to scan any MCP server repository for security vulnerabilities: static analysis, prompt injection exposure, unauthenticated SSE endpoints, and EU AI Act compliance checks.</p>
-                <div class="stats">
-                    <div class="stat"><span class="num">Instant</span><span class="lbl">In-browser scan</span></div>
-                    <div class="stat"><span class="num">31.5K</span><span class="lbl">Repo registry checks</span></div>
-                    <div class="stat"><span class="num">100% Free</span><span class="lbl">Open Community tool</span></div>
-                </div>
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
-                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#22C55E">FREE</span>
-                    <a class="cta" href="https://protodex.io/audit.html" style="background:#22C55E;color:#000">Launch Auditor →</a>
+                    <a class="cta" href="https://manja8.gumroad.com/l/vvwwwp" target="_blank" rel="noopener">Get Solana Suite ($39) &rarr;</a>
                 </div>
             </article>
         </section>

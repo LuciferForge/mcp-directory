@@ -1432,7 +1432,7 @@ COMMERCIAL_SERVER_CALLOUT = """
 
 
 def html_header(current=""):
-    return f"""
+    return """
 <header>
     <div class="container">
         <a href="/" class="logo">
@@ -1445,12 +1445,12 @@ def html_header(current=""):
         <nav>
             <a href="/">Explore</a>
             <a href="/templates.html" style="color:var(--accent);font-weight:700">UI Studio 🎨</a>
-            <a href="/audit.html">Security Auditor 🛡️</a>
-            <a href="/datasets/">Datasets &amp; Kits 📊</a>
+            <a href="/audit.html">Security 🛡️</a>
+            <a href="/datasets/">Datasets 📊</a>
             <a href="/categories.html">Categories</a>
-            <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener">Promote Server ⚡</a>
+            <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener">Promote ⚡</a>
             <a href="/blog/">Blog</a>
-            <a href="{SERVICES_CTA['url']}" class="nav-cta" data-promo="services">{SERVICES_CTA['cta']}</a>
+            <a href="/build.html" class="nav-cta" data-promo="services">Need an MCP server? →</a>
         </nav>
     </div>
 </header>
@@ -1731,9 +1731,9 @@ document.addEventListener('click', function(e) {
         <div class="raycast-hud-wrapper">
             <div class="raycast-hud-bar">
                 <div class="hud-leading-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                 </div>
-                <input type="text" id="search-input" class="raycast-search-input" placeholder="Search servers, tools, protocols &amp; datasets... (e.g., postgres, slack, stripe, fastmcp)" autocomplete="off" oninput="doSearch(this.value)">
+                <input type="text" id="search-input" class="raycast-search-input" placeholder="Search 31,595+ servers, tools, schemas... (e.g., postgres, slack, stripe, fastmcp)" autocomplete="off" oninput="doSearch(this.value)">
                 <div class="hud-kbd-badge">
                     <span>⌘K</span>
                 </div>
@@ -1783,11 +1783,11 @@ document.addEventListener('click', function(e) {
         </div>
 
         <!-- ============================================================== -->
-        <!-- OBSIDIAN AURORA ASYMMETRICAL BENTO GRID                       -->
+        <!-- OBSIDIAN AURORA ASYMMETRICAL BENTO GRID (COMPACT 2026)         -->
         <!-- ============================================================== -->
         <div class="bento-grid-2026">
             
-            <!-- Bento Tile 1: Dual-SDK Interactive IDE & Terminal Simulator (Large, 7 Cols) -->
+            <!-- Bento Tile 1: Dual-SDK Interactive IDE & Terminal Simulator (7 Cols) -->
             <div class="bento-tile bento-tile-ide">
                 <div class="bento-header">
                     <div class="ide-tabs-nav">
@@ -1797,30 +1797,26 @@ document.addEventListener('click', function(e) {
                         <button class="ide-tab" onclick="switchIdeTab('cursor', this)">Cursor Rules</button>
                     </div>
                     <button class="btn-copy-code" id="copy-code-btn" onclick="copyIdeSnippet()">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                        <span>Copy Code</span>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        <span>Copy</span>
                     </button>
                 </div>
                 <div class="ide-body">
-                    <pre class="ide-code-block" id="ide-code-display"><code class="language-python"><span class="c-dim"># FastMCP 2.0 Production Server</span>
-<span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP
-
-mcp = FastMCP(<span class="c-str">"ProtodexIntelligence"</span>)
+                    <pre class="ide-code-block" id="ide-code-display"><code class="language-python"><span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP
+mcp = FastMCP(<span class="c-str">"ProtodexLive"</span>)
 
 <span class="c-dec">@mcp.tool</span>()
-<span class="c-kw">def</span> <span class="c-fn">query_mcp_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -> <span class="c-type">dict</span>:
-    <span class="c-str">&quot;&quot;&quot;Query 31,595+ MCP servers with real-time AST security scores.&quot;&quot;&quot;</span>
+<span class="c-kw">def</span> <span class="c-fn">search_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -> <span class="c-type">dict</span>:
     <span class="c-kw">return</span> mcp_engine.search(query, min_stars=min_stars)
 
-<span class="c-kw">if</span> __name__ == <span class="c-str">"__main__"</span>:
-    mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
+mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
                 </div>
                 <div class="ide-footer">
                     <div class="ide-status-pill">
                         <span class="status-dot green"></span>
-                        <span>JSON-RPC 2.0 Active &middot; Stdio + SSE Transports Supported</span>
+                        <span>JSON-RPC 2.0 &middot; Stdio + SSE Supported</span>
                     </div>
-                    <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" class="ide-starter-link">Download Dual-SDK Starter Kit ($39) &rarr;</a>
+                    <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" class="ide-starter-link">Get Dual-SDK Kit ($39) &rarr;</a>
                 </div>
             </div>
 
@@ -1843,7 +1839,7 @@ mcp = FastMCP(<span class="c-str">"ProtodexIntelligence"</span>)
                         <div class="radar-blip blip-3"></div>
                         <div class="radar-center-score">
                             <span class="score-num">98.4</span>
-                            <span class="score-lbl">SAFETY INDEX</span>
+                            <span class="score-lbl">SAFETY</span>
                         </div>
                     </div>
                 </div>
@@ -1853,33 +1849,29 @@ mcp = FastMCP(<span class="c-str">"ProtodexIntelligence"</span>)
                         <strong class="text-green">0 DETECTED</strong>
                     </div>
                     <div class="radar-metric-row">
-                        <span>AST Sandbox Enforced</span>
+                        <span>AST Sandbox</span>
                         <strong class="text-cyan">100% COMPLIANT</strong>
-                    </div>
-                    <div class="radar-metric-row">
-                        <span>Supply-Chain Verified</span>
-                        <strong class="text-purple">31,595 CHECKED</strong>
                     </div>
                 </div>
                 <a href="/audit.html" class="radar-action-btn">
                     <span>Scan Your Server Free</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
 
             <!-- Bento Tile 3: Featured MCP Partner of the Week (5 Cols) -->
             <div class="bento-tile bento-tile-featured">
                 <div class="featured-top">
-                    <span class="featured-badge">&#9889; FEATURED MCP PARTNER</span>
+                    <span class="featured-badge">&#9889; FEATURED PARTNER</span>
                     <span class="featured-verified">&#10003; VERIFIED</span>
                 </div>
                 <div class="featured-content">
                     <h3 class="featured-name">Unorouter MCP</h3>
-                    <p class="featured-tagline">Universal multi-model gateway. Intelligent LLM failover and low-latency dynamic routing across Anthropic, OpenAI, DeepSeek &amp; Gemini.</p>
+                    <p class="featured-tagline">Dynamic LLM gateway. Multi-model failover &amp; sub-millisecond routing across Anthropic, OpenAI, DeepSeek &amp; Gemini.</p>
                     
                     <div class="featured-sparkline-box">
                         <div class="sparkline-header">
-                            <span>Weekly Installs &amp; Stars</span>
+                            <span>Installs &amp; Stars</span>
                             <span class="star-count">&#9733; 4,892</span>
                         </div>
                         <svg class="sparkline-svg" viewBox="0 0 200 40">
@@ -1896,41 +1888,39 @@ mcp = FastMCP(<span class="c-str">"ProtodexIntelligence"</span>)
                     </div>
                 </div>
                 <div class="featured-footer">
-                    <a href="/servers/0-don-unorouter-mcp.html" class="featured-view-link">View Server Docs &rarr;</a>
-                    <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="featured-sponsor-btn">Claim Featured Slot ($49/wk)</a>
+                    <a href="/servers/0-don-unorouter-mcp.html" class="featured-view-link">Server Docs &rarr;</a>
+                    <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="featured-sponsor-btn">Claim Slot ($49/wk)</a>
                 </div>
             </div>
 
-            <!-- Bento Tile 4: Protodex UI Studio Showcase (48 Templates) (7 Cols) -->
+            <!-- Bento Tile 4: Protodex UI Studio Showcase (7 Cols) -->
             <div class="bento-tile bento-tile-studio">
                 <div class="studio-split">
                     <div class="studio-media">
                         <img src="/assets/preview_diverse_templates.jpg" alt="Protodex UI Studio 48 Templates Across Diverse Developer Aesthetics" class="studio-preview-img" loading="lazy">
                         <div class="studio-media-overlay">
                             <span class="style-tag tag-swiss">Swiss Minimalist</span>
-                            <span class="style-tag tag-crt">Phosphor CRT Terminal</span>
-                            <span class="style-tag tag-quant">Web3 &amp; Quant HUD</span>
-                            <span class="style-tag tag-aurora">Obsidian Dark SaaS</span>
+                            <span class="style-tag tag-crt">Phosphor CRT</span>
+                            <span class="style-tag tag-quant">Web3 Quant</span>
+                            <span class="style-tag tag-aurora">Obsidian SaaS</span>
                         </div>
                     </div>
                     <div class="studio-details">
                         <div class="studio-badge-row">
                             <span class="badge-studio-new">&#127912; NEW RELEASE</span>
-                            <span class="badge-studio-skill">Antigravity AI Skill Included</span>
+                            <span class="badge-studio-skill">Antigravity AI Skill</span>
                         </div>
-                        <h3 class="studio-title">Protodex UI Studio: 48 Turnkey Developer Templates</h3>
+                        <h3 class="studio-title">Protodex UI Studio: 48 Turnkey Templates</h3>
                         <p class="studio-desc">
-                            Radical visual variety for high-performing AI developer tools. No more generic dashboards. Spans Swiss monospace portfolios, hacker terminals, algorithmic trading HUDs, and Awwwards-grade bento layouts.
+                            Radical visual variety for high-performing AI developer tools. Built in clean Tailwind CSS + Antigravity AI Skill (SKILL.md).
                         </p>
                         <div class="studio-perks-list">
-                            <div class="perk-item"><span>&#10003;</span> 48 Tailwind CSS Layouts</div>
-                            <div class="perk-item"><span>&#10003;</span> Antigravity AI Skill (SKILL.md)</div>
+                            <div class="perk-item"><span>&#10003;</span> 48 Tailwind Layouts</div>
                             <div class="perk-item"><span>&#10003;</span> Zero External Dependencies</div>
-                            <div class="perk-item"><span>&#10003;</span> Commercial Developer Rights</div>
                         </div>
                         <div class="studio-actions-row">
-                            <a href="/templates.html" class="btn-studio-explore">Explore All 48 Templates &rarr;</a>
-                            <a href="https://manja8.gumroad.com/l/lntzuo" target="_blank" rel="noopener" class="btn-studio-buy">Instant Download ZIP ($39)</a>
+                            <a href="/templates.html" class="btn-studio-explore">Explore Gallery &rarr;</a>
+                            <a href="https://manja8.gumroad.com/l/lntzuo" target="_blank" rel="noopener" class="btn-studio-buy">Instant Download ($39)</a>
                         </div>
                     </div>
                 </div>
@@ -1941,60 +1931,212 @@ mcp = FastMCP(<span class="c-str">"ProtodexIntelligence"</span>)
     </div> <!-- /.container -->
 </section>
 
-<script>
-function switchIdeTab(tab, btn) {{
-    document.querySelectorAll('.ide-tab').forEach(function(b) {{ b.classList.remove('active'); }});
-    btn.classList.add('active');
-    var codeEl = document.getElementById('ide-code-display');
-    if (!codeEl) return;
-    
-    if (tab === 'python') {{
-        codeEl.innerHTML = '<code class="language-python"><span class="c-dim"># FastMCP 2.0 Production Server</span>\\n<span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP\\n\\nmcp = FastMCP(<span class="c-str">"ProtodexIntelligence"</span>)\\n\\n<span class="c-dec">@mcp.tool</span>()\\n<span class="c-kw">def</span> <span class="c-fn">query_mcp_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -> <span class="c-type">dict</span>:\\n    <span class="c-str">&quot;&quot;&quot;Query 31,595+ MCP servers with real-time AST security scores.&quot;&quot;&quot;</span>\\n    <span class="c-kw">return</span> mcp_engine.search(query, min_stars=min_stars)\\n\\n<span class="c-kw">if</span> __name__ == <span class="c-str">"__main__"</span>:\\n    mcp.run(transport=<span class="c-str">"stdio"</span>)</code>';
-    }} else if (tab === 'ts') {{
-        codeEl.innerHTML = '<code class="language-typescript"><span class="c-dim">// TypeScript @modelcontextprotocol/sdk</span>\n<span class="c-kw">import</span> {{ McpServer }} <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/mcp.js"</span>;\n<span class="c-kw">import</span> {{ StdioServerTransport }} <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/stdio.js"</span>;\n<span class="c-kw">import</span> {{ z }} <span class="c-kw">from</span> <span class="c-str">"zod"</span>;\n\n<span class="c-kw">const</span> server = <span class="c-kw">new</span> <span class="c-fn">McpServer</span>({{ name: <span class="c-str">"protodex-indexer"</span>, version: <span class="c-str">"2.0.0"</span> }});\n\nserver.<span class="c-fn">tool</span>(<span class="c-str">"findServer"</span>, {{ tag: z.<span class="c-fn">string</span>() }}, <span class="c-kw">async</span> ({{ tag }}) => ({{\n  content: [{{ type: <span class="c-str">"text"</span>, text: JSON.<span class="c-fn">stringify</span>(<span class="c-kw">await</span> <span class="c-fn">fetchServers</span>(tag)) }}]\n}}));\n\n<span class="c-kw">await</span> server.<span class="c-fn">connect</span>(<span class="c-kw">new</span> <span class="c-fn">StdioServerTransport</span>());</code>';
-    }} else if (tab === 'claude') {{
-        codeEl.innerHTML = '<code class="language-json"><span class="c-dim">// Claude Desktop config (~/.config/Claude/claude_desktop_config.json)</span>\n{{\n  <span class="c-str">"mcpServers"</span>: {{\n    <span class="c-str">"protodex"</span>: {{\n      <span class="c-str">"command"</span>: <span class="c-str">"npx"</span>,\n      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@protodex/cli"</span>, <span class="c-str">"serve"</span>],\n      <span class="c-str">"env"</span>: {{\n        <span class="c-str">"PROTODEX_API_KEY"</span>: <span class="c-str">"pk_live_protodex_intelligence"</span>\n      }}\n    }}\n  }}\n}}</code>';
-    }} else if (tab === 'cursor') {{
-        codeEl.innerHTML = '<code class="language-markdown"><span class="c-dim"># .cursorrules - Protodex Model Context Protocol Best Practices</span>\n\n- Prioritize verified MCP servers with AegisMesh safety scores &gt;= 90%.\n- Use FastMCP for Python agents with Stdio transport in local sandbox.\n- Enforce strict parameter validation using Pydantic or Zod schemas.\n- When building MCP interfaces, follow Protodex 2026 Obsidian Aurora tokens.</code>';
-    }}
-}}
+<!-- ====================================================================== -->
+<!-- LIVE MCP SERVER DIRECTORY SPOTLIGHT & CATEGORIES (VISIBLE NEAR FOLD)   -->
+<!-- ====================================================================== -->
+<section class="container live-directory-spotlight">
+    <div class="directory-spotlight-head">
+        <div class="spotlight-title-group">
+            <span class="spotlight-badge">&#128269; DISCOVER 31,595+ SCREENED MCP SERVERS</span>
+            <h2 class="spotlight-title">Featured &amp; Top-Rated Model Context Protocol Servers</h2>
+            <p class="spotlight-sub">Indexed from GitHub, verified against security vulnerabilities, and categorized for Claude, Cursor, and agent runtimes.</p>
+        </div>
+        <a href="/categories.html" class="spotlight-view-all">All 14 Categories &rarr;</a>
+    </div>
 
-function copyIdeSnippet() {{
-    var codeEl = document.getElementById('ide-code-display');
-    if (!codeEl) return;
-    var text = codeEl.innerText;
-    navigator.clipboard.writeText(text).then(function() {{
-        var btn = document.getElementById('copy-code-btn');
-        if (btn) {{
-            var original = btn.innerHTML;
-            btn.innerHTML = '<span style="color:#2DD9E0">&#10003; Copied!</span>';
-            setTimeout(function() {{ btn.innerHTML = original; }}, 2000);
-        }}
-    }}).catch(function() {{
-        prompt("Copy code:", text);
-    }});
-}}
+    <!-- Quick Category Filter Pills -->
+    <div class="quick-cat-pills">
+        <a href="/category/ai-llm.html" class="cat-pill active"><span class="cat-dot" style="background:#8B5CF6"></span>AI/LLM (12,738)</a>
+        <a href="/category/code-dev-tools.html" class="cat-pill"><span class="cat-dot" style="background:#3B82F6"></span>Dev Tools (3,316)</a>
+        <a href="/category/api-integration.html" class="cat-pill"><span class="cat-dot" style="background:#10B981"></span>API Integration (2,305)</a>
+        <a href="/category/database.html" class="cat-pill"><span class="cat-dot" style="background:#EF4444"></span>Database (1,266)</a>
+        <a href="/category/security.html" class="cat-pill"><span class="cat-dot" style="background:#DC2626"></span>Security (1,245)</a>
+        <a href="/category/memory-knowledge.html" class="cat-pill"><span class="cat-dot" style="background:#F59E0B"></span>Memory (1,125)</a>
+        <a href="/category/browser-web.html" class="cat-pill"><span class="cat-dot" style="background:#06B6D4"></span>Browser Automation (1,007)</a>
+        <a href="/category/devops.html" class="cat-pill"><span class="cat-dot" style="background:#059669"></span>DevOps (622)</a>
+    </div>
 
-window.addEventListener('keydown', function(e) {{
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {{
-        e.preventDefault();
-        var input = document.getElementById('search-input');
-        if (input) {{
-            input.focus();
-            input.select();
-        }}
-    }} else if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {{
-        e.preventDefault();
-        var input = document.getElementById('search-input');
-        if (input) {{
-            input.focus();
-            input.select();
-        }}
-    }}
-}});
-</script>
+    <!-- Live Top MCP Server Cards Grid (Real Products) -->
+    <div class="live-mcp-grid">
+        <!-- Server 1: n8n -->
+        <a href="/servers/n8n-io-n8n.html" class="server-card">
+            <div class="server-card-top">
+                <span class="server-card-title">n8n</span>
+                <span class="server-stars">&#9733; 179K</span>
+            </div>
+            <p class="server-card-desc">Fair-code workflow automation platform with native AI agent connectors and 400+ nodes.</p>
+            <div class="server-card-footer">
+                <span class="badge-lang">TypeScript</span>
+                <span class="badge-cat">API Integration</span>
+                <span class="badge-sec green">&#10003; 98% Safe</span>
+            </div>
+        </a>
+
+        <!-- Server 2: gemini-cli -->
+        <a href="/servers/google-gemini-gemini-cli.html" class="server-card">
+            <div class="server-card-top">
+                <span class="server-card-title">gemini-cli</span>
+                <span class="server-stars">&#9733; 97.7K</span>
+            </div>
+            <p class="server-card-desc">Official Google Gemini CLI and Model Context Protocol agent server with multimodal tool execution.</p>
+            <div class="server-card-footer">
+                <span class="badge-lang">TypeScript</span>
+                <span class="badge-cat">AI/LLM</span>
+                <span class="badge-sec green">&#10003; 100% Verified</span>
+            </div>
+        </a>
+
+        <!-- Server 3: servers (Reference) -->
+        <a href="/servers/modelcontextprotocol-servers.html" class="server-card">
+            <div class="server-card-top">
+                <span class="server-card-title">servers</span>
+                <span class="server-stars">&#9733; 81.0K</span>
+            </div>
+            <p class="server-card-desc">Official reference MCP servers: Postgres, Brave Search, Memory, Filesystem, Slack &amp; Google Drive.</p>
+            <div class="server-card-footer">
+                <span class="badge-lang">TypeScript</span>
+                <span class="badge-cat">Core Reference</span>
+                <span class="badge-sec green">&#10003; Official</span>
+            </div>
+        </a>
+
+        <!-- Server 4: Unorouter MCP (Sponsored Partner) -->
+        <a href="/servers/0-don-unorouter-mcp.html" class="server-card featured-partner-card">
+            <div class="server-card-top">
+                <span class="server-card-title">Unorouter MCP <span class="badge-sponsored">&#9889; SPONSORED</span></span>
+                <span class="server-stars">&#9733; 4,892</span>
+            </div>
+            <p class="server-card-desc">Universal dynamic LLM router. Multi-model failover across Anthropic, OpenAI, DeepSeek &amp; Gemini.</p>
+            <div class="server-card-footer">
+                <span class="badge-lang">Python</span>
+                <span class="badge-cat">AI Gateway</span>
+                <span class="badge-sec green">&#10003; Verified</span>
+            </div>
+        </a>
+
+        <!-- Server 5: postgres-mcp -->
+        <a href="/servers/modelcontextprotocol-server-postgres.html" class="server-card">
+            <div class="server-card-top">
+                <span class="server-card-title">postgres</span>
+                <span class="server-stars">&#9733; 42.1K</span>
+            </div>
+            <p class="server-card-desc">PostgreSQL database integration for AI agents. Read/write tables, inspect schema, execute parameterized queries.</p>
+            <div class="server-card-footer">
+                <span class="badge-lang">TypeScript</span>
+                <span class="badge-cat">Database</span>
+                <span class="badge-sec green">&#10003; 99% Safe</span>
+            </div>
+        </a>
+
+        <!-- Server 6: puppeteer / browser -->
+        <a href="/servers/modelcontextprotocol-server-puppeteer.html" class="server-card">
+            <div class="server-card-top">
+                <span class="server-card-title">puppeteer</span>
+                <span class="server-stars">&#9733; 38.6K</span>
+            </div>
+            <p class="server-card-desc">Autonomous browser automation server. Scrape pages, click elements, fill forms, and capture screenshots.</p>
+            <div class="server-card-footer">
+                <span class="badge-lang">TypeScript</span>
+                <span class="badge-cat">Browser Automation</span>
+                <span class="badge-sec green">&#10003; Sandboxed</span>
+            </div>
+        </a>
+    </div>
+</section>
+
 
 <!-- Commercial Developer Toolkits & Datasets Grid -->
+<section class="container" style="padding-top:10px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:10px">
+        <div>
+            <h2 class="section-title" style="margin-bottom:4px">Developer Datasets &amp; Quant Suites</h2>
+            <p style="color:var(--text-muted);font-size:0.88rem;margin:0">Turnkey production data, automated trading bots, and developer starter kits</p>
+        </div>
+        <a href="/datasets/" style="font-weight:700;font-size:0.88rem;color:var(--accent)">View All Toolkits &rarr;</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.1rem;margin:0 auto 2.5rem">
+        <!-- 1. Sponsor MCP -->
+        <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(123,97,255,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
+            <span style="font-size:1.8rem">&#9889;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Promote Your MCP Server <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">FEATURED</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Top-of-index placement, glowing badge, and high-intent ingress from 30,000+ AI developers.</div>
+            </div>
+            <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49/wk &rarr;</span>
+        </a>
+
+        <!-- 2. MCP Ecosystem Dataset -->
+        <a href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(34,197,94,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
+            <span style="font-size:1.8rem">&#128451;&#65039;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">The 31,500+ MCP Dataset <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">NEW</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Full ecosystem catalog in SQLite, CSV &amp; JSON with stars, repos, and security flags.</div>
+            </div>
+            <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$29 &rarr;</span>
+        </a>
+
+        <!-- 3. Production MCP Starter Kit -->
+        <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(45,217,224,0.08));border:1px solid rgba(123,97,255,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(123,97,255,0.05)">
+            <span style="font-size:1.8rem">&#9881;&#65039;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">MCP Server Starter Kit <span style="background:rgba(123,97,255,0.2);color:#7B61FF;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">DUAL-SDK</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Python FastMCP + TypeScript boilerplate. Stdio &amp; SSE transports, Docker &amp; Cloudflare.</div>
+            </div>
+            <span style="background:#7B61FF;color:#fff;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
+        </a>
+
+        <!-- 4. Polymarket Dataset -->
+        <a href="/datasets/polymarket-historical.html" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(255,217,61,0.12),rgba(45,217,224,0.08));border:1px solid rgba(255,217,61,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(255,217,61,0.05)">
+            <span style="font-size:1.8rem">&#128202;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Polymarket 23M+ Dataset <span style="background:rgba(255,217,61,0.2);color:#FFD93D;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">BESTSELLER</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">18,400+ prediction markets, 15-min orderbook snapshots. Clean CSV for AI backtesting.</div>
+            </div>
+            <span style="background:#FFD93D;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$19 &rarr;</span>
+        </a>
+
+        <!-- 5. TheBull Crypto Quant Suite (Separated Crypto) -->
+        <a href="https://manja8.gumroad.com/l/woatyl" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(34,197,94,0.12),rgba(45,217,224,0.08));border:1px solid rgba(34,197,94,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(34,197,94,0.05)">
+            <span style="font-size:1.8rem">&#128002;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">TheBull Crypto Quant Suite <span style="background:rgba(34,197,94,0.2);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">CRYPTO</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Binance, Delta &amp; Hyperliquid perps. 5 strategies: Funding Arbitrage, Orderbook Sniper, Grid.</div>
+            </div>
+            <span style="background:#22C55E;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49 &rarr;</span>
+        </a>
+
+        <!-- 6. Mindful Algo & Dhan HQ Indian Markets F&O Suite (Separated Indian/Dhan) -->
+        <a href="https://manja8.gumroad.com/l/lqzroy" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(245,158,11,0.12),rgba(34,197,94,0.08));border:1px solid rgba(245,158,11,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(245,158,11,0.05)">
+            <span style="font-size:1.8rem">&#127470;&#127475;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Mindful Algo &amp; Dhan HQ Suite <span style="background:rgba(245,158,11,0.2);color:#F59E0B;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">NSE / BSE</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Nifty 50 &amp; Sensex options. 11 Mindfluential production strategies, Cherry-Picked Top 3, &#8377;0 overnight.</div>
+            </div>
+            <span style="background:#F59E0B;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49 &rarr;</span>
+        </a>
+
+        <!-- 7. Polymarket Prediction Strategies Bundle (Separated Risk Tiers) -->
+        <a href="https://manja8.gumroad.com/l/ntdiq" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(167,139,250,0.12),rgba(45,217,224,0.08));border:1px solid rgba(167,139,250,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(167,139,250,0.05)">
+            <span style="font-size:1.8rem">&#128302;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Polymarket Strategy Bundle <span style="background:rgba(167,139,250,0.2);color:#A78BFA;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">MULTI-RISK</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Low-Risk Binary Arbitrage (Yes+No&lt;$0.985), Market Making Quoting, and Fast-News Sniper.</div>
+            </div>
+            <span style="background:#A78BFA;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
+        </a>
+
+        <!-- 8. Solana DEX Arbitrage Engine -->
+        <a href="https://manja8.gumroad.com/l/vvwwwp" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(255,217,61,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
+            <span style="font-size:1.8rem">&#9889;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Solana DEX Arbitrage &amp; Sniper <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">JITO MEV</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Raydium, DLMM, Jito atomic bundler with anti-rug security filter &amp; Jupiter sniper.</div>
+            </div>
+            <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
+        </a>
+    </div>
+</section>
 <section class="container" style="padding-top:0">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
         <div>

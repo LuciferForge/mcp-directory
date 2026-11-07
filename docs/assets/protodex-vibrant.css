@@ -1364,3 +1364,363 @@ footer .footer-bottom {
     .bento-tile-studio { grid-column: span 12; }
     .studio-split { grid-template-columns: 1fr; }
 }
+
+
+/* ─── Compact Header (Zero Wrap Guaranteed) ─────────────────────────── */
+header .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
+}
+
+nav {
+    display: flex !important;
+    gap: 6px !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+nav a {
+    color: var(--text-muted) !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    padding: 6px 10px !important;
+    border-radius: var(--radius-sm) !important;
+    transition: all 0.2s var(--spring-curve) !important;
+    border: 1px solid transparent !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+}
+
+nav a.nav-cta {
+    background: linear-gradient(135deg, #2DD9E0 0%, #1FC2C9 100%) !important;
+    color: #000 !important;
+    font-weight: 700 !important;
+    border: none !important;
+    box-shadow: 0 0 16px rgba(45, 217, 224, 0.35) !important;
+    padding: 6px 13px !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    margin-left: 6px !important;
+}
+
+/* ─── Compact 2026 Hero & Raycast HUD ────────────────────────────────── */
+.aurora-hero-section {
+    position: relative;
+    padding: 22px 0 14px 0 !important;
+    overflow: hidden;
+}
+
+.hero-top-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(14, 18, 30, 0.75);
+    border: 1px solid rgba(45, 217, 224, 0.25);
+    padding: 4px 12px !important;
+    border-radius: 9999px;
+    font-size: 0.75rem !important;
+    color: #E2E8F0;
+    margin-bottom: 12px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+}
+
+.aurora-hero-title {
+    font-size: clamp(1.85rem, 3.2vw, 2.6rem) !important;
+    font-weight: 900;
+    line-height: 1.15 !important;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin-bottom: 8px !important;
+    max-width: 950px;
+}
+
+.aurora-hero-subtitle {
+    font-size: 0.94rem !important;
+    color: #94A3B8;
+    line-height: 1.48 !important;
+    max-width: 760px;
+    margin-bottom: 20px !important;
+}
+
+.raycast-hud-wrapper {
+    position: relative;
+    max-width: 760px;
+    margin-bottom: 18px !important;
+}
+
+.raycast-hud-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(14, 18, 30, 0.85);
+    border: 1px solid rgba(45, 217, 224, 0.35);
+    border-radius: 12px !important;
+    padding: 6px 12px 6px 16px !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(45, 217, 224, 0.15);
+    backdrop-filter: blur(20px);
+}
+
+.raycast-search-input {
+    font-size: 0.98rem !important;
+}
+
+.hud-intent-chips {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px !important;
+    margin-top: 10px !important;
+}
+
+.intent-chip {
+    padding: 3px 9px !important;
+    font-size: 0.76rem !important;
+    gap: 5px !important;
+}
+
+/* Compact Telemetry Ribbon */
+.telemetry-ribbon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(11, 14, 24, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px !important;
+    padding: 8px 20px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    flex-wrap: wrap;
+    gap: 12px !important;
+}
+
+.telemetry-val {
+    font-size: 1.25rem !important;
+    font-weight: 800;
+}
+
+.telemetry-lbl {
+    font-size: 0.68rem !important;
+    margin-top: 1px !important;
+}
+
+.telemetry-sep {
+    height: 28px !important;
+}
+
+/* ─── Compact Bento Grid (High Density) ──────────────────────────────── */
+.bento-grid-2026 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px !important;
+    margin-bottom: 28px !important;
+}
+
+.bento-tile {
+    padding: 15px 18px !important;
+    border-radius: 16px !important;
+}
+
+.bento-header {
+    margin-bottom: 10px !important;
+    padding-bottom: 8px !important;
+}
+
+.ide-body {
+    padding: 10px 14px !important;
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
+    max-height: 115px !important;
+}
+
+.ide-footer {
+    margin-top: 10px !important;
+    font-size: 0.75rem !important;
+}
+
+.radar-visual-container {
+    padding: 8px 0 !important;
+}
+
+.radar-avionics-display {
+    width: 105px !important;
+    height: 105px !important;
+}
+
+.circle-1 { width: 75px !important; height: 75px !important; }
+.circle-2 { width: 45px !important; height: 45px !important; }
+.circle-3 { width: 20px !important; height: 20px !important; }
+
+.radar-center-score {
+    padding: 4px 8px !important;
+    border-radius: 8px !important;
+}
+
+.radar-center-score .score-num {
+    font-size: 1.05rem !important;
+}
+
+.radar-info {
+    margin: 8px 0 10px 0 !important;
+    gap: 4px !important;
+}
+
+.radar-metric-row {
+    font-size: 0.74rem !important;
+    padding: 2px 0 !important;
+}
+
+.radar-action-btn {
+    padding: 7px 12px !important;
+    font-size: 0.78rem !important;
+}
+
+.featured-name {
+    font-size: 1.12rem !important;
+    margin-bottom: 3px !important;
+}
+
+.featured-tagline {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 10px !important;
+}
+
+.featured-sparkline-box {
+    padding: 8px 12px !important;
+    margin-bottom: 10px !important;
+}
+
+.sparkline-svg {
+    height: 28px !important;
+}
+
+.studio-title {
+    font-size: 1.05rem !important;
+    margin-bottom: 4px !important;
+}
+
+.studio-desc {
+    font-size: 0.76rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+}
+
+.studio-perks-list {
+    margin-bottom: 10px !important;
+    gap: 4px !important;
+}
+
+.perk-item {
+    font-size: 0.7rem !important;
+}
+
+.studio-preview-img {
+    aspect-ratio: 16/9 !important;
+    max-height: 120px !important;
+}
+
+/* ─── Live Directory Spotlight & Category Pills ──────────────────────── */
+.live-directory-spotlight {
+    margin-bottom: 36px;
+    padding-top: 6px;
+}
+
+.directory-spotlight-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.spotlight-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+}
+
+.spotlight-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #FFF;
+    margin: 0 0 4px 0;
+}
+
+.spotlight-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.spotlight-view-all {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.quick-cat-pills {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.cat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(14, 18, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    color: #CBD5E1;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.cat-pill:hover, .cat-pill.active {
+    background: rgba(45, 217, 224, 0.12);
+    border-color: rgba(45, 217, 224, 0.4);
+    color: #2DD9E0;
+    transform: translateY(-1px);
+}
+
+.cat-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.live-mcp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+}
+
+.featured-partner-card {
+    border-color: rgba(45, 217, 224, 0.35) !important;
+    background: linear-gradient(180deg, rgba(45, 217, 224, 0.08) 0%, rgba(14, 18, 30, 0.85) 100%) !important;
+    box-shadow: 0 8px 24px rgba(45, 217, 224, 0.08);
+}
+
+.badge-sponsored {
+    background: rgba(45, 217, 224, 0.18);
+    color: var(--accent);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+}
