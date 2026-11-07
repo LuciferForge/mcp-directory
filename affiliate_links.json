@@ -11,7 +11,12 @@
     "digitalocean": "https://www.digitalocean.com/referral-program",
     "cloudflare": "https://www.cloudflare.com/partners/",
     "clawguard": "https://manja8.gumroad.com/l/rogmt",
-    "sponsor_mcp": "https://manja8.gumroad.com/l/sponsor_mcp"
+    "sponsor_mcp": "https://manja8.gumroad.com/l/sponsor_mcp",
+    "mcp_dataset": "https://manja8.gumroad.com/l/zcyee",
+    "mcp_starter_kit": "https://manja8.gumroad.com/l/bsboqh",
+    "thebull_bots": "https://manja8.gumroad.com/l/woatyl",
+    "solana_engine": "https://manja8.gumroad.com/l/vvwwwp",
+    "stripe_einvoice": "https://manja8.gumroad.com/l/jussar"
   },
   "neon": {
     "name": "Neon Serverless Postgres",
@@ -84,6 +89,36 @@
     "url": "https://manja8.gumroad.com/l/polymarket-quant-toolkit",
     "blurb": "18,400+ prediction markets, 15-min price & orderbook snapshots. Clean CSV for backtesting AI trading agents.",
     "category_match": ["Finance", "Data/Analytics", "Database", "AI/LLM"]
+  },
+  "mcp_ecosystem_dataset": {
+    "name": "The 31,500+ MCP Server Dataset ($29)",
+    "url": "https://manja8.gumroad.com/l/zcyee",
+    "blurb": "Complete snapshot of 31,500+ Model Context Protocol servers in SQLite, CSV & JSON with stars, repos, and security scores.",
+    "category_match": ["Database", "Data/Analytics", "AI/LLM", "Developer Tools", "Code/Dev Tools"]
+  },
+  "mcp_starter_kit": {
+    "name": "Production MCP Server Starter Kit ($39)",
+    "url": "https://manja8.gumroad.com/l/bsboqh",
+    "blurb": "Production-ready dual Python (FastMCP) & TypeScript starter kit with Stdio & SSE transports, Bearer auth, Docker & Cloudflare Worker edge proxy.",
+    "category_match": ["Code/Dev Tools", "Developer Tools", "AI/LLM", "API Integration", "Infrastructure", "Cloud Platforms"]
+  },
+  "thebull_bot_suite": {
+    "name": "TheBull Multi-Exchange Algo Trading Suite ($49)",
+    "url": "https://manja8.gumroad.com/l/woatyl",
+    "blurb": "Commercial-grade automated trading bots for Binance Futures, Delta Exchange & Dhan HQ NSE. 100-pt momentum scoring, dynamic ATR risk sizing & 1-click launchers.",
+    "category_match": ["Finance", "Data/Analytics", "Database"]
+  },
+  "solana_dex_engine": {
+    "name": "Solana DEX Arbitrage & Momentum Scanner ($39)",
+    "url": "https://manja8.gumroad.com/l/vvwwwp",
+    "blurb": "Real-time pool WebSocket streaming, Jito MEV frontrun-protected bundler, anti-rug safety filter, and automated Jupiter momentum sniper.",
+    "category_match": ["Finance", "Data/Analytics", "Web3"]
+  },
+  "stripe_einvoicing": {
+    "name": "Enterprise Stripe EU E-Invoicing Engine ($79)",
+    "url": "https://manja8.gumroad.com/l/jussar",
+    "blurb": "Turnkey FastAPI webhook microservice generating Factur-X & ZUGFeRD 2.2 XML conforming to EN 16931 EU B2B mandates (France 2026 / Germany 2025).",
+    "category_match": ["Finance", "API Integration", "Cloud Platforms"]
   }
 }
 

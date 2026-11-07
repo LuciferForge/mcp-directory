@@ -1093,7 +1093,7 @@ footer {
         <nav>
             <a href="/">Explore</a>
             <a href="/audit.html">Security Auditor 🛡️</a>
-            <a href="/datasets/polymarket-historical.html">Datasets 📊</a>
+            <a href="/datasets/">Datasets &amp; Kits 📊</a>
             <a href="/categories.html">Categories</a>
             <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener">Promote Server ⚡</a>
             <a href="/blog/">Blog</a>
@@ -1194,8 +1194,18 @@ footer {
     </div>
 </section>
 
+<!-- Commercial Developer Toolkits & Datasets Grid -->
 <section class="container" style="padding-top:0">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1rem;margin:0 auto 1.5rem;max-width:1080px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+        <div>
+            <h2 class="section-title" style="margin-bottom:4px">Developer Datasets &amp; Quant Suites</h2>
+            <p style="color:var(--text-muted);font-size:0.88rem;margin:0">Turnkey production data, automated trading bots, and developer starter kits</p>
+        </div>
+        <a href="/datasets/" style="font-weight:700;font-size:0.88rem;color:var(--accent)">View All Toolkits &rarr;</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem;margin:0 auto 2.5rem">
+        <!-- 1. Sponsor MCP -->
         <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(123,97,255,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
             <span style="font-size:1.8rem">&#9889;</span>
             <div style="flex:1">
@@ -1205,6 +1215,27 @@ footer {
             <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49/wk &rarr;</span>
         </a>
 
+        <!-- 2. MCP Ecosystem Dataset -->
+        <a href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(34,197,94,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
+            <span style="font-size:1.8rem">&#128451;&#65039;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">The 31,500+ MCP Dataset <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">NEW</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Full ecosystem catalog in SQLite, CSV &amp; JSON with stars, repos, and security flags.</div>
+            </div>
+            <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$29 &rarr;</span>
+        </a>
+
+        <!-- 3. Production MCP Starter Kit -->
+        <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(45,217,224,0.08));border:1px solid rgba(123,97,255,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(123,97,255,0.05)">
+            <span style="font-size:1.8rem">&#9881;&#65039;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">MCP Server Starter Kit <span style="background:rgba(123,97,255,0.2);color:#7B61FF;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">DUAL-SDK</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Python FastMCP + TypeScript boilerplate. Stdio &amp; SSE transports, Docker &amp; Cloudflare.</div>
+            </div>
+            <span style="background:#7B61FF;color:#fff;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
+        </a>
+
+        <!-- 4. Polymarket Dataset -->
         <a href="/datasets/polymarket-historical.html" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(255,217,61,0.12),rgba(45,217,224,0.08));border:1px solid rgba(255,217,61,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(255,217,61,0.05)">
             <span style="font-size:1.8rem">&#128202;</span>
             <div style="flex:1">
@@ -1214,13 +1245,24 @@ footer {
             <span style="background:#FFD93D;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$19 &rarr;</span>
         </a>
 
-        <a href="/audit.html" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(45,217,224,0.08));border:1px solid rgba(123,97,255,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(123,97,255,0.05)">
-            <span style="font-size:1.8rem">&#128737;&#65039;</span>
+        <!-- 5. TheBull Algo Trading Suite -->
+        <a href="https://manja8.gumroad.com/l/woatyl" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(34,197,94,0.12),rgba(45,217,224,0.08));border:1px solid rgba(34,197,94,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(34,197,94,0.05)">
+            <span style="font-size:1.8rem">&#128002;</span>
             <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">AegisMesh Security Auditor <span style="background:rgba(34,197,94,0.15);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">FREE</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Scan your MCP server repository for prompt injections, shell leaks &amp; EU AI Act compliance.</div>
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">TheBull Algo Trading Suite <span style="background:rgba(34,197,94,0.2);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">3 BOTS</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Binance Futures, Delta Perpetuals &amp; Dhan HQ NSE bots. 100-pt scoring &amp; 1-click launchers.</div>
             </div>
-            <span style="background:#7B61FF;color:#fff;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">Run Audit &rarr;</span>
+            <span style="background:#22C55E;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49 &rarr;</span>
+        </a>
+
+        <!-- 6. Solana DEX Arbitrage Engine -->
+        <a href="https://manja8.gumroad.com/l/vvwwwp" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(255,217,61,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
+            <span style="font-size:1.8rem">&#9889;</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Solana DEX Arbitrage &amp; Sniper <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">JITO MEV</span></div>
+                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Raydium, DLMM, Jito atomic bundler with anti-rug security filter &amp; Jupiter sniper.</div>
+            </div>
+            <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
         </a>
     </div>
 </section>

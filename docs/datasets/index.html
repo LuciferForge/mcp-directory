@@ -164,32 +164,137 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text
 
     <main class="wrap">
         <section class="hero">
-            <h1>Datasets</h1>
-            <p>Clean, downloadable data from the prediction-market and MCP ecosystem. 15-minute resolution, CSV format, free samples on every set.</p>
+            <h1>Datasets &amp; Developer Toolkits</h1>
+            <p>Production datasets, algorithmic trading engines, and enterprise developer kits. Turnkey downloads with full source code and commercial rights.</p>
         </section>
 
         <section class="grid">
+            <!-- 1. Polymarket Quant Dataset -->
             <article class="card">
-                <span class="tag">Prediction Markets</span>
-                <h2>Polymarket Historical Prices</h2>
-                <p>15-minute price &amp; orderbook snapshots across Polymarket prediction markets. The full history behind the crash-recovery and calibration studies.</p>
+                <span class="tag" style="color:#FFD93D;background:rgba(255,217,61,0.1);border-color:rgba(255,217,61,0.25)">Bestseller · Quant Finance</span>
+                <h2>Polymarket 23M+ Historical Dataset</h2>
+                <p>15-minute price &amp; orderbook snapshots across 18,400+ prediction markets. Clean CSV format for backtesting quantitative AI models, calibration curves, and market-making strategies.</p>
                 <div class="stats">
-                    <div class="stat"><span class="num">18.5M+</span><span class="lbl">Price snapshots</span></div>
+                    <div class="stat"><span class="num">23M+</span><span class="lbl">Price snapshots</span></div>
                     <div class="stat"><span class="num">18,400+</span><span class="lbl">Markets</span></div>
                     <div class="stat"><span class="num">15-min</span><span class="lbl">Resolution</span></div>
                 </div>
-                <a class="cta" href="https://protodex.io/datasets/polymarket-historical.html">View dataset →</a>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
+                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#FFD93D">$19</span>
+                    <a class="cta" href="https://protodex.io/datasets/polymarket-historical.html" style="background:#FFD93D;color:#000">View &amp; Download →</a>
+                </div>
             </article>
 
-            <article class="card soon">
-                <span class="tag">Crypto Signals</span>
-                <h2>Crypto Cross-Signal Dataset</h2>
-                <p>BTC/ETH/SOL spot moves aligned with Polymarket crypto-probability snapshots — for cross-asset signal research.</p>
+            <!-- 2. MCP Ecosystem Dataset -->
+            <article class="card">
+                <span class="tag">AI Infrastructure · Ecosystem Data</span>
+                <h2>The 31,500+ MCP Server Dataset</h2>
+                <p>Complete historical catalog of Model Context Protocol (MCP) servers. Delivered as clean SQLite database, CSV, and JSON with repository stars, license details, dependencies, and security scores.</p>
                 <div class="stats">
-                    <div class="stat"><span class="num">Hugging Face</span><span class="lbl">Hosted</span></div>
-                    <div class="stat"><span class="num">CC-BY-4.0</span><span class="lbl">License</span></div>
+                    <div class="stat"><span class="num">31,595</span><span class="lbl">Indexed servers</span></div>
+                    <div class="stat"><span class="num">SQLite+CSV</span><span class="lbl">Multi-format</span></div>
+                    <div class="stat"><span class="num">10.8 MB</span><span class="lbl">Package size</span></div>
                 </div>
-                <a class="cta" href="https://huggingface.co/datasets/manja316/crypto-prediction-market-signals">View on Hugging Face →</a>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
+                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:var(--accent)">$29</span>
+                    <a class="cta" href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener">Buy on Gumroad ($29) →</a>
+                </div>
+            </article>
+
+            <!-- 3. Production MCP Server Starter Kit -->
+            <article class="card">
+                <span class="tag" style="color:#7B61FF;background:rgba(123,97,255,0.1);border-color:rgba(123,97,255,0.25)">Developer Toolkit · Dual Stack</span>
+                <h2>Production MCP Server Starter Kit</h2>
+                <p>Production dual-stack Python (FastMCP) and TypeScript MCP server boilerplate. Features local Stdio transport, remote SSE for cloud, Bearer token auth, Docker, and Cloudflare Worker proxy.</p>
+                <div class="stats">
+                    <div class="stat"><span class="num">Py + TS</span><span class="lbl">Dual SDKs</span></div>
+                    <div class="stat"><span class="num">SSE + Stdio</span><span class="lbl">Transports</span></div>
+                    <div class="stat"><span class="num">Docker</span><span class="lbl">Ready</span></div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
+                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#7B61FF">$39</span>
+                    <a class="cta" href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" style="background:#7B61FF;color:#fff">Get Starter Kit ($39) →</a>
+                </div>
+            </article>
+
+            <!-- 4. TheBull Algo Trading Suite -->
+            <article class="card">
+                <span class="tag" style="color:#22C55E;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.25)">Quantitative Trading · 3 Bots</span>
+                <h2>TheBull Multi-Exchange Algo Trading Suite</h2>
+                <p>Commercial-grade automated trading bots for Binance USDT Futures, Delta Exchange Perpetuals, and Dhan HQ (NSE Equities). 100-point momentum scoring, dynamic ATR risk sizing &amp; 1-click launchers.</p>
+                <div class="stats">
+                    <div class="stat"><span class="num">3 Engines</span><span class="lbl">Binance, Delta, Dhan</span></div>
+                    <div class="stat"><span class="num">ATR Risk</span><span class="lbl">Dynamic Stops</span></div>
+                    <div class="stat"><span class="num">1-Click</span><span class="lbl">Launchers (.bat/.sh)</span></div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
+                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#22C55E">$49</span>
+                    <a class="cta" href="https://manja8.gumroad.com/l/woatyl" target="_blank" rel="noopener" style="background:#22C55E;color:#000">Get Trading Suite ($49) →</a>
+                </div>
+            </article>
+
+            <!-- 5. Solana DEX Arbitrage & Sniper -->
+            <article class="card">
+                <span class="tag" style="color:#2DD9E0;background:rgba(45,217,224,0.1);border-color:rgba(45,217,224,0.25)">Solana MEV · Automated Execution</span>
+                <h2>Solana DEX Arbitrage &amp; Momentum Sniper</h2>
+                <p>Real-time pool WebSocket streaming (Raydium v4, DLMM, Pump.fun), slippage math optimizer, Jito Block Engine bundler with dynamic tip bidding, anti-rug safety filter, and Jupiter v6 momentum sniper.</p>
+                <div class="stats">
+                    <div class="stat"><span class="num">Raydium+Jito</span><span class="lbl">Atomic Bundles</span></div>
+                    <div class="stat"><span class="num">Anti-Rug</span><span class="lbl">Authority Verifier</span></div>
+                    <div class="stat"><span class="num">Dry-Run</span><span class="lbl">Simulation Ledger</span></div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
+                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:var(--accent)">$39</span>
+                    <a class="cta" href="https://manja8.gumroad.com/l/vvwwwp" target="_blank" rel="noopener">Get Solana Suite ($39) →</a>
+                </div>
+            </article>
+
+            <!-- 6. Enterprise Stripe EU E-Invoicing Engine -->
+            <article class="card">
+                <span class="tag" style="color:#5B8DEF;background:rgba(91,141,239,0.1);border-color:rgba(91,141,239,0.25)">Enterprise B2B · EU Mandate</span>
+                <h2>Enterprise Stripe EU E-Invoicing Engine</h2>
+                <p>Turnkey FastAPI microservice that intercepts Stripe webhook events and produces EN 16931-compliant Factur-X 1.0 &amp; ZUGFeRD 2.2 XML. Essential for French PDP 2026 and German B2B E-Rechnung laws.</p>
+                <div class="stats">
+                    <div class="stat"><span class="num">EN 16931</span><span class="lbl">Factur-X / ZUGFeRD</span></div>
+                    <div class="stat"><span class="num">Stripe</span><span class="lbl">Webhook Interceptor</span></div>
+                    <div class="stat"><span class="num">Docker</span><span class="lbl">Turnkey Container</span></div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
+                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#5B8DEF">$79</span>
+                    <a class="cta" href="https://manja8.gumroad.com/l/jussar" target="_blank" rel="noopener" style="background:#5B8DEF;color:#000">Get Engine ($79) →</a>
+                </div>
+            </article>
+
+            <!-- 7. ClawGuard Prompt-Shield Middleware Pro -->
+            <article class="card">
+                <span class="tag" style="color:#E02D7B;background:rgba(224,45,123,0.1);border-color:rgba(224,45,123,0.25)">AI Security · Agent TRiSM</span>
+                <h2>ClawGuard Prompt-Shield Middleware Pro</h2>
+                <p>Sub-1ms AI security middleware and tool firewall. Defends autonomous agents and MCP hosts against indirect prompt injection, tool jailbreaks, SSRF, and sensitive data leakage.</p>
+                <div class="stats">
+                    <div class="stat"><span class="num">&lt; 1ms</span><span class="lbl">Latency overhead</span></div>
+                    <div class="stat"><span class="num">TRiSM</span><span class="lbl">OWASP LLM Top 10</span></div>
+                    <div class="stat"><span class="num">Plug &amp; Play</span><span class="lbl">Python &amp; TS middleware</span></div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
+                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#E02D7B">$29</span>
+                    <a class="cta" href="https://manja8.gumroad.com/l/rogmt" target="_blank" rel="noopener" style="background:#E02D7B;color:#fff">Get ClawGuard ($29) →</a>
+                </div>
+            </article>
+
+            <!-- 8. AegisMesh MCP Security Auditor (Free) -->
+            <article class="card">
+                <span class="tag" style="color:#22C55E;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.25)">Free Security Tool</span>
+                <h2>AegisMesh MCP Security Auditor</h2>
+                <p>Interactive web auditor to scan any MCP server repository for security vulnerabilities: static analysis, prompt injection exposure, unauthenticated SSE endpoints, and EU AI Act compliance checks.</p>
+                <div class="stats">
+                    <div class="stat"><span class="num">Instant</span><span class="lbl">In-browser scan</span></div>
+                    <div class="stat"><span class="num">31.5K</span><span class="lbl">Repo registry checks</span></div>
+                    <div class="stat"><span class="num">100% Free</span><span class="lbl">Open Community tool</span></div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto">
+                    <span style="font-family:var(--mono);font-size:1.3rem;font-weight:800;color:#22C55E">FREE</span>
+                    <a class="cta" href="https://protodex.io/audit.html" style="background:#22C55E;color:#000">Launch Auditor →</a>
+                </div>
             </article>
         </section>
     </main>
