@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/protodex-vibrant.css">
     <style>
 :root {
     --bg: #06060a;
@@ -353,20 +354,14 @@ a.preview-row:hover { text-decoration: none; }
 }
 .stat {
     text-align: center;
-    background: rgba(14, 16, 25, 0.72);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 20px 32px;
     min-width: 150px;
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.25);
-    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s;
 }
-.stat:hover {
-    border-color: rgba(45, 217, 224, 0.4);
-    transform: translateY(-2px);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 8px 24px rgba(45, 217, 224, 0.14);
-}
+.stat:hover { border-color: var(--border-hover); transform: translateY(-1px); }
 .stat-num {
     font-family: var(--mono);
     font-size: 1.8rem;
@@ -394,19 +389,12 @@ a.preview-row:hover { text-decoration: none; }
 .value-prop {
     text-align: center;
     padding: 32px 24px;
-    background: rgba(14, 16, 25, 0.72);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.25);
-    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s;
 }
-.value-prop:hover {
-    border-color: rgba(123, 97, 255, 0.4);
-    text-decoration: none;
-    transform: translateY(-3px);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 12px 32px rgba(123, 97, 255, 0.16);
-}
+.value-prop:hover { border-color: var(--border-hover); text-decoration: none; transform: translateY(-2px); box-shadow: var(--shadow-md); }
 a.value-prop { color: inherit; }
 .value-prop-icon {
     font-size: 1.8rem;
@@ -1119,7 +1107,7 @@ footer {
                 <span class="logo-tagline">MCP Server Index</span>
             </div>
         </a>
-        <nav>
+                <nav>
             <a href="/">Explore</a>
             <a href="/audit.html">Security Auditor 🛡️</a>
             <a href="/datasets/">Datasets &amp; Kits 📊</a>

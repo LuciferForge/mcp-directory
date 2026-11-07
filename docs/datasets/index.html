@@ -149,18 +149,29 @@ header.site nav a:hover { color: var(--text); }
 .card.soon .cta { background: transparent; color: var(--text-muted); border: 1px solid var(--border); cursor: default; }
 footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text-dim); font-size: 0.85rem; text-align: center; }
     </style>
+    <link rel="stylesheet" href="/assets/protodex-vibrant.css">
 </head>
 <body>
-    <header class="site">
-        <div class="wrap">
-            <span class="logo">⚡ Protodex</span>
-            <nav>
-                <a href="https://protodex.io/">MCP Directory</a>
-                <a href="https://protodex.io/datasets/">Datasets</a>
-                <a href="https://protodex.io/blog/">Blog</a>
-            </nav>
-        </div>
-    </header>
+<header>
+    <div class="container">
+        <a href="/" class="logo">
+            <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+            <div class="logo-text">
+                <span class="logo-name"><span class="lo-proto">proto</span><span class="lo-dex">dex</span></span>
+                <span class="logo-tagline">MCP Server Index</span>
+            </div>
+        </a>
+                <nav>
+            <a href="/">Explore</a>
+            <a href="/audit.html">Security Auditor 🛡️</a>
+            <a href="/datasets/">Datasets &amp; Kits 📊</a>
+            <a href="/categories.html">Categories</a>
+            <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener">Promote Server ⚡</a>
+            <a href="/blog/">Blog</a>
+            <a href="/build.html" class="nav-cta" data-promo="services">Need an MCP server? →</a>
+        </nav>
+    </div>
+</header>
 
     <main class="wrap">
         <section class="hero">
