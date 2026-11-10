@@ -1,0 +1,50 @@
+name: Fast-Track Sponsor Inbound Auto-Responder
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  auto-respond:
+    runs-on: ubuntu-latest
+    if: "!github.event.issue.pull_request"
+    steps:
+      - name: Respond to Server Submission Issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.issue.title.toLowerCase();
+            const body = (context.payload.issue.body || '').toLowerCase();
+            const isSubmission = title.includes('add server') || title.includes('mcp') || body.includes('mcp') || body.includes('github.com');
+            
+            if (isSubmission) {
+              const comment = `👋 **Thanks for submitting your server to the Protodex MCP Index!**
+            
+            Your submission has been queued into our standard **free community review backlog** (estimated turnaround: 7–14 days).
+            
+            ---
+            
+            ### ⚡ Want Instant Verification + Top-of-Index Featured Placement?
+            **[Protodex.io](https://protodex.io)** is visited by **30,000+ AI developers and autonomous agent builders** every month looking for high-performance tool servers.
+            
+            You can fast-track your listing to the **#1 Featured Spotlight** this week:
+            - ✨ **Instant Indexing within 30 minutes** (skips the 14-day backlog)
+            - 🌟 **Glowing "Featured Partner" Badge** on the homepage & category hubs
+            - 📈 **Direct click-through traffic** to your GitHub repo & documentation
+            
+            👉 **[Claim a Featured Slot for $49/wk on Gumroad](https://manja8.gumroad.com/l/sponsor_mcp)**
+            
+            *(Simply enter your repository slug at checkout, and our automated Cloudflare pipeline will deploy your server to the live directory automatically!)*`;
+            
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                body: comment
+              });
+              
+              console.log(`Auto-responded to issue #${context.payload.issue.number}`);
+            }
