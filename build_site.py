@@ -4255,10 +4255,12 @@ def main():
             build_category_page(cat_name, cat_servers)
         )
 
-    # Build individual server pages
+    # Build individual server pages (top servers with >= 10 stars to keep Pages artifact < 40MB)
     print("Building server pages...")
     seen_slugs = set()
     for s in servers:
+        if "--all-servers" not in sys.argv and s.get("stars", 0) < 10 and "unorouter" not in s.get("repo", ""):
+            continue
         slug = slugify(s["repo"].replace("/", "-"))
         if slug in seen_slugs:
             slug = slug + "-" + str(s.get("id", 0))

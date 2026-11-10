@@ -1153,5 +1153,24 @@ function showTab(btn,id){var p=btn.closest('.install-section');p.querySelectorAl
 function copyCode(btn){var code=btn.previousElementSibling.querySelector('code').textContent;navigator.clipboard.writeText(code).then(function(){btn.textContent='Copied';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})}
 </script>
 
+<script>
+(function() {
+    var p = window.location.pathname;
+    var m = p.match(/\/servers\/([^\/]+)\.html/);
+    if (m) {
+        var slug = m[1];
+        fetch('/search-index.json')
+            .then(function(r) { return r.json(); })
+            .then(function(items) {
+                var found = items.find(function(it) { return it.s === slug; });
+                if (found && found.r) {
+                    window.location.replace('https://github.com/' + found.r);
+                }
+            })
+            .catch(function(e) { console.error('Router error:', e); });
+    }
+})();
+</script>
+
 </body>
 </html>
