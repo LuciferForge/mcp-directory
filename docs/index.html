@@ -1274,37 +1274,70 @@ mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
                 </a>
             </div>
 
-            <!-- Bento Tile 3: Featured MCP Partner of the Week (5 Cols) -->
-            <div class="bento-tile bento-tile-featured">
-                <div class="featured-top">
-                    <span class="featured-badge">&#9889; FEATURED PARTNER</span>
-                    <span class="featured-verified">&#10003; VERIFIED</span>
+                        <!-- Bento Tile 3: Featured MCP Partner & Sponsored Slot (5 Cols) -->
+            <div class="bento-tile bento-tile-featured" style="position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;">
+                <!-- Top Badge Row -->
+                <div class="featured-top" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                    <span class="featured-badge" style="background:linear-gradient(135deg,rgba(245,158,11,0.25),rgba(45,217,224,0.15));border:1px solid rgba(245,158,11,0.4);color:#FBBF24;font-size:0.72rem;padding:3px 10px;border-radius:100px;font-weight:700;letter-spacing:0.04em;">⚡ SPONSOR SPOTLIGHT</span>
+                    <span class="featured-verified" style="background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:600;">1 OF 3 SLOTS OPEN</span>
                 </div>
+
+                <!-- Headline -->
                 <div class="featured-content">
-                    <h3 class="featured-name">Unorouter MCP</h3>
-                    <p class="featured-tagline">Dynamic LLM gateway. Multi-model failover &amp; sub-millisecond routing across Anthropic, OpenAI, DeepSeek &amp; Gemini.</p>
-                    
-                    <div class="featured-sparkline-box">
-                        <div class="sparkline-header">
-                            <span>Installs &amp; Stars</span>
-                            <span class="star-count">&#9733; 4,892</span>
+                    <h3 class="featured-name" style="font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-0.02em;">
+                        Feature Your MCP Server Here
+                    </h3>
+                    <p class="featured-tagline" style="color:var(--text-muted);font-size:0.78rem;line-height:1.45;margin-bottom:12px;">
+                        Put your tool in front of <strong>30,000+ AI engineers</strong> building autonomous agents for Claude &amp; Cursor.
+                    </p>
+
+                    <!-- Interactive Switcher: "Placement & Terms" vs "Current Partner" -->
+                    <div style="display:flex;gap:4px;background:rgba(6,8,14,0.6);padding:3px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);margin-bottom:12px;">
+                        <button type="button" id="sponsor-tab-terms" class="ide-tab active" onclick="switchSponsorTab('terms', this)" style="flex:1;padding:4px 8px;font-size:0.72rem;text-align:center;">Placement &amp; Terms</button>
+                        <button type="button" id="sponsor-tab-preview" class="ide-tab" onclick="switchSponsorTab('preview', this)" style="flex:1;padding:4px 8px;font-size:0.72rem;text-align:center;">Current Partner (Live)</button>
+                    </div>
+
+                    <!-- Panel 1: Transparent Terms & Placement Details (Default) -->
+                    <div id="sponsor-panel-terms" style="background:#06080E;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.75rem;line-height:1.5;">
+                        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                            <span style="color:#2DD9E0;font-weight:700;white-space:nowrap;">📍 Placement:</span>
+                            <span style="color:#CBD5E1;">#1 Homepage Hero Bento + Top of Category Hub + Search highlight</span>
                         </div>
-                        <svg class="sparkline-svg" viewBox="0 0 200 40">
-                            <defs>
-                                <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stop-color="#2DD9E0" stop-opacity="0.4"/>
-                                    <stop offset="100%" stop-color="#2DD9E0" stop-opacity="0"/>
-                                </linearGradient>
-                            </defs>
-                            <path d="M 0,35 Q 30,30 60,25 T 120,15 T 160,8 T 200,4 L 200,40 L 0,40 Z" fill="url(#sg)"/>
-                            <path d="M 0,35 Q 30,30 60,25 T 120,15 T 160,8 T 200,4" fill="none" stroke="#2DD9E0" stroke-width="2.5"/>
-                            <circle cx="200" cy="4" r="3.5" fill="#2DD9E0"/>
-                        </svg>
+                        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                            <span style="color:#FBBF24;font-weight:700;white-space:nowrap;">⏳ Duration:</span>
+                            <span style="color:#CBD5E1;"><strong>7 Days guaranteed</strong> (auto-rotates or renew weekly, cancel anytime)</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                            <span style="color:#22C55E;font-weight:700;white-space:nowrap;">⚡ Activation:</span>
+                            <span style="color:#CBD5E1;"><strong>Under 30 mins</strong> via automated Cloudflare pipeline (bypasses 14-day backlog)</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:8px;">
+                            <span style="color:#EC4899;font-weight:700;white-space:nowrap;">🛡️ Conditions:</span>
+                            <span style="color:#CBD5E1;">Clean open-source or hosted MCP server · 100% money-back if not verified</span>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2: Current Partner Live Example (Unorouter) -->
+                    <div id="sponsor-panel-preview" style="display:none;background:#06080E;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.75rem;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                            <strong style="color:#2DD9E0;font-size:0.85rem;">Unorouter MCP</strong>
+                            <span style="color:#FBBF24;font-size:0.75rem;font-weight:700;">★ 4,892 Stars</span>
+                        </div>
+                        <p style="color:var(--text-muted);font-size:0.73rem;line-height:1.4;margin:0 0 8px;">Dynamic LLM gateway. Multi-model failover &amp; sub-millisecond routing across Anthropic, OpenAI &amp; Gemini.</p>
+                        <div style="font-size:0.68rem;color:#94A3B8;background:rgba(255,255,255,0.04);padding:4px 8px;border-radius:6px;border:1px dashed rgba(255,255,255,0.1);">
+                            💡 <em>When you sponsor, your repo replaces this card automatically for 7 days!</em>
+                        </div>
                     </div>
                 </div>
-                <div class="featured-footer">
-                    <a href="/servers/0-don-unorouter-mcp.html" class="featured-view-link">Server Docs &rarr;</a>
-                    <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="featured-sponsor-btn">Claim Slot ($49/wk)</a>
+
+                <!-- Action Footer -->
+                <div class="featured-footer" style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.05);">
+                    <a href="/pricing.html" class="featured-view-link" style="color:var(--text-muted);font-size:0.76rem;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">
+                        Full Specs &amp; FAQ &rarr;
+                    </a>
+                    <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="featured-sponsor-btn" style="background:#2DD9E0;color:#000;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:8px;text-decoration:none;box-shadow:0 0 16px rgba(45,217,224,0.3);transition:all 0.2s;">
+                        Claim Slot ($49/wk) ⚡
+                    </a>
                 </div>
             </div>
 
@@ -1342,6 +1375,226 @@ mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
             </div>
 
         </div> <!-- /.bento-grid-2026 -->
+<script>
+/* ─── Immediate Inline Handlers for Bento Grid Interactivity ─── */
+var _ideSnippets = {
+    python: {
+        code: `<span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP
+mcp = FastMCP(<span class="c-str">"ProtodexLive"</span>)
+
+<span class="c-dec">@mcp.tool</span>()
+<span class="c-kw">def</span> <span class="c-fn">search_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -&gt; <span class="c-type">dict</span>:
+    <span class="c-dim"># Search 31,500+ MCP servers by capability and security rating</span>
+    <span class="c-kw">return</span> mcp_engine.search(query, min_stars=min_stars)
+
+<span class="c-kw">if</span> __name__ == <span class="c-str">"__main__"</span>:
+    mcp.run(transport=<span class="c-str">"stdio"</span>)`,
+        raw: `from mcp.server.fastmcp import FastMCP
+mcp = FastMCP("ProtodexLive")
+
+@mcp.tool()
+def search_servers(query: str, min_stars: int = 50) -> dict:
+    # Search 31,500+ MCP servers by capability and security rating
+    return mcp_engine.search(query, min_stars=min_stars)
+
+if __name__ == "__main__":
+    mcp.run(transport="stdio")`,
+        lang: 'language-python',
+        pill: '<span class="status-dot green"></span><span>JSON-RPC 2.0 &middot; Stdio + SSE Supported</span>',
+        linkText: 'Get Dual-SDK Kit ($39) &rarr;',
+        linkHref: 'https://manja8.gumroad.com/l/bsboqh'
+    },
+    ts: {
+        code: `<span class="c-kw">import</span> { McpServer } <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/mcp.js"</span>;
+<span class="c-kw">import</span> { StdioServerTransport } <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/stdio.js"</span>;
+<span class="c-kw">import</span> { z } <span class="c-kw">from</span> <span class="c-str">"zod"</span>;
+
+<span class="c-kw">const</span> server = <span class="c-kw">new</span> <span class="c-fn">McpServer</span>({ name: <span class="c-str">"protodex"</span>, version: <span class="c-str">"1.0.0"</span> });
+
+server.<span class="c-fn">tool</span>(
+  <span class="c-str">"search_servers"</span>,
+  { query: z.<span class="c-fn">string</span>(), min_stars: z.<span class="c-fn">number</span>().<span class="c-fn">default</span>(<span class="c-num">50</span>) },
+  <span class="c-kw">async</span> ({ query, min_stars }) =&gt; ({
+    content: [{ type: <span class="c-str">"text"</span>, text: JSON.<span class="c-fn">stringify</span>(<span class="c-kw">await</span> <span class="c-fn">queryIndex</span>(query, min_stars)) }]
+  })
+);
+
+<span class="c-kw">const</span> transport = <span class="c-kw">new</span> <span class="c-fn">StdioServerTransport</span>();
+<span class="c-kw">await</span> server.<span class="c-fn">connect</span>(transport);`,
+        raw: `import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+
+const server = new McpServer({ name: "protodex", version: "1.0.0" });
+
+server.tool(
+  "search_servers",
+  { query: z.string(), min_stars: z.number().default(50) },
+  async ({ query, min_stars }) => ({
+    content: [{ type: "text", text: JSON.stringify(await queryIndex(query, min_stars)) }]
+  })
+);
+
+const transport = new StdioServerTransport();
+await server.connect(transport);`,
+        lang: 'language-typescript',
+        pill: '<span class="status-dot green"></span><span>@modelcontextprotocol/sdk &middot; Type-Safe Zod Tools</span>',
+        linkText: 'Get Dual-SDK Kit ($39) &rarr;',
+        linkHref: 'https://manja8.gumroad.com/l/bsboqh'
+    },
+    claude: {
+        code: `{
+  <span class="c-str">"mcpServers"</span>: {
+    <span class="c-str">"protodex"</span>: {
+      <span class="c-str">"command"</span>: <span class="c-str">"npx"</span>,
+      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@protodex/mcp-server@latest"</span>],
+      <span class="c-str">"env"</span>: {
+        <span class="c-str">"PROTODEX_API_KEY"</span>: <span class="c-str">"YOUR_PROTODEX_KEY"</span>
+      }
+    },
+    <span class="c-str">"filesystem"</span>: {
+      <span class="c-str">"command"</span>: <span class="c-str">"npx"</span>,
+      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@modelcontextprotocol/server-filesystem"</span>, <span class="c-str">"/Users/dev/workspace"</span>]
+    }
+  }
+}`,
+        raw: `{
+  "mcpServers": {
+    "protodex": {
+      "command": "npx",
+      "args": ["-y", "@protodex/mcp-server@latest"],
+      "env": {
+        "PROTODEX_API_KEY": "YOUR_PROTODEX_KEY"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dev/workspace"]
+    }
+  }
+}`,
+        lang: 'language-json',
+        pill: '<span class="status-dot blue" style="background:#5B8DEF"></span><span>Claude Desktop &middot; claude_desktop_config.json</span>',
+        linkText: 'Get 31k Dataset ($29) &rarr;',
+        linkHref: 'https://manja8.gumroad.com/l/zcyee'
+    },
+    cursor: {
+        code: `<span class="c-kw"># Model Context Protocol (MCP) Integration Rules</span>
+
+<span class="c-str">When creating or connecting MCP tools with AI agents:</span>
+<span class="c-kw">1.</span> Prefer official <span class="c-fn">@modelcontextprotocol/sdk</span> (TS) or <span class="c-fn">FastMCP</span> (Python).
+<span class="c-kw">2.</span> Validate input schemas with strict <span class="c-type">Zod</span> or <span class="c-type">Pydantic</span> models.
+<span class="c-kw">3.</span> Send debug logs to <span class="c-fn">stderr</span> &mdash; stdout is reserved for JSON-RPC framing.
+<span class="c-kw">4.</span> Wrap tool returns in <span class="c-type">{ content: [{ type: "text", text }] }</span> payloads.`,
+        raw: `# Model Context Protocol (MCP) Integration Rules
+
+When creating or connecting MCP tools with AI agents:
+1. Prefer official @modelcontextprotocol/sdk (TS) or FastMCP (Python).
+2. Validate input schemas with strict Zod or Pydantic models.
+3. Send debug logs to stderr — stdout is reserved for JSON-RPC framing.
+4. Wrap tool returns in { content: [{ type: "text", text }] } payloads.`,
+        lang: 'language-markdown',
+        pill: '<span class="status-dot purple" style="background:#A78BFA"></span><span>Cursor Rules &middot; .cursor/rules/mcp.mdc</span>',
+        linkText: 'Explore UI Studio ($49) &rarr;',
+        linkHref: 'https://manja8.gumroad.com/l/lntzuo'
+    }
+};
+
+var _currentIdeTab = 'python';
+
+function switchIdeTab(tabKey, btn) {
+    if (!_ideSnippets[tabKey]) return;
+    _currentIdeTab = tabKey;
+    
+    var tabs = document.querySelectorAll('.ide-tabs-nav .ide-tab');
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove('active');
+    }
+    if (btn) {
+        btn.classList.add('active');
+    }
+    
+    var codeEl = document.getElementById('ide-code-display');
+    if (codeEl) {
+        var data = _ideSnippets[tabKey];
+        codeEl.innerHTML = '<code class="' + data.lang + '">' + data.code + '</code>';
+    }
+    
+    var pillEl = document.querySelector('.ide-footer .ide-status-pill');
+    if (pillEl && _ideSnippets[tabKey].pill) {
+        pillEl.innerHTML = _ideSnippets[tabKey].pill;
+    }
+    var linkEl = document.querySelector('.ide-footer .ide-starter-link');
+    if (linkEl && _ideSnippets[tabKey].linkText) {
+        linkEl.innerHTML = _ideSnippets[tabKey].linkText;
+        linkEl.href = _ideSnippets[tabKey].linkHref;
+    }
+}
+
+function copyIdeSnippet() {
+    var raw = _ideSnippets[_currentIdeTab] ? _ideSnippets[_currentIdeTab].raw : '';
+    if (!raw) return;
+    
+    function onSuccess() {
+        var btn = document.getElementById('copy-code-btn');
+        if (btn) {
+            var orig = btn.innerHTML;
+            btn.innerHTML = '<span style="color:#22C55E;display:inline-flex;align-items:center;gap:4px">✓ Copied!</span>';
+            setTimeout(function() {
+                btn.innerHTML = orig;
+            }, 2000);
+        }
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(onSuccess).catch(function(err) {
+            fallbackCopy(raw);
+        });
+    } else {
+        fallbackCopy(raw);
+    }
+
+    function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+            document.execCommand('copy');
+            onSuccess();
+        } catch (e) {
+            console.error('Copy fallback failed:', e);
+        }
+        document.body.removeChild(ta);
+    }
+}
+
+function switchSponsorTab(tabKey, btn) {
+    var termsPanel = document.getElementById('sponsor-panel-terms');
+    var previewPanel = document.getElementById('sponsor-panel-preview');
+    var termsTab = document.getElementById('sponsor-tab-terms');
+    var previewTab = document.getElementById('sponsor-tab-preview');
+
+    if (tabKey === 'preview') {
+        if (termsPanel) termsPanel.style.display = 'none';
+        if (previewPanel) previewPanel.style.display = 'block';
+        if (termsTab) termsTab.classList.remove('active');
+        if (previewTab) previewTab.classList.add('active');
+    } else {
+        if (termsPanel) termsPanel.style.display = 'block';
+        if (previewPanel) previewPanel.style.display = 'none';
+        if (termsTab) termsTab.classList.add('active');
+        if (previewTab) previewTab.classList.remove('active');
+    }
+}
+
+window.switchIdeTab = switchIdeTab;
+window.copyIdeSnippet = copyIdeSnippet;
+window.switchSponsorTab = switchSponsorTab;
+</script>
+
 
     </div> <!-- /.container -->
 </section>
