@@ -1531,10 +1531,12 @@ nav a.nav-cta {
 }
 
 .ide-body {
-    padding: 10px 14px !important;
-    font-size: 0.8rem !important;
-    line-height: 1.45 !important;
-    max-height: 115px !important;
+    padding: 12px 14px !important;
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+    min-height: 175px !important;
+    max-height: 220px !important;
+    overflow-y: auto !important;
 }
 
 .ide-footer {

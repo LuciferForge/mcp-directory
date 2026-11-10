@@ -4,6 +4,7 @@ Protodex.io — Static site generator for MCP Server Directory.
 Reads mcp_directory.json → generates full static site into site/ directory.
 """
 
+import sys
 import json
 import os
 import re
@@ -1679,8 +1680,203 @@ function doSearch(q) {
 }
 
 document.addEventListener('click', function(e) {
-    if (!e.target.closest('.search-wrap') && _results) _results.style.display = 'none';
+    if (!e.target.closest('.search-wrap') && !e.target.closest('.raycast-hud-wrapper') && _results) _results.style.display = 'none';
 });
+
+/* ─── Interactive Dual-SDK IDE & Terminal Simulator ─── */
+var _ideSnippets = {
+    python: {
+        code: `<span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP
+mcp = FastMCP(<span class="c-str">"ProtodexLive"</span>)
+
+<span class="c-dec">@mcp.tool</span>()
+<span class="c-kw">def</span> <span class="c-fn">search_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -&gt; <span class="c-type">dict</span>:
+    <span class="c-dim"># Search 31,500+ MCP servers by capability and security rating</span>
+    <span class="c-kw">return</span> mcp_engine.search(query, min_stars=min_stars)
+
+<span class="c-kw">if</span> __name__ == <span class="c-str">"__main__"</span>:
+    mcp.run(transport=<span class="c-str">"stdio"</span>)`,
+        raw: `from mcp.server.fastmcp import FastMCP
+mcp = FastMCP("ProtodexLive")
+
+@mcp.tool()
+def search_servers(query: str, min_stars: int = 50) -> dict:
+    # Search 31,500+ MCP servers by capability and security rating
+    return mcp_engine.search(query, min_stars=min_stars)
+
+if __name__ == "__main__":
+    mcp.run(transport="stdio")`,
+        lang: 'language-python',
+        pill: '<span class="status-dot green"></span><span>JSON-RPC 2.0 &middot; Stdio + SSE Supported</span>',
+        linkText: 'Get Dual-SDK Kit ($39) &rarr;',
+        linkHref: 'https://manja8.gumroad.com/l/bsboqh'
+    },
+    ts: {
+        code: `<span class="c-kw">import</span> { McpServer } <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/mcp.js"</span>;
+<span class="c-kw">import</span> { StdioServerTransport } <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/stdio.js"</span>;
+<span class="c-kw">import</span> { z } <span class="c-kw">from</span> <span class="c-str">"zod"</span>;
+
+<span class="c-kw">const</span> server = <span class="c-kw">new</span> <span class="c-fn">McpServer</span>({ name: <span class="c-str">"protodex"</span>, version: <span class="c-str">"1.0.0"</span> });
+
+server.<span class="c-fn">tool</span>(
+  <span class="c-str">"search_servers"</span>,
+  { query: z.<span class="c-fn">string</span>(), min_stars: z.<span class="c-fn">number</span>().<span class="c-fn">default</span>(<span class="c-num">50</span>) },
+  <span class="c-kw">async</span> ({ query, min_stars }) =&gt; ({
+    content: [{ type: <span class="c-str">"text"</span>, text: JSON.<span class="c-fn">stringify</span>(<span class="c-kw">await</span> <span class="c-fn">queryIndex</span>(query, min_stars)) }]
+  })
+);
+
+<span class="c-kw">const</span> transport = <span class="c-kw">new</span> <span class="c-fn">StdioServerTransport</span>();
+<span class="c-kw">await</span> server.<span class="c-fn">connect</span>(transport);`,
+        raw: `import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+
+const server = new McpServer({ name: "protodex", version: "1.0.0" });
+
+server.tool(
+  "search_servers",
+  { query: z.string(), min_stars: z.number().default(50) },
+  async ({ query, min_stars }) => ({
+    content: [{ type: "text", text: JSON.stringify(await queryIndex(query, min_stars)) }]
+  })
+);
+
+const transport = new StdioServerTransport();
+await server.connect(transport);`,
+        lang: 'language-typescript',
+        pill: '<span class="status-dot green"></span><span>@modelcontextprotocol/sdk &middot; Type-Safe Zod Tools</span>',
+        linkText: 'Get Dual-SDK Kit ($39) &rarr;',
+        linkHref: 'https://manja8.gumroad.com/l/bsboqh'
+    },
+    claude: {
+        code: `{
+  <span class="c-str">"mcpServers"</span>: {
+    <span class="c-str">"protodex"</span>: {
+      <span class="c-str">"command"</span>: <span class="c-str">"npx"</span>,
+      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@protodex/mcp-server@latest"</span>],
+      <span class="c-str">"env"</span>: {
+        <span class="c-str">"PROTODEX_API_KEY"</span>: <span class="c-str">"YOUR_PROTODEX_KEY"</span>
+      }
+    },
+    <span class="c-str">"filesystem"</span>: {
+      <span class="c-str">"command"</span>: <span class="c-str">"npx"</span>,
+      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@modelcontextprotocol/server-filesystem"</span>, <span class="c-str">"/Users/dev/workspace"</span>]
+    }
+  }
+}`,
+        raw: `{
+  "mcpServers": {
+    "protodex": {
+      "command": "npx",
+      "args": ["-y", "@protodex/mcp-server@latest"],
+      "env": {
+        "PROTODEX_API_KEY": "YOUR_PROTODEX_KEY"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dev/workspace"]
+    }
+  }
+}`,
+        lang: 'language-json',
+        pill: '<span class="status-dot blue" style="background:#5B8DEF"></span><span>Claude Desktop &middot; claude_desktop_config.json</span>',
+        linkText: 'Get 31k Dataset ($29) &rarr;',
+        linkHref: 'https://manja8.gumroad.com/l/zcyee'
+    },
+    cursor: {
+        code: `<span class="c-kw"># Model Context Protocol (MCP) Integration Rules</span>
+
+<span class="c-str">When creating or connecting MCP tools with AI agents:</span>
+<span class="c-kw">1.</span> Prefer official <span class="c-fn">@modelcontextprotocol/sdk</span> (TS) or <span class="c-fn">FastMCP</span> (Python).
+<span class="c-kw">2.</span> Validate input schemas with strict <span class="c-type">Zod</span> or <span class="c-type">Pydantic</span> models.
+<span class="c-kw">3.</span> Send debug logs to <span class="c-fn">stderr</span> &mdash; stdout is reserved for JSON-RPC framing.
+<span class="c-kw">4.</span> Wrap tool returns in <span class="c-type">{ content: [{ type: "text", text }] }</span> payloads.`,
+        raw: `# Model Context Protocol (MCP) Integration Rules
+
+When creating or connecting MCP tools with AI agents:
+1. Prefer official @modelcontextprotocol/sdk (TS) or FastMCP (Python).
+2. Validate input schemas with strict Zod or Pydantic models.
+3. Send debug logs to stderr — stdout is reserved for JSON-RPC framing.
+4. Wrap tool returns in { content: [{ type: "text", text }] } payloads.`,
+        lang: 'language-markdown',
+        pill: '<span class="status-dot purple" style="background:#A78BFA"></span><span>Cursor Rules &middot; .cursor/rules/mcp.mdc</span>',
+        linkText: 'Explore UI Studio ($49) &rarr;',
+        linkHref: 'https://manja8.gumroad.com/l/lntzuo'
+    }
+};
+
+var _currentIdeTab = 'python';
+
+function switchIdeTab(tabKey, btn) {
+    if (!_ideSnippets[tabKey]) return;
+    _currentIdeTab = tabKey;
+    
+    var tabs = document.querySelectorAll('.ide-tabs-nav .ide-tab');
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove('active');
+    }
+    if (btn) {
+        btn.classList.add('active');
+    }
+    
+    var codeEl = document.getElementById('ide-code-display');
+    if (codeEl) {
+        var data = _ideSnippets[tabKey];
+        codeEl.innerHTML = '<code class="' + data.lang + '">' + data.code + '</code>';
+    }
+    
+    var pillEl = document.querySelector('.ide-footer .ide-status-pill');
+    if (pillEl && _ideSnippets[tabKey].pill) {
+        pillEl.innerHTML = _ideSnippets[tabKey].pill;
+    }
+    var linkEl = document.querySelector('.ide-footer .ide-starter-link');
+    if (linkEl && _ideSnippets[tabKey].linkText) {
+        linkEl.innerHTML = _ideSnippets[tabKey].linkText;
+        linkEl.href = _ideSnippets[tabKey].linkHref;
+    }
+}
+
+function copyIdeSnippet() {
+    var raw = _ideSnippets[_currentIdeTab] ? _ideSnippets[_currentIdeTab].raw : '';
+    if (!raw) return;
+    
+    function onSuccess() {
+        var btn = document.getElementById('copy-code-btn');
+        if (btn) {
+            var orig = btn.innerHTML;
+            btn.innerHTML = '<span style="color:#22C55E;display:inline-flex;align-items:center;gap:4px">✓ Copied!</span>';
+            setTimeout(function() {
+                btn.innerHTML = orig;
+            }, 2000);
+        }
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(onSuccess).catch(function(err) {
+            fallbackCopy(raw);
+        });
+    } else {
+        fallbackCopy(raw);
+    }
+
+    function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+            document.execCommand('copy');
+            onSuccess();
+        } catch (e) {
+            console.error('Copy fallback failed:', e);
+        }
+        document.body.removeChild(ta);
+    }
+}
 </script>
 """
 
@@ -3786,6 +3982,9 @@ def main():
     # Build home page
     print("Building home page...")
     write(os.path.join(SITE_DIR, "index.html"), build_home(servers, cat_counts))
+    if "--home-only" in sys.argv:
+        print("Home page only built successfully!")
+        return
 
     # Build categories index
     print("Building categories index...")
