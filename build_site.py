@@ -2777,7 +2777,7 @@ def generate_install_config(server):
             if cfg.get("pip_install"):
                 notes.append(f'Or install with pip: <code>{escape(cfg["pip_install"])}</code>')
             if cfg.get("note"):
-                notes.append(escape(cfg["note"]))
+                notes.append(cfg["note"])
         else:
             if lang in ("TypeScript", "JavaScript"):
                 command = "npx"
@@ -2841,9 +2841,16 @@ def generate_install_config(server):
             return f'<p class="install-note">{note_text}</p>'
         rendered = escape(note_text)
         rendered = re.sub(r"`([^`]+)`", r"<code>\1</code>", rendered)
+
+        def _link_url(match):
+            full = match.group(0)
+            trimmed = full.rstrip(".,;:)")
+            trailing = full[len(trimmed):]
+            return f'<a href="{trimmed}" target="_blank" rel="noopener">{trimmed}</a>{trailing}'
+
         rendered = re.sub(
-            r"(?<!<code>)(?<![\">])(https?://[^\s<]+?)(?=[.,);\s<]|$)",
-            r'<a href="\1" target="_blank" rel="noopener">\1</a>',
+            r"(?<!<code>)(?<![\">])https?://[^\s<>]+",
+            _link_url,
             rendered,
         )
         return f'<p class="install-note">{rendered}</p>'
