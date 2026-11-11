@@ -10,7 +10,7 @@ import glob
 import os
 import re
 
-SITE_DIR = "/Users/apple/Documents/LuciferForge/mcp-directory/docs"
+SITE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs")
 
 def audit_file(fpath: str):
     rel_path = os.path.relpath(fpath, SITE_DIR)

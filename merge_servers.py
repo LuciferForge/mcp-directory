@@ -6,14 +6,58 @@ Merge scraped MCP server data into the existing mcp_directory.json.
 - Adds new entries in the current format
 """
 
+import hashlib
 import json
 import os
+import re
 from datetime import datetime, timezone
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 CURRENT_FILE = os.path.join(DIR, "mcp_directory.json")
 SCRAPED_FILE = os.path.join(DIR, "scraper", "all_servers_scored.json")
 OUTPUT_FILE = os.path.join(DIR, "mcp_directory.json")
+EXCLUDED_HASHES_FILE = os.path.join(DIR, "excluded_repo_hashes.json")
+
+_FAKEGIT_PHRASE_RE = re.compile(
+    r"(?:visit this page to download|from the assets list|right-click it and choose|"
+    r"it is usually named with `?\.(?:exe|zip)|pick the latest version that fits|"
+    r"setup\.exe included|util\.exe\s+cert\.txt|application\.cmd|chrome_extension\.zip|firefox_extension\.zip)",
+    re.I,
+)
+
+
+def load_excluded_hashes():
+    if not os.path.exists(EXCLUDED_HASHES_FILE):
+        return set()
+    try:
+        with open(EXCLUDED_HASHES_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, list):
+            return {str(x).lower() for x in data}
+        return {str(x).lower() for x in data.get("hashes", [])}
+    except Exception:
+        return set()
+
+
+def is_excluded_repo(repo_str, excluded_hashes):
+    repo_norm = normalize_repo(repo_str or "")
+    if not repo_norm:
+        return True
+    digest = hashlib.sha256(repo_norm.encode("utf-8")).hexdigest()
+    return digest in excluded_hashes
+
+
+def has_malicious_bait(repo_str, text):
+    if not text:
+        return False
+    if _FAKEGIT_PHRASE_RE.search(text):
+        return True
+    repo_norm = normalize_repo(repo_str or "")
+    if repo_norm:
+        esc = re.escape(repo_norm)
+        if re.search(rf"(?:raw\.githubusercontent\.com/{esc}/|github\.com/{esc}/(?:raw|blob)/)[^\s\)\"']*\.zip\b", text, re.I):
+            return True
+    return False
 
 
 def normalize_repo(repo_str):
@@ -29,14 +73,22 @@ def normalize_repo(repo_str):
 
 
 def main():
+    excluded_hashes = load_excluded_hashes()
+    print(f"Loaded {len(excluded_hashes)} excluded repo hash(es)")
+
     # Load current
-    with open(CURRENT_FILE) as f:
+    with open(CURRENT_FILE, "r", encoding="utf-8") as f:
         current_data = json.load(f)
-    current_servers = current_data["servers"]
-    print(f"Current: {len(current_servers)} servers")
+    raw_current = current_data["servers"]
+    current_servers = [
+        s for s in raw_current
+        if not is_excluded_repo(s.get("repo", ""), excluded_hashes)
+        and not has_malicious_bait(s.get("repo", ""), f"{s.get('description', '')} {s.get('readme_excerpt', '')}")
+    ]
+    print(f"Current: {len(current_servers)} servers (filtered {len(raw_current) - len(current_servers)} excluded)")
 
     # Load scraped
-    with open(SCRAPED_FILE) as f:
+    with open(SCRAPED_FILE, "r", encoding="utf-8") as f:
         scraped_data = json.load(f)
     scraped_servers = scraped_data["servers"]
     print(f"Scraped: {len(scraped_servers)} servers")
@@ -54,8 +106,11 @@ def main():
     scraped_by_repo = {}
     for s in scraped_servers:
         repo_norm = normalize_repo(s.get("repo_url", ""))
-        if repo_norm:
-            scraped_by_repo[repo_norm] = s
+        if not repo_norm or is_excluded_repo(repo_norm, excluded_hashes):
+            continue
+        if has_malicious_bait(repo_norm, f"{s.get('description', '')} {s.get('readme_excerpt', '')}"):
+            continue
+        scraped_by_repo[repo_norm] = s
 
     enriched = 0
     new_count = 0
@@ -162,7 +217,7 @@ def main():
         "servers": all_servers,
     }
 
-    with open(OUTPUT_FILE, "w") as f:
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
     print(f"\nWritten to {OUTPUT_FILE}")

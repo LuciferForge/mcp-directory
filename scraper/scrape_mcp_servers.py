@@ -14,7 +14,10 @@ Usage:
   python3 scrape_mcp_servers.py
 """
 
+import hashlib
 import json
+import os
+import shutil
 import subprocess
 import time
 import re
@@ -22,10 +25,62 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-GH = "/usr/local/bin/gh"
-OUT_DIR = Path(__file__).parent
+ROOT_DIR = Path(__file__).resolve().parent.parent
+GH = shutil.which("gh") or ("/usr/local/bin/gh" if os.path.exists("/usr/local/bin/gh") else "gh")
+OUT_DIR = Path(__file__).resolve().parent
 OUT_FILE = OUT_DIR / "all_servers.json"
-EXISTING_JSON = Path("/Users/apple/Documents/LuciferForge/mcp-directory/mcp_directory.json")
+EXISTING_JSON = ROOT_DIR / "mcp_directory.json"
+EXCLUDED_HASHES_FILE = ROOT_DIR / "excluded_repo_hashes.json"
+
+_FAKEGIT_PHRASE_RE = re.compile(
+    r"(?:visit this page to download|from the assets list|right-click it and choose|"
+    r"it is usually named with `?\.(?:exe|zip)|pick the latest version that fits|"
+    r"setup\.exe included|util\.exe\s+cert\.txt|application\.cmd|chrome_extension\.zip|firefox_extension\.zip)",
+    re.I,
+)
+
+
+def _normalize_repo(repo_str):
+    r = (repo_str or "").strip()
+    for prefix in ("https://github.com/", "http://github.com/", "github.com/"):
+        if r.lower().startswith(prefix):
+            r = r[len(prefix):]
+    r = r.rstrip("/")
+    if r.lower().endswith(".git"):
+        r = r[:-4]
+    return r.lower()
+
+
+def load_excluded_hashes():
+    if not EXCLUDED_HASHES_FILE.exists():
+        return set()
+    try:
+        data = json.loads(EXCLUDED_HASHES_FILE.read_text(encoding="utf-8"))
+        if isinstance(data, list):
+            return {str(x).lower() for x in data}
+        return {str(x).lower() for x in data.get("hashes", [])}
+    except Exception:
+        return set()
+
+
+def is_excluded_repo(repo_str, excluded_hashes):
+    repo_norm = _normalize_repo(repo_str)
+    if not repo_norm:
+        return True
+    return hashlib.sha256(repo_norm.encode("utf-8")).hexdigest() in excluded_hashes
+
+
+def has_malicious_bait(repo_str, text):
+    if not text:
+        return False
+    if _FAKEGIT_PHRASE_RE.search(text):
+        return True
+    repo_norm = _normalize_repo(repo_str)
+    if repo_norm:
+        esc = re.escape(repo_norm)
+        if re.search(rf"(?:raw\.githubusercontent\.com/{esc}/|github\.com/{esc}/(?:raw|blob)/)[^\s\)\"']*\.zip\b", text, re.I):
+            return True
+    return False
 
 # Rate limit: 2s between search pages
 SEARCH_DELAY = 2.5
@@ -534,10 +589,13 @@ def main():
     start_time = time.time()
 
     # Load existing protodex URLs for comparison
+    excluded_hashes = load_excluded_hashes()
+    print(f"Loaded {len(excluded_hashes)} excluded repo hash(es)")
     existing_urls = set()
     if EXISTING_JSON.exists():
         try:
-            data = json.load(open(EXISTING_JSON))
+            with open(EXISTING_JSON, "r", encoding="utf-8") as ef:
+                data = json.load(ef)
             existing_urls = set(s.get("url", "") for s in data.get("servers", []))
             print(f"Loaded {len(existing_urls)} existing Protodex URLs for comparison")
         except Exception as e:
@@ -591,10 +649,15 @@ def main():
     # Enrich partial entries (from awesome-list, code search)
     enrich_partial_entries(merged, batch_size=200)
 
-    # Filter to actual MCP servers
+    # Filter to actual MCP servers and blocklisted/malicious-bait repos
     print("\n=== Filtering to MCP servers ===")
-    filtered = {url: entry for url, entry in merged.items() if is_likely_mcp_server(entry)}
-    print(f"  After filtering: {len(filtered)} (removed {len(merged) - len(filtered)} non-MCP repos)")
+    filtered = {
+        url: entry for url, entry in merged.items()
+        if is_likely_mcp_server(entry)
+        and not is_excluded_repo(url, excluded_hashes)
+        and not has_malicious_bait(url, entry.get("description", ""))
+    }
+    print(f"  After filtering: {len(filtered)} (removed {len(merged) - len(filtered)} non-MCP or excluded repos)")
 
     # Convert to sorted list
     servers = sorted(filtered.values(), key=lambda s: s["stars"], reverse=True)
@@ -628,7 +691,7 @@ def main():
         "servers": servers,
     }
 
-    with open(OUT_FILE, "w") as f:
+    with open(OUT_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, default=str)
 
     # Print report

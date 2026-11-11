@@ -56,7 +56,13 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: var(--font);
-    background: var(--bg);
+    background-color: #06070c;
+    background-image: 
+        radial-gradient(ellipse 90% 55% at 50% -20%, rgba(45, 217, 224, 0.16), transparent 70%),
+        radial-gradient(ellipse 70% 45% at 90% 20%, rgba(123, 97, 255, 0.14), transparent 60%),
+        radial-gradient(ellipse 60% 40% at 10% 45%, rgba(255, 217, 61, 0.06), transparent 60%),
+        radial-gradient(ellipse 80% 50% at 50% 85%, rgba(45, 217, 224, 0.08), transparent 70%);
+    background-attachment: fixed;
     color: var(--text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -210,7 +216,11 @@ nav a.nav-cta:hover { background: var(--accent-hover); }
     margin-right: auto;
 }
 .hero h1 .gradient {
-    color: var(--accent);
+    background: linear-gradient(135deg, #2DD9E0 0%, #A78BFA 45%, #FBBF24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 18px rgba(45, 217, 224, 0.25));
 }
 .hero p {
     font-size: 1.15rem;
@@ -272,20 +282,21 @@ a.preview-row:hover { text-decoration: none; }
 .search-wrap input {
     width: 100%;
     padding: 16px 20px 16px 48px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(13, 15, 24, 0.82);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(45, 217, 224, 0.32);
     border-radius: 14px;
     color: var(--text);
     font-family: var(--mono);
     font-size: 0.95rem;
     font-weight: 500;
     outline: none;
-    transition: all 0.2s;
-    box-shadow: var(--shadow-sm), 0 0 0 0 var(--accent-glow);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 16px rgba(45, 217, 224, 0.12);
 }
 .search-wrap input:focus {
-    border-color: var(--accent);
-    box-shadow: var(--shadow-md), 0 0 0 4px var(--accent-glow);
+    border-color: #2DD9E0;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5), 0 0 32px rgba(45, 217, 224, 0.35);
 }
 .search-wrap input::placeholder { color: var(--text-dim); font-weight: 400; }
 .search-icon {
@@ -439,16 +450,18 @@ a.value-prop { color: inherit; }
     margin-bottom: 72px;
 }
 .cat-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(14, 16, 25, 0.72);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius);
     padding: 20px;
-    transition: all 0.2s;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
     gap: 8px;
     position: relative;
     overflow: hidden;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 .cat-card::before {
     content: '';
@@ -458,17 +471,18 @@ a.value-prop { color: inherit; }
     bottom: 0;
     width: 3px;
     border-radius: 3px 0 0 3px;
-    opacity: 0;
-    transition: opacity 0.2s;
+    opacity: 0.85;
+    box-shadow: 0 0 10px currentColor;
+    transition: opacity 0.2s, width 0.2s;
 }
 .cat-card:hover {
-    border-color: var(--border-hover);
-    background: var(--bg-card-hover);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(20, 24, 38, 0.85);
     text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 12px 32px rgba(0, 0, 0, 0.45);
 }
-.cat-card:hover::before { opacity: 1; }
+.cat-card:hover::before { opacity: 1; width: 5px; }
 .cat-icon { display: inline-flex; align-items: center; justify-content: center; height: 28px; }
 .cat-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
 .cat-count { color: var(--text-dim); font-size: 0.8rem; font-weight: 500; }
@@ -481,21 +495,23 @@ a.value-prop { color: inherit; }
     margin-bottom: 60px;
 }
 .server-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(14, 16, 25, 0.72);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius);
     padding: 20px;
-    transition: all 0.2s;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
     gap: 10px;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 .server-card:hover {
-    border-color: rgba(45, 217, 224, 0.3);
-    background: var(--bg-card-hover);
+    border-color: rgba(45, 217, 224, 0.45);
+    background: rgba(20, 24, 38, 0.85);
     text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 24px rgba(45, 217, 224, 0.06), 0 0 0 1px rgba(45, 217, 224, 0.1);
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.18), 0 12px 36px rgba(45, 217, 224, 0.15);
 }
 .server-card-header {
     display: flex;
@@ -1075,6 +1091,7 @@ footer {
 .install-note { color: var(--text-muted); font-size: 0.8rem; margin-top: 8px; }
 .install-note code { background: var(--bg); padding: 2px 6px; border-radius: 4px; }
 </style>
+    <link rel="stylesheet" href="/assets/protodex-vibrant.css">
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
     <script type="application/ld+json">{
@@ -1087,7 +1104,6 @@ footer {
   "operatingSystem": "Any",
   "programmingLanguage": "Python"
 }</script>
-    <link rel="stylesheet" href="/assets/protodex-vibrant.css">
 </head>
 <body>
 
@@ -1100,12 +1116,13 @@ footer {
                 <span class="logo-tagline">MCP Server Index</span>
             </div>
         </a>
-                <nav>
+        <nav>
             <a href="/">Explore</a>
-            <a href="/audit.html">Security Auditor 🛡️</a>
-            <a href="/datasets/">Datasets &amp; Kits 📊</a>
+            <a href="/templates.html" style="color:var(--accent);font-weight:700">UI Studio 🎨</a>
+            <a href="/audit.html">Security 🛡️</a>
+            <a href="/datasets/">Datasets 📊</a>
             <a href="/categories.html">Categories</a>
-            <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener">Promote Server ⚡</a>
+            <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener">Promote ⚡</a>
             <a href="/blog/">Blog</a>
             <a href="/build.html" class="nav-cta" data-promo="services">Need an MCP server? →</a>
         </nav>
@@ -1126,32 +1143,35 @@ footer {
         <span class="meta-item">★ 17 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#3572A5"></span> Python</span>
         <span class="meta-item"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-        <span class="meta-item">Updated 10mo ago</span>
+        <span class="meta-item">Updated 1y ago</span>
         <span class="meta-item"><span class="sec-badge sec-green">&#10003; Clean</span></span>
     </div>
 
     <div class="detail-desc">An MCP server.</div>
 
-    <a href="https://github.com/techwithtim/BrightDataMCPServerAgent" target="_blank" rel="noopener" class="btn">
-        View on GitHub →
-    </a>
-
-    <a href="/audit.html" style="display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:8px 16px;background:linear-gradient(135deg,rgba(123,97,255,0.25),rgba(45,217,224,0.2));border:1px solid rgba(123,97,255,0.4);color:var(--text);text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;box-shadow:0 0 16px rgba(123,97,255,0.15)">
-        🛡️ Security &amp; TRiSM Audit →
-    </a>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px">
+        <a href="https://github.com/techwithtim/BrightDataMCPServerAgent" target="_blank" rel="noopener" class="btn">
+            View on GitHub →
+        </a>
+        
+        
+        <a href="/audit.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:linear-gradient(135deg,rgba(123,97,255,0.25),rgba(45,217,224,0.2));border:1px solid rgba(123,97,255,0.4);color:var(--text);text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;box-shadow:0 0 16px rgba(123,97,255,0.15)">
+            🛡️ Security &amp; TRiSM Audit →
+        </a>
+    </div>
 
     
     <div class="install-section" style="margin-top:32px">
         <h2>Quick Install</h2>
-        <p class="install-subtitle">Copy the config for your editor. Some servers may need additional setup — check the README.</p>
+        <p class="install-subtitle">Copy the config for your editor. Verify environment variables or setup notes in the README.</p>
 
         <div class="install-tabs">
-            <button class="install-tab active" onclick="showTab(this, 'claude-desktop-brightdatamcpservera')">Claude Desktop</button>
-            <button class="install-tab" onclick="showTab(this, 'claude-code-brightdatamcpservera')">Claude Code</button>
-            <button class="install-tab" onclick="showTab(this, 'cursor-brightdatamcpservera')">Cursor</button>
+            <button class="install-tab active" onclick="showTab(this, 'claude-desktop-techwithtim-brightdatamcpserveragent')">Claude Desktop</button>
+            <button class="install-tab" onclick="showTab(this, 'claude-code-techwithtim-brightdatamcpserveragent')">Claude Code</button>
+            <button class="install-tab" onclick="showTab(this, 'cursor-techwithtim-brightdatamcpserveragent')">Cursor</button>
         </div>
 
-        <div id="claude-desktop-brightdatamcpservera" class="install-panel active">
+        <div id="claude-desktop-techwithtim-brightdatamcpserveragent" class="install-panel active">
             <p class="install-label">Add to <code>claude_desktop_config.json</code>:</p>
             <div class="code-block">
                 <pre><code>{
@@ -1167,16 +1187,14 @@ footer {
                 <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
             </div>
         </div>
-
-        <div id="claude-code-brightdatamcpservera" class="install-panel" style="display:none">
+        <div id="claude-code-techwithtim-brightdatamcpserveragent" class="install-panel" style="display:none">
             <p class="install-label">Run in terminal:</p>
             <div class="code-block">
                 <pre><code>claude mcp add brightdatamcpservera uvx brightdatamcpserveragent</code></pre>
                 <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
             </div>
         </div>
-
-        <div id="cursor-brightdatamcpservera" class="install-panel" style="display:none">
+        <div id="cursor-techwithtim-brightdatamcpserveragent" class="install-panel" style="display:none">
             <p class="install-label">Add to <code>.cursor/mcp.json</code>:</p>
             <div class="code-block">
                 <pre><code>{
@@ -1197,18 +1215,19 @@ footer {
 
 
     
-    <div class="protodex-commercial-callout">
-        <div class="callout-icon">⚡</div>
-        <div class="callout-text">
-            <div class="callout-title">Building Production MCP Agents? <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">PRO TOOLKITS</span></div>
-            <div class="callout-desc">Get the <strong>Complete 31,500+ MCP Ecosystem Dataset</strong> ($29) or the <strong>FastMCP + TypeScript Starter Kit</strong> ($39) with turnkey Docker &amp; Cloudflare deployment.</div>
-        </div>
-        <div class="callout-actions">
-            <a href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener" class="callout-btn-primary">Get Dataset ($29) →</a>
-            <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" class="callout-btn-secondary">Get Starter Kit ($39) →</a>
-            <a href="/datasets/" class="callout-btn-secondary">Browse All Kits →</a>
-        </div>
+<div class="protodex-commercial-callout">
+    <div class="callout-icon">⚡</div>
+    <div class="callout-text">
+        <div class="callout-title">Building Production MCP Agents? <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">PRO TOOLKITS</span></div>
+        <div class="callout-desc">Get the <strong>Complete 31,400+ MCP Ecosystem Dataset</strong> ($29) or the <strong>FastMCP + TypeScript Starter Kit</strong> ($39) with turnkey Docker &amp; Cloudflare deployment.</div>
     </div>
+    <div class="callout-actions">
+        <a href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener" class="callout-btn-primary">Get Dataset ($29) →</a>
+        <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" class="callout-btn-secondary">Get Starter Kit ($39) →</a>
+        <a href="/datasets/" class="callout-btn-secondary">Browse All Kits →</a>
+    </div>
+</div>
+
 
     <div style="margin-top:40px">
         
@@ -1266,6 +1285,20 @@ footer {
     </a></div>
     </div>
     
+<section class="container" style="margin:8px auto 32px">
+  <div style="display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;padding:1.2rem 1.6rem;background:linear-gradient(135deg,rgba(123,97,255,0.14),rgba(45,217,224,0.12));border:1px solid rgba(123,97,255,0.3);border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.25)">
+    <span style="font-size:2rem">&#128202;</span>
+    <div style="flex:1;min-width:240px">
+      <div style="font-weight:700;font-size:1.05rem;color:var(--text);letter-spacing:-0.01em">Building AI Agents or Backtesting Quant Models?</div>
+      <div style="color:var(--text-muted);font-size:0.88rem;margin-top:4px;line-height:1.4">Get the <strong>Polymarket Historical Dataset</strong> &mdash; 23.0M+ 15-minute price &amp; orderbook snapshots across 18,400+ prediction markets. Clean CSV &amp; SQLite download for backtesting &amp; agent training.</div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <a href="https://manja8.gumroad.com/l/polymarket-quant-toolkit?utm_source=protodex&utm_medium=category-banner&utm_campaign=polymarket-dataset" target="_blank" rel="noopener" style="background:var(--accent);color:#000;padding:8px 18px;border-radius:8px;font-size:0.85rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 8px rgba(45,217,224,0.3)">Buy Dataset ($19) &#8594;</a>
+      <a href="/datasets/polymarket-historical.html" style="border:1px solid rgba(255,255,255,0.2);color:var(--text);padding:8px 14px;border-radius:8px;font-size:0.85rem;font-weight:600;white-space:nowrap">View Sample &#8594;</a>
+    </div>
+  </div>
+</section>
+
 </div>
 
 <footer>
@@ -1297,7 +1330,7 @@ footer {
                     <a href="/mcp-quickref.html">MCP Server Builder's Quick Reference</a>
                     <a href="/mcp-scorecard.html">MCP Production-Readiness Scorecard</a>
                     <a href="/build.html">Get an MCP server built</a>
-                    <a href="https://manja8.gumroad.com/l/polymarket-quant-toolkit?utm_source=protodex&utm_medium=footer&utm_campaign=gumroad" target="_blank" rel="noopener" data-promo="gumroad">Polymarket 23M+ Dataset ($19)</a>
+                    <a href="https://manja8.gumroad.com/l/sponsor_mcp?utm_source=protodex&utm_medium=footer&utm_campaign=gumroad" target="_blank" rel="noopener" data-promo="gumroad">Promote Your Server ($49/wk)</a>
                     <a href="/aws-free.html">AWS Prep (Free Study Guide)</a>
                 </div>
             </div>
@@ -1311,6 +1344,6 @@ footer {
 function showTab(btn,id){var p=btn.closest('.install-section');p.querySelectorAll('.install-tab').forEach(function(t){t.classList.remove('active')});p.querySelectorAll('.install-panel').forEach(function(x){x.style.display='none';x.classList.remove('active')});btn.classList.add('active');var el=document.getElementById(id);if(el){el.style.display='block';el.classList.add('active')}}
 function copyCode(btn){var code=btn.previousElementSibling.querySelector('code').textContent;navigator.clipboard.writeText(code).then(function(){btn.textContent='Copied';btn.classList.add('copied');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied')},2000)})}
 </script>
-<script src="/protodex-companion-widget.js?v=20260822_wa" defer></script>
+
 </body>
 </html>

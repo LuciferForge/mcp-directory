@@ -5,17 +5,88 @@ Reads mcp_directory.json → generates full static site into site/ directory.
 """
 
 import sys
+import hashlib
 import json
 import os
 import re
 import math
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from html import escape
 from urllib.parse import quote
 
-SITE_DIR = os.path.join(os.path.dirname(__file__), "docs")
-DATA_FILE = os.path.join(os.path.dirname(__file__), "mcp_directory.json")
+ROOT_DIR = Path(__file__).resolve().parent
+SITE_DIR = str(ROOT_DIR / "docs")
+DATA_FILE = str(ROOT_DIR / "mcp_directory.json")
+EXCLUDED_HASHES_FILE = ROOT_DIR / "excluded_repo_hashes.json"
+SPONSORS_FILE = ROOT_DIR / "sponsored_servers.json"
+
+_FAKEGIT_PHRASE_RE = re.compile(
+    r"(?:visit this page to download|from the assets list|right-click it and choose|"
+    r"it is usually named with `?\.(?:exe|zip)|pick the latest version that fits|"
+    r"setup\.exe included|util\.exe\s+cert\.txt|application\.cmd|chrome_extension\.zip|firefox_extension\.zip)",
+    re.I,
+)
+
+
+def _normalize_repo(repo_str):
+    r = (repo_str or "").strip()
+    for prefix in ("https://github.com/", "http://github.com/", "github.com/"):
+        if r.lower().startswith(prefix):
+            r = r[len(prefix):]
+    r = r.rstrip("/")
+    if r.lower().endswith(".git"):
+        r = r[:-4]
+    return r.lower()
+
+
+def load_excluded_hashes():
+    if not EXCLUDED_HASHES_FILE.exists():
+        return set()
+    try:
+        data = json.loads(EXCLUDED_HASHES_FILE.read_text(encoding="utf-8"))
+        if isinstance(data, list):
+            return {str(x).lower() for x in data}
+        return {str(x).lower() for x in data.get("hashes", [])}
+    except Exception:
+        return set()
+
+
+def is_excluded_repo(repo_str, excluded_hashes):
+    repo_norm = _normalize_repo(repo_str)
+    if not repo_norm:
+        return True
+    return hashlib.sha256(repo_norm.encode("utf-8")).hexdigest() in excluded_hashes
+
+
+def has_malicious_bait(repo_str, text):
+    if not text:
+        return False
+    if _FAKEGIT_PHRASE_RE.search(text):
+        return True
+    repo_norm = _normalize_repo(repo_str)
+    if repo_norm:
+        esc = re.escape(repo_norm)
+        if re.search(rf"(?:raw\.githubusercontent\.com/{esc}/|github\.com/{esc}/(?:raw|blob)/)[^\s\)\"']*\.zip\b", text, re.I):
+            return True
+    return False
+
+
+def load_active_sponsors():
+    active = []
+    if not SPONSORS_FILE.exists():
+        return active
+    try:
+        sponsors_data = json.loads(SPONSORS_FILE.read_text(encoding="utf-8"))
+        now_iso = datetime.now(timezone.utc).isoformat()
+        for item in sponsors_data:
+            exp = item.get("expires_at", "")
+            if not exp or exp > now_iso:
+                active.append(item)
+    except Exception as e:
+        print(f"Error reading sponsored servers: {e}")
+    return active
 DOMAIN = "protodex.io"
 SITE_URL = f"https://{DOMAIN}"
 # Google Search Console verification token (meta-tag method).
@@ -1379,7 +1450,7 @@ def html_head(title, description, canonical_path="/", extra_head="", og_image=""
 # Swap `key` to change which product the whole site promotes on next rebuild.
 GUMROAD_PRODUCTS = {
     "sponsor-mcp": {"url": "https://manja8.gumroad.com/l/sponsor_mcp",
-                    "cta": "Promote Your Server ($49) →", "price": "$49/wk",
+                    "cta": "Promote Your Server →", "price": "$49/wk",
                     "pitch": "Feature your MCP server at the top of Protodex for 30,000+ AI developers"},
     "clawguard-pro": {"url": "https://manja8.gumroad.com/l/rogmt",
                       "cta": "ClawGuard Prompt-Shield ($29) →", "price": "$29",
@@ -1421,7 +1492,7 @@ COMMERCIAL_SERVER_CALLOUT = """
     <div class="callout-icon">⚡</div>
     <div class="callout-text">
         <div class="callout-title">Building Production MCP Agents? <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">PRO TOOLKITS</span></div>
-        <div class="callout-desc">Get the <strong>Complete 31,500+ MCP Ecosystem Dataset</strong> ($29) or the <strong>FastMCP + TypeScript Starter Kit</strong> ($39) with turnkey Docker &amp; Cloudflare deployment.</div>
+        <div class="callout-desc">Get the <strong>Complete 31,400+ MCP Ecosystem Dataset</strong> ($29) or the <strong>FastMCP + TypeScript Starter Kit</strong> ($39) with turnkey Docker &amp; Cloudflare deployment.</div>
     </div>
     <div class="callout-actions">
         <a href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener" class="callout-btn-primary">Get Dataset ($29) →</a>
@@ -1594,7 +1665,7 @@ mcp = FastMCP(<span class="c-str">"ProtodexLive"</span>)
 
 <span class="c-dec">@mcp.tool</span>()
 <span class="c-kw">def</span> <span class="c-fn">search_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -&gt; <span class="c-type">dict</span>:
-    <span class="c-dim"># Search 31,500+ MCP servers by capability and security rating</span>
+    <span class="c-dim"># Search 31,400+ MCP servers by capability and security rating</span>
     <span class="c-kw">return</span> mcp_engine.search(query, min_stars=min_stars)
 
 <span class="c-kw">if</span> __name__ == <span class="c-str">"__main__"</span>:
@@ -1604,7 +1675,7 @@ mcp = FastMCP("ProtodexLive")
 
 @mcp.tool()
 def search_servers(query: str, min_stars: int = 50) -> dict:
-    # Search 31,500+ MCP servers by capability and security rating
+    # Search 31,400+ MCP servers by capability and security rating
     return mcp_engine.search(query, min_stars=min_stars)
 
 if __name__ == "__main__":
@@ -1705,7 +1776,7 @@ When creating or connecting MCP tools with AI agents:
 4. Wrap tool returns in { content: [{ type: "text", text }] } payloads.`,
         lang: 'language-markdown',
         pill: '<span class="status-dot purple" style="background:#A78BFA"></span><span>Cursor Rules &middot; .cursor/rules/mcp.mdc</span>',
-        linkText: 'Explore UI Studio ($49) &rarr;',
+        linkText: 'Explore UI Studio ($39) &rarr;',
         linkHref: 'https://manja8.gumroad.com/l/lntzuo'
     }
 };
@@ -1810,10 +1881,11 @@ window.switchSponsorTab = switchSponsorTab;
 def build_home(servers, categories):
     total = len(servers)
     total_stars = sum(s.get("stars", 0) for s in servers)
-    langs = len(set(s["language"] for s in servers if s.get("language")))
+    lang_counts = Counter(s.get("language") for s in servers if s.get("language"))
+    langs = len(lang_counts)
     top_servers = sorted(servers, key=lambda s: s.get("stars", 0), reverse=True)[:12]
 
-    title = f"{SITE_NAME} — Discover {total}+ MCP Servers for AI Agents"
+    title = f"{SITE_NAME} — Discover {total:,}+ MCP Servers for AI Agents"
     desc = SITE_DESCRIPTION.format(total=total)
 
     # Category cards
@@ -1825,35 +1897,29 @@ def build_home(servers, categories):
             <style>.cat-card[style*="{meta['color']}"]::before {{ background: {meta['color']}; }}</style>
             <span class="cat-icon">{cat_icon_svg(cat_name)}</span>
             <span class="cat-name">{escape(cat_name)}</span>
-            <span class="cat-count">{count} servers</span>
+            <span class="cat-count">{count:,} servers</span>
         </a>"""
 
     # B2B sponsored servers lookup from local sponsored_servers.json
-    sponsored_slugs = []
-    try:
-        sponsors_file = Path(__file__).parent / "sponsored_servers.json"
-        if sponsors_file.exists():
-            with open(sponsors_file, "r", encoding="utf-8") as sf:
-                sponsors_data = json.load(sf)
-                now_iso = datetime.now(timezone.utc).isoformat()
-                for item in sponsors_data:
-                    exp = item.get("expires_at", "")
-                    if not exp or exp > now_iso:
-                        slug_val = item.get("server_slug", "").lower()
-                        if slug_val:
-                            sponsored_slugs.append(slug_val)
-    except Exception as e:
-        print(f"Error reading sponsored servers: {e}")
+    active_sponsors = load_active_sponsors()
+    sponsored_slugs = {
+        sl for item in active_sponsors
+        for sl in (
+            slugify(item.get("server_slug", "")),
+            slugify(item.get("repo", "").replace("/", "-")),
+        )
+        if sl
+    }
+    by_slug = {slugify(s.get("repo", "").replace("/", "-")): s for s in servers if s.get("repo")}
 
     # Sponsored server cards
     sponsored_section = ""
     sponsored_cards = ""
     for s in servers:
-        name = s.get("name", "")
-        safe_name = name.lower().replace(" ", "-").replace("/", "-")[:20]
-        if safe_name in sponsored_slugs or s.get("slug") in sponsored_slugs:
+        repo_slug = slugify(s.get("repo", "").replace("/", "-"))
+        if repo_slug in sponsored_slugs or (s.get("slug") or "").lower() in sponsored_slugs:
             sponsored_cards += server_card_html(s, is_sponsored=True)
-            
+
     if sponsored_cards:
         sponsored_section = f"""
 <section class="container" style="padding-bottom:0">
@@ -1863,6 +1929,39 @@ def build_home(servers, categories):
         {sponsored_cards}
     </div>
 </section>"""
+
+    slots_open = max(0, 3 - len(active_sponsors))
+    if active_sponsors:
+        sp = active_sponsors[0]
+        sp_slug = slugify(sp.get("repo", "").replace("/", "-")) or slugify(sp.get("server_slug", ""))
+        sp_srv = by_slug.get(sp_slug, {})
+        sp_name = sp.get("name") or sp_srv.get("name") or sp.get("repo") or "Featured Partner"
+        sp_stars = sp_srv.get("stars") or sp.get("stars") or 0
+        sp_desc = sp.get("description") or sp_srv.get("description") or "Verified featured ecosystem sponsor."
+        sp_href = f"/servers/{sp_slug}.html" if sp_srv else f"https://github.com/{sp.get('repo', '')}"
+        sponsor_preview_html = f"""
+                    <div id="sponsor-panel-preview" style="display:none;background:#06080E;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.75rem;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                            <a href="{escape(sp_href)}" style="color:#2DD9E0;font-size:0.85rem;font-weight:700;text-decoration:none;">{escape(sp_name)} &rarr;</a>
+                            <span style="color:#FBBF24;font-size:0.75rem;font-weight:700;">★ {sp_stars:,} Stars</span>
+                        </div>
+                        <p style="color:var(--text-muted);font-size:0.73rem;line-height:1.4;margin:0 0 8px;">{escape(truncate(sp_desc, 140))}</p>
+                        <div style="font-size:0.68rem;color:#94A3B8;background:rgba(255,255,255,0.04);padding:4px 8px;border-radius:6px;border:1px dashed rgba(255,255,255,0.1);">
+                            💡 <em>When you sponsor, your repo joins up to 3 featured partner slots automatically for 7 days!</em>
+                        </div>
+                    </div>"""
+    else:
+        sponsor_preview_html = """
+                    <div id="sponsor-panel-preview" style="display:none;background:#06080E;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.75rem;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                            <strong style="color:#2DD9E0;font-size:0.85rem;">Your MCP Server Here</strong>
+                            <span style="color:#22C55E;font-size:0.75rem;font-weight:700;">AVAILABLE NOW</span>
+                        </div>
+                        <p style="color:var(--text-muted);font-size:0.73rem;line-height:1.4;margin:0 0 8px;">Claim the #1 Hero Bento + Sponsored Placements spotlight and reach AI engineers integrating MCP tools.</p>
+                        <div style="font-size:0.68rem;color:#94A3B8;background:rgba(255,255,255,0.04);padding:4px 8px;border-radius:6px;border:1px dashed rgba(255,255,255,0.1);">
+                            💡 <em>3 weekly slots available — fast activation via Gumroad + GitHub Actions.</em>
+                        </div>
+                    </div>"""
 
     # Featured server cards
     featured = ""
@@ -1904,201 +2003,6 @@ function doSearch(q) {
 document.addEventListener('click', function(e) {
     if (!e.target.closest('.search-wrap') && !e.target.closest('.raycast-hud-wrapper') && _results) _results.style.display = 'none';
 });
-
-/* ─── Interactive Dual-SDK IDE & Terminal Simulator ─── */
-var _ideSnippets = {
-    python: {
-        code: `<span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP
-mcp = FastMCP(<span class="c-str">"ProtodexLive"</span>)
-
-<span class="c-dec">@mcp.tool</span>()
-<span class="c-kw">def</span> <span class="c-fn">search_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -&gt; <span class="c-type">dict</span>:
-    <span class="c-dim"># Search 31,500+ MCP servers by capability and security rating</span>
-    <span class="c-kw">return</span> mcp_engine.search(query, min_stars=min_stars)
-
-<span class="c-kw">if</span> __name__ == <span class="c-str">"__main__"</span>:
-    mcp.run(transport=<span class="c-str">"stdio"</span>)`,
-        raw: `from mcp.server.fastmcp import FastMCP
-mcp = FastMCP("ProtodexLive")
-
-@mcp.tool()
-def search_servers(query: str, min_stars: int = 50) -> dict:
-    # Search 31,500+ MCP servers by capability and security rating
-    return mcp_engine.search(query, min_stars=min_stars)
-
-if __name__ == "__main__":
-    mcp.run(transport="stdio")`,
-        lang: 'language-python',
-        pill: '<span class="status-dot green"></span><span>JSON-RPC 2.0 &middot; Stdio + SSE Supported</span>',
-        linkText: 'Get Dual-SDK Kit ($39) &rarr;',
-        linkHref: 'https://manja8.gumroad.com/l/bsboqh'
-    },
-    ts: {
-        code: `<span class="c-kw">import</span> { McpServer } <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/mcp.js"</span>;
-<span class="c-kw">import</span> { StdioServerTransport } <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/stdio.js"</span>;
-<span class="c-kw">import</span> { z } <span class="c-kw">from</span> <span class="c-str">"zod"</span>;
-
-<span class="c-kw">const</span> server = <span class="c-kw">new</span> <span class="c-fn">McpServer</span>({ name: <span class="c-str">"protodex"</span>, version: <span class="c-str">"1.0.0"</span> });
-
-server.<span class="c-fn">tool</span>(
-  <span class="c-str">"search_servers"</span>,
-  { query: z.<span class="c-fn">string</span>(), min_stars: z.<span class="c-fn">number</span>().<span class="c-fn">default</span>(<span class="c-num">50</span>) },
-  <span class="c-kw">async</span> ({ query, min_stars }) =&gt; ({
-    content: [{ type: <span class="c-str">"text"</span>, text: JSON.<span class="c-fn">stringify</span>(<span class="c-kw">await</span> <span class="c-fn">queryIndex</span>(query, min_stars)) }]
-  })
-);
-
-<span class="c-kw">const</span> transport = <span class="c-kw">new</span> <span class="c-fn">StdioServerTransport</span>();
-<span class="c-kw">await</span> server.<span class="c-fn">connect</span>(transport);`,
-        raw: `import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { z } from "zod";
-
-const server = new McpServer({ name: "protodex", version: "1.0.0" });
-
-server.tool(
-  "search_servers",
-  { query: z.string(), min_stars: z.number().default(50) },
-  async ({ query, min_stars }) => ({
-    content: [{ type: "text", text: JSON.stringify(await queryIndex(query, min_stars)) }]
-  })
-);
-
-const transport = new StdioServerTransport();
-await server.connect(transport);`,
-        lang: 'language-typescript',
-        pill: '<span class="status-dot green"></span><span>@modelcontextprotocol/sdk &middot; Type-Safe Zod Tools</span>',
-        linkText: 'Get Dual-SDK Kit ($39) &rarr;',
-        linkHref: 'https://manja8.gumroad.com/l/bsboqh'
-    },
-    claude: {
-        code: `{
-  <span class="c-str">"mcpServers"</span>: {
-    <span class="c-str">"protodex"</span>: {
-      <span class="c-str">"command"</span>: <span class="c-str">"npx"</span>,
-      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@protodex/mcp-server@latest"</span>],
-      <span class="c-str">"env"</span>: {
-        <span class="c-str">"PROTODEX_API_KEY"</span>: <span class="c-str">"YOUR_PROTODEX_KEY"</span>
-      }
-    },
-    <span class="c-str">"filesystem"</span>: {
-      <span class="c-str">"command"</span>: <span class="c-str">"npx"</span>,
-      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@modelcontextprotocol/server-filesystem"</span>, <span class="c-str">"/Users/dev/workspace"</span>]
-    }
-  }
-}`,
-        raw: `{
-  "mcpServers": {
-    "protodex": {
-      "command": "npx",
-      "args": ["-y", "@protodex/mcp-server@latest"],
-      "env": {
-        "PROTODEX_API_KEY": "YOUR_PROTODEX_KEY"
-      }
-    },
-    "filesystem": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dev/workspace"]
-    }
-  }
-}`,
-        lang: 'language-json',
-        pill: '<span class="status-dot blue" style="background:#5B8DEF"></span><span>Claude Desktop &middot; claude_desktop_config.json</span>',
-        linkText: 'Get 31k Dataset ($29) &rarr;',
-        linkHref: 'https://manja8.gumroad.com/l/zcyee'
-    },
-    cursor: {
-        code: `<span class="c-kw"># Model Context Protocol (MCP) Integration Rules</span>
-
-<span class="c-str">When creating or connecting MCP tools with AI agents:</span>
-<span class="c-kw">1.</span> Prefer official <span class="c-fn">@modelcontextprotocol/sdk</span> (TS) or <span class="c-fn">FastMCP</span> (Python).
-<span class="c-kw">2.</span> Validate input schemas with strict <span class="c-type">Zod</span> or <span class="c-type">Pydantic</span> models.
-<span class="c-kw">3.</span> Send debug logs to <span class="c-fn">stderr</span> &mdash; stdout is reserved for JSON-RPC framing.
-<span class="c-kw">4.</span> Wrap tool returns in <span class="c-type">{ content: [{ type: "text", text }] }</span> payloads.`,
-        raw: `# Model Context Protocol (MCP) Integration Rules
-
-When creating or connecting MCP tools with AI agents:
-1. Prefer official @modelcontextprotocol/sdk (TS) or FastMCP (Python).
-2. Validate input schemas with strict Zod or Pydantic models.
-3. Send debug logs to stderr — stdout is reserved for JSON-RPC framing.
-4. Wrap tool returns in { content: [{ type: "text", text }] } payloads.`,
-        lang: 'language-markdown',
-        pill: '<span class="status-dot purple" style="background:#A78BFA"></span><span>Cursor Rules &middot; .cursor/rules/mcp.mdc</span>',
-        linkText: 'Explore UI Studio ($49) &rarr;',
-        linkHref: 'https://manja8.gumroad.com/l/lntzuo'
-    }
-};
-
-var _currentIdeTab = 'python';
-
-function switchIdeTab(tabKey, btn) {
-    if (!_ideSnippets[tabKey]) return;
-    _currentIdeTab = tabKey;
-    
-    var tabs = document.querySelectorAll('.ide-tabs-nav .ide-tab');
-    for (var i = 0; i < tabs.length; i++) {
-        tabs[i].classList.remove('active');
-    }
-    if (btn) {
-        btn.classList.add('active');
-    }
-    
-    var codeEl = document.getElementById('ide-code-display');
-    if (codeEl) {
-        var data = _ideSnippets[tabKey];
-        codeEl.innerHTML = '<code class="' + data.lang + '">' + data.code + '</code>';
-    }
-    
-    var pillEl = document.querySelector('.ide-footer .ide-status-pill');
-    if (pillEl && _ideSnippets[tabKey].pill) {
-        pillEl.innerHTML = _ideSnippets[tabKey].pill;
-    }
-    var linkEl = document.querySelector('.ide-footer .ide-starter-link');
-    if (linkEl && _ideSnippets[tabKey].linkText) {
-        linkEl.innerHTML = _ideSnippets[tabKey].linkText;
-        linkEl.href = _ideSnippets[tabKey].linkHref;
-    }
-}
-
-function copyIdeSnippet() {
-    var raw = _ideSnippets[_currentIdeTab] ? _ideSnippets[_currentIdeTab].raw : '';
-    if (!raw) return;
-    
-    function onSuccess() {
-        var btn = document.getElementById('copy-code-btn');
-        if (btn) {
-            var orig = btn.innerHTML;
-            btn.innerHTML = '<span style="color:#22C55E;display:inline-flex;align-items:center;gap:4px">✓ Copied!</span>';
-            setTimeout(function() {
-                btn.innerHTML = orig;
-            }, 2000);
-        }
-    }
-
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(raw).then(onSuccess).catch(function(err) {
-            fallbackCopy(raw);
-        });
-    } else {
-        fallbackCopy(raw);
-    }
-
-    function fallbackCopy(text) {
-        var ta = document.createElement('textarea');
-        ta.value = text;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-            document.execCommand('copy');
-            onSuccess();
-        } catch (e) {
-            console.error('Copy fallback failed:', e);
-        }
-        document.body.removeChild(ta);
-    }
-}
 </script>
 """
 
@@ -2132,7 +2036,7 @@ function copyIdeSnippet() {
         <!-- Live Ecosystem Pulse Badge -->
         <div class="hero-top-badge">
             <span class="status-indicator-pulse"></span>
-            <span class="badge-text"><strong>PROTODEX 2026</strong> &middot; Real-Time MCP Intelligence &middot; 31,595 Screened Repos</span>
+            <span class="badge-text"><strong>PROTODEX 2026</strong> &middot; Real-Time MCP Intelligence &middot; {total:,} Screened Repos</span>
             <span class="badge-pill">ACTIVE INDEX</span>
         </div>
 
@@ -2142,7 +2046,7 @@ function copyIdeSnippet() {
             <span class="gradient-text">Model Context Protocol</span>
         </h1>
         <p class="aurora-hero-subtitle">
-            Search 31,595+ screened MCP servers, inspect real-time AST security telemetry, and deploy 48+ turnkey developer UI archetypes for autonomous AI agents.
+            Search {total:,} screened MCP servers, inspect real-time AST security telemetry, and deploy 48+ turnkey developer UI archetypes for autonomous AI agents.
         </p>
 
         <!-- Raycast Floating Command HUD -->
@@ -2151,7 +2055,7 @@ function copyIdeSnippet() {
                 <div class="hud-leading-icon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                 </div>
-                <input type="text" id="search-input" class="raycast-search-input" placeholder="Search 31,595+ servers, tools, schemas... (e.g., postgres, slack, stripe, fastmcp)" autocomplete="off" oninput="doSearch(this.value)">
+                <input type="text" id="search-input" class="raycast-search-input" placeholder="Search {total:,} servers, tools, schemas... (e.g., postgres, slack, stripe, fastmcp)" autocomplete="off" oninput="doSearch(this.value)">
                 <div class="hud-kbd-badge">
                     <span>⌘K</span>
                 </div>
@@ -2175,17 +2079,17 @@ function copyIdeSnippet() {
         <!-- Telemetry Stats Ribbon -->
         <div class="telemetry-ribbon">
             <div class="telemetry-item">
-                <div class="telemetry-val">31,595</div>
+                <div class="telemetry-val">{total:,}</div>
                 <div class="telemetry-lbl">Screened Servers</div>
             </div>
             <div class="telemetry-sep"></div>
             <div class="telemetry-item">
-                <div class="telemetry-val">3,420,000+</div>
+                <div class="telemetry-val">{total_stars // 10_000 * 10_000:,}+</div>
                 <div class="telemetry-lbl">Total GitHub Stars</div>
             </div>
             <div class="telemetry-sep"></div>
             <div class="telemetry-item">
-                <div class="telemetry-val">95</div>
+                <div class="telemetry-val">{langs}</div>
                 <div class="telemetry-lbl">Languages Supported</div>
             </div>
             <div class="telemetry-sep"></div>
@@ -2282,7 +2186,7 @@ mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
                 <!-- Top Badge Row -->
                 <div class="featured-top" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
                     <span class="featured-badge" style="background:linear-gradient(135deg,rgba(245,158,11,0.25),rgba(45,217,224,0.15));border:1px solid rgba(245,158,11,0.4);color:#FBBF24;font-size:0.72rem;padding:3px 10px;border-radius:100px;font-weight:700;letter-spacing:0.04em;">⚡ SPONSOR SPOTLIGHT</span>
-                    <span class="featured-verified" style="background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:600;">1 OF 3 SLOTS OPEN</span>
+                    <span class="featured-verified" style="background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:600;">{slots_open} OF 3 SLOTS OPEN</span>
                 </div>
 
                 <!-- Headline -->
@@ -2312,7 +2216,7 @@ mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
                         </div>
                         <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
                             <span style="color:#22C55E;font-weight:700;white-space:nowrap;">⚡ Activation:</span>
-                            <span style="color:#CBD5E1;"><strong>Under 30 mins</strong> via automated Cloudflare pipeline (bypasses 14-day backlog)</span>
+                            <span style="color:#CBD5E1;"><strong>Fast activation</strong> via automated GitHub Actions pipeline (bypasses 14-day backlog)</span>
                         </div>
                         <div style="display:flex;align-items:flex-start;gap:8px;">
                             <span style="color:#EC4899;font-weight:700;white-space:nowrap;">🛡️ Conditions:</span>
@@ -2320,17 +2224,8 @@ mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
                         </div>
                     </div>
 
-                    <!-- Panel 2: Current Partner Live Example (Unorouter) -->
-                    <div id="sponsor-panel-preview" style="display:none;background:#06080E;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.75rem;">
-                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
-                            <strong style="color:#2DD9E0;font-size:0.85rem;">Unorouter MCP</strong>
-                            <span style="color:#FBBF24;font-size:0.75rem;font-weight:700;">★ 4,892 Stars</span>
-                        </div>
-                        <p style="color:var(--text-muted);font-size:0.73rem;line-height:1.4;margin:0 0 8px;">Dynamic LLM gateway. Multi-model failover &amp; sub-millisecond routing across Anthropic, OpenAI &amp; Gemini.</p>
-                        <div style="font-size:0.68rem;color:#94A3B8;background:rgba(255,255,255,0.04);padding:4px 8px;border-radius:6px;border:1px dashed rgba(255,255,255,0.1);">
-                            💡 <em>When you sponsor, your repo replaces this card automatically for 7 days!</em>
-                        </div>
-                    </div>
+                    <!-- Panel 2: Current Partner Live Example -->
+                    {sponsor_preview_html}
                 </div>
 
                 <!-- Action Footer -->
@@ -2404,14 +2299,14 @@ mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
                 <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Protodex UI Studio <span style="background:rgba(167,139,250,0.25);color:#c084fc;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">NEW &bull; 48 TEMPLATES</span></div>
                 <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">48 production layouts: Raycast Bento, Cyber HUD, SaaS B2B, Agentic Dashboards.</div>
             </div>
-            <span style="background:#a855f7;color:#fff;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49 &rarr;</span>
+            <span style="background:#a855f7;color:#fff;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
         </a>
 
         <!-- 2. The 31k MCP Dataset -->
         <a href="/datasets/mcp-servers.html" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(123,97,255,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
             <span style="font-size:1.8rem">&#128202;</span>
             <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">31,500+ MCP Dataset <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">POPULAR</span></div>
+                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">31,400+ MCP Dataset <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">POPULAR</span></div>
                 <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Full ecosystem catalog in SQLite, CSV &amp; JSON with stars, repos, and security flags.</div>
             </div>
             <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$29 &rarr;</span>
@@ -2507,7 +2402,7 @@ mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 postgres
             </div>
-            <div class="use-case-result">Find <strong>75 database servers</strong> &mdash; PostgreSQL, MySQL, MongoDB, Redis, SQLite and more</div>
+            <div class="use-case-result">Find <strong>{categories.get('Database', 0):,} database servers</strong> &mdash; PostgreSQL, MySQL, MongoDB, Redis, SQLite and more</div>
             <div class="use-case-arrow">Browse database servers &rarr;</div>
         </a>
         <a href="/category/browser-web.html" class="use-case">
@@ -2516,7 +2411,7 @@ mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 browser playwright
             </div>
-            <div class="use-case-result">Find <strong>46 browser servers</strong> &mdash; Playwright, Puppeteer, Scrapling, headless Chrome</div>
+            <div class="use-case-result">Find <strong>{categories.get('Browser/Web', 0):,} browser servers</strong> &mdash; Playwright, Puppeteer, Scrapling, headless Chrome</div>
             <div class="use-case-arrow">Browse web servers &rarr;</div>
         </a>
         <a href="/category/api-integration.html" class="use-case">
@@ -2525,7 +2420,7 @@ mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 slack stripe github
             </div>
-            <div class="use-case-result">Find <strong>102 API servers</strong> &mdash; Slack, Stripe, GitHub, Notion, Jira, and dozens more</div>
+            <div class="use-case-result">Find <strong>{categories.get('API Integration', 0):,} API servers</strong> &mdash; Slack, Stripe, GitHub, Notion, Jira, and dozens more</div>
             <div class="use-case-arrow">Browse API servers &rarr;</div>
         </a>
         <a href="/category/memory-knowledge.html" class="use-case">
@@ -2534,7 +2429,7 @@ mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 memory vector RAG
             </div>
-            <div class="use-case-result">Find <strong>97 memory servers</strong> &mdash; vector stores, knowledge graphs, RAG pipelines, embeddings</div>
+            <div class="use-case-result">Find <strong>{categories.get('Memory/Knowledge', 0):,} memory servers</strong> &mdash; vector stores, knowledge graphs, RAG pipelines, embeddings</div>
             <div class="use-case-arrow">Browse memory servers &rarr;</div>
         </a>
     </div>
@@ -2543,11 +2438,11 @@ mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
 <section class="container">
     <div class="lang-row">
         <span style="color:var(--text-dim);font-size:0.82rem;font-weight:500;padding:8px 0;">Filter by language:</span>
-        <a href="/category/ai-llm.html" class="lang-pill"><span class="lang-dot" style="background:#3572A5"></span> Python <span style="color:var(--text-dim)">570</span></a>
-        <a href="/category/code-dev-tools.html" class="lang-pill"><span class="lang-dot" style="background:#3178C6"></span> TypeScript <span style="color:var(--text-dim)">548</span></a>
-        <a href="/category/api-integration.html" class="lang-pill"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript <span style="color:var(--text-dim)">121</span></a>
-        <a href="/category/devops.html" class="lang-pill"><span class="lang-dot" style="background:#00ADD8"></span> Go <span style="color:var(--text-dim)">103</span></a>
-        <a href="/category/security.html" class="lang-pill"><span class="lang-dot" style="background:#DEA584"></span> Rust <span style="color:var(--text-dim)">51</span></a>
+        <a href="/category/ai-llm.html" class="lang-pill"><span class="lang-dot" style="background:#3572A5"></span> Python <span style="color:var(--text-dim)">{lang_counts.get('Python', 0):,}</span></a>
+        <a href="/category/code-dev-tools.html" class="lang-pill"><span class="lang-dot" style="background:#3178C6"></span> TypeScript <span style="color:var(--text-dim)">{lang_counts.get('TypeScript', 0):,}</span></a>
+        <a href="/category/api-integration.html" class="lang-pill"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript <span style="color:var(--text-dim)">{lang_counts.get('JavaScript', 0):,}</span></a>
+        <a href="/category/devops.html" class="lang-pill"><span class="lang-dot" style="background:#00ADD8"></span> Go <span style="color:var(--text-dim)">{lang_counts.get('Go', 0):,}</span></a>
+        <a href="/category/security.html" class="lang-pill"><span class="lang-dot" style="background:#DEA584"></span> Rust <span style="color:var(--text-dim)">{lang_counts.get('Rust', 0):,}</span></a>
     </div>
 </section>
 
@@ -2715,89 +2610,257 @@ def build_category_page(cat_name, cat_servers):
     return html
 
 
-def generate_install_config(name, repo, lang):
-    """Generate copy-paste config snippets for Claude Desktop, Claude Code, and Cursor."""
-    safe_name = name.lower().replace(" ", "-").replace("/", "-")[:20]
+def generate_install_config(server):
+    """Generate copy-paste config snippets honoring explicit install_config overrides."""
+    name = server["name"]
+    repo = server["repo"]
+    lang = server.get("language", "")
+    cfg = server.get("install_config") or {}
+    mode = cfg.get("mode", "")
+
+    panel_id = slugify(repo.replace("/", "-")) or "server"
+    fallback_key = name.lower().replace(" ", "-").replace("/", "-")[:20] or panel_id
+    server_key = cfg.get("server_key") or fallback_key
     owner, repo_name = repo.split("/", 1) if "/" in repo else ("", repo)
 
-    # Determine command based on language
-    if lang in ("TypeScript", "JavaScript"):
-        command = "npx"
-        args_str = f'"-y", "{repo}"'
-        pip_note = ""
-    elif lang == "Python":
-        command = "uvx"
-        pkg = repo_name.lower().replace("_", "-")
-        args_str = f'"{pkg}"'
-        pip_note = f'<p class="install-note">Or install with pip: <code>pip install {pkg}</code></p>'
-    elif lang == "Go":
-        command = "go"
-        args_str = f'"run", "github.com/{repo}@latest"'
-        pip_note = ""
-    elif lang == "Rust":
-        command = "cargo"
-        args_str = f'"run", "--", "{repo_name}"'
-        pip_note = ""
+    tabs = []
+    notes = []
+
+    if mode == "remote":
+        endpoint = cfg.get("url", "")
+        transport = cfg.get("transport", "streamable-http")
+        headers = cfg.get("headers") or {}
+        entry = {"type": transport, "url": endpoint}
+        cursor_entry = {"url": endpoint}
+        if headers:
+            entry["headers"] = headers
+            cursor_entry["headers"] = headers
+        remote_json = json.dumps({"mcpServers": {server_key: entry}}, indent=2)
+        cursor_json = json.dumps({"mcpServers": {server_key: cursor_entry}}, indent=2)
+        claude_code = cfg.get("claude_code") or f"claude mcp add --transport http {server_key} {endpoint}"
+
+        tabs = [
+            (
+                f"remote-json-{panel_id}",
+                "Remote MCP (JSON)",
+                f'Connect via Streamable HTTP endpoint <code>{escape(endpoint)}</code> in <code>.mcp.json</code> or Claude Connectors:',
+                remote_json,
+            ),
+            (
+                f"claude-code-{panel_id}",
+                "Claude Code",
+                "Run in terminal:",
+                claude_code,
+            ),
+            (
+                f"cursor-{panel_id}",
+                "Cursor",
+                "Add to <code>.cursor/mcp.json</code>:",
+                cursor_json,
+            ),
+        ]
+        if cfg.get("note"):
+            notes.append(cfg["note"])
+
+    elif mode == "docker_http":
+        docker_image = cfg.get("docker_image", "")
+        docker_cmd = cfg.get("docker_cmd", "")
+        docker_snippet = "\n".join(x for x in (f"docker pull {docker_image}" if docker_image else "", docker_cmd) if x)
+        endpoint = cfg.get("url", "")
+        headers = cfg.get("headers") or {}
+        cursor_entry = {"url": endpoint}
+        if headers:
+            cursor_entry["headers"] = headers
+        cursor_json = json.dumps({"mcpServers": {server_key: cursor_entry}}, indent=2)
+        claude_code = cfg.get("claude_code") or f"claude mcp add --transport http {server_key} {endpoint}"
+
+        tabs = [
+            (
+                f"docker-{panel_id}",
+                "Docker Setup",
+                "Run the self-hosted container and enable <strong>Settings &rarr; Agent access (MCP)</strong>:",
+                docker_snippet,
+            ),
+            (
+                f"claude-code-{panel_id}",
+                "Claude Code",
+                "Connect Claude Code over HTTP:",
+                claude_code,
+            ),
+            (
+                f"cursor-{panel_id}",
+                "Cursor / HTTP JSON",
+                "Add to <code>.cursor/mcp.json</code> or <code>.mcp.json</code>:",
+                cursor_json,
+            ),
+        ]
+        if cfg.get("note"):
+            notes.append(cfg["note"])
+
+    elif mode == "framework_remote_docs":
+        scaffold_cmd = cfg.get("scaffold_cmd", "npx create-xmcp-app@latest")
+        init_cmd = cfg.get("init_cmd", "npx init-xmcp@latest")
+        endpoint = cfg.get("url", "")
+        claude_code = cfg.get("claude_code") or f"claude mcp add --transport http {server_key} {endpoint}"
+        cursor_json = json.dumps({"mcpServers": {server_key: {"type": "http", "url": endpoint}}}, indent=2)
+
+        tabs = [
+            (
+                f"scaffold-{panel_id}",
+                "Framework CLI",
+                "Scaffold a new xmcp TypeScript project (or initialize inside an existing app):",
+                f"{scaffold_cmd}\n# Or initialize inside an existing project:\n{init_cmd}",
+            ),
+            (
+                f"claude-code-{panel_id}",
+                "Docs MCP (Claude Code)",
+                "Connect to the official read-only documentation MCP server:",
+                claude_code,
+            ),
+            (
+                f"cursor-{panel_id}",
+                "Docs MCP (HTTP JSON)",
+                "Add the documentation MCP endpoint to <code>.cursor/mcp.json</code> or <code>.mcp.json</code>:",
+                cursor_json,
+            ),
+        ]
+        if cfg.get("note"):
+            notes.append(cfg["note"])
+
+    elif mode == "dual":
+        command = cfg.get("command", "npx")
+        args = cfg.get("args", [])
+        remote_url = cfg.get("remote_url", "")
+        stdio_json = json.dumps({"mcpServers": {server_key: {"command": command, "args": args}}}, indent=2)
+        claude_code = cfg.get("claude_code") or f"claude mcp add {server_key} {command} {' '.join(args)}"
+        remote_cc = cfg.get("remote_claude_code", "")
+        if remote_cc:
+            claude_code = f"{claude_code}\n\n# Or connect via hosted Streamable HTTP:\n{remote_cc}"
+        cursor_json = json.dumps(
+            {
+                "mcpServers": {
+                    server_key: {"command": command, "args": args},
+                    f"{server_key}-remote": {"type": "http", "url": remote_url},
+                }
+            },
+            indent=2,
+        )
+
+        tabs = [
+            (
+                f"claude-desktop-{panel_id}",
+                "Claude Desktop",
+                f'Add local stdio server to <code>claude_desktop_config.json</code> (hosted HTTP: <code>{escape(remote_url)}</code>):',
+                stdio_json,
+            ),
+            (
+                f"claude-code-{panel_id}",
+                "Claude Code",
+                "Run in terminal (local stdio or hosted HTTP):",
+                claude_code,
+            ),
+            (
+                f"cursor-{panel_id}",
+                "Cursor",
+                "Add to <code>.cursor/mcp.json</code> (local stdio or remote HTTP):",
+                cursor_json,
+            ),
+        ]
+        if cfg.get("note"):
+            notes.append(cfg["note"])
+
     else:
-        command = "npx"
-        args_str = f'"-y", "{repo}"'
-        pip_note = ""
+        if mode == "stdio":
+            command = cfg["command"]
+            args = cfg["args"]
+            claude_code = cfg.get("claude_code") or f'claude mcp add {server_key} {command} {" ".join(args)}'
+            if cfg.get("pip_install"):
+                notes.append(f'Or install with pip: <code>{escape(cfg["pip_install"])}</code>')
+            if cfg.get("note"):
+                notes.append(escape(cfg["note"]))
+        else:
+            if lang in ("TypeScript", "JavaScript"):
+                command = "npx"
+                args = ["-y", repo]
+            elif lang == "Python":
+                command = "uvx"
+                pkg = repo_name.lower().replace("_", "-")
+                args = [pkg]
+                notes.append(f'Or install with pip: <code>pip install {escape(pkg)}</code>')
+            elif lang == "Go":
+                command = "go"
+                args = ["run", f"github.com/{repo}@latest"]
+            elif lang == "Rust":
+                command = "cargo"
+                args = ["run", "--", repo_name]
+            else:
+                command = "npx"
+                args = ["-y", repo]
+            claude_code = f'claude mcp add {server_key} {command} {" ".join(args)}'
 
-    claude_desktop = json.dumps({
-        "mcpServers": {
-            safe_name: {
-                "command": command,
-                "args": json.loads(f"[{args_str}]")
-            }
-        }
-    }, indent=2)
+        stdio_json = json.dumps({"mcpServers": {server_key: {"command": command, "args": args}}}, indent=2)
+        tabs = [
+            (
+                f"claude-desktop-{panel_id}",
+                "Claude Desktop",
+                "Add to <code>claude_desktop_config.json</code>:",
+                stdio_json,
+            ),
+            (
+                f"claude-code-{panel_id}",
+                "Claude Code",
+                "Run in terminal:",
+                claude_code,
+            ),
+            (
+                f"cursor-{panel_id}",
+                "Cursor",
+                "Add to <code>.cursor/mcp.json</code>:",
+                stdio_json,
+            ),
+        ]
 
-    claude_code = f'claude mcp add {safe_name} {command} {" ".join(json.loads(f"[{args_str}]"))}'
+    tab_buttons = "\n".join(
+        f'            <button class="install-tab{" active" if i == 0 else ""}" onclick="showTab(this, \'{tab_id}\')">{escape(tab_title)}</button>'
+        for i, (tab_id, tab_title, _, _) in enumerate(tabs)
+    )
+    tab_panels = "\n".join(
+        f"""        <div id="{tab_id}" class="install-panel{" active" if i == 0 else ""}"{"" if i == 0 else ' style="display:none"'}>
+            <p class="install-label">{intro_html}</p>
+            <div class="code-block">
+                <pre><code>{escape(code_text)}</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+            </div>
+        </div>"""
+        for i, (tab_id, _, intro_html, code_text) in enumerate(tabs)
+    )
+    def _format_note(note_text):
+        if note_text.startswith("<p "):
+            return note_text
+        if "<code>" in note_text:
+            return f'<p class="install-note">{note_text}</p>'
+        rendered = escape(note_text)
+        rendered = re.sub(r"`([^`]+)`", r"<code>\1</code>", rendered)
+        rendered = re.sub(
+            r"(?<!<code>)(?<![\">])(https?://[^\s<]+?)(?=[.,);\s<]|$)",
+            r'<a href="\1" target="_blank" rel="noopener">\1</a>',
+            rendered,
+        )
+        return f'<p class="install-note">{rendered}</p>'
 
-    cursor_config = json.dumps({
-        "mcpServers": {
-            safe_name: {
-                "command": command,
-                "args": json.loads(f"[{args_str}]")
-            }
-        }
-    }, indent=2)
+    notes_html = "\n        ".join(_format_note(n) for n in notes if n)
 
     return f"""
     <div class="install-section" style="margin-top:32px">
         <h2>Quick Install</h2>
-        <p class="install-subtitle">Copy the config for your editor. Some servers may need additional setup — check the README.</p>
+        <p class="install-subtitle">Copy the config for your editor. Verify environment variables or setup notes in the README.</p>
 
         <div class="install-tabs">
-            <button class="install-tab active" onclick="showTab(this, 'claude-desktop-{safe_name}')">Claude Desktop</button>
-            <button class="install-tab" onclick="showTab(this, 'claude-code-{safe_name}')">Claude Code</button>
-            <button class="install-tab" onclick="showTab(this, 'cursor-{safe_name}')">Cursor</button>
+{tab_buttons}
         </div>
 
-        <div id="claude-desktop-{safe_name}" class="install-panel active">
-            <p class="install-label">Add to <code>claude_desktop_config.json</code>:</p>
-            <div class="code-block">
-                <pre><code>{escape(claude_desktop)}</code></pre>
-                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
-            </div>
-        </div>
-
-        <div id="claude-code-{safe_name}" class="install-panel" style="display:none">
-            <p class="install-label">Run in terminal:</p>
-            <div class="code-block">
-                <pre><code>{escape(claude_code)}</code></pre>
-                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
-            </div>
-        </div>
-
-        <div id="cursor-{safe_name}" class="install-panel" style="display:none">
-            <p class="install-label">Add to <code>.cursor/mcp.json</code>:</p>
-            <div class="code-block">
-                <pre><code>{escape(cursor_config)}</code></pre>
-                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
-            </div>
-        </div>
-        {pip_note}
+{tab_panels}
+        {notes_html}
     </div>
 """
 
@@ -2812,6 +2875,8 @@ def build_server_page(server, related):
     cat = server.get("category", "Other")
     cat_meta = CATEGORY_META.get(cat, CATEGORY_META["Other"])
     url = server.get("url", f"https://github.com/{repo}")
+    homepage = server.get("homepage") or ""
+    docs_url = server.get("docs_url") or ""
     readme = server.get("readme_excerpt", "")
     tools = server.get("tools", "")
     updated = time_ago(server.get("last_updated"))
@@ -2826,7 +2891,7 @@ def build_server_page(server, related):
         "@type": "SoftwareApplication",
         "name": name,
         "description": desc,
-        "url": url,
+        "url": homepage or url,
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Any",
         "programmingLanguage": lang or "Unknown",
@@ -2884,8 +2949,16 @@ def build_server_page(server, related):
 
     html = html_head(title, page_desc, f"/servers/{slug}.html", extra_head)
     html += html_header()
-    # Generate install config based on language
-    install_config = generate_install_config(name, repo, lang)
+    install_config = generate_install_config(server)
+
+    website_btn = (
+        f'<a href="{escape(homepage)}" target="_blank" rel="noopener" class="btn btn-outline">Official Website ↗</a>'
+        if homepage and homepage.rstrip("/") != url.rstrip("/") else ""
+    )
+    docs_btn = (
+        f'<a href="{escape(docs_url)}" target="_blank" rel="noopener" class="btn btn-outline">Docs / Setup Guide ↗</a>'
+        if docs_url and docs_url.rstrip("/") not in (url.rstrip("/"), homepage.rstrip("/")) else ""
+    )
 
     html += f"""
 <div class="container server-detail">
@@ -2908,13 +2981,16 @@ def build_server_page(server, related):
 
     <div class="detail-desc">{escape(desc)}</div>
 
-    <a href="{escape(url)}" target="_blank" rel="noopener" class="btn">
-        View on GitHub →
-    </a>
-
-    <a href="/audit.html" style="display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:8px 16px;background:linear-gradient(135deg,rgba(123,97,255,0.25),rgba(45,217,224,0.2));border:1px solid rgba(123,97,255,0.4);color:var(--text);text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;box-shadow:0 0 16px rgba(123,97,255,0.15)">
-        🛡️ Security &amp; TRiSM Audit →
-    </a>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px">
+        <a href="{escape(url)}" target="_blank" rel="noopener" class="btn">
+            View on GitHub →
+        </a>
+        {website_btn}
+        {docs_btn}
+        <a href="/audit.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:linear-gradient(135deg,rgba(123,97,255,0.25),rgba(45,217,224,0.2));border:1px solid rgba(123,97,255,0.4);color:var(--text);text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;box-shadow:0 0 16px rgba(123,97,255,0.15)">
+            🛡️ Security &amp; TRiSM Audit →
+        </a>
+    </div>
 
     {install_config}
 
@@ -2972,8 +3048,8 @@ def build_submit_page():
     return html
 
 
-def build_pricing_page():
-    title = f"Sponsor & Advertise on Protodex — Reach 31,500+ MCP Developers"
+def build_pricing_page(total=31428):
+    title = f"Sponsor & Advertise on Protodex — Reach {total:,}+ MCP Developers"
     desc = "Feature your MCP server, developer tool, or AI API at the top of Protodex. Reaching 30,000+ AI engineers building for Claude, Cursor, and autonomous agents."
 
     extra_css = """
@@ -3004,7 +3080,7 @@ def build_pricing_page():
     html += f"""
     <section class="hero">
         <div class="container hero-content">
-            <div class="hero-badge"><span class="pulse"></span> 31,595+ Indexed Servers &bull; 25,000+ Monthly Developers</div>
+            <div class="hero-badge"><span class="pulse"></span> {total:,} Indexed Servers &bull; 25,000+ Monthly Developers</div>
             <h1>Put Your MCP Server in Front of <span class="gradient">Active AI Engineers</span></h1>
             <p>Protodex is the definitive open index of Model Context Protocol (MCP) servers. Showcase your infrastructure, tools, and developer platforms to builders configuring Claude Desktop, Cursor, and autonomous agents.</p>
         </div>
@@ -3022,7 +3098,7 @@ def build_pricing_page():
                     <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Top slot on Homepage &amp; category directory</li>
                     <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Glowing 'Featured' badge &amp; priority indexing</li>
                     <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Direct traffic to your GitHub or landing page</li>
-                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Instant auto-activation via Gumroad webhook</li>
+                    <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg> Fast activation via Gumroad + GitHub Actions</li>
                 </ul>
                 <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="tier-btn tier-btn-primary">Sponsor for $49/wk &rarr;</a>
             </div>
@@ -3118,6 +3194,128 @@ def build_security_page(servers):
         <p>Scores range from 0-100. Green = 70+, Yellow = 40-69, Red = below 40.</p>
     </div>
 </div>
+"""
+    html += html_footer()
+    return html
+
+
+def build_mcp_dataset_page(total, zip_mb):
+    """Landing page for the Protodex MCP Ecosystem Dataset ($29 on Gumroad)."""
+    import json as _json
+    today = datetime.now().strftime("%Y-%m-%d")
+    page_path = "/datasets/mcp-servers.html"
+    page_url = f"{SITE_URL}{page_path}"
+    gumroad_url = "https://manja8.gumroad.com/l/zcyee?utm_source=protodex&utm_medium=dataset-page&utm_campaign=mcp-dataset"
+
+    title = f"31,400+ MCP Server Ecosystem Dataset ({total:,} Repos in SQLite, CSV & JSON) | Protodex"
+    desc = (
+        f"Download the complete vetted Model Context Protocol directory dataset: {total:,} screened MCP servers "
+        f"with GitHub stars, categories, languages, tool lists, and security ratings in SQLite, CSV, and JSON ($29 one-time)."
+    )
+
+    keywords = [
+        "mcp server dataset", "model context protocol dataset", "mcp directory sqlite",
+        "mcp servers csv json", "ai agent tool index", "mcp ecosystem data",
+    ]
+
+    dataset_schema = {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": f"Protodex MCP Server Ecosystem Dataset ({total:,} Screened Servers)",
+        "description": desc,
+        "url": page_url,
+        "sameAs": "https://manja8.gumroad.com/l/zcyee",
+        "keywords": keywords,
+        "license": "https://manja8.gumroad.com/l/zcyee",
+        "isAccessibleForFree": False,
+        "creator": {"@type": "Organization", "name": "Protodex", "url": SITE_URL},
+        "publisher": {"@type": "Organization", "name": "Protodex", "url": SITE_URL},
+        "dateModified": today,
+        "variableMeasured": ["name", "repo", "stars", "category", "language", "description", "slug", "security_score"],
+        "distribution": [
+            {
+                "@type": "DataDownload",
+                "encodingFormat": "application/zip",
+                "contentUrl": gumroad_url,
+                "name": f"SQLite + CSV + JSON bundle ({zip_mb} MB, {total:,} records)",
+            },
+        ],
+    }
+
+    product_schema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "31,400+ MCP Server Ecosystem Dataset (SQLite + CSV + JSON)",
+        "description": desc,
+        "brand": {"@type": "Brand", "name": "Protodex"},
+        "url": page_url,
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Complete MCP Ecosystem Dataset",
+                "price": "29",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": gumroad_url,
+            }
+        ],
+    }
+
+    extra = (
+        '<meta name="keywords" content="' + escape(", ".join(keywords)) + '">\n'
+        '    <script type="application/ld+json">' + _json.dumps(dataset_schema) + '</script>\n'
+        '    <script type="application/ld+json">' + _json.dumps(product_schema) + '</script>'
+    )
+
+    html = html_head(title, desc, page_path, extra)
+    html += html_header("datasets")
+    html += f"""
+<div class="page-header" style="text-align:center;padding:70px 0 50px;background:radial-gradient(ellipse at top,rgba(45,217,224,0.12),transparent 70%)">
+    <div class="container" style="max-width:880px;margin:0 auto">
+        <div class="breadcrumb" style="display:inline-flex;gap:6px;align-items:center;background:rgba(255,255,255,0.05);padding:4px 14px;border-radius:100px;font-size:0.8rem;color:var(--text-muted);margin-bottom:18px"><a href="/" style="color:var(--text-muted)">Home</a> / <a href="/datasets/" style="color:var(--text-muted)">Datasets</a> / <span style="color:var(--accent)">MCP Server Catalog</span></div>
+        <h1 style="font-size:2.7rem;font-weight:800;letter-spacing:-0.03em;line-height:1.15;margin-bottom:18px">Protodex MCP Ecosystem Dataset<br><span style="color:var(--accent)">{total:,} Vetted Servers &bull; SQLite + CSV + JSON</span></h1>
+        <p style="font-size:1.1rem;color:var(--text-muted);line-height:1.6;max-width:720px;margin:0 auto 28px">Complete structured export of the cleaned Protodex Model Context Protocol index — filtered against malware/FakeGit lures and normalized across 15 categories with star counts, languages, tools, and security ratings.</p>
+        <div style="display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap">
+            <a href="{gumroad_url}" target="_blank" rel="noopener" class="btn" style="background:var(--accent);color:#000;font-weight:800;font-size:1.05rem;padding:14px 30px;border-radius:10px;box-shadow:0 6px 24px rgba(45,217,224,0.35)">Buy Dataset on Gumroad — $29 &rarr;</a>
+            <a href="/datasets/" class="btn btn-outline" style="padding:14px 22px;border-radius:10px">Browse All Kits &amp; Samples</a>
+        </div>
+        <div style="font-size:0.82rem;color:var(--text-dim);margin-top:14px">&#10003; {zip_mb} MB instant Gumroad zip ({total:,} servers) &bull; &#10003; One-time purchase ($29) &bull; &#10003; SQLite, CSV &amp; full JSON</div>
+    </div>
+</div>
+
+<section class="container" style="max-width:960px;margin:0 auto;padding-top:20px">
+    <div class="stats-bar" style="margin:20px 0 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px">
+        <div class="stat"><div class="stat-num" style="color:var(--accent)">{total:,}</div><div class="stat-lbl">Screened Servers</div></div>
+        <div class="stat"><div class="stat-num" style="color:#7B61FF">15</div><div class="stat-lbl">Categories</div></div>
+        <div class="stat"><div class="stat-num" style="color:#22C55E">3 Formats</div><div class="stat-lbl">SQLite + CSV + JSON</div></div>
+        <div class="stat"><div class="stat-num" style="color:#FFD93D">{zip_mb} MB</div><div class="stat-lbl">Archive Size</div></div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:36px">
+        <h2 style="font-size:1.45rem;margin-bottom:12px">Included Archive Files</h2>
+        <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:0.86rem;font-family:var(--mono);text-align:left">
+                <thead>
+                    <tr style="border-bottom:1px solid var(--border);color:var(--accent)">
+                        <th style="padding:10px 12px">File</th>
+                        <th style="padding:10px 12px">Contents</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px">mcp_servers.sqlite</td><td style="padding:10px 12px;font-family:var(--font)">Indexed SQLite database ready for DuckDB / SQLite / datasette queries</td></tr>
+                    <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px">mcp_servers_31k.csv</td><td style="padding:10px 12px;font-family:var(--font)">Clean UTF-8 CSV (<code>name, repo, stars, category, language, description, slug, security_score</code>)</td></tr>
+                    <tr><td style="padding:10px 12px">mcp_servers_full.json</td><td style="padding:10px 12px;font-family:var(--font)">Full metadata payload including topics, tool inventories, README excerpts &amp; install overrides</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,rgba(45,217,224,0.1),rgba(123,97,255,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:18px;padding:34px;text-align:center;margin-bottom:56px">
+        <h2 style="font-size:1.85rem;margin-bottom:8px">Get the Full {total:,}-Server MCP Dataset — $29</h2>
+        <p style="color:var(--text-muted);max-width:580px;margin:0 auto 22px">Instant delivery via Gumroad receipt. Build market research maps, internal MCP registries, or fine-tuned agent routers without rate limits.</p>
+        <a href="{gumroad_url}" target="_blank" rel="noopener" class="btn" style="background:var(--accent);color:#000;font-weight:800;font-size:1.05rem;padding:14px 32px;border-radius:10px">Buy Dataset ($29) &rarr;</a>
+    </div>
+</section>
 """
     html += html_footer()
     return html
@@ -3707,7 +3905,7 @@ def build_aws_free_page():
             : 'https://api.protodex.io';
             
         try {
-            const res = await fetch(`\${API_BASE}/aws/signup`, {
+            const res = await fetch(`${API_BASE}/aws/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email })
@@ -3723,6 +3921,7 @@ def build_aws_free_page():
             document.getElementById('success-box').style.display = 'block';
         }
     }
+    </script>
     """
     html += html_footer()
     return html
@@ -3900,6 +4099,7 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/live.html")
     urls.append(f"{SITE_URL}/security.html")
     urls.append(f"{SITE_URL}/datasets/")
+    urls.append(f"{SITE_URL}/datasets/mcp-servers.html")
     urls.append(f"{SITE_URL}{DATASET_PATH}")
     urls.append(f"{SITE_URL}/build.html")
     urls.append(f"{SITE_URL}/mcp-quickref.html")
@@ -4219,10 +4419,29 @@ def markdown_to_html(md):
 
 def main():
     print(f"Loading data from {DATA_FILE}...")
-    with open(DATA_FILE) as f:
+    with open(DATA_FILE, encoding="utf-8") as f:
         data = json.load(f)
-    servers = data["servers"]
-    print(f"Loaded {len(servers)} servers")
+    excluded_hashes = load_excluded_hashes()
+    servers = [
+        s for s in data["servers"]
+        if not is_excluded_repo(s.get("repo", ""), excluded_hashes)
+        and "fourtrader" not in (s.get("repo", "").lower())
+        and not has_malicious_bait(
+            s.get("repo", ""),
+            (s.get("description") or "") + "\n" + (s.get("readme_excerpt") or ""),
+        )
+    ]
+    print(f"Loaded {len(servers)} screened servers (filtered {len(data['servers']) - len(servers)})")
+
+    active_sponsors = load_active_sponsors()
+    active_sponsored_slugs = {
+        sl for item in active_sponsors
+        for sl in (
+            slugify(item.get("server_slug", "")),
+            slugify(item.get("repo", "").replace("/", "-")),
+        )
+        if sl
+    }
 
     # Group by category
     categories = {}
@@ -4255,13 +4474,15 @@ def main():
             build_category_page(cat_name, cat_servers)
         )
 
-    # Build individual server pages (top servers with >= 10 stars to keep Pages artifact < 40MB)
+    # Build individual server pages (top servers with >= 10 stars or explicit/sponsored overrides)
     print("Building server pages...")
     seen_slugs = set()
     for s in servers:
-        if "--all-servers" not in sys.argv and s.get("stars", 0) < 10 and "unorouter" not in s.get("repo", ""):
+        base_slug = slugify(s["repo"].replace("/", "-"))
+        is_explicit = bool(s.get("build_page") or s.get("install_config") or base_slug in active_sponsored_slugs)
+        if "--all-servers" not in sys.argv and s.get("stars", 0) < 10 and not is_explicit:
             continue
-        slug = slugify(s["repo"].replace("/", "-"))
+        slug = base_slug
         if slug in seen_slugs:
             slug = slug + "-" + str(s.get("id", 0))
         seen_slugs.add(slug)
@@ -4282,7 +4503,7 @@ def main():
 
     # Build pricing & sponsorship page
     print("Building pricing page...")
-    write(os.path.join(SITE_DIR, "pricing.html"), build_pricing_page())
+    write(os.path.join(SITE_DIR, "pricing.html"), build_pricing_page(len(servers)))
 
     # Build auditor page
     print("Building auditor page...")
@@ -4292,12 +4513,20 @@ def main():
     print("Building AWS free page...")
     write(os.path.join(SITE_DIR, "aws-free.html"), build_aws_free_page())
 
-    # Build live trading proof page
-    print("Building live page...")
-    write(os.path.join(SITE_DIR, "live.html"), build_live_page())
+    # Preserve existing live trading proof page when offline telemetry CSV is absent
+    live_csv = "/Users/apple/Documents/LuciferForge/products/cross-signal-data/data/crashes_v1.csv"
+    live_out = os.path.join(SITE_DIR, "live.html")
+    if os.path.exists(live_csv) or not os.path.exists(live_out):
+        print("Building live page...")
+        write(live_out, build_live_page())
+    else:
+        print("Preserving existing live.html (offline telemetry CSV not present)...")
 
-    # P0 revenue SEO asset: Polymarket dataset landing page (+ Dataset/Product schema)
+    # Dataset landing pages
     os.makedirs(os.path.join(SITE_DIR, "datasets"), exist_ok=True)
+    mcp_zip = ROOT_DIR / "releases" / "Protodex_MCP_Ecosystem_Dataset_31k.zip"
+    zip_mb = round(mcp_zip.stat().st_size / (1024 * 1024), 1) if mcp_zip.exists() else 10.9
+    write(os.path.join(SITE_DIR, "datasets", "mcp-servers.html"), build_mcp_dataset_page(len(servers), zip_mb))
     write(os.path.join(SITE_DIR, "datasets", "polymarket-historical.html"), build_dataset_page())
 
     # Build security page
@@ -4329,7 +4558,7 @@ def main():
     # CNAME for custom domain
     write(os.path.join(SITE_DIR, "CNAME"), DOMAIN)
 
-    # 404 page
+    # 404 page + dynamic legacy /servers/ router (only resolves clean active servers; removed entries stay 404)
     html_404 = html_head("Page Not Found — Protodex", "This page doesn't exist.", "/404.html")
     html_404 += html_header()
     html_404 += """
@@ -4340,6 +4569,34 @@ def main():
 </div>
 """
     html_404 += html_footer()
+    redirect_script = """
+<script>
+(function() {
+    var REDIRECTS = {
+        "kyanitelabs-mcp-video": "/servers/kyanitelabs-kinocut.html"
+    };
+    var p = window.location.pathname;
+    var m = p.match(/\\/servers\\/([^\\/]+)\\.html$/);
+    if (m) {
+        var slug = m[1];
+        if (REDIRECTS[slug]) {
+            window.location.replace(REDIRECTS[slug]);
+            return;
+        }
+        fetch('/search-index.json')
+            .then(function(r) { return r.json(); })
+            .then(function(items) {
+                var found = items.find(function(it) { return it.s === slug; });
+                if (found && found.r) {
+                    window.location.replace('https://github.com/' + found.r);
+                }
+            })
+            .catch(function(e) { console.error('Router error:', e); });
+    }
+})();
+</script>
+"""
+    html_404 = html_404.replace("</body>", redirect_script + "</body>")
     write(os.path.join(SITE_DIR, "404.html"), html_404)
 
     # Remove stale orphan pages (servers removed/recategorized since a prior build)
@@ -4390,10 +4647,11 @@ def prune_orphans(dry_run=False):
 
 if __name__ == "__main__":
     main()
-    import sys
-    sys.path.insert(0, "/Users/apple/Documents/LuciferForge/distribution")
-    try:
-        import rss_feed_generator
-        rss_feed_generator.build_rss_pipeline()
-    except Exception as e:
-        print(f"RSS Feed Generation warning: {e}")
+    dist_dir = "/Users/apple/Documents/LuciferForge/distribution"
+    if os.path.isdir(dist_dir):
+        sys.path.insert(0, dist_dir)
+        try:
+            import rss_feed_generator
+            rss_feed_generator.build_rss_pipeline()
+        except Exception as e:
+            print(f"RSS Feed Generation warning: {e}")

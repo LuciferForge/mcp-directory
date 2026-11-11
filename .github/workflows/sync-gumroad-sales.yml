@@ -8,10 +8,18 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   sync-sales:
     runs-on: ubuntu-latest
+    outputs:
+      pushed: ${{ steps.commit.outputs.pushed }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -30,13 +38,42 @@ jobs:
           python track_sales.py --build-if-changed
 
       - name: Commit & Push Changes
+        id: commit
         run: |
           git config user.name 'Protodex Sales Bot'
           git config user.email 'bot@protodex.io'
-          if [[ -n $(git status --porcelain sales_ledger.json sponsored_servers.json docs/index.html) ]]; then
-            git add sales_ledger.json sponsored_servers.json docs/index.html
+          if [[ -n $(git status --porcelain sales_ledger.json sponsored_servers.json docs/) ]]; then
+            git add sales_ledger.json sponsored_servers.json docs/
             git commit -m "chore: auto-sync Gumroad sales and active sponsors [skip ci]"
             git push origin master
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           else
             echo "No sales or sponsor changes detected."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           fi
+
+  deploy-pages:
+    needs: sync-sales
+    if: needs.sync-sales.outputs.pushed == 'true'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 1800000

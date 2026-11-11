@@ -1,6 +1,6 @@
-# 🎨 Outbound Campaign: Protodex UI Studio (48 Developer Templates) ($49)
+# 🎨 Outbound Campaign: Protodex UI Studio (48 Developer Templates) ($39)
 **Target Audiences**: `r/Cursor`, `r/ClaudeAI`, Anthropic Developer Discord, Product Hunt, Designer News  
-**Product Link**: https://manja8.gumroad.com/l/lntzuo ($49)
+**Product Link**: https://manja8.gumroad.com/l/lntzuo ($39)
 
 ---
 

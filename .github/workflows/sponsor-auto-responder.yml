@@ -18,7 +18,16 @@ jobs:
           script: |
             const title = context.payload.issue.title.toLowerCase();
             const body = (context.payload.issue.body || '').toLowerCase();
-            const isSubmission = title.includes('add server') || title.includes('mcp') || body.includes('mcp') || body.includes('github.com');
+            const combined = `${title}\n${body}`;
+            const excludeKeywords = [
+              'remove', 'removal', 'delete', 'deletion', 'withdraw', 'takedown', 'delist',
+              'malicious', 'malware', 'phishing', 'trojan', 'stealer', 'info-stealer', 'lure', 'binary',
+              'defect', 'incorrect', 'broken', 'wrong', 'stale', 'outdated', 'rename', 'renamed',
+              'redirect', 'security', 'bug', 'fix', 'update', 'flag', 'spam', 'fake'
+            ];
+            const hasExcludedKeyword = excludeKeywords.some((kw) => combined.includes(kw));
+            const looksLikeSubmission = title.includes('add server') || title.includes('submit') || title.includes('submission') || body.includes('repository url:');
+            const isSubmission = !hasExcludedKeyword && (looksLikeSubmission || ((title.includes('mcp') || body.includes('github.com')) && !title.includes('report')));
             
             if (isSubmission) {
               const comment = `👋 **Thanks for submitting your server to the Protodex MCP Index!**
@@ -37,7 +46,7 @@ jobs:
             
             👉 **[Claim a Featured Slot for $49/wk on Gumroad](https://manja8.gumroad.com/l/sponsor_mcp)**
             
-            *(Simply enter your repository slug at checkout, and our automated Cloudflare pipeline will deploy your server to the live directory automatically!)*`;
+            *(Simply enter your repository slug at checkout, and our automated GitHub Actions pipeline will deploy your server to the live directory automatically!)*`;
             
               await github.rest.issues.createComment({
                 owner: context.repo.owner,

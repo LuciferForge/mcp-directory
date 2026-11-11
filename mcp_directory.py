@@ -17,8 +17,10 @@ import sys
 import json
 import sqlite3
 from datetime import datetime
+from pathlib import Path
 
-DB_PATH = "/Users/apple/Documents/LuciferForge/mcp-directory/mcp_directory.db"
+ROOT_DIR = Path(__file__).resolve().parent
+DB_PATH = str(ROOT_DIR / "mcp_directory.db")
 
 
 def get_db():
@@ -202,8 +204,8 @@ def cmd_export():
         "servers": [dict(r) for r in rows],
     }
 
-    out_path = "/Users/apple/Documents/LuciferForge/mcp-directory/mcp_directory.json"
-    with open(out_path, "w") as f:
+    out_path = ROOT_DIR / "mcp_directory.json"
+    with open(out_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, default=str)
 
     print(f"Exported {len(rows)} servers to {out_path}")
@@ -221,8 +223,8 @@ def cmd_export():
             "url": dict(r)["url"],
         })
 
-    cat_path = "/Users/apple/Documents/LuciferForge/mcp-directory/mcp_by_category.json"
-    with open(cat_path, "w") as f:
+    cat_path = ROOT_DIR / "mcp_by_category.json"
+    with open(cat_path, "w", encoding="utf-8") as f:
         json.dump(cats, f, indent=2)
     print(f"Exported category index to {cat_path}")
 

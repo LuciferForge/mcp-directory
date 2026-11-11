@@ -3,16 +3,72 @@ MCP Server Directory — GitHub Scraper
 Scrapes GitHub for public MCP servers, indexes them in SQLite.
 """
 
+import hashlib
 import json
+import os
+import shutil
 import subprocess
 import sqlite3
 import time
 import re
 from datetime import datetime, timezone
+from pathlib import Path
 
 
-GH = "/usr/local/bin/gh"
-DB_PATH = "/Users/apple/Documents/LuciferForge/mcp-directory/mcp_directory.db"
+ROOT_DIR = Path(__file__).resolve().parent
+GH = shutil.which("gh") or ("/usr/local/bin/gh" if os.path.exists("/usr/local/bin/gh") else "gh")
+DB_PATH = str(ROOT_DIR / "mcp_directory.db")
+EXCLUDED_HASHES_FILE = ROOT_DIR / "excluded_repo_hashes.json"
+
+_FAKEGIT_PHRASE_RE = re.compile(
+    r"(?:visit this page to download|from the assets list|right-click it and choose|"
+    r"it is usually named with `?\.(?:exe|zip)|pick the latest version that fits|"
+    r"setup\.exe included|util\.exe\s+cert\.txt|application\.cmd|chrome_extension\.zip|firefox_extension\.zip)",
+    re.I,
+)
+
+
+def _normalize_repo(repo_str):
+    r = (repo_str or "").strip()
+    for prefix in ("https://github.com/", "http://github.com/", "github.com/"):
+        if r.lower().startswith(prefix):
+            r = r[len(prefix):]
+    r = r.rstrip("/")
+    if r.lower().endswith(".git"):
+        r = r[:-4]
+    return r.lower()
+
+
+def load_excluded_hashes():
+    if not EXCLUDED_HASHES_FILE.exists():
+        return set()
+    try:
+        data = json.loads(EXCLUDED_HASHES_FILE.read_text(encoding="utf-8"))
+        if isinstance(data, list):
+            return {str(x).lower() for x in data}
+        return {str(x).lower() for x in data.get("hashes", [])}
+    except Exception:
+        return set()
+
+
+def is_excluded_repo(repo_str, excluded_hashes):
+    repo_norm = _normalize_repo(repo_str)
+    if not repo_norm:
+        return True
+    return hashlib.sha256(repo_norm.encode("utf-8")).hexdigest() in excluded_hashes
+
+
+def has_malicious_bait(repo_str, text):
+    if not text:
+        return False
+    if _FAKEGIT_PHRASE_RE.search(text):
+        return True
+    repo_norm = _normalize_repo(repo_str)
+    if repo_norm:
+        esc = re.escape(repo_norm)
+        if re.search(rf"(?:raw\.githubusercontent\.com/{esc}/|github\.com/{esc}/(?:raw|blob)/)[^\s\)\"']*\.zip\b", text, re.I):
+            return True
+    return False
 
 # Search queries to find MCP servers
 SEARCH_QUERIES = [
@@ -320,10 +376,11 @@ def scrape(fetch_readmes=True, readme_batch_size=50):
     """Main scrape function. Returns count of new servers indexed."""
     conn = init_db()
     seen = set()
+    excluded_hashes = load_excluded_hashes()
 
     # Load existing repos
     existing = set(row[0] for row in conn.execute("SELECT repo FROM servers").fetchall())
-    print(f"Existing entries: {len(existing)}")
+    print(f"Existing entries: {len(existing)} (excluded hashes: {len(excluded_hashes)})")
 
     candidates = []
 
@@ -334,9 +391,12 @@ def scrape(fetch_readmes=True, readme_batch_size=50):
 
         for r in repos:
             full_name = r.get("full_name", "")
-            if full_name in seen:
+            if full_name in seen or is_excluded_repo(full_name, excluded_hashes):
                 continue
             seen.add(full_name)
+
+            if has_malicious_bait(full_name, r.get("description") or ""):
+                continue
 
             if is_mcp_server(r):
                 candidates.append(r)
@@ -370,6 +430,9 @@ def scrape(fetch_readmes=True, readme_batch_size=50):
             if (i + 1) % 10 == 0:
                 print(f"  Fetching READMEs... {i+1}/{min(total, readme_batch_size)}")
             readme_text = fetch_readme(full_name)
+            if has_malicious_bait(full_name, f"{desc}\n{readme_text}"):
+                print(f"  [skip] Rejected suspicious binary/FakeGit bait repo: {full_name}")
+                continue
             if readme_text:
                 tools = extract_tools_from_readme(readme_text)
                 tools_str = ",".join(tools)
