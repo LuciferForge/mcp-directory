@@ -34,32 +34,34 @@ jobs:
             const hasExcludedKeyword = excludeKeywords.some((kw) => combined.includes(kw));
             const looksLikeSubmission = title.includes('add server') || title.includes('submit') || title.includes('submission') || body.includes('repository url:') || title.includes('add ') || title.includes('feat:');
             const isSubmission = !hasExcludedKeyword && (looksLikeSubmission || ((title.includes('mcp') || body.includes('github.com')) && !title.includes('report')));
-            
+
             if (isSubmission) {
-              const comment = `👋 **Thanks for submitting your server to the Protodex MCP Index!**
+              const comment = [
+                '👋 **Thanks for submitting your MCP server to the Protodex Index!**',
+                '',
+                'Your submission has been queued into our standard **free community review backlog** (estimated turnaround: 7–14 days).',
+                '',
+                '---',
+                '',
+                '### ⚡ Want Instant Verification + Top-of-Index Featured Placement?',
+                '**[Protodex.io](https://protodex.io)** is visited by **30,000+ AI developers and autonomous agent builders** every month looking for high-performance tool servers.',
+                '',
+                'You can fast-track your listing to the **#1 Featured Spotlight** this week:',
+                '- ✨ **Instant Indexing within 30 minutes** (skips the 14-day backlog)',
+                '- 🌟 **Glowing "Featured Partner" Badge** on the homepage & category hubs',
+                '- 📈 **Direct click-through traffic** to your GitHub repo & documentation',
+                '',
+                '👉 **[Claim a Featured Slot for $49/wk on Gumroad](https://manja8.gumroad.com/l/sponsor_mcp)**',
+                '',
+                '*(Simply enter your repository slug at checkout, and our automated GitHub Actions pipeline will deploy your server to the live directory automatically!)*'
+              ].join('\n');
 
-Your submission has been queued into our standard **free community review backlog** (estimated turnaround: 7–14 days).
-
----
-
-### ⚡ Want Instant Verification + Top-of-Index Featured Placement?
-**[Protodex.io](https://protodex.io)** is visited by **30,000+ AI developers and autonomous agent builders** every month looking for high-performance tool servers.
-
-You can fast-track your listing to the **#1 Featured Spotlight** this week:
-- ✨ **Instant Indexing within 30 minutes** (skips the 14-day backlog)
-- 🌟 **Glowing "Featured Partner" Badge** on the homepage & category hubs
-- 📈 **Direct click-through traffic** to your GitHub repo & documentation
-
-👉 **[Claim a Featured Slot for $49/wk on Gumroad](https://manja8.gumroad.com/l/sponsor_mcp)**
-
-*(Simply enter your repository slug at checkout, and our automated GitHub Actions pipeline will deploy your server to the live directory automatically!)*`;
-            
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: target.number,
                 body: comment
               });
-              
+
               console.log(`Auto-responded to ${isPR ? 'PR' : 'issue'} #${target.number}`);
             }
