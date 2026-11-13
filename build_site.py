@@ -2784,7 +2784,10 @@ def generate_install_config(server):
                 args = ["-y", repo]
             elif lang == "Python":
                 command = "uvx"
-                pkg = repo_name.lower().replace("_", "-")
+                python_packages = {
+                    "jacobiusmakes/parlay-api-mcp": "parlayapi-mcp"
+                }
+                pkg = cfg.get("package") or python_packages.get(repo.lower(), repo_name.lower().replace("_", "-"))
                 args = [pkg]
                 notes.append(f'Or install with pip: <code>pip install {escape(pkg)}</code>')
             elif lang == "Go":
@@ -4240,48 +4243,46 @@ def load_blog_posts():
     """Load markdown blog posts from content directory."""
     posts = []
     blog_content_dir = BLOG_DIR
-    if not os.path.isdir(blog_content_dir):
-        return posts
+    if os.path.isdir(blog_content_dir):
+        for fname in sorted(os.listdir(blog_content_dir)):
+            if not fname.startswith("devto-") or not fname.endswith(".md"):
+                continue
 
-    for fname in sorted(os.listdir(blog_content_dir)):
-        if not fname.startswith("devto-") or not fname.endswith(".md"):
-            continue
+            fpath = os.path.join(blog_content_dir, fname)
+            with open(fpath, encoding='utf-8') as f:
+                content = f.read()
 
-        fpath = os.path.join(blog_content_dir, fname)
-        with open(fpath, encoding='utf-8') as f:
-            content = f.read()
+            # Parse frontmatter
+            title = ""
+            tags = []
+            body = content
+            if content.startswith("---"):
+                parts = content.split("---", 2)
+                if len(parts) >= 3:
+                    fm = parts[1]
+                    body = parts[2].strip()
+                    for line in fm.strip().split("\n"):
+                        if line.startswith("title:"):
+                            title = line.split(":", 1)[1].strip().strip('"').strip("'")
+                        elif line.startswith("tags:"):
+                            tags = [t.strip() for t in line.split(":", 1)[1].split(",")]
 
-        # Parse frontmatter
-        title = ""
-        tags = []
-        body = content
-        if content.startswith("---"):
-            parts = content.split("---", 2)
-            if len(parts) >= 3:
-                fm = parts[1]
-                body = parts[2].strip()
-                for line in fm.strip().split("\n"):
-                    if line.startswith("title:"):
-                        title = line.split(":", 1)[1].strip().strip('"').strip("'")
-                    elif line.startswith("tags:"):
-                        tags = [t.strip() for t in line.split(":", 1)[1].split(",")]
+            if not title:
+                title = fname.replace("devto-", "").replace(".md", "").replace("-", " ").title()
 
-        if not title:
-            title = fname.replace("devto-", "").replace(".md", "").replace("-", " ").title()
+            slug = fname.replace(".md", "").replace("devto-", "blog-")
 
-        slug = fname.replace(".md", "").replace("devto-", "blog-")
+            # Convert markdown to basic HTML
+            html_body = markdown_to_html(body)
+            excerpt = body[:200].replace("\n", " ").replace("#", "").strip()
 
-        # Convert markdown to basic HTML
-        html_body = markdown_to_html(body)
-        excerpt = body[:200].replace("\n", " ").replace("#", "").strip()
-
-        posts.append({
-            "title": title,
-            "slug": slug,
-            "tags": tags,
-            "html": html_body,
-            "excerpt": excerpt,
-        })
+            posts.append({
+                "title": title,
+                "slug": slug,
+                "tags": tags,
+                "html": html_body,
+                "excerpt": excerpt,
+            })
 
     # Also discover orphan HTML posts in docs/blog/ (e.g., weekly-*, polymarket-*)
     # These are pre-built HTML files (not from devto markdown) but should still
@@ -4310,7 +4311,12 @@ def _discover_html_blog_posts(existing_slugs):
         except Exception:
             continue
         m_title = re.search(r"<title>([^<]+)</title>", html)
-        title = m_title.group(1).replace("— Protodex", "").strip() if m_title else slug.replace("-", " ").title()
+        if m_title:
+            raw_t = m_title.group(1)
+            raw_t = re.sub(r"\s*[—–-]\s*Protodex(?:\s*Blog)?", "", raw_t, flags=re.I).strip()
+            title = raw_t.replace("&amp;", "&")
+        else:
+            title = slug.replace("-", " ").title()
         m_desc = re.search(r'<meta name="description" content="([^"]+)"', html)
         excerpt = m_desc.group(1) if m_desc else ""
         # Tag heuristic from slug

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 20 Polymarket Prediction Markets by Volume &amp; Liquidity (2026-11-13) — Protodex Blog</title>
+    <meta name="description" content="Real-time volume and orderbook liquidity ranking of the 20 largest prediction markets on Polymarket as of 2026-11-13. Analysis of price discovery, capital concentration, and historical tick data for backtesting.">
+    <meta property="og:title" content="Top 20 Polymarket Prediction Markets by Volume &amp; Liquidity (2026-11-13)">
+    <meta property="og:description" content="Real-time volume and orderbook liquidity ranking of the 20 largest prediction markets on Polymarket as of 2026-11-13. Analysis of price discovery, capital concentration, and historical tick data for backtesting.">
+    <meta property="og:url" content="https://protodex.io/blog/polymarket-top-volume-2026-11-13.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Protodex">
+    <link rel="canonical" href="https://protodex.io/blog/polymarket-top-volume-2026-11-13.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+    <style>
+:root {
+    --bg:#06060a;
+    --bg-card:#0f0f14;
+    --border:#1e1e2a;
+    --border-hover:#2d2d3f;
+    --text:#f0f0f5;
+    --text-muted:#8888a0;
+    --text-dim:#55556a;
+    --accent:#2DD9E0;
+    --accent2:#7B61FF;
+    --green:#10B981;
+    --yellow:#FFD93D;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'JetBrains Mono',monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.65; -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); text-decoration:none; transition:color 0.15s; }
+a:hover { color:#fff; text-decoration:underline; }
+.nav { padding:14px 24px; border-bottom:1px solid var(--border); background:rgba(6,6,10,0.92); position:sticky; top:0; backdrop-filter:blur(12px); z-index:100; display:flex; align-items:center; justify-content:space-between; }
+.nav-logo { font-weight:900; font-size:1.15rem; color:var(--text); letter-spacing:-0.5px; display:flex; align-items:center; gap:6px; }
+.nav-logo span { color:var(--accent); }
+.nav-links { display:flex; gap:20px; align-items:center; }
+.nav-links a { color:var(--text-muted); font-size:0.85rem; font-weight:500; }
+.nav-links a:hover { color:var(--text); text-decoration:none; }
+.post-hero { padding:60px 24px 36px; text-align:center; border-bottom:1px solid var(--border); background:radial-gradient(ellipse at 50% 0%, rgba(45,217,224,0.08) 0%, transparent 70%); }
+.post-hero .badge { display:inline-block; background:rgba(45,217,224,0.12); border:1px solid rgba(45,217,224,0.3); border-radius:100px; padding:5px 14px; font-size:0.75rem; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:18px; }
+.post-hero h1 { font-size:2.2rem; font-weight:900; letter-spacing:-1px; line-height:1.2; max-width:840px; margin:0 auto 14px; }
+.post-hero .meta { color:var(--text-dim); font-size:0.85rem; font-family:var(--mono); }
+.post-body { max-width:860px; margin:0 auto; padding:48px 24px; }
+.post-body h2 { font-size:1.35rem; font-weight:800; letter-spacing:-0.3px; margin:44px 0 16px; padding-bottom:8px; border-bottom:1px solid var(--border); color:var(--text); }
+.post-body p { color:var(--text-muted); margin-bottom:18px; font-size:1.02rem; }
+.post-body p strong { color:var(--text); }
+.post-body ul { padding-left:24px; margin-bottom:20px; }
+.post-body li { color:var(--text-muted); margin-bottom:10px; line-height:1.6; font-size:0.98rem; }
+.post-body li strong { color:var(--text); }
+.poly-table { width:100%; border-collapse:collapse; margin:24px 0; font-size:0.86rem; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+.poly-table th { background:rgba(45,217,224,0.06); color:var(--text); font-weight:700; padding:12px 14px; text-align:left; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.06em; border-bottom:1px solid var(--border); }
+.poly-table td { padding:12px 14px; border-bottom:1px solid var(--border); color:var(--text-muted); }
+.poly-table td.rank { font-family:var(--mono); color:var(--text-dim); font-weight:600; width:44px; }
+.poly-table td.q a { color:var(--text); text-decoration:none; }
+.poly-table td.q a:hover { color:var(--accent); text-decoration:underline; }
+.poly-table td.cat { font-size:0.8rem; color:var(--accent2); font-weight:500; }
+.poly-table td.prob { font-family:var(--mono); font-weight:700; color:var(--green); text-align:right; }
+.poly-table td.num { font-family:var(--mono); color:var(--yellow); text-align:right; font-weight:600; white-space:nowrap; }
+.poly-table tr:hover td { background:rgba(255,255,255,0.02); }
+.poly-table tr:last-child td { border-bottom:none; }
+.caption { font-size:0.8rem; color:var(--text-dim); font-style:italic; margin:-12px 0 28px; }
+
+.commercial-box { background:linear-gradient(135deg, rgba(123,97,255,0.14), rgba(45,217,224,0.12)); border:1px solid rgba(123,97,255,0.35); border-radius:14px; padding:28px; margin:48px 0 28px; box-shadow:0 8px 32px rgba(0,0,0,0.3); }
+.commercial-box h3 { font-size:1.25rem; font-weight:800; color:var(--text); margin-bottom:8px; letter-spacing:-0.3px; }
+.commercial-box p { color:var(--text-muted); margin-bottom:20px; font-size:0.95rem; line-height:1.55; }
+.commercial-actions { display:flex; gap:12px; flex-wrap:wrap; }
+.btn-primary { display:inline-flex; align-items:center; gap:6px; background:var(--accent); color:#000; padding:12px 22px; border-radius:8px; font-weight:700; font-size:0.9rem; text-decoration:none; box-shadow:0 2px 10px rgba(45,217,224,0.3); }
+.btn-primary:hover { opacity:0.92; color:#000; text-decoration:none; transform:translateY(-1px); }
+.btn-secondary { display:inline-flex; align-items:center; gap:6px; background:transparent; border:1px solid rgba(255,255,255,0.25); color:var(--text); padding:12px 20px; border-radius:8px; font-weight:600; font-size:0.9rem; text-decoration:none; }
+.btn-secondary:hover { border-color:var(--accent); color:var(--accent); text-decoration:none; }
+
+footer { border-top:1px solid var(--border); padding:36px 24px; text-align:center; color:var(--text-dim); font-size:0.85rem; margin-top:60px; }
+@media(max-width:640px) {
+    .post-hero h1 { font-size:1.6rem; }
+    .poly-table { font-size:0.78rem; }
+    .poly-table th, .poly-table td { padding:8px 10px; }
+}
+    </style>
+</head>
+<body>
+<nav class="nav">
+    <a href="/" class="nav-logo">proto<span>dex</span></a>
+    <div class="nav-links">
+        <a href="/">Explore MCPs</a>
+        <a href="/datasets/">Datasets & Toolkits 📊</a>
+        <a href="/templates.html" style="color:var(--accent);font-weight:700">UI Studio 🎨</a>
+        <a href="/blog/">Blog</a>
+    </div>
+</nav>
+
+<section class="post-hero">
+    <span class="badge">Polymarket Quant Telemetry</span>
+    <h1>Top 20 Polymarket Prediction Markets by Volume &amp; Liquidity (2026-11-13)</h1>
+    <div class="meta">November 13, 2026 &middot; Live Gamma API Feed</div>
+</section>
+
+<article class="post-body">
+    
+    <p>Prediction markets represent one of the fastest-growing statistical data primitives in quantitative finance. Over the last 24 hours, the top 20 active contracts on Polymarket accounted for <strong>$806K</strong> in daily trading flow and over <strong>$335.1M</strong> in cumulative settlement capital.</p>
+
+    <p>Below is the live snapshot of capital distribution across active prediction markets as of <strong>2026-11-13</strong>. For algorithmic traders backtesting probability convergence, spread capture, or news latency arbitrage, complete 15-minute historical orderbook snapshots are available in the <a href="https://manja8.gumroad.com/l/polymarket-quant-toolkit?utm_source=protodex&utm_medium=blog&utm_campaign=polymarket-top-volume-2026-11-13&utm_content=inline-link">Polymarket Historical Dataset</a>.</p>
+
+    <h2>Active Market Volume & Liquidity Breakdown</h2>
+    <div style="overflow-x:auto">
+    <table class="poly-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Market Question</th>
+          <th>Sector</th>
+          <th>Yes %</th>
+          <th style="text-align:right">24h Vol</th>
+          <th style="text-align:right">Total Vol</th>
+          <th style="text-align:right">Liquidity</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+            <td class="rank">#1</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/putin-out-before-2027-346" target="_blank" rel="noopener">Putin out as President of Russia by December 31, 2026?</a></strong></td>
+            <td class="cat">Putin Out Before 2027</td>
+            <td class="prob">1.7%</td>
+            <td class="num">$140K</td>
+            <td class="num">$28.3M</td>
+            <td class="num">$454K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#2</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-abdul-el-sayed-win-the-2028-democratic-presidential-nomination" target="_blank" rel="noopener">Will Abdul El-Sayed win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">0.9%</td>
+            <td class="num">$111K</td>
+            <td class="num">$2.1M</td>
+            <td class="num">$300K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#3</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/xi-jinping-out-before-2027" target="_blank" rel="noopener">Xi Jinping out before 2027?</a></strong></td>
+            <td class="cat">Xi Jinping Out Before 2027</td>
+            <td class="prob">1.6%</td>
+            <td class="num">$94K</td>
+            <td class="num">$17.3M</td>
+            <td class="num">$363K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#4</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-chris-van-hollen-win-the-2028-democratic-presidential-nomination" target="_blank" rel="noopener">Will Chris Van Hollen win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">0.5%</td>
+            <td class="num">$90K</td>
+            <td class="num">$3.2M</td>
+            <td class="num">$238K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#5</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-jd-vance-win-the-2028-us-presidential-election" target="_blank" rel="noopener">Will JD Vance win the 2028 US Presidential Election?</a></strong></td>
+            <td class="cat">Presidential Election Winner 2028</td>
+            <td class="prob">13.0%</td>
+            <td class="num">$79K</td>
+            <td class="num">$19.2M</td>
+            <td class="num">$773K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#6</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-ruben-gallego-win-the-2028-democratic-presidential-nomination" target="_blank" rel="noopener">Will Ruben Gallego win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">0.4%</td>
+            <td class="num">$64K</td>
+            <td class="num">$9.4M</td>
+            <td class="num">$791K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#7</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-scott-colom-win-the-2028-democratic-presidential-nomination" target="_blank" rel="noopener">Will Scott Colom win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">0.1%</td>
+            <td class="num">$50K</td>
+            <td class="num">$565K</td>
+            <td class="num">$1.2M</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#8</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-james-talarico-win-the-2028-democratic-presidential-nomination" target="_blank" rel="noopener">Will James Talarico win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">1.7%</td>
+            <td class="num">$43K</td>
+            <td class="num">$12.0M</td>
+            <td class="num">$715K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#9</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-jon-ossoff-win-the-2028-democratic-presidential-nomination-885" target="_blank" rel="noopener">Will Jon Ossoff win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">26.2%</td>
+            <td class="num">$31K</td>
+            <td class="num">$15.0M</td>
+            <td class="num">$1.1M</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#10</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-corey-booker-win-the-2028-democratic-presidential-nomination-125" target="_blank" rel="noopener">Will Cory Booker win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">0.8%</td>
+            <td class="num">$20K</td>
+            <td class="num">$26.9M</td>
+            <td class="num">$242K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#11</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-gavin-newsom-win-the-2028-democratic-presidential-nomination-568" target="_blank" rel="noopener">Will Gavin Newsom win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">9.7%</td>
+            <td class="num">$13K</td>
+            <td class="num">$28.7M</td>
+            <td class="num">$691K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#12</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-mitch-landrieu-win-the-2028-democratic-presidential-nomination" target="_blank" rel="noopener">Will Mitch Landrieu win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">0.1%</td>
+            <td class="num">$12K</td>
+            <td class="num">$1.5M</td>
+            <td class="num">$2.1M</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#13</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-mrbeast-win-the-2028-democratic-presidential-nomination" target="_blank" rel="noopener">Will MrBeast win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">0.1%</td>
+            <td class="num">$12K</td>
+            <td class="num">$41.4M</td>
+            <td class="num">$1.2M</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#14</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-andrew-yang-win-the-2028-democratic-presidential-nomination" target="_blank" rel="noopener">Will Andrew Yang win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">0.1%</td>
+            <td class="num">$10K</td>
+            <td class="num">$49.3M</td>
+            <td class="num">$2.1M</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#15</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-pete-buttigieg-win-the-2028-democratic-presidential-nomination-687" target="_blank" rel="noopener">Will Pete Buttigieg win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">5.5%</td>
+            <td class="num">$10K</td>
+            <td class="num">$12.4M</td>
+            <td class="num">$1.3M</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#16</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-elissa-slotkin-win-the-2028-democratic-presidential-nomination" target="_blank" rel="noopener">Will Elissa Slotkin win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">0.2%</td>
+            <td class="num">$8K</td>
+            <td class="num">$2.2M</td>
+            <td class="num">$669K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#17</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-kamala-harris-win-the-2028-democratic-presidential-nomination-641" target="_blank" rel="noopener">Will Kamala Harris win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">5.3%</td>
+            <td class="num">$6K</td>
+            <td class="num">$14.8M</td>
+            <td class="num">$349K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#18</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-shawn-fain-win-the-2028-democratic-presidential-nomination" target="_blank" rel="noopener">Will Shawn Fain win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">0.2%</td>
+            <td class="num">$6K</td>
+            <td class="num">$947K</td>
+            <td class="num">$235K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#19</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-andy-beshear-win-the-2028-democratic-presidential-nomination-832" target="_blank" rel="noopener">Will Andy Beshear win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">4.0%</td>
+            <td class="num">$5K</td>
+            <td class="num">$13.7M</td>
+            <td class="num">$311K</td>
+        </tr>
+
+        <tr>
+            <td class="rank">#20</td>
+            <td class="q"><strong><a href="https://polymarket.com/market/will-gina-raimondo-win-the-2028-democratic-presidential-nomination-676" target="_blank" rel="noopener">Will Gina Raimondo win the 2028 Democratic presidential nomination?</a></strong></td>
+            <td class="cat">Democratic Presidential Nominee 2028</td>
+            <td class="prob">0.1%</td>
+            <td class="num">$4K</td>
+            <td class="num">$36.2M</td>
+            <td class="num">$1.3M</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="caption">Direct telemetry captured via the Polymarket Gamma & CLOB endpoints, verified on 2026-11-13.</p>
+
+    <h2>Key Market Microstructure Observations</h2>
+    <ul>
+      <li><strong>Power Law Volume Distribution:</strong> Capital flow remains intensely concentrated in the top 5 flagship macro and political contracts, with the remaining long-tail exhibiting wider bid-ask spreads.</li>
+      <li><strong>Liquidity Depth Sizing Rules:</strong> When executing automated strategies, maintain order sizing below 3.5% of visible depth to prevent adverse price impact on market orders.</li>
+      <li><strong>Historical Probability Modeling:</strong> Historical ticks reveal repeatable mean-reversion tendencies following sudden speculative sentiment spikes.</li>
+    </ul>
+
+    <h2>Backtesting & Quantitative Analysis</h2>
+    <p>If you are developing quantitative bots or sentiment models, relying solely on real-time polling misses historical volatility regimes. The <a href="https://manja8.gumroad.com/l/polymarket-quant-toolkit?utm_source=protodex&utm_medium=blog&utm_campaign=polymarket-top-volume-2026-11-13&utm_content=inline-link-2">Protodex Polymarket Historical Dataset</a> contains over 23.0M+ point-in-time price points, market settlement resolutions, and volume curves structured in SQLite and clean CSV formats.</p>
+    
+    
+    <div class="commercial-box">
+        <h3>📊 Complete Polymarket 23.0M+ Tick Historical Dataset</h3>
+        <p>Backtest your own probability convergence, latency arbitrage, and order book imbalance models with clean point-in-time ticks across 24,600+ prediction markets in SQLite and CSV ($19).</p>
+        <div class="commercial-actions">
+            <a href="https://manja8.gumroad.com/l/polymarket-quant-toolkit?utm_source=protodex&utm_medium=blog&utm_campaign=polymarket-top-volume-2026-11-13&utm_content=footer-dataset-cta" target="_blank" rel="noopener" class="btn-primary">Get Historical Dataset ($19) →</a>
+            <a href="https://manja8.gumroad.com/l/ntdiq?utm_source=protodex&utm_medium=blog&utm_campaign=polymarket-top-volume-2026-11-13&utm_content=footer-bundle-cta" target="_blank" rel="noopener" class="btn-secondary">Quant Strategies Bundle ($39) →</a>
+            <a href="https://manja8.gumroad.com/l/lntzuo?utm_source=protodex&utm_medium=blog&utm_campaign=polymarket-top-volume-2026-11-13&utm_content=footer-ui-cta" target="_blank" rel="noopener" class="btn-secondary">Protodex UI Studio ($39) →</a>
+        </div>
+    </div>
+</article>
+
+<footer>
+    &copy; 2026 Protodex.io &middot; Updated automatically via GitHub Actions &middot; <a href="/blog/">All Articles</a> &middot; <a href="/datasets/">Developer Hub</a>
+</footer>
+</body>
+</html>
