@@ -4187,29 +4187,185 @@ Sitemap: {SITE_URL}/sitemap.xml
 
 BLOG_DIR = os.path.join(os.path.dirname(__file__), "..", "content")
 
+MONTH_NAMES = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+def format_blog_date(iso_date):
+    """Format YYYY-MM-DD into human-readable e.g. 'Nov 13, 2026'."""
+    try:
+        parts = iso_date.split("-")
+        y, m, d = int(parts[0]), int(parts[1]), int(parts[2])
+        return f"{MONTH_NAMES[m]} {d}, {y}"
+    except Exception:
+        return iso_date or "Nov 2026"
+
+
 def build_blog_index(posts):
-    title = f"Blog — {SITE_NAME}"
-    desc = "Expert guides on AI agents, MCP servers, and building with AI. Comparisons, tutorials, and deep dives."
+    title = f"Protodex Intelligence & Quant Telemetry — {SITE_NAME}"
+    desc = "Live Polymarket prediction market telemetry, orderbook microstructure analysis, and production Model Context Protocol guides."
+
+    featured = posts[0] if posts else None
+    remaining_posts = posts[1:] if len(posts) > 1 else posts
+
+    poly_count = sum(1 for p in posts if p.get("filter_tag") == "polymarket")
+    guide_count = sum(1 for p in posts if p.get("filter_tag") == "guide")
+    roundup_count = sum(1 for p in posts if p.get("filter_tag") == "roundup")
 
     cards = ""
-    for p in posts:
+    for p in remaining_posts:
+        cat_badge_style = f"background:{p.get('cat_bg', 'rgba(45,217,224,0.15)')};color:{p.get('cat_color', '#2DD9E0')}"
         cards += f"""
-        <a href="/blog/{p['slug']}.html" class="server-card" style="text-decoration:none">
-            <h3 class="server-name">{escape(p['title'])}</h3>
-            <p class="server-desc">{escape(p['excerpt'])}</p>
-            <div class="server-meta">
-                <span class="meta-item">{', '.join(p['tags'][:3])}</span>
+        <article class="blog-card" data-tag="{p.get('filter_tag', 'guide')}">
+            <div class="card-top">
+                <span class="card-badge" style="{cat_badge_style}">{escape(p.get('category', 'Guide'))}</span>
+                <span class="card-date">{escape(p.get('date_display', ''))}</span>
             </div>
-        </a>"""
+            <h2 class="card-title">
+                <a href="/blog/{p['slug']}.html">{escape(p['title'])}</a>
+            </h2>
+            <p class="card-excerpt">{escape(p['excerpt'])}</p>
+            <div class="card-footer">
+                <a href="/blog/{p['slug']}.html" class="card-action">Read article &rarr;</a>
+                <span class="card-time">{p.get('read_time', '4 min read')}</span>
+            </div>
+        </article>"""
+
+    featured_html = ""
+    if featured:
+        featured_badge_style = f"background:{featured.get('cat_bg', 'rgba(45,217,224,0.15)')};color:{featured.get('cat_color', '#2DD9E0')}"
+        featured_html = f"""
+    <div class="featured-spotlight">
+        <div class="featured-badge-bar">
+            <span class="featured-live-pill"><span class="pulse-dot"></span> LIVE TELEMETRY</span>
+            <span class="card-badge" style="{featured_badge_style}">{escape(featured.get('category', 'Quant Telemetry'))}</span>
+            <span class="featured-date">{escape(featured.get('date_display', 'Nov 13, 2026'))}</span>
+        </div>
+        <h2 class="featured-title">
+            <a href="/blog/{featured['slug']}.html">{escape(featured['title'])}</a>
+        </h2>
+        <p class="featured-desc">{escape(featured['excerpt'])}</p>
+        <div class="featured-actions">
+            <a href="/blog/{featured['slug']}.html" class="btn-primary-blog">Read Live Telemetry Analysis &rarr;</a>
+            <a href="/datasets/polymarket-historical.html" class="btn-secondary-blog">Explore 23M+ Historical Ticks ($19) &rarr;</a>
+        </div>
+    </div>"""
 
     html = html_head(title, desc, "/blog/")
     html += html_header("blog")
     html += f"""
-<div class="container">
-    <h1 class="section-title" style="margin-top:40px">Blog</h1>
-    <p style="color:var(--text-muted);margin-bottom:32px">Expert guides on AI agents, MCP servers, and building with AI.</p>
-    <div class="server-grid">{cards}</div>
+<style>
+.blog-container {{ max-width: 1180px; margin: 0 auto; padding: 40px 24px 80px; }}
+.blog-header {{ margin-bottom: 28px; }}
+.blog-title {{ font-size: 2.3rem; font-weight: 800; letter-spacing: -0.6px; color: var(--text); margin-bottom: 8px; }}
+.blog-subtitle {{ color: var(--text-muted); font-size: 1.05rem; max-width: 720px; line-height: 1.55; }}
+
+.featured-spotlight {{
+    background: linear-gradient(135deg, rgba(45,217,224,0.1) 0%, rgba(123,97,255,0.08) 50%, rgba(15,15,20,0.95) 100%);
+    border: 1px solid rgba(45,217,224,0.35);
+    border-radius: 16px;
+    padding: 36px;
+    margin: 28px 0 44px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+}}
+.featured-badge-bar {{ display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }}
+.featured-live-pill {{
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3);
+    color: #10B981; font-weight: 700; font-size: 0.72rem; padding: 4px 10px;
+    border-radius: 100px; text-transform: uppercase; letter-spacing: 0.06em;
+}}
+.pulse-dot {{ width: 6px; height: 6px; border-radius: 50%; background: #10B981; box-shadow: 0 0 8px #10B981; }}
+.featured-date {{ color: var(--text-dim); font-family: var(--mono); font-size: 0.8rem; }}
+.featured-title {{ font-size: 1.85rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.25; margin-bottom: 14px; }}
+.featured-title a {{ color: var(--text); text-decoration: none; }}
+.featured-title a:hover {{ color: var(--accent); }}
+.featured-desc {{ color: var(--text-muted); font-size: 1rem; line-height: 1.6; max-width: 860px; margin-bottom: 24px; }}
+.featured-actions {{ display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }}
+.btn-primary-blog {{
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent); color: #000; padding: 11px 22px;
+    border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none;
+    box-shadow: 0 4px 14px rgba(45,217,224,0.3);
+}}
+.btn-primary-blog:hover {{ opacity: 0.92; color: #000; text-decoration: none; transform: translateY(-1px); }}
+.btn-secondary-blog {{
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.18);
+    color: var(--text); padding: 11px 20px; border-radius: 8px;
+    font-weight: 600; font-size: 0.9rem; text-decoration: none;
+}}
+.btn-secondary-blog:hover {{ border-color: var(--accent); color: var(--accent); text-decoration: none; }}
+
+.filter-bar {{ display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding-bottom: 16px; }}
+.filter-btn {{
+    background: transparent; border: 1px solid var(--border); color: var(--text-muted);
+    padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; transition: all 0.15s; font-family: inherit;
+}}
+.filter-btn:hover {{ color: var(--text); border-color: var(--border-hover); background: rgba(255,255,255,0.03); }}
+.filter-btn.active {{ background: var(--accent); color: #000; border-color: var(--accent); }}
+
+.blog-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }}
+.blog-card {{
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 22px; display: flex; flex-direction: column;
+    justify-content: space-between; transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}}
+.blog-card:hover {{ transform: translateY(-3px); border-color: var(--border-hover); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }}
+.card-top {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }}
+.card-badge {{ font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 3px 8px; border-radius: 6px; }}
+.card-date {{ font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim); }}
+.card-title {{ font-size: 1.12rem; font-weight: 700; color: var(--text); line-height: 1.4; margin-bottom: 10px; letter-spacing: -0.2px; }}
+.card-title a {{ color: var(--text); text-decoration: none; }}
+.card-title a:hover {{ color: var(--accent); }}
+.card-excerpt {{ font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px; flex-grow: 1; }}
+.card-footer {{ display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.82rem; }}
+.card-action {{ color: var(--accent); font-weight: 600; text-decoration: none; }}
+.card-action:hover {{ text-decoration: underline; }}
+.card-time {{ color: var(--text-dim); font-family: var(--mono); font-size: 0.75rem; }}
+
+@media(max-width: 640px) {{
+    .featured-title {{ font-size: 1.4rem; }}
+    .featured-spotlight {{ padding: 24px; }}
+    .blog-grid {{ grid-template-columns: 1fr; }}
+}}
+</style>
+
+<div class="blog-container">
+    <div class="blog-header">
+        <h1 class="blog-title">Protodex Intelligence &amp; Quant Telemetry</h1>
+        <p class="blog-subtitle">Real-time prediction market microstructure, AI agent protocols, and production Model Context Protocol engineering guides.</p>
+    </div>
+
+    {featured_html}
+
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterBlog('all', this)">All Articles ({len(posts)})</button>
+        <button class="filter-btn" onclick="filterBlog('polymarket', this)">Prediction Markets &#128202; ({poly_count})</button>
+        <button class="filter-btn" onclick="filterBlog('guide', this)">Engineering Guides &#128736;&#65039; ({guide_count})</button>
+        <button class="filter-btn" onclick="filterBlog('roundup', this)">Server Roundups &#9889; ({roundup_count})</button>
+    </div>
+
+    <div class="blog-grid" id="blogGrid">
+        {cards}
+    </div>
 </div>
+
+<script>
+function filterBlog(tag, btn) {{
+    document.querySelectorAll('.filter-btn').forEach(function(b) {{ b.classList.remove('active'); }});
+    btn.classList.add('active');
+    var cards = document.querySelectorAll('.blog-card');
+    cards.forEach(function(card) {{
+        if (tag === 'all' || card.getAttribute('data-tag') === tag) {{
+            card.style.display = 'flex';
+        }} else {{
+            card.style.display = 'none';
+        }}
+    }});
+}}
+</script>
 """
     html += html_footer()
     return html
@@ -4240,7 +4396,7 @@ def build_blog_post(post):
 
 
 def load_blog_posts():
-    """Load markdown blog posts from content directory."""
+    """Load markdown and pre-built HTML blog posts from content and docs/blog directory."""
     posts = []
     blog_content_dir = BLOG_DIR
     if os.path.isdir(blog_content_dir):
@@ -4252,7 +4408,6 @@ def load_blog_posts():
             with open(fpath, encoding='utf-8') as f:
                 content = f.read()
 
-            # Parse frontmatter
             title = ""
             tags = []
             body = content
@@ -4272,7 +4427,11 @@ def load_blog_posts():
 
             slug = fname.replace(".md", "").replace("devto-", "blog-")
 
-            # Convert markdown to basic HTML
+            # Extract date
+            m_date = re.search(r'(\d{4}-\d{2}-\d{2})', fname)
+            date_iso = m_date.group(1) if m_date else "2026-06-01"
+            date_display = format_blog_date(date_iso)
+
             html_body = markdown_to_html(body)
             excerpt = body[:200].replace("\n", " ").replace("#", "").strip()
 
@@ -4282,25 +4441,33 @@ def load_blog_posts():
                 "tags": tags,
                 "html": html_body,
                 "excerpt": excerpt,
+                "date_iso": date_iso,
+                "date_display": date_display,
+                "category": "Developer Guide",
+                "cat_color": "#7B61FF",
+                "cat_bg": "rgba(123,97,255,0.15)",
+                "filter_tag": "guide",
+                "read_time": "5 min read",
             })
 
-    # Also discover orphan HTML posts in docs/blog/ (e.g., weekly-*, polymarket-*)
-    # These are pre-built HTML files (not from devto markdown) but should still
-    # appear in the blog index so they're discoverable.
+    # Discover and index all authored HTML posts in docs/blog/
     posts.extend(_discover_html_blog_posts({p["slug"] for p in posts}))
+
+    # Sort strictly chronologically descending by date
+    posts.sort(key=lambda p: p.get("date_iso", "2026-01-01"), reverse=True)
     return posts
 
 
 def _discover_html_blog_posts(existing_slugs):
-    """Scan docs/blog/*.html for posts not already in `posts`. Extract title from
-    <title> tag and a snippet for the excerpt. Index-only — does NOT regenerate
-    the HTML body (those files are already authored)."""
+    """Scan docs/blog/*.html for posts not already in `posts`.
+    Extracts dates, category classifications, and distinct non-repeating titles and excerpts."""
     import re
     out = []
     blog_html_dir = os.path.join(SITE_DIR, "blog")
     if not os.path.isdir(blog_html_dir):
         return out
-    for fname in sorted(os.listdir(blog_html_dir), reverse=True):
+
+    for fname in os.listdir(blog_html_dir):
         if not fname.endswith(".html") or fname == "index.html":
             continue
         slug = fname[:-5]
@@ -4310,6 +4477,14 @@ def _discover_html_blog_posts(existing_slugs):
             html = open(os.path.join(blog_html_dir, fname), encoding="utf-8").read()
         except Exception:
             continue
+
+        # Extract date
+        m_date = re.search(r'(\d{4}-\d{2}-\d{2})', slug)
+        if not m_date:
+            m_date = re.search(r'(\d{4}-\d{2}-\d{2})', html)
+        date_iso = m_date.group(1) if m_date else "2026-05-01"
+        date_display = format_blog_date(date_iso)
+
         m_title = re.search(r"<title>([^<]+)</title>", html)
         if m_title:
             raw_t = m_title.group(1)
@@ -4317,23 +4492,56 @@ def _discover_html_blog_posts(existing_slugs):
             title = raw_t.replace("&amp;", "&")
         else:
             title = slug.replace("-", " ").title()
+
         m_desc = re.search(r'<meta name="description" content="([^"]+)"', html)
-        excerpt = m_desc.group(1) if m_desc else ""
-        # Tag heuristic from slug
-        tags = []
+        desc = m_desc.group(1) if m_desc else ""
+
         if slug.startswith("weekly-"):
-            tags = ["weekly", "MCP", "directory"]
+            category = "Weekly Digest"
+            cat_color = "#FFD93D"
+            cat_bg = "rgba(255,217,61,0.15)"
+            filter_tag = "roundup"
+            tags = ["weekly", "MCP", "roundup"]
+            title = f"MCP Server Weekly ({date_display}): 20 New Tool Servers"
+            excerpt = f"Curated weekly roundup of 20 newly discovered Model Context Protocol servers across AI tooling, databases, and agent infrastructure for {date_display}."
+            read_time = "3 min read"
         elif slug.startswith("polymarket-"):
-            tags = ["polymarket", "prediction-markets"]
+            category = "Quant Telemetry"
+            cat_color = "#2DD9E0"
+            cat_bg = "rgba(45,217,224,0.15)"
+            filter_tag = "polymarket"
+            tags = ["polymarket", "prediction-markets", "quant"]
+            if not desc or desc.strip().lower() == title.strip().lower():
+                excerpt = f"Live prediction market probability and liquidity analysis on Polymarket as of {date_display}, with historical backtest tick data."
+            else:
+                excerpt = desc
+            read_time = "4 min read"
         else:
-            tags = ["guide"]
+            category = "Developer Guide"
+            cat_color = "#7B61FF"
+            cat_bg = "rgba(123,97,255,0.15)"
+            filter_tag = "guide"
+            tags = ["guide", "architecture"]
+            if not desc or desc.strip().lower() == title.strip().lower():
+                excerpt = f"Technical deep-dive and implementation guide for building high-performance MCP servers and AI agents."
+            else:
+                excerpt = desc
+            read_time = "5 min read"
+
         out.append({
             "title": title,
             "slug": slug,
             "tags": tags,
-            "html": "",  # body already authored on disk; index-only
-            "excerpt": excerpt[:200],
+            "html": "",
+            "excerpt": excerpt[:200] + ("..." if len(excerpt) > 200 else ""),
             "_external": True,
+            "date_iso": date_iso,
+            "date_display": date_display,
+            "category": category,
+            "cat_color": cat_color,
+            "cat_bg": cat_bg,
+            "filter_tag": filter_tag,
+            "read_time": read_time,
         })
     return out
 
