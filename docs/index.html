@@ -1446,11 +1446,11 @@ await server.connect(transport);`,
     claude: {
         code: `{
   <span class="c-str">"mcpServers"</span>: {
-    <span class="c-str">"protodex"</span>: {
+    <span class="c-str">"github"</span>: {
       <span class="c-str">"command"</span>: <span class="c-str">"npx"</span>,
-      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@protodex/mcp-server@latest"</span>],
+      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@modelcontextprotocol/server-github"</span>],
       <span class="c-str">"env"</span>: {
-        <span class="c-str">"PROTODEX_API_KEY"</span>: <span class="c-str">"YOUR_PROTODEX_KEY"</span>
+        <span class="c-str">"GITHUB_PERSONAL_ACCESS_TOKEN"</span>: <span class="c-str">"ghp_yourTokenHere"</span>
       }
     },
     <span class="c-str">"filesystem"</span>: {
@@ -1461,11 +1461,11 @@ await server.connect(transport);`,
 }`,
         raw: `{
   "mcpServers": {
-    "protodex": {
+    "github": {
       "command": "npx",
-      "args": ["-y", "@protodex/mcp-server@latest"],
+      "args": ["-y", "@modelcontextprotocol/server-github"],
       "env": {
-        "PROTODEX_API_KEY": "YOUR_PROTODEX_KEY"
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_yourTokenHere"
       }
     },
     "filesystem": {

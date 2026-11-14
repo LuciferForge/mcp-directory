@@ -2,8 +2,8 @@ name: Auto-Publish Polymarket SEO Blog
 
 on:
   schedule:
-    # Run 3x per week: Monday, Wednesday, Friday at 06:00 UTC
-    - cron: '0 6 * * 1,3,5'
+    # Run daily at 06:00 UTC
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -37,7 +37,7 @@ jobs:
 
       - name: Generate Fresh Polymarket SEO Post
         run: |
-          python polymarket_blog_generator.py
+          python polymarket_blog_generator.py top-volume
 
       - name: Rebuild Static Site & Sitemaps
         run: |
