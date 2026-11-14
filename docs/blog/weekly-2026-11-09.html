@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Server Weekly #24: Featuring Scrapling &amp; chrome-devtools-mcp (Nov 09, 2026) — Protodex Blog</title>
+    <meta name="description" content="Protodex MCP Server Weekly #24 (Nov 09, 2026): 20 fresh Model Context Protocol servers across 15 categories, featuring Scrapling &amp; chrome-devtools-mcp and weekly spotlight on DevOps.">
+    <meta property="og:title" content="MCP Server Weekly #24: Featuring Scrapling &amp; chrome-devtools-mcp (Nov 09, 2026)">
+    <meta property="og:description" content="Protodex MCP Server Weekly #24 (Nov 09, 2026): 20 fresh Model Context Protocol servers across 15 categories, featuring Scrapling &amp; chrome-devtools-mcp and weekly spotlight on DevOps.">
+    <meta property="og:url" content="https://protodex.io/blog/weekly-2026-11-09.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Protodex">
+    <meta property="og:image" content="https://protodex.io/og/protodex.png">
+    <link rel="canonical" href="https://protodex.io/blog/weekly-2026-11-09.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #06060a;
+    --bg-card: #0f0f14;
+    --bg-card-hover: #16161d;
+    --border: #1e1e2a;
+    --border-hover: #2d2d3f;
+    --text: #f0f0f5;
+    --text-muted: #8888a0;
+    --text-dim: #55556a;
+    --accent: #2DD9E0;
+    --accent-glow: rgba(45, 217, 224, 0.15);
+    --accent2: #7B61FF;
+    --yellow: #FFD93D;
+    --blue: #5B8DEF;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --radius: 10px;
+    --radius-lg: 16px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { opacity:0.88; }
+
+.nav { padding:14px 24px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:20px; position:sticky; top:0; background:rgba(6,6,10,0.92); backdrop-filter:blur(12px); z-index:100; }
+.nav-logo { font-weight:800; font-size:1.05rem; color:var(--text); letter-spacing:-0.5px; }
+.nav a { color:var(--text-dim); font-size:0.85rem; transition:color 0.15s; }
+.nav a:hover { color:var(--text); }
+
+.post-hero { position:relative; padding:64px 24px 40px; text-align:center; overflow:hidden; }
+.post-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:600px; height:500px; background:radial-gradient(circle, rgba(45,217,224,0.08) 0%, transparent 70%); pointer-events:none; }
+.post-badge { display:inline-flex; align-items:center; gap:8px; background:var(--accent-glow); border:1px solid rgba(45,217,224,0.3); border-radius:20px; padding:6px 16px; font-size:0.75rem; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:20px; }
+.post-badge .pulse { width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); }
+.post-title { font-size:2.2rem; font-weight:800; letter-spacing:-1.2px; line-height:1.2; max-width:800px; margin:0 auto 16px; }
+.post-title .gradient { background:linear-gradient(135deg, #2DD9E0 0%, #7B61FF 50%, #FFD93D 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.post-subtitle { color:var(--text-muted); font-size:1rem; max-width:640px; margin:0 auto; line-height:1.6; }
+
+.stats-bar { display:flex; justify-content:center; gap:36px; padding:18px 24px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); flex-wrap:wrap; }
+.stat { text-align:center; }
+.stat-value { font-family:var(--mono); font-size:1.35rem; font-weight:700; color:var(--accent); }
+.stat-label { font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.8px; margin-top:2px; }
+
+.post-body { max-width:820px; margin:0 auto; padding:48px 24px; }
+.post-body h2 { font-size:1.3rem; font-weight:700; letter-spacing:-0.3px; margin:44px 0 16px; padding-bottom:10px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+.post-body h2:first-child { margin-top:0; }
+.post-body p { color:var(--text-muted); margin-bottom:18px; font-size:0.95rem; }
+
+.srv-grid { display:grid; grid-template-columns:1fr; gap:10px; margin:20px 0 36px; }
+.srv { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); transition:all 0.15s ease; color:inherit; }
+.srv:hover { border-color:var(--accent); transform:translateX(3px); background:var(--bg-card-hover); }
+.srv-rank { font-family:var(--mono); font-size:0.85rem; color:var(--text-dim); min-width:28px; font-weight:600; }
+.srv-info { flex:1; min-width:0; }
+.srv-name { font-weight:600; font-size:0.92rem; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.srv-desc { color:var(--text-muted); font-size:0.8rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:3px; }
+.srv-meta { display:flex; gap:10px; align-items:center; flex-shrink:0; }
+.srv-stars { font-family:var(--mono); font-size:0.82rem; color:var(--yellow); font-weight:600; }
+.srv-cat { font-size:0.72rem; padding:3px 8px; border-radius:12px; background:rgba(123,97,255,0.14); color:var(--accent2); font-weight:500; white-space:nowrap; }
+.srv-lang { font-size:0.72rem; color:var(--text-dim); }
+
+.cat-pills { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 32px; }
+.cat-pill { display:flex; align-items:center; gap:6px; padding:6px 14px; background:var(--bg-card); border:1px solid var(--border); border-radius:20px; font-size:0.8rem; color:var(--text-muted); transition:border-color 0.15s; }
+.cat-pill:hover { border-color:var(--accent); color:var(--text); }
+.cat-pill strong { color:var(--text); font-family:var(--mono); }
+
+.cta-stack { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin:24px 0 40px; }
+.cta-card { padding:20px; background:linear-gradient(135deg, rgba(123,97,255,0.08), rgba(45,217,224,0.06)); border:1px solid rgba(45,217,224,0.25); border-radius:var(--radius-lg); }
+.cta-card h3 { font-size:0.95rem; margin-bottom:8px; color:var(--text); font-weight:700; }
+.cta-card p { color:var(--text-muted); font-size:0.82rem; margin-bottom:14px; line-height:1.5; }
+.cta-btn { display:inline-block; background:var(--accent); color:#000; padding:8px 18px; border-radius:20px; font-size:0.78rem; font-weight:700; transition:opacity 0.15s; }
+.cta-btn:hover { opacity:0.88; }
+
+.post-footer { border-top:1px solid var(--border); padding:32px 24px; text-align:center; color:var(--text-dim); font-size:0.82rem; }
+.post-footer a { color:var(--accent); }
+
+@media (max-width:640px) {
+    .post-title { font-size:1.6rem; }
+    .stats-bar { gap:16px; }
+    .srv { flex-direction:column; align-items:flex-start; gap:8px; }
+    .srv-meta { width:100%; justify-content:space-between; }
+}
+    </style>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="nav-logo">&#9889; Protodex</a>
+        <a href="/blog/">Blog</a>
+        <a href="/categories.html">Categories</a>
+        <a href="/ui-studio.html">UI Studio</a>
+        <a href="https://github.com/LuciferForge/mcp-directory" target="_blank">GitHub</a>
+    </nav>
+
+    <div class="post-hero">
+        <span class="post-badge"><span class="pulse"></span> Weekly Roundup &#183; Issue #24 &#183; Nov 09, 2026</span>
+        <h1 class="post-title"><span class="gradient">20 Fresh</span> MCP Servers Discovered</h1>
+        <p class="post-subtitle">Our automated discovery engine indexed 20 new Model Context Protocol servers this week, featuring Scrapling & chrome-devtools-mcp. The Protodex registry now spans 31,429 verified servers.</p>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat"><div class="stat-value">31,429</div><div class="stat-label">Total Registry</div></div>
+        <div class="stat"><div class="stat-value">+20</div><div class="stat-label">New This Week</div></div>
+        <div class="stat"><div class="stat-value">15</div><div class="stat-label">Categories</div></div>
+        <div class="stat"><div class="stat-value">29,422</div><div class="stat-label">Top Highlight Stars</div></div>
+    </div>
+
+    <div class="post-body">
+        <h2>Fresh Servers This Week <span style="font-size:0.8rem;color:var(--text-dim);font-weight:400;">Guaranteed unfeatured</span></h2>
+        <p>Curated from the newest additions to the Protodex registry across multiple developer tooling disciplines.</p>
+        <div class="srv-grid"><a href="/servers/d4vinci-scrapling.html" class="srv">
+  <span class="srv-rank">#01</span>
+  <div class="srv-info">
+    <div class="srv-name">D4Vinci/Scrapling</div>
+    <div class="srv-desc">🕷️ An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl!</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 29,422</span>
+    <span class="srv-cat">Browser/Web</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/chromedevtools-chrome-devtools-mcp.html" class="srv">
+  <span class="srv-rank">#02</span>
+  <div class="srv-info">
+    <div class="srv-name">ChromeDevTools/chrome-devtools-mcp</div>
+    <div class="srv-desc">Chrome DevTools for coding agents</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 28,899</span>
+    <span class="srv-cat">Browser/Web</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/microsoft-playwright-mcp.html" class="srv">
+  <span class="srv-rank">#03</span>
+  <div class="srv-info">
+    <div class="srv-name">microsoft/playwright-mcp</div>
+    <div class="srv-desc">Playwright MCP server</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 28,861</span>
+    <span class="srv-cat">Browser/Web</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/bytedance-ui-tars-desktop.html" class="srv">
+  <span class="srv-rank">#04</span>
+  <div class="srv-info">
+    <div class="srv-name">bytedance/UI-TARS-desktop</div>
+    <div class="srv-desc">The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 28,820</span>
+    <span class="srv-cat">AI/LLM</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/github-github-mcp-server.html" class="srv">
+  <span class="srv-rank">#05</span>
+  <div class="srv-info">
+    <div class="srv-name">github/github-mcp-server</div>
+    <div class="srv-desc">GitHub&#x27;s official MCP Server</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 27,878</span>
+    <span class="srv-cat">AI/LLM</span>
+    <span class="srv-lang">Go</span>
+  </div>
+</a>
+<a href="/servers/assafelovic-gpt-researcher.html" class="srv">
+  <span class="srv-rank">#06</span>
+  <div class="srv-info">
+    <div class="srv-name">assafelovic/gpt-researcher</div>
+    <div class="srv-desc">An autonomous agent that conducts deep research on any data using any LLM providers</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 25,718</span>
+    <span class="srv-cat">AI/LLM</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/78-xiaozhi-esp32.html" class="srv">
+  <span class="srv-rank">#07</span>
+  <div class="srv-info">
+    <div class="srv-name">78/xiaozhi-esp32</div>
+    <div class="srv-desc">An MCP-based chatbot | 一个基于MCP的聊天机器人</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 24,725</span>
+    <span class="srv-cat">Communication</span>
+    <span class="srv-lang">C++</span>
+  </div>
+</a>
+<a href="/servers/prefecthq-fastmcp.html" class="srv">
+  <span class="srv-rank">#08</span>
+  <div class="srv-info">
+    <div class="srv-name">PrefectHQ/fastmcp</div>
+    <div class="srv-desc">🚀 The fast, Pythonic way to build MCP servers and clients.</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 23,664</span>
+    <span class="srv-cat">AI/LLM</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/modelcontextprotocol-python-sdk.html" class="srv">
+  <span class="srv-rank">#09</span>
+  <div class="srv-info">
+    <div class="srv-name">modelcontextprotocol/python-sdk</div>
+    <div class="srv-desc">The official Python SDK for Model Context Protocol servers and clients</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 22,124</span>
+    <span class="srv-cat">Code/Dev Tools</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/googleapis-genai-toolbox.html" class="srv">
+  <span class="srv-rank">#10</span>
+  <div class="srv-info">
+    <div class="srv-name">googleapis/genai-toolbox</div>
+    <div class="srv-desc">MCP Toolbox for Databases is an open source MCP server for databases.</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 13,412</span>
+    <span class="srv-cat">Database</span>
+    <span class="srv-lang">Go</span>
+  </div>
+</a>
+<a href="/servers/modelcontextprotocol-typescript-sdk.html" class="srv">
+  <span class="srv-rank">#11</span>
+  <div class="srv-info">
+    <div class="srv-name">modelcontextprotocol/typescript-sdk</div>
+    <div class="srv-desc">The official TypeScript SDK for Model Context Protocol servers and clients</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 11,845</span>
+    <span class="srv-cat">Code/Dev Tools</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/xpzouying-xiaohongshu-mcp.html" class="srv">
+  <span class="srv-rank">#12</span>
+  <div class="srv-info">
+    <div class="srv-name">xpzouying/xiaohongshu-mcp</div>
+    <div class="srv-desc">MCP for xiaohongshu.com</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 11,556</span>
+    <span class="srv-cat">Other</span>
+    <span class="srv-lang">Go</span>
+  </div>
+</a>
+<a href="/servers/joeanamier-xhs-downloader.html" class="srv">
+  <span class="srv-rank">#13</span>
+  <div class="srv-info">
+    <div class="srv-name">JoeanAmier/XHS-Downloader</div>
+    <div class="srv-desc">小红书（XiaoHongShu、RedNote）链接提取/作品采集工具：提取账号发布、收藏、点赞、专辑作品链接；提取搜索结果作品、用户链接；采集小红书作品信息；提取小红书作品下载地址；下载小红书作品文件</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 10,359</span>
+    <span class="srv-cat">Database</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/modelcontextprotocol-inspector.html" class="srv">
+  <span class="srv-rank">#14</span>
+  <div class="srv-info">
+    <div class="srv-name">modelcontextprotocol/inspector</div>
+    <div class="srv-desc">Visual testing tool for MCP servers</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 9,044</span>
+    <span class="srv-cat">Code/Dev Tools</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/open-metadata-openmetadata.html" class="srv">
+  <span class="srv-rank">#15</span>
+  <div class="srv-info">
+    <div class="srv-name">open-metadata/OpenMetadata</div>
+    <div class="srv-desc">OpenMetadata is a unified metadata platform for data discovery, data observability, and data governance powere...</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 8,916</span>
+    <span class="srv-cat">Data/Analytics</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/xinnan-tech-xiaozhi-esp32-server.html" class="srv">
+  <span class="srv-rank">#16</span>
+  <div class="srv-info">
+    <div class="srv-name">xinnan-tech/xiaozhi-esp32-server</div>
+    <div class="srv-desc">本项目为xiaozhi-esp32提供后端服务，帮助您快速搭建ESP32设备控制服务器。Backend service for xiaozhi-esp32, helps you quickly build an ESP3...</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 8,872</span>
+    <span class="srv-cat">Other</span>
+    <span class="srv-lang">JavaScript</span>
+  </div>
+</a>
+<a href="/servers/awslabs-mcp.html" class="srv">
+  <span class="srv-rank">#17</span>
+  <div class="srv-info">
+    <div class="srv-name">awslabs/mcp</div>
+    <div class="srv-desc">Official MCP Servers for AWS</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 8,451</span>
+    <span class="srv-cat">DevOps</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/lauriewired-ghidramcp.html" class="srv">
+  <span class="srv-rank">#18</span>
+  <div class="srv-info">
+    <div class="srv-name">LaurieWired/GhidraMCP</div>
+    <div class="srv-desc">MCP Server for Ghidra</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 7,905</span>
+    <span class="srv-cat">Other</span>
+    <span class="srv-lang">Java</span>
+  </div>
+</a>
+<a href="/servers/firerpa-lamda.html" class="srv">
+  <span class="srv-rank">#19</span>
+  <div class="srv-info">
+    <div class="srv-name">firerpa/lamda</div>
+    <div class="srv-desc">The most powerful Android RPA agent framework, next generation of mobile automation robots.</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 7,665</span>
+    <span class="srv-cat">Security</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/modelcontextprotocol-modelcontextprotocol.html" class="srv">
+  <span class="srv-rank">#20</span>
+  <div class="srv-info">
+    <div class="srv-name">modelcontextprotocol/modelcontextprotocol</div>
+    <div class="srv-desc">Specification and documentation for the Model Context Protocol</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 7,489</span>
+    <span class="srv-cat">Memory/Knowledge</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+</div>
+
+        <h2>Category Focus: DevOps <span style="font-size:0.8rem;color:var(--text-dim);font-weight:400;">Weekly Spotlight</span></h2>
+        <p>A rotating deep dive into leading servers within the DevOps ecosystem.</p>
+        <div class="srv-grid"><a href="/servers/budtmo-docker-android.html" class="srv">
+  <span class="srv-rank">#1</span>
+  <div class="srv-info">
+    <div class="srv-name">budtmo/docker-android</div>
+    <div class="srv-desc">Android in docker solution with noVNC supported, video recording and mcp server</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 15,800</span>
+    <span class="srv-cat">DevOps</span>
+  </div>
+</a>
+<a href="/servers/kubeshark-kubeshark.html" class="srv">
+  <span class="srv-rank">#2</span>
+  <div class="srv-info">
+    <div class="srv-name">kubeshark/kubeshark</div>
+    <div class="srv-desc">eBPF-powered network observability for Kubernetes. Indexes L4/L7 traffic with full K8s con</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 11,873</span>
+    <span class="srv-cat">DevOps</span>
+  </div>
+</a>
+<a href="/servers/openstatushq-openstatus.html" class="srv">
+  <span class="srv-rank">#3</span>
+  <div class="srv-info">
+    <div class="srv-name">openstatusHQ/openstatus</div>
+    <div class="srv-desc">🫖 Status page with uptime monitoring &amp; API monitoring as code   🫖</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 8,896</span>
+    <span class="srv-cat">DevOps</span>
+  </div>
+</a>
+<a href="/servers/awslabs-mcp.html" class="srv">
+  <span class="srv-rank">#4</span>
+  <div class="srv-info">
+    <div class="srv-name">awslabs/mcp</div>
+    <div class="srv-desc">Official MCP Servers for AWS</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 8,451</span>
+    <span class="srv-cat">DevOps</span>
+  </div>
+</a>
+<a href="/servers/txn2-kubefwd.html" class="srv">
+  <span class="srv-rank">#5</span>
+  <div class="srv-info">
+    <div class="srv-name">txn2/kubefwd</div>
+    <div class="srv-desc">Bulk port forwarding Kubernetes services for local development.</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 4,066</span>
+    <span class="srv-cat">DevOps</span>
+  </div>
+</a>
+<a href="/servers/grafana-mcp-grafana.html" class="srv">
+  <span class="srv-rank">#6</span>
+  <div class="srv-info">
+    <div class="srv-name">grafana/mcp-grafana</div>
+    <div class="srv-desc">MCP server for Grafana</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 2,543</span>
+    <span class="srv-cat">DevOps</span>
+  </div>
+</a>
+<a href="/servers/metatool-ai-metamcp.html" class="srv">
+  <span class="srv-rank">#7</span>
+  <div class="srv-info">
+    <div class="srv-name">metatool-ai/metamcp</div>
+    <div class="srv-desc">MCP Aggregator, Orchestrator, Middleware, Gateway in one docker</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 2,107</span>
+    <span class="srv-cat">DevOps</span>
+  </div>
+</a>
+<a href="/servers/amoylab-unla.html" class="srv">
+  <span class="srv-rank">#8</span>
+  <div class="srv-info">
+    <div class="srv-name">AmoyLab/Unla</div>
+    <div class="srv-desc">🧩 MCP Gateway - A lightweight gateway service that instantly transforms existing MCP Serve</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 2,057</span>
+    <span class="srv-cat">DevOps</span>
+  </div>
+</a>
+</div>
+
+        <h2>Explore by Category</h2>
+        <div class="cat-pills"><a href="/categories.html" class="cat-pill"><strong>12,632</strong> AI/LLM</a>
+<a href="/categories.html" class="cat-pill"><strong>6,033</strong> Other</a>
+<a href="/categories.html" class="cat-pill"><strong>3,302</strong> Code/Dev Tools</a>
+<a href="/categories.html" class="cat-pill"><strong>2,294</strong> API Integration</a>
+<a href="/categories.html" class="cat-pill"><strong>1,259</strong> Database</a>
+<a href="/categories.html" class="cat-pill"><strong>1,236</strong> Security</a>
+<a href="/categories.html" class="cat-pill"><strong>1,119</strong> Memory/Knowledge</a>
+<a href="/categories.html" class="cat-pill"><strong>1,004</strong> Browser/Web</a>
+<a href="/categories.html" class="cat-pill"><strong>620</strong> DevOps</a>
+<a href="/categories.html" class="cat-pill"><strong>555</strong> Search</a>
+<a href="/categories.html" class="cat-pill"><strong>545</strong> Data/Analytics</a>
+<a href="/categories.html" class="cat-pill"><strong>500</strong> File System</a>
+<a href="/categories.html" class="cat-pill"><strong>327</strong> Communication</a>
+<a href="/categories.html" class="cat-pill"><strong>2</strong> Finance</a>
+<a href="/categories.html" class="cat-pill"><strong>1</strong> Media</a>
+</div>
+        <p><a href="/categories.html">Browse all 15 categories on Protodex &#8594;</a></p>
+
+        <h2>Production Toolkits &amp; Quantitative Datasets</h2>
+        <div class="cta-stack">
+            <div class="cta-card">
+                <h3>&#128202; Polymarket Historical Dataset</h3>
+                <p>10.8M+ price ticks across 13,900+ prediction markets. 15-minute orderbook depth, CSV format. <strong>$19 one-time</strong>.</p>
+                <a href="https://manja8.gumroad.com/l/polymarket-data?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign=weekly-2026-11-09" target="_blank" class="cta-btn">Get Dataset &#8594;</a>
+            </div>
+            <div class="cta-card">
+                <h3>&#128187; Quant Algo Trading Engine</h3>
+                <p>Institutional Python trading harness with Dhan HQ, PropFirm Titan, and Polymarket arbitrage bot templates.</p>
+                <a href="https://manja8.gumroad.com/l/quant-algo-pack?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign=weekly-2026-11-09" target="_blank" class="cta-btn">View Quant Pack &#8594;</a>
+            </div>
+            <div class="cta-card">
+                <h3>&#127912; Protodex UI Studio</h3>
+                <p>48 production-ready AI agent dashboard templates with full Tailwind, React, and Figma design tokens.</p>
+                <a href="/ui-studio.html" class="cta-btn">Explore Studio &#8594;</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="post-footer">
+        <p>Auto-generated weekly by Protodex Discovery Engine &middot; <a href="https://protodex.io">protodex.io</a> &middot; <a href="https://github.com/LuciferForge/mcp-directory">GitHub</a></p>
+    </footer>
+</body>
+</html>

@@ -32,9 +32,13 @@ $PYTHON mcp_directory.py export >> "$LOG" 2>&1
 JSON_COUNT=$($PYTHON -c "import json; print(len(json.load(open('mcp_directory.json'))))")
 log "  Exported: $JSON_COUNT servers"
 
-# 3. Generate weekly blog post from fresh data
-log "Step 3: Generating weekly blog post..."
-$PYTHON blog_generator.py weekly >> "$LOG" 2>&1
+# 3. Generate weekly blog post from fresh data (runs once weekly on Mondays)
+if [ "$(date +%u)" = "1" ] || [ "$RUN_FULL" = "1" ]; then
+    log "Step 3: Generating weekly blog post (Monday cadence)..."
+    $PYTHON blog_generator.py weekly >> "$LOG" 2>&1 || log "  Step 3 blog generation skipped or failed (non-fatal)"
+else
+    log "Step 3: Skipping weekly digest (runs on Mondays only; today is $(date +%A))"
+fi
 
 # 3b. Security-scan a batch of unscanned servers (trust layer — grows coverage each week).
 # RUN_FULL only (heavy: ~8s/repo). Runs BEFORE the build so new badges deploy same run.

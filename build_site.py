@@ -4478,6 +4478,10 @@ def _discover_html_blog_posts(existing_slugs):
         except Exception:
             continue
 
+        # Skip redirect stubs so only canonical weekly issues are listed
+        if 'http-equiv="refresh"' in html.lower():
+            continue
+
         # Extract date
         m_date = re.search(r'(\d{4}-\d{2}-\d{2})', slug)
         if not m_date:
@@ -4502,8 +4506,12 @@ def _discover_html_blog_posts(existing_slugs):
             cat_bg = "rgba(255,217,61,0.15)"
             filter_tag = "roundup"
             tags = ["weekly", "MCP", "roundup"]
-            title = f"MCP Server Weekly ({date_display}): 20 New Tool Servers"
-            excerpt = f"Curated weekly roundup of 20 newly discovered Model Context Protocol servers across AI tooling, databases, and agent infrastructure for {date_display}."
+            if not title or title.startswith("weekly-"):
+                title = f"MCP Server Weekly ({date_display}): 20 New Tool Servers"
+            if desc and len(desc) > 20:
+                excerpt = desc
+            else:
+                excerpt = f"Curated weekly roundup of 20 newly discovered Model Context Protocol servers across AI tooling, databases, and agent infrastructure for {date_display}."
             read_time = "3 min read"
         elif slug.startswith("polymarket-"):
             category = "Quant Telemetry"
