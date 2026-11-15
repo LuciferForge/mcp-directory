@@ -1122,24 +1122,24 @@ footer {
 
 
 <!-- ====================================================================== -->
-<!-- 2026 RAYCAST COMMAND HUD & OBSIDIAN AURORA HERO SECTION               -->
+<!-- AURORA HERO & RAYCAST SEARCH HUD                                      -->
 <!-- ====================================================================== -->
-<section class="aurora-hero-section">
+<section class="aurora-hero-section" style="padding-bottom:32px">
     <div class="container">
-        <!-- Live Ecosystem Pulse Badge -->
+        <!-- Live Ecosystem Badge -->
         <div class="hero-top-badge">
             <span class="status-indicator-pulse"></span>
-            <span class="badge-text"><strong>PROTODEX 2026</strong> &middot; Real-Time MCP Intelligence &middot; 31,429 Screened Repos</span>
-            <span class="badge-pill">ACTIVE INDEX</span>
+            <span class="badge-text"><strong>PROTODEX 2026</strong> &middot; The Open MCP Server Index &middot; 31,429 Repos Screened</span>
+            <span class="badge-pill">ACTIVE REGISTRY</span>
         </div>
 
         <!-- Hero Headline -->
         <h1 class="aurora-hero-title">
-            The Next-Gen Intelligence &amp; UI Directory for <br>
-            <span class="gradient-text">Model Context Protocol</span>
+            Discover &amp; Connect <br>
+            <span class="gradient-text">31,429+ Model Context Protocol Servers</span>
         </h1>
         <p class="aurora-hero-subtitle">
-            Search 31,429 screened MCP servers, inspect real-time AST security telemetry, and deploy 48+ turnkey developer UI archetypes for autonomous AI agents.
+            The open directory for AI agents. Find, inspect, and connect verified tools, APIs, and databases to Claude Desktop, Cursor, Windsurf, and autonomous AI workflows.
         </p>
 
         <!-- Raycast Floating Command HUD -->
@@ -1148,7 +1148,7 @@ footer {
                 <div class="hud-leading-icon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                 </div>
-                <input type="text" id="search-input" class="raycast-search-input" placeholder="Search 31,429 servers, tools, schemas... (e.g., postgres, slack, stripe, fastmcp)" autocomplete="off" oninput="doSearch(this.value)">
+                <input type="text" id="search-input" class="raycast-search-input" placeholder="Search 31,429 servers, tools, schemas... (e.g. postgres, n8n, slack, playwright)" autocomplete="off" oninput="doSearch(this.value)">
                 <div class="hud-kbd-badge">
                     <span>⌘K</span>
                 </div>
@@ -1157,20 +1157,19 @@ footer {
             
             <!-- Quick Intent Command Chips -->
             <div class="hud-intent-chips">
-                <span class="chips-label">Quick Intent:</span>
+                <span class="chips-label">Popular Searches:</span>
                 <button type="button" class="intent-chip active" onclick="var i=document.getElementById('search-input');i.value='postgres';i.focus();doSearch('postgres');return false;"><span class="dot"></span>postgres</button>
-                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='slack';i.focus();doSearch('slack');return false;"><span class="dot"></span>slack</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='n8n';i.focus();doSearch('n8n');return false;"><span class="dot"></span>n8n</button>
                 <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='github';i.focus();doSearch('github');return false;"><span class="dot"></span>github</button>
-                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='browser';i.focus();doSearch('browser');return false;"><span class="dot"></span>browser</button>
-                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='stripe';i.focus();doSearch('stripe');return false;"><span class="dot"></span>stripe</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='playwright';i.focus();doSearch('playwright');return false;"><span class="dot"></span>playwright</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='slack';i.focus();doSearch('slack');return false;"><span class="dot"></span>slack</button>
                 <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='fastmcp';i.focus();doSearch('fastmcp');return false;"><span class="dot"></span>fastmcp</button>
                 <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='memory';i.focus();doSearch('memory');return false;"><span class="dot"></span>memory</button>
-                <a href="/templates.html" class="intent-chip highlight"><span class="dot"></span>48 UI Templates 🎨</a>
             </div>
         </div>
 
         <!-- Telemetry Stats Ribbon -->
-        <div class="telemetry-ribbon">
+        <div class="telemetry-ribbon" style="margin-bottom:0">
             <div class="telemetry-item">
                 <div class="telemetry-val">31,429</div>
                 <div class="telemetry-lbl">Screened Servers</div>
@@ -1178,7 +1177,7 @@ footer {
             <div class="telemetry-sep"></div>
             <div class="telemetry-item">
                 <div class="telemetry-val">3,380,000+</div>
-                <div class="telemetry-lbl">Total GitHub Stars</div>
+                <div class="telemetry-lbl">GitHub Stars Indexed</div>
             </div>
             <div class="telemetry-sep"></div>
             <div class="telemetry-item">
@@ -1187,528 +1186,605 @@ footer {
             </div>
             <div class="telemetry-sep"></div>
             <div class="telemetry-item">
-                <div class="telemetry-val">48</div>
-                <div class="telemetry-lbl">UI Studio Archetypes</div>
-            </div>
-            <div class="telemetry-sep"></div>
-            <div class="telemetry-item">
                 <div class="telemetry-val highlight-green">100% Verified</div>
                 <div class="telemetry-lbl">AegisMesh AST Scanned</div>
             </div>
         </div>
-
-        <!-- ============================================================== -->
-        <!-- OBSIDIAN AURORA ASYMMETRICAL BENTO GRID (COMPACT 2026)         -->
-        <!-- ============================================================== -->
-        <div class="bento-grid-2026">
-            
-            <!-- Bento Tile 1: Dual-SDK Interactive IDE & Terminal Simulator (7 Cols) -->
-            <div class="bento-tile bento-tile-ide">
-                <div class="bento-header">
-                    <div class="ide-tabs-nav">
-                        <button class="ide-tab active" onclick="switchIdeTab('python', this)">FastMCP (Python)</button>
-                        <button class="ide-tab" onclick="switchIdeTab('ts', this)">TypeScript SDK</button>
-                        <button class="ide-tab" onclick="switchIdeTab('claude', this)">Claude Desktop</button>
-                        <button class="ide-tab" onclick="switchIdeTab('cursor', this)">Cursor Rules</button>
-                    </div>
-                    <button class="btn-copy-code" id="copy-code-btn" onclick="copyIdeSnippet()">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                        <span>Copy</span>
-                    </button>
-                </div>
-                <div class="ide-body">
-                    <pre class="ide-code-block" id="ide-code-display"><code class="language-python"><span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP
-mcp = FastMCP(<span class="c-str">"ProtodexLive"</span>)
-
-<span class="c-dec">@mcp.tool</span>()
-<span class="c-kw">def</span> <span class="c-fn">search_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -> <span class="c-type">dict</span>:
-    <span class="c-kw">return</span> mcp_engine.search(query, min_stars=min_stars)
-
-mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
-                </div>
-                <div class="ide-footer">
-                    <div class="ide-status-pill">
-                        <span class="status-dot green"></span>
-                        <span>JSON-RPC 2.0 &middot; Stdio + SSE Supported</span>
-                    </div>
-                    <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" class="ide-starter-link">Get Dual-SDK Kit ($39) &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Bento Tile 2: AegisMesh Cyber Security Radar (5 Cols) -->
-            <div class="bento-tile bento-tile-radar">
-                <div class="radar-top">
-                    <span class="radar-tag">AEGISMESH TRiSM</span>
-                    <span class="radar-badge-live">LIVE TELEMETRY</span>
-                </div>
-                <div class="radar-visual-container">
-                    <div class="radar-avionics-display">
-                        <div class="radar-sweep-beam"></div>
-                        <div class="radar-circle circle-1"></div>
-                        <div class="radar-circle circle-2"></div>
-                        <div class="radar-circle circle-3"></div>
-                        <div class="radar-crosshair-h"></div>
-                        <div class="radar-crosshair-v"></div>
-                        <div class="radar-blip blip-1"></div>
-                        <div class="radar-blip blip-2"></div>
-                        <div class="radar-blip blip-3"></div>
-                        <div class="radar-center-score">
-                            <span class="score-num">98.4</span>
-                            <span class="score-lbl">SAFETY</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="radar-info">
-                    <div class="radar-metric-row">
-                        <span>Zero-Day CVEs</span>
-                        <strong class="text-green">0 DETECTED</strong>
-                    </div>
-                    <div class="radar-metric-row">
-                        <span>AST Sandbox</span>
-                        <strong class="text-cyan">100% COMPLIANT</strong>
-                    </div>
-                </div>
-                <a href="/audit.html" class="radar-action-btn">
-                    <span>Scan Your Server Free</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-            </div>
-
-                        <!-- Bento Tile 3: Featured MCP Partner & Sponsored Slot (5 Cols) -->
-            <div class="bento-tile bento-tile-featured" style="position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;">
-                <!-- Top Badge Row -->
-                <div class="featured-top" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-                    <span class="featured-badge" style="background:linear-gradient(135deg,rgba(245,158,11,0.25),rgba(45,217,224,0.15));border:1px solid rgba(245,158,11,0.4);color:#FBBF24;font-size:0.72rem;padding:3px 10px;border-radius:100px;font-weight:700;letter-spacing:0.04em;">⚡ SPONSOR SPOTLIGHT</span>
-                    <span class="featured-verified" style="background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:600;">2 OF 3 SLOTS OPEN</span>
-                </div>
-
-                <!-- Headline -->
-                <div class="featured-content">
-                    <h3 class="featured-name" style="font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-0.02em;">
-                        Feature Your MCP Server Here
-                    </h3>
-                    <p class="featured-tagline" style="color:var(--text-muted);font-size:0.78rem;line-height:1.45;margin-bottom:12px;">
-                        Put your tool in front of <strong>30,000+ AI engineers</strong> building autonomous agents for Claude &amp; Cursor.
-                    </p>
-
-                    <!-- Interactive Switcher: "Placement & Terms" vs "Current Partner" -->
-                    <div style="display:flex;gap:4px;background:rgba(6,8,14,0.6);padding:3px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);margin-bottom:12px;">
-                        <button type="button" id="sponsor-tab-terms" class="ide-tab active" onclick="switchSponsorTab('terms', this)" style="flex:1;padding:4px 8px;font-size:0.72rem;text-align:center;">Placement &amp; Terms</button>
-                        <button type="button" id="sponsor-tab-preview" class="ide-tab" onclick="switchSponsorTab('preview', this)" style="flex:1;padding:4px 8px;font-size:0.72rem;text-align:center;">Current Partner (Live)</button>
-                    </div>
-
-                    <!-- Panel 1: Transparent Terms & Placement Details (Default) -->
-                    <div id="sponsor-panel-terms" style="background:#06080E;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.75rem;line-height:1.5;">
-                        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                            <span style="color:#2DD9E0;font-weight:700;white-space:nowrap;">📍 Placement:</span>
-                            <span style="color:#CBD5E1;">#1 Homepage Hero Bento + Top of Category Hub + Search highlight</span>
-                        </div>
-                        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                            <span style="color:#FBBF24;font-weight:700;white-space:nowrap;">⏳ Duration:</span>
-                            <span style="color:#CBD5E1;"><strong>7 Days guaranteed</strong> (auto-rotates or renew weekly, cancel anytime)</span>
-                        </div>
-                        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                            <span style="color:#22C55E;font-weight:700;white-space:nowrap;">⚡ Activation:</span>
-                            <span style="color:#CBD5E1;"><strong>Fast activation</strong> via automated GitHub Actions pipeline (bypasses 14-day backlog)</span>
-                        </div>
-                        <div style="display:flex;align-items:flex-start;gap:8px;">
-                            <span style="color:#EC4899;font-weight:700;white-space:nowrap;">🛡️ Conditions:</span>
-                            <span style="color:#CBD5E1;">Clean open-source or hosted MCP server · 100% money-back if not verified</span>
-                        </div>
-                    </div>
-
-                    <!-- Panel 2: Current Partner Live Example -->
-                    
-                    <div id="sponsor-panel-preview" style="display:none;background:#06080E;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.75rem;">
-                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
-                            <a href="/servers/n8n-io-n8n.html" style="color:#2DD9E0;font-size:0.85rem;font-weight:700;text-decoration:none;">n8n (Workflow Automation) &rarr;</a>
-                            <span style="color:#FBBF24;font-size:0.75rem;font-weight:700;">★ 210,079 Stars</span>
-                        </div>
-                        <p style="color:var(--text-muted);font-size:0.73rem;line-height:1.4;margin:0 0 8px;">Enterprise workflow automation platform with native AI agent connectors and 400+ integration nodes.</p>
-                        <div style="font-size:0.68rem;color:#94A3B8;background:rgba(255,255,255,0.04);padding:4px 8px;border-radius:6px;border:1px dashed rgba(255,255,255,0.1);">
-                            💡 <em>When you sponsor, your repo joins up to 3 featured partner slots automatically for 7 days!</em>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Action Footer -->
-                <div class="featured-footer" style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.05);">
-                    <a href="/pricing.html" class="featured-view-link" style="color:var(--text-muted);font-size:0.76rem;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">
-                        Full Specs &amp; FAQ &rarr;
-                    </a>
-                    <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="featured-sponsor-btn" style="background:#2DD9E0;color:#000;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:8px;text-decoration:none;box-shadow:0 0 16px rgba(45,217,224,0.3);transition:all 0.2s;">
-                        Claim Slot ($49/wk) ⚡
-                    </a>
-                </div>
-            </div>
-
-            <!-- Bento Tile 4: Protodex UI Studio Showcase (7 Cols) -->
-            <div class="bento-tile bento-tile-studio">
-                <div class="studio-split">
-                    <div class="studio-media">
-                        <img src="/assets/preview_diverse_templates.jpg" alt="Protodex UI Studio 48 Templates Across Diverse Developer Aesthetics" class="studio-preview-img" loading="lazy">
-                        <div class="studio-media-overlay">
-                            <span class="style-tag tag-swiss">Swiss Minimalist</span>
-                            <span class="style-tag tag-crt">Phosphor CRT</span>
-                            <span class="style-tag tag-quant">Web3 Quant</span>
-                            <span class="style-tag tag-aurora">Obsidian SaaS</span>
-                        </div>
-                    </div>
-                    <div class="studio-details">
-                        <div class="studio-badge-row">
-                            <span class="badge-studio-new">&#127912; NEW RELEASE</span>
-                            <span class="badge-studio-skill">Antigravity AI Skill</span>
-                        </div>
-                        <h3 class="studio-title">Protodex UI Studio: 48 Turnkey Templates</h3>
-                        <p class="studio-desc">
-                            Radical visual variety for high-performing AI developer tools. Built in clean Tailwind CSS + Antigravity AI Skill (SKILL.md).
-                        </p>
-                        <div class="studio-perks-list">
-                            <div class="perk-item"><span>&#10003;</span> 48 Tailwind Layouts</div>
-                            <div class="perk-item"><span>&#10003;</span> Zero External Dependencies</div>
-                        </div>
-                        <div class="studio-actions-row">
-                            <a href="/templates.html" class="btn-studio-explore">Explore Gallery &rarr;</a>
-                            <a href="https://manja8.gumroad.com/l/lntzuo" target="_blank" rel="noopener" class="btn-studio-buy">Instant Download ($39)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div> <!-- /.bento-grid-2026 -->
-<script>
-/* ─── Immediate Inline Handlers for Bento Grid Interactivity ─── */
-var _ideSnippets = {
-    python: {
-        code: `<span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP
-mcp = FastMCP(<span class="c-str">"ProtodexLive"</span>)
-
-<span class="c-dec">@mcp.tool</span>()
-<span class="c-kw">def</span> <span class="c-fn">search_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -&gt; <span class="c-type">dict</span>:
-    <span class="c-dim"># Search 31,400+ MCP servers by capability and security rating</span>
-    <span class="c-kw">return</span> mcp_engine.search(query, min_stars=min_stars)
-
-<span class="c-kw">if</span> __name__ == <span class="c-str">"__main__"</span>:
-    mcp.run(transport=<span class="c-str">"stdio"</span>)`,
-        raw: `from mcp.server.fastmcp import FastMCP
-mcp = FastMCP("ProtodexLive")
-
-@mcp.tool()
-def search_servers(query: str, min_stars: int = 50) -> dict:
-    # Search 31,400+ MCP servers by capability and security rating
-    return mcp_engine.search(query, min_stars=min_stars)
-
-if __name__ == "__main__":
-    mcp.run(transport="stdio")`,
-        lang: 'language-python',
-        pill: '<span class="status-dot green"></span><span>JSON-RPC 2.0 &middot; Stdio + SSE Supported</span>',
-        linkText: 'Get Dual-SDK Kit ($39) &rarr;',
-        linkHref: 'https://manja8.gumroad.com/l/bsboqh'
-    },
-    ts: {
-        code: `<span class="c-kw">import</span> { McpServer } <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/mcp.js"</span>;
-<span class="c-kw">import</span> { StdioServerTransport } <span class="c-kw">from</span> <span class="c-str">"@modelcontextprotocol/sdk/server/stdio.js"</span>;
-<span class="c-kw">import</span> { z } <span class="c-kw">from</span> <span class="c-str">"zod"</span>;
-
-<span class="c-kw">const</span> server = <span class="c-kw">new</span> <span class="c-fn">McpServer</span>({ name: <span class="c-str">"protodex"</span>, version: <span class="c-str">"1.0.0"</span> });
-
-server.<span class="c-fn">tool</span>(
-  <span class="c-str">"search_servers"</span>,
-  { query: z.<span class="c-fn">string</span>(), min_stars: z.<span class="c-fn">number</span>().<span class="c-fn">default</span>(<span class="c-num">50</span>) },
-  <span class="c-kw">async</span> ({ query, min_stars }) =&gt; ({
-    content: [{ type: <span class="c-str">"text"</span>, text: JSON.<span class="c-fn">stringify</span>(<span class="c-kw">await</span> <span class="c-fn">queryIndex</span>(query, min_stars)) }]
-  })
-);
-
-<span class="c-kw">const</span> transport = <span class="c-kw">new</span> <span class="c-fn">StdioServerTransport</span>();
-<span class="c-kw">await</span> server.<span class="c-fn">connect</span>(transport);`,
-        raw: `import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { z } from "zod";
-
-const server = new McpServer({ name: "protodex", version: "1.0.0" });
-
-server.tool(
-  "search_servers",
-  { query: z.string(), min_stars: z.number().default(50) },
-  async ({ query, min_stars }) => ({
-    content: [{ type: "text", text: JSON.stringify(await queryIndex(query, min_stars)) }]
-  })
-);
-
-const transport = new StdioServerTransport();
-await server.connect(transport);`,
-        lang: 'language-typescript',
-        pill: '<span class="status-dot green"></span><span>@modelcontextprotocol/sdk &middot; Type-Safe Zod Tools</span>',
-        linkText: 'Get Dual-SDK Kit ($39) &rarr;',
-        linkHref: 'https://manja8.gumroad.com/l/bsboqh'
-    },
-    claude: {
-        code: `{
-  <span class="c-str">"mcpServers"</span>: {
-    <span class="c-str">"github"</span>: {
-      <span class="c-str">"command"</span>: <span class="c-str">"npx"</span>,
-      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@modelcontextprotocol/server-github"</span>],
-      <span class="c-str">"env"</span>: {
-        <span class="c-str">"GITHUB_PERSONAL_ACCESS_TOKEN"</span>: <span class="c-str">"ghp_yourTokenHere"</span>
-      }
-    },
-    <span class="c-str">"filesystem"</span>: {
-      <span class="c-str">"command"</span>: <span class="c-str">"npx"</span>,
-      <span class="c-str">"args"</span>: [<span class="c-str">"-y"</span>, <span class="c-str">"@modelcontextprotocol/server-filesystem"</span>, <span class="c-str">"/Users/dev/workspace"</span>]
-    }
-  }
-}`,
-        raw: `{
-  "mcpServers": {
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_yourTokenHere"
-      }
-    },
-    "filesystem": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dev/workspace"]
-    }
-  }
-}`,
-        lang: 'language-json',
-        pill: '<span class="status-dot blue" style="background:#5B8DEF"></span><span>Claude Desktop &middot; claude_desktop_config.json</span>',
-        linkText: 'Get 31k Dataset ($29) &rarr;',
-        linkHref: 'https://manja8.gumroad.com/l/zcyee'
-    },
-    cursor: {
-        code: `<span class="c-kw"># Model Context Protocol (MCP) Integration Rules</span>
-
-<span class="c-str">When creating or connecting MCP tools with AI agents:</span>
-<span class="c-kw">1.</span> Prefer official <span class="c-fn">@modelcontextprotocol/sdk</span> (TS) or <span class="c-fn">FastMCP</span> (Python).
-<span class="c-kw">2.</span> Validate input schemas with strict <span class="c-type">Zod</span> or <span class="c-type">Pydantic</span> models.
-<span class="c-kw">3.</span> Send debug logs to <span class="c-fn">stderr</span> &mdash; stdout is reserved for JSON-RPC framing.
-<span class="c-kw">4.</span> Wrap tool returns in <span class="c-type">{ content: [{ type: "text", text }] }</span> payloads.`,
-        raw: `# Model Context Protocol (MCP) Integration Rules
-
-When creating or connecting MCP tools with AI agents:
-1. Prefer official @modelcontextprotocol/sdk (TS) or FastMCP (Python).
-2. Validate input schemas with strict Zod or Pydantic models.
-3. Send debug logs to stderr — stdout is reserved for JSON-RPC framing.
-4. Wrap tool returns in { content: [{ type: "text", text }] } payloads.`,
-        lang: 'language-markdown',
-        pill: '<span class="status-dot purple" style="background:#A78BFA"></span><span>Cursor Rules &middot; .cursor/rules/mcp.mdc</span>',
-        linkText: 'Explore UI Studio ($39) &rarr;',
-        linkHref: 'https://manja8.gumroad.com/l/lntzuo'
-    }
-};
-
-var _currentIdeTab = 'python';
-
-function switchIdeTab(tabKey, btn) {
-    if (!_ideSnippets[tabKey]) return;
-    _currentIdeTab = tabKey;
-    
-    var tabs = document.querySelectorAll('.ide-tabs-nav .ide-tab');
-    for (var i = 0; i < tabs.length; i++) {
-        tabs[i].classList.remove('active');
-    }
-    if (btn) {
-        btn.classList.add('active');
-    }
-    
-    var codeEl = document.getElementById('ide-code-display');
-    if (codeEl) {
-        var data = _ideSnippets[tabKey];
-        codeEl.innerHTML = '<code class="' + data.lang + '">' + data.code + '</code>';
-    }
-    
-    var pillEl = document.querySelector('.ide-footer .ide-status-pill');
-    if (pillEl && _ideSnippets[tabKey].pill) {
-        pillEl.innerHTML = _ideSnippets[tabKey].pill;
-    }
-    var linkEl = document.querySelector('.ide-footer .ide-starter-link');
-    if (linkEl && _ideSnippets[tabKey].linkText) {
-        linkEl.innerHTML = _ideSnippets[tabKey].linkText;
-        linkEl.href = _ideSnippets[tabKey].linkHref;
-    }
-}
-
-function copyIdeSnippet() {
-    var raw = _ideSnippets[_currentIdeTab] ? _ideSnippets[_currentIdeTab].raw : '';
-    if (!raw) return;
-    
-    function onSuccess() {
-        var btn = document.getElementById('copy-code-btn');
-        if (btn) {
-            var orig = btn.innerHTML;
-            btn.innerHTML = '<span style="color:#22C55E;display:inline-flex;align-items:center;gap:4px">✓ Copied!</span>';
-            setTimeout(function() {
-                btn.innerHTML = orig;
-            }, 2000);
-        }
-    }
-
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(raw).then(onSuccess).catch(function(err) {
-            fallbackCopy(raw);
-        });
-    } else {
-        fallbackCopy(raw);
-    }
-
-    function fallbackCopy(text) {
-        var ta = document.createElement('textarea');
-        ta.value = text;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-            document.execCommand('copy');
-            onSuccess();
-        } catch (e) {
-            console.error('Copy fallback failed:', e);
-        }
-        document.body.removeChild(ta);
-    }
-}
-
-function switchSponsorTab(tabKey, btn) {
-    var termsPanel = document.getElementById('sponsor-panel-terms');
-    var previewPanel = document.getElementById('sponsor-panel-preview');
-    var termsTab = document.getElementById('sponsor-tab-terms');
-    var previewTab = document.getElementById('sponsor-tab-preview');
-
-    if (tabKey === 'preview') {
-        if (termsPanel) termsPanel.style.display = 'none';
-        if (previewPanel) previewPanel.style.display = 'block';
-        if (termsTab) termsTab.classList.remove('active');
-        if (previewTab) previewTab.classList.add('active');
-    } else {
-        if (termsPanel) termsPanel.style.display = 'block';
-        if (previewPanel) previewPanel.style.display = 'none';
-        if (termsTab) termsTab.classList.add('active');
-        if (previewTab) previewTab.classList.remove('active');
-    }
-}
-
-window.switchIdeTab = switchIdeTab;
-window.copyIdeSnippet = copyIdeSnippet;
-window.switchSponsorTab = switchSponsorTab;
-</script>
-
-
-    </div> <!-- /.container -->
+    </div>
 </section>
 
 <!-- ====================================================================== -->
-<!-- LIVE MCP SERVER DIRECTORY SPOTLIGHT & CATEGORIES (VISIBLE NEAR FOLD)   -->
+<!-- 1. TRENDING & HIGH-DEMAND MCP SERVERS (RIGHT AT THE TOP!)              -->
 <!-- ====================================================================== -->
-<!-- Commercial Developer Toolkits & Quant Suites Grid -->
-<section class="container" style="padding-top:10px">
+<section class="container" style="padding-top:36px;padding-bottom:20px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:12px">
+        <div>
+            <h2 class="section-title" style="margin-bottom:4px;display:flex;align-items:center;gap:8px">
+                🔥 Trending &amp; High-Demand MCP Servers
+            </h2>
+            <p style="color:var(--text-muted);font-size:0.9rem;margin:0">
+                The most popular tools and integrations developers are connecting to their AI agents right now.
+            </p>
+        </div>
+        
+        <!-- Tab Switcher -->
+        <div class="server-tabs-bar" style="display:flex;gap:6px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:4px;flex-wrap:wrap">
+            <button type="button" class="srv-tab-btn active" onclick="switchServerTab('tab-trending', this)">🔥 Trending Now</button>
+            <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-claude', this)">🟣 For Claude Desktop</button>
+            <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-cursor', this)">⚡ For Cursor IDE</button>
+            <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-database', this)">🗄️ Database &amp; SQL</button>
+            <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-memory', this)">🧠 Knowledge &amp; Memory</button>
+        </div>
+    </div>
+
+    <!-- Tab Panes -->
+    <div id="tab-trending" class="srv-tab-pane server-grid" style="display:grid">
+        
+    <a href="/servers/n8n-io-n8n.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">n8n</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 210K</span></span>
+        </div>
+        <div class="server-card-desc">Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code,...</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span>API Integration</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/modelcontextprotocol-servers.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">servers</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 81.0K</span></span>
+        </div>
+        <div class="server-card-desc">Model Context Protocol Servers</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>Memory/Knowledge</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/google-gemini-gemini-cli.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">gemini-cli</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 97.7K</span></span>
+        </div>
+        <div class="server-card-desc">An open-source AI agent that brings the power of Gemini directly into your terminal.</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/microsoft-playwright-mcp.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">playwright-mcp</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 28.9K</span></span>
+        </div>
+        <div class="server-card-desc">Playwright MCP server</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/chromedevtools-chrome-devtools-mcp.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">chrome-devtools-mcp</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 28.9K</span></span>
+        </div>
+        <div class="server-card-desc">Chrome DevTools for coding agents</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/upstash-context7.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">context7</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 49.0K</span></span>
+        </div>
+        <div class="server-card-desc">Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/github-github-mcp-server.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">github-mcp-server</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 27.9K</span></span>
+        </div>
+        <div class="server-card-desc">GitHub&#x27;s official MCP Server</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+        </div>
+    </a>
+    <a href="/servers/berriai-litellm.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">litellm</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 43.7K</span></span>
+        </div>
+        <div class="server-card-desc">Python SDK, Proxy Server (AI Gateway) to call 100+ LLM APIs in OpenAI (or native) format, with cost tracking,...</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a>
+    </div>
+    <div id="tab-claude" class="srv-tab-pane server-grid" style="display:none">
+        
+    <a href="/servers/modelcontextprotocol-servers.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">servers</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 81.0K</span></span>
+        </div>
+        <div class="server-card-desc">Model Context Protocol Servers</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>Memory/Knowledge</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/github-github-mcp-server.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">github-mcp-server</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 27.9K</span></span>
+        </div>
+        <div class="server-card-desc">GitHub&#x27;s official MCP Server</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+        </div>
+    </a>
+    <a href="/servers/crystaldba-postgres-mcp.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">postgres-mcp</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 2.6K</span></span>
+        </div>
+        <div class="server-card-desc">Postgres MCP Pro provides configurable read/write access and performance analysis for you and your AI agents.</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a>
+    <a href="/servers/upstash-context7.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">context7</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 49.0K</span></span>
+        </div>
+        <div class="server-card-desc">Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/mudler-localai.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">LocalAI</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 43.6K</span></span>
+        </div>
+        <div class="server-card-desc"> The free, Open Source alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement, ...</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+        </div>
+    </a>
+    <a href="/servers/glips-figma-context-mcp.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">Figma-Context-MCP</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 13.7K</span></span>
+        </div>
+        <div class="server-card-desc">MCP server to provide Figma layout information to AI coding agents like Cursor</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/assafelovic-gpt-researcher.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">gpt-researcher</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 25.7K</span></span>
+        </div>
+        <div class="server-card-desc">An autonomous agent that conducts deep research on any data using any LLM providers</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a>
+    </div>
+    <div id="tab-cursor" class="srv-tab-pane server-grid" style="display:none">
+        
+    <a href="/servers/chromedevtools-chrome-devtools-mcp.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">chrome-devtools-mcp</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 28.9K</span></span>
+        </div>
+        <div class="server-card-desc">Chrome DevTools for coding agents</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/microsoft-playwright-mcp.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">playwright-mcp</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 28.9K</span></span>
+        </div>
+        <div class="server-card-desc">Playwright MCP server</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/prefecthq-fastmcp.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">fastmcp</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 23.7K</span></span>
+        </div>
+        <div class="server-card-desc">🚀 The fast, Pythonic way to build MCP servers and clients.</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a>
+    <a href="/servers/google-gemini-gemini-cli.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">gemini-cli</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 97.7K</span></span>
+        </div>
+        <div class="server-card-desc">An open-source AI agent that brings the power of Gemini directly into your terminal.</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/d4vinci-scrapling.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">Scrapling</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 29.4K</span></span>
+        </div>
+        <div class="server-card-desc">🕷️ An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl!</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a>
+    <a href="/servers/bytedance-ui-tars-desktop.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">UI-TARS-desktop</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 28.8K</span></span>
+        </div>
+        <div class="server-card-desc">The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/czlonkowski-n8n-mcp.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">n8n-mcp</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 15.1K</span></span>
+        </div>
+        <div class="server-card-desc">A MCP for Claude Desktop / Claude Code / Windsurf / Cursor to build n8n workflows for you </div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/triggerdotdev-triggerdev.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">trigger.dev</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 14.0K</span></span>
+        </div>
+        <div class="server-card-desc">Trigger.dev – build and deploy fully‑managed AI agents and workflows</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    </div>
+    <div id="tab-database" class="srv-tab-pane server-grid" style="display:none">
+        
+    <a href="/servers/evil0ctal-douyin_tiktok_download_api.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">Douyin_TikTok_Download_API</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 20.1K</span></span>
+        </div>
+        <div class="server-card-desc">🚀 Self-hosted TikTok &amp; Douyin scraper and no-watermark video downloader — async REST API, MCP server, CLI and web...</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>Database</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a>
+    <a href="/servers/googleapis-mcp-toolbox.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">mcp-toolbox</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 14.7K</span></span>
+        </div>
+        <div class="server-card-desc">MCP Toolbox for Databases is an open source MCP server for databases.</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>Database</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+        </div>
+    </a>
+    <a href="/servers/googleapis-genai-toolbox.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">genai-toolbox</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 13.4K</span></span>
+        </div>
+        <div class="server-card-desc">MCP Toolbox for Databases is an open source MCP server for databases.</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>Database</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+        </div>
+    </a>
+    <a href="/servers/t8y2-dbx.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">dbx</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 11.2K</span></span>
+        </div>
+        <div class="server-card-desc">20 MB lightweight cross-platform database client for 70+ databases, including MySQL, PostgreSQL, SQLite, Redis,...</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>Database</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#DEA584"></span>Rust</span>
+        </div>
+    </a>
+    <a href="/servers/joeanamier-xhs-downloader.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">XHS-Downloader</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 10.4K</span></span>
+        </div>
+        <div class="server-card-desc">小红书（XiaoHongShu、RedNote）链接提取/作品采集工具：提取账号发布、收藏、点赞、专辑作品链接；提取搜索结果作品、用户链接；采集小红书作品信息；提取小红书作品下载地址；下载小红书作品文件</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>Database</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a>
+    <a href="/servers/webiny-webiny-js.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">webiny-js</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 8.0K</span></span>
+        </div>
+        <div class="server-card-desc">Open-source, self-hosted CMS platform on AWS serverless (Lambda, DynamoDB, S3). TypeScript framework with...</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>Database</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/clidey-whodb.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">whodb</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 4.9K</span></span>
+        </div>
+        <div class="server-card-desc">Where data access meets operational intelligence</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>Database</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+        </div>
+    </a>
+    <a href="/servers/prest-prest.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">prest</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 4.6K</span></span>
+        </div>
+        <div class="server-card-desc">PostgreSQL ➕ REST, low-code, simplify and accelerate development, ⚡ instant, realtime, high-performance on any...</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></span>Database</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+        </div>
+    </a>
+    </div>
+    <div id="tab-memory" class="srv-tab-pane server-grid" style="display:none">
+        
+    <a href="/servers/modelcontextprotocol-servers.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">servers</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 81.0K</span></span>
+        </div>
+        <div class="server-card-desc">Model Context Protocol Servers</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>Memory/Knowledge</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/modelcontextprotocol-modelcontextprotocol.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">modelcontextprotocol</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 7.5K</span></span>
+        </div>
+        <div class="server-card-desc">Specification and documentation for the Model Context Protocol</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>Memory/Knowledge</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/modelcontextprotocol-registry.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">registry</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 6.5K</span></span>
+        </div>
+        <div class="server-card-desc">A community driven registry service for Model Context Protocol (MCP) servers.</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>Memory/Knowledge</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
+        </div>
+    </a>
+    <a href="/servers/modelcontextprotocol-rust-sdk.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">rust-sdk</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 3.2K</span></span>
+        </div>
+        <div class="server-card-desc">The official Rust SDK for the Model Context Protocol</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>Memory/Knowledge</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#DEA584"></span>Rust</span>
+        </div>
+    </a>
+    <a href="/servers/supermemoryai-apple-mcp.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">apple-mcp</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 3.0K</span></span>
+        </div>
+        <div class="server-card-desc">Collection of apple-native tools for the model context protocol.</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>Memory/Knowledge</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/forloopcodes-contextplus.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">contextplus</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 1.8K</span></span>
+        </div>
+        <div class="server-card-desc">Semantic Intelligence for Large-Scale Engineering. Context+ is an MCP server designed for developers who demand 99%...</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>Memory/Knowledge</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/forloopcodes-contextplus.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">contextplus</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-yellow">&#9888; Review</span><span class="server-card-stars">★ 1.5K</span></span>
+        </div>
+        <div class="server-card-desc">Semantic Intelligence for Large-Scale Engineering. Context+ is an MCP server designed for developers who demand 99%...</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>Memory/Knowledge</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    <a href="/servers/tianma-if-edgeever.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">edgeever</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 1.3K</span></span>
+        </div>
+        <div class="server-card-desc">Open-source, AI-native Evernote alternative with native MCP. Zero-cost on Cloudflare or self-hosted with Docker.</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>Memory/Knowledge</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#6B7280"></span>HTML</span>
+        </div>
+    </a>
+    </div>
+
+    <div style="text-align:center;margin-top:28px">
+        <a href="/categories.html" class="btn btn-outline" style="font-size:0.9rem;padding:10px 24px">
+            Explore all 31,429 servers by category &rarr;
+        </a>
+    </div>
+</section>
+
+
+<section class="container" style="padding-top:10px;padding-bottom:10px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+        <span style="background:rgba(244,114,182,0.15);color:#f472b6;border:1px solid rgba(244,114,182,0.3);font-size:0.75rem;padding:3px 10px;border-radius:100px;font-weight:800">⚡ FEATURED PARTNERS</span>
+        <span style="color:var(--text-dim);font-size:0.8rem">Verified MCP ecosystem deployments</span>
+    </div>
+    <div class="server-grid">
+        
+    <a href="/servers/n8n-io-n8n.html" class="server-card" style="border:1px solid #f472b6; box-shadow:0 0 10px rgba(244,114,182,0.25)">
+        <div class="server-card-header">
+            <span class="server-card-name">n8n</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="tag" style="background:rgba(244,114,182,0.15);color:#f472b6;border:1px solid rgba(244,114,182,0.3);font-size:10px;font-weight:800;letter-spacing:0.5px">⚡ FEATURED</span><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 210K</span></span>
+        </div>
+        <div class="server-card-desc">Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code,...</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span>API Integration</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+        </div>
+    </a>
+    </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 2. CONNECT IN SECONDS & SECURITY RADAR (DUAL UTILITY BENTO)           -->
+<!-- ====================================================================== -->
+<section class="container" style="padding-top:20px;padding-bottom:20px">
+    <div class="bento-grid-2026" style="margin-top:0">
+        <!-- Dual-SDK Interactive IDE & Terminal Simulator (7 Cols) -->
+        <div class="bento-tile bento-tile-ide">
+            <div class="bento-header">
+                <div class="ide-tabs-nav">
+                    <button type="button" class="ide-tab active" onclick="switchIdeTab('claude', this)">Claude Desktop</button>
+                    <button type="button" class="ide-tab" onclick="switchIdeTab('cursor', this)">Cursor Rules</button>
+                    <button type="button" class="ide-tab" onclick="switchIdeTab('python', this)">FastMCP (Python)</button>
+                    <button type="button" class="ide-tab" onclick="switchIdeTab('ts', this)">TypeScript SDK</button>
+                </div>
+                <button type="button" class="btn-copy-code" id="copy-code-btn" onclick="copyIdeSnippet()">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                    <span>Copy</span>
+                </button>
+            </div>
+            <div class="ide-body">
+                <pre class="ide-code-block" id="ide-code-display"><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;github&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-github&quot;],
+      &quot;env&quot;: {
+        &quot;GITHUB_PERSONAL_ACCESS_TOKEN&quot;: &quot;YOUR_TOKEN&quot;
+      }
+    }
+  }
+}</code></pre>
+            </div>
+            <div class="ide-footer">
+                <div class="ide-status-pill">
+                    <span class="status-dot green"></span>
+                    <span>JSON-RPC 2.0 &middot; Standard Stdio + SSE Transport</span>
+                </div>
+                <span style="color:var(--text-dim);font-size:0.75rem">Paste into claude_desktop_config.json</span>
+            </div>
+        </div>
+
+        <!-- AegisMesh Cyber Security Radar (5 Cols) -->
+        <div class="bento-tile bento-tile-radar">
+            <div class="radar-top">
+                <span class="radar-tag">AEGISMESH TRiSM</span>
+                <span class="radar-badge-live">LIVE TELEMETRY</span>
+            </div>
+            <div class="radar-visual-container">
+                <div class="radar-avionics-display">
+                    <div class="radar-sweep-beam"></div>
+                    <div class="radar-circle circle-1"></div>
+                    <div class="radar-circle circle-2"></div>
+                    <div class="radar-circle circle-3"></div>
+                    <div class="radar-crosshair-h"></div>
+                    <div class="radar-crosshair-v"></div>
+                    <div class="radar-blip blip-1"></div>
+                    <div class="radar-blip blip-2"></div>
+                    <div class="radar-blip blip-3"></div>
+                    <div class="radar-center-score">
+                        <span class="score-num">98.4</span>
+                        <span class="score-lbl">SAFETY</span>
+                    </div>
+                </div>
+            </div>
+            <div class="radar-info">
+                <div class="radar-metric-row">
+                    <span>Zero-Day CVEs</span>
+                    <strong class="text-green">0 DETECTED</strong>
+                </div>
+                <div class="radar-metric-row">
+                    <span>AST Sandbox</span>
+                    <strong class="text-cyan">100% COMPLIANT</strong>
+                </div>
+            </div>
+            <a href="/audit.html" class="radar-action-btn">
+                <span>Scan Your Server Free</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 3. BROWSE BY CATEGORY (15 CORE DOMAINS)                               -->
+<!-- ====================================================================== -->
+<section class="container" style="padding-top:20px;padding-bottom:20px">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:10px">
         <div>
-            <h2 class="section-title" style="margin-bottom:4px">Developer Datasets &amp; Quant Suites</h2>
-            <p style="color:var(--text-muted);font-size:0.88rem;margin:0">Turnkey production datasets, institutional algorithmic trading suites, and developer templates</p>
+            <h2 class="section-title" style="margin-bottom:4px">Browse by Category</h2>
+            <p style="color:var(--text-muted);font-size:0.9rem;margin:0">Explore verified Model Context Protocol tools across 15 core technical domains</p>
         </div>
-        <a href="/datasets/" style="font-weight:700;font-size:0.88rem;color:var(--accent)">View All Toolkits &rarr;</a>
+        <a href="/categories.html" style="font-weight:700;font-size:0.88rem;color:var(--accent)">View All 15 Categories &rarr;</a>
     </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));gap:1rem">
-        <!-- 1. Protodex UI Studio -->
-        <a href="https://manja8.gumroad.com/l/lntzuo" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(167,139,250,0.14),rgba(45,217,224,0.1));border:1px solid rgba(167,139,250,0.35);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(167,139,250,0.08)">
-            <span style="font-size:1.8rem">&#127912;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Protodex UI Studio <span style="background:rgba(167,139,250,0.25);color:#c084fc;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">NEW &bull; 48 TEMPLATES</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">48 production layouts: Raycast Bento, Cyber HUD, SaaS B2B, Agentic Dashboards.</div>
-            </div>
-            <span style="background:#a855f7;color:#fff;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
-        </a>
-
-        <!-- 2. The 31k MCP Dataset -->
-        <a href="/datasets/mcp-servers.html" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(123,97,255,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
-            <span style="font-size:1.8rem">&#128202;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">31,400+ MCP Dataset <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">POPULAR</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Full ecosystem catalog in SQLite, CSV &amp; JSON with stars, repos, and security flags.</div>
-            </div>
-            <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$29 &rarr;</span>
-        </a>
-
-        <!-- 3. Production MCP Starter Kit -->
-        <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(45,217,224,0.08));border:1px solid rgba(123,97,255,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(123,97,255,0.05)">
-            <span style="font-size:1.8rem">&#9881;&#65039;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">MCP Server Starter Kit <span style="background:rgba(123,97,255,0.2);color:#7B61FF;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">DUAL-SDK</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Python FastMCP + TypeScript boilerplate. Stdio &amp; SSE transports, Docker &amp; Cloudflare.</div>
-            </div>
-            <span style="background:#7B61FF;color:#fff;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
-        </a>
-
-        <!-- 4. TheBull Crypto Quant Suite (Binance, Delta, Hyperliquid) -->
-        <a href="https://manja8.gumroad.com/l/woatyl" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(34,197,94,0.12),rgba(45,217,224,0.08));border:1px solid rgba(34,197,94,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(34,197,94,0.05)">
-            <span style="font-size:1.8rem">&#128002;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">TheBull Crypto Quant Suite <span style="background:rgba(34,197,94,0.2);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">CRYPTO</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Binance, Delta &amp; Hyperliquid perps. 5 strategies: Funding Arbitrage, Orderbook Sniper, Grid.</div>
-            </div>
-            <span style="background:#22C55E;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49 &rarr;</span>
-        </a>
-
-        <!-- 5. ApexAlpha Dhan HQ Institutional F&O Suite (NSE Nifty & BSE Sensex) -->
-        <a href="https://manja8.gumroad.com/l/lqzroy" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(245,158,11,0.12),rgba(34,197,94,0.08));border:1px solid rgba(245,158,11,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(245,158,11,0.05)">
-            <span style="font-size:1.8rem">&#9889;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">ApexAlpha Dhan HQ F&amp;O Suite <span style="background:rgba(245,158,11,0.2);color:#F59E0B;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">NSE / BSE</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Nifty 50 &amp; Sensex options. 11 institutional strategies, Cherry-Picked Top 3, &#8377;0 overnight.</div>
-            </div>
-            <span style="background:#F59E0B;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49 &rarr;</span>
-        </a>
-
-        <!-- 6. PropFirm Titan Quantitative Trading Suite (Gold & FX SMC/ICT EA) -->
-        <a href="https://manja8.gumroad.com/l/ozwyyt" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(234,179,8,0.14),rgba(239,68,68,0.08));border:1px solid rgba(234,179,8,0.35);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(234,179,8,0.06)">
-            <span style="font-size:1.8rem">&#127942;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">PropFirm Titan Gold &amp; FX Suite <span style="background:rgba(234,179,8,0.25);color:#EAB308;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">FTMO &bull; FUNDED</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">XAU/USD Gold &amp; FX ICT/SMC Judas Sweep MT5 EA with automated 1.0% daily loss sentinel.</div>
-            </div>
-            <span style="background:#EAB308;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49 &rarr;</span>
-        </a>
-
-        <!-- 7. Polymarket Prediction Strategies Bundle (Multi-Risk Tiers) -->
-        <a href="https://manja8.gumroad.com/l/ntdiq" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(167,139,250,0.12),rgba(45,217,224,0.08));border:1px solid rgba(167,139,250,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(167,139,250,0.05)">
-            <span style="font-size:1.8rem">&#128302;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Polymarket Strategy Bundle <span style="background:rgba(167,139,250,0.2);color:#A78BFA;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">MULTI-RISK</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Low-Risk Binary Arbitrage (Yes+No&lt;$0.985), Market Making Quoting, and 5m BTC Sniper.</div>
-            </div>
-            <span style="background:#A78BFA;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
-        </a>
-
-        <!-- 8. Polymarket 23M+ Dataset -->
-        <a href="/datasets/polymarket-historical.html" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(255,217,61,0.12),rgba(45,217,224,0.08));border:1px solid rgba(255,217,61,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(255,217,61,0.05)">
-            <span style="font-size:1.8rem">&#128200;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Polymarket 23M+ Dataset <span style="background:rgba(255,217,61,0.2);color:#FFD93D;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">BESTSELLER</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">18,400+ prediction markets, 15-min orderbook snapshots. Clean CSV for AI backtesting.</div>
-            </div>
-            <span style="background:#FFD93D;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$19 &rarr;</span>
-        </a>
-
-        <!-- 9. Solana DEX Arbitrage Engine -->
-        <a href="https://manja8.gumroad.com/l/vvwwwp" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(255,217,61,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
-            <span style="font-size:1.8rem">&#9889;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Solana DEX Arbitrage &amp; Sniper <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">JITO MEV</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Raydium, DLMM, Jito atomic bundler with anti-rug security filter &amp; Jupiter sniper.</div>
-            </div>
-            <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
-        </a>
-    </div>
-</section>
-
-<section class="container">
-    <h2 class="section-title">Browse by Category</h2>
-    <p class="section-subtitle">15 categories covering every use case from databases to AI agents</p>
     <div class="cat-grid">
         
         <a href="/category/ai-llm.html" class="cat-card" style="--cat-color:#8B5CF6">
@@ -1804,288 +1880,139 @@ window.switchSponsorTab = switchSponsorTab;
     </div>
 </section>
 
-<section class="container use-cases">
-    <h2 class="section-title">What are you building?</h2>
-    <p class="section-subtitle">Search by what you need, find the server that does it</p>
-    <div class="use-case-grid">
-        <a href="/category/database.html" class="use-case">
-            <div class="use-case-scenario">Connecting to a database</div>
-            <div class="use-case-query">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                postgres
+<!-- ====================================================================== -->
+<!-- 4. PROTODEX INTELLIGENCE & RELATED EDITORIAL GUIDES                   -->
+<!-- ====================================================================== -->
+<section class="container" style="padding-top:20px;padding-bottom:20px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:10px">
+        <div>
+            <h2 class="section-title" style="margin-bottom:4px">📰 Protodex Intelligence &amp; Guides</h2>
+            <p style="color:var(--text-muted);font-size:0.9rem;margin:0">Daily market telemetry, weekly discovery digests, and technical deep-dives for AI agent developers</p>
+        </div>
+        <a href="/blog/" style="font-weight:700;font-size:0.88rem;color:var(--accent)">Explore All Guides &rarr;</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:16px">
+        <!-- Card 1: Polymarket Daily Intelligence -->
+        <a href="/blog/polymarket-top-volume-2026-11-14.html" style="display:flex;flex-direction:column;justify-content:space-between;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
+            <div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+                    <span style="background:rgba(45,217,224,0.15);color:#2dd9e0;border:1px solid rgba(45,217,224,0.3);font-size:0.72rem;padding:3px 10px;border-radius:100px;font-weight:700">📈 DAILY TELEMETRY</span>
+                    <span style="color:var(--text-dim);font-size:0.75rem">Updated Daily at 06:00 UTC</span>
+                </div>
+                <h3 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.4">
+                    Polymarket Top Volume Daily Intelligence
+                </h3>
+                <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.6;margin-bottom:16px">
+                    Live quant tracking of high-volume prediction markets, liquidity depth, open interest swings, and real-time probability shifts across global contracts.
+                </p>
             </div>
-            <div class="use-case-result">Find <strong>1,259 database servers</strong> &mdash; PostgreSQL, MySQL, MongoDB, Redis, SQLite and more</div>
-            <div class="use-case-arrow">Browse database servers &rarr;</div>
+            <span style="color:var(--accent);font-size:0.85rem;font-weight:700;display:inline-flex;align-items:center;gap:4px">
+                Read Daily Telemetry Report &rarr;
+            </span>
         </a>
-        <a href="/category/browser-web.html" class="use-case">
-            <div class="use-case-scenario">Scraping or automating the web</div>
-            <div class="use-case-query">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                browser playwright
+
+        <!-- Card 2: Weekly MCP Digest -->
+        <a href="/blog/" style="display:flex;flex-direction:column;justify-content:space-between;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
+            <div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+                    <span style="background:rgba(123,97,255,0.15);color:#bca7ff;border:1px solid rgba(123,97,255,0.3);font-size:0.72rem;padding:3px 10px;border-radius:100px;font-weight:700">📚 WEEKLY DIGEST</span>
+                    <span style="color:var(--text-dim);font-size:0.75rem">Curated Every Monday</span>
+                </div>
+                <h3 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.4">
+                    MCP Server Weekly: 20 New Discoveries
+                </h3>
+                <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.6;margin-bottom:16px">
+                    Guaranteed non-repeating discoveries: new model integrations, community tools, database drivers, and agent memory servers curated by Protodex.
+                </p>
             </div>
-            <div class="use-case-result">Find <strong>1,004 browser servers</strong> &mdash; Playwright, Puppeteer, Scrapling, headless Chrome</div>
-            <div class="use-case-arrow">Browse web servers &rarr;</div>
+            <span style="color:var(--accent);font-size:0.85rem;font-weight:700;display:inline-flex;align-items:center;gap:4px">
+                Browse Weekly Digests &rarr;
+            </span>
         </a>
-        <a href="/category/api-integration.html" class="use-case">
-            <div class="use-case-scenario">Integrating a third-party API</div>
-            <div class="use-case-query">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                slack stripe github
+
+        <!-- Card 3: Security & TRiSM Audit -->
+        <a href="/audit.html" style="display:flex;flex-direction:column;justify-content:space-between;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
+            <div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+                    <span style="background:rgba(34,197,94,0.15);color:#4ade80;border:1px solid rgba(34,197,94,0.3);font-size:0.72rem;padding:3px 10px;border-radius:100px;font-weight:700">🛡️ SECURITY &amp; TRiSM</span>
+                    <span style="color:var(--text-dim);font-size:0.75rem">AegisMesh Engine</span>
+                </div>
+                <h3 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.4">
+                    Auditing AI Agent Tools &amp; Sandbox Safety
+                </h3>
+                <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.6;margin-bottom:16px">
+                    Detect malicious prompt injection bait, unverified tool permissions, and credential exfiltration vulnerabilities in Model Context Protocol servers.
+                </p>
             </div>
-            <div class="use-case-result">Find <strong>2,294 API servers</strong> &mdash; Slack, Stripe, GitHub, Notion, Jira, and dozens more</div>
-            <div class="use-case-arrow">Browse API servers &rarr;</div>
-        </a>
-        <a href="/category/memory-knowledge.html" class="use-case">
-            <div class="use-case-scenario">Adding memory to your agent</div>
-            <div class="use-case-query">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                memory vector RAG
-            </div>
-            <div class="use-case-result">Find <strong>1,119 memory servers</strong> &mdash; vector stores, knowledge graphs, RAG pipelines, embeddings</div>
-            <div class="use-case-arrow">Browse memory servers &rarr;</div>
+            <span style="color:var(--accent);font-size:0.85rem;font-weight:700;display:inline-flex;align-items:center;gap:4px">
+                Launch Security Audit Tool &rarr;
+            </span>
         </a>
     </div>
 </section>
 
-<section class="container">
-    <div class="lang-row">
-        <span style="color:var(--text-dim);font-size:0.82rem;font-weight:500;padding:8px 0;">Filter by language:</span>
-        <a href="/category/ai-llm.html" class="lang-pill"><span class="lang-dot" style="background:#3572A5"></span> Python <span style="color:var(--text-dim)">10,816</span></a>
-        <a href="/category/code-dev-tools.html" class="lang-pill"><span class="lang-dot" style="background:#3178C6"></span> TypeScript <span style="color:var(--text-dim)">8,762</span></a>
-        <a href="/category/api-integration.html" class="lang-pill"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript <span style="color:var(--text-dim)">2,961</span></a>
-        <a href="/category/devops.html" class="lang-pill"><span class="lang-dot" style="background:#00ADD8"></span> Go <span style="color:var(--text-dim)">1,583</span></a>
-        <a href="/category/security.html" class="lang-pill"><span class="lang-dot" style="background:#DEA584"></span> Rust <span style="color:var(--text-dim)">1,399</span></a>
+<!-- ====================================================================== -->
+<!-- 5. DEVELOPER TOOLKITS & PRO RESOURCES (TASTEFUL & NON-INTRUSIVE)       -->
+<!-- ====================================================================== -->
+<section class="container" style="padding-top:20px;padding-bottom:30px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:10px">
+        <div>
+            <h2 class="section-title" style="margin-bottom:4px">🛠️ Developer Toolkits &amp; Pro Resources</h2>
+            <p style="color:var(--text-muted);font-size:0.88rem;margin:0">High-leverage datasets, UI templates, and author promotion for AI engineering teams</p>
+        </div>
+        <a href="/datasets/" style="font-weight:700;font-size:0.88rem;color:var(--accent)">Explore Pro Resources &rarr;</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:14px">
+        <!-- Resource 1: UI Studio -->
+        <a href="/templates.html" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s">
+            <span style="font-size:1.6rem">🎨</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.92rem;color:var(--text)">Protodex UI Studio</div>
+                <div style="color:var(--text-muted);font-size:0.78rem;margin-top:2px">48 production layouts in Tailwind CSS + Antigravity AI Skill.</div>
+            </div>
+        </a>
+
+        <!-- Resource 2: 31k Dataset -->
+        <a href="/datasets/mcp-servers.html" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s">
+            <span style="font-size:1.6rem">📊</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.92rem;color:var(--text)">31k+ Ecosystem Dataset</div>
+                <div style="color:var(--text-muted);font-size:0.78rem;margin-top:2px">Structured JSON &amp; CSV with schemas, AST scores, and star velocity.</div>
+            </div>
+        </a>
+
+        <!-- Resource 3: Security Scanner -->
+        <a href="/audit.html" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s">
+            <span style="font-size:1.6rem">🛡️</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.92rem;color:var(--text)">AegisMesh TRiSM Auditor</div>
+                <div style="color:var(--text-muted);font-size:0.78rem;margin-top:2px">Instant automated static security scan for any public GitHub repo.</div>
+            </div>
+        </a>
+
+        <!-- Resource 4: Promote Server -->
+        <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s">
+            <span style="font-size:1.6rem">⚡</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.92rem;color:var(--text)">Feature Your Server</div>
+                <div style="color:var(--text-muted);font-size:0.78rem;margin-top:2px">Put your MCP server in front of 30,000+ AI developers ($49/wk).</div>
+            </div>
+        </a>
     </div>
 </section>
 
-
-<section class="container" style="padding-bottom:0">
-    <h2 class="section-title" style="color:#f472b6;">⚡ Sponsored Placements</h2>
-    <p class="section-subtitle">Promoted MCP servers from our developers</p>
-    <div class="server-grid" style="margin-bottom:32px;">
-        
-    <a href="/servers/n8n-io-n8n.html" class="server-card" style="border:1px solid #f472b6; box-shadow:0 0 10px rgba(244,114,182,0.25)">
-        <div class="server-card-header">
-            <span class="server-card-name">n8n</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="tag" style="background:rgba(244,114,182,0.15);color:#f472b6;border:1px solid rgba(244,114,182,0.3);font-size:10px;font-weight:800;letter-spacing:0.5px">⚡ FEATURED</span><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 210K</span></span>
-        </div>
-        <div class="server-card-desc">Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code,...</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span>API Integration</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
-        </div>
-    </a>
-    </div>
-</section>
-
-<section class="container">
-    <h2 class="section-title" id="top-servers">Most Popular MCP Servers</h2>
-    <p class="section-subtitle">Top servers by GitHub stars across all categories</p>
-    <div class="server-grid">
-        
-    <a href="/servers/n8n-io-n8n.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">n8n</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 210K</span></span>
-        </div>
-        <div class="server-card-desc">Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code,...</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span>API Integration</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
-        </div>
-    </a>
-    <a href="/servers/google-gemini-gemini-cli.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">gemini-cli</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 97.7K</span></span>
-        </div>
-        <div class="server-card-desc">An open-source AI agent that brings the power of Gemini directly into your terminal.</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
-        </div>
-    </a>
-    <a href="/servers/punkpeye-awesome-mcp-servers.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">awesome-mcp-servers</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 83.0K</span></span>
-        </div>
-        <div class="server-card-desc">A collection of MCP servers.</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
-            
-        </div>
-    </a>
-    <a href="/servers/modelcontextprotocol-servers.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">servers</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 81.0K</span></span>
-        </div>
-        <div class="server-card-desc">Model Context Protocol Servers</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>Memory/Knowledge</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
-        </div>
-    </a>
-    <a href="/servers/koala73-worldmonitor.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">worldmonitor</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 61.4K</span></span>
-        </div>
-        <div class="server-card-desc">Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure...</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>Browser/Web</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
-        </div>
-    </a>
-    <a href="/servers/zylon-ai-private-gpt.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">private-gpt</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 57.3K</span></span>
-        </div>
-        <div class="server-card-desc">Complete API layer for private AI applications on local models: RAG, skills, tools, MCP, text-to-sql, and more....</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
-        </div>
-    </a>
-    <a href="/servers/upstash-context7.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">context7</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 49.0K</span></span>
-        </div>
-        <div class="server-card-desc">Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
-        </div>
-    </a>
-    <a href="/servers/sansan0-trendradar.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">TrendRadar</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-red">&#10007; Risk</span><span class="server-card-stars">★ 48.9K</span></span>
-        </div>
-        <div class="server-card-desc">⭐AI-driven public opinion &amp; trend monitor with multi-platform aggregation, RSS, and smart alerts.🎯 告别信息过载，你的 AI...</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span>Communication</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
-        </div>
-    </a>
-    <a href="/servers/headroomlabs-ai-headroom.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">headroom</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="server-card-stars">★ 47.0K</span></span>
-        </div>
-        <div class="server-card-desc">Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers....</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
-        </div>
-    </a>
-    <a href="/servers/hkuds-nanobot.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">nanobot</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 46.3K</span></span>
-        </div>
-        <div class="server-card-desc">Ultra-lightweight, open-source, self-hosted personal AI agent framework in Python with WebUI, tools, memory, MCP,...</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
-        </div>
-    </a>
-    <a href="/servers/berriai-litellm.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">litellm</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 43.7K</span></span>
-        </div>
-        <div class="server-card-desc">Python SDK, Proxy Server (AI Gateway) to call 100+ LLM APIs in OpenAI (or native) format, with cost tracking,...</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
-        </div>
-    </a>
-    <a href="/servers/mudler-localai.html" class="server-card" >
-        <div class="server-card-header">
-            <span class="server-card-name">LocalAI</span>
-            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 43.6K</span></span>
-        </div>
-        <div class="server-card-desc"> The free, Open Source alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement, ...</div>
-        <div class="server-card-footer">
-            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>AI/LLM</span>
-            <span class="tag tag-lang"><span class="lang-dot" style="background:#00ADD8"></span>Go</span>
-        </div>
-    </a>
-    </div>
-</section>
-
-<section class="container">
-    <details style="margin:0 auto 2rem;max-width:1000px;padding:1rem 1.25rem;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;color:var(--text-muted);font-size:0.85rem">
-        <summary style="cursor:pointer;font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px;outline:none">
-            <span style="font-size:1.1rem">&#129518;</span>
-            <span>Free Developer Financial Calculators (India FY 2026-27 Rules)</span>
-            <span style="font-size:0.75rem;margin-left:auto;color:var(--accent);font-weight:700">Explore Calculators &darr;</span>
-        </summary>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.65rem;margin-top:16px">
-            <a href="https://inhandsalary.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem;transition:border-color 0.15s">
-                💰 <strong>In-Hand Salary</strong> — Old vs New regime FY 2026-27
-            </a>
-            <a href="https://hra.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏠 <strong>HRA Exemption</strong> — Section 10(13A), Metro/Non-Metro
-            </a>
-            <a href="https://gratuity.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                💼 <strong>Gratuity</strong> — Payment of Gratuity Act + ₹20L exemption
-            </a>
-            <a href="https://esoptax.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                📈 <strong>ESOP Tax</strong> — Perquisite + LTCG/STCG
-            </a>
-            <a href="https://protodex.io/nsc-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                📜 <strong>NSC</strong> — 7.7%, annual compounding, 80C reinvestment
-            </a>
-            <a href="https://protodex.io/scss-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                👴 <strong>SCSS (Senior Citizens)</strong> — 8.2%, quarterly income, ₹30L cap, TDS / Form 15H
-            </a>
-            <a href="https://protodex.io/ltcg-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                💹 <strong>LTCG / Capital Gains</strong> — Budget 2024: 12.5%, ₹1.25L exemption, indexation
-            </a>
-            <a href="https://protodex.io/swp-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                💸 <strong>SWP (Systematic Withdrawal)</strong> — corpus longevity, LTCG on gains only, SWP vs FD
-            </a>
-            <a href="https://protodex.io/gst-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🧾 <strong>GST for Freelancers</strong> — export 0% (LUT), domestic 18%, ₹20L threshold
-            </a>
-            <a href="https://protodex.io/44ada-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                📑 <strong>Section 44ADA Presumptive Tax</strong> — declare 50%, ₹75L limit, advance tax by 15 Mar
-            </a>
-            <a href="https://protodex.io/advance-tax-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                📅 <strong>Advance Tax for Freelancers</strong> — 15 Jun/Sep/Dec/Mar installments, 234B/234C interest, 44ADA single-pay
-            </a>
-            <a href="https://protodex.io/tds-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                ✂️ <strong>TDS Calculator &amp; Rate Chart</strong> — 194J/194C/194H/194I rates, no-PAN 20%, threshold, freelancer refund
-            </a>
-            <a href="https://protodex.io/property-tds-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏘️ <strong>TDS on Property Purchase</strong> — 1% Section 194-IA, Form 26QB, ₹50L threshold, no-PAN 20%, NRI-seller trap
-            </a>
-            <a href="https://protodex.io/hra-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏠 <strong>HRA Exemption</strong> — least-of-three, metro vs non-metro, old-regime only
-            </a>
-            <a href="https://stampduty.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏗 <strong>Karnataka Stamp Duty</strong> — Bengaluru/Mysuru, 2% reg fee
-            </a>
-            <a href="https://stampdutymaharashtra.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏛️ <strong>Maharashtra Stamp Duty</strong> — Mumbai/Pune, women discount
-            </a>
-        </div>
-    </details>
-</section>
-
-<section class="container">
-    <div class="cta-banner">
-        <h2>Can't find what you're looking for?</h2>
-        <p>Tell us what MCP server you need. We'll help you find it — or flag it as a gap the community can fill.</p>
-        <div class="cta-buttons">
-            <a href="https://github.com/LuciferForge/mcp-directory/discussions/new?category=ideas&title=Looking+for:+&body=I'm+looking+for+an+MCP+server+that..." target="_blank" rel="noopener" class="btn">Request a Server</a>
-            <a href="/submit.html" class="btn btn-outline">Submit Your Server</a>
-        </div>
+<!-- ====================================================================== -->
+<!-- 6. SUBMIT YOUR SERVER CTA                                              -->
+<!-- ====================================================================== -->
+<section class="container" style="padding-bottom:40px">
+    <div class="submit-cta" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;text-align:center">
+        <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-bottom:8px">Built an MCP Server?</h2>
+        <p style="color:var(--text-muted);font-size:0.92rem;max-width:560px;margin:0 auto 20px">
+            Join over 31,429 indexed repositories. Index your tools, get an AegisMesh security badge, and help thousands of AI developers find your project.
+        </p>
+        <a href="/submit.html" class="btn" style="padding:10px 24px">Submit Your Server Free &rarr;</a>
     </div>
 </section>
 
@@ -2142,9 +2069,7 @@ var _results = null;
 fetch('/search-index.json')
     .then(function(r) { return r.json(); })
     .then(function(data) {
-        console.log('Search index loaded:', data.length);
         _fuse = new Fuse(data, { keys: ['n', 'd', 'r'], threshold: 0.3 });
-        console.log('Fuse ready');
     });
 
 function _esc(x){return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
@@ -2167,6 +2092,45 @@ function doSearch(q) {
 document.addEventListener('click', function(e) {
     if (!e.target.closest('.search-wrap') && !e.target.closest('.raycast-hud-wrapper') && _results) _results.style.display = 'none';
 });
+
+function switchServerTab(tabId, el) {
+    var btns = document.querySelectorAll('.srv-tab-btn');
+    for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+    var panes = document.querySelectorAll('.srv-tab-pane');
+    for (var i = 0; i < panes.length; i++) panes[i].style.display = 'none';
+    el.classList.add('active');
+    var target = document.getElementById(tabId);
+    if (target) target.style.display = 'grid';
+}
+
+function switchIdeTab(lang, btn) {
+    var tabs = document.querySelectorAll('.ide-tab');
+    for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
+    btn.classList.add('active');
+    var codeDisplay = document.getElementById('ide-code-display');
+    if (!codeDisplay) return;
+    if (lang === 'claude') {
+        codeDisplay.innerHTML = `<code class="language-json">{\n  &quot;mcpServers&quot;: {\n    &quot;github&quot;: {\n      &quot;command&quot;: &quot;npx&quot;,\n      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-github&quot;],\n      &quot;env&quot;: {\n        &quot;GITHUB_PERSONAL_ACCESS_TOKEN&quot;: &quot;YOUR_TOKEN&quot;\n      }\n    }\n  }\n}</code>`;
+    } else if (lang === 'cursor') {
+        codeDisplay.innerHTML = `<code class="language-json">{\n  &quot;mcpServers&quot;: {\n    &quot;postgres&quot;: {\n      &quot;command&quot;: &quot;npx&quot;,\n      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-postgres&quot;, &quot;postgresql://localhost/mydb&quot;]\n    }\n  }\n}</code>`;
+    } else if (lang === 'python') {
+        codeDisplay.innerHTML = `<code class="language-python"><span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP\nmcp = FastMCP(<span class="c-str">&quot;MyAgentTool&quot;</span>)\n\n<span class="c-dec">@mcp.tool</span>()\n<span class="c-kw">def</span> <span class="c-fn">fetch_data</span>(query: <span class="c-type">str</span>) -&gt; <span class="c-type">dict</span>:\n    <span class="c-kw">return</span> {<span class="c-str">&quot;status&quot;</span>: <span class="c-str">&quot;ok&quot;</span>, <span class="c-str">&quot;data&quot;</span>: query}\n\nmcp.run(transport=<span class="c-str">&quot;stdio&quot;</span>)</code>`;
+    } else if (lang === 'ts') {
+        codeDisplay.innerHTML = `<code class="language-typescript"><span class="c-kw">import</span> { Server } <span class="c-kw">from</span> <span class="c-str">&quot;@modelcontextprotocol/sdk/server/index.js&quot;</span>;\n<span class="c-kw">import</span> { StdioServerTransport } <span class="c-kw">from</span> <span class="c-str">&quot;@modelcontextprotocol/sdk/server/stdio.js&quot;</span>;\n\n<span class="c-kw">const</span> server = <span class="c-kw">new</span> Server({ name: <span class="c-str">&quot;demo&quot;</span>, version: <span class="c-str">&quot;1.0.0&quot;</span> }, { capabilities: { tools: {} } });\n<span class="c-kw">await</span> server.connect(<span class="c-kw">new</span> StdioServerTransport());</code>`;
+    }
+}
+
+function copyIdeSnippet() {
+    var codeDisplay = document.getElementById('ide-code-display');
+    if (codeDisplay) {
+        navigator.clipboard.writeText(codeDisplay.innerText);
+        var btn = document.getElementById('copy-code-btn');
+        if (btn) {
+            btn.querySelector('span').textContent = 'Copied!';
+            setTimeout(function() { btn.querySelector('span').textContent = 'Copy'; }, 2000);
+        }
+    }
+}
 </script>
 </body>
 </html>

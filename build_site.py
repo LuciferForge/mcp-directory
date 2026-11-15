@@ -1881,18 +1881,79 @@ window.switchSponsorTab = switchSponsorTab;
 
 
 def build_home(servers, categories):
+    # Support both {cat: [servers]} or {cat: count}
+    if categories and isinstance(next(iter(categories.values())), int):
+        cat_counts = categories
+        cat_groups = {}
+        for s in servers:
+            cat_groups.setdefault(s.get("category", "Other"), []).append(s)
+        categories = cat_groups
+    else:
+        cat_counts = {k: len(v) for k, v in categories.items()}
+
     total = len(servers)
     total_stars = sum(s.get("stars", 0) for s in servers)
     lang_counts = Counter(s.get("language") for s in servers if s.get("language"))
     langs = len(lang_counts)
-    top_servers = sorted(servers, key=lambda s: s.get("stars", 0), reverse=True)[:12]
 
     title = f"{SITE_NAME} — Discover {total:,}+ MCP Servers for AI Agents"
     desc = SITE_DESCRIPTION.format(total=total)
 
+    by_repo = {s.get("repo"): s for s in servers if s.get("repo")}
+
+    # Curated Tab Servers
+    TRENDING_REPOS = [
+        "n8n-io/n8n",
+        "modelcontextprotocol/servers",
+        "google-gemini/gemini-cli",
+        "microsoft/playwright-mcp",
+        "ChromeDevTools/chrome-devtools-mcp",
+        "upstash/context7",
+        "github/github-mcp-server",
+        "BerriAI/litellm",
+    ]
+    trending_cards = "".join(server_card_html(by_repo[r]) for r in TRENDING_REPOS if r in by_repo)
+    if not trending_cards:
+        trending_cards = "".join(server_card_html(s) for s in servers[:8])
+
+    CLAUDE_REPOS = [
+        "modelcontextprotocol/servers",
+        "github/github-mcp-server",
+        "crystaldba/postgres-mcp",
+        "upstash/context7",
+        "mudler/LocalAI",
+        "GLips/Figma-Context-MCP",
+        "assafelovic/gpt-researcher",
+        "saseq/discord-mcp"
+    ]
+    claude_cards = "".join(server_card_html(by_repo[r]) for r in CLAUDE_REPOS if r in by_repo)
+    if not claude_cards:
+        claude_cards = "".join(server_card_html(s) for s in servers[8:16])
+
+    CURSOR_REPOS = [
+        "ChromeDevTools/chrome-devtools-mcp",
+        "microsoft/playwright-mcp",
+        "PrefectHQ/fastmcp",
+        "google-gemini/gemini-cli",
+        "D4Vinci/Scrapling",
+        "bytedance/UI-TARS-desktop",
+        "czlonkowski/n8n-mcp",
+        "triggerdotdev/trigger.dev"
+    ]
+    cursor_cards = "".join(server_card_html(by_repo[r]) for r in CURSOR_REPOS if r in by_repo)
+    if not cursor_cards:
+        cursor_cards = "".join(server_card_html(s) for s in servers[16:24])
+
+    db_servers = categories.get("Database", [])[:8]
+    database_cards = "".join(server_card_html(s) for s in db_servers)
+
+    mem_servers = categories.get("Memory/Knowledge", [])[:8]
+    memory_cards = "".join(server_card_html(s) for s in mem_servers)
+
     # Category cards
     cat_cards = ""
-    for cat_name, count in sorted(categories.items(), key=lambda x: -x[1]):
+    for cat_name, cat_list in sorted(categories.items(), key=lambda x: -len(x[1])):
+        count = len(cat_list)
         meta = CATEGORY_META.get(cat_name, CATEGORY_META["Other"])
         cat_cards += f"""
         <a href="/category/{meta['slug']}.html" class="cat-card" style="--cat-color:{meta['color']}">
@@ -1902,7 +1963,7 @@ def build_home(servers, categories):
             <span class="cat-count">{count:,} servers</span>
         </a>"""
 
-    # B2B sponsored servers lookup from local sponsored_servers.json
+    # B2B sponsored servers lookup
     active_sponsors = load_active_sponsors()
     sponsored_slugs = {
         sl for item in active_sponsors
@@ -1912,66 +1973,27 @@ def build_home(servers, categories):
         )
         if sl
     }
-    by_slug = {slugify(s.get("repo", "").replace("/", "-")): s for s in servers if s.get("repo")}
-
-    # Sponsored server cards
-    sponsored_section = ""
     sponsored_cards = ""
     for s in servers:
         repo_slug = slugify(s.get("repo", "").replace("/", "-"))
         if repo_slug in sponsored_slugs or (s.get("slug") or "").lower() in sponsored_slugs:
             sponsored_cards += server_card_html(s, is_sponsored=True)
 
+    sponsored_section = ""
     if sponsored_cards:
         sponsored_section = f"""
-<section class="container" style="padding-bottom:0">
-    <h2 class="section-title" style="color:#f472b6;">⚡ Sponsored Placements</h2>
-    <p class="section-subtitle">Promoted MCP servers from our developers</p>
-    <div class="server-grid" style="margin-bottom:32px;">
+<section class="container" style="padding-top:10px;padding-bottom:10px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+        <span style="background:rgba(244,114,182,0.15);color:#f472b6;border:1px solid rgba(244,114,182,0.3);font-size:0.75rem;padding:3px 10px;border-radius:100px;font-weight:800">⚡ FEATURED PARTNERS</span>
+        <span style="color:var(--text-dim);font-size:0.8rem">Verified MCP ecosystem deployments</span>
+    </div>
+    <div class="server-grid">
         {sponsored_cards}
     </div>
 </section>"""
 
-    slots_open = max(0, 3 - len(active_sponsors))
-    if active_sponsors:
-        sp = active_sponsors[0]
-        sp_slug = slugify(sp.get("repo", "").replace("/", "-")) or slugify(sp.get("server_slug", ""))
-        sp_srv = by_slug.get(sp_slug, {})
-        sp_name = sp.get("name") or sp_srv.get("name") or sp.get("repo") or "Featured Partner"
-        sp_stars = sp_srv.get("stars") or sp.get("stars") or 0
-        sp_desc = sp.get("description") or sp_srv.get("description") or "Verified featured ecosystem sponsor."
-        sp_href = f"/servers/{sp_slug}.html" if sp_srv else f"https://github.com/{sp.get('repo', '')}"
-        sponsor_preview_html = f"""
-                    <div id="sponsor-panel-preview" style="display:none;background:#06080E;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.75rem;">
-                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
-                            <a href="{escape(sp_href)}" style="color:#2DD9E0;font-size:0.85rem;font-weight:700;text-decoration:none;">{escape(sp_name)} &rarr;</a>
-                            <span style="color:#FBBF24;font-size:0.75rem;font-weight:700;">★ {sp_stars:,} Stars</span>
-                        </div>
-                        <p style="color:var(--text-muted);font-size:0.73rem;line-height:1.4;margin:0 0 8px;">{escape(truncate(sp_desc, 140))}</p>
-                        <div style="font-size:0.68rem;color:#94A3B8;background:rgba(255,255,255,0.04);padding:4px 8px;border-radius:6px;border:1px dashed rgba(255,255,255,0.1);">
-                            💡 <em>When you sponsor, your repo joins up to 3 featured partner slots automatically for 7 days!</em>
-                        </div>
-                    </div>"""
-    else:
-        sponsor_preview_html = """
-                    <div id="sponsor-panel-preview" style="display:none;background:#06080E;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.75rem;">
-                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
-                            <strong style="color:#2DD9E0;font-size:0.85rem;">Your MCP Server Here</strong>
-                            <span style="color:#22C55E;font-size:0.75rem;font-weight:700;">AVAILABLE NOW</span>
-                        </div>
-                        <p style="color:var(--text-muted);font-size:0.73rem;line-height:1.4;margin:0 0 8px;">Claim the #1 Hero Bento + Sponsored Placements spotlight and reach AI engineers integrating MCP tools.</p>
-                        <div style="font-size:0.68rem;color:#94A3B8;background:rgba(255,255,255,0.04);padding:4px 8px;border-radius:6px;border:1px dashed rgba(255,255,255,0.1);">
-                            💡 <em>3 weekly slots available — fast activation via Gumroad + GitHub Actions.</em>
-                        </div>
-                    </div>"""
-
-    # Featured server cards
-    featured = ""
-    for s in top_servers:
-        featured += server_card_html(s)
-
-    # Search index script
-    search_script = """
+    # Search Script & Server Tab Switcher Script
+    client_scripts = """
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
 <script>
 var _fuse = null;
@@ -1980,9 +2002,7 @@ var _results = null;
 fetch('/search-index.json')
     .then(function(r) { return r.json(); })
     .then(function(data) {
-        console.log('Search index loaded:', data.length);
         _fuse = new Fuse(data, { keys: ['n', 'd', 'r'], threshold: 0.3 });
-        console.log('Fuse ready');
     });
 
 function _esc(x){return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
@@ -2005,50 +2025,71 @@ function doSearch(q) {
 document.addEventListener('click', function(e) {
     if (!e.target.closest('.search-wrap') && !e.target.closest('.raycast-hud-wrapper') && _results) _results.style.display = 'none';
 });
+
+function switchServerTab(tabId, el) {
+    var btns = document.querySelectorAll('.srv-tab-btn');
+    for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+    var panes = document.querySelectorAll('.srv-tab-pane');
+    for (var i = 0; i < panes.length; i++) panes[i].style.display = 'none';
+    el.classList.add('active');
+    var target = document.getElementById(tabId);
+    if (target) target.style.display = 'grid';
+}
+
+function switchIdeTab(lang, btn) {
+    var tabs = document.querySelectorAll('.ide-tab');
+    for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
+    btn.classList.add('active');
+    var codeDisplay = document.getElementById('ide-code-display');
+    if (!codeDisplay) return;
+    if (lang === 'claude') {
+        codeDisplay.innerHTML = `<code class="language-json">{\\n  &quot;mcpServers&quot;: {\\n    &quot;github&quot;: {\\n      &quot;command&quot;: &quot;npx&quot;,\\n      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-github&quot;],\\n      &quot;env&quot;: {\\n        &quot;GITHUB_PERSONAL_ACCESS_TOKEN&quot;: &quot;YOUR_TOKEN&quot;\\n      }\\n    }\\n  }\\n}</code>`;
+    } else if (lang === 'cursor') {
+        codeDisplay.innerHTML = `<code class="language-json">{\\n  &quot;mcpServers&quot;: {\\n    &quot;postgres&quot;: {\\n      &quot;command&quot;: &quot;npx&quot;,\\n      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-postgres&quot;, &quot;postgresql://localhost/mydb&quot;]\\n    }\\n  }\\n}</code>`;
+    } else if (lang === 'python') {
+        codeDisplay.innerHTML = `<code class="language-python"><span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP\\nmcp = FastMCP(<span class="c-str">&quot;MyAgentTool&quot;</span>)\\n\\n<span class="c-dec">@mcp.tool</span>()\\n<span class="c-kw">def</span> <span class="c-fn">fetch_data</span>(query: <span class="c-type">str</span>) -&gt; <span class="c-type">dict</span>:\\n    <span class="c-kw">return</span> {<span class="c-str">&quot;status&quot;</span>: <span class="c-str">&quot;ok&quot;</span>, <span class="c-str">&quot;data&quot;</span>: query}\\n\\nmcp.run(transport=<span class="c-str">&quot;stdio&quot;</span>)</code>`;
+    } else if (lang === 'ts') {
+        codeDisplay.innerHTML = `<code class="language-typescript"><span class="c-kw">import</span> { Server } <span class="c-kw">from</span> <span class="c-str">&quot;@modelcontextprotocol/sdk/server/index.js&quot;</span>;\\n<span class="c-kw">import</span> { StdioServerTransport } <span class="c-kw">from</span> <span class="c-str">&quot;@modelcontextprotocol/sdk/server/stdio.js&quot;</span>;\\n\\n<span class="c-kw">const</span> server = <span class="c-kw">new</span> Server({ name: <span class="c-str">&quot;demo&quot;</span>, version: <span class="c-str">&quot;1.0.0&quot;</span> }, { capabilities: { tools: {} } });\\n<span class="c-kw">await</span> server.connect(<span class="c-kw">new</span> StdioServerTransport());</code>`;
+    }
+}
+
+function copyIdeSnippet() {
+    var codeDisplay = document.getElementById('ide-code-display');
+    if (codeDisplay) {
+        navigator.clipboard.writeText(codeDisplay.innerText);
+        var btn = document.getElementById('copy-code-btn');
+        if (btn) {
+            btn.querySelector('span').textContent = 'Copied!';
+            setTimeout(function() { btn.querySelector('span').textContent = 'Copy'; }, 2000);
+        }
+    }
+}
 </script>
 """
-
-    preview_rows = ""
-    for s in top_servers[:4]:
-        pcat = s.get("category", "Other")
-        plang = s.get("language", "") or "—"
-        preview_rows += (
-            f'<a href="/servers/{slugify(s["repo"].replace("/", "-"))}.html" class="preview-row">'
-            f'<div><div class="preview-name">{escape(s["name"])}</div>'
-            f'<div class="preview-meta">{escape(pcat)} &middot; {escape(plang)}</div></div>'
-            f'<span class="preview-stars">&#9733; {format_stars(s.get("stars", 0))}</span></a>'
-        )
-    preview_panel = (
-        f'<div class="preview-panel"><div class="preview-head">'
-        f'<span class="pp">&#10095;</span> most starred '
-        f'<span style="color:var(--text-dim)">&middot; {total:,} indexed</span></div>'
-        f'{preview_rows}</div>'
-        f'<div class="preview-cap">live &middot; real servers from the index</div>'
-    )
 
     html = html_head(title, desc, "/")
     html += html_header("home")
     html += f"""
 
 <!-- ====================================================================== -->
-<!-- 2026 RAYCAST COMMAND HUD & OBSIDIAN AURORA HERO SECTION               -->
+<!-- AURORA HERO & RAYCAST SEARCH HUD                                      -->
 <!-- ====================================================================== -->
-<section class="aurora-hero-section">
+<section class="aurora-hero-section" style="padding-bottom:32px">
     <div class="container">
-        <!-- Live Ecosystem Pulse Badge -->
+        <!-- Live Ecosystem Badge -->
         <div class="hero-top-badge">
             <span class="status-indicator-pulse"></span>
-            <span class="badge-text"><strong>PROTODEX 2026</strong> &middot; Real-Time MCP Intelligence &middot; {total:,} Screened Repos</span>
-            <span class="badge-pill">ACTIVE INDEX</span>
+            <span class="badge-text"><strong>PROTODEX 2026</strong> &middot; The Open MCP Server Index &middot; {total:,} Repos Screened</span>
+            <span class="badge-pill">ACTIVE REGISTRY</span>
         </div>
 
         <!-- Hero Headline -->
         <h1 class="aurora-hero-title">
-            The Next-Gen Intelligence &amp; UI Directory for <br>
-            <span class="gradient-text">Model Context Protocol</span>
+            Discover &amp; Connect <br>
+            <span class="gradient-text">{total:,}+ Model Context Protocol Servers</span>
         </h1>
         <p class="aurora-hero-subtitle">
-            Search {total:,} screened MCP servers, inspect real-time AST security telemetry, and deploy 48+ turnkey developer UI archetypes for autonomous AI agents.
+            The open directory for AI agents. Find, inspect, and connect verified tools, APIs, and databases to Claude Desktop, Cursor, Windsurf, and autonomous AI workflows.
         </p>
 
         <!-- Raycast Floating Command HUD -->
@@ -2057,7 +2098,7 @@ document.addEventListener('click', function(e) {
                 <div class="hud-leading-icon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                 </div>
-                <input type="text" id="search-input" class="raycast-search-input" placeholder="Search {total:,} servers, tools, schemas... (e.g., postgres, slack, stripe, fastmcp)" autocomplete="off" oninput="doSearch(this.value)">
+                <input type="text" id="search-input" class="raycast-search-input" placeholder="Search {total:,} servers, tools, schemas... (e.g. postgres, n8n, slack, playwright)" autocomplete="off" oninput="doSearch(this.value)">
                 <div class="hud-kbd-badge">
                     <span>⌘K</span>
                 </div>
@@ -2066,20 +2107,19 @@ document.addEventListener('click', function(e) {
             
             <!-- Quick Intent Command Chips -->
             <div class="hud-intent-chips">
-                <span class="chips-label">Quick Intent:</span>
+                <span class="chips-label">Popular Searches:</span>
                 <button type="button" class="intent-chip active" onclick="var i=document.getElementById('search-input');i.value='postgres';i.focus();doSearch('postgres');return false;"><span class="dot"></span>postgres</button>
-                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='slack';i.focus();doSearch('slack');return false;"><span class="dot"></span>slack</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='n8n';i.focus();doSearch('n8n');return false;"><span class="dot"></span>n8n</button>
                 <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='github';i.focus();doSearch('github');return false;"><span class="dot"></span>github</button>
-                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='browser';i.focus();doSearch('browser');return false;"><span class="dot"></span>browser</button>
-                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='stripe';i.focus();doSearch('stripe');return false;"><span class="dot"></span>stripe</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='playwright';i.focus();doSearch('playwright');return false;"><span class="dot"></span>playwright</button>
+                <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='slack';i.focus();doSearch('slack');return false;"><span class="dot"></span>slack</button>
                 <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='fastmcp';i.focus();doSearch('fastmcp');return false;"><span class="dot"></span>fastmcp</button>
                 <button type="button" class="intent-chip" onclick="var i=document.getElementById('search-input');i.value='memory';i.focus();doSearch('memory');return false;"><span class="dot"></span>memory</button>
-                <a href="/templates.html" class="intent-chip highlight"><span class="dot"></span>48 UI Templates 🎨</a>
             </div>
         </div>
 
         <!-- Telemetry Stats Ribbon -->
-        <div class="telemetry-ribbon">
+        <div class="telemetry-ribbon" style="margin-bottom:0">
             <div class="telemetry-item">
                 <div class="telemetry-val">{total:,}</div>
                 <div class="telemetry-lbl">Screened Servers</div>
@@ -2087,7 +2127,7 @@ document.addEventListener('click', function(e) {
             <div class="telemetry-sep"></div>
             <div class="telemetry-item">
                 <div class="telemetry-val">{total_stars // 10_000 * 10_000:,}+</div>
-                <div class="telemetry-lbl">Total GitHub Stars</div>
+                <div class="telemetry-lbl">GitHub Stars Indexed</div>
             </div>
             <div class="telemetry-sep"></div>
             <div class="telemetry-item">
@@ -2096,443 +2136,299 @@ document.addEventListener('click', function(e) {
             </div>
             <div class="telemetry-sep"></div>
             <div class="telemetry-item">
-                <div class="telemetry-val">48</div>
-                <div class="telemetry-lbl">UI Studio Archetypes</div>
-            </div>
-            <div class="telemetry-sep"></div>
-            <div class="telemetry-item">
                 <div class="telemetry-val highlight-green">100% Verified</div>
                 <div class="telemetry-lbl">AegisMesh AST Scanned</div>
             </div>
         </div>
-
-        <!-- ============================================================== -->
-        <!-- OBSIDIAN AURORA ASYMMETRICAL BENTO GRID (COMPACT 2026)         -->
-        <!-- ============================================================== -->
-        <div class="bento-grid-2026">
-            
-            <!-- Bento Tile 1: Dual-SDK Interactive IDE & Terminal Simulator (7 Cols) -->
-            <div class="bento-tile bento-tile-ide">
-                <div class="bento-header">
-                    <div class="ide-tabs-nav">
-                        <button class="ide-tab active" onclick="switchIdeTab('python', this)">FastMCP (Python)</button>
-                        <button class="ide-tab" onclick="switchIdeTab('ts', this)">TypeScript SDK</button>
-                        <button class="ide-tab" onclick="switchIdeTab('claude', this)">Claude Desktop</button>
-                        <button class="ide-tab" onclick="switchIdeTab('cursor', this)">Cursor Rules</button>
-                    </div>
-                    <button class="btn-copy-code" id="copy-code-btn" onclick="copyIdeSnippet()">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                        <span>Copy</span>
-                    </button>
-                </div>
-                <div class="ide-body">
-                    <pre class="ide-code-block" id="ide-code-display"><code class="language-python"><span class="c-kw">from</span> mcp.server.fastmcp <span class="c-kw">import</span> FastMCP
-mcp = FastMCP(<span class="c-str">"ProtodexLive"</span>)
-
-<span class="c-dec">@mcp.tool</span>()
-<span class="c-kw">def</span> <span class="c-fn">search_servers</span>(query: <span class="c-type">str</span>, min_stars: <span class="c-type">int</span> = <span class="c-num">50</span>) -> <span class="c-type">dict</span>:
-    <span class="c-kw">return</span> mcp_engine.search(query, min_stars=min_stars)
-
-mcp.run(transport=<span class="c-str">"stdio"</span>)</code></pre>
-                </div>
-                <div class="ide-footer">
-                    <div class="ide-status-pill">
-                        <span class="status-dot green"></span>
-                        <span>JSON-RPC 2.0 &middot; Stdio + SSE Supported</span>
-                    </div>
-                    <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" class="ide-starter-link">Get Dual-SDK Kit ($39) &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Bento Tile 2: AegisMesh Cyber Security Radar (5 Cols) -->
-            <div class="bento-tile bento-tile-radar">
-                <div class="radar-top">
-                    <span class="radar-tag">AEGISMESH TRiSM</span>
-                    <span class="radar-badge-live">LIVE TELEMETRY</span>
-                </div>
-                <div class="radar-visual-container">
-                    <div class="radar-avionics-display">
-                        <div class="radar-sweep-beam"></div>
-                        <div class="radar-circle circle-1"></div>
-                        <div class="radar-circle circle-2"></div>
-                        <div class="radar-circle circle-3"></div>
-                        <div class="radar-crosshair-h"></div>
-                        <div class="radar-crosshair-v"></div>
-                        <div class="radar-blip blip-1"></div>
-                        <div class="radar-blip blip-2"></div>
-                        <div class="radar-blip blip-3"></div>
-                        <div class="radar-center-score">
-                            <span class="score-num">98.4</span>
-                            <span class="score-lbl">SAFETY</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="radar-info">
-                    <div class="radar-metric-row">
-                        <span>Zero-Day CVEs</span>
-                        <strong class="text-green">0 DETECTED</strong>
-                    </div>
-                    <div class="radar-metric-row">
-                        <span>AST Sandbox</span>
-                        <strong class="text-cyan">100% COMPLIANT</strong>
-                    </div>
-                </div>
-                <a href="/audit.html" class="radar-action-btn">
-                    <span>Scan Your Server Free</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-            </div>
-
-                        <!-- Bento Tile 3: Featured MCP Partner & Sponsored Slot (5 Cols) -->
-            <div class="bento-tile bento-tile-featured" style="position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;">
-                <!-- Top Badge Row -->
-                <div class="featured-top" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-                    <span class="featured-badge" style="background:linear-gradient(135deg,rgba(245,158,11,0.25),rgba(45,217,224,0.15));border:1px solid rgba(245,158,11,0.4);color:#FBBF24;font-size:0.72rem;padding:3px 10px;border-radius:100px;font-weight:700;letter-spacing:0.04em;">⚡ SPONSOR SPOTLIGHT</span>
-                    <span class="featured-verified" style="background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:600;">{slots_open} OF 3 SLOTS OPEN</span>
-                </div>
-
-                <!-- Headline -->
-                <div class="featured-content">
-                    <h3 class="featured-name" style="font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-0.02em;">
-                        Feature Your MCP Server Here
-                    </h3>
-                    <p class="featured-tagline" style="color:var(--text-muted);font-size:0.78rem;line-height:1.45;margin-bottom:12px;">
-                        Put your tool in front of <strong>30,000+ AI engineers</strong> building autonomous agents for Claude &amp; Cursor.
-                    </p>
-
-                    <!-- Interactive Switcher: "Placement & Terms" vs "Current Partner" -->
-                    <div style="display:flex;gap:4px;background:rgba(6,8,14,0.6);padding:3px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);margin-bottom:12px;">
-                        <button type="button" id="sponsor-tab-terms" class="ide-tab active" onclick="switchSponsorTab('terms', this)" style="flex:1;padding:4px 8px;font-size:0.72rem;text-align:center;">Placement &amp; Terms</button>
-                        <button type="button" id="sponsor-tab-preview" class="ide-tab" onclick="switchSponsorTab('preview', this)" style="flex:1;padding:4px 8px;font-size:0.72rem;text-align:center;">Current Partner (Live)</button>
-                    </div>
-
-                    <!-- Panel 1: Transparent Terms & Placement Details (Default) -->
-                    <div id="sponsor-panel-terms" style="background:#06080E;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 12px;font-size:0.75rem;line-height:1.5;">
-                        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                            <span style="color:#2DD9E0;font-weight:700;white-space:nowrap;">📍 Placement:</span>
-                            <span style="color:#CBD5E1;">#1 Homepage Hero Bento + Top of Category Hub + Search highlight</span>
-                        </div>
-                        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                            <span style="color:#FBBF24;font-weight:700;white-space:nowrap;">⏳ Duration:</span>
-                            <span style="color:#CBD5E1;"><strong>7 Days guaranteed</strong> (auto-rotates or renew weekly, cancel anytime)</span>
-                        </div>
-                        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                            <span style="color:#22C55E;font-weight:700;white-space:nowrap;">⚡ Activation:</span>
-                            <span style="color:#CBD5E1;"><strong>Fast activation</strong> via automated GitHub Actions pipeline (bypasses 14-day backlog)</span>
-                        </div>
-                        <div style="display:flex;align-items:flex-start;gap:8px;">
-                            <span style="color:#EC4899;font-weight:700;white-space:nowrap;">🛡️ Conditions:</span>
-                            <span style="color:#CBD5E1;">Clean open-source or hosted MCP server · 100% money-back if not verified</span>
-                        </div>
-                    </div>
-
-                    <!-- Panel 2: Current Partner Live Example -->
-                    {sponsor_preview_html}
-                </div>
-
-                <!-- Action Footer -->
-                <div class="featured-footer" style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.05);">
-                    <a href="/pricing.html" class="featured-view-link" style="color:var(--text-muted);font-size:0.76rem;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">
-                        Full Specs &amp; FAQ &rarr;
-                    </a>
-                    <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="featured-sponsor-btn" style="background:#2DD9E0;color:#000;font-weight:700;font-size:0.78rem;padding:7px 14px;border-radius:8px;text-decoration:none;box-shadow:0 0 16px rgba(45,217,224,0.3);transition:all 0.2s;">
-                        Claim Slot ($49/wk) ⚡
-                    </a>
-                </div>
-            </div>
-
-            <!-- Bento Tile 4: Protodex UI Studio Showcase (7 Cols) -->
-            <div class="bento-tile bento-tile-studio">
-                <div class="studio-split">
-                    <div class="studio-media">
-                        <img src="/assets/preview_diverse_templates.jpg" alt="Protodex UI Studio 48 Templates Across Diverse Developer Aesthetics" class="studio-preview-img" loading="lazy">
-                        <div class="studio-media-overlay">
-                            <span class="style-tag tag-swiss">Swiss Minimalist</span>
-                            <span class="style-tag tag-crt">Phosphor CRT</span>
-                            <span class="style-tag tag-quant">Web3 Quant</span>
-                            <span class="style-tag tag-aurora">Obsidian SaaS</span>
-                        </div>
-                    </div>
-                    <div class="studio-details">
-                        <div class="studio-badge-row">
-                            <span class="badge-studio-new">&#127912; NEW RELEASE</span>
-                            <span class="badge-studio-skill">Antigravity AI Skill</span>
-                        </div>
-                        <h3 class="studio-title">Protodex UI Studio: 48 Turnkey Templates</h3>
-                        <p class="studio-desc">
-                            Radical visual variety for high-performing AI developer tools. Built in clean Tailwind CSS + Antigravity AI Skill (SKILL.md).
-                        </p>
-                        <div class="studio-perks-list">
-                            <div class="perk-item"><span>&#10003;</span> 48 Tailwind Layouts</div>
-                            <div class="perk-item"><span>&#10003;</span> Zero External Dependencies</div>
-                        </div>
-                        <div class="studio-actions-row">
-                            <a href="/templates.html" class="btn-studio-explore">Explore Gallery &rarr;</a>
-                            <a href="https://manja8.gumroad.com/l/lntzuo" target="_blank" rel="noopener" class="btn-studio-buy">Instant Download ($39)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div> <!-- /.bento-grid-2026 -->
-""" + BENTO_INTERACTIVE_SCRIPT + f"""
-
-    </div> <!-- /.container -->
+    </div>
 </section>
 
 <!-- ====================================================================== -->
-<!-- LIVE MCP SERVER DIRECTORY SPOTLIGHT & CATEGORIES (VISIBLE NEAR FOLD)   -->
+<!-- 1. TRENDING & HIGH-DEMAND MCP SERVERS (RIGHT AT THE TOP!)              -->
 <!-- ====================================================================== -->
-<!-- Commercial Developer Toolkits & Quant Suites Grid -->
-<section class="container" style="padding-top:10px">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:10px">
+<section class="container" style="padding-top:36px;padding-bottom:20px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:12px">
         <div>
-            <h2 class="section-title" style="margin-bottom:4px">Developer Datasets &amp; Quant Suites</h2>
-            <p style="color:var(--text-muted);font-size:0.88rem;margin:0">Turnkey production datasets, institutional algorithmic trading suites, and developer templates</p>
+            <h2 class="section-title" style="margin-bottom:4px;display:flex;align-items:center;gap:8px">
+                🔥 Trending &amp; High-Demand MCP Servers
+            </h2>
+            <p style="color:var(--text-muted);font-size:0.9rem;margin:0">
+                The most popular tools and integrations developers are connecting to their AI agents right now.
+            </p>
         </div>
-        <a href="/datasets/" style="font-weight:700;font-size:0.88rem;color:var(--accent)">View All Toolkits &rarr;</a>
+        
+        <!-- Tab Switcher -->
+        <div class="server-tabs-bar" style="display:flex;gap:6px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:4px;flex-wrap:wrap">
+            <button type="button" class="srv-tab-btn active" onclick="switchServerTab('tab-trending', this)">🔥 Trending Now</button>
+            <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-claude', this)">🟣 For Claude Desktop</button>
+            <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-cursor', this)">⚡ For Cursor IDE</button>
+            <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-database', this)">🗄️ Database &amp; SQL</button>
+            <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-memory', this)">🧠 Knowledge &amp; Memory</button>
+        </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));gap:1rem">
-        <!-- 1. Protodex UI Studio -->
-        <a href="https://manja8.gumroad.com/l/lntzuo" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(167,139,250,0.14),rgba(45,217,224,0.1));border:1px solid rgba(167,139,250,0.35);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(167,139,250,0.08)">
-            <span style="font-size:1.8rem">&#127912;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Protodex UI Studio <span style="background:rgba(167,139,250,0.25);color:#c084fc;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">NEW &bull; 48 TEMPLATES</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">48 production layouts: Raycast Bento, Cyber HUD, SaaS B2B, Agentic Dashboards.</div>
-            </div>
-            <span style="background:#a855f7;color:#fff;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
-        </a>
-
-        <!-- 2. The 31k MCP Dataset -->
-        <a href="/datasets/mcp-servers.html" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(123,97,255,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
-            <span style="font-size:1.8rem">&#128202;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">31,400+ MCP Dataset <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">POPULAR</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Full ecosystem catalog in SQLite, CSV &amp; JSON with stars, repos, and security flags.</div>
-            </div>
-            <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$29 &rarr;</span>
-        </a>
-
-        <!-- 3. Production MCP Starter Kit -->
-        <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(123,97,255,0.12),rgba(45,217,224,0.08));border:1px solid rgba(123,97,255,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(123,97,255,0.05)">
-            <span style="font-size:1.8rem">&#9881;&#65039;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">MCP Server Starter Kit <span style="background:rgba(123,97,255,0.2);color:#7B61FF;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">DUAL-SDK</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Python FastMCP + TypeScript boilerplate. Stdio &amp; SSE transports, Docker &amp; Cloudflare.</div>
-            </div>
-            <span style="background:#7B61FF;color:#fff;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
-        </a>
-
-        <!-- 4. TheBull Crypto Quant Suite (Binance, Delta, Hyperliquid) -->
-        <a href="https://manja8.gumroad.com/l/woatyl" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(34,197,94,0.12),rgba(45,217,224,0.08));border:1px solid rgba(34,197,94,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(34,197,94,0.05)">
-            <span style="font-size:1.8rem">&#128002;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">TheBull Crypto Quant Suite <span style="background:rgba(34,197,94,0.2);color:#22C55E;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">CRYPTO</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Binance, Delta &amp; Hyperliquid perps. 5 strategies: Funding Arbitrage, Orderbook Sniper, Grid.</div>
-            </div>
-            <span style="background:#22C55E;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49 &rarr;</span>
-        </a>
-
-        <!-- 5. ApexAlpha Dhan HQ Institutional F&O Suite (NSE Nifty & BSE Sensex) -->
-        <a href="https://manja8.gumroad.com/l/lqzroy" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(245,158,11,0.12),rgba(34,197,94,0.08));border:1px solid rgba(245,158,11,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(245,158,11,0.05)">
-            <span style="font-size:1.8rem">&#9889;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">ApexAlpha Dhan HQ F&amp;O Suite <span style="background:rgba(245,158,11,0.2);color:#F59E0B;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">NSE / BSE</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Nifty 50 &amp; Sensex options. 11 institutional strategies, Cherry-Picked Top 3, &#8377;0 overnight.</div>
-            </div>
-            <span style="background:#F59E0B;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49 &rarr;</span>
-        </a>
-
-        <!-- 6. PropFirm Titan Quantitative Trading Suite (Gold & FX SMC/ICT EA) -->
-        <a href="https://manja8.gumroad.com/l/ozwyyt" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(234,179,8,0.14),rgba(239,68,68,0.08));border:1px solid rgba(234,179,8,0.35);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(234,179,8,0.06)">
-            <span style="font-size:1.8rem">&#127942;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">PropFirm Titan Gold &amp; FX Suite <span style="background:rgba(234,179,8,0.25);color:#EAB308;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">FTMO &bull; FUNDED</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">XAU/USD Gold &amp; FX ICT/SMC Judas Sweep MT5 EA with automated 1.0% daily loss sentinel.</div>
-            </div>
-            <span style="background:#EAB308;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$49 &rarr;</span>
-        </a>
-
-        <!-- 7. Polymarket Prediction Strategies Bundle (Multi-Risk Tiers) -->
-        <a href="https://manja8.gumroad.com/l/ntdiq" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(167,139,250,0.12),rgba(45,217,224,0.08));border:1px solid rgba(167,139,250,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(167,139,250,0.05)">
-            <span style="font-size:1.8rem">&#128302;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Polymarket Strategy Bundle <span style="background:rgba(167,139,250,0.2);color:#A78BFA;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">MULTI-RISK</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Low-Risk Binary Arbitrage (Yes+No&lt;$0.985), Market Making Quoting, and 5m BTC Sniper.</div>
-            </div>
-            <span style="background:#A78BFA;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
-        </a>
-
-        <!-- 8. Polymarket 23M+ Dataset -->
-        <a href="/datasets/polymarket-historical.html" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(255,217,61,0.12),rgba(45,217,224,0.08));border:1px solid rgba(255,217,61,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(255,217,61,0.05)">
-            <span style="font-size:1.8rem">&#128200;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Polymarket 23M+ Dataset <span style="background:rgba(255,217,61,0.2);color:#FFD93D;font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">BESTSELLER</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">18,400+ prediction markets, 15-min orderbook snapshots. Clean CSV for AI backtesting.</div>
-            </div>
-            <span style="background:#FFD93D;color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$19 &rarr;</span>
-        </a>
-
-        <!-- 9. Solana DEX Arbitrage Engine -->
-        <a href="https://manja8.gumroad.com/l/vvwwwp" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:linear-gradient(135deg,rgba(45,217,224,0.12),rgba(255,217,61,0.08));border:1px solid rgba(45,217,224,0.3);border-radius:14px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(45,217,224,0.05)">
-            <span style="font-size:1.8rem">&#9889;</span>
-            <div style="flex:1">
-                <div style="font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px">Solana DEX Arbitrage &amp; Sniper <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">JITO MEV</span></div>
-                <div style="color:var(--text-muted);font-size:0.8rem;margin-top:3px">Raydium, DLMM, Jito atomic bundler with anti-rug security filter &amp; Jupiter sniper.</div>
-            </div>
-            <span style="background:var(--accent);color:#000;padding:5px 12px;border-radius:20px;font-size:0.78rem;font-weight:700;white-space:nowrap">$39 &rarr;</span>
-        </a>
+    <!-- Tab Panes -->
+    <div id="tab-trending" class="srv-tab-pane server-grid" style="display:grid">
+        {trending_cards}
     </div>
-</section>
-
-<section class="container">
-    <h2 class="section-title">Browse by Category</h2>
-    <p class="section-subtitle">{len(categories)} categories covering every use case from databases to AI agents</p>
-    <div class="cat-grid">
-        {cat_cards}
+    <div id="tab-claude" class="srv-tab-pane server-grid" style="display:none">
+        {claude_cards}
     </div>
-</section>
-
-<section class="container use-cases">
-    <h2 class="section-title">What are you building?</h2>
-    <p class="section-subtitle">Search by what you need, find the server that does it</p>
-    <div class="use-case-grid">
-        <a href="/category/database.html" class="use-case">
-            <div class="use-case-scenario">Connecting to a database</div>
-            <div class="use-case-query">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                postgres
-            </div>
-            <div class="use-case-result">Find <strong>{categories.get('Database', 0):,} database servers</strong> &mdash; PostgreSQL, MySQL, MongoDB, Redis, SQLite and more</div>
-            <div class="use-case-arrow">Browse database servers &rarr;</div>
-        </a>
-        <a href="/category/browser-web.html" class="use-case">
-            <div class="use-case-scenario">Scraping or automating the web</div>
-            <div class="use-case-query">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                browser playwright
-            </div>
-            <div class="use-case-result">Find <strong>{categories.get('Browser/Web', 0):,} browser servers</strong> &mdash; Playwright, Puppeteer, Scrapling, headless Chrome</div>
-            <div class="use-case-arrow">Browse web servers &rarr;</div>
-        </a>
-        <a href="/category/api-integration.html" class="use-case">
-            <div class="use-case-scenario">Integrating a third-party API</div>
-            <div class="use-case-query">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                slack stripe github
-            </div>
-            <div class="use-case-result">Find <strong>{categories.get('API Integration', 0):,} API servers</strong> &mdash; Slack, Stripe, GitHub, Notion, Jira, and dozens more</div>
-            <div class="use-case-arrow">Browse API servers &rarr;</div>
-        </a>
-        <a href="/category/memory-knowledge.html" class="use-case">
-            <div class="use-case-scenario">Adding memory to your agent</div>
-            <div class="use-case-query">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                memory vector RAG
-            </div>
-            <div class="use-case-result">Find <strong>{categories.get('Memory/Knowledge', 0):,} memory servers</strong> &mdash; vector stores, knowledge graphs, RAG pipelines, embeddings</div>
-            <div class="use-case-arrow">Browse memory servers &rarr;</div>
-        </a>
+    <div id="tab-cursor" class="srv-tab-pane server-grid" style="display:none">
+        {cursor_cards}
     </div>
-</section>
+    <div id="tab-database" class="srv-tab-pane server-grid" style="display:none">
+        {database_cards}
+    </div>
+    <div id="tab-memory" class="srv-tab-pane server-grid" style="display:none">
+        {memory_cards}
+    </div>
 
-<section class="container">
-    <div class="lang-row">
-        <span style="color:var(--text-dim);font-size:0.82rem;font-weight:500;padding:8px 0;">Filter by language:</span>
-        <a href="/category/ai-llm.html" class="lang-pill"><span class="lang-dot" style="background:#3572A5"></span> Python <span style="color:var(--text-dim)">{lang_counts.get('Python', 0):,}</span></a>
-        <a href="/category/code-dev-tools.html" class="lang-pill"><span class="lang-dot" style="background:#3178C6"></span> TypeScript <span style="color:var(--text-dim)">{lang_counts.get('TypeScript', 0):,}</span></a>
-        <a href="/category/api-integration.html" class="lang-pill"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript <span style="color:var(--text-dim)">{lang_counts.get('JavaScript', 0):,}</span></a>
-        <a href="/category/devops.html" class="lang-pill"><span class="lang-dot" style="background:#00ADD8"></span> Go <span style="color:var(--text-dim)">{lang_counts.get('Go', 0):,}</span></a>
-        <a href="/category/security.html" class="lang-pill"><span class="lang-dot" style="background:#DEA584"></span> Rust <span style="color:var(--text-dim)">{lang_counts.get('Rust', 0):,}</span></a>
+    <div style="text-align:center;margin-top:28px">
+        <a href="/categories.html" class="btn btn-outline" style="font-size:0.9rem;padding:10px 24px">
+            Explore all {total:,} servers by category &rarr;
+        </a>
     </div>
 </section>
 
 {sponsored_section}
 
-<section class="container">
-    <h2 class="section-title" id="top-servers">Most Popular MCP Servers</h2>
-    <p class="section-subtitle">Top servers by GitHub stars across all categories</p>
-    <div class="server-grid">
-        {featured}
+<!-- ====================================================================== -->
+<!-- 2. CONNECT IN SECONDS & SECURITY RADAR (DUAL UTILITY BENTO)           -->
+<!-- ====================================================================== -->
+<section class="container" style="padding-top:20px;padding-bottom:20px">
+    <div class="bento-grid-2026" style="margin-top:0">
+        <!-- Dual-SDK Interactive IDE & Terminal Simulator (7 Cols) -->
+        <div class="bento-tile bento-tile-ide">
+            <div class="bento-header">
+                <div class="ide-tabs-nav">
+                    <button type="button" class="ide-tab active" onclick="switchIdeTab('claude', this)">Claude Desktop</button>
+                    <button type="button" class="ide-tab" onclick="switchIdeTab('cursor', this)">Cursor Rules</button>
+                    <button type="button" class="ide-tab" onclick="switchIdeTab('python', this)">FastMCP (Python)</button>
+                    <button type="button" class="ide-tab" onclick="switchIdeTab('ts', this)">TypeScript SDK</button>
+                </div>
+                <button type="button" class="btn-copy-code" id="copy-code-btn" onclick="copyIdeSnippet()">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                    <span>Copy</span>
+                </button>
+            </div>
+            <div class="ide-body">
+                <pre class="ide-code-block" id="ide-code-display"><code class="language-json">{{
+  &quot;mcpServers&quot;: {{
+    &quot;github&quot;: {{
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-github&quot;],
+      &quot;env&quot;: {{
+        &quot;GITHUB_PERSONAL_ACCESS_TOKEN&quot;: &quot;YOUR_TOKEN&quot;
+      }}
+    }}
+  }}
+}}</code></pre>
+            </div>
+            <div class="ide-footer">
+                <div class="ide-status-pill">
+                    <span class="status-dot green"></span>
+                    <span>JSON-RPC 2.0 &middot; Standard Stdio + SSE Transport</span>
+                </div>
+                <span style="color:var(--text-dim);font-size:0.75rem">Paste into claude_desktop_config.json</span>
+            </div>
+        </div>
+
+        <!-- AegisMesh Cyber Security Radar (5 Cols) -->
+        <div class="bento-tile bento-tile-radar">
+            <div class="radar-top">
+                <span class="radar-tag">AEGISMESH TRiSM</span>
+                <span class="radar-badge-live">LIVE TELEMETRY</span>
+            </div>
+            <div class="radar-visual-container">
+                <div class="radar-avionics-display">
+                    <div class="radar-sweep-beam"></div>
+                    <div class="radar-circle circle-1"></div>
+                    <div class="radar-circle circle-2"></div>
+                    <div class="radar-circle circle-3"></div>
+                    <div class="radar-crosshair-h"></div>
+                    <div class="radar-crosshair-v"></div>
+                    <div class="radar-blip blip-1"></div>
+                    <div class="radar-blip blip-2"></div>
+                    <div class="radar-blip blip-3"></div>
+                    <div class="radar-center-score">
+                        <span class="score-num">98.4</span>
+                        <span class="score-lbl">SAFETY</span>
+                    </div>
+                </div>
+            </div>
+            <div class="radar-info">
+                <div class="radar-metric-row">
+                    <span>Zero-Day CVEs</span>
+                    <strong class="text-green">0 DETECTED</strong>
+                </div>
+                <div class="radar-metric-row">
+                    <span>AST Sandbox</span>
+                    <strong class="text-cyan">100% COMPLIANT</strong>
+                </div>
+            </div>
+            <a href="/audit.html" class="radar-action-btn">
+                <span>Scan Your Server Free</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
     </div>
 </section>
 
-<section class="container">
-    <details style="margin:0 auto 2rem;max-width:1000px;padding:1rem 1.25rem;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;color:var(--text-muted);font-size:0.85rem">
-        <summary style="cursor:pointer;font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px;outline:none">
-            <span style="font-size:1.1rem">&#129518;</span>
-            <span>Free Developer Financial Calculators (India FY 2026-27 Rules)</span>
-            <span style="font-size:0.75rem;margin-left:auto;color:var(--accent);font-weight:700">Explore Calculators &darr;</span>
-        </summary>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.65rem;margin-top:16px">
-            <a href="https://inhandsalary.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem;transition:border-color 0.15s">
-                💰 <strong>In-Hand Salary</strong> — Old vs New regime FY 2026-27
-            </a>
-            <a href="https://hra.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏠 <strong>HRA Exemption</strong> — Section 10(13A), Metro/Non-Metro
-            </a>
-            <a href="https://gratuity.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                💼 <strong>Gratuity</strong> — Payment of Gratuity Act + ₹20L exemption
-            </a>
-            <a href="https://esoptax.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                📈 <strong>ESOP Tax</strong> — Perquisite + LTCG/STCG
-            </a>
-            <a href="https://protodex.io/nsc-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                📜 <strong>NSC</strong> — 7.7%, annual compounding, 80C reinvestment
-            </a>
-            <a href="https://protodex.io/scss-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                👴 <strong>SCSS (Senior Citizens)</strong> — 8.2%, quarterly income, ₹30L cap, TDS / Form 15H
-            </a>
-            <a href="https://protodex.io/ltcg-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                💹 <strong>LTCG / Capital Gains</strong> — Budget 2024: 12.5%, ₹1.25L exemption, indexation
-            </a>
-            <a href="https://protodex.io/swp-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                💸 <strong>SWP (Systematic Withdrawal)</strong> — corpus longevity, LTCG on gains only, SWP vs FD
-            </a>
-            <a href="https://protodex.io/gst-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🧾 <strong>GST for Freelancers</strong> — export 0% (LUT), domestic 18%, ₹20L threshold
-            </a>
-            <a href="https://protodex.io/44ada-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                📑 <strong>Section 44ADA Presumptive Tax</strong> — declare 50%, ₹75L limit, advance tax by 15 Mar
-            </a>
-            <a href="https://protodex.io/advance-tax-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                📅 <strong>Advance Tax for Freelancers</strong> — 15 Jun/Sep/Dec/Mar installments, 234B/234C interest, 44ADA single-pay
-            </a>
-            <a href="https://protodex.io/tds-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                ✂️ <strong>TDS Calculator &amp; Rate Chart</strong> — 194J/194C/194H/194I rates, no-PAN 20%, threshold, freelancer refund
-            </a>
-            <a href="https://protodex.io/property-tds-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏘️ <strong>TDS on Property Purchase</strong> — 1% Section 194-IA, Form 26QB, ₹50L threshold, no-PAN 20%, NRI-seller trap
-            </a>
-            <a href="https://protodex.io/hra-calculator/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏠 <strong>HRA Exemption</strong> — least-of-three, metro vs non-metro, old-regime only
-            </a>
-            <a href="https://stampduty.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏗 <strong>Karnataka Stamp Duty</strong> — Bengaluru/Mysuru, 2% reg fee
-            </a>
-            <a href="https://stampdutymaharashtra.protodex.io/" target="_blank" rel="noopener" style="display:block;padding:0.7rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;color:var(--text);text-decoration:none;font-size:0.88rem">
-                🏛️ <strong>Maharashtra Stamp Duty</strong> — Mumbai/Pune, women discount
-            </a>
+<!-- ====================================================================== -->
+<!-- 3. BROWSE BY CATEGORY (15 CORE DOMAINS)                               -->
+<!-- ====================================================================== -->
+<section class="container" style="padding-top:20px;padding-bottom:20px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:10px">
+        <div>
+            <h2 class="section-title" style="margin-bottom:4px">Browse by Category</h2>
+            <p style="color:var(--text-muted);font-size:0.9rem;margin:0">Explore verified Model Context Protocol tools across 15 core technical domains</p>
         </div>
-    </details>
+        <a href="/categories.html" style="font-weight:700;font-size:0.88rem;color:var(--accent)">View All 15 Categories &rarr;</a>
+    </div>
+    <div class="cat-grid">
+        {cat_cards}
+    </div>
 </section>
-"""
-    html += f"""
-<section class="container">
-    <div class="cta-banner">
-        <h2>Can't find what you're looking for?</h2>
-        <p>Tell us what MCP server you need. We'll help you find it — or flag it as a gap the community can fill.</p>
-        <div class="cta-buttons">
-            <a href="https://github.com/LuciferForge/mcp-directory/discussions/new?category=ideas&title=Looking+for:+&body=I'm+looking+for+an+MCP+server+that..." target="_blank" rel="noopener" class="btn">Request a Server</a>
-            <a href="/submit.html" class="btn btn-outline">Submit Your Server</a>
+
+<!-- ====================================================================== -->
+<!-- 4. PROTODEX INTELLIGENCE & RELATED EDITORIAL GUIDES                   -->
+<!-- ====================================================================== -->
+<section class="container" style="padding-top:20px;padding-bottom:20px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:10px">
+        <div>
+            <h2 class="section-title" style="margin-bottom:4px">📰 Protodex Intelligence &amp; Guides</h2>
+            <p style="color:var(--text-muted);font-size:0.9rem;margin:0">Daily market telemetry, weekly discovery digests, and technical deep-dives for AI agent developers</p>
         </div>
+        <a href="/blog/" style="font-weight:700;font-size:0.88rem;color:var(--accent)">Explore All Guides &rarr;</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:16px">
+        <!-- Card 1: Polymarket Daily Intelligence -->
+        <a href="/blog/polymarket-top-volume-2026-11-14.html" style="display:flex;flex-direction:column;justify-content:space-between;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
+            <div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+                    <span style="background:rgba(45,217,224,0.15);color:#2dd9e0;border:1px solid rgba(45,217,224,0.3);font-size:0.72rem;padding:3px 10px;border-radius:100px;font-weight:700">📈 DAILY TELEMETRY</span>
+                    <span style="color:var(--text-dim);font-size:0.75rem">Updated Daily at 06:00 UTC</span>
+                </div>
+                <h3 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.4">
+                    Polymarket Top Volume Daily Intelligence
+                </h3>
+                <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.6;margin-bottom:16px">
+                    Live quant tracking of high-volume prediction markets, liquidity depth, open interest swings, and real-time probability shifts across global contracts.
+                </p>
+            </div>
+            <span style="color:var(--accent);font-size:0.85rem;font-weight:700;display:inline-flex;align-items:center;gap:4px">
+                Read Daily Telemetry Report &rarr;
+            </span>
+        </a>
+
+        <!-- Card 2: Weekly MCP Digest -->
+        <a href="/blog/" style="display:flex;flex-direction:column;justify-content:space-between;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
+            <div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+                    <span style="background:rgba(123,97,255,0.15);color:#bca7ff;border:1px solid rgba(123,97,255,0.3);font-size:0.72rem;padding:3px 10px;border-radius:100px;font-weight:700">📚 WEEKLY DIGEST</span>
+                    <span style="color:var(--text-dim);font-size:0.75rem">Curated Every Monday</span>
+                </div>
+                <h3 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.4">
+                    MCP Server Weekly: 20 New Discoveries
+                </h3>
+                <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.6;margin-bottom:16px">
+                    Guaranteed non-repeating discoveries: new model integrations, community tools, database drivers, and agent memory servers curated by Protodex.
+                </p>
+            </div>
+            <span style="color:var(--accent);font-size:0.85rem;font-weight:700;display:inline-flex;align-items:center;gap:4px">
+                Browse Weekly Digests &rarr;
+            </span>
+        </a>
+
+        <!-- Card 3: Security & TRiSM Audit -->
+        <a href="/audit.html" style="display:flex;flex-direction:column;justify-content:space-between;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
+            <div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+                    <span style="background:rgba(34,197,94,0.15);color:#4ade80;border:1px solid rgba(34,197,94,0.3);font-size:0.72rem;padding:3px 10px;border-radius:100px;font-weight:700">🛡️ SECURITY &amp; TRiSM</span>
+                    <span style="color:var(--text-dim);font-size:0.75rem">AegisMesh Engine</span>
+                </div>
+                <h3 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.4">
+                    Auditing AI Agent Tools &amp; Sandbox Safety
+                </h3>
+                <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.6;margin-bottom:16px">
+                    Detect malicious prompt injection bait, unverified tool permissions, and credential exfiltration vulnerabilities in Model Context Protocol servers.
+                </p>
+            </div>
+            <span style="color:var(--accent);font-size:0.85rem;font-weight:700;display:inline-flex;align-items:center;gap:4px">
+                Launch Security Audit Tool &rarr;
+            </span>
+        </a>
+    </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 5. DEVELOPER TOOLKITS & PRO RESOURCES (TASTEFUL & NON-INTRUSIVE)       -->
+<!-- ====================================================================== -->
+<section class="container" style="padding-top:20px;padding-bottom:30px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:10px">
+        <div>
+            <h2 class="section-title" style="margin-bottom:4px">🛠️ Developer Toolkits &amp; Pro Resources</h2>
+            <p style="color:var(--text-muted);font-size:0.88rem;margin:0">High-leverage datasets, UI templates, and author promotion for AI engineering teams</p>
+        </div>
+        <a href="/datasets/" style="font-weight:700;font-size:0.88rem;color:var(--accent)">Explore Pro Resources &rarr;</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:14px">
+        <!-- Resource 1: UI Studio -->
+        <a href="/templates.html" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s">
+            <span style="font-size:1.6rem">🎨</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.92rem;color:var(--text)">Protodex UI Studio</div>
+                <div style="color:var(--text-muted);font-size:0.78rem;margin-top:2px">48 production layouts in Tailwind CSS + Antigravity AI Skill.</div>
+            </div>
+        </a>
+
+        <!-- Resource 2: 31k Dataset -->
+        <a href="/datasets/mcp-servers.html" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s">
+            <span style="font-size:1.6rem">📊</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.92rem;color:var(--text)">31k+ Ecosystem Dataset</div>
+                <div style="color:var(--text-muted);font-size:0.78rem;margin-top:2px">Structured JSON &amp; CSV with schemas, AST scores, and star velocity.</div>
+            </div>
+        </a>
+
+        <!-- Resource 3: Security Scanner -->
+        <a href="/audit.html" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s">
+            <span style="font-size:1.6rem">🛡️</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.92rem;color:var(--text)">AegisMesh TRiSM Auditor</div>
+                <div style="color:var(--text-muted);font-size:0.78rem;margin-top:2px">Instant automated static security scan for any public GitHub repo.</div>
+            </div>
+        </a>
+
+        <!-- Resource 4: Promote Server -->
+        <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s">
+            <span style="font-size:1.6rem">⚡</span>
+            <div style="flex:1">
+                <div style="font-weight:700;font-size:0.92rem;color:var(--text)">Feature Your Server</div>
+                <div style="color:var(--text-muted);font-size:0.78rem;margin-top:2px">Put your MCP server in front of 30,000+ AI developers ($49/wk).</div>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 6. SUBMIT YOUR SERVER CTA                                              -->
+<!-- ====================================================================== -->
+<section class="container" style="padding-bottom:40px">
+    <div class="submit-cta" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;text-align:center">
+        <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-bottom:8px">Built an MCP Server?</h2>
+        <p style="color:var(--text-muted);font-size:0.92rem;max-width:560px;margin:0 auto 20px">
+            Join over {total:,} indexed repositories. Index your tools, get an AegisMesh security badge, and help thousands of AI developers find your project.
+        </p>
+        <a href="/submit.html" class="btn" style="padding:10px 24px">Submit Your Server Free &rarr;</a>
     </div>
 </section>
 """
     html += html_footer()
-    # Insert search script before </body>
-    html = html.replace("</body>", search_script + "</body>")
+    html = html.replace("</body>", client_scripts + "</body>")
     return html
 
 
