@@ -1149,7 +1149,7 @@ footer {
 
     <div class="detail-desc">Android-native SO reverse engineering MCP server</div>
 
-    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px">
         <a href="https://github.com/bilieebiliee1-design/SOMCP" target="_blank" rel="noopener" class="btn">
             View on GitHub →
         </a>
@@ -1159,6 +1159,53 @@ footer {
             🛡️ Security &amp; TRiSM Audit →
         </a>
     </div>
+
+    
+    <div class="detail-section server-overview-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:32px">
+        <h2 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-top:0;margin-bottom:12px;display:flex;align-items:center;gap:8px">
+            ⚡ What This Server Does &amp; Key Capabilities
+        </h2>
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.7;margin-bottom:20px">
+            The <strong>SOMCP</strong> Model Context Protocol (MCP) server provides seamless integration between AI assistants (such as Claude Desktop, Cursor, and Claude Code) and Android-native SO reverse engineering MCP server. By connecting this server, your AI agent gains specialized capabilities to inspect, query, and automate tasks within the DevOps domain.
+        </p>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:12px">
+            Core Agent Capabilities
+        </h3>
+        <ul style="list-style:none;padding:0;margin:0 0 24px 0;font-size:0.9rem;color:var(--text)">
+            <li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Expose custom domain tools and command-line utilities to Model Context Protocol clients.</span></li><li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Enable autonomous agent execution for specialized developer workflows.</span></li><li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Bridge proprietary APIs and data feeds into Claude Desktop, Cursor, and IDEs.</span></li>
+        </ul>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:12px">
+            💡 Example Prompts to Ask Your AI Agent
+        </h3>
+        <p style="color:var(--text-dim);font-size:0.82rem;margin-bottom:12px">
+            Once installed in Claude Desktop or Cursor, try asking your assistant:
+        </p>
+        <div style="margin-bottom:20px">
+            
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <span style="font-family:var(--mono);font-size:0.85rem;color:var(--text);word-break:break-word">"Use the connected tools to inspect the environment and execute the requested task."</span>
+            <button onclick="navigator.clipboard.writeText('Use the connected tools to inspect the environment and execute the requested task.');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);font-size:0.75rem;padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all 0.2s">Copy</button>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <span style="font-family:var(--mono);font-size:0.85rem;color:var(--text);word-break:break-word">"List the available commands on this server and describe what each tool does."</span>
+            <button onclick="navigator.clipboard.writeText('List the available commands on this server and describe what each tool does.');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);font-size:0.75rem;padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all 0.2s">Copy</button>
+        </div>
+        </div>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:10px">
+            Compatible AI Clients
+        </h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.25);border-radius:6px;font-size:0.8rem;color:#bca7ff;font-weight:600">🟣 Claude Desktop</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(45,217,224,0.1);border:1px solid rgba(45,217,224,0.25);border-radius:6px;font-size:0.8rem;color:#2dd9e0;font-weight:600">⚡ Cursor IDE</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">💻 Claude Code CLI</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">🌊 Windsurf</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">🤖 Gemini CLI</span>
+        </div>
+    </div>
+    
 
     
     <div class="install-section" style="margin-top:32px">
@@ -1234,8 +1281,15 @@ footer {
     <div style="margin-top:40px">
         
     <div class="detail-section">
-        <h2>README Excerpt</h2>
-        <div class="detail-readme">SOMCP 是一个运行在 Android 手机上的本地 SO 逆向 MCP 服务器。它通过 Streamable HTTP 暴露 MCP 工具，让客户端可以在手机上完成 ELF 结构分析、Rizin 反汇编/分析、LIEF ELF 修复/重写、补丁会话、构建导出、Cloudflare Tunnel 暴露和可选 APK MCP 桥接。 当前版本：`1.0.11` 包名：`com.soreverse.mcp` 最低系统：Android 8.0 / API 26 许可证：`GPL-3.0-only`。SOMCP 主项目依据 [GNU General Public License v3.0](LICENSE) 发布。仓库中的第三方依赖、submodule、生成资源和补丁仍分别遵循各自上游许可证，GPL-3.0 声明不会替代其原有许可条款。</div>
+        <h2>README Documentation</h2>
+        <div class="detail-readme" style="line-height:1.75;font-size:0.92rem;color:var(--text)">
+            <p>SOMCP 是一个运行在 Android 手机上的本地 SO 逆向 MCP 服务器。它通过 Streamable HTTP 暴露 MCP 工具，让客户端可以在手机上完成 ELF 结构分析、Rizin 反汇编/分析、LIEF ELF 修复/重写、补丁会话、构建导出、Cloudflare Tunnel 暴露和可选 APK MCP 桥接。 当前版本：<code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:0.85rem">1.0.11</code> 包名：<code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:0.85rem">com.soreverse.mcp</code> 最低系统：Android 8.0 / API 26 许可证：<code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:0.85rem">GPL-3.0-only</code>。SOMCP 主项目依据 <a href="LICENSE" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">GNU General Public License v3.0</a> 发布。仓库中的第三方依赖、submodule、生成资源和补丁仍分别遵循各自上游许可证，GPL-3.0 声明不会替代其原有许可条款。</p>
+        </div>
+        <div style="margin-top:12px;text-align:right">
+            <a href="https://github.com/bilieebiliee1-design/SOMCP" target="_blank" rel="noopener" style="font-size:0.85rem;color:var(--accent);text-decoration:none;font-weight:600">
+                View Full Documentation &amp; Updates on GitHub ↗
+            </a>
+        </div>
     </div>
         
         

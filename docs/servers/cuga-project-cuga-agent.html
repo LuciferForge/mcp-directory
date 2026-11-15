@@ -1149,7 +1149,7 @@ footer {
 
     <div class="detail-desc">CUGA is an open-source generalist agent for the enterprise, supporting complex task execution on web and APIs, OpenAPI/MCP integrations, composable architecture, reasoning modes, and policy-aware features.</div>
 
-    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px">
         <a href="https://github.com/cuga-project/cuga-agent" target="_blank" rel="noopener" class="btn">
             View on GitHub →
         </a>
@@ -1159,6 +1159,53 @@ footer {
             🛡️ Security &amp; TRiSM Audit →
         </a>
     </div>
+
+    
+    <div class="detail-section server-overview-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:32px">
+        <h2 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-top:0;margin-bottom:12px;display:flex;align-items:center;gap:8px">
+            ⚡ What This Server Does &amp; Key Capabilities
+        </h2>
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.7;margin-bottom:20px">
+            The <strong>cuga-agent</strong> Model Context Protocol (MCP) server provides seamless integration between AI assistants (such as Claude Desktop, Cursor, and Claude Code) and CUGA is an open-source generalist agent for the enterprise, supporting complex task execution on web and APIs, OpenAPI/MCP integrations, composable architecture, reasoning modes, and policy-aware features. By connecting this server, your AI agent gains specialized capabilities to inspect, query, and automate tasks within the API Integration domain.
+        </p>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:12px">
+            Core Agent Capabilities
+        </h3>
+        <ul style="list-style:none;padding:0;margin:0 0 24px 0;font-size:0.9rem;color:var(--text)">
+            <li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Connect AI agents to third-party SaaS platforms, REST endpoints, and webhooks.</span></li><li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Automate repetitive workflow executions, issue tracking, and ticket updates.</span></li><li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Perform authenticated read/write operations across external developer services.</span></li>
+        </ul>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:12px">
+            💡 Example Prompts to Ask Your AI Agent
+        </h3>
+        <p style="color:var(--text-dim);font-size:0.82rem;margin-bottom:12px">
+            Once installed in Claude Desktop or Cursor, try asking your assistant:
+        </p>
+        <div style="margin-bottom:20px">
+            
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <span style="font-family:var(--mono);font-size:0.85rem;color:var(--text);word-break:break-word">"Trigger the customer synchronization workflow and alert me if any records fail validation."</span>
+            <button onclick="navigator.clipboard.writeText('Trigger the customer synchronization workflow and alert me if any records fail validation.');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);font-size:0.75rem;padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all 0.2s">Copy</button>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <span style="font-family:var(--mono);font-size:0.85rem;color:var(--text);word-break:break-word">"List all recent webhook events and show the payload for the latest failed event."</span>
+            <button onclick="navigator.clipboard.writeText('List all recent webhook events and show the payload for the latest failed event.');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);font-size:0.75rem;padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all 0.2s">Copy</button>
+        </div>
+        </div>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:10px">
+            Compatible AI Clients
+        </h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.25);border-radius:6px;font-size:0.8rem;color:#bca7ff;font-weight:600">🟣 Claude Desktop</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(45,217,224,0.1);border:1px solid rgba(45,217,224,0.25);border-radius:6px;font-size:0.8rem;color:#2dd9e0;font-weight:600">⚡ Cursor IDE</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">💻 Claude Code CLI</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">🌊 Windsurf</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">🤖 Gemini CLI</span>
+        </div>
+    </div>
+    
 
     
     <div class="install-section" style="margin-top:32px">

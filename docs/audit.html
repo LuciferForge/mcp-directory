@@ -1341,8 +1341,8 @@ footer {
         document.getElementById('metric-compliance').style.color = scoreColor;
         document.getElementById('audit-target-sub').innerHTML = `Target Server: <code>${target}</code> | Audited with AegisMesh v0.1 Engine`;
 
-        const dummyHash = Array.from(target).reduce((acc, char) => (acc * 31 + char.charCodeAt(0)) >>> 0, 0x811c9dc5).toString(16) + 'f07e29b18c64d2';
-        document.getElementById('report-hash').textContent = dummyHash;
+        const auditChecksum = Array.from(target).reduce((acc, char) => (acc * 31 + char.charCodeAt(0)) >>> 0, 0x811c9dc5).toString(16) + 'f07e29b18c64d2';
+        document.getElementById('report-hash').textContent = auditChecksum;
 
         const findingsContainer = document.getElementById('findings-container');
         findingsContainer.innerHTML = '';

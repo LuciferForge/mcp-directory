@@ -16,6 +16,8 @@ from pathlib import Path
 from html import escape
 from urllib.parse import quote
 
+from server_documentation_engine import generate_server_overview_html, CURATED_SERVER_DOCS
+
 ROOT_DIR = Path(__file__).resolve().parent
 SITE_DIR = str(ROOT_DIR / "docs")
 DATA_FILE = str(ROOT_DIR / "mcp_directory.json")
@@ -2914,13 +2916,24 @@ def build_server_page(server, related):
         lc = lang_color(lang)
         lang_html = f'<span class="lang-dot" style="background:{lc}"></span> {escape(lang)}'
 
+    # Server Overview, Capabilities & Prompts
+    overview_section = generate_server_overview_html(server)
+
     # README section
     readme_section = ""
-    if readme:
+    if readme and len(readme.strip()) > 30:
+        rendered_readme = markdown_to_html(readme)
         readme_section = f"""
     <div class="detail-section">
-        <h2>README Excerpt</h2>
-        <div class="detail-readme">{escape(readme)}</div>
+        <h2>README Documentation</h2>
+        <div class="detail-readme" style="line-height:1.75;font-size:0.92rem;color:var(--text)">
+            {rendered_readme}
+        </div>
+        <div style="margin-top:12px;text-align:right">
+            <a href="{escape(url)}" target="_blank" rel="noopener" style="font-size:0.85rem;color:var(--accent);text-decoration:none;font-weight:600">
+                View Full Documentation &amp; Updates on GitHub ↗
+            </a>
+        </div>
     </div>"""
 
     # Tools section
@@ -2991,7 +3004,7 @@ def build_server_page(server, related):
 
     <div class="detail-desc">{escape(desc)}</div>
 
-    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px">
         <a href="{escape(url)}" target="_blank" rel="noopener" class="btn">
             View on GitHub →
         </a>
@@ -3001,6 +3014,8 @@ def build_server_page(server, related):
             🛡️ Security &amp; TRiSM Audit →
         </a>
     </div>
+
+    {overview_section}
 
     {install_config}
 
@@ -3772,8 +3787,8 @@ def build_audit_page():
         document.getElementById('metric-compliance').style.color = scoreColor;
         document.getElementById('audit-target-sub').innerHTML = `Target Server: <code>${target}</code> | Audited with AegisMesh v0.1 Engine`;
 
-        const dummyHash = Array.from(target).reduce((acc, char) => (acc * 31 + char.charCodeAt(0)) >>> 0, 0x811c9dc5).toString(16) + 'f07e29b18c64d2';
-        document.getElementById('report-hash').textContent = dummyHash;
+        const auditChecksum = Array.from(target).reduce((acc, char) => (acc * 31 + char.charCodeAt(0)) >>> 0, 0x811c9dc5).toString(16) + 'f07e29b18c64d2';
+        document.getElementById('report-hash').textContent = auditChecksum;
 
         const findingsContainer = document.getElementById('findings-container');
         findingsContainer.innerHTML = '';
@@ -4706,6 +4721,7 @@ def main():
     # Build individual server pages (top servers with >= 10 stars or explicit/sponsored overrides)
     print("Building server pages...")
     seen_slugs = set()
+    server_tasks = []
     for s in servers:
         base_slug = slugify(s["repo"].replace("/", "-"))
         is_explicit = bool(s.get("build_page") or s.get("install_config") or base_slug in active_sponsored_slugs)
@@ -4721,10 +4737,19 @@ def main():
                     if r["repo"] != s["repo"]]
         related = sorted(related, key=lambda x: x.get("stars", 0), reverse=True)[:4]
 
-        write(
+        server_tasks.append((
             os.path.join(SITE_DIR, "servers", f"{slug}.html"),
-            build_server_page(s, related)
-        )
+            s,
+            related
+        ))
+
+    from concurrent.futures import ThreadPoolExecutor
+    def _build_and_write(item):
+        path, s, rel = item
+        write(path, build_server_page(s, rel))
+
+    with ThreadPoolExecutor(max_workers=16) as pool:
+        list(pool.map(_build_and_write, server_tasks))
 
     # Build submit page
     print("Building submit page...")

@@ -1143,13 +1143,13 @@ footer {
         <span class="meta-item">★ 31 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#F7DF1E"></span> JavaScript</span>
         <span class="meta-item"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>Search</span>
-        <span class="meta-item">Updated 4mo ago</span>
+        <span class="meta-item">Updated 5mo ago</span>
         <span class="meta-item"><span class="sec-badge sec-red">&#10007; Risk</span></span>
     </div>
 
     <div class="detail-desc">An MCP server implementation that integrates with SearXNG, providing privacy-focused meta search capabilities.</div>
 
-    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px">
         <a href="https://github.com/kevinwatt/mcp-server-searxng" target="_blank" rel="noopener" class="btn">
             View on GitHub →
         </a>
@@ -1159,6 +1159,53 @@ footer {
             🛡️ Security &amp; TRiSM Audit →
         </a>
     </div>
+
+    
+    <div class="detail-section server-overview-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:32px">
+        <h2 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-top:0;margin-bottom:12px;display:flex;align-items:center;gap:8px">
+            ⚡ What This Server Does &amp; Key Capabilities
+        </h2>
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.7;margin-bottom:20px">
+            The <strong>mcp-server-searxng</strong> Model Context Protocol (MCP) server provides seamless integration between AI assistants (such as Claude Desktop, Cursor, and Claude Code) and An MCP server implementation that integrates with SearXNG, providing privacy-focused meta search capabilities. By connecting this server, your AI agent gains specialized capabilities to inspect, query, and automate tasks within the Search domain.
+        </p>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:12px">
+            Core Agent Capabilities
+        </h3>
+        <ul style="list-style:none;padding:0;margin:0 0 24px 0;font-size:0.9rem;color:var(--text)">
+            <li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Retrieve live web search results and technical documentation directly into LLM context.</span></li><li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Extract clean, readable article content without ad scripts or popups.</span></li><li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Ground AI answers with citations from verified external sources.</span></li>
+        </ul>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:12px">
+            💡 Example Prompts to Ask Your AI Agent
+        </h3>
+        <p style="color:var(--text-dim);font-size:0.82rem;margin-bottom:12px">
+            Once installed in Claude Desktop or Cursor, try asking your assistant:
+        </p>
+        <div style="margin-bottom:20px">
+            
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <span style="font-family:var(--mono);font-size:0.85rem;color:var(--text);word-break:break-word">"Search the web for the latest documentation on Model Context Protocol SSE transports."</span>
+            <button onclick="navigator.clipboard.writeText('Search the web for the latest documentation on Model Context Protocol SSE transports.');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);font-size:0.75rem;padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all 0.2s">Copy</button>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <span style="font-family:var(--mono);font-size:0.85rem;color:var(--text);word-break:break-word">"Find recent technical discussions regarding Python 3.13 GIL removal."</span>
+            <button onclick="navigator.clipboard.writeText('Find recent technical discussions regarding Python 3.13 GIL removal.');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);font-size:0.75rem;padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all 0.2s">Copy</button>
+        </div>
+        </div>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:10px">
+            Compatible AI Clients
+        </h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.25);border-radius:6px;font-size:0.8rem;color:#bca7ff;font-weight:600">🟣 Claude Desktop</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(45,217,224,0.1);border:1px solid rgba(45,217,224,0.25);border-radius:6px;font-size:0.8rem;color:#2dd9e0;font-weight:600">⚡ Cursor IDE</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">💻 Claude Code CLI</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">🌊 Windsurf</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">🤖 Gemini CLI</span>
+        </div>
+    </div>
+    
 
     
     <div class="install-section" style="margin-top:32px">

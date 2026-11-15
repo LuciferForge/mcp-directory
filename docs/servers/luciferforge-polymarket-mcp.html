@@ -1143,13 +1143,13 @@ footer {
         <span class="meta-item">★ 42 stars</span>
         <span class="meta-item"><span class="lang-dot" style="background:#3572A5"></span> Python</span>
         <span class="meta-item"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>Finance</span>
-        <span class="meta-item">Updated 3mo ago</span>
+        <span class="meta-item">Updated 4mo ago</span>
         <span class="meta-item"><span class="sec-badge sec-green">&#10003; Clean</span></span>
     </div>
 
     <div class="detail-desc">Live Polymarket prediction-market data, exposed as MCP tools for Claude, Cursor, and Cline.</div>
 
-    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px">
         <a href="https://github.com/LuciferForge/polymarket-mcp" target="_blank" rel="noopener" class="btn">
             View on GitHub →
         </a>
@@ -1159,6 +1159,53 @@ footer {
             🛡️ Security &amp; TRiSM Audit →
         </a>
     </div>
+
+    
+    <div class="detail-section server-overview-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:32px">
+        <h2 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-top:0;margin-bottom:12px;display:flex;align-items:center;gap:8px">
+            ⚡ What This Server Does &amp; Key Capabilities
+        </h2>
+        <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.7;margin-bottom:20px">
+            The <strong>polymarket-mcp-pro</strong> Model Context Protocol (MCP) server provides seamless integration between AI assistants (such as Claude Desktop, Cursor, and Claude Code) and Live Polymarket prediction-market data, exposed as MCP tools for Claude, Cursor, and Cline. By connecting this server, your AI agent gains specialized capabilities to inspect, query, and automate tasks within the Finance domain.
+        </p>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:12px">
+            Core Agent Capabilities
+        </h3>
+        <ul style="list-style:none;padding:0;margin:0 0 24px 0;font-size:0.9rem;color:var(--text)">
+            <li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Fetch real-time financial market data, crypto prices, and order book depth.</span></li><li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Perform automated portfolio risk analysis and financial modeling directly in chat.</span></li><li style="margin-bottom:8px;display:flex;align-items:flex-start;gap:8px"><span style="color:var(--accent);font-weight:700">✓</span> <span>Audit smart contracts, wallet transactions, and ledger accounting balances.</span></li>
+        </ul>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:12px">
+            💡 Example Prompts to Ask Your AI Agent
+        </h3>
+        <p style="color:var(--text-dim);font-size:0.82rem;margin-bottom:12px">
+            Once installed in Claude Desktop or Cursor, try asking your assistant:
+        </p>
+        <div style="margin-bottom:20px">
+            
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <span style="font-family:var(--mono);font-size:0.85rem;color:var(--text);word-break:break-word">"Retrieve the current BTC/USD and ETH/USD market depth and calculate the 24h spread."</span>
+            <button onclick="navigator.clipboard.writeText('Retrieve the current BTC/USD and ETH/USD market depth and calculate the 24h spread.');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);font-size:0.75rem;padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all 0.2s">Copy</button>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <span style="font-family:var(--mono);font-size:0.85rem;color:var(--text);word-break:break-word">"Analyze my portfolio holdings and summarize value-at-risk under a 10% market drop."</span>
+            <button onclick="navigator.clipboard.writeText('Analyze my portfolio holdings and summarize value-at-risk under a 10% market drop.');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);font-size:0.75rem;padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all 0.2s">Copy</button>
+        </div>
+        </div>
+
+        <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:10px">
+            Compatible AI Clients
+        </h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(123,97,255,0.1);border:1px solid rgba(123,97,255,0.25);border-radius:6px;font-size:0.8rem;color:#bca7ff;font-weight:600">🟣 Claude Desktop</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(45,217,224,0.1);border:1px solid rgba(45,217,224,0.25);border-radius:6px;font-size:0.8rem;color:#2dd9e0;font-weight:600">⚡ Cursor IDE</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">💻 Claude Code CLI</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">🌊 Windsurf</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:6px;font-size:0.8rem;color:var(--text);font-weight:600">🤖 Gemini CLI</span>
+        </div>
+    </div>
+    
 
     
     <div class="install-section" style="margin-top:32px">
@@ -1232,8 +1279,15 @@ footer {
     <div style="margin-top:40px">
         
     <div class="detail-section">
-        <h2>README Excerpt</h2>
-        <div class="detail-readme">Live Polymarket prediction-market data, exposed as MCP tools for Claude / Cursor / Cline.</div>
+        <h2>README Documentation</h2>
+        <div class="detail-readme" style="line-height:1.75;font-size:0.92rem;color:var(--text)">
+            <p>Live Polymarket prediction-market data, exposed as MCP tools for Claude / Cursor / Cline.</p>
+        </div>
+        <div style="margin-top:12px;text-align:right">
+            <a href="https://github.com/LuciferForge/polymarket-mcp" target="_blank" rel="noopener" style="font-size:0.85rem;color:var(--accent);text-decoration:none;font-weight:600">
+                View Full Documentation &amp; Updates on GitHub ↗
+            </a>
+        </div>
     </div>
         
     <div class="detail-section">
@@ -1248,6 +1302,21 @@ footer {
     </div>
 
     
+    <div class="related-servers">
+        <h2 class="section-title">Related Finance Servers</h2>
+        <div class="server-grid">
+    <a href="/servers/vbkotecha-agentservices-api.html" class="server-card" >
+        <div class="server-card-header">
+            <span class="server-card-name">AgentServices</span>
+            <span style="display:flex;align-items:center;gap:8px"><span class="sec-badge sec-green">&#10003; Clean</span><span class="server-card-stars">★ 2</span></span>
+        </div>
+        <div class="server-card-desc">AgentServices — Premium APIs for AI Agents. Crypto data, marketing intelligence, dispute resolution. x402...</div>
+        <div class="server-card-footer">
+            <span class="tag"><span style="display:inline-flex;vertical-align:-2px;margin-right:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>Finance</span>
+            <span class="tag tag-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+    </a></div>
+    </div>
     
 <section class="container" style="margin:8px auto 32px">
   <div style="display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;padding:1.2rem 1.6rem;background:linear-gradient(135deg,rgba(123,97,255,0.14),rgba(45,217,224,0.12));border:1px solid rgba(123,97,255,0.3);border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.25)">
