@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Server Weekly #25: Featuring serena &amp; activepieces (Nov 16, 2026) — Protodex Blog</title>
+    <meta name="description" content="Protodex MCP Server Weekly #25 (Nov 16, 2026): 20 fresh Model Context Protocol servers across 15 categories, featuring serena &amp; activepieces and weekly spotlight on Search.">
+    <meta property="og:title" content="MCP Server Weekly #25: Featuring serena &amp; activepieces (Nov 16, 2026)">
+    <meta property="og:description" content="Protodex MCP Server Weekly #25 (Nov 16, 2026): 20 fresh Model Context Protocol servers across 15 categories, featuring serena &amp; activepieces and weekly spotlight on Search.">
+    <meta property="og:url" content="https://protodex.io/blog/weekly-2026-11-16.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Protodex">
+    <meta property="og:image" content="https://protodex.io/og/protodex.png">
+    <link rel="canonical" href="https://protodex.io/blog/weekly-2026-11-16.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #06060a;
+    --bg-card: #0f0f14;
+    --bg-card-hover: #16161d;
+    --border: #1e1e2a;
+    --border-hover: #2d2d3f;
+    --text: #f0f0f5;
+    --text-muted: #8888a0;
+    --text-dim: #55556a;
+    --accent: #2DD9E0;
+    --accent-glow: rgba(45, 217, 224, 0.15);
+    --accent2: #7B61FF;
+    --yellow: #FFD93D;
+    --blue: #5B8DEF;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --radius: 10px;
+    --radius-lg: 16px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { opacity:0.88; }
+
+.nav { padding:14px 24px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:20px; position:sticky; top:0; background:rgba(6,6,10,0.92); backdrop-filter:blur(12px); z-index:100; }
+.nav-logo { font-weight:800; font-size:1.05rem; color:var(--text); letter-spacing:-0.5px; }
+.nav a { color:var(--text-dim); font-size:0.85rem; transition:color 0.15s; }
+.nav a:hover { color:var(--text); }
+
+.post-hero { position:relative; padding:64px 24px 40px; text-align:center; overflow:hidden; }
+.post-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:600px; height:500px; background:radial-gradient(circle, rgba(45,217,224,0.08) 0%, transparent 70%); pointer-events:none; }
+.post-badge { display:inline-flex; align-items:center; gap:8px; background:var(--accent-glow); border:1px solid rgba(45,217,224,0.3); border-radius:20px; padding:6px 16px; font-size:0.75rem; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:20px; }
+.post-badge .pulse { width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); }
+.post-title { font-size:2.2rem; font-weight:800; letter-spacing:-1.2px; line-height:1.2; max-width:800px; margin:0 auto 16px; }
+.post-title .gradient { background:linear-gradient(135deg, #2DD9E0 0%, #7B61FF 50%, #FFD93D 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.post-subtitle { color:var(--text-muted); font-size:1rem; max-width:640px; margin:0 auto; line-height:1.6; }
+
+.stats-bar { display:flex; justify-content:center; gap:36px; padding:18px 24px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); flex-wrap:wrap; }
+.stat { text-align:center; }
+.stat-value { font-family:var(--mono); font-size:1.35rem; font-weight:700; color:var(--accent); }
+.stat-label { font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.8px; margin-top:2px; }
+
+.post-body { max-width:820px; margin:0 auto; padding:48px 24px; }
+.post-body h2 { font-size:1.3rem; font-weight:700; letter-spacing:-0.3px; margin:44px 0 16px; padding-bottom:10px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+.post-body h2:first-child { margin-top:0; }
+.post-body p { color:var(--text-muted); margin-bottom:18px; font-size:0.95rem; }
+
+.srv-grid { display:grid; grid-template-columns:1fr; gap:10px; margin:20px 0 36px; }
+.srv { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); transition:all 0.15s ease; color:inherit; }
+.srv:hover { border-color:var(--accent); transform:translateX(3px); background:var(--bg-card-hover); }
+.srv-rank { font-family:var(--mono); font-size:0.85rem; color:var(--text-dim); min-width:28px; font-weight:600; }
+.srv-info { flex:1; min-width:0; }
+.srv-name { font-weight:600; font-size:0.92rem; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.srv-desc { color:var(--text-muted); font-size:0.8rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:3px; }
+.srv-meta { display:flex; gap:10px; align-items:center; flex-shrink:0; }
+.srv-stars { font-family:var(--mono); font-size:0.82rem; color:var(--yellow); font-weight:600; }
+.srv-cat { font-size:0.72rem; padding:3px 8px; border-radius:12px; background:rgba(123,97,255,0.14); color:var(--accent2); font-weight:500; white-space:nowrap; }
+.srv-lang { font-size:0.72rem; color:var(--text-dim); }
+
+.cat-pills { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 32px; }
+.cat-pill { display:flex; align-items:center; gap:6px; padding:6px 14px; background:var(--bg-card); border:1px solid var(--border); border-radius:20px; font-size:0.8rem; color:var(--text-muted); transition:border-color 0.15s; }
+.cat-pill:hover { border-color:var(--accent); color:var(--text); }
+.cat-pill strong { color:var(--text); font-family:var(--mono); }
+
+.cta-stack { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin:24px 0 40px; }
+.cta-card { padding:20px; background:linear-gradient(135deg, rgba(123,97,255,0.08), rgba(45,217,224,0.06)); border:1px solid rgba(45,217,224,0.25); border-radius:var(--radius-lg); }
+.cta-card h3 { font-size:0.95rem; margin-bottom:8px; color:var(--text); font-weight:700; }
+.cta-card p { color:var(--text-muted); font-size:0.82rem; margin-bottom:14px; line-height:1.5; }
+.cta-btn { display:inline-block; background:var(--accent); color:#000; padding:8px 18px; border-radius:20px; font-size:0.78rem; font-weight:700; transition:opacity 0.15s; }
+.cta-btn:hover { opacity:0.88; }
+
+.post-footer { border-top:1px solid var(--border); padding:32px 24px; text-align:center; color:var(--text-dim); font-size:0.82rem; }
+.post-footer a { color:var(--accent); }
+
+@media (max-width:640px) {
+    .post-title { font-size:1.6rem; }
+    .stats-bar { gap:16px; }
+    .srv { flex-direction:column; align-items:flex-start; gap:8px; }
+    .srv-meta { width:100%; justify-content:space-between; }
+}
+    </style>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="nav-logo">&#9889; Protodex</a>
+        <a href="/blog/">Blog</a>
+        <a href="/categories.html">Categories</a>
+        <a href="/ui-studio.html">UI Studio</a>
+        <a href="https://github.com/LuciferForge/mcp-directory" target="_blank">GitHub</a>
+    </nav>
+
+    <div class="post-hero">
+        <span class="post-badge"><span class="pulse"></span> Weekly Roundup &#183; Issue #25 &#183; Nov 16, 2026</span>
+        <h1 class="post-title"><span class="gradient">20 Fresh</span> MCP Servers Discovered</h1>
+        <p class="post-subtitle">Our automated discovery engine indexed 20 new Model Context Protocol servers this week, featuring serena & activepieces. The Protodex registry now spans 31,444 verified servers.</p>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat"><div class="stat-value">31,444</div><div class="stat-label">Total Registry</div></div>
+        <div class="stat"><div class="stat-value">+20</div><div class="stat-label">New This Week</div></div>
+        <div class="stat"><div class="stat-value">15</div><div class="stat-label">Categories</div></div>
+        <div class="stat"><div class="stat-value">21,489</div><div class="stat-label">Top Highlight Stars</div></div>
+    </div>
+
+    <div class="post-body">
+        <h2>Fresh Servers This Week <span style="font-size:0.8rem;color:var(--text-dim);font-weight:400;">Guaranteed unfeatured</span></h2>
+        <p>Curated from the newest additions to the Protodex registry across multiple developer tooling disciplines.</p>
+        <div class="srv-grid"><a href="/servers/oraios-serena.html" class="srv">
+  <span class="srv-rank">#01</span>
+  <div class="srv-info">
+    <div class="srv-name">oraios/serena</div>
+    <div class="srv-desc">A powerful coding agent toolkit providing semantic retrieval and editing capabilities (MCP server &amp; other ...</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 21,489</span>
+    <span class="srv-cat">AI/LLM</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/activepieces-activepieces.html" class="srv">
+  <span class="srv-rank">#02</span>
+  <div class="srv-info">
+    <div class="srv-name">activepieces/activepieces</div>
+    <div class="srv-desc">AI Agents &amp; MCPs &amp; AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agen...</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 21,206</span>
+    <span class="srv-cat">AI/LLM</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/ruvnet-ruflo.html" class="srv">
+  <span class="srv-rank">#03</span>
+  <div class="srv-info">
+    <div class="srv-name">ruvnet/ruflo</div>
+    <div class="srv-desc">🌊 The leading agent orchestration platform for Claude. Deploy intelligent multi-agent swarms, coordinate auton...</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 20,955</span>
+    <span class="srv-cat">AI/LLM</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/1panel-dev-maxkb.html" class="srv">
+  <span class="srv-rank">#04</span>
+  <div class="srv-info">
+    <div class="srv-name">1Panel-dev/MaxKB</div>
+    <div class="srv-desc">🔥 MaxKB is an open-source platform for building enterprise-grade agents.  强大易用的开源企业级智能体平台。</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 20,333</span>
+    <span class="srv-cat">AI/LLM</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/kreuzberg-dev-kreuzberg.html" class="srv">
+  <span class="srv-rank">#05</span>
+  <div class="srv-info">
+    <div class="srv-name">kreuzberg-dev/kreuzberg</div>
+    <div class="srv-desc">A polyglot document intelligence framework with a Rust core. Extract text, metadata, and structured informatio...</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 6,700</span>
+    <span class="srv-cat">API Integration</span>
+    <span class="srv-lang">Rust</span>
+  </div>
+</a>
+<a href="/servers/modelcontextprotocol-registry.html" class="srv">
+  <span class="srv-rank">#06</span>
+  <div class="srv-info">
+    <div class="srv-name">modelcontextprotocol/registry</div>
+    <div class="srv-desc">A community driven registry service for Model Context Protocol (MCP) servers.</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 6,549</span>
+    <span class="srv-cat">Memory/Knowledge</span>
+    <span class="srv-lang">Go</span>
+  </div>
+</a>
+<a href="/servers/yzfly-awesome-mcp-zh.html" class="srv">
+  <span class="srv-rank">#07</span>
+  <div class="srv-info">
+    <div class="srv-name">yzfly/Awesome-MCP-ZH</div>
+    <div class="srv-desc">MCP 资源精选， MCP指南，Claude MCP，MCP Servers, MCP Clients</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 6,506</span>
+    <span class="srv-cat">File System</span>
+    
+  </div>
+</a>
+<a href="/servers/punkpeye-awesome-mcp-clients.html" class="srv">
+  <span class="srv-rank">#08</span>
+  <div class="srv-info">
+    <div class="srv-name">punkpeye/awesome-mcp-clients</div>
+    <div class="srv-desc">A collection of MCP clients.</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 6,349</span>
+    <span class="srv-cat">Code/Dev Tools</span>
+    
+  </div>
+</a>
+<a href="/servers/wonderwhy-er-desktopcommandermcp.html" class="srv">
+  <span class="srv-rank">#09</span>
+  <div class="srv-info">
+    <div class="srv-name">wonderwhy-er/DesktopCommanderMCP</div>
+    <div class="srv-desc">This is MCP server for Claude that gives it terminal control, file system search and diff file editing capabil...</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 5,686</span>
+    <span class="srv-cat">Code/Dev Tools</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/lharries-whatsapp-mcp.html" class="srv">
+  <span class="srv-rank">#10</span>
+  <div class="srv-info">
+    <div class="srv-name">lharries/whatsapp-mcp</div>
+    <div class="srv-desc">WhatsApp MCP server</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 5,407</span>
+    <span class="srv-cat">Communication</span>
+    <span class="srv-lang">Go</span>
+  </div>
+</a>
+<a href="/servers/executeautomation-mcp-playwright.html" class="srv">
+  <span class="srv-rank">#11</span>
+  <div class="srv-info">
+    <div class="srv-name">executeautomation/mcp-playwright</div>
+    <div class="srv-desc">Playwright Model Context Protocol Server - Tool to automate Browsers and APIs in Claude Desktop, Cline, Cursor...</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 5,302</span>
+    <span class="srv-cat">Browser/Web</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/getsentry-xcodebuildmcp.html" class="srv">
+  <span class="srv-rank">#12</span>
+  <div class="srv-info">
+    <div class="srv-name">getsentry/XcodeBuildMCP</div>
+    <div class="srv-desc">A Model Context Protocol (MCP) server and CLI that provides tools for agent use when working on iOS and macOS ...</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 4,722</span>
+    <span class="srv-cat">Code/Dev Tools</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/cursortouch-windows-mcp.html" class="srv">
+  <span class="srv-rank">#13</span>
+  <div class="srv-info">
+    <div class="srv-name">CursorTouch/Windows-MCP</div>
+    <div class="srv-desc">MCP Server for Computer Use in Windows</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 4,697</span>
+    <span class="srv-cat">Other</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/sooperset-mcp-atlassian.html" class="srv">
+  <span class="srv-rank">#14</span>
+  <div class="srv-info">
+    <div class="srv-name">sooperset/mcp-atlassian</div>
+    <div class="srv-desc">MCP server for Atlassian tools (Confluence, Jira)</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 4,609</span>
+    <span class="srv-cat">API Integration</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/21st-dev-magic-mcp.html" class="srv">
+  <span class="srv-rank">#15</span>
+  <div class="srv-info">
+    <div class="srv-name">21st-dev/magic-mcp</div>
+    <div class="srv-desc">It&#x27;s like v0 but in your Cursor/WindSurf/Cline. 21st dev Magic MCP server for working with your frontend ...</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 4,410</span>
+    <span class="srv-cat">Code/Dev Tools</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/wgpsec-enscan-go.html" class="srv">
+  <span class="srv-rank">#16</span>
+  <div class="srv-info">
+    <div class="srv-name">wgpsec/ENScan_GO</div>
+    <div class="srv-desc">一款基于各大企业信息API的工具，解决在遇到的各种针对国内企业信息收集难题。一键收集控股公司ICP备案、APP、小程序、微信公众号等信息聚合导出。支持MCP接入</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 4,248</span>
+    <span class="srv-cat">Security</span>
+    <span class="srv-lang">Go</span>
+  </div>
+</a>
+<a href="/servers/open-webui-mcpo.html" class="srv">
+  <span class="srv-rank">#17</span>
+  <div class="srv-info">
+    <div class="srv-name">open-webui/mcpo</div>
+    <div class="srv-desc">A simple, secure MCP-to-OpenAPI proxy server</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 4,051</span>
+    <span class="srv-cat">API Integration</span>
+    <span class="srv-lang">Python</span>
+  </div>
+</a>
+<a href="/servers/exa-labs-exa-mcp-server.html" class="srv">
+  <span class="srv-rank">#18</span>
+  <div class="srv-info">
+    <div class="srv-name">exa-labs/exa-mcp-server</div>
+    <div class="srv-desc">Exa MCP for web search and web crawling!</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 4,008</span>
+    <span class="srv-cat">Search</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+<a href="/servers/panaversity-learn-agentic-ai.html" class="srv">
+  <span class="srv-rank">#19</span>
+  <div class="srv-info">
+    <div class="srv-name">panaversity/learn-agentic-ai</div>
+    <div class="srv-desc">Learn Agentic AI using Dapr Agentic Cloud Ascent (DACA) Design Pattern and Agent-Native Cloud Technologies: Op...</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 3,967</span>
+    <span class="srv-cat">Database</span>
+    <span class="srv-lang">Jupyter Notebook</span>
+  </div>
+</a>
+<a href="/servers/leerob-directories.html" class="srv">
+  <span class="srv-rank">#20</span>
+  <div class="srv-info">
+    <div class="srv-name">leerob/directories</div>
+    <div class="srv-desc">Find rules and MCP servers</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 3,915</span>
+    <span class="srv-cat">Other</span>
+    <span class="srv-lang">TypeScript</span>
+  </div>
+</a>
+</div>
+
+        <h2>Category Focus: Search <span style="font-size:0.8rem;color:var(--text-dim);font-weight:400;">Weekly Spotlight</span></h2>
+        <p>A rotating deep dive into leading servers within the Search ecosystem.</p>
+        <div class="srv-grid"><a href="/servers/exa-labs-exa-mcp-server.html" class="srv">
+  <span class="srv-rank">#1</span>
+  <div class="srv-info">
+    <div class="srv-name">exa-labs/exa-mcp-server</div>
+    <div class="srv-desc">Exa MCP for web search and web crawling!</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 4,008</span>
+    <span class="srv-cat">Search</span>
+  </div>
+</a>
+<a href="/servers/deedy5-ddgs.html" class="srv">
+  <span class="srv-rank">#2</span>
+  <div class="srv-info">
+    <div class="srv-name">deedy5/ddgs</div>
+    <div class="srv-desc">A metasearch library that aggregates results from diverse web search services</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 2,301</span>
+    <span class="srv-cat">Search</span>
+  </div>
+</a>
+<a href="/servers/tavily-ai-tavily-mcp.html" class="srv">
+  <span class="srv-rank">#3</span>
+  <div class="srv-info">
+    <div class="srv-name">tavily-ai/tavily-mcp</div>
+    <div class="srv-desc">Production ready MCP server with real-time search, extract, map &amp; crawl.</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 1,383</span>
+    <span class="srv-cat">Search</span>
+  </div>
+</a>
+<a href="/servers/aas-ee-open-websearch.html" class="srv">
+  <span class="srv-rank">#4</span>
+  <div class="srv-info">
+    <div class="srv-name">Aas-ee/open-webSearch</div>
+    <div class="srv-desc">Multi-engine MCP server, CLI, and local daemon for agent web search and content retrieval </div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 1,006</span>
+    <span class="srv-cat">Search</span>
+  </div>
+</a>
+<a href="/servers/apify-apify-mcp-server.html" class="srv">
+  <span class="srv-rank">#5</span>
+  <div class="srv-info">
+    <div class="srv-name">apify/apify-mcp-server</div>
+    <div class="srv-desc">The Apify MCP server enables your AI agents to extract data from social media, search engi</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 900</span>
+    <span class="srv-cat">Search</span>
+  </div>
+</a>
+<a href="/servers/nickclyde-duckduckgo-mcp-server.html" class="srv">
+  <span class="srv-rank">#6</span>
+  <div class="srv-info">
+    <div class="srv-name">nickclyde/duckduckgo-mcp-server</div>
+    <div class="srv-desc">A Model Context Protocol (MCP) server that provides web search capabilities through DuckDu</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 885</span>
+    <span class="srv-cat">Search</span>
+  </div>
+</a>
+<a href="/servers/asciimoo-hister.html" class="srv">
+  <span class="srv-rank">#7</span>
+  <div class="srv-info">
+    <div class="srv-name">asciimoo/hister</div>
+    <div class="srv-desc">Your own search engine</div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 847</span>
+    <span class="srv-cat">Search</span>
+  </div>
+</a>
+<a href="/servers/johnhuang316-code-index-mcp.html" class="srv">
+  <span class="srv-rank">#8</span>
+  <div class="srv-info">
+    <div class="srv-name">johnhuang316/code-index-mcp</div>
+    <div class="srv-desc">A Model Context Protocol (MCP) server that helps large language models index, search, and </div>
+  </div>
+  <div class="srv-meta">
+    <span class="srv-stars">&#9733; 826</span>
+    <span class="srv-cat">Search</span>
+  </div>
+</a>
+</div>
+
+        <h2>Explore by Category</h2>
+        <div class="cat-pills"><a href="/categories.html" class="cat-pill"><strong>12,634</strong> AI/LLM</a>
+<a href="/categories.html" class="cat-pill"><strong>6,033</strong> Other</a>
+<a href="/categories.html" class="cat-pill"><strong>3,302</strong> Code/Dev Tools</a>
+<a href="/categories.html" class="cat-pill"><strong>2,297</strong> API Integration</a>
+<a href="/categories.html" class="cat-pill"><strong>1,259</strong> Database</a>
+<a href="/categories.html" class="cat-pill"><strong>1,238</strong> Security</a>
+<a href="/categories.html" class="cat-pill"><strong>1,119</strong> Memory/Knowledge</a>
+<a href="/categories.html" class="cat-pill"><strong>1,004</strong> Browser/Web</a>
+<a href="/categories.html" class="cat-pill"><strong>622</strong> DevOps</a>
+<a href="/categories.html" class="cat-pill"><strong>557</strong> Search</a>
+<a href="/categories.html" class="cat-pill"><strong>547</strong> Data/Analytics</a>
+<a href="/categories.html" class="cat-pill"><strong>500</strong> File System</a>
+<a href="/categories.html" class="cat-pill"><strong>327</strong> Communication</a>
+<a href="/categories.html" class="cat-pill"><strong>3</strong> Finance</a>
+<a href="/categories.html" class="cat-pill"><strong>2</strong> Media</a>
+</div>
+        <p><a href="/categories.html">Browse all 15 categories on Protodex &#8594;</a></p>
+
+        <h2>Production Toolkits &amp; Quantitative Datasets</h2>
+        <div class="cta-stack">
+            <div class="cta-card">
+                <h3>&#128202; Polymarket Historical Dataset</h3>
+                <p>10.8M+ price ticks across 13,900+ prediction markets. 15-minute orderbook depth, CSV format. <strong>$19 one-time</strong>.</p>
+                <a href="https://manja8.gumroad.com/l/polymarket-data?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign=weekly-2026-11-16" target="_blank" class="cta-btn">Get Dataset &#8594;</a>
+            </div>
+            <div class="cta-card">
+                <h3>&#128187; Quant Algo Trading Engine</h3>
+                <p>Institutional Python trading harness with Dhan HQ, PropFirm Titan, and Polymarket arbitrage bot templates.</p>
+                <a href="https://manja8.gumroad.com/l/quant-algo-pack?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign=weekly-2026-11-16" target="_blank" class="cta-btn">View Quant Pack &#8594;</a>
+            </div>
+            <div class="cta-card">
+                <h3>&#127912; Protodex UI Studio</h3>
+                <p>48 production-ready AI agent dashboard templates with full Tailwind, React, and Figma design tokens.</p>
+                <a href="/ui-studio.html" class="cta-btn">Explore Studio &#8594;</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="post-footer">
+        <p>Auto-generated weekly by Protodex Discovery Engine &middot; <a href="https://protodex.io">protodex.io</a> &middot; <a href="https://github.com/LuciferForge/mcp-directory">GitHub</a></p>
+    </footer>
+</body>
+</html>
