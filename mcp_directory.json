@@ -98587,10 +98587,10 @@
       "id": 6593,
       "repo": "layervai/qurl-mcp",
       "name": "qurl-mcp",
-      "description": "MCP server for QURL - secure link management for AI agents",
+      "description": "Let AI agents share local apps with approved reviewers. Identity before connection; zero public inbound app ports.",
       "stars": 3,
       "language": "TypeScript",
-      "topics": "",
+      "topics": "ai-agents,developer-tools,localhost,mcp-server,model-context-protocol,private-sharing",
       "tools": "",
       "category": "AI/LLM",
       "last_updated": "2026-04-29T23:22:57Z",
@@ -98598,7 +98598,20 @@
       "readme_excerpt": "",
       "url": "https://github.com/layervai/qurl-mcp",
       "security_scanned": 0,
-      "security_band": null
+      "security_band": null,
+      "homepage": "https://qurl.link/share-without-deploying/?utm_source=protodex&utm_medium=referral&utm_campaign=first-share-pilot",
+      "docs_url": "https://github.com/layervai/qurl-mcp#let-an-ai-agent-share-a-localhost-preview",
+      "install_config": {
+        "mode": "stdio",
+        "server_key": "qurl",
+        "command": "npx",
+        "args": [
+          "-y",
+          "@layervai/qurl-mcp"
+        ],
+        "claude_code": "claude mcp add qurl -- npx -y @layervai/qurl-mcp",
+        "note": "Local stdio mode needs Node.js 22.12+ and the qURL CLI on the same host. No account or QURL_API_KEY is required for local app publishing. Account-backed and remote HTTP tools have separate authentication requirements. Keep the app running; publishing and issuing a link are separate steps."
+      }
     },
     {
       "id": 6598,
