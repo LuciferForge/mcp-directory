@@ -1950,6 +1950,20 @@ def build_home(servers, categories):
     mem_servers = categories.get("Memory/Knowledge", [])[:8]
     memory_cards = "".join(server_card_html(s) for s in mem_servers)
 
+    VERTICAL_REPOS = [
+        "CorpusIQ/corpusiq-docs",
+        "helena-bioinformatics/folklore-mcp",
+        "basementstudio/xmcp",
+        "artwisdom/govwait",
+        "blackboxfoundry/livedatalink",
+        "KyaniteLabs/kinocut",
+        "waynehamadi/datacircle-plugin",
+        "n8n-io/n8n",
+    ]
+    vertical_cards = "".join(server_card_html(by_repo[r]) for r in VERTICAL_REPOS if r in by_repo)
+    if not vertical_cards:
+        vertical_cards = "".join(server_card_html(s) for s in servers[24:32])
+
     # Category cards
     cat_cards = ""
     for cat_name, cat_list in sorted(categories.items(), key=lambda x: -len(x[1])):
@@ -2164,6 +2178,7 @@ function copyIdeSnippet() {
             <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-cursor', this)">⚡ For Cursor IDE</button>
             <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-database', this)">🗄️ Database &amp; SQL</button>
             <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-memory', this)">🧠 Knowledge &amp; Memory</button>
+            <button type="button" class="srv-tab-btn" onclick="switchServerTab('tab-verticals', this)">💼 Enterprise &amp; Specialized</button>
         </div>
     </div>
 
@@ -2182,6 +2197,9 @@ function copyIdeSnippet() {
     </div>
     <div id="tab-memory" class="srv-tab-pane server-grid" style="display:none">
         {memory_cards}
+    </div>
+    <div id="tab-verticals" class="srv-tab-pane server-grid" style="display:none">
+        {vertical_cards}
     </div>
 
     <div style="text-align:center;margin-top:28px">
@@ -2933,41 +2951,250 @@ def build_server_page(server, related):
 
 def build_submit_page():
     title = f"Submit an MCP Server — {SITE_NAME}"
-    desc = "Submit your MCP server to be listed on Protodex. We index Model Context Protocol servers for Claude, Cursor, and AI agents."
+    desc = "Submit your Model Context Protocol server to be listed on Protodex. Reaching 31,400+ developers building for Claude, Cursor, and AI agents."
+
+    extra_css = """
+    <style>
+    .submit-tiers-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+        margin: 36px auto;
+        max-width: 960px;
+    }
+    @media (max-width: 768px) {
+        .submit-tiers-grid { grid-template-columns: 1fr; }
+    }
+    .submit-tier-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 36px 30px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        transition: all 0.22s ease;
+    }
+    .submit-tier-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255,255,255,0.2);
+    }
+    .submit-tier-card.featured-tier {
+        border-color: var(--accent);
+        background: linear-gradient(180deg, rgba(45, 217, 224, 0.07) 0%, rgba(15, 15, 20, 0.98) 100%);
+        box-shadow: 0 0 35px rgba(45, 217, 224, 0.15);
+    }
+    .featured-badge {
+        position: absolute;
+        top: -13px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, var(--accent), #7B61FF);
+        color: #06060a;
+        font-size: 0.72rem;
+        font-weight: 800;
+        padding: 4px 14px;
+        border-radius: 100px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .submit-tier-header {
+        margin-bottom: 24px;
+    }
+    .submit-tier-pill {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background: rgba(255,255,255,0.06);
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+    .submit-tier-pill.pill-accent {
+        background: rgba(45, 217, 224, 0.15);
+        color: var(--accent);
+    }
+    .submit-tier-header h3 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 8px;
+    }
+    .submit-price {
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: var(--accent);
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        font-family: var(--mono);
+        margin: 12px 0;
+    }
+    .submit-price span {
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        font-weight: 500;
+    }
+    .submit-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 32px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        flex: 1;
+    }
+    .submit-features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.9rem;
+        color: var(--text);
+        line-height: 1.45;
+    }
+    .submit-features li.faded {
+        color: var(--text-dim);
+    }
+    .check-icon {
+        color: var(--green);
+        font-weight: 800;
+        flex-shrink: 0;
+    }
+    .guidelines-box {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        margin-top: 48px;
+    }
+    .guidelines-box h3 {
+        font-size: 1.15rem;
+        font-weight: 800;
+        margin-bottom: 14px;
+        color: #fff;
+    }
+    .guidelines-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 16px;
+    }
+    @media (max-width: 768px) {
+        .guidelines-grid { grid-template-columns: 1fr; }
+    }
+    .guideline-item {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 16px;
+    }
+    .guideline-item strong {
+        display: block;
+        color: var(--accent);
+        font-size: 0.88rem;
+        margin-bottom: 6px;
+    }
+    .guideline-item p {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        margin: 0;
+        line-height: 1.4;
+    }
+    </style>
+    """
 
     html = html_head(title, desc, "/submit.html")
+    html = html.replace("</head>", extra_css + "</head>")
     html += html_header("submit")
     html += f"""
 <div class="page-header">
-    <div class="container">
-        <h1>Submit Your MCP Server</h1>
-        <p>Get your server listed on {SITE_NAME} and reach developers building with MCP.</p>
+    <div class="container" style="text-align:center;max-width:820px;margin:0 auto">
+        <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;background:rgba(45,217,224,0.1);border:1px solid rgba(45,217,224,0.25);color:var(--accent);font-size:0.8rem;font-weight:700;margin-bottom:14px">
+            ⚡ REACH 31,400+ DEVELOPERS &amp; AGENT BUILDERS
+        </div>
+        <h1 style="font-size:2.4rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:12px">Submit Your MCP Server</h1>
+        <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.6">Get your server indexed on {SITE_NAME}. Reaching developers, agents, and researchers searching for tools for Claude Desktop, Cursor, and automated workflows.</p>
     </div>
 </div>
-<div class="container submit-content">
-    <h2>How It Works</h2>
-    <ol>
-        <li>Your server must be a public GitHub repository</li>
-        <li>It should implement the Model Context Protocol (MCP)</li>
-        <li>Submit the GitHub URL below</li>
-        <li>We'll review and add it within 7 days</li>
-    </ol>
 
-    <h2>Submit via GitHub Issue</h2>
-    <p>The fastest way to submit your server:</p>
-    <a href="https://github.com/LuciferForge/mcp-directory/issues/new?title=Add+server:+[your-repo-name]&body=Repository+URL:+%0A%0ACategory:+%0A%0ABrief+description:+" target="_blank" rel="noopener" class="btn">
-        Submit on GitHub →
-    </a>
+<div class="container" style="max-width:1050px;margin:40px auto 70px">
+    <div class="submit-tiers-grid">
+        <!-- Tier 1: Free Community Submission -->
+        <div class="submit-tier-card">
+            <div class="submit-tier-header">
+                <span class="submit-tier-pill">Free Community</span>
+                <h3>Standard Listing</h3>
+                <div class="submit-price">$0 <span>/ forever</span></div>
+                <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.5">Open community queue reviewed and verified by maintainers.</p>
+            </div>
+            <ul class="submit-features">
+                <li><span class="check-icon">✓</span> Public repository indexed on Protodex</li>
+                <li><span class="check-icon">✓</span> Categorized into 1 of 15 domains</li>
+                <li><span class="check-icon">✓</span> Automated security screening</li>
+                <li><span class="check-icon">✓</span> Added to global search &amp; sitemaps</li>
+                <li class="faded"><span>⏳</span> Standard 7–14 day review queue</li>
+                <li class="faded"><span>✕</span> No guaranteed homepage or category spotlight</li>
+            </ul>
+            <a href="https://github.com/LuciferForge/mcp-directory/issues/new?title=Add+server:+[your-repo-name]&body=Repository+URL:+%0A%0ACategory:+%0A%0ABrief+description:+" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;text-align:center;padding:12px 18px">
+                Submit Free on GitHub →
+            </a>
+        </div>
 
-    <div style="margin-top:40px">
-        <h2>Already Listed?</h2>
-        <p>If your server is already in our directory and you'd like to update its information, open an issue or pull request on our <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener">GitHub repository</a>.</p>
+        <!-- Tier 2: Fast-Track & Featured Spotlight -->
+        <div class="submit-tier-card featured-tier">
+            <div class="featured-badge">RECOMMENDED FOR CREATORS</div>
+            <div class="submit-tier-header">
+                <span class="submit-tier-pill pill-accent">Fast-Track &amp; Spotlight</span>
+                <h3>Verified Creator Placement</h3>
+                <div class="submit-price">$19 <span>/ week</span></div>
+                <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.5">24-hour verification, verified trust badge, and premium discovery spotlight across the directory.</p>
+            </div>
+            <ul class="submit-features">
+                <li><span class="check-icon" style="color:var(--accent)">★</span> <strong>24-Hour Express Verification &amp; Indexing</strong></li>
+                <li><span class="check-icon" style="color:var(--accent)">★</span> <strong>Verified Green Security Audit Badge</strong></li>
+                <li><span class="check-icon" style="color:var(--accent)">★</span> <strong>Top Featured Spotlight</strong> on Homepage &amp; Category Index</li>
+                <li><span class="check-icon" style="color:var(--accent)">★</span> <strong>Deep Capabilities &amp; Agent Prompt Profiling</strong></li>
+                <li><span class="check-icon" style="color:var(--accent)">★</span> <strong>Priority Google &amp; Bing SEO Indexing</strong></li>
+                <li><span class="check-icon" style="color:var(--accent)">★</span> <strong>Automated Activation</strong> via Gumroad Webhook</li>
+            </ul>
+            <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="btn btn-accent" style="width:100%;text-align:center;padding:13px 20px;font-weight:800;font-size:0.95rem;box-shadow:0 0 25px rgba(45,217,224,0.35);color:#06060a">
+                Fast-Track &amp; Feature My Server ($19) →
+            </a>
+            <div style="font-size:0.75rem;color:var(--text-dim);text-align:center;margin-top:10px">
+                Instant automated activation • Enter your repo/slug on checkout
+            </div>
+        </div>
+    </div>
+
+    <!-- Requirements & Trust -->
+    <div class="guidelines-box">
+        <h3>📋 Submission Criteria &amp; Guidelines</h3>
+        <div class="guidelines-grid">
+            <div class="guideline-item">
+                <strong>1. Public &amp; Open Protocol</strong>
+                <p>The repository must be public and implement the Model Context Protocol (FastMCP, Python SDK, TypeScript SDK, Go, or Rust).</p>
+            </div>
+            <div class="guideline-item">
+                <strong>2. Zero Malware Policy</strong>
+                <p>Every submission is screened for remote execution scripts, token grabbers, and suspicious binaries. Only verified servers pass.</p>
+            </div>
+            <div class="guideline-item">
+                <strong>3. Documentation Standard</strong>
+                <p>Must have a clear README describing available tools, resources, and configuration for Claude Desktop or Cursor.</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:36px;text-align:center;color:var(--text-muted);font-size:0.9rem">
+        Already listed? Open an issue or pull request on our <a href="https://github.com/LuciferForge/mcp-directory" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">GitHub repository</a> to update your metadata.
     </div>
 </div>
 """
     html += html_footer()
     return html
-
 
 def build_pricing_page(total=31428):
     title = f"Sponsor & Advertise on Protodex — Reach {total:,}+ MCP Developers"
