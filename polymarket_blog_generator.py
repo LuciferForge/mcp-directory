@@ -45,7 +45,7 @@ BLOG_DIR = ROOT / "docs" / "blog"
 
 GUMROAD_DATASET = "https://manja8.gumroad.com/l/polymarket-quant-toolkit"
 GUMROAD_BUNDLE = "https://manja8.gumroad.com/l/ntdiq"
-GUMROAD_UI_STUDIO = "https://manja8.gumroad.com/l/lntzuo"
+GUMROAD_SPONSOR = "https://manja8.gumroad.com/l/sponsor_mcp"
 GAMMA_API = "https://gamma-api.polymarket.com/markets"
 
 HEADERS = {
@@ -327,7 +327,7 @@ def render_html(title, slug, description, body):
     
     cta_dataset_link = gumroad(GUMROAD_DATASET, slug, "footer-dataset-cta")
     cta_bundle_link = gumroad(GUMROAD_BUNDLE, slug, "footer-bundle-cta")
-    cta_ui_link = gumroad(GUMROAD_UI_STUDIO, slug, "footer-ui-cta")
+    cta_sponsor_link = gumroad(GUMROAD_SPONSOR, slug, "footer-sponsor-cta")
     
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -418,8 +418,8 @@ footer {{ border-top:1px solid var(--border); padding:36px 24px; text-align:cent
     <a href="/" class="nav-logo">proto<span>dex</span></a>
     <div class="nav-links">
         <a href="/">Explore MCPs</a>
+        <a href="/submit.html" style="color:var(--accent);font-weight:700">Submit Server 🚀</a>
         <a href="/datasets/">Datasets & Toolkits 📊</a>
-        <a href="/templates.html" style="color:var(--accent);font-weight:700">UI Studio 🎨</a>
         <a href="/blog/">Blog</a>
     </div>
 </nav>
@@ -439,7 +439,7 @@ footer {{ border-top:1px solid var(--border); padding:36px 24px; text-align:cent
         <div class="commercial-actions">
             <a href="{cta_dataset_link}" target="_blank" rel="noopener" class="btn-primary">Get Historical Dataset ($19) →</a>
             <a href="{cta_bundle_link}" target="_blank" rel="noopener" class="btn-secondary">Quant Strategies Bundle ($39) →</a>
-            <a href="{cta_ui_link}" target="_blank" rel="noopener" class="btn-secondary">Protodex UI Studio ($39) →</a>
+            <a href="{cta_sponsor_link}" target="_blank" rel="noopener" class="btn-secondary">Sponsor Placement ($19) →</a>
         </div>
     </div>
 </article>

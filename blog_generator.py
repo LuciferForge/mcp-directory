@@ -365,7 +365,7 @@ a:hover {{ opacity:0.88; }}
         <a href="/" class="nav-logo">&#9889; Protodex</a>
         <a href="/blog/">Blog</a>
         <a href="/categories.html">Categories</a>
-        <a href="/ui-studio.html">UI Studio</a>
+        <a href="/submit.html">Submit Server</a>
         <a href="https://github.com/LuciferForge/mcp-directory" target="_blank">GitHub</a>
     </nav>
 
@@ -408,9 +408,9 @@ a:hover {{ opacity:0.88; }}
                 <a href="https://manja8.gumroad.com/l/quant-algo-pack?utm_source=protodex&amp;utm_medium=blog&amp;utm_campaign={slug}" target="_blank" class="cta-btn">View Quant Pack &#8594;</a>
             </div>
             <div class="cta-card">
-                <h3>&#127912; Protodex UI Studio</h3>
-                <p>48 production-ready AI agent dashboard templates with full Tailwind, React, and Figma design tokens.</p>
-                <a href="/ui-studio.html" class="cta-btn">Explore Studio &#8594;</a>
+                <h3>&#9889; Fast-Track Verified Listing</h3>
+                <p>Get your MCP server indexed within 24 hours with a verified green security badge and prominent directory placement.</p>
+                <a href="/submit.html" class="cta-btn">Submit Server &#8594;</a>
             </div>
         </div>
     </div>
