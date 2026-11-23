@@ -1490,16 +1490,24 @@ DATASET_CTA = """
 """
 
 COMMERCIAL_SERVER_CALLOUT = """
-<div class="protodex-commercial-callout">
-    <div class="callout-icon">⚡</div>
-    <div class="callout-text">
-        <div class="callout-title">Building Production MCP Agents? <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">PRO TOOLKITS</span></div>
-        <div class="callout-desc">Get the <strong>Complete 31,400+ MCP Ecosystem Dataset</strong> ($29) or the <strong>FastMCP + TypeScript Starter Kit</strong> ($39) with turnkey Docker &amp; Cloudflare deployment.</div>
+<div class="protodex-commercial-callout" style="display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+    <div style="display:flex;gap:14px;align-items:flex-start;flex:1;min-width:280px">
+        <div class="callout-icon">⚡</div>
+        <div class="callout-text">
+            <div class="callout-title">Building Production MCP Agents? <span style="background:rgba(45,217,224,0.2);color:var(--accent);font-size:0.7rem;padding:2px 8px;border-radius:100px;font-weight:700">PRO TOOLKITS</span></div>
+            <div class="callout-desc">Get the <strong>Complete 31,500+ Ecosystem Dataset</strong> ($29) or the <strong>Production Starter Kit</strong> ($39) with turnkey Python &amp; TypeScript boilerplates.</div>
+            <div class="callout-actions" style="margin-top:10px">
+                <a href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener" class="callout-btn-primary">Get Dataset ($29) →</a>
+                <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" class="callout-btn-secondary">Starter Kit ($39) →</a>
+                <a href="/datasets/polymarket-historical.html" class="callout-btn-secondary">Polymarket Data ($19) →</a>
+            </div>
+        </div>
     </div>
-    <div class="callout-actions">
-        <a href="https://manja8.gumroad.com/l/zcyee" target="_blank" rel="noopener" class="callout-btn-primary">Get Dataset ($29) →</a>
-        <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" class="callout-btn-secondary">Get Starter Kit ($39) →</a>
-        <a href="/datasets/" class="callout-btn-secondary">Browse All Kits →</a>
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:14px 18px;min-width:220px;text-align:center">
+        <div style="font-size:0.72rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px">For Server Authors</div>
+        <div style="font-size:0.88rem;font-weight:800;color:#fff;margin-bottom:4px">Feature This Server</div>
+        <div style="font-size:0.76rem;color:var(--text-muted);margin-bottom:10px">Top homepage &amp; category placement.</div>
+        <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" style="display:inline-block;padding:7px 14px;background:linear-gradient(135deg,var(--accent),#7B61FF);color:#06060a;border-radius:6px;font-weight:800;font-size:0.8rem;text-decoration:none">Sponsor ($49/wk) →</a>
     </div>
 </div>
 """
@@ -2412,12 +2420,12 @@ function copyIdeSnippet() {
             </div>
         </a>
 
-        <!-- Resource 3: Security Scanner -->
-        <a href="/audit.html" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s">
-            <span style="font-size:1.6rem">🛡️</span>
+        <!-- Resource 3: Polymarket Dataset -->
+        <a href="/datasets/polymarket-historical.html" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s">
+            <span style="font-size:1.6rem">📈</span>
             <div style="flex:1">
-                <div style="font-weight:700;font-size:0.92rem;color:var(--text)">AegisMesh TRiSM Auditor</div>
-                <div style="color:var(--text-muted);font-size:0.78rem;margin-top:2px">Instant automated static security scan for any public GitHub repo.</div>
+                <div style="font-weight:700;font-size:0.92rem;color:var(--text)">Polymarket Quant Data ($19)</div>
+                <div style="color:var(--text-muted);font-size:0.78rem;margin-top:2px">23M+ tick historical dataset across 24,000+ prediction markets.</div>
             </div>
         </a>
 
@@ -3135,7 +3143,7 @@ def build_submit_page():
                 <li><span class="check-icon">✓</span> Categorized into 1 of 15 domains</li>
                 <li><span class="check-icon">✓</span> Automated security screening</li>
                 <li><span class="check-icon">✓</span> Added to global search &amp; sitemaps</li>
-                <li class="faded"><span>⏳</span> Standard 7–14 day review queue</li>
+                <li class="faded"><span>⏳</span> Standard 14–30 business day community review queue</li>
                 <li class="faded"><span>✕</span> No guaranteed homepage or category spotlight</li>
             </ul>
             <a href="https://github.com/LuciferForge/mcp-directory/issues/new?title=Add+server:+[your-repo-name]&body=Repository+URL:+%0A%0ACategory:+%0A%0ABrief+description:+" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;text-align:center;padding:12px 18px">
@@ -3147,10 +3155,10 @@ def build_submit_page():
         <div class="submit-tier-card featured-tier">
             <div class="featured-badge">RECOMMENDED FOR CREATORS</div>
             <div class="submit-tier-header">
-                <span class="submit-tier-pill pill-accent">Fast-Track &amp; Spotlight</span>
-                <h3>Verified Creator Placement</h3>
-                <div class="submit-price">$19 <span>/ week</span></div>
-                <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.5">24-hour verification, verified trust badge, and premium discovery spotlight across the directory.</p>
+                <span class="submit-tier-pill pill-accent">Featured Partner</span>
+                <h3>Featured Server Placement</h3>
+                <div class="submit-price">$49 <span>/ week</span></div>
+                <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.5">Guaranteed 24-hour verification, verified trust badge, and top featured discovery spotlight across the directory.</p>
             </div>
             <ul class="submit-features">
                 <li><span class="check-icon" style="color:var(--accent)">★</span> <strong>24-Hour Express Verification &amp; Indexing</strong></li>
@@ -3161,7 +3169,7 @@ def build_submit_page():
                 <li><span class="check-icon" style="color:var(--accent)">★</span> <strong>Automated Activation</strong> via Gumroad Webhook</li>
             </ul>
             <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener" class="btn btn-accent" style="width:100%;text-align:center;padding:13px 20px;font-weight:800;font-size:0.95rem;box-shadow:0 0 25px rgba(45,217,224,0.35);color:#06060a">
-                Fast-Track &amp; Feature My Server ($19) →
+                Get Featured Placement ($49/wk) →
             </a>
             <div style="font-size:0.75rem;color:var(--text-dim);text-align:center;margin-top:10px">
                 Instant automated activation • Enter your repo/slug on checkout
