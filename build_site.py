@@ -2905,6 +2905,32 @@ def build_server_page(server, related):
         if docs_url and docs_url.rstrip("/") not in (url.rstrip("/"), homepage.rstrip("/")) else ""
     )
 
+    badge_markdown = f"[![Protodex Verified](https://img.shields.io/badge/Protodex-Verified_MCP-2DD9E0?style=flat-square&logo=github)](https://protodex.io/servers/{slug}.html)"
+    badge_embed_section = f"""
+    <div style="margin:28px 0;padding:22px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px">
+            <div>
+                <h3 style="margin:0;font-size:1.05rem;font-weight:700;display:flex;align-items:center;gap:8px">
+                    <span>🛡️</span> Protodex Verified Badge
+                </h3>
+                <p style="margin:4px 0 0 0;font-size:0.85rem;color:var(--text-muted)">
+                    Are you the author of {escape(name)}? Add this badge to your GitHub README for social proof and backlink verification.
+                </p>
+            </div>
+            <div>
+                <a href="https://protodex.io/servers/{slug}.html" target="_blank" rel="noopener">
+                    <img src="https://img.shields.io/badge/Protodex-Verified_MCP-2DD9E0?style=flat-square&logo=github" alt="Protodex Verified" style="height:22px;vertical-align:middle" />
+                </a>
+            </div>
+        </div>
+        <div style="position:relative">
+            <pre style="margin:0;padding:12px 14px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-family:var(--font-mono);font-size:0.82rem;color:var(--accent);overflow-x:auto;white-space:pre-wrap;word-break:break-all"><code>{escape(badge_markdown)}</code></pre>
+            <button onclick="navigator.clipboard.writeText(this.previousElementSibling.innerText);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy Badge Markdown',2000)" style="margin-top:10px;padding:6px 14px;background:rgba(45,217,224,0.12);border:1px solid rgba(45,217,224,0.3);color:var(--accent);border-radius:6px;cursor:pointer;font-size:0.82rem;font-weight:600">
+                Copy Badge Markdown
+            </button>
+        </div>
+    </div>"""
+
     html += f"""
 <div class="container server-detail">
     <div class="breadcrumb">
@@ -2942,6 +2968,8 @@ def build_server_page(server, related):
     {install_config}
 
     {COMMERCIAL_SERVER_CALLOUT}
+
+    {badge_embed_section}
 
     <div style="margin-top:40px">
         {readme_section}
@@ -4277,6 +4305,11 @@ def build_sitemap(servers, categories):
     urls.append(f"{SITE_URL}/home-loan-eligibility-calculator/")
     urls.append(f"{SITE_URL}/swp-calculator/")
 
+    # Curated High-Intent Guides
+    urls.append(f"{SITE_URL}/best/mcp-servers-for-cursor.html")
+    urls.append(f"{SITE_URL}/best/mcp-servers-for-claude.html")
+    urls.append(f"{SITE_URL}/best/database-mcp-servers.html")
+
     # Blog: index + every post (md-generated and orphan HTML) — previously missing,
     # so ~70 posts were unreachable via sitemap.
     urls.append(f"{SITE_URL}/blog/")
@@ -4292,7 +4325,12 @@ def build_sitemap(servers, categories):
         urls.append(f"{SITE_URL}/category/{meta['slug']}.html")
 
     for s in servers:
-        slug = slugify(s["repo"].replace("/", "-"))
+        if isinstance(s, tuple):
+            slug = os.path.splitext(os.path.basename(s[0]))[0] if isinstance(s[0], str) and s[0].endswith(".html") else slugify(s[1]["repo"].replace("/", "-"))
+        elif isinstance(s, dict):
+            slug = slugify(s["repo"].replace("/", "-"))
+        else:
+            slug = str(s)
         urls.append(f"{SITE_URL}/servers/{slug}.html")
 
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -4849,14 +4887,14 @@ def main():
             build_category_page(cat_name, cat_servers)
         )
 
-    # Build individual server pages (top servers with >= 10 stars or explicit/sponsored overrides)
+    # Build individual server pages (top servers with >= 2 stars or explicit/sponsored overrides)
     print("Building server pages...")
     seen_slugs = set()
     server_tasks = []
     for s in servers:
         base_slug = slugify(s["repo"].replace("/", "-"))
         is_explicit = bool(s.get("build_page") or s.get("install_config") or base_slug in active_sponsored_slugs)
-        if "--all-servers" not in sys.argv and s.get("stars", 0) < 10 and not is_explicit:
+        if "--all-servers" not in sys.argv and s.get("stars", 0) < 2 and not is_explicit:
             continue
         slug = base_slug
         if slug in seen_slugs:
@@ -4936,7 +4974,7 @@ def main():
 
     # Build SEO assets
     print("Building SEO assets...")
-    write(os.path.join(SITE_DIR, "sitemap.xml"), build_sitemap(servers, categories))
+    write(os.path.join(SITE_DIR, "sitemap.xml"), build_sitemap(server_tasks, categories))
     write(os.path.join(SITE_DIR, "robots.txt"), build_robots())
     write(os.path.join(SITE_DIR, "search-index.json"), build_search_index(servers))
 

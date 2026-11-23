@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Best MCP Servers for Cursor (2026 Developer Guide) — Protodex</title>
+    <meta name="description" content="Supercharge Cursor IDE with Model Context Protocol. Top MCP servers for local filesystem search, PostgreSQL queries, GitHub PR inspection, and web scraping with ready-to-use .cursor/rules.">
+    <meta property="og:title" content="The Best MCP Servers for Cursor (2026 Developer Guide) — Protodex">
+    <meta property="og:description" content="Supercharge Cursor IDE with Model Context Protocol. Top MCP servers for local filesystem search, PostgreSQL queries, GitHub PR inspection, and web scraping with ready-to-use .cursor/rules.">
+    <meta property="og:url" content="https://protodex.io/best/mcp-servers-for-cursor.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Protodex">
+    <link rel="canonical" href="https://protodex.io/best/mcp-servers-for-cursor.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/protodex-vibrant.css">
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <style>
+    .article-wrap { max-width: 860px; margin: 40px auto 80px; padding: 0 24px; line-height: 1.75; }
+    .article-header { padding: 48px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 36px; text-align: center; }
+    .article-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 16px; }
+    .article-meta { color: var(--text-dim); font-size: 0.88rem; font-family: var(--mono); }
+    .article-content h2 { font-size: 1.6rem; font-weight: 800; margin: 44px 0 18px; color: #fff; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    .article-content h3 { font-size: 1.25rem; font-weight: 700; margin: 28px 0 12px; color: var(--accent); }
+    .article-content p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.02rem; }
+    .article-content ul, .article-content ol { padding-left: 24px; margin-bottom: 24px; color: var(--text-muted); }
+    .article-content li { margin-bottom: 10px; }
+    .code-box { background: #0c0d14; border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin: 22px 0; overflow-x: auto; font-family: var(--mono); font-size: 0.88rem; color: #f0f0f5; position: relative; }
+    .copy-btn { position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: var(--text); padding: 5px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+    .copy-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 0.88rem; }
+    .comparison-table th { background: rgba(45,217,224,0.08); color: var(--accent); text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .comparison-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+    .comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .commercial-box { background: linear-gradient(135deg, rgba(45,217,224,0.12), rgba(123,97,255,0.1)); border: 1px solid rgba(45,217,224,0.3); border-radius: 14px; padding: 28px; margin: 44px 0; }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="/" class="logo">
+            <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+            <div class="logo-text">
+                <span class="logo-name"><span class="lo-proto">proto</span><span class="lo-dex">dex</span></span>
+                <span class="logo-tagline">MCP Server Index</span>
+            </div>
+        </a>
+        <nav>
+            <a href="/">Explore</a>
+            <a href="/audit.html">Security 🛡️</a>
+            <a href="/datasets/">Datasets 📊</a>
+            <a href="/categories.html">Categories</a>
+            <a href="/submit.html" style="color:var(--accent);font-weight:700">Submit Server 🚀</a>
+            <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener">Promote ⚡</a>
+            <a href="/blog/">Blog</a>
+            <a href="/build.html" class="nav-cta" data-promo="services">Need an MCP server? →</a>
+        </nav>
+    </div>
+</header>
+
+<main class="article-wrap">
+
+    <div class="breadcrumb" style="font-size:0.85rem;color:var(--text-dim);margin-bottom:14px">
+        <a href="/">Home</a> / <a href="/categories.html">Guides</a> / Best MCP Servers for Cursor
+    </div>
+    <header class="article-header">
+        <span style="display:inline-block;padding:4px 12px;border-radius:100px;background:rgba(45,217,224,0.12);color:var(--accent);font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px">IDE Tooling &bull; 2026 Guide</span>
+        <h1 class="article-title">The Best MCP Servers for Cursor in 2026</h1>
+        <div class="article-meta">Updated November 2026 &bull; Tested with Cursor 0.45+ &bull; 8 min read</div>
+    </header>
+
+    <article class="article-content">
+        <p>Cursor has quickly established itself as the leading AI-assisted IDE. While Cursor’s Composer and Agent are incredibly capable, out of the box they cannot query your live Postgres staging databases, inspect GitHub pull requests, or extract live web data. By configuring <strong>Model Context Protocol (MCP) servers</strong> in Cursor, you turn Cursor into an autonomous software engineer.</p>
+
+        <h2>Quick Comparison: Top Cursor MCP Servers</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Server</th>
+                    <th>Category</th>
+                    <th>Transport</th>
+                    <th>Primary Use Case</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>PostgreSQL MCP</strong></td>
+                    <td>Database</td>
+                    <td>stdio (npx)</td>
+                    <td>Query live schemas, inspect tables &amp; generate migrations</td>
+                </tr>
+                <tr>
+                    <td><strong>GitHub MCP</strong></td>
+                    <td>DevOps</td>
+                    <td>stdio (Docker)</td>
+                    <td>Review PRs, create issues, and search commits without browser</td>
+                </tr>
+                <tr>
+                    <td><strong>xmcp Framework</strong></td>
+                    <td>Framework</td>
+                    <td>TypeScript / Stdio</td>
+                    <td>Build bespoke project-specific MCP tools with hot reload</td>
+                </tr>
+                <tr>
+                    <td><strong>Tapline MCP</strong></td>
+                    <td>Web Scraping</td>
+                    <td>Streamable HTTP</td>
+                    <td>Extract live API &amp; social data directly into Cursor context</td>
+                </tr>
+                <tr>
+                    <td><strong>CorpusIQ Connectors</strong></td>
+                    <td>Enterprise SaaS</td>
+                    <td>Streamable HTTP</td>
+                    <td>Connect Cursor to Stripe, QuickBooks, and HubSpot data</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>1. PostgreSQL MCP Server: Direct DB Schema Inspection</h2>
+        <p>Instead of manually dumping SQL dumps or copying schemas into chat, the Postgres MCP server allows Cursor to run <code>SELECT</code> queries, inspect table structures, and write bug-free migrations with zero guesswork.</p>
+        <div class="code-box">
+            <button class="copy-btn" onclick="copySnippet(this)">Copy</button>
+            <pre><code>{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://username:password@localhost:5432/my_database"
+      ]
+    }
+  }
+}</code></pre>
+        </div>
+
+        <h2>2. GitHub MCP Server: Pull Requests &amp; Issue Automation</h2>
+        <p>With the official GitHub MCP server, Cursor can read issues, inspect git blame history, review diffs across branches, and automatically file PR reviews directly from your editor prompt.</p>
+
+        <h2>3. How to Configure Cursor (.cursor/rules/mcp.mdc)</h2>
+        <p>To ensure Cursor's agent uses your MCP tools reliably, add a dedicated rule file inside your repository at <code>.cursor/rules/mcp.mdc</code>:</p>
+        <div class="code-box">
+            <button class="copy-btn" onclick="copySnippet(this)">Copy</button>
+            <pre><code>---
+description: MCP Tool Usage Protocols for Cursor
+globs: **/*
+alwaysApply: true
+---
+
+# MCP Protocol Standards
+1. Prefer official Model Context Protocol tools for database schema introspection.
+2. When querying databases, always execute read-only queries with strict LIMIT clauses.
+3. Validate tool arguments with schema definitions before invoking.
+4. Send runtime debug logs to stderr to prevent breaking JSON-RPC communications.</code></pre>
+        </div>
+
+        <div class="commercial-box">
+            <h3 style="margin-top:0;color:#fff">🛠️ Building Your Own Production MCP Server?</h3>
+            <p style="margin-bottom:16px">Don't reinvent the transport and schema layer from scratch. Download the turnkey <strong>Production MCP Starter Kit ($39)</strong> featuring strict TypeScript + FastMCP Python boilerplates, Docker harnesses, and Cloudflare Workers deployment.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+                <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener" class="btn" style="background:var(--accent);color:#000;font-weight:800;padding:11px 20px;border-radius:8px">Get Starter Kit ($39) &rarr;</a>
+                <a href="/datasets/mcp-servers.html" class="btn btn-outline" style="padding:11px 18px;border-radius:8px">Explore Full 31k Dataset ($29)</a>
+            </div>
+        </div>
+    </article>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="url(#lg2)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><defs><linearGradient id="lg2" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+                    <span>Proto</span>dex
+                </a>
+                <p>The largest index of Model Context Protocol servers. Vetting over 31,400+ tools for Claude Desktop, Cursor, and AI engineering teams.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Top Guides</h4>
+                    <a href="/best/mcp-servers-for-cursor.html">Best MCP Servers for Cursor</a>
+                    <a href="/best/mcp-servers-for-claude.html">Best MCP Servers for Claude</a>
+                    <a href="/best/database-mcp-servers.html">Top Database MCP Servers</a>
+                    <a href="/blog/enterprise-mcp-servers-stripe-quickbooks-hubspot.html">Enterprise SaaS Connectors</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="/datasets/mcp-servers.html">31k Ecosystem Dataset ($29)</a>
+                    <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener">MCP Starter Kit ($39)</a>
+                    <a href="/datasets/polymarket-historical.html">Polymarket Quant Data ($19)</a>
+                    <a href="/submit.html">Feature Your Server ($49/wk)</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Protodex.io &middot; Updated daily from GitHub &middot; Open source.</div>
+    </div>
+</footer>
+<script>
+function copySnippet(btn) {
+    var pre = btn.nextElementSibling;
+    navigator.clipboard.writeText(pre.textContent).then(function() {
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    });
+}
+</script>
+</body>
+</html>

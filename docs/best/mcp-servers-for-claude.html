@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Best MCP Servers for Claude Desktop (2026 Guide) — Protodex</title>
+    <meta name="description" content="Supercharge Claude Desktop with the top Model Context Protocol servers. Step-by-step setup for claude_desktop_config.json with file system, SQLite, web browser, and API connectors.">
+    <meta property="og:title" content="The Best MCP Servers for Claude Desktop (2026 Guide) — Protodex">
+    <meta property="og:description" content="Supercharge Claude Desktop with the top Model Context Protocol servers. Step-by-step setup for claude_desktop_config.json with file system, SQLite, web browser, and API connectors.">
+    <meta property="og:url" content="https://protodex.io/best/mcp-servers-for-claude.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Protodex">
+    <link rel="canonical" href="https://protodex.io/best/mcp-servers-for-claude.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/protodex-vibrant.css">
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <style>
+    .article-wrap { max-width: 860px; margin: 40px auto 80px; padding: 0 24px; line-height: 1.75; }
+    .article-header { padding: 48px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 36px; text-align: center; }
+    .article-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 16px; }
+    .article-meta { color: var(--text-dim); font-size: 0.88rem; font-family: var(--mono); }
+    .article-content h2 { font-size: 1.6rem; font-weight: 800; margin: 44px 0 18px; color: #fff; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    .article-content h3 { font-size: 1.25rem; font-weight: 700; margin: 28px 0 12px; color: var(--accent); }
+    .article-content p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.02rem; }
+    .article-content ul, .article-content ol { padding-left: 24px; margin-bottom: 24px; color: var(--text-muted); }
+    .article-content li { margin-bottom: 10px; }
+    .code-box { background: #0c0d14; border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin: 22px 0; overflow-x: auto; font-family: var(--mono); font-size: 0.88rem; color: #f0f0f5; position: relative; }
+    .copy-btn { position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: var(--text); padding: 5px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+    .copy-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 0.88rem; }
+    .comparison-table th { background: rgba(45,217,224,0.08); color: var(--accent); text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .comparison-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+    .comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .commercial-box { background: linear-gradient(135deg, rgba(45,217,224,0.12), rgba(123,97,255,0.1)); border: 1px solid rgba(45,217,224,0.3); border-radius: 14px; padding: 28px; margin: 44px 0; }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="/" class="logo">
+            <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="url(#lg)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><line x1="15" y1="16" x2="17.2" y2="17.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+            <div class="logo-text">
+                <span class="logo-name"><span class="lo-proto">proto</span><span class="lo-dex">dex</span></span>
+                <span class="logo-tagline">MCP Server Index</span>
+            </div>
+        </a>
+        <nav>
+            <a href="/">Explore</a>
+            <a href="/audit.html">Security 🛡️</a>
+            <a href="/datasets/">Datasets 📊</a>
+            <a href="/categories.html">Categories</a>
+            <a href="/submit.html" style="color:var(--accent);font-weight:700">Submit Server 🚀</a>
+            <a href="https://manja8.gumroad.com/l/sponsor_mcp" target="_blank" rel="noopener">Promote ⚡</a>
+            <a href="/blog/">Blog</a>
+            <a href="/build.html" class="nav-cta" data-promo="services">Need an MCP server? →</a>
+        </nav>
+    </div>
+</header>
+
+<main class="article-wrap">
+
+    <div class="breadcrumb" style="font-size:0.85rem;color:var(--text-dim);margin-bottom:14px">
+        <a href="/">Home</a> / <a href="/categories.html">Guides</a> / Best MCP Servers for Claude Desktop
+    </div>
+    <header class="article-header">
+        <span style="display:inline-block;padding:4px 12px;border-radius:100px;background:rgba(45,217,224,0.12);color:var(--accent);font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px">Claude Desktop &bull; Complete Guide</span>
+        <h1 class="article-title">The Best MCP Servers for Claude Desktop in 2026</h1>
+        <div class="article-meta">Updated November 2026 &bull; Verified on Claude 3.5 Sonnet &bull; 7 min read</div>
+    </header>
+
+    <article class="article-content">
+        <p>Anthropic's <strong>Model Context Protocol (MCP)</strong> turns Claude Desktop from a closed chat interface into an operating system assistant capable of interacting with your local files, code repositories, private SQL databases, and web services.</p>
+
+        <h2>Essential 4-Server Claude Desktop Setup</h2>
+        <p>If you are setting up Claude Desktop for the first time, this tested 4-server combination provides maximum leverage without performance overhead:</p>
+
+        <div class="code-box">
+            <button class="copy-btn" onclick="copySnippet(this)">Copy Config</button>
+            <pre><code>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/username/Projects",
+        "/Users/username/Documents"
+      ]
+    },
+    "sqlite": {
+      "command": "uvx",
+      "args": ["mcp-server-sqlite", "--db-path", "/Users/username/data/analytics.db"]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_PAT"
+      }
+    }
+  }
+}</code></pre>
+        </div>
+
+        <h2>Where to Place claude_desktop_config.json</h2>
+        <ul>
+            <li><strong>macOS:</strong> <code>~/Library/Application Support/Claude/claude_desktop_config.json</code></li>
+            <li><strong>Windows:</strong> <code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+            <li><strong>Linux:</strong> <code>~/.config/Claude/claude_desktop_config.json</code></li>
+        </ul>
+
+        <h2>1. Filesystem Server: Safe Local File Access</h2>
+        <p>Allows Claude to directly read project files, edit source code, and create markdown documents in directories you explicitly permit. It will never access unauthorized folders outside your whitelist.</p>
+
+        <h2>2. Fetch Server: Convert Raw URLs to Clean Markdown</h2>
+        <p>The fetch MCP server strips bloated HTML, ads, and cookie banners, delivering clean, token-efficient markdown to Claude's context window. Ideal for researching technical documentation and API specs.</p>
+
+        <h2>3. SQLite &amp; DuckDB Servers: Instant Local Data Analysis</h2>
+        <p>Claude can run SQL queries, calculate aggregations, and graph data trends without uploading confidential financial or customer data to cloud servers.</p>
+
+        <div class="commercial-box">
+            <h3 style="margin-top:0;color:#fff">📊 Quantitative Analysis in Claude?</h3>
+            <p style="margin-bottom:16px">Query 10.8M+ historical prediction market ticks across 13,900+ markets directly in Claude using the <strong>Polymarket Historical Dataset ($19)</strong> in SQLite &amp; CSV.</p>
+            <a href="/datasets/polymarket-historical.html" class="btn" style="background:var(--accent);color:#000;font-weight:800;padding:11px 20px;border-radius:8px">Get Polymarket Dataset ($19) &rarr;</a>
+        </div>
+    </article>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="url(#lg2)"/><path d="M8 20V8h5.5a4 4 0 0 1 0 8H11.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="19" r="2.5" fill="#fff" opacity="0.7"/><defs><linearGradient id="lg2" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#2DD9E0"/><stop offset="1" stop-color="#7B61FF"/></linearGradient></defs></svg>
+                    <span>Proto</span>dex
+                </a>
+                <p>The largest index of Model Context Protocol servers. Vetting over 31,400+ tools for Claude Desktop, Cursor, and AI engineering teams.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Top Guides</h4>
+                    <a href="/best/mcp-servers-for-cursor.html">Best MCP Servers for Cursor</a>
+                    <a href="/best/mcp-servers-for-claude.html">Best MCP Servers for Claude</a>
+                    <a href="/best/database-mcp-servers.html">Top Database MCP Servers</a>
+                    <a href="/blog/enterprise-mcp-servers-stripe-quickbooks-hubspot.html">Enterprise SaaS Connectors</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="/datasets/mcp-servers.html">31k Ecosystem Dataset ($29)</a>
+                    <a href="https://manja8.gumroad.com/l/bsboqh" target="_blank" rel="noopener">MCP Starter Kit ($39)</a>
+                    <a href="/datasets/polymarket-historical.html">Polymarket Quant Data ($19)</a>
+                    <a href="/submit.html">Feature Your Server ($49/wk)</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Protodex.io &middot; Updated daily from GitHub &middot; Open source.</div>
+    </div>
+</footer>
+<script>
+function copySnippet(btn) {
+    var pre = btn.nextElementSibling;
+    navigator.clipboard.writeText(pre.textContent).then(function() {
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    });
+}
+</script>
+</body>
+</html>
