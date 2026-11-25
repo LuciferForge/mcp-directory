@@ -8,18 +8,10 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   publish-blog:
     runs-on: ubuntu-latest
-    outputs:
-      pushed: ${{ steps.commit.outputs.pushed }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -44,42 +36,13 @@ jobs:
           python build_site.py
 
       - name: Commit & Push Generated Post
-        id: commit
         run: |
           git config user.name 'Protodex SEO Engine'
           git config user.email 'seo@protodex.io'
           if [[ -n $(git status --porcelain docs/) ]]; then
             git add docs/
-            git commit -m "feat(blog): publish autonomous polymarket prediction post [skip ci]"
+            git commit -m "feat(blog): publish autonomous polymarket prediction post"
             git push origin master
-            echo "pushed=true" >> "$GITHUB_OUTPUT"
           else
             echo "No new blog content generated."
-            echo "pushed=false" >> "$GITHUB_OUTPUT"
           fi
-
-  deploy-pages:
-    needs: publish-blog
-    if: needs.publish-blog.outputs.pushed == 'true'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        with:
-          timeout: 1800000
