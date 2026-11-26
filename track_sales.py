@@ -19,18 +19,25 @@ if hasattr(sys.stdout, "reconfigure"):
 
 
 def _load_dotenv():
-    env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
-    if os.path.exists(env_path):
-        try:
-            with open(env_path, "r", encoding="utf-8") as ef:
-                for line in ef:
-                    line = line.strip()
-                    if not line or line.startswith("#") or "=" not in line:
-                        continue
-                    k, v = line.split("=", 1)
-                    os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
-        except Exception:
-            pass
+    paths = [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"),
+        r"C:\Users\ManjunathG\Documents\Clawd\.env"
+    ]
+    for env_path in paths:
+        if os.path.exists(env_path):
+            try:
+                with open(env_path, "r", encoding="utf-8", errors="ignore") as ef:
+                    for line in ef:
+                        line = line.strip()
+                        if not line or line.startswith("#"):
+                            continue
+                        sep = "=" if "=" in line else (":" if ":" in line else None)
+                        if not sep:
+                            continue
+                        k, v = line.split(sep, 1)
+                        os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+            except Exception:
+                pass
 
 
 _load_dotenv()
