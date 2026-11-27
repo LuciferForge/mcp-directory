@@ -285,6 +285,7 @@
   <url><loc>https://protodex.io/category/search.html</loc></url>
   <url><loc>https://protodex.io/category/media.html</loc></url>
   <url><loc>https://protodex.io/category/finance.html</loc></url>
+  <url><loc>https://protodex.io/category/other.html</loc></url>
   <url><loc>https://protodex.io/servers/n8n-io-n8n.html</loc></url>
   <url><loc>https://protodex.io/servers/google-gemini-gemini-cli.html</loc></url>
   <url><loc>https://protodex.io/servers/punkpeye-awesome-mcp-servers.html</loc></url>
@@ -7841,4 +7842,8 @@
   <url><loc>https://protodex.io/servers/stalkchain-fomo-mcp-api.html</loc></url>
   <url><loc>https://protodex.io/servers/moonlitnayeem-fairvalid-ai.html</loc></url>
   <url><loc>https://protodex.io/servers/flashdatadev-flashdata-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/ipgeolocation-ipgeolocation-io-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/ricciflow-api-soldfetch-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/dash-pup-dash-mcp.html</loc></url>
+  <url><loc>https://protodex.io/servers/i2v-ai-i2v-mcp.html</loc></url>
 </urlset>

@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>qurl-mcp — AI/LLM MCP Server | Protodex</title>
-    <meta name="description" content="MCP server for QURL - secure link management for AI agents — 3 stars on GitHub. Browse on Protodex.">
+    <meta name="description" content="Let AI agents share local apps with approved reviewers. Identity before connection; zero public inbound app ports. — 3 stars on GitHub. Browse on Protodex.">
     <meta property="og:title" content="qurl-mcp — AI/LLM MCP Server | Protodex">
-    <meta property="og:description" content="MCP server for QURL - secure link management for AI agents — 3 stars on GitHub. Browse on Protodex.">
+    <meta property="og:description" content="Let AI agents share local apps with approved reviewers. Identity before connection; zero public inbound app ports. — 3 stars on GitHub. Browse on Protodex.">
     <meta property="og:url" content="https://protodex.io/servers/layervai-qurl-mcp.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Protodex">
     <meta property="og:image" content="https://protodex.io/og/protodex.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="qurl-mcp — AI/LLM MCP Server | Protodex">
-    <meta name="twitter:description" content="MCP server for QURL - secure link management for AI agents — 3 stars on GitHub. Browse on Protodex.">
+    <meta name="twitter:description" content="Let AI agents share local apps with approved reviewers. Identity before connection; zero public inbound app ports. — 3 stars on GitHub. Browse on Protodex.">
     <meta name="twitter:image" content="https://protodex.io/og/protodex.png">
     <link rel="canonical" href="https://protodex.io/servers/layervai-qurl-mcp.html">
     <meta name="google-site-verification" content="PJCSjofSK_ea6SHzirs5wXdrWYvfZBcz26XlFDIaoUU">
@@ -1098,8 +1098,8 @@ footer {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "qurl-mcp",
-  "description": "MCP server for QURL - secure link management for AI agents",
-  "url": "https://github.com/layervai/qurl-mcp",
+  "description": "Let AI agents share local apps with approved reviewers. Identity before connection; zero public inbound app ports.",
+  "url": "https://qurl.link/share-without-deploying/?utm_source=protodex&utm_medium=referral&utm_campaign=first-share-pilot",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
   "programmingLanguage": "TypeScript"
@@ -1147,14 +1147,14 @@ footer {
         <span class="meta-item"></span>
     </div>
 
-    <div class="detail-desc">MCP server for QURL - secure link management for AI agents</div>
+    <div class="detail-desc">Let AI agents share local apps with approved reviewers. Identity before connection; zero public inbound app ports.</div>
 
     <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px">
         <a href="https://github.com/layervai/qurl-mcp" target="_blank" rel="noopener" class="btn">
             View on GitHub →
         </a>
-        
-        
+        <a href="https://qurl.link/share-without-deploying/?utm_source=protodex&amp;utm_medium=referral&amp;utm_campaign=first-share-pilot" target="_blank" rel="noopener" class="btn btn-outline">Official Website ↗</a>
+        <a href="https://github.com/layervai/qurl-mcp#let-an-ai-agent-share-a-localhost-preview" target="_blank" rel="noopener" class="btn btn-outline">Docs / Setup Guide ↗</a>
         <a href="/audit.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:linear-gradient(135deg,rgba(123,97,255,0.25),rgba(45,217,224,0.2));border:1px solid rgba(123,97,255,0.4);color:var(--text);text-decoration:none;border-radius:8px;font-weight:600;font-size:0.9rem;box-shadow:0 0 16px rgba(123,97,255,0.15)">
             🛡️ Security &amp; TRiSM Audit →
         </a>
@@ -1166,7 +1166,7 @@ footer {
             ⚡ What This Server Does &amp; Key Capabilities
         </h2>
         <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.7;margin-bottom:20px">
-            The <strong>qurl-mcp</strong> Model Context Protocol (MCP) server provides seamless integration between AI assistants (such as Claude Desktop, Cursor, and Claude Code) and MCP server for QURL - secure link management for AI agents. By connecting this server, your AI agent gains specialized capabilities to inspect, query, and automate tasks within the AI/LLM domain.
+            The <strong>qurl-mcp</strong> Model Context Protocol (MCP) server provides seamless integration between AI assistants (such as Claude Desktop, Cursor, and Claude Code) and Let AI agents share local apps with approved reviewers. Identity before connection; zero public inbound app ports. By connecting this server, your AI agent gains specialized capabilities to inspect, query, and automate tasks within the AI/LLM domain.
         </p>
 
         <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-dim);font-weight:700;margin-bottom:12px">
@@ -1223,11 +1223,11 @@ footer {
             <div class="code-block">
                 <pre><code>{
   &quot;mcpServers&quot;: {
-    &quot;qurl-mcp&quot;: {
+    &quot;qurl&quot;: {
       &quot;command&quot;: &quot;npx&quot;,
       &quot;args&quot;: [
         &quot;-y&quot;,
-        &quot;layervai/qurl-mcp&quot;
+        &quot;@layervai/qurl-mcp&quot;
       ]
     }
   }
@@ -1238,7 +1238,7 @@ footer {
         <div id="claude-code-layervai-qurl-mcp" class="install-panel" style="display:none">
             <p class="install-label">Run in terminal:</p>
             <div class="code-block">
-                <pre><code>claude mcp add qurl-mcp npx -y layervai/qurl-mcp</code></pre>
+                <pre><code>claude mcp add qurl -- npx -y @layervai/qurl-mcp</code></pre>
                 <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
             </div>
         </div>
@@ -1247,11 +1247,11 @@ footer {
             <div class="code-block">
                 <pre><code>{
   &quot;mcpServers&quot;: {
-    &quot;qurl-mcp&quot;: {
+    &quot;qurl&quot;: {
       &quot;command&quot;: &quot;npx&quot;,
       &quot;args&quot;: [
         &quot;-y&quot;,
-        &quot;layervai/qurl-mcp&quot;
+        &quot;@layervai/qurl-mcp&quot;
       ]
     }
   }
@@ -1259,7 +1259,7 @@ footer {
                 <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
             </div>
         </div>
-        
+        <p class="install-note">Local stdio mode needs Node.js 22.12+ and the qURL CLI on the same host. No account or QURL_API_KEY is required for local app publishing. Account-backed and remote HTTP tools have separate authentication requirements. Keep the app running; publishing and issuing a link are separate steps.</p>
     </div>
 
 
@@ -1315,6 +1315,10 @@ footer {
         
         
         
+    <div class="detail-section">
+        <h2>Topics</h2>
+        <div class="detail-tools"><span class="tag">ai-agents</span><span class="tag">developer-tools</span><span class="tag">localhost</span><span class="tag">mcp-server</span><span class="tag">model-context-protocol</span><span class="tag">private-sharing</span></div>
+    </div>
     </div>
 
     
